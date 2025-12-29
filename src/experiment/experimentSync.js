@@ -1,10 +1,11 @@
 // src/experiment/experimentSync.js
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "../firebaseConfig"; // ✅ caminho certo no seu projeto
+import { db } from "../firebaseConfig";
 import {
   getExperimentState,
   overwriteExperimentState,
   subscribeExperimentState,
+  setExperimentUser, // ✅ IMPORTANTE
 } from "./experimentState";
 
 // onde salvar no Firestore: /experimentStates/{uid}
@@ -12,15 +13,16 @@ function stateDocRef(uid) {
   return doc(db, "experimentStates", String(uid));
 }
 
+function nowIso() {
+  return new Date().toISOString();
+}
+
 function isoToTime(iso) {
   const t = Date.parse(iso || "");
   return Number.isFinite(t) ? t : 0;
 }
 
-// merge simples e seguro:
-// - metricsVisited: OR (se qualquer lado visitou, vale true)
-// - chatEntries: une por (question+createdAt) e corta no limite
-// - finalFeedback: OR do sent + sentAt mais novo
+// merge simples e seguro (para casos offline/conflito):
 function mergeStates(localState, remoteState) {
   const merged = { ...(localState || {}) };
 
@@ -38,7 +40,7 @@ function mergeStates(localState, remoteState) {
 
   merged.chatEntries = Array.from(map.values())
     .sort((a, b) => isoToTime(a.createdAt) - isoToTime(b.createdAt))
-    .slice(-500); // segurança
+    .slice(-500);
 
   merged.finalFeedback = {
     ...(remoteState?.finalFeedback || {}),
@@ -57,7 +59,6 @@ function mergeStates(localState, remoteState) {
           null,
   };
 
-  // meta.updatedAt: pega o mais recente
   const lu = isoToTime(localState?.meta?.updatedAt);
   const ru = isoToTime(remoteState?.meta?.updatedAt);
   merged.meta = {
@@ -71,85 +72,113 @@ function mergeStates(localState, remoteState) {
   return merged;
 }
 
+/**
+ * ✅ Carrega do Firestore
+ * Aceita:
+ *  - formato novo: { state: {...}, updatedAt: ... }
+ *  - formato legado: { metricsVisited:..., chatEntries:..., ... }
+ */
 export async function loadExperimentFromCloud(uid) {
   if (!uid) return null;
+
   const ref = stateDocRef(uid);
   const snap = await getDoc(ref);
-  return snap.exists() ? snap.data()?.state : null;
+  if (!snap.exists()) return null;
+
+  const data = snap.data() || {};
+
+  // formato novo
+  if (data.state && typeof data.state === "object") return data.state;
+
+  // formato legado (doc = state direto)
+  if (
+    (data.metricsVisited && typeof data.metricsVisited === "object") ||
+    Array.isArray(data.chatEntries)
+  ) {
+    return data;
+  }
+
+  return null;
 }
 
 export async function saveExperimentToCloud(uid, state) {
   if (!uid) return;
+
   const ref = stateDocRef(uid);
 
   await setDoc(
     ref,
     {
       state,
-      updatedAt: new Date().toISOString(),
+      updatedAt: nowIso(),
     },
     { merge: true }
   );
 }
 
 /**
- * ✅ Inicia sync:
- * - no login: baixa remote, resolve com local, grava local (overwrite) e sobe o “melhor”
- * - depois: escuta alterações locais e faz save remoto com debounce
+ * ✅ Inicia sync (REMOTE-FIRST):
+ * - garante setExperimentUser(uid)
+ * - carrega remote; se existir, overwrite local com remote
+ * - se não existir, usa local e cria no cloud
+ * - depois: salva mudanças locais com debounce
  */
 export async function initExperimentSync(uid) {
   if (!uid) return () => {};
 
-  // 1) pega local e remote
-  const localState = getExperimentState();
-  let remoteState = null;
+  // ✅ GARANTE que storageKey() vai usar o UID certo
+  setExperimentUser(uid);
 
+  // 1) pega local (fallback)
+  const localState = getExperimentState();
+
+  // 2) tenta pegar remote
+  let remoteState = null;
   try {
     remoteState = await loadExperimentFromCloud(uid);
   } catch (e) {
-    console.warn("Falha ao carregar estado remoto, seguindo com local:", e);
+    console.warn("[SYNC] Falha ao carregar estado remoto:", e);
   }
 
-  // 2) resolve
-  const localIsEmpty =
-    Object.keys(localState?.metricsVisited || {}).length === 0 &&
-    (localState?.chatEntries || []).length === 0 &&
-    !(localState?.finalFeedback?.sent);
+  console.log("[SYNC] uid =", uid);
+  console.log("[SYNC] remoteState exists?", !!remoteState, remoteState);
+  console.log("[SYNC] localState =", localState);
 
-  let resolved = localState;
+  // 3) RESOLVE
+  // ✅ você pediu “sempre recarregar do Firebase”
+  // Então: se remote existe -> usa remote
+  // se não existe -> usa local
+  let resolved = remoteState ? remoteState : localState;
 
-  if (remoteState && localIsEmpty) {
-    resolved = remoteState;
-  } else if (remoteState && !localIsEmpty) {
-    resolved = mergeStates(localState, remoteState);
-  } else if (remoteState && !localState) {
-    resolved = remoteState;
-  } else {
-    resolved = localState;
-  }
+  // (opcional, mas seguro) se quiser preservar algo local offline, use merge:
+  // if (remoteState) resolved = mergeStates(localState, remoteState);
 
-  // 3) grava no local para ficar consistente
+  // 4) overwrite local para UI refletir o remote
   overwriteExperimentState(resolved);
+  console.log("[SYNC] overwriteExperimentState(resolved) applied =", resolved);
 
-  // 4) sobe o resolved (melhor esforço)
+  // 5) garante cloud (se não existia, cria; se existia, atualiza)
   try {
     await saveExperimentToCloud(uid, resolved);
+    console.log("[SYNC] saveExperimentToCloud OK");
   } catch (e) {
-    console.warn("Falha ao salvar resolved no cloud (ok, segue local):", e);
+    console.warn("[SYNC] Falha ao salvar no cloud:", e);
   }
 
-  // 5) assina mudanças locais e salva com debounce
+  // 6) escuta mudanças locais e salva com debounce
   let timer = null;
   const DEBOUNCE_MS = 600;
 
   const unsubscribe = subscribeExperimentState(() => {
     if (timer) clearTimeout(timer);
+
     timer = setTimeout(async () => {
       try {
         const s = getExperimentState();
         await saveExperimentToCloud(uid, s);
+        console.log("[SYNC] Debounced save OK");
       } catch (e) {
-        console.warn("Falha ao salvar no cloud (vai tentar depois):", e);
+        console.warn("[SYNC] Falha ao salvar no cloud (debounce):", e);
       }
     }, DEBOUNCE_MS);
   });

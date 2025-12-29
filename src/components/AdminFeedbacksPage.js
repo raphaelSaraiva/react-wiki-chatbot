@@ -1117,7 +1117,7 @@ export default function AdminFeedbacksPage() {
             <SvgBarChart
               title="Chat · Opção preferida"
               exportName="chat_opcao_preferida"
-              subtitle="1 = Com RAG · 2 = Sem RAG"
+              subtitle="Contagem de preferências entre as opções com/sem RAG"
               data={stats.optionCounts}
               height={260}
               maxBars={10}

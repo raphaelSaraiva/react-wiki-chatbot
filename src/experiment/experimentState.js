@@ -27,7 +27,13 @@ function getDefaultState() {
     metricsVisited: {}, // { t1: true, t2: true }
     chatEntries: [],
     finalFeedback: { sent: false, sentAt: null },
-    meta: { version: STORAGE_VERSION, updatedAt: null },
+    meta: {
+      version: STORAGE_VERSION,
+      updatedAt: null,
+
+      // ✅ NOVO: contador persistente (não diminui ao limpar histórico)
+      chatCompletedCount: 0,
+    },
   };
 }
 
@@ -41,44 +47,66 @@ function notifyChanged() {
   }
 }
 
+// ✅ garante defaults + migração
+function normalizeState(parsed) {
+  const base = getDefaultState();
+
+  const next = {
+    ...base,
+    ...(parsed || {}),
+    metricsVisited:
+      parsed?.metricsVisited && typeof parsed.metricsVisited === "object"
+        ? parsed.metricsVisited
+        : {},
+    chatEntries: Array.isArray(parsed?.chatEntries) ? parsed.chatEntries : [],
+    finalFeedback: {
+      ...base.finalFeedback,
+      ...(parsed?.finalFeedback || {}),
+    },
+    meta: {
+      ...base.meta,
+      ...(parsed?.meta || {}),
+    },
+  };
+
+  // ✅ migração: se não existir contador, deriva do histórico atual
+  if (typeof next.meta.chatCompletedCount !== "number") {
+    next.meta.chatCompletedCount = next.chatEntries.length || 0;
+  }
+
+  // sanity: não deixa negativo / NaN
+  if (!Number.isFinite(next.meta.chatCompletedCount) || next.meta.chatCompletedCount < 0) {
+    next.meta.chatCompletedCount = next.chatEntries.length || 0;
+  }
+
+  return next;
+}
+
 export function getExperimentState() {
   try {
     const raw = localStorage.getItem(storageKey());
-    if (!raw) return getDefaultState();
+    if (!raw) return normalizeState(null);
     const parsed = JSON.parse(raw);
-
-    return {
-      ...getDefaultState(),
-      ...parsed,
-      metricsVisited:
-        parsed?.metricsVisited && typeof parsed.metricsVisited === "object"
-          ? parsed.metricsVisited
-          : {},
-      chatEntries: Array.isArray(parsed?.chatEntries) ? parsed.chatEntries : [],
-      finalFeedback: {
-        ...getDefaultState().finalFeedback,
-        ...(parsed?.finalFeedback || {}),
-      },
-      meta: {
-        ...getDefaultState().meta,
-        ...(parsed?.meta || {}),
-      },
-    };
+    return normalizeState(parsed);
   } catch (e) {
     console.error("Erro ao ler experimentState:", e);
-    return getDefaultState();
+    return normalizeState(null);
   }
 }
 
 function saveExperimentState(state) {
+  const normalized = normalizeState(state);
+
   const next = {
-    ...state,
+    ...normalized,
     meta: {
-      ...(state.meta || {}),
+      ...(normalized.meta || {}),
       version: STORAGE_VERSION,
       updatedAt: nowIso(),
+      chatCompletedCount: Number(normalized?.meta?.chatCompletedCount || 0),
     },
   };
+
   localStorage.setItem(storageKey(), JSON.stringify(next));
   notifyChanged();
 }
@@ -105,19 +133,28 @@ export function markMetricVisited(metricId) {
 
 export function addChatEntry(entry) {
   const state = getExperimentState();
-  if (state.chatEntries.length >= EXP_CONFIG.QUESTIONS_REQUIRED) return;
+
+  // ✅ limite do experimento baseado no contador persistente (não no histórico)
+  if ((state?.meta?.chatCompletedCount || 0) >= EXP_CONFIG.QUESTIONS_REQUIRED) return;
 
   const safeEntry = {
     question: String(entry?.question || "").trim(),
     model: String(entry?.model || "").trim(),
     preferredOption: Number(entry?.preferredOption || 0),
     chosenText: String(entry?.chosenText || ""),
+    metricId: String(entry?.metricId || "").trim(),
+    metricName: String(entry?.metricName || "").trim(),
     createdAt: entry?.createdAt || nowIso(),
   };
 
   if (!safeEntry.question) return;
 
   state.chatEntries.push(safeEntry);
+
+  // ✅ incrementa contador persistente
+  const prev = Number(state?.meta?.chatCompletedCount || 0);
+  state.meta.chatCompletedCount = prev + 1;
+
   saveExperimentState(state);
 }
 
@@ -129,6 +166,12 @@ export function getMetricsVisitedCount() {
 
 export function getChatCompletedCount() {
   const state = getExperimentState();
+
+  // ✅ fonte oficial agora é o contador persistente
+  const n = Number(state?.meta?.chatCompletedCount);
+  if (Number.isFinite(n) && n >= 0) return n;
+
+  // fallback compatível
   return state.chatEntries?.length || 0;
 }
 
@@ -184,25 +227,41 @@ export function subscribeExperimentState(onChange) {
  * ✅ util: escreve um state “pronto” (usado pelo sync remoto no login)
  */
 export function overwriteExperimentState(nextState) {
-  const safe = {
-    ...getDefaultState(),
-    ...(nextState || {}),
-    metricsVisited:
-      nextState?.metricsVisited && typeof nextState.metricsVisited === "object"
-        ? nextState.metricsVisited
-        : {},
-    chatEntries: Array.isArray(nextState?.chatEntries) ? nextState.chatEntries : [],
-    finalFeedback: {
-      ...getDefaultState().finalFeedback,
-      ...(nextState?.finalFeedback || {}),
-    },
-    meta: {
-      ...getDefaultState().meta,
-      ...(nextState?.meta || {}),
-      updatedAt: (nextState?.meta?.updatedAt || null),
-    },
-  };
+  const safe = normalizeState(nextState);
+
+  // ✅ migração extra: se veio do cloud sem contador, deriva do histórico
+  if (typeof safe.meta.chatCompletedCount !== "number") {
+    safe.meta.chatCompletedCount = safe.chatEntries.length || 0;
+  }
 
   localStorage.setItem(storageKey(), JSON.stringify(safe));
   notifyChanged();
+}
+
+/* =========================================================
+   ✅ HELPERS para o Chatbot (histórico sincronizado)
+   ========================================================= */
+
+export function clearChatEntries() {
+  const state = getExperimentState();
+
+  // ✅ limpa somente o histórico, NÃO mexe no contador persistente
+  state.chatEntries = [];
+
+  saveExperimentState(state);
+}
+
+export function removeChatEntryByKey(question, createdAt) {
+  const q = String(question || "");
+  const c = String(createdAt || "");
+  if (!q || !c) return;
+
+  const state = getExperimentState();
+
+  // ✅ remove somente do histórico, NÃO mexe no contador persistente
+  state.chatEntries = (state.chatEntries || []).filter(
+    (e) => !(String(e?.question || "") === q && String(e?.createdAt || "") === c)
+  );
+
+  saveExperimentState(state);
 }

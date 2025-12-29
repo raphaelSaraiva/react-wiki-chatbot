@@ -40,6 +40,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './imgs/logo.png';
 import googleIcon from './imgs/google.png';
 
+// ✅ mesmas chaves do Chatbot (por usuário)
+const STORAGE_HISTORY_KEY = (uid) => `chatHistory__${uid || 'anon'}`;
+const STORAGE_FLOAT_KEY = (uid) => `historyFloatingWindow_v4__${uid || 'anon'}`;
+
+// ✅ mesma chave do experimentState.js (por usuário)
+const STORAGE_EXPERIMENT_KEY = (uid) =>
+  `experimentState_v1__uid_${uid || 'anonymous'}`;
+
 const AppContent = ({
   user,
   isMenuVisible,
@@ -120,7 +128,8 @@ const AppContent = ({
                     path="/"
                     element={
                       canAccessChatbot() ? (
-                        <Chatbot />
+                        // ✅ passa userUid e força remount ao trocar usuário
+                        <Chatbot userUid={user?.uid} key={user?.uid || 'anon'} />
                       ) : (
                         <Navigate to="/metric/t1" replace />
                       )
@@ -367,6 +376,9 @@ const App = () => {
   };
 
   const handleLogout = async () => {
+    // captura uid ANTES do signOut para limpar dados do último usuário
+    const uidToClear = user?.uid || localStorage.getItem('userUid') || '';
+
     try {
       await signOut(auth);
 
@@ -376,6 +388,16 @@ const App = () => {
       // ✅ reseta status local
       setFeedbackSubmitted(false);
       setFeedbackSubmittedLoading(false);
+
+      // ✅ limpa histórico + janela do Chatbot + estado do experimento (todos por usuário)
+      if (uidToClear) {
+        localStorage.removeItem(STORAGE_HISTORY_KEY(uidToClear));
+        localStorage.removeItem(STORAGE_FLOAT_KEY(uidToClear));
+
+        // experimentState.js usa exatamente esse formato de key
+        localStorage.removeItem(STORAGE_EXPERIMENT_KEY(uidToClear));
+        localStorage.removeItem(`${STORAGE_EXPERIMENT_KEY(uidToClear)}__ping`);
+      }
 
       localStorage.removeItem('userUid');
       localStorage.removeItem('userPhotoURL');

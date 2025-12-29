@@ -9,9 +9,12 @@ import {
   addChatEntry,
   getChatCompletedCount,
   canAccessChatbot,
+  getChatEntries,
+  subscribeExperimentState,
+  clearChatEntries,
+  removeChatEntryByKey,
 } from "../experiment/experimentState";
 
-const STORAGE_HISTORY_KEY = "chatHistory";
 const STORAGE_FLOAT_KEY = "historyFloatingWindow_v4";
 
 const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
@@ -41,7 +44,10 @@ const Chatbot = () => {
   const [option1, setOption1] = useState("");
   const [option2, setOption2] = useState("");
   const [preferredOption, setPreferredOption] = useState(1);
+
+  // ✅ agora o histórico exibido vem do experimentState (sincronizado com Firebase)
   const [history, setHistory] = useState([]);
+
   const [loading, setLoading] = useState(false);
   const [model, setModel] = useState("llama2");
 
@@ -66,7 +72,7 @@ const Chatbot = () => {
     return METRICS.find((m) => m.id === metricId)?.name || "";
   }, [METRICS, metricId]);
 
-  // força re-render quando o experimentState mudar
+  // força re-render quando o experimentState mudar (para contadores)
   const [expTick, setExpTick] = useState(0);
   useEffect(() => {
     const onChanged = () => setExpTick((t) => t + 1);
@@ -232,19 +238,39 @@ const Chatbot = () => {
   });
 
   // =========================
-  // Load history
+  // ✅ Load history from experimentState (Firebase-backed)
   // =========================
+  const syncHistoryFromExperiment = () => {
+    const entries = getChatEntries() || [];
+    // UI quer mais novo em cima
+    const display = [...entries].reverse();
+
+    // adapta para o formato que a UI já usa
+    const mapped = display.map((e) => ({
+      id: e?.id || null,
+      question: e?.question || "",
+      model: e?.model || "",
+      metricId: e?.metricId || "",
+      metricName: e?.metricName || "",
+      createdAt: e?.createdAt || null,
+      response: e?.chosenText || "", // ✅ aqui é o ponto: no state é chosenText
+      chosenText: e?.chosenText || "",
+      preferredOption: e?.preferredOption || 0,
+    }));
+
+    setHistory(mapped);
+  };
+
   useEffect(() => {
-    const storedHistory = localStorage.getItem(STORAGE_HISTORY_KEY);
-    if (storedHistory) {
-      try {
-        const parsed = JSON.parse(storedHistory);
-        setHistory(Array.isArray(parsed) ? parsed : []);
-      } catch {
-        localStorage.removeItem(STORAGE_HISTORY_KEY);
-        setHistory([]);
-      }
-    }
+    syncHistoryFromExperiment();
+
+    // atualiza sempre que o experimentState mudar (inclui overwrite do Firebase)
+    const unsub = subscribeExperimentState(() => {
+      syncHistoryFromExperiment();
+    });
+
+    return () => unsub();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // =========================
@@ -338,33 +364,19 @@ const Chatbot = () => {
     return () => window.removeEventListener("resize", onResize);
   }, [floatMin]);
 
-  const saveHistory = (newHistory) => {
-    setHistory(newHistory);
-    localStorage.setItem(STORAGE_HISTORY_KEY, JSON.stringify(newHistory));
-  };
-
-  const addToHistory = (entry) => {
-    const withId = { id: makeId(), ...entry };
-    const updated = [withId, ...history];
-    saveHistory(updated);
-
-    const k = getEntryKey(withId, 0);
-    setOpenItems((prev) => ({ ...prev, [k]: true }));
-  };
-
+  // ✅ agora limpar/excluir mexe no experimentState (que é o que vem do Firebase)
   const doClearHistory = () => {
-    setHistory([]);
+    clearChatEntries();
     setOpenItems({});
-    localStorage.removeItem(STORAGE_HISTORY_KEY);
   };
 
   const doRemoveHistoryEntry = (indexToRemove) => {
     const removed = history[indexToRemove];
+    if (!removed?.question || !removed?.createdAt) return;
+
+    removeChatEntryByKey(removed.question, removed.createdAt);
+
     const removedKey = getEntryKey(removed, indexToRemove);
-
-    const updatedHistory = history.filter((_, i) => i !== indexToRemove);
-    saveHistory(updatedHistory);
-
     setOpenItems((prev) => {
       const next = { ...prev };
       delete next[removedKey];
@@ -465,26 +477,12 @@ const Chatbot = () => {
 
     const preferredText = preferredOption === 1 ? option1 : option2;
 
-    addToHistory({
-      question: question.trim() ? question : "(pergunta anterior)",
-      model,
-      metricId,
-      metricName,
-      response: preferredText || "(sem resposta)",
-      option1: option1 || "",
-      option2: option2 || "",
-      chosenText: preferredText || "(sem resposta)",
-      preferredOption,
-      createdAt: new Date().toISOString(),
-    });
-
+    // ✅ salva no experimentState (vai pro Firebase via sync)
     addChatEntry({
       question: question.trim() ? question : "(pergunta anterior)",
       model,
       metricId,
       metricName,
-      option1: option1 || "",
-      option2: option2 || "",
       preferredOption,
       chosenText: preferredText || "(sem resposta)",
       createdAt: new Date().toISOString(),
@@ -498,13 +496,12 @@ const Chatbot = () => {
     setFloatMin(false);
   };
 
-  // ✅ mantém azul nas respostas, mas aprimora “card”
   const answerBoxStyle = (isSelected) => ({
     background: "#2563eb",
     color: "#ffffff",
     borderRadius: 16,
     border: isSelected
-      ? "3px solid #fbbf24" // ✅ amarelo original como destaque da seleção
+      ? "3px solid #fbbf24"
       : "1px solid rgba(255,255,255,0.25)",
     padding: "16px",
     minHeight: "160px",
@@ -574,6 +571,19 @@ const Chatbot = () => {
     resizeRef.current.mode = null;
   };
 
+  // ✅ NEW: wrappers para iniciar resize via handles
+  const onMouseDownResize = (mode) => (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    startResize(mode, e.clientX, e.clientY);
+  };
+
+  const onTouchStartResize = (mode) => (e) => {
+    const t = e.touches?.[0];
+    if (!t) return;
+    startResize(mode, t.clientX, t.clientY);
+  };
+
   // Global move handlers
   useEffect(() => {
     const moveDrag = (clientX, clientY) => {
@@ -616,13 +626,19 @@ const Chatbot = () => {
         setFloatBox((p) => ({ ...p, h: nextH }));
       }
 
+      // ✅ left / cornerLeft ajustam X também (pra “puxar da esquerda” de verdade)
       if (mode === "left" || mode === "cornerLeft") {
         const nextW = clamp(
           resizeRef.current.startW - dx,
           MIN_W,
           Math.max(MIN_W, window.innerWidth - 2 * MARGIN)
         );
-        setFloatBox((p) => ({ ...p, w: nextW }));
+        const nextX = clamp(
+          resizeRef.current.startXBox + dx,
+          MARGIN,
+          resizeRef.current.startXBox + (resizeRef.current.startW - MIN_W)
+        );
+        setFloatBox((p) => ({ ...p, w: nextW, x: nextX }));
       }
       if (mode === "cornerLeft") {
         const nextH = clamp(
@@ -700,9 +716,7 @@ const Chatbot = () => {
     );
   }
 
-  // =========================
-  // UI helpers (mantendo cor; preservando amarelo onde importa)
-  // =========================
+  // UI helpers
   const pageStyle = {
     minHeight: "100vh",
     display: "flex",
@@ -710,7 +724,7 @@ const Chatbot = () => {
     justifyContent: "center",
     padding: "20px",
     position: "relative",
-    background: "linear-gradient(135deg, #2563eb, #2563eb)", // ✅ não muda
+    background: "linear-gradient(135deg, #2563eb, #2563eb)",
     color: "#ffffff",
   };
 
@@ -719,7 +733,6 @@ const Chatbot = () => {
     position: "relative",
   };
 
-  // ✅ caixa do chatbot mais “premium”, mas sem mexer na cor do tema
   const cardStyle = {
     borderRadius: 20,
     border: "1px solid rgba(255,255,255,0.16)",
@@ -752,7 +765,6 @@ const Chatbot = () => {
     fontSize: 18,
   };
 
-  // ✅ badge continua sendo “pill” mas com toque de amarelo (sem virar amarelo inteiro)
   const badgePill = (ok) => ({
     padding: "8px 10px",
     borderRadius: 999,
@@ -788,7 +800,6 @@ const Chatbot = () => {
     fontWeight: 700,
   };
 
-  // ✅ Botão principal volta a ser o amarelo do Bootstrap (classe + estilo leve)
   const primaryBtnStyle = {
     borderRadius: 14,
     padding: "12px 14px",
@@ -798,7 +809,6 @@ const Chatbot = () => {
     border: "none",
   };
 
-  // ✅ CTA “Salvar preferida” mantém btn-light (como antes), mas com cara melhor
   const saveBtnStyle = {
     borderRadius: 14,
     fontWeight: 900,
@@ -806,20 +816,10 @@ const Chatbot = () => {
     boxShadow: "0 14px 34px rgba(0,0,0,0.18)",
   };
 
-  const helperText = {
-    marginTop: 10,
-    fontSize: 13,
-    color: "rgba(255,255,255,0.72)",
-  };
-
-  // =========================
-  // Render
-  // =========================
   return (
     <div style={pageStyle}>
       <div style={shellStyle}>
         <div style={cardStyle}>
-          {/* Header */}
           <div style={headerStyle}>
             <div style={titleWrap}>
               <div style={titleIcon}>🤖</div>
@@ -835,7 +835,6 @@ const Chatbot = () => {
             </div>
           </div>
 
-          {/* Body */}
           <div style={bodyStyle}>
             <form onSubmit={handleQuestionSubmit}>
               <label style={labelStyle}>Pergunta</label>
@@ -885,7 +884,6 @@ const Chatbot = () => {
                 </div>
               </div>
 
-              {/* ✅ Botão principal: amarelo (Bootstrap) */}
               <button
                 type="submit"
                 disabled={loading || !canAskMore}
@@ -963,7 +961,6 @@ const Chatbot = () => {
                   </div>
                 </div>
 
-                {/* ✅ Salvar preferida: continua claro (como antes) */}
                 <button
                   className="btn btn-light w-100 mt-3"
                   onClick={handleSavePreferred}
@@ -1123,13 +1120,7 @@ const Chatbot = () => {
                 type="button"
                 title="Fechar"
                 onClick={() => {
-                  if (docked) setClosedBtn({ x: 0, y: 70, docked: true });
-                  else
-                    setClosedBtn({
-                      x: floatBox.x,
-                      y: floatBox.y,
-                      docked: false,
-                    });
+                  setClosedBtn({ x: 0, y: 70, docked: true });
                   setFloatOpen(false);
                 }}
                 style={{
@@ -1242,7 +1233,7 @@ const Chatbot = () => {
                               <div style={{ marginTop: 6 }}>
                                 <strong>Resposta:</strong>
                                 <div style={{ whiteSpace: "pre-wrap", marginTop: 4 }}>
-                                  {entry.response}
+                                  {entry.response || entry.chosenText || "—"}
                                 </div>
                               </div>
                             )}
@@ -1258,6 +1249,105 @@ const Chatbot = () => {
                 )}
               </div>
             </div>
+          )}
+
+          {/* ✅ NEW: Handles de resize (funciona flutuando; e no dock ajusta largura) */}
+          {!floatMin && (
+            <>
+              {/* direita (sempre, inclusive docked) */}
+              <div
+                onMouseDown={onMouseDownResize("right")}
+                onTouchStart={onTouchStartResize("right")}
+                title="Ajustar largura"
+                style={{
+                  position: "absolute",
+                  top: 54,
+                  right: 0,
+                  width: 10,
+                  height: "calc(100% - 54px)",
+                  cursor: "ew-resize",
+                  zIndex: 2100,
+                }}
+              />
+
+              {/* esquerda (somente flutuando) */}
+              {!docked && (
+                <div
+                  onMouseDown={onMouseDownResize("left")}
+                  onTouchStart={onTouchStartResize("left")}
+                  title="Ajustar largura"
+                  style={{
+                    position: "absolute",
+                    top: 54,
+                    left: 0,
+                    width: 10,
+                    height: "calc(100% - 54px)",
+                    cursor: "ew-resize",
+                    zIndex: 2100,
+                  }}
+                />
+              )}
+
+              {/* baixo (somente flutuando) */}
+              {!docked && (
+                <div
+                  onMouseDown={onMouseDownResize("bottom")}
+                  onTouchStart={onTouchStartResize("bottom")}
+                  title="Ajustar altura"
+                  style={{
+                    position: "absolute",
+                    left: 0,
+                    bottom: 0,
+                    width: "100%",
+                    height: 10,
+                    cursor: "ns-resize",
+                    zIndex: 2100,
+                  }}
+                />
+              )}
+
+              {/* canto inferior direito (somente flutuando) */}
+              {!docked && (
+                <div
+                  onMouseDown={onMouseDownResize("corner")}
+                  onTouchStart={onTouchStartResize("corner")}
+                  title="Redimensionar"
+                  style={{
+                    position: "absolute",
+                    right: 0,
+                    bottom: 0,
+                    width: 18,
+                    height: 18,
+                    cursor: "nwse-resize",
+                    zIndex: 2101,
+                    background: "rgba(255,255,255,0.08)",
+                    borderTopLeftRadius: 10,
+                    border: "1px solid rgba(255,255,255,0.14)",
+                  }}
+                />
+              )}
+
+              {/* canto inferior esquerdo (somente flutuando) */}
+              {!docked && (
+                <div
+                  onMouseDown={onMouseDownResize("cornerLeft")}
+                  onTouchStart={onTouchStartResize("cornerLeft")}
+                  title="Redimensionar"
+                  style={{
+                    position: "absolute",
+                    left: 0,
+                    bottom: 0,
+                    width: 18,
+                    height: 18,
+                    cursor: "nesw-resize",
+                    zIndex: 2101,
+                    background: "rgba(255,255,255,0.08)",
+                    borderTopRightRadius: 10,
+                    border: "1px solid rgba(255,255,255,0.14)",
+                  }}
+                />
+              )}
+            </>
           )}
         </div>
       )}
@@ -1288,10 +1378,7 @@ const Chatbot = () => {
                   top: clamp(
                     closedBtn.y,
                     MARGIN,
-                    Math.max(
-                      MARGIN,
-                      window.innerHeight - CLOSED_BTN_SAFE_H - MARGIN
-                    )
+                    Math.max(MARGIN, window.innerHeight - CLOSED_BTN_SAFE_H - MARGIN)
                   ),
                 }),
           }}
