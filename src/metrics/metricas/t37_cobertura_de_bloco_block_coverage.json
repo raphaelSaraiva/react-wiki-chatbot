@@ -1,0 +1,46 @@
+{
+  "id": "t37",
+  "table_no": 37,
+  "name": "Cobertura de Bloco (Block Coverage)",
+  "iso25010": {
+    "characteristic": "Confiabilidade\nSubcaracterística\nCompletude dos dados / Integridade da coleta"
+  },
+  "fields": {
+    "keywords_alias": "Block coverage; Cobertura de blockchain; Cobertura\nde nós; Amostragem de blocos; Alcance de observação;\nBlock explorer completeness",
+    "definition": "Mede a proporção de blocos observáveis ou registrados por um conjunto de nós ou exploradores\nem relação ao total de blocos realmente produzidos na rede blockchain. Essa métrica avalia a comple-\ntude da coleta de dados e a representatividade das medições realizadas por exploradores públicos, detectando\npossíveis lacunas, atrasos ou omissões na visualização de\nblocos.",
+    "objective": "Avaliar a visibilidade e confiabilidade das medições em blockchain, especialmente em estudos que\ndependem de dados públicos provenientes de exploradores de blocos. Uma baixa cobertura pode indicar blocos\nórfãos, divergências entre nós, falhas de rede ou inconsistências em APIs de coleta, impactando a precisão de\nanálises sobre desempenho, segurança e comportamento\nde transações.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Cblock = Nobservado\nNtotal\n,\nonde Nobservado é o número de blocos detectados e registrados por um conjunto de exploradores ou nós de\nmedição, e Ntotal o número real de blocos minerados na\nrede no mesmo intervalo.\nCblock ∈[0, 1], sendo 1 equivalente à cobertura total da\ncadeia.\nMétricas\nAssociadas\nTaxa de blocos órfãos; Latência de propagação de blocos;\nTaxa de entrega de blocos; Taxa de sincronização de nós;\nDisponibilidade de dados\nAtributo\nRelacionado\nConsistência de ledger; Sincronização de nós; Integridade\nde medição; Qualidade da observação em blockchain\n101",
+    "protocol": "1) Selecionar um conjunto de exploradores públicos ou\nnós de monitoramento distribuído.\n2) Registrar todos os blocos visíveis durante o período\nde observação [t0, t1].\n3) Determinar o número total de blocos efetivamente\nminerados (Ntotal) via comparação entre múltiplas fontes\nconfiáveis.\n4) Calcular a razão Cblock = Nobservado/Ntotal.\n5) Repetir o processo em diferentes redes (ex.: Bitcoin,\nEthereum, Litecoin) e comparar o nível de cobertura\nentre exploradores.",
+    "comment": "A Cobertura de Bloco revela o quanto as ferramentas\nde medição e exploradores públicos refletem a realidade\ncompleta da blockchain. O artigo demonstra que exploradores populares frequentemente perdem blocos devido à\nlimitação de conexões P2P, atrasos de propagação e bloqueios por políticas de taxa. Tais lacunas afetam estudos\nempíricos sobre segurança e desempenho da rede. Uma\nalta cobertura é essencial para medições representativas\ne análises precisas.\nInterpretação\ndo\nValor Medido\nValores altos (próximos de 1) indicam observação completa e dados confiáveis. Valores baixos apontam fa-\nlhas de coleta, limitação de visibilidade ou desconexões\ntemporárias entre exploradores e a rede principal, comprometendo a validade de medições e auditorias.",
+    "unit": "Razão adimensional (0–1) ou percentual (%)",
+    "scale_type": "Razão",
+    "precision": "Depende do número e da localização geográfica dos nós de\nobservação, bem como da sincronização temporal entre\neles. Monitoramento descentralizado e múltiplas fontes\nde dados aumentam a precisão da medição.",
+    "data_collection": "Automática (via APIs de exploradores e logs de nós\ncompletos)",
+    "measurement_tool": "APIs públicas de exploradores (Etherscan,\nBlockchain.info); monitoramento distribuído (Bitnodes, Btcs-\ncan); ferramentas próprias de varredura de blocos e coleta\nRPC.",
+    "use_processes": "Avaliação de confiabilidade de dados blockchain; verificação de completude de exploradores públicos; auditoria de\nconsistência de rede; análise de segurança e propagação\nde blocos; validação de medições acadêmicas.",
+    "beneficiaries": "Pesquisadores em medições blockchain; desenvolvedores\nde exploradores; auditores de integridade; operadores de\nnós; analistas de segurança de rede.\n102",
+    "references": "Li, Z.; Lin, D.; Meng, W. Behind Block Explorers: Public Blockchain Measurement and Security Implication. IEEE Transactions\non Dependable and Secure Computing, 2023. — Apresenta um\nestudo empírico sobre a limitação da cobertura de blocos por\nexploradores públicos, quantificando discrepâncias entre blocos\nobservados e efetivamente minerados, e discutindo implicações de\nsegurança e confiabilidade dos dados coletados.\n103"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Cobertura de Bloco (Block Coverage)",
+    "Palavras-chave / Alias": "Block coverage; Cobertura de blockchain; Cobertura\nde nós; Amostragem de blocos; Alcance de observação;\nBlock explorer completeness",
+    "Definição do Atributo": "Mede a proporção de blocos observáveis ou registrados por um conjunto de nós ou exploradores\nem relação ao total de blocos realmente produzidos na rede blockchain. Essa métrica avalia a comple-\ntude da coleta de dados e a representatividade das medições realizadas por exploradores públicos, detectando\npossíveis lacunas, atrasos ou omissões na visualização de\nblocos.",
+    "Objetivo / Motivação": "Avaliar a visibilidade e confiabilidade das medições em blockchain, especialmente em estudos que\ndependem de dados públicos provenientes de exploradores de blocos. Uma baixa cobertura pode indicar blocos\nórfãos, divergências entre nós, falhas de rede ou inconsistências em APIs de coleta, impactando a precisão de\nanálises sobre desempenho, segurança e comportamento\nde transações.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Confiabilidade\nSubcaracterística\nCompletude dos dados / Integridade da coleta",
+    "Equação": "Cblock = Nobservado\nNtotal\n,\nonde Nobservado é o número de blocos detectados e registrados por um conjunto de exploradores ou nós de\nmedição, e Ntotal o número real de blocos minerados na\nrede no mesmo intervalo.\nCblock ∈[0, 1], sendo 1 equivalente à cobertura total da\ncadeia.\nMétricas\nAssociadas\nTaxa de blocos órfãos; Latência de propagação de blocos;\nTaxa de entrega de blocos; Taxa de sincronização de nós;\nDisponibilidade de dados\nAtributo\nRelacionado\nConsistência de ledger; Sincronização de nós; Integridade\nde medição; Qualidade da observação em blockchain\n101",
+    "Protocolo": "1) Selecionar um conjunto de exploradores públicos ou\nnós de monitoramento distribuído.\n2) Registrar todos os blocos visíveis durante o período\nde observação [t0, t1].\n3) Determinar o número total de blocos efetivamente\nminerados (Ntotal) via comparação entre múltiplas fontes\nconfiáveis.\n4) Calcular a razão Cblock = Nobservado/Ntotal.\n5) Repetir o processo em diferentes redes (ex.: Bitcoin,\nEthereum, Litecoin) e comparar o nível de cobertura\nentre exploradores.",
+    "Comentário": "A Cobertura de Bloco revela o quanto as ferramentas\nde medição e exploradores públicos refletem a realidade\ncompleta da blockchain. O artigo demonstra que exploradores populares frequentemente perdem blocos devido à\nlimitação de conexões P2P, atrasos de propagação e bloqueios por políticas de taxa. Tais lacunas afetam estudos\nempíricos sobre segurança e desempenho da rede. Uma\nalta cobertura é essencial para medições representativas\ne análises precisas.\nInterpretação\ndo\nValor Medido\nValores altos (próximos de 1) indicam observação completa e dados confiáveis. Valores baixos apontam fa-\nlhas de coleta, limitação de visibilidade ou desconexões\ntemporárias entre exploradores e a rede principal, comprometendo a validade de medições e auditorias.",
+    "Unidade": "Razão adimensional (0–1) ou percentual (%)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Depende do número e da localização geográfica dos nós de\nobservação, bem como da sincronização temporal entre\neles. Monitoramento descentralizado e múltiplas fontes\nde dados aumentam a precisão da medição.",
+    "Tipo de Coleta de Dados": "Automática (via APIs de exploradores e logs de nós\ncompletos)",
+    "Ferramenta de Medição": "APIs públicas de exploradores (Etherscan,\nBlockchain.info); monitoramento distribuído (Bitnodes, Btcs-\ncan); ferramentas próprias de varredura de blocos e coleta\nRPC.",
+    "Processos de Uso Potenciais": "Avaliação de confiabilidade de dados blockchain; verificação de completude de exploradores públicos; auditoria de\nconsistência de rede; análise de segurança e propagação\nde blocos; validação de medições acadêmicas.",
+    "Beneficiários Potenciais": "Pesquisadores em medições blockchain; desenvolvedores\nde exploradores; auditores de integridade; operadores de\nnós; analistas de segurança de rede.\n102",
+    "Referências": "Li, Z.; Lin, D.; Meng, W. Behind Block Explorers: Public Blockchain Measurement and Security Implication. IEEE Transactions\non Dependable and Secure Computing, 2023. — Apresenta um\nestudo empírico sobre a limitação da cobertura de blocos por\nexploradores públicos, quantificando discrepâncias entre blocos\nobservados e efetivamente minerados, e discutindo implicações de\nsegurança e confiabilidade dos dados coletados.\n103"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 37"
+  }
+}

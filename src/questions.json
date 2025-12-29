@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "id": "estudo_v1",
+    "titulo": "Questionários do Estudo",
+    "tituloEscala": "Escala de Respostas (1 a 5)",
+    "introducao": "Responda com base na sua experiência utilizando a plataforma. Cada afirmação deve ser avaliada em uma escala de 1 a 5.",
+    "escala": [
+      {
+        "valor": 1,
+        "rotulo": "Discordo totalmente"
+      },
+      {
+        "valor": 2,
+        "rotulo": "Discordo"
+      },
+      {
+        "valor": 3,
+        "rotulo": "Neutro"
+      },
+      {
+        "valor": 4,
+        "rotulo": "Concordo"
+      },
+      {
+        "valor": 5,
+        "rotulo": "Concordo totalmente"
+      }
+    ],
+    "termoConsentimentoLabel": "Li o termo de consentimento e concordo em participar."
+  },
+  "preQuestionario": {
+    "titulo": "Questionário Demográfico (Pré-questionário)",
+    "descricao": "Este questionário coleta informações de perfil para descrever o participante. As respostas são confidenciais e serão usadas apenas para análise de pesquisa.",
+    "campos": [
+      {
+        "id": "DQ1_age",
+        "tipo": "number",
+        "rotulo": "1. Idade"
+      },
+      {
+        "id": "DQ1_gender",
+        "tipo": "single",
+        "rotulo": "1. Gênero",
+        "opcoes": [
+          "Feminino",
+          "Masculino",
+          "Não-binário",
+          "Prefiro não informar",
+          "Outro"
+        ],
+        "temOutro": true
+      },
+      {
+        "id": "DQ2_education",
+        "tipo": "single",
+        "rotulo": "2. Maior nível educacional",
+        "opcoes": [
+          "Graduação",
+          "Mestrado",
+          "Doutorado",
+          "Outro"
+        ],
+        "temOutro": true
+      },
+      {
+        "id": "DQ3_role",
+        "tipo": "text",
+        "rotulo": "3. Cargo/função atual"
+      },
+      {
+        "id": "DQ4_expertise",
+        "tipo": "single",
+        "rotulo": "4. Área principal de atuação",
+        "opcoes": [
+          "Blockchain",
+          "Qualidade de Software",
+          "Engenharia de Software",
+          "Outro"
+        ],
+        "temOutro": true
+      },
+      {
+        "id": "DQ5_years_professional",
+        "tipo": "number",
+        "rotulo": "5. Anos de experiência profissional ou em pesquisa"
+      },
+      {
+        "id": "DQ6_years_blockchain_quality",
+        "tipo": "number",
+        "rotulo": "6. Experiência com blockchain ou qualidade de software (em anos)"
+      },
+      {
+        "id": "DQ7_familiarity",
+        "tipo": "single",
+        "rotulo": "7. Familiaridade com ferramentas de avaliação de qualidade ou frameworks de métricas",
+        "opcoes": [
+          "Iniciante",
+          "Intermediário",
+          "Avançado"
+        ]
+      }
+    ]
+  },
+  "tam": {
+    "titulo": "Questionário Pós-Uso (TAM)",
+    "secoes": [
+      {
+        "chave": "pu",
+        "titulo": "Utilidade Percebida",
+        "itens": [
+          {
+            "id": 1,
+            "texto": "A plataforma me ajuda a identificar métricas de qualidade adequadas para um determinado cenário de avaliação."
+          },
+          {
+            "id": 2,
+            "texto": "O uso da plataforma melhora minha compreensão sobre métricas de qualidade e sua aplicabilidade."
+          },
+          {
+            "id": 3,
+            "texto": "A plataforma auxilia minha tomada de decisão durante atividades de avaliação de qualidade."
+          },
+          {
+            "id": 4,
+            "texto": "De forma geral, a plataforma é útil para avaliar sistemas baseados em blockchain."
+          }
+        ]
+      },
+      {
+        "chave": "peou",
+        "titulo": "Facilidade de Uso Percebida",
+        "itens": [
+          {
+            "id": 5,
+            "texto": "Aprender a utilizar a plataforma foi fácil para mim."
+          },
+          {
+            "id": 6,
+            "texto": "A interface da plataforma é intuitiva e fácil de navegar."
+          },
+          {
+            "id": 7,
+            "texto": "Consigo encontrar as informações que preciso na plataforma sem dificuldade."
+          },
+          {
+            "id": 8,
+            "texto": "Interagir com os recursos da plataforma é algo natural e direto."
+          }
+        ]
+      },
+      {
+        "chave": "att",
+        "titulo": "Atitude em Relação ao Uso",
+        "itens": [
+          {
+            "id": 9,
+            "texto": "Tenho uma opinião positiva sobre o uso da plataforma em tarefas de avaliação."
+          },
+          {
+            "id": 10,
+            "texto": "Gosto de utilizar a plataforma para explorar e aplicar métricas de qualidade."
+          },
+          {
+            "id": 11,
+            "texto": "Sinto-me confiante ao utilizar a plataforma para avaliações de qualidade."
+          },
+          {
+            "id": 12,
+            "texto": "Acredito que o uso da plataforma contribui positivamente para meu trabalho ou pesquisa."
+          }
+        ]
+      },
+      {
+        "chave": "bi",
+        "titulo": "Intenção Comportamental",
+        "itens": [
+          {
+            "id": 13,
+            "texto": "Pretendo utilizar a plataforma novamente em projetos ou estudos futuros."
+          },
+          {
+            "id": 14,
+            "texto": "Recomendaria a plataforma para colegas ou outros pesquisadores."
+          },
+          {
+            "id": 15,
+            "texto": "Planejo integrar a plataforma ao meu fluxo de trabalho para atividades de avaliação de qualidade."
+          },
+          {
+            "id": 16,
+            "texto": "Gostaria de continuar utilizando a plataforma como parte do meu processo de avaliação."
+          }
+        ]
+      }
+    ]
+  },
+  "feedbackAberto": {
+    "titulo": "Feedback Aberto",
+    "instrucoes": "Este formulário reúne feedback aberto para refinar e melhorar a plataforma, complementando os resultados do questionário estruturado.",
+    "perguntas": [
+      {
+        "id": "OF1",
+        "rotulo": "1. Quais foram os principais pontos fortes da plataforma?"
+      },
+      {
+        "id": "OF2",
+        "rotulo": "2. Quais limitações ou problemas de usabilidade você encontrou?"
+      },
+      {
+        "id": "OF3",
+        "rotulo": "3. Quais melhorias específicas você sugeriria para versões futuras?"
+      },
+      {
+        "id": "OF4",
+        "rotulo": "4. Comentários adicionais ou reflexões que você gostaria de compartilhar?"
+      }
+    ]
+  },
+  "final": {
+    "tituloComentario": "Comentário opcional",
+    "placeholderComentario": "Se desejar, deixe aqui suas observações sobre a plataforma ou sua experiência."
+  }
+}

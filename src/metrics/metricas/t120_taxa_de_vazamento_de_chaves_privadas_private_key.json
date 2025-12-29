@@ -1,0 +1,48 @@
+{
+  "id": "t120",
+  "table_no": 120,
+  "name": "Taxa de Vazamento de Chaves Privadas (Private Key",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Confidencialidade"
+  },
+  "fields": {
+    "keywords_alias": "Key Compromise; Key Exposure; Custodial Wallet Breach; Centralized Key Storage; Private Key Loss",
+    "definition": "Mede a frequência com que chaves privadas são expostas\nou comprometidas em sistemas blockchain. Essa métrica\nreflete a vulnerabilidade de carteiras, exchanges e serviços de custódia a falhas de segurança centralizadas ou\nataques direcionados.",
+    "objective": "Quantificar o risco de vazamento de chaves privadas em\necossistemas blockchain que dependem de componentes\ncentralizados, auxiliando na identificação de provedores\ncom maiores riscos de comprometimento.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Private Key Leakage Rate =\nChaves comprometidas\nChaves totais armazenadas\nou, quando aplicável:\nImpacto de Exposição = Taxa de Vazamento×Valor médio dos ativos afet\nMétricas\nAssociadas\nFalhas de Custódia; Taxa de Comprometimento de Carteiras; Incidentes de Segurança Centralizados\nAtributo\nRelacionado\nAutenticidade; Integridade; Não Repúdio",
+    "protocol": "1) Identificar plataformas de custódia que armazenam\nchaves privadas de múltiplos usuários.\n2) Levantar incidentes documentados de vazamento ou\nroubo de chaves.\n3) Calcular a proporção de chaves comprometidas e o\nimpacto econômico agregado.\n4) Classificar causas (falha técnica, ataque, erro humano).",
+    "comment": "A centralização de chaves em serviços custodiais cria\npontos únicos de falha. Um único vazamento pode comprometer milhões em ativos digitais. O uso de chaves\nfragmentadas (Shamir Secret Sharing) e assinaturas múltiplas (multisig) reduz significativamente a taxa de vaza-\nmento.\n283\n\nInterpretação\ndo\nValor Medido\nValores próximos de zero indicam práticas seguras de\narmazenamento e gestão de chaves. Taxas elevadas sinalizam vulnerabilidades graves de confidencialidade.",
+    "unit": "Proporção (0–1) ou Percentual (",
+    "scale_type": "Razão",
+    "precision": "Moderada — depende da transparência das plataformas\ne relatórios de incidentes públicos.",
+    "data_collection": "Manual / Auditoria / Relatórios de Segurança",
+    "measurement_tool": "Relatórios CVE/CERT; auditorias de custódia; logs de\nincidentes blockchain; ferramentas de monitoramento de\ncarteiras.",
+    "use_processes": "Auditorias de segurança; avaliação de provedores de custódia; compliance de exchanges; certificação de soluções\nblockchain.",
+    "beneficiaries": "Desenvolvedores blockchain; auditores de segurança; instituições financeiras; reguladores de criptoativos.",
+    "references": "Kappos, G., Yousaf, H., & Meiklejohn, S. (2021). Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosys-\ntems. IEEE Symposium on Security and Privacy.\n284"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Taxa de Vazamento de Chaves Privadas (Private Key\nLeakage Rate)",
+    "Palavras-chave / Alias": "Key Compromise; Key Exposure; Custodial Wallet Breach; Centralized Key Storage; Private Key Loss",
+    "Definição do Atributo": "Mede a frequência com que chaves privadas são expostas\nou comprometidas em sistemas blockchain. Essa métrica\nreflete a vulnerabilidade de carteiras, exchanges e serviços de custódia a falhas de segurança centralizadas ou\nataques direcionados.",
+    "Objetivo / Motivação": "Quantificar o risco de vazamento de chaves privadas em\necossistemas blockchain que dependem de componentes\ncentralizados, auxiliando na identificação de provedores\ncom maiores riscos de comprometimento.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Segurança",
+    "Sub-característica": "Confidencialidade",
+    "Equação": "Private Key Leakage Rate =\nChaves comprometidas\nChaves totais armazenadas\nou, quando aplicável:\nImpacto de Exposição = Taxa de Vazamento×Valor médio dos ativos afet\nMétricas\nAssociadas\nFalhas de Custódia; Taxa de Comprometimento de Carteiras; Incidentes de Segurança Centralizados\nAtributo\nRelacionado\nAutenticidade; Integridade; Não Repúdio",
+    "Protocolo": "1) Identificar plataformas de custódia que armazenam\nchaves privadas de múltiplos usuários.\n2) Levantar incidentes documentados de vazamento ou\nroubo de chaves.\n3) Calcular a proporção de chaves comprometidas e o\nimpacto econômico agregado.\n4) Classificar causas (falha técnica, ataque, erro humano).",
+    "Comentário": "A centralização de chaves em serviços custodiais cria\npontos únicos de falha. Um único vazamento pode comprometer milhões em ativos digitais. O uso de chaves\nfragmentadas (Shamir Secret Sharing) e assinaturas múltiplas (multisig) reduz significativamente a taxa de vaza-\nmento.\n283\n\nInterpretação\ndo\nValor Medido\nValores próximos de zero indicam práticas seguras de\narmazenamento e gestão de chaves. Taxas elevadas sinalizam vulnerabilidades graves de confidencialidade.",
+    "Unidade": "Proporção (0–1) ou Percentual (",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Moderada — depende da transparência das plataformas\ne relatórios de incidentes públicos.",
+    "Tipo de Coleta de Dados": "Manual / Auditoria / Relatórios de Segurança",
+    "Ferramenta de Medição": "Relatórios CVE/CERT; auditorias de custódia; logs de\nincidentes blockchain; ferramentas de monitoramento de\ncarteiras.",
+    "Processos de Uso Potenciais": "Auditorias de segurança; avaliação de provedores de custódia; compliance de exchanges; certificação de soluções\nblockchain.",
+    "Beneficiários Potenciais": "Desenvolvedores blockchain; auditores de segurança; instituições financeiras; reguladores de criptoativos.",
+    "Referências": "Kappos, G., Yousaf, H., & Meiklejohn, S. (2021). Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosys-\ntems. IEEE Symposium on Security and Privacy.\n284"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 120"
+  }
+}

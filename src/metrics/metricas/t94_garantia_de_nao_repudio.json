@@ -1,0 +1,48 @@
+{
+  "id": "t94",
+  "table_no": 94,
+  "name": "Garantia de Não Repúdio",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Autenticidade e Responsabilidade"
+  },
+  "fields": {
+    "keywords_alias": "Nonrepudiation; Non-repudiation assurance; Transaction\naccountability; Irrefutabilidade; Verificação de autoria",
+    "definition": "Mede o grau de segurança e rastreabilidade que impede\nque uma parte negue ter realizado uma ação ou transação\nem um sistema blockchain. Em um ambiente de leilões\neletrônicos selados com contratos inteligentes e provas\nde conhecimento zero, a métrica avalia se as operações e\nlances podem ser verificadas de forma criptograficamente\nvinculada ao autor, sem exposição de dados sensíveis.",
+    "objective": "Garantir a integridade e a responsabilização das partes\nem sistemas distribuídos, impedindo que participantes\nneguem posteriormente ações registradas em blockchain.\nO não repúdio assegura confiança e validade jurídica nas\ntransações automatizadas, eliminando a necessidade de\nintermediários de confiança.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "O nível de não repúdio (NR) pode ser expresso\nqualitativamente ou quantitativamente em função da\nforça do mecanismo criptográfico e da rastreabilidade da\ntransação:\nNR = f(assinatura_digital, prova_criptográfica, imutabilidade)\nonde cada fator representa, respectivamente, a capacidade de autenticação, de verificação de autoria e de\nimutabilidade dos registros.\nMétricas\nAssociadas\nAutenticação; Integridade de Dados; Imutabilidade; Auditoria de Transações; Confidencialidade\nAtributo\nRelacionado\nResponsabilidade; Autoria de Transações; Transparência;\nProva de Origem\n228",
+    "protocol": "1) Registrar as transações em blockchain via contratos\ninteligentes com mecanismos de autenticação de chaves\npúblicas.\n2) Vincular a identidade do remetente à transação por\nmeio de assinatura digital.\n3) Verificar a integridade do registro por hash criptográfico e imutabilidade do bloco.\n4) Validar que a transação não possa ser negada por\nqualquer parte, utilizando a prova criptográfica ou ZKP\n(Zero-Knowledge Proof) associada.",
+    "comment": "A Garantia de Não Repúdio é essencial em ambientes de\nleilões baseados em blockchain, pois assegura que nenhum\nparticipante possa negar a autoria de lances ou transações\napós o encerramento. No esquema proposto por Liu et\nal., a combinação de contratos inteligentes com provas\nde conhecimento zero permite garantir autenticidade e\nnão repúdio sem comprometer o sigilo das ofertas.\nInterpretação\ndo\nValor Medido\nValores altos de não repúdio indicam forte responsabilização e confiança no sistema. Valores baixos sugerem\nrisco de disputas ou falhas de autenticação, comprometendo a validade das transações.",
+    "unit": "Nível qualitativo (Baixo / Médio / Alto) ou índice percentual de confiança criptográfica (%)",
+    "scale_type": "Ordinal / Razão (dependendo da mensuração)",
+    "precision": "Alta, desde que os mecanismos de autenticação e assinatura digital estejam corretamente implementados e\nauditáveis.",
+    "data_collection": "Experimental / Analítica",
+    "measurement_tool": "Contratos inteligentes (Solidity); Zero-Knowledge Proof\n(ZKP) frameworks; logs de transação on-chain; análise\nde auditoria criptográfica.",
+    "use_processes": "Auditoria de transações blockchain; validação de lances em leilões eletrônicos; certificação de autenticidade;\nconformidade regulatória (KYC/AML).",
+    "beneficiaries": "Arquitetos de sistemas blockchain; engenheiros de segurança; operadores de mercado eletrônico; órgãos regula-\ndores e auditores.",
+    "references": "Liu, Y.; Zhang, W.; Zhang, C.; Xue, G.; Liu, H. A BlockchainBased Sealed-Bid e-Auction Scheme with Smart Contract and Zero-\nKnowledge Proof. IEEE Transactions on Information Forensics\nand Security, vol. 16, pp. 3453–3466, 2021. — O artigo apresenta\na métrica Nonrepudiation para avaliar a capacidade de garantir\na autoria e a irrefutabilidade de lances e transações em leilões baseados em blockchain, utilizando provas criptográficas e contratos\ninteligentes.\n229"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Garantia de Não Repúdio",
+    "Palavras-chave / Alias": "Nonrepudiation; Non-repudiation assurance; Transaction\naccountability; Irrefutabilidade; Verificação de autoria",
+    "Definição do Atributo": "Mede o grau de segurança e rastreabilidade que impede\nque uma parte negue ter realizado uma ação ou transação\nem um sistema blockchain. Em um ambiente de leilões\neletrônicos selados com contratos inteligentes e provas\nde conhecimento zero, a métrica avalia se as operações e\nlances podem ser verificadas de forma criptograficamente\nvinculada ao autor, sem exposição de dados sensíveis.",
+    "Objetivo / Motivação": "Garantir a integridade e a responsabilização das partes\nem sistemas distribuídos, impedindo que participantes\nneguem posteriormente ações registradas em blockchain.\nO não repúdio assegura confiança e validade jurídica nas\ntransações automatizadas, eliminando a necessidade de\nintermediários de confiança.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Segurança",
+    "Sub-característica": "Autenticidade e Responsabilidade",
+    "Equação": "O nível de não repúdio (NR) pode ser expresso\nqualitativamente ou quantitativamente em função da\nforça do mecanismo criptográfico e da rastreabilidade da\ntransação:\nNR = f(assinatura_digital, prova_criptográfica, imutabilidade)\nonde cada fator representa, respectivamente, a capacidade de autenticação, de verificação de autoria e de\nimutabilidade dos registros.\nMétricas\nAssociadas\nAutenticação; Integridade de Dados; Imutabilidade; Auditoria de Transações; Confidencialidade\nAtributo\nRelacionado\nResponsabilidade; Autoria de Transações; Transparência;\nProva de Origem\n228",
+    "Protocolo": "1) Registrar as transações em blockchain via contratos\ninteligentes com mecanismos de autenticação de chaves\npúblicas.\n2) Vincular a identidade do remetente à transação por\nmeio de assinatura digital.\n3) Verificar a integridade do registro por hash criptográfico e imutabilidade do bloco.\n4) Validar que a transação não possa ser negada por\nqualquer parte, utilizando a prova criptográfica ou ZKP\n(Zero-Knowledge Proof) associada.",
+    "Comentário": "A Garantia de Não Repúdio é essencial em ambientes de\nleilões baseados em blockchain, pois assegura que nenhum\nparticipante possa negar a autoria de lances ou transações\napós o encerramento. No esquema proposto por Liu et\nal., a combinação de contratos inteligentes com provas\nde conhecimento zero permite garantir autenticidade e\nnão repúdio sem comprometer o sigilo das ofertas.\nInterpretação\ndo\nValor Medido\nValores altos de não repúdio indicam forte responsabilização e confiança no sistema. Valores baixos sugerem\nrisco de disputas ou falhas de autenticação, comprometendo a validade das transações.",
+    "Unidade": "Nível qualitativo (Baixo / Médio / Alto) ou índice percentual de confiança criptográfica (%)",
+    "Tipo de Escala": "Ordinal / Razão (dependendo da mensuração)",
+    "Precisão": "Alta, desde que os mecanismos de autenticação e assinatura digital estejam corretamente implementados e\nauditáveis.",
+    "Tipo de Coleta de Dados": "Experimental / Analítica",
+    "Ferramenta de Medição": "Contratos inteligentes (Solidity); Zero-Knowledge Proof\n(ZKP) frameworks; logs de transação on-chain; análise\nde auditoria criptográfica.",
+    "Processos de Uso Potenciais": "Auditoria de transações blockchain; validação de lances em leilões eletrônicos; certificação de autenticidade;\nconformidade regulatória (KYC/AML).",
+    "Beneficiários Potenciais": "Arquitetos de sistemas blockchain; engenheiros de segurança; operadores de mercado eletrônico; órgãos regula-\ndores e auditores.",
+    "Referências": "Liu, Y.; Zhang, W.; Zhang, C.; Xue, G.; Liu, H. A BlockchainBased Sealed-Bid e-Auction Scheme with Smart Contract and Zero-\nKnowledge Proof. IEEE Transactions on Information Forensics\nand Security, vol. 16, pp. 3453–3466, 2021. — O artigo apresenta\na métrica Nonrepudiation para avaliar a capacidade de garantir\na autoria e a irrefutabilidade de lances e transações em leilões baseados em blockchain, utilizando provas criptográficas e contratos\ninteligentes.\n229"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 94"
+  }
+}

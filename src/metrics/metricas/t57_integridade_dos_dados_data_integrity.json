@@ -1,0 +1,44 @@
+{
+  "id": "t57",
+  "table_no": 57,
+  "name": "Integridade dos Dados (Data Integrity)",
+  "iso25010": {
+    "characteristic": "Segurança\nSubcaracterística\nIntegridade"
+  },
+  "fields": {
+    "keywords_alias": "Data integrity; tamper-resistance; immutability; blockchain validation; transaction correctness",
+    "definition": "Mede o grau de precisão, completude e imutabilidade dos dados armazenados e transmitidos em\nsistemas blockchain integrados ao Metaverso e à Internet\ndas Coisas (IoT). Garante que as informações não sejam\nalteradas ou corrompidas durante o ciclo de transmissão,\nvalidação e registro na blockchain.",
+    "objective": "Avaliar a capacidade do sistema blockchain em preservar a integridade das transações entre dispositi-\nvos e aplicações distribuídas. Essa métrica é fundamental\npara assegurar que os dados do Metaverso-IoT permaneçam confiáveis e verificáveis após sua inclusão na cadeia\nde blocos.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Id = Ntransações válidas\nNtransações totais\nonde Ntransações válidas é o número de transações confirmadas sem violação de integridade e Ntransações totais é o\nnúmero total de transações processadas no sistema.\nMétricas\nAssociadas\nConfidencialidade dos dados; Autenticidade; Consistência dos dados; Taxa de validação de blocos\nAtributo\nRelacionado\nImutabilidade; Validação criptográfica; Autenticação;\nSegurança de transação",
+    "protocol": "1) Implantar o protocolo SafeMetaNet com integração\nblockchain-IoT.\n2) Registrar transações de troca de dados entre dispositivos do Metaverso.\n3) Validar a integridade de cada transação via hashes e\nregistros na blockchain.\n4) Calcular a proporção de transações válidas em relação\nao total processado.\n5) Comparar a taxa de integridade obtida com abordagens anteriores de troca de dados seguras.\n145",
+    "comment": "No estudo, o modelo SafeMetaNet alcançou níveis superiores de integridade dos dados em comparação a outros\nprotocolos, devido ao uso combinado de criptografia\nAES, troca de chaves Diffie–Hellman e registro\nimutável em blockchain. Esses mecanismos asseguram\nque as informações trocadas entre entidades do Metaverso e IoT permaneçam consistentes e não adulteradas.\nInterpretação\ndo\nValor Medido\nValores próximos a 1 indicam que a maioria das transações foi validada com sucesso e sem violação de inte-\ngridade; valores baixos refletem falhas de autenticação,\ncorrupção de dados ou inconsistência nos blocos registrados.",
+    "unit": "Índice adimensional (0–1) ou porcentagem (%)",
+    "scale_type": "Razão",
+    "precision": "Depende da frequência de verificação dos hashes e da\nauditoria de blocos; auditorias contínuas aumentam a\nconfiabilidade dos resultados.",
+    "data_collection": "Automática (verificação de integridade via logs de blockchain e hashes criptográficos)",
+    "measurement_tool": "Ganache CLI; Web3.py; PyCryptodome (AES e Diffie–Hellman); exploradores blockchain; scripts de audito-\nria em Python.",
+    "use_processes": "Avaliação de segurança em protocolos de dados do\nMetaverso-IoT; comparação de mecanismos de integridade entre modelos distribuídos; auditoria de conformi-\ndade de dados imutáveis.",
+    "beneficiaries": "Pesquisadores(as) em blockchain e IoT; Engenheiros(as)\nde segurança; Desenvolvedores(as) de sistemas distribuídos; Gestores(as) de confiabilidade de dados.\nReferência\nR. Patan, R. M. Parizi. Securing Data Exchange in the Convergence of Metaverse and IoT Applications. Proceedings of the 18th\nInternational Conference on Availability, Reliability and Security\n(ARES 2023), Benevento, Italy, 2023.\n146"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Integridade dos Dados (Data Integrity)",
+    "Palavras-chave / Alias": "Data integrity; tamper-resistance; immutability; blockchain validation; transaction correctness",
+    "Definição do Atributo": "Mede o grau de precisão, completude e imutabilidade dos dados armazenados e transmitidos em\nsistemas blockchain integrados ao Metaverso e à Internet\ndas Coisas (IoT). Garante que as informações não sejam\nalteradas ou corrompidas durante o ciclo de transmissão,\nvalidação e registro na blockchain.",
+    "Objetivo / Motivação": "Avaliar a capacidade do sistema blockchain em preservar a integridade das transações entre dispositi-\nvos e aplicações distribuídas. Essa métrica é fundamental\npara assegurar que os dados do Metaverso-IoT permaneçam confiáveis e verificáveis após sua inclusão na cadeia\nde blocos.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Segurança\nSubcaracterística\nIntegridade",
+    "Equação": "Id = Ntransações válidas\nNtransações totais\nonde Ntransações válidas é o número de transações confirmadas sem violação de integridade e Ntransações totais é o\nnúmero total de transações processadas no sistema.\nMétricas\nAssociadas\nConfidencialidade dos dados; Autenticidade; Consistência dos dados; Taxa de validação de blocos\nAtributo\nRelacionado\nImutabilidade; Validação criptográfica; Autenticação;\nSegurança de transação",
+    "Protocolo": "1) Implantar o protocolo SafeMetaNet com integração\nblockchain-IoT.\n2) Registrar transações de troca de dados entre dispositivos do Metaverso.\n3) Validar a integridade de cada transação via hashes e\nregistros na blockchain.\n4) Calcular a proporção de transações válidas em relação\nao total processado.\n5) Comparar a taxa de integridade obtida com abordagens anteriores de troca de dados seguras.\n145",
+    "Comentário": "No estudo, o modelo SafeMetaNet alcançou níveis superiores de integridade dos dados em comparação a outros\nprotocolos, devido ao uso combinado de criptografia\nAES, troca de chaves Diffie–Hellman e registro\nimutável em blockchain. Esses mecanismos asseguram\nque as informações trocadas entre entidades do Metaverso e IoT permaneçam consistentes e não adulteradas.\nInterpretação\ndo\nValor Medido\nValores próximos a 1 indicam que a maioria das transações foi validada com sucesso e sem violação de inte-\ngridade; valores baixos refletem falhas de autenticação,\ncorrupção de dados ou inconsistência nos blocos registrados.",
+    "Unidade": "Índice adimensional (0–1) ou porcentagem (%)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Depende da frequência de verificação dos hashes e da\nauditoria de blocos; auditorias contínuas aumentam a\nconfiabilidade dos resultados.",
+    "Tipo de Coleta de Dados": "Automática (verificação de integridade via logs de blockchain e hashes criptográficos)",
+    "Ferramenta de Medição": "Ganache CLI; Web3.py; PyCryptodome (AES e Diffie–Hellman); exploradores blockchain; scripts de audito-\nria em Python.",
+    "Processos de Uso Potenciais": "Avaliação de segurança em protocolos de dados do\nMetaverso-IoT; comparação de mecanismos de integridade entre modelos distribuídos; auditoria de conformi-\ndade de dados imutáveis.",
+    "Beneficiários Potenciais": "Pesquisadores(as) em blockchain e IoT; Engenheiros(as)\nde segurança; Desenvolvedores(as) de sistemas distribuídos; Gestores(as) de confiabilidade de dados.\nReferência\nR. Patan, R. M. Parizi. Securing Data Exchange in the Convergence of Metaverse and IoT Applications. Proceedings of the 18th\nInternational Conference on Availability, Reliability and Security\n(ARES 2023), Benevento, Italy, 2023.\n146"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 57"
+  }
+}

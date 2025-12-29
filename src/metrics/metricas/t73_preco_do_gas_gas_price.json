@@ -1,0 +1,46 @@
+{
+  "id": "t73",
+  "table_no": 73,
+  "name": "Preço do Gás (Gas Price)",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos / Custos de Execução"
+  },
+  "fields": {
+    "keywords_alias": "Gas price; Base fee; Priority fee (gorjeta); Max fee; EIP1559; Gwei",
+    "definition": "Quantia paga por unidade de gás para priorizar a inclusão e execução de uma transação ou contrato inteligente\nem uma rede blockchain (ex.: Ethereum). Desde a atualização EIP-1559, o preço efetivo do gás é composto\npor uma taxa base dinâmica (queima) e uma taxa\nde prioridade (gorjeta ao validador), limitada por uma\ntaxa máxima.",
+    "objective": "Quantificar e controlar o custo necessário para atingir\no tempo de confirmação desejado (trade-off entre custo\ne latência), além de estimar o impacto econômico de\noperações on-chain. Em sistemas de monetização de\ndados IoT ou rastreabilidade, a taxa de gás é essencial\npara viabilizar contratos inteligentes e evitar abusos ou\nataques de negação de serviço (DoS).\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Custo básico de uma transação em ETH:\ngas(ETH) = gas_price(ETH/gas) × gas_used(gas).\nSob EIP-1559: gas_priceefetivo = min(maxFee, baseFee+\npriorityFee).\nConversão\npara\nmoeda\nfiduciária:\ncustofiat\n=\ngas(ETH) × cotação(ETH→moeda).\nMétricas\nAssociadas\nGas used; Custo de Gás; Custo por Transação; Latência\nde Confirmação; Utilização do Bloco; Throughput\nAtributo\nRelacionado\nCusto de Operação; Custo de Transação; Consumo de\nEnergia; Vazão",
+    "protocol": "1) Definir rede e intervalo de observação [t0, t1].\n2) Coletar valores de baseFee, priorityFee, maxFee e\neffectiveGasPrice por transação (via explorador de\nblocos ou API).\n3) Registrar o gasUsed e o tipo de transação (implantação, escrita ou leitura).\n4) Calcular séries e estatísticas (média, p50, p95) de\ngas_price e converter para moeda fiduciária conforme a\ncotação do período.\n5) Relacionar os resultados com o congestionamento e a\ncomplexidade dos contratos executados.\n178",
+    "comment": "O gas price é altamente sensível à congestão da rede\ne ao comportamento dos validadores.\nAumentos de\npriorityFee reduzem o tempo de inclusão, mas elevam\no custo médio. Estimativas práticas utilizam a mediana\nde web3.eth.getGasPrice() e o consumo típico de gás\npor tipo de transação.\nInterpretação\ndo\nValor Medido\nValores menores indicam custos reduzidos, mas podem\nelevar a latência de confirmação. Valores altos refletem\nperíodos de congestionamento ou contratos ineficientes.\nIdealmente, o preço deve se manter dentro de percentis de\noperação (p95/p99) compatíveis com o SLA da aplicação.",
+    "unit": "Gwei/gas; ETH/gas; USD/gas (após conversão)",
+    "scale_type": "Razão",
+    "precision": "Depende da coleta em tempo real e da variação de congestionamento da rede. Recomenda-se registrar também\na dispersão (p95/p99) e a volatilidade do preço.",
+    "data_collection": "Automática",
+    "measurement_tool": "APIs de clientes (Web3.js, ethers.js); exploradores de\nblocos (Etherscan); nós locais (Geth, Besu); painéis de\nmonitoramento (Prometheus, Grafana).",
+    "use_processes": "Planejamento de custos; definição de taxas em dApps; otimização de contratos inteligentes (redução de gasUsed);\ncomparação entre redes públicas e permissionadas.",
+    "beneficiaries": "Engenheiros(as) de blockchain; SREs; analistas de FinOps; arquitetos(as) de sistemas distribuídos.",
+    "references": "Ali, M. S., Vecchio, M., & Antonelli, F. (2020). A Blockchain-Based\nFramework for IoT Data Monetization Services. The Computer\nJournal. Takegawa, N., & Furuichi, N. (2023). Traceability Management System Using Blockchain Technology and Cost Estimation\nin the Metrology Field. Sensors, 23(1673).\n179"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Preço do Gás (Gas Price)",
+    "Palavras-chave / Alias": "Gas price; Base fee; Priority fee (gorjeta); Max fee; EIP1559; Gwei",
+    "Definição do Atributo": "Quantia paga por unidade de gás para priorizar a inclusão e execução de uma transação ou contrato inteligente\nem uma rede blockchain (ex.: Ethereum). Desde a atualização EIP-1559, o preço efetivo do gás é composto\npor uma taxa base dinâmica (queima) e uma taxa\nde prioridade (gorjeta ao validador), limitada por uma\ntaxa máxima.",
+    "Objetivo / Motivação": "Quantificar e controlar o custo necessário para atingir\no tempo de confirmação desejado (trade-off entre custo\ne latência), além de estimar o impacto econômico de\noperações on-chain. Em sistemas de monetização de\ndados IoT ou rastreabilidade, a taxa de gás é essencial\npara viabilizar contratos inteligentes e evitar abusos ou\nataques de negação de serviço (DoS).\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos / Custos de Execução",
+    "Equação": "Custo básico de uma transação em ETH:\ngas(ETH) = gas_price(ETH/gas) × gas_used(gas).\nSob EIP-1559: gas_priceefetivo = min(maxFee, baseFee+\npriorityFee).\nConversão\npara\nmoeda\nfiduciária:\ncustofiat\n=\ngas(ETH) × cotação(ETH→moeda).\nMétricas\nAssociadas\nGas used; Custo de Gás; Custo por Transação; Latência\nde Confirmação; Utilização do Bloco; Throughput\nAtributo\nRelacionado\nCusto de Operação; Custo de Transação; Consumo de\nEnergia; Vazão",
+    "Protocolo": "1) Definir rede e intervalo de observação [t0, t1].\n2) Coletar valores de baseFee, priorityFee, maxFee e\neffectiveGasPrice por transação (via explorador de\nblocos ou API).\n3) Registrar o gasUsed e o tipo de transação (implantação, escrita ou leitura).\n4) Calcular séries e estatísticas (média, p50, p95) de\ngas_price e converter para moeda fiduciária conforme a\ncotação do período.\n5) Relacionar os resultados com o congestionamento e a\ncomplexidade dos contratos executados.\n178",
+    "Comentário": "O gas price é altamente sensível à congestão da rede\ne ao comportamento dos validadores.\nAumentos de\npriorityFee reduzem o tempo de inclusão, mas elevam\no custo médio. Estimativas práticas utilizam a mediana\nde web3.eth.getGasPrice() e o consumo típico de gás\npor tipo de transação.\nInterpretação\ndo\nValor Medido\nValores menores indicam custos reduzidos, mas podem\nelevar a latência de confirmação. Valores altos refletem\nperíodos de congestionamento ou contratos ineficientes.\nIdealmente, o preço deve se manter dentro de percentis de\noperação (p95/p99) compatíveis com o SLA da aplicação.",
+    "Unidade": "Gwei/gas; ETH/gas; USD/gas (após conversão)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Depende da coleta em tempo real e da variação de congestionamento da rede. Recomenda-se registrar também\na dispersão (p95/p99) e a volatilidade do preço.",
+    "Tipo de Coleta de Dados": "Automática",
+    "Ferramenta de Medição": "APIs de clientes (Web3.js, ethers.js); exploradores de\nblocos (Etherscan); nós locais (Geth, Besu); painéis de\nmonitoramento (Prometheus, Grafana).",
+    "Processos de Uso Potenciais": "Planejamento de custos; definição de taxas em dApps; otimização de contratos inteligentes (redução de gasUsed);\ncomparação entre redes públicas e permissionadas.",
+    "Beneficiários Potenciais": "Engenheiros(as) de blockchain; SREs; analistas de FinOps; arquitetos(as) de sistemas distribuídos.",
+    "Referências": "Ali, M. S., Vecchio, M., & Antonelli, F. (2020). A Blockchain-Based\nFramework for IoT Data Monetization Services. The Computer\nJournal. Takegawa, N., & Furuichi, N. (2023). Traceability Management System Using Blockchain Technology and Cost Estimation\nin the Metrology Field. Sensors, 23(1673).\n179"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 73"
+  }
+}

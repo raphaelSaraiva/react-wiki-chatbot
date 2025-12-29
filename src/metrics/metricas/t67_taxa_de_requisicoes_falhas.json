@@ -1,0 +1,46 @@
+{
+  "id": "t67",
+  "table_no": 67,
+  "name": "Taxa de Requisições Falhas",
+  "iso25010": {
+    "characteristic": "Confiabilidade\nSubcaracterística\nMaturidade / Tolerância a Falhas"
+  },
+  "fields": {
+    "keywords_alias": "Failed request ratio; Request error rate; Transaction\nfailure rate; Falhas de requisição; Erros de serviço; Reliability rate",
+    "definition": "Mede a proporção de requisições ou transações que\nfalham durante a execução em relação ao número\ntotal de requisições processadas por um sistema blockchain. Essa métrica indica a confiabilidade operacional e\na robustez do ecossistema distribuído frente a diferentes\ncargas de trabalho e condições de rede.",
+    "objective": "Avaliar a estabilidade e confiabilidade do sistema\nem operações descentralizadas, como consultas e transações em um ecossistema blockchain. No T-DSES, a\nmétrica foi usada para medir o sucesso das operações\nsob alta concorrência, verificando se o sistema mantém\nestabilidade ao lidar com milhares de requisições simultâneas.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "FRR = Nfalhas\nNtotal\n× 100%,\nonde Nfalhas representa o número de requisições que\nnão foram concluídas com sucesso e Ntotal é o total de\nrequisições executadas durante o período analisado.\nMétricas\nAssociadas\nTaxa de sucesso; Latência média; Throughput; Taxa de\ntimeout; Taxa de retransmissões\nAtributo\nRelacionado\nRobustez do sistema; Disponibilidade; Estabilidade de\nrede; Eficiência de execução",
+    "protocol": "1) Executar o sistema sob diferentes cargas (baixa, média,\nalta).\n2) Registrar o número total de requisições submetidas\n(Ntotal) e o número de falhas (Nfalhas).\n3) Calcular a métrica FRR = (Nfalhas/Ntotal) × 100%.\n4) Repetir o teste em cenários de consulta e transação.\n5) Analisar o comportamento da taxa em relação ao\nthroughput e à latência média.\n166",
+    "comment": "O artigo demonstra que o T-DSES alcança excelente\ndesempenho em confiabilidade, apresentando menos de\n4 requisições falhas em mais de 120 mil operações —\nequivalente a uma taxa próxima de 0%. Isso evidencia\na estabilidade do mecanismo de consenso e o balanceamento eficiente da carga entre os nós do sistema, mesmo\nsob condições de alta concorrência.\nInterpretação\ndo\nValor Medido\nValores baixos (próximos de 0%) indicam alta confiabilidade e resiliência do sistema. Valores elevados\nsugerem problemas de comunicação, sobrecarga de rede\nou falhas de sincronização entre nós.",
+    "unit": "Percentual (%)",
+    "scale_type": "Razão",
+    "precision": "Depende da exatidão na captura de logs de requisições\ne no monitoramento de erros. Falhas silenciosas podem\nsubestimar o valor real.",
+    "data_collection": "Automática (por meio de logs de execução e monitoramento de rede)",
+    "measurement_tool": "Monitores de desempenho (Prometheus, Grafana); logs\nde execução; simuladores de carga (JMeter, Postman);\nferramentas nativas da blockchain (INKchain Monitor).",
+    "use_processes": "Testes de desempenho e carga; auditoria de confiabilidade; validação de resiliência de serviços descentralizados;\navaliação de sistemas de consenso distribuído.",
+    "beneficiaries": "Engenheiros de blockchain; pesquisadores em desempenho; operadores de rede distribuída; analistas de confia-\nbilidade.",
+    "references": "Liu, J.; Zhang, Y.; Chen, X.; et al. T-DSES: A Blockchain-powered\nTrusted Decentralized Service Eco-System.\nIEEE Transactions\non Industrial Informatics, 2023. — O estudo avalia a taxa de\nrequisições falhas como indicador de confiabilidade do sistema,\nmostrando desempenho estável e praticamente 0% de falhas mesmo\nem cenários de alta demanda.\n167"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Taxa de Requisições Falhas",
+    "Palavras-chave / Alias": "Failed request ratio; Request error rate; Transaction\nfailure rate; Falhas de requisição; Erros de serviço; Reliability rate",
+    "Definição do Atributo": "Mede a proporção de requisições ou transações que\nfalham durante a execução em relação ao número\ntotal de requisições processadas por um sistema blockchain. Essa métrica indica a confiabilidade operacional e\na robustez do ecossistema distribuído frente a diferentes\ncargas de trabalho e condições de rede.",
+    "Objetivo / Motivação": "Avaliar a estabilidade e confiabilidade do sistema\nem operações descentralizadas, como consultas e transações em um ecossistema blockchain. No T-DSES, a\nmétrica foi usada para medir o sucesso das operações\nsob alta concorrência, verificando se o sistema mantém\nestabilidade ao lidar com milhares de requisições simultâneas.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Confiabilidade\nSubcaracterística\nMaturidade / Tolerância a Falhas",
+    "Equação": "FRR = Nfalhas\nNtotal\n× 100%,\nonde Nfalhas representa o número de requisições que\nnão foram concluídas com sucesso e Ntotal é o total de\nrequisições executadas durante o período analisado.\nMétricas\nAssociadas\nTaxa de sucesso; Latência média; Throughput; Taxa de\ntimeout; Taxa de retransmissões\nAtributo\nRelacionado\nRobustez do sistema; Disponibilidade; Estabilidade de\nrede; Eficiência de execução",
+    "Protocolo": "1) Executar o sistema sob diferentes cargas (baixa, média,\nalta).\n2) Registrar o número total de requisições submetidas\n(Ntotal) e o número de falhas (Nfalhas).\n3) Calcular a métrica FRR = (Nfalhas/Ntotal) × 100%.\n4) Repetir o teste em cenários de consulta e transação.\n5) Analisar o comportamento da taxa em relação ao\nthroughput e à latência média.\n166",
+    "Comentário": "O artigo demonstra que o T-DSES alcança excelente\ndesempenho em confiabilidade, apresentando menos de\n4 requisições falhas em mais de 120 mil operações —\nequivalente a uma taxa próxima de 0%. Isso evidencia\na estabilidade do mecanismo de consenso e o balanceamento eficiente da carga entre os nós do sistema, mesmo\nsob condições de alta concorrência.\nInterpretação\ndo\nValor Medido\nValores baixos (próximos de 0%) indicam alta confiabilidade e resiliência do sistema. Valores elevados\nsugerem problemas de comunicação, sobrecarga de rede\nou falhas de sincronização entre nós.",
+    "Unidade": "Percentual (%)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Depende da exatidão na captura de logs de requisições\ne no monitoramento de erros. Falhas silenciosas podem\nsubestimar o valor real.",
+    "Tipo de Coleta de Dados": "Automática (por meio de logs de execução e monitoramento de rede)",
+    "Ferramenta de Medição": "Monitores de desempenho (Prometheus, Grafana); logs\nde execução; simuladores de carga (JMeter, Postman);\nferramentas nativas da blockchain (INKchain Monitor).",
+    "Processos de Uso Potenciais": "Testes de desempenho e carga; auditoria de confiabilidade; validação de resiliência de serviços descentralizados;\navaliação de sistemas de consenso distribuído.",
+    "Beneficiários Potenciais": "Engenheiros de blockchain; pesquisadores em desempenho; operadores de rede distribuída; analistas de confia-\nbilidade.",
+    "Referências": "Liu, J.; Zhang, Y.; Chen, X.; et al. T-DSES: A Blockchain-powered\nTrusted Decentralized Service Eco-System.\nIEEE Transactions\non Industrial Informatics, 2023. — O estudo avalia a taxa de\nrequisições falhas como indicador de confiabilidade do sistema,\nmostrando desempenho estável e praticamente 0% de falhas mesmo\nem cenários de alta demanda.\n167"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 67"
+  }
+}

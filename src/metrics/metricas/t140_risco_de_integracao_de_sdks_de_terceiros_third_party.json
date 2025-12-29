@@ -1,0 +1,48 @@
+{
+  "id": "t140",
+  "table_no": 140,
+  "name": "Risco de Integração de SDKs de Terceiros (Third-Party",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Confidencialidade / Integridade"
+  },
+  "fields": {
+    "keywords_alias": "Third-party SDKs; External libraries; Dependency risk;\nData leakage; Privacy vulnerability; App centralization",
+    "definition": "Mede o nível de dependência e risco introduzido por\nSDKs e bibliotecas de terceiros integradas em aplicações\nblockchain (ex.: carteiras e DApps). Essa métrica avalia\no impacto potencial sobre a segurança, privacidade e\ndescentralização quando componentes externos acessam,\nprocessam ou transmitem dados sensíveis dos usuários.",
+    "objective": "Identificar vulnerabilidades de centralização e vazamento\nde dados causadas pela inclusão de SDKs externos (ex.:\nde análise, notificações, verificação de identidade). A\nmétrica busca mensurar o quanto esses componentes\ncomprometem a descentralização e a integridade dos\necossistemas blockchain.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "RSDK = NSDKs_riscos\nNSDKs_totais\n× 100\nonde NSDKs_riscos representa o número de SDKs identificados como potencialmente vulneráveis (coleta de dados\nsensíveis, rastreamento, autenticação centralizada, etc.),\ne NSDKs_totais é o total de SDKs integrados na aplicação.\nMétricas\nAssociadas\nData Leakage Rate; Privacy Exposure Index; RPC Centralization Risk; App Dependency Ratio\nAtributo\nRelacionado\nPrivacidade de Dados; Segurança de Dependências;\nTransparência de Código-Fonte",
+    "protocol": "1) Extrair o pacote APK da aplicação (ex.: carteira\nblockchain) e decompilá-lo utilizando ferramentas como\napktool ou jadx.\n2) Executar uma busca automatizada por pacotes de\nterceiros e nomes de domínios suspeitos em pastas smali.\n3) Classificar cada SDK como interno ou de terceiros,\nanalisando suas permissões e dependências de rede.\n4) Verificar se os SDKs coletam ou transmitem dados\nsensíveis (ex.: IDs de dispositivo, logs, informações de\nconta).\n5) Calcular o percentual de SDKs de risco (RSDK) e\ndocumentar exemplos e categorias de vulnerabilidade.\n323",
+    "comment": "O uso de SDKs de terceiros é uma das principais fontes\nde centralização e exposição de dados em carteiras cripto.\nO estudo de Yan et al. (2023) identificou 29 SDKs de\nrisco em aplicativos amplamente utilizados, incluindo\nmódulos de análise, autenticação e notificações push.\nEssa dependência compromete a privacidade dos usuários\ne a integridade descentralizada da blockchain, gerando\npontos únicos de falha e rastreamento.\nInterpretação\ndo\nValor Medido\nValores altos (acima de 30%) indicam alto risco de\ncentralização e vazamento de dados devido ao uso de\nSDKs externos. Valores baixos (<10%) indicam bom\ncontrole de dependências e arquitetura descentralizada.",
+    "unit": "Percentual (%)",
+    "scale_type": "Razão",
+    "precision": "Depende da qualidade da análise estática dos binários\ne da identificação correta das bibliotecas de terceiros.\nFerramentas automatizadas podem subestimar SDKs\nofuscados.",
+    "data_collection": "Manual / Automatizada (Análise Estática de Código)",
+    "measurement_tool": "apktool, jadx, grep, análise de domínios e APIs; ferramentas de auditoria de segurança de apps móveis\n(MobSF, Ostorlab).",
+    "use_processes": "Auditoria de segurança de DApps; análise de conformidade de privacidade; avaliação de descentralização em\ncarteiras blockchain; certificação de software seguro.",
+    "beneficiaries": "Pesquisadores(as) de segurança blockchain; desenvolvedores(as) de carteiras; auditores(as) de código; equipes\nde compliance e privacidade.",
+    "references": "Yan, J.; Guo, H.; Chen, T.; Zhao, Z.; & Li, J. (2023). Bad Apples: Understanding the Centralized Security Risks in Decentralized\nEcosystems. Proceedings of The Web Conference (WWW\n2023), 104–118.\n324"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Risco de Integração de SDKs de Terceiros (Third-Party\nSDK Integration Risk)",
+    "Palavras-chave / Alias": "Third-party SDKs; External libraries; Dependency risk;\nData leakage; Privacy vulnerability; App centralization",
+    "Definição do Atributo": "Mede o nível de dependência e risco introduzido por\nSDKs e bibliotecas de terceiros integradas em aplicações\nblockchain (ex.: carteiras e DApps). Essa métrica avalia\no impacto potencial sobre a segurança, privacidade e\ndescentralização quando componentes externos acessam,\nprocessam ou transmitem dados sensíveis dos usuários.",
+    "Objetivo / Motivação": "Identificar vulnerabilidades de centralização e vazamento\nde dados causadas pela inclusão de SDKs externos (ex.:\nde análise, notificações, verificação de identidade). A\nmétrica busca mensurar o quanto esses componentes\ncomprometem a descentralização e a integridade dos\necossistemas blockchain.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Segurança",
+    "Sub-característica": "Confidencialidade / Integridade",
+    "Equação": "RSDK = NSDKs_riscos\nNSDKs_totais\n× 100\nonde NSDKs_riscos representa o número de SDKs identificados como potencialmente vulneráveis (coleta de dados\nsensíveis, rastreamento, autenticação centralizada, etc.),\ne NSDKs_totais é o total de SDKs integrados na aplicação.\nMétricas\nAssociadas\nData Leakage Rate; Privacy Exposure Index; RPC Centralization Risk; App Dependency Ratio\nAtributo\nRelacionado\nPrivacidade de Dados; Segurança de Dependências;\nTransparência de Código-Fonte",
+    "Protocolo": "1) Extrair o pacote APK da aplicação (ex.: carteira\nblockchain) e decompilá-lo utilizando ferramentas como\napktool ou jadx.\n2) Executar uma busca automatizada por pacotes de\nterceiros e nomes de domínios suspeitos em pastas smali.\n3) Classificar cada SDK como interno ou de terceiros,\nanalisando suas permissões e dependências de rede.\n4) Verificar se os SDKs coletam ou transmitem dados\nsensíveis (ex.: IDs de dispositivo, logs, informações de\nconta).\n5) Calcular o percentual de SDKs de risco (RSDK) e\ndocumentar exemplos e categorias de vulnerabilidade.\n323",
+    "Comentário": "O uso de SDKs de terceiros é uma das principais fontes\nde centralização e exposição de dados em carteiras cripto.\nO estudo de Yan et al. (2023) identificou 29 SDKs de\nrisco em aplicativos amplamente utilizados, incluindo\nmódulos de análise, autenticação e notificações push.\nEssa dependência compromete a privacidade dos usuários\ne a integridade descentralizada da blockchain, gerando\npontos únicos de falha e rastreamento.\nInterpretação\ndo\nValor Medido\nValores altos (acima de 30%) indicam alto risco de\ncentralização e vazamento de dados devido ao uso de\nSDKs externos. Valores baixos (<10%) indicam bom\ncontrole de dependências e arquitetura descentralizada.",
+    "Unidade": "Percentual (%)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Depende da qualidade da análise estática dos binários\ne da identificação correta das bibliotecas de terceiros.\nFerramentas automatizadas podem subestimar SDKs\nofuscados.",
+    "Tipo de Coleta de Dados": "Manual / Automatizada (Análise Estática de Código)",
+    "Ferramenta de Medição": "apktool, jadx, grep, análise de domínios e APIs; ferramentas de auditoria de segurança de apps móveis\n(MobSF, Ostorlab).",
+    "Processos de Uso Potenciais": "Auditoria de segurança de DApps; análise de conformidade de privacidade; avaliação de descentralização em\ncarteiras blockchain; certificação de software seguro.",
+    "Beneficiários Potenciais": "Pesquisadores(as) de segurança blockchain; desenvolvedores(as) de carteiras; auditores(as) de código; equipes\nde compliance e privacidade.",
+    "Referências": "Yan, J.; Guo, H.; Chen, T.; Zhao, Z.; & Li, J. (2023). Bad Apples: Understanding the Centralized Security Risks in Decentralized\nEcosystems. Proceedings of The Web Conference (WWW\n2023), 104–118.\n324"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 140"
+  }
+}

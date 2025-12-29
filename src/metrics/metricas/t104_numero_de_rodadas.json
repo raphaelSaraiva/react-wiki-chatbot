@@ -1,0 +1,48 @@
+{
+  "id": "t104",
+  "table_no": 104,
+  "name": "Número de Rodadas",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Tempo de Resposta / Utilização de Recursos"
+  },
+  "fields": {
+    "keywords_alias": "Number of rounds; Training rounds; Iterations; Blockchain consensus cycles; Federated learning epochs",
+    "definition": "Mede o número de rodadas de processamento ou\ntreinamento necessárias para que um modelo federado\nbaseado em blockchain atinja convergência ou consenso.\nEm sistemas híbridos de aprendizado e blockchain, cada\nrodada representa uma iteração de coleta, agregação e\nvalidação de parâmetros entre os nós participantes.",
+    "objective": "Quantificar a eficiência e o desempenho do sistema blockchain integrado ao aprendizado federado. O número de\nrodadas está diretamente relacionado à velocidade de\nconvergência, custo computacional e consumo de largura\nde banda na troca de parâmetros criptografados.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "O número total de rodadas (R) é definido por:\nR = T\nI\nonde T é o número total de iterações necessárias para\natingir convergência e I é o número de interações realizadas por rodada entre os nós do consórcio.\nMétricas\nAssociadas\nTempo de Convergência; Consumo de Banda; Precisão\ndo Modelo; Custo Computacional; Eficiência de Comunicação\nAtributo\nRelacionado\nEficiência de Treinamento; Escalabilidade; Desempenho\nde Consenso; Complexidade de Processamento",
+    "protocol": "1) Inicializar o modelo federado híbrido com criptografia\nhomomórfica e blockchain de consórcio.\n2) Definir o número de rodadas de treinamento para cada\nexperimento.\n3) Durante cada rodada: os nós locais treinam modelos\nlocais, criptografam os parâmetros e os enviam ao nó\nagregador via blockchain.\n4) O nó agregador calcula a média dos parâmetros recebidos e atualiza o modelo global.\n5) Repetir até que a precisão do modelo alcance o limiar\ndefinido ou o número máximo de rodadas seja atingido.\n250",
+    "comment": "No estudo, o número de rodadas de treinamento\n(Number of Rounds) foi uma variável de controle\npara comparar o desempenho de modelos federados híbridos. O sistema atingiu alta precisão (98,7%) após\naproximadamente 300 rodadas, demonstrando que o uso\nde blockchain de consórcio e criptografia homomórfica\nmelhora a confiabilidade e a privacidade sem impactar\nsignificativamente o tempo de convergência.\nInterpretação\ndo\nValor Medido\nMenor número de rodadas indica convergência mais\nrápida e maior eficiência do modelo. Maior número\nde rodadas pode indicar dificuldades de sincronização\nou complexidade elevada no compartilhamento de parâmetros criptografados.",
+    "unit": "Número de rodadas (iterações)",
+    "scale_type": "Razão",
+    "precision": "Alta, desde que cada rodada de treinamento e comunicação seja registrada de forma síncrona no ledger block-\nchain.",
+    "data_collection": "Experimental / Automática",
+    "measurement_tool": "Simulador federado baseado em blockchain; módulos\nde criptografia homomórfica; logs de iteração por nó;\nferramenta de agregação distribuída.",
+    "use_processes": "Avaliação de desempenho em aprendizado federado blockchain; comparação de tempo de convergência entre mode-\nlos; medição da eficiência de comunicação criptografada.",
+    "beneficiaries": "Pesquisadores em aprendizado federado; engenheiros de\nblockchain; especialistas em IoMT; desenvolvedores de\nmodelos de IA distribuídos.",
+    "references": "Kumar, A.; Ahmad, M.; Alazab, M.; Lin, X. A Novel Homomorphic Encryption and Consortium Blockchain-Based Hybrid\nDeep Learning Model for Industrial Internet of Medical Things.\nIEEE Transactions on Industrial Informatics, vol. 17, no. 8, pp.\n5765–5776, 2021. — A métrica Number of Rounds é utilizada\npara medir o número de iterações de treinamento em um modelo\nfederado com blockchain de consórcio, correlacionando desempenho\ne privacidade.\n251"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Número de Rodadas",
+    "Palavras-chave / Alias": "Number of rounds; Training rounds; Iterations; Blockchain consensus cycles; Federated learning epochs",
+    "Definição do Atributo": "Mede o número de rodadas de processamento ou\ntreinamento necessárias para que um modelo federado\nbaseado em blockchain atinja convergência ou consenso.\nEm sistemas híbridos de aprendizado e blockchain, cada\nrodada representa uma iteração de coleta, agregação e\nvalidação de parâmetros entre os nós participantes.",
+    "Objetivo / Motivação": "Quantificar a eficiência e o desempenho do sistema blockchain integrado ao aprendizado federado. O número de\nrodadas está diretamente relacionado à velocidade de\nconvergência, custo computacional e consumo de largura\nde banda na troca de parâmetros criptografados.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Tempo de Resposta / Utilização de Recursos",
+    "Equação": "O número total de rodadas (R) é definido por:\nR = T\nI\nonde T é o número total de iterações necessárias para\natingir convergência e I é o número de interações realizadas por rodada entre os nós do consórcio.\nMétricas\nAssociadas\nTempo de Convergência; Consumo de Banda; Precisão\ndo Modelo; Custo Computacional; Eficiência de Comunicação\nAtributo\nRelacionado\nEficiência de Treinamento; Escalabilidade; Desempenho\nde Consenso; Complexidade de Processamento",
+    "Protocolo": "1) Inicializar o modelo federado híbrido com criptografia\nhomomórfica e blockchain de consórcio.\n2) Definir o número de rodadas de treinamento para cada\nexperimento.\n3) Durante cada rodada: os nós locais treinam modelos\nlocais, criptografam os parâmetros e os enviam ao nó\nagregador via blockchain.\n4) O nó agregador calcula a média dos parâmetros recebidos e atualiza o modelo global.\n5) Repetir até que a precisão do modelo alcance o limiar\ndefinido ou o número máximo de rodadas seja atingido.\n250",
+    "Comentário": "No estudo, o número de rodadas de treinamento\n(Number of Rounds) foi uma variável de controle\npara comparar o desempenho de modelos federados híbridos. O sistema atingiu alta precisão (98,7%) após\naproximadamente 300 rodadas, demonstrando que o uso\nde blockchain de consórcio e criptografia homomórfica\nmelhora a confiabilidade e a privacidade sem impactar\nsignificativamente o tempo de convergência.\nInterpretação\ndo\nValor Medido\nMenor número de rodadas indica convergência mais\nrápida e maior eficiência do modelo. Maior número\nde rodadas pode indicar dificuldades de sincronização\nou complexidade elevada no compartilhamento de parâmetros criptografados.",
+    "Unidade": "Número de rodadas (iterações)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Alta, desde que cada rodada de treinamento e comunicação seja registrada de forma síncrona no ledger block-\nchain.",
+    "Tipo de Coleta de Dados": "Experimental / Automática",
+    "Ferramenta de Medição": "Simulador federado baseado em blockchain; módulos\nde criptografia homomórfica; logs de iteração por nó;\nferramenta de agregação distribuída.",
+    "Processos de Uso Potenciais": "Avaliação de desempenho em aprendizado federado blockchain; comparação de tempo de convergência entre mode-\nlos; medição da eficiência de comunicação criptografada.",
+    "Beneficiários Potenciais": "Pesquisadores em aprendizado federado; engenheiros de\nblockchain; especialistas em IoMT; desenvolvedores de\nmodelos de IA distribuídos.",
+    "Referências": "Kumar, A.; Ahmad, M.; Alazab, M.; Lin, X. A Novel Homomorphic Encryption and Consortium Blockchain-Based Hybrid\nDeep Learning Model for Industrial Internet of Medical Things.\nIEEE Transactions on Industrial Informatics, vol. 17, no. 8, pp.\n5765–5776, 2021. — A métrica Number of Rounds é utilizada\npara medir o número de iterações de treinamento em um modelo\nfederado com blockchain de consórcio, correlacionando desempenho\ne privacidade.\n251"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 104"
+  }
+}

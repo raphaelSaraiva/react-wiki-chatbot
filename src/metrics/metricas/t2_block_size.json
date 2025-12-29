@@ -1,0 +1,39 @@
+{
+  "id": "t2",
+  "table_no": 2,
+  "name": "Block Size",
+  "iso25010": {
+    "characteristic": "Desempenho",
+    "subcharacteristic": "Comportamento temporal / Capacidade"
+  },
+  "fields": {
+    "equation": "Tamanho de um bloco b: Sb = Sheader +\nNb\nX\ni=1\nStx,i + Smeta.\nMédia em uma janela com n blocos: S = 1\nn\nn\nX\nk=1\nSbk.\nRelação com # de transações no bloco (aprox.):\nNb ≈\n$ Sb\nStx\n%\n. (Usar Stx medido no cenário.)\nMétricas\nAssociadas\nValidation/propagation delay; Latência de confirmação;\nTPS; Taxa de stale/órfãos; Tamanho do ledger.\nAtributo\nRelacionado\nBlock time; Parâmetros de rede (largura de\nbanda/RTT); Estratégia de seleção de transações\n(fee/fee-per-byte/FIFO); Parâmetros de batching\n(Fabric).\n4",
+    "protocol": "1) Escopo: definir rede (pública/consórcio), janela\ntemporal e fonte (nó local/JSON-RPC/explorador).\n2) Coleta: extrair Sb por bloco e (opcional) Nb, Stx,\nvalidation delay e taxa de stale.\n3) Cálculo: obter estatísticas (média/mediana/p95) de\nSb e correlacionar com validation/propagation delay.\n4) Contexto: registrar parâmetros (tempo de bloco,\npolítica de seleção, # de validadores) e condições de\nrede (utilização/RTT).\n5) (Fabric) Benchmark: variar batch size/timeout e\nmedir TPS/latência com Caliper.",
+    "comment": "(i) Em Bitcoin, medições de um mês mostraram\ntamanhos de bloco de 200 B a 2,09 MB e correlação\nlinear entre block size e validation delay; alta utilização\nda rede aumenta stale. (ii) Modelos de filas indicam que\naumentar o tamanho de bloco reduz o waiting time\nmédio, porém transações com fee baixo seguem sofrendo\nmaiores esperas; mesmo ampliando de 1 MB para 8 MB,\no ganho não elimina a disparidade. (iii) Em soluções\npermissionadas (saúde), a avaliação de desempenho usa\nTPS/latência e pode ajustar batch size/timeout;\narquiteturas com IPFS reduzem carga por transação\n(menos bytes on-chain).",
+    "interpretation": "Maior block size aumenta a capacidade de acomodar\ntransações por bloco, mas tende a elevar atraso de\nvalidação/propagação e a taxa de stale sob redes\nsaturadas. Deve ser otimizado com block time, política\nde seleção e condições de rede.",
+    "unit": "Bytes (B), kB, MB; (em Fabric, também: nº de\ntransações por bloco).",
+    "scale_type": "Absoluta (razão).",
+    "precision": "Garantir leitura dos bytes reais do bloco (não apenas\ncontagem de transações). Em públicas, considerar\nreorgs; em consórcios, confirmar block cut efetivo e\nmetadados. Sincronizar relógios para medições de\ncorrelação com atrasos.",
+    "data_collection": "Automática\nFerramenta de\nMedição\nClientes/JSON-RPC (p.ex., getblock); exportadores e\nexploradores; benchmarks (Hyperledger Caliper) para\nTPS/latência sob diferentes batch sizes.\n5",
+    "use_processes": "Planejamento de capacidade; tuning de parâmetros\n(tempo de bloco, batch size/timeout); análise de\nimpacto de políticas de seleção em tempos de espera;\ndesenho de arquiteturas híbridas on/off-chain para\nreduzir bytes por transação.\nBeneficiários\nPotenciais\nEngenheiros(as) de blockchain; SRE/Operações;\nArquitetos(as) de sistemas; Gestores(as) de\nproduto/SLA; Pesquisadores(as).",
+    "references": "(1) Rohrer & Tschorsch — Blockchain Layer Zero: Characterizing\nthe Bitcoin Network (medições de tamanho de blocos, correlação\ncom validation delay, efeito de congestão em stale).\n(2) Gebraselase et al. — Effect of Miner Incentive on the Confirmation Time of Bitcoin Transactions (modelo M(t)/MN/1; impacto\nde block size e políticas de seleção no waiting time).\n(3) Zaabar et al. — HealthBlock: A secure blockchain-based healthcare data management system (avaliação com Hyperledger Caliper;\ndiscussão de desempenho e arquitetura com IPFS).\n6"
+  },
+  "raw_fields": {
+    "Característica": "Desempenho",
+    "Sub-característica": "Comportamento temporal / Capacidade",
+    "Equação": "Tamanho de um bloco b: Sb = Sheader +\nNb\nX\ni=1\nStx,i + Smeta.\nMédia em uma janela com n blocos: S = 1\nn\nn\nX\nk=1\nSbk.\nRelação com # de transações no bloco (aprox.):\nNb ≈\n$ Sb\nStx\n%\n. (Usar Stx medido no cenário.)\nMétricas\nAssociadas\nValidation/propagation delay; Latência de confirmação;\nTPS; Taxa de stale/órfãos; Tamanho do ledger.\nAtributo\nRelacionado\nBlock time; Parâmetros de rede (largura de\nbanda/RTT); Estratégia de seleção de transações\n(fee/fee-per-byte/FIFO); Parâmetros de batching\n(Fabric).\n4",
+    "Protocolo": "1) Escopo: definir rede (pública/consórcio), janela\ntemporal e fonte (nó local/JSON-RPC/explorador).\n2) Coleta: extrair Sb por bloco e (opcional) Nb, Stx,\nvalidation delay e taxa de stale.\n3) Cálculo: obter estatísticas (média/mediana/p95) de\nSb e correlacionar com validation/propagation delay.\n4) Contexto: registrar parâmetros (tempo de bloco,\npolítica de seleção, # de validadores) e condições de\nrede (utilização/RTT).\n5) (Fabric) Benchmark: variar batch size/timeout e\nmedir TPS/latência com Caliper.",
+    "Comentário": "(i) Em Bitcoin, medições de um mês mostraram\ntamanhos de bloco de 200 B a 2,09 MB e correlação\nlinear entre block size e validation delay; alta utilização\nda rede aumenta stale. (ii) Modelos de filas indicam que\naumentar o tamanho de bloco reduz o waiting time\nmédio, porém transações com fee baixo seguem sofrendo\nmaiores esperas; mesmo ampliando de 1 MB para 8 MB,\no ganho não elimina a disparidade. (iii) Em soluções\npermissionadas (saúde), a avaliação de desempenho usa\nTPS/latência e pode ajustar batch size/timeout;\narquiteturas com IPFS reduzem carga por transação\n(menos bytes on-chain).",
+    "Interpretação do Valor Medido": "Maior block size aumenta a capacidade de acomodar\ntransações por bloco, mas tende a elevar atraso de\nvalidação/propagação e a taxa de stale sob redes\nsaturadas. Deve ser otimizado com block time, política\nde seleção e condições de rede.",
+    "Unidade": "Bytes (B), kB, MB; (em Fabric, também: nº de\ntransações por bloco).",
+    "Tipo de Escala": "Absoluta (razão).",
+    "Precisão": "Garantir leitura dos bytes reais do bloco (não apenas\ncontagem de transações). Em públicas, considerar\nreorgs; em consórcios, confirmar block cut efetivo e\nmetadados. Sincronizar relógios para medições de\ncorrelação com atrasos.",
+    "Tipo de Coleta de Dados": "Automática\nFerramenta de\nMedição\nClientes/JSON-RPC (p.ex., getblock); exportadores e\nexploradores; benchmarks (Hyperledger Caliper) para\nTPS/latência sob diferentes batch sizes.\n5",
+    "Processos de Uso Potenciais": "Planejamento de capacidade; tuning de parâmetros\n(tempo de bloco, batch size/timeout); análise de\nimpacto de políticas de seleção em tempos de espera;\ndesenho de arquiteturas híbridas on/off-chain para\nreduzir bytes por transação.\nBeneficiários\nPotenciais\nEngenheiros(as) de blockchain; SRE/Operações;\nArquitetos(as) de sistemas; Gestores(as) de\nproduto/SLA; Pesquisadores(as).",
+    "Referências": "(1) Rohrer & Tschorsch — Blockchain Layer Zero: Characterizing\nthe Bitcoin Network (medições de tamanho de blocos, correlação\ncom validation delay, efeito de congestão em stale).\n(2) Gebraselase et al. — Effect of Miner Incentive on the Confirmation Time of Bitcoin Transactions (modelo M(t)/MN/1; impacto\nde block size e políticas de seleção no waiting time).\n(3) Zaabar et al. — HealthBlock: A secure blockchain-based healthcare data management system (avaliação com Hyperledger Caliper;\ndiscussão de desempenho e arquitetura com IPFS).\n6"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 2"
+  }
+}

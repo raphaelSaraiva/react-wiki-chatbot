@@ -1,0 +1,48 @@
+{
+  "id": "t142",
+  "table_no": 142,
+  "name": "Tempo para Vencer",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Tempo de Resposta / Desempenho de Processamento"
+  },
+  "fields": {
+    "keywords_alias": "Time to win; Block generation latency; Leader election\ntime; Key block selection delay; Mining success delay",
+    "definition": "Intervalo de tempo necessário para que um minerador ou\nnó produza um bloco vencedor após iniciar o processo\nde mineração. Representa o atraso médio entre o início\nda tentativa de mineração e a descoberta do bloco válido\naceito pela rede.",
+    "objective": "Avaliar a eficiência e o tempo de resposta do protocolo\nde consenso na eleição de um novo líder (bloco vencedor).\nEssa métrica é essencial para analisar o desempenho de\nprotocolos escaláveis como o Bitcoin-NG, que utilizam\nblocos principais (key blocks) e microblocos.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Twin = tdiscover −tstart\nonde tstart é o momento de início da tentativa de mineração e tdiscover é o instante em que o bloco vencedor é\nencontrado e validado.\nMétricas\nAssociadas\nBlock Propagation Delay; Time to Prune; Mining Power\nUtilization; Throughput\nAtributo\nRelacionado\nTempo de Confirmação; Latência de Consenso; Dificuldade de Mineração",
+    "protocol": "1) Monitorar os logs de mineração de cada nó durante a\nexecução da rede.\n2) Registrar o tempo de início de cada tentativa de mineração (tstart).\n3) Registrar o instante em que o bloco vencedor é encontrado (tdiscover).\n4) Calcular o tempo de vitória Twin para cada evento de\nmineração.\n5) Analisar estatísticas (média, p50, p95) e variabilidade\nentre diferentes nós.\n327",
+    "comment": "O tempo para vencer varia de acordo com o poder computacional do minerador, a dificuldade de mineração e\na latência de propagação dos blocos. Em Bitcoin-NG,\no processo é otimizado pela separação entre key blocks\n(mineração competitiva) e microblocks (transmissão rápida de transações), reduzindo o impacto de latência e\ntornando o sistema mais responsivo.\nInterpretação\ndo\nValor Medido\nValores menores de Twin indicam maior eficiência de mineração e propagação, contribuindo para uma rede mais\nrápida e justa. Valores altos podem sugerir congestionamento, má distribuição de poder computacional ou\nproblemas de conectividade.",
+    "unit": "Segundos (s)",
+    "scale_type": "Razão",
+    "precision": "Requer sincronização temporal precisa entre nós e registro detalhado dos eventos de mineração. A latência de\nrede pode introduzir pequenos desvios de medição.",
+    "data_collection": "Automática / Experimental",
+    "measurement_tool": "Logs de mineração (Bitcoin-NG prototype, btcd, geth);\nPrometheus; scripts de monitoramento distribuído; análise de blocos via RPC.",
+    "use_processes": "Avaliação de desempenho do consenso; análise de justiça\nna mineração; comparação entre protocolos PoW e híbridos (PoW/PoS); otimização de tempo de resposta em\nsistemas distribuídos.",
+    "beneficiaries": "Pesquisadores de consenso distribuído; desenvolvedores\nde protocolos blockchain; engenheiros de desempenho;\nadministradores de rede.",
+    "references": "(1) Eyal, I., & Sirer, E. G. (2016). Bitcoin-NG: A Scalable Blockchain Protocol. — descreve o tempo de eleição de líderes (key\nblocks) e o impacto da arquitetura em blocos vencedores sobre a\nlatência total e o desempenho do consenso.\n328"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Tempo para Vencer",
+    "Palavras-chave / Alias": "Time to win; Block generation latency; Leader election\ntime; Key block selection delay; Mining success delay",
+    "Definição do Atributo": "Intervalo de tempo necessário para que um minerador ou\nnó produza um bloco vencedor após iniciar o processo\nde mineração. Representa o atraso médio entre o início\nda tentativa de mineração e a descoberta do bloco válido\naceito pela rede.",
+    "Objetivo / Motivação": "Avaliar a eficiência e o tempo de resposta do protocolo\nde consenso na eleição de um novo líder (bloco vencedor).\nEssa métrica é essencial para analisar o desempenho de\nprotocolos escaláveis como o Bitcoin-NG, que utilizam\nblocos principais (key blocks) e microblocos.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Tempo de Resposta / Desempenho de Processamento",
+    "Equação": "Twin = tdiscover −tstart\nonde tstart é o momento de início da tentativa de mineração e tdiscover é o instante em que o bloco vencedor é\nencontrado e validado.\nMétricas\nAssociadas\nBlock Propagation Delay; Time to Prune; Mining Power\nUtilization; Throughput\nAtributo\nRelacionado\nTempo de Confirmação; Latência de Consenso; Dificuldade de Mineração",
+    "Protocolo": "1) Monitorar os logs de mineração de cada nó durante a\nexecução da rede.\n2) Registrar o tempo de início de cada tentativa de mineração (tstart).\n3) Registrar o instante em que o bloco vencedor é encontrado (tdiscover).\n4) Calcular o tempo de vitória Twin para cada evento de\nmineração.\n5) Analisar estatísticas (média, p50, p95) e variabilidade\nentre diferentes nós.\n327",
+    "Comentário": "O tempo para vencer varia de acordo com o poder computacional do minerador, a dificuldade de mineração e\na latência de propagação dos blocos. Em Bitcoin-NG,\no processo é otimizado pela separação entre key blocks\n(mineração competitiva) e microblocks (transmissão rápida de transações), reduzindo o impacto de latência e\ntornando o sistema mais responsivo.\nInterpretação\ndo\nValor Medido\nValores menores de Twin indicam maior eficiência de mineração e propagação, contribuindo para uma rede mais\nrápida e justa. Valores altos podem sugerir congestionamento, má distribuição de poder computacional ou\nproblemas de conectividade.",
+    "Unidade": "Segundos (s)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Requer sincronização temporal precisa entre nós e registro detalhado dos eventos de mineração. A latência de\nrede pode introduzir pequenos desvios de medição.",
+    "Tipo de Coleta de Dados": "Automática / Experimental",
+    "Ferramenta de Medição": "Logs de mineração (Bitcoin-NG prototype, btcd, geth);\nPrometheus; scripts de monitoramento distribuído; análise de blocos via RPC.",
+    "Processos de Uso Potenciais": "Avaliação de desempenho do consenso; análise de justiça\nna mineração; comparação entre protocolos PoW e híbridos (PoW/PoS); otimização de tempo de resposta em\nsistemas distribuídos.",
+    "Beneficiários Potenciais": "Pesquisadores de consenso distribuído; desenvolvedores\nde protocolos blockchain; engenheiros de desempenho;\nadministradores de rede.",
+    "Referências": "(1) Eyal, I., & Sirer, E. G. (2016). Bitcoin-NG: A Scalable Blockchain Protocol. — descreve o tempo de eleição de líderes (key\nblocks) e o impacto da arquitetura em blocos vencedores sobre a\nlatência total e o desempenho do consenso.\n328"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 142"
+  }
+}

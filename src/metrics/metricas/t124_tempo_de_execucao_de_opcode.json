@@ -1,0 +1,48 @@
+{
+  "id": "t124",
+  "table_no": 124,
+  "name": "Tempo de Execução de Opcode",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos / Comportamento Temporal"
+  },
+  "fields": {
+    "keywords_alias": "Opcode Runtime; Gas Efficiency; EVM Instruction Cost;\nExecution Time per Opcode; Gas-Time Ratio",
+    "definition": "Mede a razão entre o tempo real de execução e o custo\nem gas associado a cada opcode da Ethereum Virtual\nMachine (EVM). Essa métrica identifica discrepâncias\nentre o custo computacional efetivo e o valor de gas\ndefinido, permitindo avaliar a eficiência e a equidade do\nmecanismo de precificação da Ethereum.",
+    "objective": "Avaliar a correlação entre o custo teórico em gas e o\ntempo real de execução dos opcodes, a fim de detectar\ninstruções sub ou superprecificadas e propor ajustes que\nmelhorem o desempenho e a previsibilidade dos contratos\ninteligentes.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Opcode Runtime Rate = Texecução\nCgas\nonde Texecução é o tempo médio de execução de um opcode\nem nanossegundos e Cgas é o custo de gas correspondente\ndefinido pela EVM.\nMétricas\nAssociadas\nGas Cost per Instruction; CPU Utilization; Execution\nLatency; Gas Price Volatility\nAtributo\nRelacionado\nEficiência de Instrução; Custo de Gas; Tempo de Execução de Contrato",
+    "protocol": "1) Instrumentar um cliente Ethereum (ex.: aleth ou geth)\npara coletar traços de execução em nível de opcode.\n2) Registrar o tempo real de execução (nanosegundos)\nde cada instrução usando ferramentas de rastreamento\n(lttng, chrono).\n3) Associar cada opcode ao custo em gas definido pela\nespecificação Ethereum Yellow Paper.\n4) Calcular a razão Opcode Runtime Rate para cada\ninstrução e analisar sua variação estatística (média, mediana, CoV, IQR).\n5) Identificar opcodes com desvio significativo em relação\nà média global ( 1000 ns/gas).\n291",
+    "comment": "O estudo revelou que certos opcodes apresentam tempos\nde execução até 10× maiores que o esperado para seu\ncusto de gas nominal. Essa discrepância afeta a previsibilidade de desempenho e pode distorcer o modelo de custo\nda rede Ethereum. A métrica é essencial para propor\najustes de gas mais alinhados ao custo real de hardware.\nInterpretação\ndo\nValor Medido\nValores elevados indicam opcodes subprecificados (custos\nde gas abaixo do necessário), enquanto valores baixos\nindicam superprecificação. Um valor médio estável próximo a 1 ns/gas representa boa correlação entre custo\nteórico e desempenho real.",
+    "unit": "Nanossegundos por unidade de gas (ns/gas)",
+    "scale_type": "Razão",
+    "precision": "Alta, com variação dependente da granularidade temporal e da estabilidade do hardware usado nos experimen-\ntos.",
+    "data_collection": "Experimental / Automática",
+    "measurement_tool": "Cliente Ethereum (aleth, geth); lttng tracer; biblioteca\nchrono (C++); LevelDB para armazenamento de logs;\nscripts Python para análise estatística.",
+    "use_processes": "Avaliação de eficiência de gas na EVM; otimização de\ncontratos inteligentes; calibração do modelo de gas Ethereum; estudos de desempenho cross-platform.",
+    "beneficiaries": "Pesquisadores(as) de blockchain; engenheiros(as) da\nEVM; desenvolvedores(as) de contratos inteligentes; projetistas de protocolos de gas.",
+    "references": "Yang, R., Murray, T., Rimba, P., & Parampalli, U. (2019). Empirically Analyzing Ethereum’s Gas Mechanism.\nUniversity of\nMelbourne and CSIRO Data61.\n292"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Tempo de Execução de Opcode",
+    "Palavras-chave / Alias": "Opcode Runtime; Gas Efficiency; EVM Instruction Cost;\nExecution Time per Opcode; Gas-Time Ratio",
+    "Definição do Atributo": "Mede a razão entre o tempo real de execução e o custo\nem gas associado a cada opcode da Ethereum Virtual\nMachine (EVM). Essa métrica identifica discrepâncias\nentre o custo computacional efetivo e o valor de gas\ndefinido, permitindo avaliar a eficiência e a equidade do\nmecanismo de precificação da Ethereum.",
+    "Objetivo / Motivação": "Avaliar a correlação entre o custo teórico em gas e o\ntempo real de execução dos opcodes, a fim de detectar\ninstruções sub ou superprecificadas e propor ajustes que\nmelhorem o desempenho e a previsibilidade dos contratos\ninteligentes.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de Recursos / Comportamento Temporal",
+    "Equação": "Opcode Runtime Rate = Texecução\nCgas\nonde Texecução é o tempo médio de execução de um opcode\nem nanossegundos e Cgas é o custo de gas correspondente\ndefinido pela EVM.\nMétricas\nAssociadas\nGas Cost per Instruction; CPU Utilization; Execution\nLatency; Gas Price Volatility\nAtributo\nRelacionado\nEficiência de Instrução; Custo de Gas; Tempo de Execução de Contrato",
+    "Protocolo": "1) Instrumentar um cliente Ethereum (ex.: aleth ou geth)\npara coletar traços de execução em nível de opcode.\n2) Registrar o tempo real de execução (nanosegundos)\nde cada instrução usando ferramentas de rastreamento\n(lttng, chrono).\n3) Associar cada opcode ao custo em gas definido pela\nespecificação Ethereum Yellow Paper.\n4) Calcular a razão Opcode Runtime Rate para cada\ninstrução e analisar sua variação estatística (média, mediana, CoV, IQR).\n5) Identificar opcodes com desvio significativo em relação\nà média global ( 1000 ns/gas).\n291",
+    "Comentário": "O estudo revelou que certos opcodes apresentam tempos\nde execução até 10× maiores que o esperado para seu\ncusto de gas nominal. Essa discrepância afeta a previsibilidade de desempenho e pode distorcer o modelo de custo\nda rede Ethereum. A métrica é essencial para propor\najustes de gas mais alinhados ao custo real de hardware.\nInterpretação\ndo\nValor Medido\nValores elevados indicam opcodes subprecificados (custos\nde gas abaixo do necessário), enquanto valores baixos\nindicam superprecificação. Um valor médio estável próximo a 1 ns/gas representa boa correlação entre custo\nteórico e desempenho real.",
+    "Unidade": "Nanossegundos por unidade de gas (ns/gas)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Alta, com variação dependente da granularidade temporal e da estabilidade do hardware usado nos experimen-\ntos.",
+    "Tipo de Coleta de Dados": "Experimental / Automática",
+    "Ferramenta de Medição": "Cliente Ethereum (aleth, geth); lttng tracer; biblioteca\nchrono (C++); LevelDB para armazenamento de logs;\nscripts Python para análise estatística.",
+    "Processos de Uso Potenciais": "Avaliação de eficiência de gas na EVM; otimização de\ncontratos inteligentes; calibração do modelo de gas Ethereum; estudos de desempenho cross-platform.",
+    "Beneficiários Potenciais": "Pesquisadores(as) de blockchain; engenheiros(as) da\nEVM; desenvolvedores(as) de contratos inteligentes; projetistas de protocolos de gas.",
+    "Referências": "Yang, R., Murray, T., Rimba, P., & Parampalli, U. (2019). Empirically Analyzing Ethereum’s Gas Mechanism.\nUniversity of\nMelbourne and CSIRO Data61.\n292"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 124"
+  }
+}

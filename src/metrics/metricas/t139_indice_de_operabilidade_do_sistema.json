@@ -1,0 +1,48 @@
+{
+  "id": "t139",
+  "table_no": 139,
+  "name": "Índice de Operabilidade do Sistema",
+  "iso25010": {
+    "characteristic": "Usabilidade",
+    "subcharacteristic": "Operabilidade"
+  },
+  "fields": {
+    "keywords_alias": "System Operability Index; Operability Score; Shard Coordination Efficiency; System Manageability; Shard Sta-\nbility Rate",
+    "definition": "Mede o nível de eficiência operacional e estabilidade de um sistema blockchain fragmentado\n(sharded blockchain) durante processos de redistribuição de shards, mudanças no número de nós ou variações\nde carga. Representa a capacidade do sistema de manter\ndesempenho, coordenação e disponibilidade de forma\ncontínua.",
+    "objective": "Quantificar o grau em que o protocolo de sharding mantém sua funcionalidade e estabilidade operacional diante\nde reconfigurações, reduzindo o tempo de realocação e\no custo de coordenação. Essa métrica busca refletir a\nrobustez operacional e a facilidade de manutenção de um\nprotocolo blockchain em ambientes dinâmicos.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "O índice de operabilidade (IOs) pode ser definido por:\nIOs =\nRstability\nTreconfig × Ccoord\nonde Rstability é a taxa de estabilidade após redistribuição\nde shards, Treconfig é o tempo médio de reconfiguração, e\nCcoord o custo médio de coordenação entre shards. Valores maiores de IOs indicam maior eficiência operacional.\nMétricas\nAssociadas\nTempo de Reconfiguração de Shard; Custo de Coordenação; Taxa de Estabilidade de Shard; Throughput;\nLatência Média\nAtributo\nRelacionado\nEscalabilidade; Tolerância a Falhas; Disponibilidade; Manutenibilidade",
+    "protocol": "1) Implementar o protocolo de alocação de shards (ex.:\nShardMan ou proposta otimizada).\n2) Simular eventos de redistribuição e variação de carga\nem diferentes cenários de nós.\n3) Medir o tempo de reconfiguração (Treconfig), custo de\ncoordenação (Ccoord) e taxa de estabilidade (Rstability).\n4) Calcular o índice IOs e compará-lo entre protocolos\ntestados.\n321",
+    "comment": "A métrica foi utilizada para comparar a operabilidade entre o protocolo ShardMan e uma versão aprimorada. Os\nresultados mostraram que o protocolo otimizado reduziu\no tempo de reconfiguração e o custo de coordenação, resultando em um aumento significativo do índice de\noperabilidade. Isso demonstra que melhorias em gerenciamento dinâmico e redistribuição de shards impactam\ndiretamente a usabilidade e desempenho global.\nInterpretação\ndo\nValor Medido\nValores altos indicam um sistema altamente operável,\ncom boa coordenação e estabilidade sob reconfigurações.\nValores baixos sugerem falhas de sincronização, longos\ntempos de redistribuição ou alto custo de coordenação.",
+    "unit": "Índice adimensional (0–1)",
+    "scale_type": "Razão",
+    "precision": "A precisão depende da quantidade de execuções e da diversidade de cenários (variação de nós, carga e frequência\nde reconfiguração).",
+    "data_collection": "Experimental / Automática",
+    "measurement_tool": "Simuladores de sharded blockchain; Python (pandas,\nNumPy) para coleta e análise; Prometheus e logs do\nprotocolo ShardMan para monitoramento do tempo e\ncoordenação.",
+    "use_processes": "Avaliação de protocolos de alocação de shards; análise de\nestabilidade operacional; comparação de eficiência entre\narquiteturas fragmentadas.",
+    "beneficiaries": "Pesquisadores de blockchain; engenheiros de sistemas distribuídos; projetistas de protocolos de sharding; analistas\nde desempenho.",
+    "references": "Zheng, S.; Badsha, S.; Khalil, I. Analysing and Improving Shard\nAllocation Protocols for Sharded Blockchains. IEEE Transactions\non Network and Service Management, 2022. — O estudo propõe o\nconceito de operabilidade como métrica de avaliação de eficiência\noperacional em protocolos sharded, introduzindo o Índice de\nOperabilidade do Sistema (System Operability Index)\npara medir o equilíbrio entre estabilidade, tempo de reconfiguração\ne custo de coordenação.\n322"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Índice de Operabilidade do Sistema",
+    "Palavras-chave / Alias": "System Operability Index; Operability Score; Shard Coordination Efficiency; System Manageability; Shard Sta-\nbility Rate",
+    "Definição do Atributo": "Mede o nível de eficiência operacional e estabilidade de um sistema blockchain fragmentado\n(sharded blockchain) durante processos de redistribuição de shards, mudanças no número de nós ou variações\nde carga. Representa a capacidade do sistema de manter\ndesempenho, coordenação e disponibilidade de forma\ncontínua.",
+    "Objetivo / Motivação": "Quantificar o grau em que o protocolo de sharding mantém sua funcionalidade e estabilidade operacional diante\nde reconfigurações, reduzindo o tempo de realocação e\no custo de coordenação. Essa métrica busca refletir a\nrobustez operacional e a facilidade de manutenção de um\nprotocolo blockchain em ambientes dinâmicos.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Usabilidade",
+    "Sub-característica": "Operabilidade",
+    "Equação": "O índice de operabilidade (IOs) pode ser definido por:\nIOs =\nRstability\nTreconfig × Ccoord\nonde Rstability é a taxa de estabilidade após redistribuição\nde shards, Treconfig é o tempo médio de reconfiguração, e\nCcoord o custo médio de coordenação entre shards. Valores maiores de IOs indicam maior eficiência operacional.\nMétricas\nAssociadas\nTempo de Reconfiguração de Shard; Custo de Coordenação; Taxa de Estabilidade de Shard; Throughput;\nLatência Média\nAtributo\nRelacionado\nEscalabilidade; Tolerância a Falhas; Disponibilidade; Manutenibilidade",
+    "Protocolo": "1) Implementar o protocolo de alocação de shards (ex.:\nShardMan ou proposta otimizada).\n2) Simular eventos de redistribuição e variação de carga\nem diferentes cenários de nós.\n3) Medir o tempo de reconfiguração (Treconfig), custo de\ncoordenação (Ccoord) e taxa de estabilidade (Rstability).\n4) Calcular o índice IOs e compará-lo entre protocolos\ntestados.\n321",
+    "Comentário": "A métrica foi utilizada para comparar a operabilidade entre o protocolo ShardMan e uma versão aprimorada. Os\nresultados mostraram que o protocolo otimizado reduziu\no tempo de reconfiguração e o custo de coordenação, resultando em um aumento significativo do índice de\noperabilidade. Isso demonstra que melhorias em gerenciamento dinâmico e redistribuição de shards impactam\ndiretamente a usabilidade e desempenho global.\nInterpretação\ndo\nValor Medido\nValores altos indicam um sistema altamente operável,\ncom boa coordenação e estabilidade sob reconfigurações.\nValores baixos sugerem falhas de sincronização, longos\ntempos de redistribuição ou alto custo de coordenação.",
+    "Unidade": "Índice adimensional (0–1)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "A precisão depende da quantidade de execuções e da diversidade de cenários (variação de nós, carga e frequência\nde reconfiguração).",
+    "Tipo de Coleta de Dados": "Experimental / Automática",
+    "Ferramenta de Medição": "Simuladores de sharded blockchain; Python (pandas,\nNumPy) para coleta e análise; Prometheus e logs do\nprotocolo ShardMan para monitoramento do tempo e\ncoordenação.",
+    "Processos de Uso Potenciais": "Avaliação de protocolos de alocação de shards; análise de\nestabilidade operacional; comparação de eficiência entre\narquiteturas fragmentadas.",
+    "Beneficiários Potenciais": "Pesquisadores de blockchain; engenheiros de sistemas distribuídos; projetistas de protocolos de sharding; analistas\nde desempenho.",
+    "Referências": "Zheng, S.; Badsha, S.; Khalil, I. Analysing and Improving Shard\nAllocation Protocols for Sharded Blockchains. IEEE Transactions\non Network and Service Management, 2022. — O estudo propõe o\nconceito de operabilidade como métrica de avaliação de eficiência\noperacional em protocolos sharded, introduzindo o Índice de\nOperabilidade do Sistema (System Operability Index)\npara medir o equilíbrio entre estabilidade, tempo de reconfiguração\ne custo de coordenação.\n322"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 139"
+  }
+}

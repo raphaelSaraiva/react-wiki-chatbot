@@ -1,0 +1,181 @@
+[
+  {
+    "AttributeName": "Latência",
+    "Keywords/Aliases": ["Tempo de resposta", "Retardo de rede"],
+    "AttributeDefinition": "Tempo total necessário para que uma transação seja confirmada em uma rede blockchain, desde sua submissão até a inclusão em um bloco.",
+    "Objective/Motivation": "Avaliar a eficiência temporal da rede blockchain. Latências mais baixas indicam redes mais rápidas e escaláveis, enquanto valores altos podem indicar gargalos ou congestionamento.",
+    "DomainIndependenceLevel": "Totalmente independente do domínio.",
+    "AttributeType": "Externo",
+    "Entity": "Produto",
+    "QualityModel": "ISO/IEC 25010",
+    "Characteristic": "Desempenho",
+    "Subcharacteristic": "Tempo de Resposta",
+    "PotentialCategories": ["Métricas Temporais"],
+    "Equation": "Latência = T_confirmação - T_submissão",
+    "AssociatedMetrics": ["Taxa de Transferência"],
+    "RelatedAttribute": "Disponibilidade",
+    "Protocol": [
+      "Submeter uma transação à rede blockchain.",
+      "Registrar o horário exato de submissão (T_submissão).",
+      "Observar o horário de confirmação (T_confirmação) registrado pelo bloco.",
+      "Calcular a diferença entre os dois tempos."
+    ],
+    "Comment": "Valores baixos são desejáveis para indicar redes mais rápidas.",
+    "InterpretationOfMeasuredValue": "Valores mais baixos são melhores.",
+    "Unit": "Milissegundos (ms)",
+    "ScaleType": "Absoluta",
+    "Precision": "Determinada pela precisão do relógio utilizado nos registros de tempo.",
+    "DataCollectionType": "Automática",
+    "MeasurementTool": ["Simuladores de blockchain", "ferramentas de monitoramento de redes (por exemplo, Blockchain Analyzer)"],
+    "PotentialUsageProcesses": ["Desenvolvimento", "Testes", "Operações"],
+    "PotentialBeneficiaries": ["Desenvolvedores", "Administradores de Rede"],
+    "References": "Estudo realizado por [autor et al., 2024]."
+  },
+  {
+    "AttributeName": "Taxa de Transferência",
+    "Keywords/Aliases": ["Throughput", "Capacidade de Transações"],
+    "AttributeDefinition": "Número de transações processadas por segundo.",
+    "Objective/Motivation": "Avaliar a capacidade de escalabilidade da rede.",
+    "Characteristic": "Desempenho",
+    "Subcharacteristic": "Capacidade",
+    "Equation": "Taxa de Transferência = Transações / Segundos"
+  },
+  {
+    "AttributeName": "Disponibilidade",
+    "Keywords/Aliases": ["Uptime"],
+    "AttributeDefinition": "Percentual de tempo em que a rede está operacional.",
+    "Objective/Motivation": "Avaliar a confiabilidade da rede.",
+    "Characteristic": "Confiabilidade",
+    "Subcharacteristic": "Disponibilidade",
+    "Equation": "Disponibilidade = (Tempo Total - Tempo de Inatividade) / Tempo Total * 100"
+  },
+  {
+    "AttributeName": "Segurança",
+    "Keywords/Aliases": ["Proteção de Dados"],
+    "AttributeDefinition": "Capacidade de proteger dados contra acessos não autorizados.",
+    "Objective/Motivation": "Garantir a integridade e confidencialidade.",
+    "Characteristic": "Segurança",
+    "Subcharacteristic": "Proteção de Dados"
+  },
+  {
+    "AttributeName": "Consumo de Energia",
+    "Keywords/Aliases": ["Eficiência Energética"],
+    "AttributeDefinition": "Energia consumida para realizar transações.",
+    "Objective/Motivation": "Avaliar a eficiência energética da rede.",
+    "Characteristic": "Sustentabilidade",
+    "Equation": "Consumo = Energia (kWh) / Transações"
+  },
+  {
+    "AttributeName": "Escalabilidade",
+    "Keywords/Aliases": ["Capacidade de Crescimento"],
+    "AttributeDefinition": "Capacidade de suportar aumento de carga.",
+    "Objective/Motivation": "Garantir operação eficiente em grande escala.",
+    "Characteristic": "Desempenho",
+    "Subcharacteristic": "Capacidade"
+  },
+  {
+    "AttributeName": "Custo por Transação",
+    "Keywords/Aliases": ["Taxa de Transação"],
+    "AttributeDefinition": "Custo médio de realizar uma transação.",
+    "Objective/Motivation": "Avaliar a viabilidade econômica.",
+    "Characteristic": "Eficiência Econômica",
+    "Equation": "Custo = Taxas Totais / Número de Transações"
+  },
+  {
+    "AttributeName": "Taxa de Erro",
+    "Keywords/Aliases": ["Falhas de Transação"],
+    "AttributeDefinition": "Percentual de transações que falham.",
+    "Objective/Motivation": "Avaliar a robustez da rede.",
+    "Characteristic": "Confiabilidade",
+    "Equation": "Taxa de Erro = (Transações com Erro / Transações Totais) * 100"
+  },
+  {
+    "AttributeName": "Tempo de Inicialização",
+    "Keywords/Aliases": ["Boot Time"],
+    "AttributeDefinition": "Tempo necessário para inicializar um nó na rede.",
+    "Objective/Motivation": "Medir a rapidez de configuração de nós.",
+    "Characteristic": "Usabilidade",
+    "Subcharacteristic": "Instalação"
+  },
+  {
+    "AttributeName": "Taxa de Vazão",
+    "Keywords/Aliases": ["Throughput Total"],
+    "AttributeDefinition": "Quantidade de dados processados por segundo.",
+    "Objective/Motivation": "Avaliar o desempenho em redes de dados.",
+    "Characteristic": "Desempenho",
+    "Equation": "Vazão = Dados Processados / Tempo"
+  },
+  {
+    "AttributeName": "Tamanho do Bloco",
+    "Keywords/Aliases": ["Capacidade de Bloco"],
+    "AttributeDefinition": "Quantidade de dados que um bloco pode armazenar.",
+    "Objective/Motivation": "Avaliar a capacidade de armazenamento da rede.",
+    "Characteristic": "Capacidade",
+    "Unit": "MB"
+  },
+  {
+    "AttributeName": "Número de Nós Ativos",
+    "Keywords/Aliases": ["Disponibilidade de Nós"],
+    "AttributeDefinition": "Quantidade de nós ativos na rede.",
+    "Objective/Motivation": "Avaliar a descentralização e resiliência.",
+    "Characteristic": "Confiabilidade"
+  },
+  {
+    "AttributeName": "Resiliência a Falhas",
+    "Keywords/Aliases": ["Tolerância a Falhas"],
+    "AttributeDefinition": "Capacidade da rede de operar mesmo com falhas.",
+    "Objective/Motivation": "Avaliar a robustez.",
+    "Characteristic": "Confiabilidade"
+  },
+  {
+    "AttributeName": "Consistência de Dados",
+    "Keywords/Aliases": ["Integridade de Dados"],
+    "AttributeDefinition": "Garantia de que todos os nós têm os mesmos dados.",
+    "Objective/Motivation": "Avaliar a integridade e sincronização.",
+    "Characteristic": "Segurança"
+  },
+  {
+    "AttributeName": "Taxa de Conflitos",
+    "Keywords/Aliases": ["Conflitos de Transação"],
+    "AttributeDefinition": "Percentual de transações conflitantes.",
+    "Objective/Motivation": "Identificar problemas de concorrência.",
+    "Characteristic": "Desempenho",
+    "Equation": "Taxa de Conflitos = (Transações Conflitantes / Totais) * 100"
+  },
+  {
+    "AttributeName": "Overhead de Comunicação",
+    "Keywords/Aliases": ["Sobrecarga de Rede"],
+    "AttributeDefinition": "Dados adicionais necessários para comunicação.",
+    "Objective/Motivation": "Avaliar a eficiência de comunicação.",
+    "Characteristic": "Desempenho"
+  },
+  {
+    "AttributeName": "Complexidade do Consenso",
+    "Keywords/Aliases": ["Custo de Consenso"],
+    "AttributeDefinition": "Custo computacional para alcançar consenso.",
+    "Objective/Motivation": "Medir a eficiência do algoritmo de consenso.",
+    "Characteristic": "Eficiência"
+  },
+  {
+    "AttributeName": "Taxa de Renovação de Blocos",
+    "Keywords/Aliases": ["Geração de Blocos"],
+    "AttributeDefinition": "Tempo médio para geração de novos blocos.",
+    "Objective/Motivation": "Avaliar a velocidade de registro de transações.",
+    "Characteristic": "Desempenho",
+    "Equation": "Taxa = Tempo Total / Blocos Gerados"
+  },
+  {
+    "AttributeName": "Elasticidade",
+    "Keywords/Aliases": ["Adaptabilidade"],
+    "AttributeDefinition": "Capacidade da rede de se ajustar à carga variável.",
+    "Objective/Motivation": "Avaliar a flexibilidade operacional.",
+    "Characteristic": "Desempenho"
+  },
+  {
+    "AttributeName": "Privacidade",
+    "Keywords/Aliases": ["Confidencialidade"],
+    "AttributeDefinition": "Capacidade de proteger a identidade dos participantes.",
+    "Objective/Motivation": "Garantir anonimato e confidencialidade.",
+    "Characteristic": "Segurança"
+  }
+]

@@ -1,0 +1,46 @@
+{
+  "id": "t34",
+  "table_no": 34,
+  "name": "Tempo Disponível",
+  "iso25010": {
+    "characteristic": "Confiabilidade\nSubcaracterística\nDisponibilidade"
+  },
+  "fields": {
+    "keywords_alias": "Disponibilidade; Uptime; Tempo operacional; Disponibilidade de nó; Tempo ativo; Disponibilidade de serviço\nblockchain",
+    "definition": "Mede o tempo em que os nós ou serviços de uma\nrede blockchain permanecem acessíveis e operacionais durante um intervalo de observação. Representa\na proporção do tempo total em que o sistema está disponível para processar transações, executar contratos\ninteligentes ou participar do consenso. Em aplicações do\ntipo IIoMT (Internet Industrial de Coisas Médicas), o\ntempo disponível é crítico para garantir a entrega contínua de dados clínicos e análises em tempo real.",
+    "objective": "Quantificar a confiabilidade operacional da infraestrutura blockchain, especialmente em redes consorciadas\ne sistemas críticos. A métrica permite avaliar a resiliência e continuidade de serviço, sendo essencial\nem contextos industriais e médicos, onde interrupções\nimpactam decisões baseadas em aprendizado de máquina\ne transmissão segura de dados sensíveis.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "At =\nTup\nTup + Tdown\n,\nonde Tup representa o tempo total em que o nó ou serviço\nesteve disponível, e Tdown o tempo de inatividade.\nO resultado é um valor entre 0 e 1 (ou 0% a 100%), indicando a fração de tempo operacional dentro do período\nanalisado.\nMétricas\nAssociadas\nLatência média; Throughput; Tempo de resposta; Falhas\npor unidade de tempo; MTBF (Mean Time Between\nFailures); MTTR (Mean Time to Repair)\nAtributo\nRelacionado\nConfiabilidade do nó; Desempenho do consenso; Tolerância a falhas; Robustez da rede; Continuidade de serviço\n93",
+    "protocol": "1) Definir o período de observação [t0, t1].\n2) Monitorar os nós blockchain (ou serviços associados)\npara registrar períodos de operação (Tup) e de falha\n(Tdown).\n3) Coletar logs automáticos de disponibilidade, uso de\nCPU e status de conectividade.\n4) Calcular a proporção\nTup\nTup+Tdown e converter para percentual.\n5) Analisar a média e o desvio-padrão entre múltiplos\nnós ou camadas (consenso, execução, API).",
+    "comment": "O Tempo Disponível reflete a estabilidade e a prontidão da rede blockchain para executar suas funções. No\nmodelo híbrido proposto no artigo, a integração entre\nblockchain consorciada e aprendizado profundo\nhomomórfico depende de alta disponibilidade para sincronização contínua de dados médicos. Períodos prolon-\ngados de indisponibilidade comprometem a acurácia do\nmodelo e a integridade dos registros.\nInterpretação\ndo\nValor Medido\nValores altos (próximos de 1 ou 100%) indicam que\no sistema apresenta alta confiabilidade e capacidade de\nresposta constante. Valores baixos sugerem instabilidade, falhas de comunicação entre nós, ou ineficiência\nna infraestrutura de rede ou consenso.",
+    "unit": "Percentual (%) ou escalar adimensional (0–1)",
+    "scale_type": "Razão",
+    "precision": "Depende da frequência de amostragem dos logs e do\nmonitoramento dos nós. Monitoramento contínuo e distribuído aumenta a precisão, enquanto medições pontuais\npodem subestimar períodos curtos de falha.",
+    "data_collection": "Automática (via monitoramento de rede, logs de uptime,\nAPIs de status de nó)",
+    "measurement_tool": "Painéis de monitoramento (Prometheus, Grafana); APIs\nde nós blockchain (Hyperledger, Ethereum, Fabric); logs\nde contêiner (Docker/Kubernetes); serviços de observabilidade.",
+    "use_processes": "Avaliação da disponibilidade de redes blockchain consorciadas; monitoramento de desempenho em aplicações\ncríticas (como IIoMT); planejamento de redundância;\nauditoria de SLA (Service Level Agreement).",
+    "beneficiaries": "Engenheiros de rede; administradores de infraestrutura\nblockchain; equipes de DevOps; gestores de sistemas\nmédicos e industriais; analistas de confiabilidade.\n94",
+    "references": "Al-Otaibi, Y.; Bhatia, M.; Alghamdi, A. A Novel Homomorphic\nEncryption and Consortium Blockchain-Based Hybrid Deep Learning Model for Industrial Internet of Medical Things. IEEE\nAccess, 2023. — Apresenta um modelo de blockchain consorciada\ncom aprendizado profundo e criptografia homomórfica, avaliando\nmétricas como latência, tempo disponível e throughput para medir\na confiabilidade e eficiência do sistema em ambientes industriais e\nmédicos.\n95"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Tempo Disponível",
+    "Palavras-chave / Alias": "Disponibilidade; Uptime; Tempo operacional; Disponibilidade de nó; Tempo ativo; Disponibilidade de serviço\nblockchain",
+    "Definição do Atributo": "Mede o tempo em que os nós ou serviços de uma\nrede blockchain permanecem acessíveis e operacionais durante um intervalo de observação. Representa\na proporção do tempo total em que o sistema está disponível para processar transações, executar contratos\ninteligentes ou participar do consenso. Em aplicações do\ntipo IIoMT (Internet Industrial de Coisas Médicas), o\ntempo disponível é crítico para garantir a entrega contínua de dados clínicos e análises em tempo real.",
+    "Objetivo / Motivação": "Quantificar a confiabilidade operacional da infraestrutura blockchain, especialmente em redes consorciadas\ne sistemas críticos. A métrica permite avaliar a resiliência e continuidade de serviço, sendo essencial\nem contextos industriais e médicos, onde interrupções\nimpactam decisões baseadas em aprendizado de máquina\ne transmissão segura de dados sensíveis.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Confiabilidade\nSubcaracterística\nDisponibilidade",
+    "Equação": "At =\nTup\nTup + Tdown\n,\nonde Tup representa o tempo total em que o nó ou serviço\nesteve disponível, e Tdown o tempo de inatividade.\nO resultado é um valor entre 0 e 1 (ou 0% a 100%), indicando a fração de tempo operacional dentro do período\nanalisado.\nMétricas\nAssociadas\nLatência média; Throughput; Tempo de resposta; Falhas\npor unidade de tempo; MTBF (Mean Time Between\nFailures); MTTR (Mean Time to Repair)\nAtributo\nRelacionado\nConfiabilidade do nó; Desempenho do consenso; Tolerância a falhas; Robustez da rede; Continuidade de serviço\n93",
+    "Protocolo": "1) Definir o período de observação [t0, t1].\n2) Monitorar os nós blockchain (ou serviços associados)\npara registrar períodos de operação (Tup) e de falha\n(Tdown).\n3) Coletar logs automáticos de disponibilidade, uso de\nCPU e status de conectividade.\n4) Calcular a proporção\nTup\nTup+Tdown e converter para percentual.\n5) Analisar a média e o desvio-padrão entre múltiplos\nnós ou camadas (consenso, execução, API).",
+    "Comentário": "O Tempo Disponível reflete a estabilidade e a prontidão da rede blockchain para executar suas funções. No\nmodelo híbrido proposto no artigo, a integração entre\nblockchain consorciada e aprendizado profundo\nhomomórfico depende de alta disponibilidade para sincronização contínua de dados médicos. Períodos prolon-\ngados de indisponibilidade comprometem a acurácia do\nmodelo e a integridade dos registros.\nInterpretação\ndo\nValor Medido\nValores altos (próximos de 1 ou 100%) indicam que\no sistema apresenta alta confiabilidade e capacidade de\nresposta constante. Valores baixos sugerem instabilidade, falhas de comunicação entre nós, ou ineficiência\nna infraestrutura de rede ou consenso.",
+    "Unidade": "Percentual (%) ou escalar adimensional (0–1)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Depende da frequência de amostragem dos logs e do\nmonitoramento dos nós. Monitoramento contínuo e distribuído aumenta a precisão, enquanto medições pontuais\npodem subestimar períodos curtos de falha.",
+    "Tipo de Coleta de Dados": "Automática (via monitoramento de rede, logs de uptime,\nAPIs de status de nó)",
+    "Ferramenta de Medição": "Painéis de monitoramento (Prometheus, Grafana); APIs\nde nós blockchain (Hyperledger, Ethereum, Fabric); logs\nde contêiner (Docker/Kubernetes); serviços de observabilidade.",
+    "Processos de Uso Potenciais": "Avaliação da disponibilidade de redes blockchain consorciadas; monitoramento de desempenho em aplicações\ncríticas (como IIoMT); planejamento de redundância;\nauditoria de SLA (Service Level Agreement).",
+    "Beneficiários Potenciais": "Engenheiros de rede; administradores de infraestrutura\nblockchain; equipes de DevOps; gestores de sistemas\nmédicos e industriais; analistas de confiabilidade.\n94",
+    "Referências": "Al-Otaibi, Y.; Bhatia, M.; Alghamdi, A. A Novel Homomorphic\nEncryption and Consortium Blockchain-Based Hybrid Deep Learning Model for Industrial Internet of Medical Things. IEEE\nAccess, 2023. — Apresenta um modelo de blockchain consorciada\ncom aprendizado profundo e criptografia homomórfica, avaliando\nmétricas como latência, tempo disponível e throughput para medir\na confiabilidade e eficiência do sistema em ambientes industriais e\nmédicos.\n95"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 34"
+  }
+}

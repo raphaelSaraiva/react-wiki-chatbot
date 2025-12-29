@@ -1,0 +1,48 @@
+{
+  "id": "t129",
+  "table_no": 129,
+  "name": "Consumo de Recursos (Resource Consumption)",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "keywords_alias": "Resource Utilization; CPU Usage; Memory Consumption;\nNetwork Load; Energy Cost; Computational Efficiency",
+    "definition": "Mede a quantidade de recursos computacionais (CPU,\nmemória, largura de banda e energia) utilizados por\nnós ou dispositivos durante a execução de operações\nna blockchain, como mineração, verificação de blocos,\nexecução de contratos inteligentes e troca de dados. Essa\nmétrica avalia a eficiência e escalabilidade do sistema\nsob diferentes cargas de trabalho.",
+    "objective": "Avaliar o impacto do consumo de recursos sobre a eficiência e sustentabilidade de sistemas blockchain, espe-\ncialmente em aplicações que exigem alto desempenho e\nrestrições energéticas, como Internet das Coisas (IoT),\nredes veiculares (V2G) e saúde digital.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Resource Consumption =\nPn\ni=1 Ri\nT\nonde Ri representa o uso de cada tipo de recurso (CPU,\nmemória, energia) durante o período T.\nMétricas\nAssociadas\nCPU Utilization; Memory Usage; Bandwidth Overhead;\nEnergy Efficiency; Transaction Throughput\nAtributo\nRelacionado\nEficiência Energética; Custo Computacional; Latência\nde Execução",
+    "protocol": "1) Implantar o sistema blockchain em ambiente de simulação ou real (ex.: Hyperledger Fabric, Ethereum,\nPoCW).\n2) Executar transações sob diferentes níveis de carga\n(TPS variados).\n3) Medir o consumo médio de CPU, memória e energia\ndurante as operações de consenso e execução de contratos.\n4) Calcular o consumo agregado e compará-lo com abordagens de referência.\n5) Analisar variações sob cenários de carga leve, média e\npesada.\n301",
+    "comment": "Essa métrica permite avaliar a eficiência e escalabilidade\nde sistemas blockchain em diferentes contextos de aplicação. Em sistemas de saúde e IIoT, o consumo de CPU\ne memória é um fator determinante para viabilidade\nprática. Em sistemas energéticos, o foco recai sobre eficiência e economia de energia durante a operação da rede\ne execução de contratos inteligentes.\nInterpretação\ndo\nValor Medido\nValores mais baixos indicam maior eficiência e melhor\naproveitamento de recursos. Um aumento contínuo pode\nsinalizar gargalos de desempenho, sobrecarga de rede ou\nnecessidade de otimização do consenso.",
+    "unit": "Percentual de uso (%) ou Watts (energia)",
+    "scale_type": "Razão",
+    "precision": "Alta, quando monitorado com ferramentas de medição\nde desempenho e consumo energético calibradas.",
+    "data_collection": "Automática / Experimental",
+    "measurement_tool": "Hyperledger Caliper; Docker Stats; Wireshark; MATLAB; NS-3; Prometheus/Grafana; medidores energéti-\ncos embarcados.",
+    "use_processes": "Avaliação de eficiência de redes blockchain; análise de\nescalabilidade; otimização de protocolos de consenso;\ncomparação de desempenho entre implementações.",
+    "beneficiaries": "Engenheiros(as) de blockchain; arquitetos(as) de sistemas; analistas de desempenho; pesquisadores(as) em IoT,\nredes veiculares e sistemas de saúde.",
+    "references": "(1) Kumar, N., Singh, M., & Ahmad, M. (2023).\nT-DSES:\nA Blockchain-powered Trusted Decentralized Service Eco-System.\nIEEE Transactions on Industrial Informatics, 19(9), 10012–10023.\n(2) Liu, Y., Li, Z., Chen, X., & Xu, W. (2022). An Edge Intelligent\nBlockchain-Based Reputation System for IIoT Data Ecosystem.\nIEEE Internet of Things Journal, 9(22), 22143–22154.\n(3) Li, J., Zhang, C., & Zhou, X. (2021). A Blockchain-Based\nApproach Using Proof of Continuous Work. Cluster Computing,\n24(6), 5031–5045.\n(4) Khan, R., et al. (2021). A Blockchain-Enabled Approach for\nEnhancing Synchrophasor Measurement in Smart Grid 3.0. IEEE\nAccess, 9, 16751–16764.\n(5) Agbo, C. C., Mahmoud, Q. H., & Eklund, J. M. (2020).\nBlockchain-Based Electronic Healthcare Record System for Healthcare 4.0 Applications. Computers in Biology and Medicine, 122,\n103882.\n302"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Consumo de Recursos (Resource Consumption)",
+    "Palavras-chave / Alias": "Resource Utilization; CPU Usage; Memory Consumption;\nNetwork Load; Energy Cost; Computational Efficiency",
+    "Definição do Atributo": "Mede a quantidade de recursos computacionais (CPU,\nmemória, largura de banda e energia) utilizados por\nnós ou dispositivos durante a execução de operações\nna blockchain, como mineração, verificação de blocos,\nexecução de contratos inteligentes e troca de dados. Essa\nmétrica avalia a eficiência e escalabilidade do sistema\nsob diferentes cargas de trabalho.",
+    "Objetivo / Motivação": "Avaliar o impacto do consumo de recursos sobre a eficiência e sustentabilidade de sistemas blockchain, espe-\ncialmente em aplicações que exigem alto desempenho e\nrestrições energéticas, como Internet das Coisas (IoT),\nredes veiculares (V2G) e saúde digital.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de Recursos",
+    "Equação": "Resource Consumption =\nPn\ni=1 Ri\nT\nonde Ri representa o uso de cada tipo de recurso (CPU,\nmemória, energia) durante o período T.\nMétricas\nAssociadas\nCPU Utilization; Memory Usage; Bandwidth Overhead;\nEnergy Efficiency; Transaction Throughput\nAtributo\nRelacionado\nEficiência Energética; Custo Computacional; Latência\nde Execução",
+    "Protocolo": "1) Implantar o sistema blockchain em ambiente de simulação ou real (ex.: Hyperledger Fabric, Ethereum,\nPoCW).\n2) Executar transações sob diferentes níveis de carga\n(TPS variados).\n3) Medir o consumo médio de CPU, memória e energia\ndurante as operações de consenso e execução de contratos.\n4) Calcular o consumo agregado e compará-lo com abordagens de referência.\n5) Analisar variações sob cenários de carga leve, média e\npesada.\n301",
+    "Comentário": "Essa métrica permite avaliar a eficiência e escalabilidade\nde sistemas blockchain em diferentes contextos de aplicação. Em sistemas de saúde e IIoT, o consumo de CPU\ne memória é um fator determinante para viabilidade\nprática. Em sistemas energéticos, o foco recai sobre eficiência e economia de energia durante a operação da rede\ne execução de contratos inteligentes.\nInterpretação\ndo\nValor Medido\nValores mais baixos indicam maior eficiência e melhor\naproveitamento de recursos. Um aumento contínuo pode\nsinalizar gargalos de desempenho, sobrecarga de rede ou\nnecessidade de otimização do consenso.",
+    "Unidade": "Percentual de uso (%) ou Watts (energia)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Alta, quando monitorado com ferramentas de medição\nde desempenho e consumo energético calibradas.",
+    "Tipo de Coleta de Dados": "Automática / Experimental",
+    "Ferramenta de Medição": "Hyperledger Caliper; Docker Stats; Wireshark; MATLAB; NS-3; Prometheus/Grafana; medidores energéti-\ncos embarcados.",
+    "Processos de Uso Potenciais": "Avaliação de eficiência de redes blockchain; análise de\nescalabilidade; otimização de protocolos de consenso;\ncomparação de desempenho entre implementações.",
+    "Beneficiários Potenciais": "Engenheiros(as) de blockchain; arquitetos(as) de sistemas; analistas de desempenho; pesquisadores(as) em IoT,\nredes veiculares e sistemas de saúde.",
+    "Referências": "(1) Kumar, N., Singh, M., & Ahmad, M. (2023).\nT-DSES:\nA Blockchain-powered Trusted Decentralized Service Eco-System.\nIEEE Transactions on Industrial Informatics, 19(9), 10012–10023.\n(2) Liu, Y., Li, Z., Chen, X., & Xu, W. (2022). An Edge Intelligent\nBlockchain-Based Reputation System for IIoT Data Ecosystem.\nIEEE Internet of Things Journal, 9(22), 22143–22154.\n(3) Li, J., Zhang, C., & Zhou, X. (2021). A Blockchain-Based\nApproach Using Proof of Continuous Work. Cluster Computing,\n24(6), 5031–5045.\n(4) Khan, R., et al. (2021). A Blockchain-Enabled Approach for\nEnhancing Synchrophasor Measurement in Smart Grid 3.0. IEEE\nAccess, 9, 16751–16764.\n(5) Agbo, C. C., Mahmoud, Q. H., & Eklund, J. M. (2020).\nBlockchain-Based Electronic Healthcare Record System for Healthcare 4.0 Applications. Computers in Biology and Medicine, 122,\n103882.\n302"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 129"
+  }
+}

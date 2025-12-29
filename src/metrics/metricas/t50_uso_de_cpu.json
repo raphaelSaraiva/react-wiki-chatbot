@@ -1,0 +1,44 @@
+{
+  "id": "t50",
+  "table_no": 50,
+  "name": "Uso de CPU",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos Computacionais"
+  },
+  "fields": {
+    "keywords_alias": "CPU usage; processor utilization; computational performance; node workload; blockchain healthcare efficiency",
+    "definition": "Mede a proporção de tempo de processamento\nutilizada pela CPU durante a execução das operações\nde blockchain, como verificação de blocos, execução de\ncontratos inteligentes e transmissão de dados médicos.\nIndica o nível de carga computacional imposto ao sistema\ndurante o funcionamento normal da rede.",
+    "objective": "Avaliar a eficiência e escalabilidade computacional\ndo sistema blockchain em cenários de saúde, especialmente em dispositivos de baixo custo ou infraestrutura\nlimitada, como os de países em desenvolvimento. Um uso\nde CPU eficiente garante estabilidade, menor consumo\nenergético e viabilidade prática.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Uso de CPU (%) = Tativo\nTtotal\n× 100\nonde Tativo é o tempo gasto pela CPU processando tarefas\nblockchain e Ttotal é o tempo total de observação.\nMétricas\nAssociadas\nSobrecarga de CPU; Uso de memória; Consumo de energia; Throughput; Latência\nAtributo\nRelacionado\nEficiência computacional; Escalabilidade; Desempenho\nde execução",
+    "protocol": "1) Implantar o sistema blockchain (nós, smart contracts\ne módulos de comunicação).\n2) Realizar transações simuladas sob diferentes níveis de\ncarga (ex.: 10, 100 e 500 transações).\n3) Monitorar o uso médio e máximo da CPU durante o\nperíodo de execução.\n4) Comparar resultados com outros sistemas (ex.: modelos centralizados ou híbridos).",
+    "comment": "O estudo demonstrou que o sistema proposto apresentou\nuso de CPU moderado, mesmo sob alta carga transacional, sendo adequado para ambientes de infraestrutura\nlimitada. Essa eficiência resulta do uso otimizado de\nsmart contracts e da arquitetura híbrida blockchain-offchain.\n131\n\nInterpretação\ndo\nValor Medido\nValores mais baixos indicam maior eficiência computacional e melhor escalabilidade. Valores muito altos\npodem sinalizar gargalos de processamento ou necessidade de otimização da arquitetura.",
+    "unit": "Porcentagem (%)",
+    "scale_type": "Razão",
+    "precision": "Depende da taxa de amostragem e da estabilidade da\ncarga de trabalho. Recomenda-se múltiplas medições\npara resultados representativos.",
+    "data_collection": "Automática (monitoramento de desempenho)",
+    "measurement_tool": "Monitor do sistema (ex.: top, htop); ferramentas de telemetria (Prometheus, Grafana); logs dos nós blockchain.",
+    "use_processes": "Avaliação de desempenho em sistemas de saúde baseados\nem blockchain; análise de viabilidade em dispositivos\nde baixo custo; otimização de desempenho em redes\nhíbridas.",
+    "beneficiaries": "Desenvolvedores(as) de blockchain; Engenheiros(as) de\nsistemas de saúde digitais; Pesquisadores(as) em IoT e\neficiência computacional.\nReferência\nM. A. Hossain, M. A. Rahman, M. M. Hassan, et al. Blockchainbased Electronic Healthcare Information System Optimized for\nDeveloping Countries. IEEE Transactions on Engineering Management, vol. 70, no. 7, pp. 1759–1771, 2023.\n132"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Uso de CPU",
+    "Palavras-chave / Alias": "CPU usage; processor utilization; computational performance; node workload; blockchain healthcare efficiency",
+    "Definição do Atributo": "Mede a proporção de tempo de processamento\nutilizada pela CPU durante a execução das operações\nde blockchain, como verificação de blocos, execução de\ncontratos inteligentes e transmissão de dados médicos.\nIndica o nível de carga computacional imposto ao sistema\ndurante o funcionamento normal da rede.",
+    "Objetivo / Motivação": "Avaliar a eficiência e escalabilidade computacional\ndo sistema blockchain em cenários de saúde, especialmente em dispositivos de baixo custo ou infraestrutura\nlimitada, como os de países em desenvolvimento. Um uso\nde CPU eficiente garante estabilidade, menor consumo\nenergético e viabilidade prática.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos Computacionais",
+    "Equação": "Uso de CPU (%) = Tativo\nTtotal\n× 100\nonde Tativo é o tempo gasto pela CPU processando tarefas\nblockchain e Ttotal é o tempo total de observação.\nMétricas\nAssociadas\nSobrecarga de CPU; Uso de memória; Consumo de energia; Throughput; Latência\nAtributo\nRelacionado\nEficiência computacional; Escalabilidade; Desempenho\nde execução",
+    "Protocolo": "1) Implantar o sistema blockchain (nós, smart contracts\ne módulos de comunicação).\n2) Realizar transações simuladas sob diferentes níveis de\ncarga (ex.: 10, 100 e 500 transações).\n3) Monitorar o uso médio e máximo da CPU durante o\nperíodo de execução.\n4) Comparar resultados com outros sistemas (ex.: modelos centralizados ou híbridos).",
+    "Comentário": "O estudo demonstrou que o sistema proposto apresentou\nuso de CPU moderado, mesmo sob alta carga transacional, sendo adequado para ambientes de infraestrutura\nlimitada. Essa eficiência resulta do uso otimizado de\nsmart contracts e da arquitetura híbrida blockchain-offchain.\n131\n\nInterpretação\ndo\nValor Medido\nValores mais baixos indicam maior eficiência computacional e melhor escalabilidade. Valores muito altos\npodem sinalizar gargalos de processamento ou necessidade de otimização da arquitetura.",
+    "Unidade": "Porcentagem (%)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Depende da taxa de amostragem e da estabilidade da\ncarga de trabalho. Recomenda-se múltiplas medições\npara resultados representativos.",
+    "Tipo de Coleta de Dados": "Automática (monitoramento de desempenho)",
+    "Ferramenta de Medição": "Monitor do sistema (ex.: top, htop); ferramentas de telemetria (Prometheus, Grafana); logs dos nós blockchain.",
+    "Processos de Uso Potenciais": "Avaliação de desempenho em sistemas de saúde baseados\nem blockchain; análise de viabilidade em dispositivos\nde baixo custo; otimização de desempenho em redes\nhíbridas.",
+    "Beneficiários Potenciais": "Desenvolvedores(as) de blockchain; Engenheiros(as) de\nsistemas de saúde digitais; Pesquisadores(as) em IoT e\neficiência computacional.\nReferência\nM. A. Hossain, M. A. Rahman, M. M. Hassan, et al. Blockchainbased Electronic Healthcare Information System Optimized for\nDeveloping Countries. IEEE Transactions on Engineering Management, vol. 70, no. 7, pp. 1759–1771, 2023.\n132"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 50"
+  }
+}

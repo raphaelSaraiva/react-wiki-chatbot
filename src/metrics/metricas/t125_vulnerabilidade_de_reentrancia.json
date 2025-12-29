@@ -1,0 +1,48 @@
+{
+  "id": "t125",
+  "table_no": 125,
+  "name": "Vulnerabilidade de Reentrância",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "keywords_alias": "Reentrancy Attack; Recursive Call; Smart Contract Vulnerability; Function Call Exploit; Reentrancy Detection",
+    "definition": "Mede a proporção de funções ou contratos inteligentes\nsuscetíveis a ataques de reentrância — uma vulnerabilidade em que uma função externa maliciosa é executada\nantes do término da execução da função original, permitindo múltiplas modificações no estado do contrato.\nEssa métrica indica o nível de exposição do sistema a\nfalhas de integridade em transações distribuídas.",
+    "objective": "Avaliar o grau de segurança de contratos inteligentes\nquanto à integridade de suas operações, identificando\nimplementações vulneráveis a chamadas recursivas indevidas. Essa métrica é fundamental para auditorias\nde segurança e mitigação de ataques em blockchains\nbaseadas em contratos inteligentes, como Ethereum e\nIOTA.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Reentrancy Vulnerability Rate = Nfunções vulneráveis\nNfunções externas\n×100\nonde Nfunções vulneráveis representa o número de funções\ncom risco de reentrância detectado, e Nfunções externas o\ntotal de funções analisadas.\nMétricas\nAssociadas\nFunction Call Depth; State Consistency Rate; Smart\nContract Reliability; Attack Success Rate\nAtributo\nRelacionado\nRobustez de Contrato; Segurança de Execução; Consistência de Estado\n293",
+    "protocol": "1) Selecionar o conjunto de contratos inteligentes a serem\navaliados.\n2) Identificar funções externas que realizam chamadas\npara outros contratos.\n3) Aplicar ferramentas de análise estática e simbólica\n(ex.: Mythril, Slither, Oyente) para detectar chamadas\nrecursivas antes da atualização do estado.\n4) Contar o número de funções vulneráveis detectadas e\ncalcular a taxa de vulnerabilidade.\n5)\nVerificar\na\ncorreção\ndos\ncontratos\napós\naplicação de mitigadores (ex.:\npadrões de mutex e\nchecks-effects-interactions).",
+    "comment": "Ataques de reentrância exploram funções que alteram o\nestado do contrato após realizar uma chamada externa.\nEssa falha permite que um invasor chame novamente\na função vulnerável antes que a execução anterior seja\nconcluída. A métrica permite quantificar a frequência e\no impacto dessas vulnerabilidades, sendo essencial para\no fortalecimento da segurança de contratos inteligentes.\nInterpretação\ndo\nValor Medido\nValores altos indicam maior vulnerabilidade e risco de\nataques de reentrância. Valores próximos de zero indicam contratos mais seguros, com controle adequado de\nchamadas externas e atualização consistente do estado.",
+    "unit": "Percentual (%)",
+    "scale_type": "Razão",
+    "precision": "Alta, dependendo da cobertura das ferramentas de análise estática e da complexidade dos contratos avaliados.",
+    "data_collection": "Automática / Análise Estática",
+    "measurement_tool": "Ferramentas de detecção de vulnerabilidades como Mythril, Oyente, Slither ou Manticore; logs de execução sim-\nbólica da EVM; varreduras de bytecode.",
+    "use_processes": "Auditorias de segurança de contratos inteligentes; testes\nde robustez de dApps; análise de conformidade de código;\nmitigação de ataques em protocolos de DeFi.",
+    "beneficiaries": "Engenheiros(as) de segurança; desenvolvedores(as) de\ncontratos inteligentes; auditores(as) de blockchain; pesquisadores(as) em segurança cibernética.",
+    "references": "Alavizadeh, S. S., Erfani, S. H., Mirabi, M., & Sahafi, A. (2024).\nAn Efficient Distributed and Secure Algorithm for Transaction\nConfirmation in IOTA Using Cloud Computing. The Journal of\nSupercomputing, 80, 1491–1521. Springer.\n294"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Vulnerabilidade de Reentrância",
+    "Palavras-chave / Alias": "Reentrancy Attack; Recursive Call; Smart Contract Vulnerability; Function Call Exploit; Reentrancy Detection",
+    "Definição do Atributo": "Mede a proporção de funções ou contratos inteligentes\nsuscetíveis a ataques de reentrância — uma vulnerabilidade em que uma função externa maliciosa é executada\nantes do término da execução da função original, permitindo múltiplas modificações no estado do contrato.\nEssa métrica indica o nível de exposição do sistema a\nfalhas de integridade em transações distribuídas.",
+    "Objetivo / Motivação": "Avaliar o grau de segurança de contratos inteligentes\nquanto à integridade de suas operações, identificando\nimplementações vulneráveis a chamadas recursivas indevidas. Essa métrica é fundamental para auditorias\nde segurança e mitigação de ataques em blockchains\nbaseadas em contratos inteligentes, como Ethereum e\nIOTA.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Segurança",
+    "Sub-característica": "Integridade",
+    "Equação": "Reentrancy Vulnerability Rate = Nfunções vulneráveis\nNfunções externas\n×100\nonde Nfunções vulneráveis representa o número de funções\ncom risco de reentrância detectado, e Nfunções externas o\ntotal de funções analisadas.\nMétricas\nAssociadas\nFunction Call Depth; State Consistency Rate; Smart\nContract Reliability; Attack Success Rate\nAtributo\nRelacionado\nRobustez de Contrato; Segurança de Execução; Consistência de Estado\n293",
+    "Protocolo": "1) Selecionar o conjunto de contratos inteligentes a serem\navaliados.\n2) Identificar funções externas que realizam chamadas\npara outros contratos.\n3) Aplicar ferramentas de análise estática e simbólica\n(ex.: Mythril, Slither, Oyente) para detectar chamadas\nrecursivas antes da atualização do estado.\n4) Contar o número de funções vulneráveis detectadas e\ncalcular a taxa de vulnerabilidade.\n5)\nVerificar\na\ncorreção\ndos\ncontratos\napós\naplicação de mitigadores (ex.:\npadrões de mutex e\nchecks-effects-interactions).",
+    "Comentário": "Ataques de reentrância exploram funções que alteram o\nestado do contrato após realizar uma chamada externa.\nEssa falha permite que um invasor chame novamente\na função vulnerável antes que a execução anterior seja\nconcluída. A métrica permite quantificar a frequência e\no impacto dessas vulnerabilidades, sendo essencial para\no fortalecimento da segurança de contratos inteligentes.\nInterpretação\ndo\nValor Medido\nValores altos indicam maior vulnerabilidade e risco de\nataques de reentrância. Valores próximos de zero indicam contratos mais seguros, com controle adequado de\nchamadas externas e atualização consistente do estado.",
+    "Unidade": "Percentual (%)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Alta, dependendo da cobertura das ferramentas de análise estática e da complexidade dos contratos avaliados.",
+    "Tipo de Coleta de Dados": "Automática / Análise Estática",
+    "Ferramenta de Medição": "Ferramentas de detecção de vulnerabilidades como Mythril, Oyente, Slither ou Manticore; logs de execução sim-\nbólica da EVM; varreduras de bytecode.",
+    "Processos de Uso Potenciais": "Auditorias de segurança de contratos inteligentes; testes\nde robustez de dApps; análise de conformidade de código;\nmitigação de ataques em protocolos de DeFi.",
+    "Beneficiários Potenciais": "Engenheiros(as) de segurança; desenvolvedores(as) de\ncontratos inteligentes; auditores(as) de blockchain; pesquisadores(as) em segurança cibernética.",
+    "Referências": "Alavizadeh, S. S., Erfani, S. H., Mirabi, M., & Sahafi, A. (2024).\nAn Efficient Distributed and Secure Algorithm for Transaction\nConfirmation in IOTA Using Cloud Computing. The Journal of\nSupercomputing, 80, 1491–1521. Springer.\n294"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 125"
+  }
+}

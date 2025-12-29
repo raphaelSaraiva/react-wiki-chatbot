@@ -1,0 +1,44 @@
+{
+  "id": "t54",
+  "table_no": 54,
+  "name": "Confidencialidade dos Dados (Data Confidentiality)",
+  "iso25010": {
+    "characteristic": "Segurança\nSubcaracterística\nConfidencialidade"
+  },
+  "fields": {
+    "keywords_alias": "Data confidentiality; data privacy; information protection; encryption strength; secure data exchange",
+    "definition": "Mede o nível de proteção dos dados contra acesso\nnão autorizado durante sua transmissão e armazenamento em redes blockchain integradas a aplicações de\nInternet das Coisas (IoT) e Metaverso. A confidencialidade é assegurada por mecanismos de criptografia e\nautenticação que impedem que entidades não autorizadas\nleiam ou modifiquem informações sensíveis.",
+    "objective": "Avaliar a eficácia das técnicas criptográficas e do\nconsenso blockchain em proteger dados pessoais e\nsensíveis contra ataques e vazamentos. Essa métrica é\nessencial em cenários onde a privacidade e integridade\nde dados sensoriais e interações do metaverso precisam\nser mantidas.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Confidencialidade dos Dados = f(Eeficaz, Acontrole, Lviolação)\nonde Eeficaz representa a força efetiva da criptografia,\nAcontrole é o nível de autenticação e Lviolação o número\nde tentativas de acesso indevido bem-sucedidas (quanto\nmenor, melhor).\nMétricas\nAssociadas\nIntegridade dos dados; Taxa de acesso; Desempenho de\nautenticação; Latência; Consumo de energia\nAtributo\nRelacionado\nPrivacidade de dados; Segurança de transação; Resiliência a ataques de interceptação",
+    "protocol": "1) Implantar o sistema blockchain integrado a dispositivos IoT e ambiente de metaverso.\n2) Aplicar algoritmos de criptografia simétrica (AES) e\ntroca de chaves (Diffie–Hellman).\n3) Registrar o número de transmissões seguras e tentativas de interceptação.\n4) Calcular a razão de transmissões bem-sucedidas e\nconfidenciais.\n5) Avaliar o resultado como parte do índice composto de\nsegurança (Security Performance Score – SPS).\n139",
+    "comment": "No estudo, a métrica de confidencialidade foi avaliada\ncomo componente do Security Performance Score\n(SPS), que compara a robustez das soluções de segurança.\nO modelo SafeMetaNet obteve pontuação mais alta em\nconfidencialidade devido à integração de criptografia\nAES, troca de chaves Diffie–Hellman e registro\nimutável na blockchain, garantindo proteção completa\ncontra acessos não autorizados.\nInterpretação\ndo\nValor Medido\nValores altos indicam proteção eficaz e ausência de\nvazamento de dados; valores baixos refletem vulnerabilidades criptográficas, autenticação fraca ou falhas de\nintegridade.",
+    "unit": "Índice adimensional (0 a 1) ou pontuação percentual (%)",
+    "scale_type": "Razão",
+    "precision": "Depende da granularidade da medição e da frequência\nde auditorias de segurança. Requer cenários simulados\ncom ataques controlados para validação.",
+    "data_collection": "Automática e experimental (logs de rede e simulação de\nataques)",
+    "measurement_tool": "Implementações em Python (PyCryptodome); Ganache\ne Web3.py para execução blockchain; simuladores de rede\npara ataques de interceptação.",
+    "use_processes": "Avaliação de privacidade em ambientes de Metaverso-IoT;\ncomparação de protocolos criptográficos; monitoramento\nde vazamentos de dados; análise de conformidade com\npolíticas de proteção de dados.",
+    "beneficiaries": "Pesquisadores(as) em blockchain e IoT; Engenheiros(as)\nde segurança; Desenvolvedores(as) de aplicações descentralizadas; Gestores(as) de privacidade e conformidade.\nReferência\nA. K. Bashir, M. Alazab, et al. Securing Data Exchange in the\nConvergence of Metaverse and IoT Applications. IEEE Internet of\nThings Journal, vol. 11, no. 3, pp. 5678–5692, 2024.\n140"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Confidencialidade dos Dados (Data Confidentiality)",
+    "Palavras-chave / Alias": "Data confidentiality; data privacy; information protection; encryption strength; secure data exchange",
+    "Definição do Atributo": "Mede o nível de proteção dos dados contra acesso\nnão autorizado durante sua transmissão e armazenamento em redes blockchain integradas a aplicações de\nInternet das Coisas (IoT) e Metaverso. A confidencialidade é assegurada por mecanismos de criptografia e\nautenticação que impedem que entidades não autorizadas\nleiam ou modifiquem informações sensíveis.",
+    "Objetivo / Motivação": "Avaliar a eficácia das técnicas criptográficas e do\nconsenso blockchain em proteger dados pessoais e\nsensíveis contra ataques e vazamentos. Essa métrica é\nessencial em cenários onde a privacidade e integridade\nde dados sensoriais e interações do metaverso precisam\nser mantidas.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Segurança\nSubcaracterística\nConfidencialidade",
+    "Equação": "Confidencialidade dos Dados = f(Eeficaz, Acontrole, Lviolação)\nonde Eeficaz representa a força efetiva da criptografia,\nAcontrole é o nível de autenticação e Lviolação o número\nde tentativas de acesso indevido bem-sucedidas (quanto\nmenor, melhor).\nMétricas\nAssociadas\nIntegridade dos dados; Taxa de acesso; Desempenho de\nautenticação; Latência; Consumo de energia\nAtributo\nRelacionado\nPrivacidade de dados; Segurança de transação; Resiliência a ataques de interceptação",
+    "Protocolo": "1) Implantar o sistema blockchain integrado a dispositivos IoT e ambiente de metaverso.\n2) Aplicar algoritmos de criptografia simétrica (AES) e\ntroca de chaves (Diffie–Hellman).\n3) Registrar o número de transmissões seguras e tentativas de interceptação.\n4) Calcular a razão de transmissões bem-sucedidas e\nconfidenciais.\n5) Avaliar o resultado como parte do índice composto de\nsegurança (Security Performance Score – SPS).\n139",
+    "Comentário": "No estudo, a métrica de confidencialidade foi avaliada\ncomo componente do Security Performance Score\n(SPS), que compara a robustez das soluções de segurança.\nO modelo SafeMetaNet obteve pontuação mais alta em\nconfidencialidade devido à integração de criptografia\nAES, troca de chaves Diffie–Hellman e registro\nimutável na blockchain, garantindo proteção completa\ncontra acessos não autorizados.\nInterpretação\ndo\nValor Medido\nValores altos indicam proteção eficaz e ausência de\nvazamento de dados; valores baixos refletem vulnerabilidades criptográficas, autenticação fraca ou falhas de\nintegridade.",
+    "Unidade": "Índice adimensional (0 a 1) ou pontuação percentual (%)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Depende da granularidade da medição e da frequência\nde auditorias de segurança. Requer cenários simulados\ncom ataques controlados para validação.",
+    "Tipo de Coleta de Dados": "Automática e experimental (logs de rede e simulação de\nataques)",
+    "Ferramenta de Medição": "Implementações em Python (PyCryptodome); Ganache\ne Web3.py para execução blockchain; simuladores de rede\npara ataques de interceptação.",
+    "Processos de Uso Potenciais": "Avaliação de privacidade em ambientes de Metaverso-IoT;\ncomparação de protocolos criptográficos; monitoramento\nde vazamentos de dados; análise de conformidade com\npolíticas de proteção de dados.",
+    "Beneficiários Potenciais": "Pesquisadores(as) em blockchain e IoT; Engenheiros(as)\nde segurança; Desenvolvedores(as) de aplicações descentralizadas; Gestores(as) de privacidade e conformidade.\nReferência\nA. K. Bashir, M. Alazab, et al. Securing Data Exchange in the\nConvergence of Metaverse and IoT Applications. IEEE Internet of\nThings Journal, vol. 11, no. 3, pp. 5678–5692, 2024.\n140"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 54"
+  }
+}

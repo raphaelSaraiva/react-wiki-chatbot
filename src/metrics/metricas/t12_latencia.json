@@ -1,0 +1,39 @@
+{
+  "id": "t12",
+  "table_no": 12,
+  "name": "Latência",
+  "iso25010": {
+    "characteristic": "Desempenho",
+    "subcharacteristic": "Tempo de Resposta"
+  },
+  "fields": {
+    "equation": "Latência = Tconfirmação −Tsubmissão\nMétricas\nAssociadas\nVazão (Throughput); Jitter (variação temporal); Taxa\nde reorgs; Tempo médio de bloco.\nAtributo\nRelacionado\nDisponibilidade; Confiabilidade da confirmação.",
+    "protocol": "1. Definir critério de confirmação (inclusão em bloco, k\nconfirmações, checkpoint BFT).\n2. Submeter a transação e registrar Tsubmissão.\n3. Observar Tconfirmação conforme política.\n4. Calcular a diferença e analisar estatísticas (p50, p95,\np99).\n5. Relatar condições de teste (consenso, número de nós,\ncarga, políticas de taxa).",
+    "comment": "Em fee-only (BitcoinF), latência cresce para transações\ncom taxas baixas. Em redes permissionadas (Raft,\nPBFT, IBFT), latência é menor, mas varia com número\nde nós e falhas toleradas. Estudos de IoT/Metaverse\nmostram que latência deve ser otimizada junto com\nthroughput para atender SLAs de tempo real.\n33",
+    "interpretation": "Menor latência indica maior responsividade. Percentis\naltos (p95/p99) devem ser priorizados na análise, pois\ncapturam picos de atraso que afetam criticamente a\nexperiência do usuário.",
+    "unit": "Milissegundos (ms) ou segundos (s).",
+    "scale_type": "Absoluta",
+    "precision": "Depende da sincronização entre relógios cliente e nós.\nRecomenda-se uso de NTP/PTP para maior acurácia.",
+    "data_collection": "Automática\nFerramenta de\nMedição\nHyperledger Caliper (usado em Kaur et al. para EHR);\nsimuladores de blockchain; Prometheus/Grafana; scripts\nde sondagem em redes permissionadas e públicas.",
+    "use_processes": "Benchmarking de consensos; Testes de desempenho;\nOperações/SRE; Definição e monitoramento de SLAs.\nBeneficiários\nPotenciais\nDesenvolvedores; Administradores de rede; Arquitetos\nde sistemas; Gestores de produto.",
+    "references": "Siddiqui et al. (2021) — BitcoinF: Achieving Fairness\nfor Bitcoin in Transaction-Fee-Only Model.\nPatan & Parizi (2023) — Securing Data Exchange in\nIoT–Metaverse.\nKaur et al. (2022) — A Blockchain Enabled Predictive,\nAnalytical Model.\nGonçalves et al. (2022) — A Quality of Service\nCompliance System.\nZhang et al. (2023) — A Trustworthy Safety Inspection\nFramework Using Performance-Security Balanced\nBlockchain.\nAbdella et al. (2021) — Architecture and Performance\nEvaluation of Blockchain-Based Peer-to-Peer Energy\nTrading.\nKhezr et al. (2022) — An Edge Intelligent\nBlockchain-Based Reputation System for IIoT.\nMaftei et al. (2021) — Blockchain for IoT: A\nConsensus Mechanism Analysis.\nRen & Qin (2022) — Decentralized Blockchain-Based\nand Trust-Aware Task Offloading Strategy for Healthcare\nIoT.\n34"
+  },
+  "raw_fields": {
+    "Característica": "Desempenho",
+    "Sub-característica": "Tempo de Resposta",
+    "Equação": "Latência = Tconfirmação −Tsubmissão\nMétricas\nAssociadas\nVazão (Throughput); Jitter (variação temporal); Taxa\nde reorgs; Tempo médio de bloco.\nAtributo\nRelacionado\nDisponibilidade; Confiabilidade da confirmação.",
+    "Protocolo": "1. Definir critério de confirmação (inclusão em bloco, k\nconfirmações, checkpoint BFT).\n2. Submeter a transação e registrar Tsubmissão.\n3. Observar Tconfirmação conforme política.\n4. Calcular a diferença e analisar estatísticas (p50, p95,\np99).\n5. Relatar condições de teste (consenso, número de nós,\ncarga, políticas de taxa).",
+    "Comentário": "Em fee-only (BitcoinF), latência cresce para transações\ncom taxas baixas. Em redes permissionadas (Raft,\nPBFT, IBFT), latência é menor, mas varia com número\nde nós e falhas toleradas. Estudos de IoT/Metaverse\nmostram que latência deve ser otimizada junto com\nthroughput para atender SLAs de tempo real.\n33",
+    "Interpretação do Valor Medido": "Menor latência indica maior responsividade. Percentis\naltos (p95/p99) devem ser priorizados na análise, pois\ncapturam picos de atraso que afetam criticamente a\nexperiência do usuário.",
+    "Unidade": "Milissegundos (ms) ou segundos (s).",
+    "Tipo de Escala": "Absoluta",
+    "Precisão": "Depende da sincronização entre relógios cliente e nós.\nRecomenda-se uso de NTP/PTP para maior acurácia.",
+    "Tipo de Coleta de Dados": "Automática\nFerramenta de\nMedição\nHyperledger Caliper (usado em Kaur et al. para EHR);\nsimuladores de blockchain; Prometheus/Grafana; scripts\nde sondagem em redes permissionadas e públicas.",
+    "Processos de Uso Potenciais": "Benchmarking de consensos; Testes de desempenho;\nOperações/SRE; Definição e monitoramento de SLAs.\nBeneficiários\nPotenciais\nDesenvolvedores; Administradores de rede; Arquitetos\nde sistemas; Gestores de produto.",
+    "Referências": "Siddiqui et al. (2021) — BitcoinF: Achieving Fairness\nfor Bitcoin in Transaction-Fee-Only Model.\nPatan & Parizi (2023) — Securing Data Exchange in\nIoT–Metaverse.\nKaur et al. (2022) — A Blockchain Enabled Predictive,\nAnalytical Model.\nGonçalves et al. (2022) — A Quality of Service\nCompliance System.\nZhang et al. (2023) — A Trustworthy Safety Inspection\nFramework Using Performance-Security Balanced\nBlockchain.\nAbdella et al. (2021) — Architecture and Performance\nEvaluation of Blockchain-Based Peer-to-Peer Energy\nTrading.\nKhezr et al. (2022) — An Edge Intelligent\nBlockchain-Based Reputation System for IIoT.\nMaftei et al. (2021) — Blockchain for IoT: A\nConsensus Mechanism Analysis.\nRen & Qin (2022) — Decentralized Blockchain-Based\nand Trust-Aware Task Offloading Strategy for Healthcare\nIoT.\n34"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 12"
+  }
+}

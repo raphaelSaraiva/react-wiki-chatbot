@@ -1,0 +1,50 @@
+{
+  "id": "t5",
+  "table_no": 5,
+  "name": "Availability",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Disponibilidade"
+  },
+  "fields": {
+    "keywords_alias": "Availability; Alta disponibilidade; Níveis de serviço; Número de “noves”; Tempo de inatividade (downtime)",
+    "definition": "Probabilidade de o serviço estar operacional quando\nrequerido. Em plataformas blockchain (ex.: Hyperledger\nFabric), depende da saúde de hardware/SO/engine de\ncontêineres e dos nós lógicos (MSP, Endorser, Orderer)\ne da política de endosso (AND/OR/K-de-N)",
+    "objective": "Planejar e comprovar SLAs, comparar arranjos de endosso (AND/OR/K-de-N) e orientar decisões de implan-\ntação/manutenção para reduzir downtime anual. Em\nsoluções com requisitos de privacidade e integridade (ex.:\nplataformas imobiliárias com endereços aleatórios e antitampering), a disponibilidade assegura operação contínua\ndo serviço além de segurança/privacidade.",
+    "domain_independence": "Alto — aplicável a consórcios (saúde, educação, imobiliário), públicas e privadas, variando parâmetros de\narquitetura e consenso.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Disponibilidade de longo prazo: A =\nMTTF\nMTTF + MTTR.\nDowntime anual aproximado: Inatividade = (1 −A) ×\n8760 h/ano.\nK-de-N (ex.:\nk endossadores de N):\nAK/N\n=\nPN\ni=k\n\u0010N\ni\n\u0011\nai(1−a)N−i, onde a é a disponibilidade de cada\nnó/servidor.\nCasos: AND = N/N; OR = 1/N.\nMétricas\nAssociadas\nConfiabilidade (R(t)); MTBF/MTTR; # de noves (ex.:\n99,9%, 99,99%); Vazão (TPS); Latência; Taxa de falhas;\nCusto de Operação/Manutenção.\nAtributo\nRelacionado\nResiliência; Tolerância a falhas; Fault coverage; Segurança/Privacidade (impactam políticas e topologias).\n13",
+    "protocol": "1) Escopo: definir “serviço disponível” (ex.: submissão+endosso+ordenação+commit).\n2) Coleta: extrair incidentes/reparos dos nós (hardware,\nSO, Docker/engine, MSP/Endorser/Orderer); estimar\nMTTF/MTTR por componente.\n3) Modelagem: construir RBD em série (HW, SO,\nengine) e CTMC para nós HLF; avaliar políticas\nAND/OR/K-de-N e cenários de # nós.\n4) Cálculo: usar A =\nMTTF\nMTTF+MTTR por componente e\ncompor (K-de-N) para obter A do serviço e downtime\n(h/ano).\n5) Relato: reportar A, # de noves, p50/p95/p99 de duração de incidentes; registrar política de endosso, topologia\ne janelas de manutenção.",
+    "comment": "Em HLF, AND (todos endossam) tende a menor disponibilidade e maior custo; OR (qualquer um endossa)\nmaximiza disponibilidade/custo–benefício; K-de-N permite meio-termo. A arquitetura com mecanismos de\nprivacidade (ex.: endereços aleatórios/stealth, armazenamento eficiente) deve ser projetada sem introduzir novos\nSPoF para manter disponibilidade.\nInterpretação\ndo\nValor Medido\nMaior A e mais “noves” = melhor (menos inatividade).\nEx.: 99,99% ⇒∼1 h/ano; 99,9% ⇒∼9 h/ano. Escolher\nK-de-N compatível com o SLA e custos.",
+    "unit": "Percentual (%); número de “noves”; horas por ano\n(h/ano)",
+    "scale_type": "Razão",
+    "precision": "Exigir janelas de observação amplas; separar falhas planejadas vs. não planejadas; validar suposições de indepen-\ndência entre componentes; alinhar relógios e padronizar\ncritérios de “serviço indisponível”.",
+    "data_collection": "Automática (telemetria/monitoramento; logs de incidentes; exportadores dos nós e da orquestração)",
+    "measurement_tool": "Monitoramento (Prometheus/Grafana); registros de incidentes/ITSM; avaliação analítica via RBD/CTMC con-\nforme o método proposto; simulação para what-if.",
+    "use_processes": "Planejamento/FinOps de serviço; definição de política de\nendosso; desenho de topologia e redundância; avaliação\nde migrações e requisitos de privacidade sem degradar A",
+    "beneficiaries": "Engenheiros(as) de blockchain; SRE/Operações; Arquitetos(as) de sistemas; Gestores(as) de produto/SLA\n14",
+    "references": "(1) Melo et al. (2021–2022). A model-based approach for planning\nblockchain service provisioning — modelagem RBD/CTMC para\nHLF; expressões de disponibilidade; análise AND/OR/K-de-N e\ncustos.\n(2) AbdulKader & Kumar (2023). A privacy-preserving data transfer in a blockchain-based commercial real estate platform — arqui-\ntetura com endereço aleatório/stealth, integridade e avaliação de\ndesempenho/segurança, com implicações operacionais.\n15"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Availability",
+    "Palavras-chave / Alias": "Availability; Alta disponibilidade; Níveis de serviço; Número de “noves”; Tempo de inatividade (downtime)",
+    "Definição do Atributo": "Probabilidade de o serviço estar operacional quando\nrequerido. Em plataformas blockchain (ex.: Hyperledger\nFabric), depende da saúde de hardware/SO/engine de\ncontêineres e dos nós lógicos (MSP, Endorser, Orderer)\ne da política de endosso (AND/OR/K-de-N)",
+    "Objetivo / Motivação": "Planejar e comprovar SLAs, comparar arranjos de endosso (AND/OR/K-de-N) e orientar decisões de implan-\ntação/manutenção para reduzir downtime anual. Em\nsoluções com requisitos de privacidade e integridade (ex.:\nplataformas imobiliárias com endereços aleatórios e antitampering), a disponibilidade assegura operação contínua\ndo serviço além de segurança/privacidade.",
+    "Nível de Independência do Domínio": "Alto — aplicável a consórcios (saúde, educação, imobiliário), públicas e privadas, variando parâmetros de\narquitetura e consenso.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Confiabilidade",
+    "Sub-característica": "Disponibilidade",
+    "Equação": "Disponibilidade de longo prazo: A =\nMTTF\nMTTF + MTTR.\nDowntime anual aproximado: Inatividade = (1 −A) ×\n8760 h/ano.\nK-de-N (ex.:\nk endossadores de N):\nAK/N\n=\nPN\ni=k\n\u0010N\ni\n\u0011\nai(1−a)N−i, onde a é a disponibilidade de cada\nnó/servidor.\nCasos: AND = N/N; OR = 1/N.\nMétricas\nAssociadas\nConfiabilidade (R(t)); MTBF/MTTR; # de noves (ex.:\n99,9%, 99,99%); Vazão (TPS); Latência; Taxa de falhas;\nCusto de Operação/Manutenção.\nAtributo\nRelacionado\nResiliência; Tolerância a falhas; Fault coverage; Segurança/Privacidade (impactam políticas e topologias).\n13",
+    "Protocolo": "1) Escopo: definir “serviço disponível” (ex.: submissão+endosso+ordenação+commit).\n2) Coleta: extrair incidentes/reparos dos nós (hardware,\nSO, Docker/engine, MSP/Endorser/Orderer); estimar\nMTTF/MTTR por componente.\n3) Modelagem: construir RBD em série (HW, SO,\nengine) e CTMC para nós HLF; avaliar políticas\nAND/OR/K-de-N e cenários de # nós.\n4) Cálculo: usar A =\nMTTF\nMTTF+MTTR por componente e\ncompor (K-de-N) para obter A do serviço e downtime\n(h/ano).\n5) Relato: reportar A, # de noves, p50/p95/p99 de duração de incidentes; registrar política de endosso, topologia\ne janelas de manutenção.",
+    "Comentário": "Em HLF, AND (todos endossam) tende a menor disponibilidade e maior custo; OR (qualquer um endossa)\nmaximiza disponibilidade/custo–benefício; K-de-N permite meio-termo. A arquitetura com mecanismos de\nprivacidade (ex.: endereços aleatórios/stealth, armazenamento eficiente) deve ser projetada sem introduzir novos\nSPoF para manter disponibilidade.\nInterpretação\ndo\nValor Medido\nMaior A e mais “noves” = melhor (menos inatividade).\nEx.: 99,99% ⇒∼1 h/ano; 99,9% ⇒∼9 h/ano. Escolher\nK-de-N compatível com o SLA e custos.",
+    "Unidade": "Percentual (%); número de “noves”; horas por ano\n(h/ano)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Exigir janelas de observação amplas; separar falhas planejadas vs. não planejadas; validar suposições de indepen-\ndência entre componentes; alinhar relógios e padronizar\ncritérios de “serviço indisponível”.",
+    "Tipo de Coleta de Dados": "Automática (telemetria/monitoramento; logs de incidentes; exportadores dos nós e da orquestração)",
+    "Ferramenta de Medição": "Monitoramento (Prometheus/Grafana); registros de incidentes/ITSM; avaliação analítica via RBD/CTMC con-\nforme o método proposto; simulação para what-if.",
+    "Processos de Uso Potenciais": "Planejamento/FinOps de serviço; definição de política de\nendosso; desenho de topologia e redundância; avaliação\nde migrações e requisitos de privacidade sem degradar A",
+    "Beneficiários Potenciais": "Engenheiros(as) de blockchain; SRE/Operações; Arquitetos(as) de sistemas; Gestores(as) de produto/SLA\n14",
+    "Referências": "(1) Melo et al. (2021–2022). A model-based approach for planning\nblockchain service provisioning — modelagem RBD/CTMC para\nHLF; expressões de disponibilidade; análise AND/OR/K-de-N e\ncustos.\n(2) AbdulKader & Kumar (2023). A privacy-preserving data transfer in a blockchain-based commercial real estate platform — arqui-\ntetura com endereço aleatório/stealth, integridade e avaliação de\ndesempenho/segurança, com implicações operacionais.\n15"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 5"
+  }
+}

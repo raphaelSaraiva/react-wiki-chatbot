@@ -1,0 +1,48 @@
+{
+  "id": "t106",
+  "table_no": 106,
+  "name": "Número de Transações de Escrita",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos / Capacidade de Processamento"
+  },
+  "fields": {
+    "keywords_alias": "Number of writing transactions; Write operations; Data\ninsertion count; IoT data recording; Blockchain write\nthroughput",
+    "definition": "Mede a quantidade total de transações que realizam operações de escrita na blockchain durante\num intervalo de tempo, como inserções, atualizações\nou registros de dados provenientes de dispositivos IoT\nou contratos inteligentes. Representa o volume de operações que modificam o estado da cadeia e impactam\ndiretamente o desempenho e o custo da rede.",
+    "objective": "Avaliar o impacto da frequência de gravações na blockchain sobre a latência, o custo computacional e a eficiên-\ncia energética de sistemas distribuídos baseados em IoT.\nEssa métrica ajuda a dimensionar a taxa de atualização\nviável em aplicações que exigem registro contínuo de\ndados, como monitoramento energético e trocas automatizadas.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "O número de transações de escrita (Nw) é calculado\ncomo:\nNw =\nT\nX\ni=1\nI(tx(tipo)\ni\n= write)\nonde tx(tipo)\ni\nindica se a transação i envolve uma operação\nde escrita e T é o total de transações observadas no\nperíodo de medição.\nMétricas\nAssociadas\nTaxa de Transações por Segundo (TPS); Número de Transações de Leitura; Custo de Gás; Latência de Transação;\nThroughput da Rede\nAtributo\nRelacionado\nCarga da Rede; Desempenho de Contrato Inteligente;\nConsumo de Energia; Escalabilidade\n254",
+    "protocol": "1) Implantar o contrato inteligente para registro de dados\nIoT em uma rede Ethereum privada.\n2) Configurar os dispositivos IoT para envio periódico\nde medições de energia (ex.: a cada 15 segundos).\n3) Cada medição registrada gera uma transação de escrita\nna blockchain.\n4) Monitorar e registrar o número total de transações\nde escrita executadas dentro do intervalo de observação\ndefinido.\n5) Calcular o custo e o tempo médio por operação de\nescrita.",
+    "comment": "No estudo, cada transação de escrita representava uma\ninserção de dados de medição de energia entre dispositivos IoT e o agregador. O número de transações de\nescrita foi usado para avaliar a escalabilidade do sistema\ne o consumo de gás da solução baseada em Ethereum. O\nuso de smart contracts para controle das trocas reduziu o\nrisco de falhas e garantiu rastreabilidade, mas aumentou\no custo conforme o volume de gravações cresceu.\nInterpretação\ndo\nValor Medido\nValores altos de Nw indicam maior atividade de escrita,\no que pode levar a aumento do custo e da latência. Valores baixos sugerem economia de recursos, mas podem\ncomprometer a frequência de atualização dos dados.",
+    "unit": "Número de transações de escrita (transações)",
+    "scale_type": "Razão",
+    "precision": "Alta, desde que as transações sejam monitoradas diretamente via logs de contrato inteligente e identificadas\ncorretamente como operações de escrita.",
+    "data_collection": "Automática / Experimental",
+    "measurement_tool": "Nó Ethereum; contratos inteligentes em Solidity; API\nWeb3.js; Microsoft SQL Server 2019 com integração via\nOle Automation Procedures; exploradores de bloco privados.",
+    "use_processes": "Avaliação de desempenho de aplicações IoT em blockchain; análise de custo de gravação; estudos de esca-\nlabilidade; otimização de frequência de atualização de\ndados.",
+    "beneficiaries": "Engenheiros de IoT; desenvolvedores de blockchain; pesquisadores em eficiência energética; arquitetos de siste-\nmas distribuídos.\n255",
+    "references": "Bartol, J.; Souvent, A.; Suljanović, N.; Zajc, M. Secure Data\nExchange Between IoT Endpoints for Energy Balancing Using\nDistributed Ledger. IEEE PES Innovative Smart Grid Technologies\nEurope (ISGT-Europe), 2020. — A métrica Number of Writing\nTransactions representa o total de operações de gravação na\nblockchain, utilizadas para avaliar o impacto de escrita contínua\nem redes IoT integradas a sistemas de energia distribuída.\n256"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Número de Transações de Escrita",
+    "Palavras-chave / Alias": "Number of writing transactions; Write operations; Data\ninsertion count; IoT data recording; Blockchain write\nthroughput",
+    "Definição do Atributo": "Mede a quantidade total de transações que realizam operações de escrita na blockchain durante\num intervalo de tempo, como inserções, atualizações\nou registros de dados provenientes de dispositivos IoT\nou contratos inteligentes. Representa o volume de operações que modificam o estado da cadeia e impactam\ndiretamente o desempenho e o custo da rede.",
+    "Objetivo / Motivação": "Avaliar o impacto da frequência de gravações na blockchain sobre a latência, o custo computacional e a eficiên-\ncia energética de sistemas distribuídos baseados em IoT.\nEssa métrica ajuda a dimensionar a taxa de atualização\nviável em aplicações que exigem registro contínuo de\ndados, como monitoramento energético e trocas automatizadas.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de Recursos / Capacidade de Processamento",
+    "Equação": "O número de transações de escrita (Nw) é calculado\ncomo:\nNw =\nT\nX\ni=1\nI(tx(tipo)\ni\n= write)\nonde tx(tipo)\ni\nindica se a transação i envolve uma operação\nde escrita e T é o total de transações observadas no\nperíodo de medição.\nMétricas\nAssociadas\nTaxa de Transações por Segundo (TPS); Número de Transações de Leitura; Custo de Gás; Latência de Transação;\nThroughput da Rede\nAtributo\nRelacionado\nCarga da Rede; Desempenho de Contrato Inteligente;\nConsumo de Energia; Escalabilidade\n254",
+    "Protocolo": "1) Implantar o contrato inteligente para registro de dados\nIoT em uma rede Ethereum privada.\n2) Configurar os dispositivos IoT para envio periódico\nde medições de energia (ex.: a cada 15 segundos).\n3) Cada medição registrada gera uma transação de escrita\nna blockchain.\n4) Monitorar e registrar o número total de transações\nde escrita executadas dentro do intervalo de observação\ndefinido.\n5) Calcular o custo e o tempo médio por operação de\nescrita.",
+    "Comentário": "No estudo, cada transação de escrita representava uma\ninserção de dados de medição de energia entre dispositivos IoT e o agregador. O número de transações de\nescrita foi usado para avaliar a escalabilidade do sistema\ne o consumo de gás da solução baseada em Ethereum. O\nuso de smart contracts para controle das trocas reduziu o\nrisco de falhas e garantiu rastreabilidade, mas aumentou\no custo conforme o volume de gravações cresceu.\nInterpretação\ndo\nValor Medido\nValores altos de Nw indicam maior atividade de escrita,\no que pode levar a aumento do custo e da latência. Valores baixos sugerem economia de recursos, mas podem\ncomprometer a frequência de atualização dos dados.",
+    "Unidade": "Número de transações de escrita (transações)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Alta, desde que as transações sejam monitoradas diretamente via logs de contrato inteligente e identificadas\ncorretamente como operações de escrita.",
+    "Tipo de Coleta de Dados": "Automática / Experimental",
+    "Ferramenta de Medição": "Nó Ethereum; contratos inteligentes em Solidity; API\nWeb3.js; Microsoft SQL Server 2019 com integração via\nOle Automation Procedures; exploradores de bloco privados.",
+    "Processos de Uso Potenciais": "Avaliação de desempenho de aplicações IoT em blockchain; análise de custo de gravação; estudos de esca-\nlabilidade; otimização de frequência de atualização de\ndados.",
+    "Beneficiários Potenciais": "Engenheiros de IoT; desenvolvedores de blockchain; pesquisadores em eficiência energética; arquitetos de siste-\nmas distribuídos.\n255",
+    "Referências": "Bartol, J.; Souvent, A.; Suljanović, N.; Zajc, M. Secure Data\nExchange Between IoT Endpoints for Energy Balancing Using\nDistributed Ledger. IEEE PES Innovative Smart Grid Technologies\nEurope (ISGT-Europe), 2020. — A métrica Number of Writing\nTransactions representa o total de operações de gravação na\nblockchain, utilizadas para avaliar o impacto de escrita contínua\nem redes IoT integradas a sistemas de energia distribuída.\n256"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 106"
+  }
+}

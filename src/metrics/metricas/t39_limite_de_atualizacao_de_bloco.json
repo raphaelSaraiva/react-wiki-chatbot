@@ -1,0 +1,46 @@
+{
+  "id": "t39",
+  "table_no": 39,
+  "name": "Limite de Atualização de Bloco",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nCapacidade / Escalabilidade"
+  },
+  "fields": {
+    "keywords_alias": "Block updating; Atualização de bloco; Frequência de\natualização; Taxa de atualização; Limite de escrita de\nbloco; Atualização de ledger",
+    "definition": "Mede o número máximo de atualizações ou inserções de dados que podem ser realizadas em\num bloco ou cadeia dentro de um intervalo de\ntempo definido, sem comprometer o desempenho e a\nintegridade da rede blockchain. No contexto de sistemas\nbaseados em drones e cidades inteligentes, esse limite\nreflete a capacidade da rede de lidar com transmissões e\nregistros frequentes de dados em tempo real, garantindo\nconsistência e validação distribuída.",
+    "objective": "Avaliar a capacidade de atualização e escalabilidade\nda blockchain diante de operações dinâmicas, como as\nrealizadas por veículos aéreos não tripulados (VANTs)\nem ambientes urbanos. A métrica indica até que ponto\na frequência de escrita pode ser aumentada antes que\nocorram atrasos, conflitos de consenso ou degradação da\nconfiança entre os nós.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Lupdate = Nupdate\nTintervalo\n,\nonde Nupdate é o número de atualizações realizadas com\nsucesso em um bloco ou conjunto de blocos durante o\nperíodo Tintervalo.\nO limite aceitável é determinado pela máxima taxa de\natualização (Lmax\nupdate) que mantém a latência e o consenso\ndentro dos parâmetros de estabilidade.\nMétricas\nAssociadas\nThroughput; Latência de consenso; Tempo de confirmação; Custo de transação; Tamanho do bloco; Taxa de\nfalhas de atualização\nAtributo\nRelacionado\nEscalabilidade de rede; Capacidade de armazenamento;\nEficiência de comunicação; Frequência de geração de\nblocos\n106",
+    "protocol": "1) Definir o período de medição [t0, t1] e o número de\nnós participantes.\n2) Registrar cada operação de atualização (inserção de\nnovo dado ou modificação de estado) submetida à blockchain.\n3) Contabilizar as atualizações confirmadas (Nupdate) no\nintervalo.\n4) Calcular Lupdate = Nupdate/Tintervalo e comparar com\no limite máximo definido pelo protocolo.\n5) Observar o impacto sobre latência e taxa de consenso\npara identificar o ponto de saturação da rede.",
+    "comment": "O Limite de Atualização de Bloco é crítico em cenários\ncom alta frequência de eventos, como drones monitorando áreas urbanas. O artigo propõe um mecanismo de\nconfiança baseado em blockchain para drones, no qual\no limite de atualização garante equilíbrio entre desempenho e integridade do ledger. Exceder esse limite pode\ncausar atrasos na validação de blocos, perdas de dados e\naumento do consumo de energia nos nós participantes.\nInterpretação\ndo\nValor Medido\nValores altos indicam boa escalabilidade e capacidade\nde processamento da rede, desde que acompanhados de\nbaixa latência. Valores muito elevados podem, entretanto, gerar congestionamento e instabilidade. Valores\nbaixos sugerem restrições de desempenho ou gargalos\nno mecanismo de atualização.",
+    "unit": "Atualizações por segundo (updates/s)",
+    "scale_type": "Razão",
+    "precision": "Depende da sincronização de tempo entre os nós e da\ngranularidade de medição. Amostragens curtas podem\nsubestimar picos de atualização; períodos longos podem\nmascarar variações momentâneas.",
+    "data_collection": "Automática (via monitoramento de logs e taxas de transação confirmadas)",
+    "measurement_tool": "Logs de consenso; APIs de monitoramento de blockchain\n(Hyperledger Fabric, Ethereum); simuladores de tráfego\nIoT; ferramentas de telemetria de drones.",
+    "use_processes": "Planejamento de capacidade da blockchain em redes\nurbanas; otimização de frequência de escrita de dados em\ndrones; análise de escalabilidade de redes consorciadas;\nvalidação de desempenho em ambientes IoT.",
+    "beneficiaries": "Engenheiros de redes blockchain; projetistas de sistemas\nde drones; arquitetos de cidades inteligentes; pesquisadores em IoT e sistemas distribuídos.\n107",
+    "references": "Ali, M.; Younis, M.; Alnasser, A.; et al. A Trust-Based Mechanism\nfor Drones in Smart Cities. IEEE Access, 2023. — O artigo\nintroduz um modelo de confiança e verificação para drones em\ncidades inteligentes, utilizando blockchain para registro distribuído.\nO estudo define métricas de desempenho como limite de atualização\nde bloco, tempo de resposta e taxa de consenso, relacionando-as à\neficiência e segurança do sistema.\n108"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Limite de Atualização de Bloco",
+    "Palavras-chave / Alias": "Block updating; Atualização de bloco; Frequência de\natualização; Taxa de atualização; Limite de escrita de\nbloco; Atualização de ledger",
+    "Definição do Atributo": "Mede o número máximo de atualizações ou inserções de dados que podem ser realizadas em\num bloco ou cadeia dentro de um intervalo de\ntempo definido, sem comprometer o desempenho e a\nintegridade da rede blockchain. No contexto de sistemas\nbaseados em drones e cidades inteligentes, esse limite\nreflete a capacidade da rede de lidar com transmissões e\nregistros frequentes de dados em tempo real, garantindo\nconsistência e validação distribuída.",
+    "Objetivo / Motivação": "Avaliar a capacidade de atualização e escalabilidade\nda blockchain diante de operações dinâmicas, como as\nrealizadas por veículos aéreos não tripulados (VANTs)\nem ambientes urbanos. A métrica indica até que ponto\na frequência de escrita pode ser aumentada antes que\nocorram atrasos, conflitos de consenso ou degradação da\nconfiança entre os nós.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho\nSubcaracterística\nCapacidade / Escalabilidade",
+    "Equação": "Lupdate = Nupdate\nTintervalo\n,\nonde Nupdate é o número de atualizações realizadas com\nsucesso em um bloco ou conjunto de blocos durante o\nperíodo Tintervalo.\nO limite aceitável é determinado pela máxima taxa de\natualização (Lmax\nupdate) que mantém a latência e o consenso\ndentro dos parâmetros de estabilidade.\nMétricas\nAssociadas\nThroughput; Latência de consenso; Tempo de confirmação; Custo de transação; Tamanho do bloco; Taxa de\nfalhas de atualização\nAtributo\nRelacionado\nEscalabilidade de rede; Capacidade de armazenamento;\nEficiência de comunicação; Frequência de geração de\nblocos\n106",
+    "Protocolo": "1) Definir o período de medição [t0, t1] e o número de\nnós participantes.\n2) Registrar cada operação de atualização (inserção de\nnovo dado ou modificação de estado) submetida à blockchain.\n3) Contabilizar as atualizações confirmadas (Nupdate) no\nintervalo.\n4) Calcular Lupdate = Nupdate/Tintervalo e comparar com\no limite máximo definido pelo protocolo.\n5) Observar o impacto sobre latência e taxa de consenso\npara identificar o ponto de saturação da rede.",
+    "Comentário": "O Limite de Atualização de Bloco é crítico em cenários\ncom alta frequência de eventos, como drones monitorando áreas urbanas. O artigo propõe um mecanismo de\nconfiança baseado em blockchain para drones, no qual\no limite de atualização garante equilíbrio entre desempenho e integridade do ledger. Exceder esse limite pode\ncausar atrasos na validação de blocos, perdas de dados e\naumento do consumo de energia nos nós participantes.\nInterpretação\ndo\nValor Medido\nValores altos indicam boa escalabilidade e capacidade\nde processamento da rede, desde que acompanhados de\nbaixa latência. Valores muito elevados podem, entretanto, gerar congestionamento e instabilidade. Valores\nbaixos sugerem restrições de desempenho ou gargalos\nno mecanismo de atualização.",
+    "Unidade": "Atualizações por segundo (updates/s)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Depende da sincronização de tempo entre os nós e da\ngranularidade de medição. Amostragens curtas podem\nsubestimar picos de atualização; períodos longos podem\nmascarar variações momentâneas.",
+    "Tipo de Coleta de Dados": "Automática (via monitoramento de logs e taxas de transação confirmadas)",
+    "Ferramenta de Medição": "Logs de consenso; APIs de monitoramento de blockchain\n(Hyperledger Fabric, Ethereum); simuladores de tráfego\nIoT; ferramentas de telemetria de drones.",
+    "Processos de Uso Potenciais": "Planejamento de capacidade da blockchain em redes\nurbanas; otimização de frequência de escrita de dados em\ndrones; análise de escalabilidade de redes consorciadas;\nvalidação de desempenho em ambientes IoT.",
+    "Beneficiários Potenciais": "Engenheiros de redes blockchain; projetistas de sistemas\nde drones; arquitetos de cidades inteligentes; pesquisadores em IoT e sistemas distribuídos.\n107",
+    "Referências": "Ali, M.; Younis, M.; Alnasser, A.; et al. A Trust-Based Mechanism\nfor Drones in Smart Cities. IEEE Access, 2023. — O artigo\nintroduz um modelo de confiança e verificação para drones em\ncidades inteligentes, utilizando blockchain para registro distribuído.\nO estudo define métricas de desempenho como limite de atualização\nde bloco, tempo de resposta e taxa de consenso, relacionando-as à\neficiência e segurança do sistema.\n108"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 39"
+  }
+}

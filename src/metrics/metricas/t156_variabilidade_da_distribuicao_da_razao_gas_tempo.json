@@ -1,0 +1,48 @@
+{
+  "id": "t156",
+  "table_no": 156,
+  "name": "Variabilidade da Distribuição da Razão Gas/Tempo",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "keywords_alias": "Gas cost variation; Time-to-gas ratio; Gas efficiency;\nGas computation fairness; Opcode timing; Ethereum gas\nmodel",
+    "definition": "Mede a variação estatística entre o custo de gas e o tempo\nreal de execução computacional das transações na rede\nEthereum. Essa métrica quantifica a consistência entre o\nmodelo de custo em gas e o esforço computacional efetivo\nnecessário para executar instruções (opcodes) do EVM.",
+    "objective": "Avaliar a precisão e a justiça do modelo de cobrança\npor gas, identificando desvios entre o consumo de gas\ne o tempo de execução real. Uma alta variabilidade\nindica ineficiências na modelagem de desempenho ou\nassimetrias entre participantes da rede.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "CoV = σ\nµ\nonde σ representa o desvio padrão do valor observado\nda razão Tempo/Gas, e µ é sua média. O Coeficiente de\nVariação (CoV) expressa a flutuação percentual do custo\ntemporal relativo ao gas consumido.\nMétricas\nAssociadas\nGas Efficiency Ratio; Opcode Runtime; Throughput;\nExecution Latency; Gas Cost Predictability\nAtributo\nRelacionado\nTempo de Execução; Custo de Gas; Fairness de Execução;\nVariabilidade de Desempenho",
+    "protocol": "1) Instrumentar o cliente Ethereum (cpp-ethereum) com\nrastreamento via lttng para capturar tempos de execução em nanossegundos.\n2) Coletar dados de execução de múltiplos opcodes sob\ndiferentes arquiteturas (Xeon 8180M, i7-4770, etc.).\n3) Calcular a razão Tempo/Gas para cada opcode executado.\n4) Obter média (µ) e desvio padrão (σ) das razões.\n5) Calcular o CoV e comparar entre máquinas e tipos de\nopcode.\n357",
+    "comment": "A alta variabilidade na relação Gas/Tempo evidencia limitações do modelo atual de gas da Ethereum, sugerindo\nque diferentes tipos de hardware e instruções produzem\ncustos desbalanceados. Isso pode afetar a previsibilidade\nde taxas e a equidade de execução entre nós.\nInterpretação\ndo\nValor Medido\nValores baixos de CoV (< 0.2) indicam boa correlação\nentre o tempo real e o custo de gas; valores altos (> 0.5)\nrevelam inconsistências que prejudicam a padronização\ne o desempenho equitativo da rede.",
+    "unit": "Adimensional (Coeficiente de Variação)",
+    "scale_type": "Razão",
+    "precision": "Alta, desde que os tempos de execução sejam coletados\ncom granularidade de nanossegundos e sob condições\ncontroladas de hardware.",
+    "data_collection": "Automática (instrumentação de execução)",
+    "measurement_tool": "Cliente Ethereum em C++ (cpp-ethereum); lttng tracing; scripts Python/R para cálculo estatístico.",
+    "use_processes": "Avaliação do modelo de gas; calibração de custos por opcode; auditoria de desempenho entre clientes Ethereum;\nestudos de equidade de execução.",
+    "beneficiaries": "Pesquisadores de desempenho em blockchain; engenheiros de protocolo; desenvolvedores de clientes EVM; ana-\nlistas de custo de transação.",
+    "references": "Renlord Yang et al. Empirically Analyzing Ethereum’s Gas Mechanism. 2019. Análise empírica da relação entre tempo de execução\ne custo em gas, avaliando variações e impacto no desempenho e\nna justiça do modelo de gas da Ethereum.\n358"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Variabilidade da Distribuição da Razão Gas/Tempo",
+    "Palavras-chave / Alias": "Gas cost variation; Time-to-gas ratio; Gas efficiency;\nGas computation fairness; Opcode timing; Ethereum gas\nmodel",
+    "Definição do Atributo": "Mede a variação estatística entre o custo de gas e o tempo\nreal de execução computacional das transações na rede\nEthereum. Essa métrica quantifica a consistência entre o\nmodelo de custo em gas e o esforço computacional efetivo\nnecessário para executar instruções (opcodes) do EVM.",
+    "Objetivo / Motivação": "Avaliar a precisão e a justiça do modelo de cobrança\npor gas, identificando desvios entre o consumo de gas\ne o tempo de execução real. Uma alta variabilidade\nindica ineficiências na modelagem de desempenho ou\nassimetrias entre participantes da rede.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Comportamento Temporal",
+    "Equação": "CoV = σ\nµ\nonde σ representa o desvio padrão do valor observado\nda razão Tempo/Gas, e µ é sua média. O Coeficiente de\nVariação (CoV) expressa a flutuação percentual do custo\ntemporal relativo ao gas consumido.\nMétricas\nAssociadas\nGas Efficiency Ratio; Opcode Runtime; Throughput;\nExecution Latency; Gas Cost Predictability\nAtributo\nRelacionado\nTempo de Execução; Custo de Gas; Fairness de Execução;\nVariabilidade de Desempenho",
+    "Protocolo": "1) Instrumentar o cliente Ethereum (cpp-ethereum) com\nrastreamento via lttng para capturar tempos de execução em nanossegundos.\n2) Coletar dados de execução de múltiplos opcodes sob\ndiferentes arquiteturas (Xeon 8180M, i7-4770, etc.).\n3) Calcular a razão Tempo/Gas para cada opcode executado.\n4) Obter média (µ) e desvio padrão (σ) das razões.\n5) Calcular o CoV e comparar entre máquinas e tipos de\nopcode.\n357",
+    "Comentário": "A alta variabilidade na relação Gas/Tempo evidencia limitações do modelo atual de gas da Ethereum, sugerindo\nque diferentes tipos de hardware e instruções produzem\ncustos desbalanceados. Isso pode afetar a previsibilidade\nde taxas e a equidade de execução entre nós.\nInterpretação\ndo\nValor Medido\nValores baixos de CoV (< 0.2) indicam boa correlação\nentre o tempo real e o custo de gas; valores altos (> 0.5)\nrevelam inconsistências que prejudicam a padronização\ne o desempenho equitativo da rede.",
+    "Unidade": "Adimensional (Coeficiente de Variação)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Alta, desde que os tempos de execução sejam coletados\ncom granularidade de nanossegundos e sob condições\ncontroladas de hardware.",
+    "Tipo de Coleta de Dados": "Automática (instrumentação de execução)",
+    "Ferramenta de Medição": "Cliente Ethereum em C++ (cpp-ethereum); lttng tracing; scripts Python/R para cálculo estatístico.",
+    "Processos de Uso Potenciais": "Avaliação do modelo de gas; calibração de custos por opcode; auditoria de desempenho entre clientes Ethereum;\nestudos de equidade de execução.",
+    "Beneficiários Potenciais": "Pesquisadores de desempenho em blockchain; engenheiros de protocolo; desenvolvedores de clientes EVM; ana-\nlistas de custo de transação.",
+    "Referências": "Renlord Yang et al. Empirically Analyzing Ethereum’s Gas Mechanism. 2019. Análise empírica da relação entre tempo de execução\ne custo em gas, avaliando variações e impacto no desempenho e\nna justiça do modelo de gas da Ethereum.\n358"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 156"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "t8",
+  "table_no": 8,
+  "name": "Execution Time",
+  "iso25010": {
+    "characteristic": "Desempenho",
+    "subcharacteristic": "Comportamento temporal (tempo de processamento)"
+  },
+  "fields": {
+    "equation": "Execution Time = Tfim_exec −Tinício_exec.\nExemplos: (a) Chaincode: do invoke até a conclusão da\nfunção; (b) Smart contract: do envio da chamada até o\nreceipt/evento de término on-chain (quando aplicável).\nMétricas\nAssociadas\nLatência (end-to-end); Throughput (TPS); Overhead de\ncomunicação; Consumo de recursos (CPU/memória);\nCusto de transação (gás).\nAtributo\nRelacionado\nEficiência no uso de recursos; Escalabilidade;\nConfiabilidade de confirmação.\n22",
+    "protocol": "1. Definir precisamente os pontos de medição\n(Tinício_exec, Tfim_exec): no cliente/SDK (chamada), no\npeer/validador (início/fim de chaincode) ou via\nevent/receipt.\n2. Sincronizar relógios (NTP/PTP) e registrar\ncondições (nós, consenso, banda, carga).\n3. Executar workloads controlados variando: tamanho\ndo payload, concorrência, consenso\n(PBFT/IBFT/Raft/PoW/PoS), nós.\n4. Calcular estatísticas (média, mediana, p90/p95/p99)\ne correlacionar com latência e TPS.\n5. Reportar overheads de comunicação/armazenamento\ne configurações (ex.: compactação, endorsement policy).",
+    "comment": "Em cenários reais, execution time é afetado por I/O de\nestado e sobrecarga criptográfica. Trabalhos em\nIIoT/Agro e saúde medem average execution time junto\nde gas cost/latência/throughput; soluções com off-chain\n(ex.: IPFS) reduzem custos e podem melhorar o tempo\nde execução percebido na camada de contrato.",
+    "interpretation": "Menor é melhor. Observar percentis altos (p95/p99) e\nestabilidade sob carga; comparar variantes de\nimplementação/consenso e efeitos de batching/tamanho\nde bloco.",
+    "unit": "Milissegundos (ms) ou segundos (s).",
+    "scale_type": "Absoluta",
+    "precision": "Depende da instrumentação (local do timestamp) e\nsincronização; cuidado para não confundir tempo de\nexecução (processamento) com latência fim-a-fim (inclui\nrede/consenso).",
+    "data_collection": "Automática\nFerramenta de\nMedição\nHyperledger Caliper (benchmark de Fabric e afins);\ninstrumentação Node.js/SDK (coleta de tempos);\nexploradores/eventos para receipts.",
+    "use_processes": "Benchmarking de consensos/plataformas; Otimização de\ncontratos/chaincode; Planejamento de capacidade;\nSRE/Observabilidade; Avaliação de requisitos de tempo\nem IoT/saúde/supply chain.\nBeneficiários\nPotenciais\nEngenheiros(as) de software/contratos; Arquitetos(as)\nde sistemas; Operadores(as)/SRE; Gestores(as) de\nproduto/SLA.\n23",
+    "references": "(1) Nasir et al., Performance Analysis of Hyperledger Fabric Platforms — avalia execution time, latência e throughput em Fabric.\n(2) Kumar & Chand, MedHypChain — mede execution time, latência e throughput em rede permissionada de saúde.\n(3) Deebak et al., Lightweight Blockchain-Based Remote Mutual\nAuthentication (B-RMA) — usa Node.js e avalia execution time,\nthroughput e overhead.\n(4) Chatterjee et al., Blockchain-Enabled Security Framework for\nSmart Agriculture — reporta average execution time, gas cost,\nthroughput e latência.\n(5) Uddin et al., From Hype to Reality—Blockchain in SCM —\ncompara soluções com foco em eficiência, execution time, segurança\ne latência.\n(6) Bai et al., GDPR-Compliant Data Storage and Sharing in\nSmart Healthcare — discute arquitetura com IPFS/Blockchain e\nimpactos de desempenho.\n24"
+  },
+  "raw_fields": {
+    "Característica": "Desempenho",
+    "Sub-característica": "Comportamento temporal (tempo de processamento)",
+    "Equação": "Execution Time = Tfim_exec −Tinício_exec.\nExemplos: (a) Chaincode: do invoke até a conclusão da\nfunção; (b) Smart contract: do envio da chamada até o\nreceipt/evento de término on-chain (quando aplicável).\nMétricas\nAssociadas\nLatência (end-to-end); Throughput (TPS); Overhead de\ncomunicação; Consumo de recursos (CPU/memória);\nCusto de transação (gás).\nAtributo\nRelacionado\nEficiência no uso de recursos; Escalabilidade;\nConfiabilidade de confirmação.\n22",
+    "Protocolo": "1. Definir precisamente os pontos de medição\n(Tinício_exec, Tfim_exec): no cliente/SDK (chamada), no\npeer/validador (início/fim de chaincode) ou via\nevent/receipt.\n2. Sincronizar relógios (NTP/PTP) e registrar\ncondições (nós, consenso, banda, carga).\n3. Executar workloads controlados variando: tamanho\ndo payload, concorrência, consenso\n(PBFT/IBFT/Raft/PoW/PoS), nós.\n4. Calcular estatísticas (média, mediana, p90/p95/p99)\ne correlacionar com latência e TPS.\n5. Reportar overheads de comunicação/armazenamento\ne configurações (ex.: compactação, endorsement policy).",
+    "Comentário": "Em cenários reais, execution time é afetado por I/O de\nestado e sobrecarga criptográfica. Trabalhos em\nIIoT/Agro e saúde medem average execution time junto\nde gas cost/latência/throughput; soluções com off-chain\n(ex.: IPFS) reduzem custos e podem melhorar o tempo\nde execução percebido na camada de contrato.",
+    "Interpretação do Valor Medido": "Menor é melhor. Observar percentis altos (p95/p99) e\nestabilidade sob carga; comparar variantes de\nimplementação/consenso e efeitos de batching/tamanho\nde bloco.",
+    "Unidade": "Milissegundos (ms) ou segundos (s).",
+    "Tipo de Escala": "Absoluta",
+    "Precisão": "Depende da instrumentação (local do timestamp) e\nsincronização; cuidado para não confundir tempo de\nexecução (processamento) com latência fim-a-fim (inclui\nrede/consenso).",
+    "Tipo de Coleta de Dados": "Automática\nFerramenta de\nMedição\nHyperledger Caliper (benchmark de Fabric e afins);\ninstrumentação Node.js/SDK (coleta de tempos);\nexploradores/eventos para receipts.",
+    "Processos de Uso Potenciais": "Benchmarking de consensos/plataformas; Otimização de\ncontratos/chaincode; Planejamento de capacidade;\nSRE/Observabilidade; Avaliação de requisitos de tempo\nem IoT/saúde/supply chain.\nBeneficiários\nPotenciais\nEngenheiros(as) de software/contratos; Arquitetos(as)\nde sistemas; Operadores(as)/SRE; Gestores(as) de\nproduto/SLA.\n23",
+    "Referências": "(1) Nasir et al., Performance Analysis of Hyperledger Fabric Platforms — avalia execution time, latência e throughput em Fabric.\n(2) Kumar & Chand, MedHypChain — mede execution time, latência e throughput em rede permissionada de saúde.\n(3) Deebak et al., Lightweight Blockchain-Based Remote Mutual\nAuthentication (B-RMA) — usa Node.js e avalia execution time,\nthroughput e overhead.\n(4) Chatterjee et al., Blockchain-Enabled Security Framework for\nSmart Agriculture — reporta average execution time, gas cost,\nthroughput e latência.\n(5) Uddin et al., From Hype to Reality—Blockchain in SCM —\ncompara soluções com foco em eficiência, execution time, segurança\ne latência.\n(6) Bai et al., GDPR-Compliant Data Storage and Sharing in\nSmart Healthcare — discute arquitetura com IPFS/Blockchain e\nimpactos de desempenho.\n24"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 8"
+  }
+}

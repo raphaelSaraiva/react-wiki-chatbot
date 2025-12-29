@@ -1,0 +1,48 @@
+{
+  "id": "t100",
+  "table_no": 100,
+  "name": "Número de Mineradores",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade de Resposta / Escalabilidade"
+  },
+  "fields": {
+    "keywords_alias": "Number of miners; Miner count; Mining nodes; Validator\nnodes; Blockchain participants",
+    "definition": "Mede o número total de mineradores (ou validadores) ativos em uma rede blockchain durante a execução\nde um protocolo de consenso. Essa métrica influencia\ndiretamente a segurança, o desempenho e a escalabilidade da rede, afetando o tempo de validação de blocos e\no consumo de energia.",
+    "objective": "Avaliar o impacto da quantidade de mineradores na eficiência e robustez da rede blockchain. Um número elevado\nde mineradores aumenta a descentralização e a segurança\ncontra ataques (como 51%), enquanto um número reduzido favorece maior rapidez de consenso, menor latência\ne menor custo de comunicação.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Pode-se representar a métrica como:\nM = Ntotal ou Ms ⊆Ntotal\nonde Ntotal representa o número total de mineradores\ndisponíveis na rede e Ms o subconjunto de mineradores\nselecionados para participar do consenso ou mineração\nem um dado bloco.\nMétricas\nAssociadas\nTempo de Validação de Bloco; Taxa de Hash; Taxa de\nTransações Confirmadas; Consumo de Energia; Escalabilidade\nAtributo\nRelacionado\nCapacidade de Mineração; Desempenho da Rede; Segurança de Consenso; Descentralização",
+    "protocol": "1) Configurar o ambiente de simulação com o número\ntotal de mineradores definido como variável de entrada\n(Ntotal).\n2) Definir o subconjunto de mineradores ativos por rodada (Ms) responsável pela validação de blocos.\n3) Observar o impacto de diferentes configurações de\nmineradores sobre a latência, throughput e consumo de\nenergia.\n4) Comparar os resultados com abordagens tradicionais\nde consenso (ex.: Proof-of-Work).\n241",
+    "comment": "No modelo LBSS, os experimentos foram realizados com\n10.000 a 200.000 mineradores totais, sendo 10 a\n50 selecionados para cada rodada de validação. Essa\nconfiguração foi escolhida para equilibrar segurança e\neficiência em um ambiente IoT voltado à área da saúde,\nreduzindo a sobrecarga de mineração e melhorando o\ntempo de resposta em comparação com blockchains convencionais.\nInterpretação\ndo\nValor Medido\nValores altos indicam maior descentralização e segurança, porém aumentam o custo de comunicação e o\ntempo de consenso. Valores baixos reduzem a latência,\nmas podem comprometer a robustez e a resistência a\nataques.",
+    "unit": "Número de mineradores (nós)",
+    "scale_type": "Razão",
+    "precision": "Alta, desde que o número de mineradores ativos e selecionados seja monitorado a cada rodada de consenso.",
+    "data_collection": "Experimental / Simulada",
+    "measurement_tool": "Ambiente de simulação LBSS; parâmetros de rede definidos na Tabela 3 do artigo; registro de nós mineradores\nativos por rodada.",
+    "use_processes": "Análise de desempenho e segurança em sistemas IoT\nbaseados em blockchain; otimização de protocolos de consenso; balanceamento entre descentralização e latência;\nestudo de escalabilidade em redes com recursos limitados.",
+    "beneficiaries": "Pesquisadores em blockchain; engenheiros de IoT; desenvolvedores de protocolos de consenso; analistas de\nsegurança de dados em saúde.",
+    "references": "Sharma, V.; Kumar, R.; Zomaya, A.Y.; Alazab, M.; Ranjan, R.\nLBSS: A Lightweight Blockchain-Based Security Scheme for IoTEnabled Healthcare Environment. IEEE Transactions on Industrial\nInformatics, vol. 17, no. 11, pp. 7765–7775, 2021. — A métrica\nNumber of Miners é usada para representar o total de nós\nmineradores e o subconjunto selecionado para validação (10–50\nde um total entre 10.000 e 200.000), refletindo o equilíbrio entre\ndescentralização e desempenho.\n242"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Número de Mineradores",
+    "Palavras-chave / Alias": "Number of miners; Miner count; Mining nodes; Validator\nnodes; Blockchain participants",
+    "Definição do Atributo": "Mede o número total de mineradores (ou validadores) ativos em uma rede blockchain durante a execução\nde um protocolo de consenso. Essa métrica influencia\ndiretamente a segurança, o desempenho e a escalabilidade da rede, afetando o tempo de validação de blocos e\no consumo de energia.",
+    "Objetivo / Motivação": "Avaliar o impacto da quantidade de mineradores na eficiência e robustez da rede blockchain. Um número elevado\nde mineradores aumenta a descentralização e a segurança\ncontra ataques (como 51%), enquanto um número reduzido favorece maior rapidez de consenso, menor latência\ne menor custo de comunicação.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Capacidade de Resposta / Escalabilidade",
+    "Equação": "Pode-se representar a métrica como:\nM = Ntotal ou Ms ⊆Ntotal\nonde Ntotal representa o número total de mineradores\ndisponíveis na rede e Ms o subconjunto de mineradores\nselecionados para participar do consenso ou mineração\nem um dado bloco.\nMétricas\nAssociadas\nTempo de Validação de Bloco; Taxa de Hash; Taxa de\nTransações Confirmadas; Consumo de Energia; Escalabilidade\nAtributo\nRelacionado\nCapacidade de Mineração; Desempenho da Rede; Segurança de Consenso; Descentralização",
+    "Protocolo": "1) Configurar o ambiente de simulação com o número\ntotal de mineradores definido como variável de entrada\n(Ntotal).\n2) Definir o subconjunto de mineradores ativos por rodada (Ms) responsável pela validação de blocos.\n3) Observar o impacto de diferentes configurações de\nmineradores sobre a latência, throughput e consumo de\nenergia.\n4) Comparar os resultados com abordagens tradicionais\nde consenso (ex.: Proof-of-Work).\n241",
+    "Comentário": "No modelo LBSS, os experimentos foram realizados com\n10.000 a 200.000 mineradores totais, sendo 10 a\n50 selecionados para cada rodada de validação. Essa\nconfiguração foi escolhida para equilibrar segurança e\neficiência em um ambiente IoT voltado à área da saúde,\nreduzindo a sobrecarga de mineração e melhorando o\ntempo de resposta em comparação com blockchains convencionais.\nInterpretação\ndo\nValor Medido\nValores altos indicam maior descentralização e segurança, porém aumentam o custo de comunicação e o\ntempo de consenso. Valores baixos reduzem a latência,\nmas podem comprometer a robustez e a resistência a\nataques.",
+    "Unidade": "Número de mineradores (nós)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Alta, desde que o número de mineradores ativos e selecionados seja monitorado a cada rodada de consenso.",
+    "Tipo de Coleta de Dados": "Experimental / Simulada",
+    "Ferramenta de Medição": "Ambiente de simulação LBSS; parâmetros de rede definidos na Tabela 3 do artigo; registro de nós mineradores\nativos por rodada.",
+    "Processos de Uso Potenciais": "Análise de desempenho e segurança em sistemas IoT\nbaseados em blockchain; otimização de protocolos de consenso; balanceamento entre descentralização e latência;\nestudo de escalabilidade em redes com recursos limitados.",
+    "Beneficiários Potenciais": "Pesquisadores em blockchain; engenheiros de IoT; desenvolvedores de protocolos de consenso; analistas de\nsegurança de dados em saúde.",
+    "Referências": "Sharma, V.; Kumar, R.; Zomaya, A.Y.; Alazab, M.; Ranjan, R.\nLBSS: A Lightweight Blockchain-Based Security Scheme for IoTEnabled Healthcare Environment. IEEE Transactions on Industrial\nInformatics, vol. 17, no. 11, pp. 7765–7775, 2021. — A métrica\nNumber of Miners é usada para representar o total de nós\nmineradores e o subconjunto selecionado para validação (10–50\nde um total entre 10.000 e 200.000), refletindo o equilíbrio entre\ndescentralização e desempenho.\n242"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 100"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "t114",
+  "table_no": 114,
+  "name": "Taxa de Penalidades",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal / Eficiência do Processo de\nAprendizado"
+  },
+  "fields": {
+    "keywords_alias": "Penalties; Punishment rate; Q-learning penalty; Reinforcement learning penalty; Recompensa negativa",
+    "definition": "Mede a quantidade de penalizações acumuladas\npor um agente de negociação de energia P2P em\num ambiente baseado em blockchain e aprendizado por\nreforço (Q-learning). Representa o número de decisões\nincorretas, transações ineficientes ou violações de política\nótima que resultam em punições atribuídas ao agente\ndurante o processo de aprendizado.",
+    "objective": "Avaliar a eficiência e estabilidade do algoritmo de aprendizado por reforço em reduzir comportamentos incorretos\ne melhorar a tomada de decisão dos agentes em sistemas blockchain. Uma menor taxa de penalidades indica\nconvergência do aprendizado e maior confiabilidade do\nprocesso de negociação.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "A taxa de penalidades (Pr) pode ser expressa como:\nPr = Npenalidades\nNepisódios\nonde Npenalidades é o número total de penalizações atribuídas ao agente e Nepisódios é o número total de interações\nde aprendizado (episódios) realizadas.\nMétricas\nAssociadas\nTaxa de Recompensa; Taxa de Convergência; Custo de\nTransação; Tempo de Execução; Eficiência Energética\nAtributo\nRelacionado\nDesempenho do Agente; Estabilidade do Modelo; Precisão de Recomendação",
+    "protocol": "1) Configurar o ambiente PRS-P2P com agentes prosumidores (compradores e vendedores).\n2) Executar múltiplos episódios de aprendizado por reforço utilizando Q-learning.\n3) Atribuir penalidades a cada decisão incorreta (ex.:\nseleção de vendedor inadequado, violação de limite de\nenergia, atraso de transação).\n4) Contabilizar Npenalidades e normalizar pelo número de\nepisódios Nepisódios.\n5) Registrar a evolução da taxa ao longo do treinamento\npara medir a convergência do agente.\n271",
+    "comment": "Durante o treinamento, o agente tende a reduzir o número\nde penalizações à medida que aprende as políticas ótimas\nde negociação. Uma alta taxa inicial é esperada, seguida\nde estabilização conforme o modelo converge. Essa métrica é essencial para medir a qualidade do aprendizado e\na eficiência da adaptação dos agentes em redes blockchain\nenergéticas descentralizadas.\nInterpretação\ndo\nValor Medido\nValores baixos de Pr indicam aprendizado eficiente, decisões estáveis e melhor desempenho do agente. Valores\naltos sugerem má adaptação do algoritmo ou ambiente\nde aprendizado mal configurado.",
+    "unit": "Penalidades por episódio (ou percentual)",
+    "scale_type": "Razão",
+    "precision": "Alta, quando os logs de simulação são analisados diretamente por episódio. Pode variar conforme a taxa de\nexploração do algoritmo (-greedy).",
+    "data_collection": "Automática / Experimental",
+    "measurement_tool": "Implementações de Q-learning em Python; simulações\nem ambiente PRS-P2P; análise de logs com frameworks\nde aprendizado por reforço.",
+    "use_processes": "Avaliação da estabilidade do aprendizado em sistemas\nP2P baseados em blockchain; comparação entre algoritmos de recomendação; calibração de hiperparâmetros de\naprendizado.",
+    "beneficiaries": "Pesquisadores em blockchain e aprendizado de máquina;\nengenheiros de sistemas distribuídos; analistas de eficiência energética; desenvolvedores de plataformas P2P.",
+    "references": "Kumari, A.; Gupta, R.; Tanwar, S. PRS-P2P: A Prosumer Recommender System for Secure P2P Energy Trading using Q-Learning\nTowards 6G. IEEE International Conference on Communications\nWorkshops (ICC Workshops), 2021.\n272"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Taxa de Penalidades",
+    "Palavras-chave / Alias": "Penalties; Punishment rate; Q-learning penalty; Reinforcement learning penalty; Recompensa negativa",
+    "Definição do Atributo": "Mede a quantidade de penalizações acumuladas\npor um agente de negociação de energia P2P em\num ambiente baseado em blockchain e aprendizado por\nreforço (Q-learning). Representa o número de decisões\nincorretas, transações ineficientes ou violações de política\nótima que resultam em punições atribuídas ao agente\ndurante o processo de aprendizado.",
+    "Objetivo / Motivação": "Avaliar a eficiência e estabilidade do algoritmo de aprendizado por reforço em reduzir comportamentos incorretos\ne melhorar a tomada de decisão dos agentes em sistemas blockchain. Uma menor taxa de penalidades indica\nconvergência do aprendizado e maior confiabilidade do\nprocesso de negociação.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Comportamento Temporal / Eficiência do Processo de\nAprendizado",
+    "Equação": "A taxa de penalidades (Pr) pode ser expressa como:\nPr = Npenalidades\nNepisódios\nonde Npenalidades é o número total de penalizações atribuídas ao agente e Nepisódios é o número total de interações\nde aprendizado (episódios) realizadas.\nMétricas\nAssociadas\nTaxa de Recompensa; Taxa de Convergência; Custo de\nTransação; Tempo de Execução; Eficiência Energética\nAtributo\nRelacionado\nDesempenho do Agente; Estabilidade do Modelo; Precisão de Recomendação",
+    "Protocolo": "1) Configurar o ambiente PRS-P2P com agentes prosumidores (compradores e vendedores).\n2) Executar múltiplos episódios de aprendizado por reforço utilizando Q-learning.\n3) Atribuir penalidades a cada decisão incorreta (ex.:\nseleção de vendedor inadequado, violação de limite de\nenergia, atraso de transação).\n4) Contabilizar Npenalidades e normalizar pelo número de\nepisódios Nepisódios.\n5) Registrar a evolução da taxa ao longo do treinamento\npara medir a convergência do agente.\n271",
+    "Comentário": "Durante o treinamento, o agente tende a reduzir o número\nde penalizações à medida que aprende as políticas ótimas\nde negociação. Uma alta taxa inicial é esperada, seguida\nde estabilização conforme o modelo converge. Essa métrica é essencial para medir a qualidade do aprendizado e\na eficiência da adaptação dos agentes em redes blockchain\nenergéticas descentralizadas.\nInterpretação\ndo\nValor Medido\nValores baixos de Pr indicam aprendizado eficiente, decisões estáveis e melhor desempenho do agente. Valores\naltos sugerem má adaptação do algoritmo ou ambiente\nde aprendizado mal configurado.",
+    "Unidade": "Penalidades por episódio (ou percentual)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Alta, quando os logs de simulação são analisados diretamente por episódio. Pode variar conforme a taxa de\nexploração do algoritmo (-greedy).",
+    "Tipo de Coleta de Dados": "Automática / Experimental",
+    "Ferramenta de Medição": "Implementações de Q-learning em Python; simulações\nem ambiente PRS-P2P; análise de logs com frameworks\nde aprendizado por reforço.",
+    "Processos de Uso Potenciais": "Avaliação da estabilidade do aprendizado em sistemas\nP2P baseados em blockchain; comparação entre algoritmos de recomendação; calibração de hiperparâmetros de\naprendizado.",
+    "Beneficiários Potenciais": "Pesquisadores em blockchain e aprendizado de máquina;\nengenheiros de sistemas distribuídos; analistas de eficiência energética; desenvolvedores de plataformas P2P.",
+    "Referências": "Kumari, A.; Gupta, R.; Tanwar, S. PRS-P2P: A Prosumer Recommender System for Secure P2P Energy Trading using Q-Learning\nTowards 6G. IEEE International Conference on Communications\nWorkshops (ICC Workshops), 2021.\n272"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 114"
+  }
+}

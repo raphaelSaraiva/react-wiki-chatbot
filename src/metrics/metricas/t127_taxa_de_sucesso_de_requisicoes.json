@@ -1,0 +1,48 @@
+{
+  "id": "t127",
+  "table_no": 127,
+  "name": "Taxa de Sucesso de Requisições",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade de Resposta / Completude de Serviço"
+  },
+  "fields": {
+    "keywords_alias": "Request Success Rate; Service Success Ratio; Response\nReliability; Request Completion Rate",
+    "definition": "Mede a proporção de requisições ou transações processadas com sucesso em um sistema blockchain descentrali-\nzado, em relação ao total de requisições enviadas. Essa\nmétrica avalia a estabilidade da rede e a confiabilidade\ndos serviços fornecidos por nós e smart contracts dentro\nde um ecossistema blockchain.",
+    "objective": "Avaliar a capacidade do sistema blockchain em responder\nde forma correta e completa às requisições de serviço,\nrepresentando a robustez e eficiência da comunicação\nentre nós participantes.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Request Success Rate = Nrequisições bem-sucedidas\nNrequisições totais\n× 100\nonde Nrequisições bem-sucedidas representa o número de requisições concluídas com resposta válida e Nrequisições totais o\nnúmero total de tentativas.\nMétricas\nAssociadas\nResponse Time; Throughput; Fault Tolerance; Reliability\nRate\nAtributo\nRelacionado\nDisponibilidade; Robustez de Serviço; Integridade de\nComunicação",
+    "protocol": "1) Enviar um conjunto de requisições de serviço por meio\ndos nós participantes no ecossistema blockchain.\n2) Registrar o número total de requisições emitidas e o\nnúmero de respostas válidas recebidas dentro do tempo\nlimite definido.\n3) Calcular a proporção de sucesso conforme a equação\napresentada.\n4) Repetir o processo sob diferentes condições de carga e\nlatência para determinar a estabilidade da métrica.\n297",
+    "comment": "Uma alta taxa de sucesso de requisições indica um sistema bem projetado e confiável, com boa sincronização\nentre nós e capacidade de lidar com congestionamentos e\nfalhas de rede. Essa métrica é crucial para ecossistemas\ndescentralizados voltados a serviços, como o T-DSES, que\ndependem de transações seguras e respostas consistentes\nentre múltiplas entidades.\nInterpretação\ndo\nValor Medido\nValores próximos de 100% refletem um sistema altamente\nconfiável e eficiente. Reduções na taxa de sucesso podem\nindicar problemas de sobrecarga, falhas de consenso, ou\ndesconexões entre nós.",
+    "unit": "Percentual (%)",
+    "scale_type": "Razão",
+    "precision": "Alta, dependendo da taxa de amostragem e do monitoramento contínuo das respostas durante a execução do\nsistema.",
+    "data_collection": "Automática / Experimental",
+    "measurement_tool": "Logs de execução da blockchain; simuladores de requisições distribuídas; frameworks de teste de desempenho\n(por exemplo, Apache JMeter, Gatling, ou módulos de\nmonitoramento do sistema).",
+    "use_processes": "Avaliação de desempenho de redes blockchain; auditorias\nde estabilidade em ecossistemas descentralizados; análise\nde confiabilidade de serviços entre nós.",
+    "beneficiaries": "Engenheiros(as) de blockchain; arquitetos(as) de sistemas distribuídos; analistas de desempenho; desenvolve-\ndores(as) de smart contracts.",
+    "references": "Kumar, N., Singh, M., & Ahmad, M. (2023).\nT-DSES: A\nBlockchain-powered Trusted Decentralized Service Eco-System.\nIEEE Transactions on Industrial Informatics, 19(9), 10012–10023.\n298"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Taxa de Sucesso de Requisições",
+    "Palavras-chave / Alias": "Request Success Rate; Service Success Ratio; Response\nReliability; Request Completion Rate",
+    "Definição do Atributo": "Mede a proporção de requisições ou transações processadas com sucesso em um sistema blockchain descentrali-\nzado, em relação ao total de requisições enviadas. Essa\nmétrica avalia a estabilidade da rede e a confiabilidade\ndos serviços fornecidos por nós e smart contracts dentro\nde um ecossistema blockchain.",
+    "Objetivo / Motivação": "Avaliar a capacidade do sistema blockchain em responder\nde forma correta e completa às requisições de serviço,\nrepresentando a robustez e eficiência da comunicação\nentre nós participantes.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Capacidade de Resposta / Completude de Serviço",
+    "Equação": "Request Success Rate = Nrequisições bem-sucedidas\nNrequisições totais\n× 100\nonde Nrequisições bem-sucedidas representa o número de requisições concluídas com resposta válida e Nrequisições totais o\nnúmero total de tentativas.\nMétricas\nAssociadas\nResponse Time; Throughput; Fault Tolerance; Reliability\nRate\nAtributo\nRelacionado\nDisponibilidade; Robustez de Serviço; Integridade de\nComunicação",
+    "Protocolo": "1) Enviar um conjunto de requisições de serviço por meio\ndos nós participantes no ecossistema blockchain.\n2) Registrar o número total de requisições emitidas e o\nnúmero de respostas válidas recebidas dentro do tempo\nlimite definido.\n3) Calcular a proporção de sucesso conforme a equação\napresentada.\n4) Repetir o processo sob diferentes condições de carga e\nlatência para determinar a estabilidade da métrica.\n297",
+    "Comentário": "Uma alta taxa de sucesso de requisições indica um sistema bem projetado e confiável, com boa sincronização\nentre nós e capacidade de lidar com congestionamentos e\nfalhas de rede. Essa métrica é crucial para ecossistemas\ndescentralizados voltados a serviços, como o T-DSES, que\ndependem de transações seguras e respostas consistentes\nentre múltiplas entidades.\nInterpretação\ndo\nValor Medido\nValores próximos de 100% refletem um sistema altamente\nconfiável e eficiente. Reduções na taxa de sucesso podem\nindicar problemas de sobrecarga, falhas de consenso, ou\ndesconexões entre nós.",
+    "Unidade": "Percentual (%)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Alta, dependendo da taxa de amostragem e do monitoramento contínuo das respostas durante a execução do\nsistema.",
+    "Tipo de Coleta de Dados": "Automática / Experimental",
+    "Ferramenta de Medição": "Logs de execução da blockchain; simuladores de requisições distribuídas; frameworks de teste de desempenho\n(por exemplo, Apache JMeter, Gatling, ou módulos de\nmonitoramento do sistema).",
+    "Processos de Uso Potenciais": "Avaliação de desempenho de redes blockchain; auditorias\nde estabilidade em ecossistemas descentralizados; análise\nde confiabilidade de serviços entre nós.",
+    "Beneficiários Potenciais": "Engenheiros(as) de blockchain; arquitetos(as) de sistemas distribuídos; analistas de desempenho; desenvolve-\ndores(as) de smart contracts.",
+    "Referências": "Kumar, N., Singh, M., & Ahmad, M. (2023).\nT-DSES: A\nBlockchain-powered Trusted Decentralized Service Eco-System.\nIEEE Transactions on Industrial Informatics, 19(9), 10012–10023.\n298"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 127"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "t82",
+  "table_no": 82,
+  "name": "Redução de Carga",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de recursos"
+  },
+  "fields": {
+    "keywords_alias": "Load reduction; Computation load; Network load; Offloading efficiency; Resource optimization",
+    "definition": "Mede o grau de diminuição da carga computacional e de comunicação em um sistema blockchain,\nresultante da aplicação de mecanismos de análise de\ndados, compressão, ou delegação de tarefas (offloading)\npara componentes externos. Indica o quanto o esquema\nproposto reduz o esforço necessário para processar e armazenar transações, mantendo a segurança e a integridade\ndos dados.",
+    "objective": "Avaliar a eficiência do sistema na redução da sobrecarga\nde processamento e comunicação, fundamental em ambientes de IoT baseados em blockchain. A métrica busca\ndemonstrar que o uso de técnicas de análise e gerenciamento de dados pode reduzir a latência e o consumo de\nenergia, mantendo o desempenho e a segurança.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "A redução de carga (LR) pode ser expressa pela diferença\npercentual entre a carga original (Lorig) e a carga após\notimização (Lopt):\nLR = Lorig −Lopt\nLorig\n× 100%.\nA carga L pode incluir componentes computacionais,\nde armazenamento ou de rede, dependendo do contexto\navaliado.\nMétricas\nAssociadas\nLatência média; Consumo de energia; Throughput; Taxa\nde transações processadas; Eficiência de offloading\nAtributo\nRelacionado\nOtimização de recursos; Escalabilidade; Eficiência energética; Desempenho de comunicação",
+    "protocol": "1) Medir a carga total de processamento e comunicação\ndo sistema antes da aplicação do mecanismo proposto\n(Lorig).\n2) Aplicar o esquema de gerenciamento de dados ou otimização (ex.: compressão, filtragem, offloading).\n3) Reavaliar a carga total após a otimização (Lopt).\n4) Calcular a redução percentual LR\n=\n(Lorig −\nLopt)/Lorig × 100%.\n5) Analisar a correlação entre a redução e a latência,\nconsumo de energia e taxa de processamento.\n198",
+    "comment": "A Redução de Carga é um indicador direto da eficiência\nde um esquema blockchain voltado para IoT. O artigo\ndemonstra que o uso de um módulo de análise de dados reduz significativamente a carga da rede e dos nós\nde mineração ao processar apenas dados relevantes e\nseguros. Esse alívio de carga melhora a escalabilidade\ne o desempenho geral do sistema sem comprometer a\nsegurança.\nInterpretação\ndo\nValor Medido\nValores altos de LR indicam maior eficiência e economia de recursos, com redução substancial de carga compu-\ntacional e de rede. Valores baixos indicam sobrecarga\npersistente ou ineficiência na estratégia de offloading.",
+    "unit": "Percentual (",
+    "scale_type": "Razão",
+    "precision": "Depende da granularidade da coleta de dados de carga e\nda separação entre componentes computacionais e de comunicação. Deve ser avaliada sob condições controladas\ne reais de operação.",
+    "data_collection": "Experimental / Simulação",
+    "measurement_tool": "Simuladores de blockchain e IoT; monitores de desempenho (CPU, memória, rede); ferramentas de análise\nestatística (MATLAB, Python).",
+    "use_processes": "Avaliação de esquemas de otimização e offloading; análise\nde escalabilidade de sistemas blockchain-IoT; planejamento de dimensionamento de rede e recursos computa-\ncionais.",
+    "beneficiaries": "Engenheiros de sistemas IoT; desenvolvedores de soluções\nblockchain otimizadas; pesquisadores em desempenho e\neficiência energética.",
+    "references": "Samaniego, M.; Jeschke, S. A Data Analytics Scheme for SecurityAware and Efficient Data Management in Blockchain-Based IoT\nSystems. IEEE Transactions on Industrial Informatics, 2018. —\nIntroduz a métrica Load Reduction para quantificar a diminuição\nda carga computacional e de rede obtida com o uso de análise de\ndados e offloading seguro em arquiteturas blockchain para IoT.\n199"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Redução de Carga",
+    "Palavras-chave / Alias": "Load reduction; Computation load; Network load; Offloading efficiency; Resource optimization",
+    "Definição do Atributo": "Mede o grau de diminuição da carga computacional e de comunicação em um sistema blockchain,\nresultante da aplicação de mecanismos de análise de\ndados, compressão, ou delegação de tarefas (offloading)\npara componentes externos. Indica o quanto o esquema\nproposto reduz o esforço necessário para processar e armazenar transações, mantendo a segurança e a integridade\ndos dados.",
+    "Objetivo / Motivação": "Avaliar a eficiência do sistema na redução da sobrecarga\nde processamento e comunicação, fundamental em ambientes de IoT baseados em blockchain. A métrica busca\ndemonstrar que o uso de técnicas de análise e gerenciamento de dados pode reduzir a latência e o consumo de\nenergia, mantendo o desempenho e a segurança.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de recursos",
+    "Equação": "A redução de carga (LR) pode ser expressa pela diferença\npercentual entre a carga original (Lorig) e a carga após\notimização (Lopt):\nLR = Lorig −Lopt\nLorig\n× 100%.\nA carga L pode incluir componentes computacionais,\nde armazenamento ou de rede, dependendo do contexto\navaliado.\nMétricas\nAssociadas\nLatência média; Consumo de energia; Throughput; Taxa\nde transações processadas; Eficiência de offloading\nAtributo\nRelacionado\nOtimização de recursos; Escalabilidade; Eficiência energética; Desempenho de comunicação",
+    "Protocolo": "1) Medir a carga total de processamento e comunicação\ndo sistema antes da aplicação do mecanismo proposto\n(Lorig).\n2) Aplicar o esquema de gerenciamento de dados ou otimização (ex.: compressão, filtragem, offloading).\n3) Reavaliar a carga total após a otimização (Lopt).\n4) Calcular a redução percentual LR\n=\n(Lorig −\nLopt)/Lorig × 100%.\n5) Analisar a correlação entre a redução e a latência,\nconsumo de energia e taxa de processamento.\n198",
+    "Comentário": "A Redução de Carga é um indicador direto da eficiência\nde um esquema blockchain voltado para IoT. O artigo\ndemonstra que o uso de um módulo de análise de dados reduz significativamente a carga da rede e dos nós\nde mineração ao processar apenas dados relevantes e\nseguros. Esse alívio de carga melhora a escalabilidade\ne o desempenho geral do sistema sem comprometer a\nsegurança.\nInterpretação\ndo\nValor Medido\nValores altos de LR indicam maior eficiência e economia de recursos, com redução substancial de carga compu-\ntacional e de rede. Valores baixos indicam sobrecarga\npersistente ou ineficiência na estratégia de offloading.",
+    "Unidade": "Percentual (",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Depende da granularidade da coleta de dados de carga e\nda separação entre componentes computacionais e de comunicação. Deve ser avaliada sob condições controladas\ne reais de operação.",
+    "Tipo de Coleta de Dados": "Experimental / Simulação",
+    "Ferramenta de Medição": "Simuladores de blockchain e IoT; monitores de desempenho (CPU, memória, rede); ferramentas de análise\nestatística (MATLAB, Python).",
+    "Processos de Uso Potenciais": "Avaliação de esquemas de otimização e offloading; análise\nde escalabilidade de sistemas blockchain-IoT; planejamento de dimensionamento de rede e recursos computa-\ncionais.",
+    "Beneficiários Potenciais": "Engenheiros de sistemas IoT; desenvolvedores de soluções\nblockchain otimizadas; pesquisadores em desempenho e\neficiência energética.",
+    "Referências": "Samaniego, M.; Jeschke, S. A Data Analytics Scheme for SecurityAware and Efficient Data Management in Blockchain-Based IoT\nSystems. IEEE Transactions on Industrial Informatics, 2018. —\nIntroduz a métrica Load Reduction para quantificar a diminuição\nda carga computacional e de rede obtida com o uso de análise de\ndados e offloading seguro em arquiteturas blockchain para IoT.\n199"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 82"
+  }
+}

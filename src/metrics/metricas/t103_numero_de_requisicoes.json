@@ -1,0 +1,48 @@
+{
+  "id": "t103",
+  "table_no": 103,
+  "name": "Número de Requisições",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade / Comportamento em Carga"
+  },
+  "fields": {
+    "keywords_alias": "Number of requests; Request count; Service requests;\nUser interactions; Transaction requests",
+    "definition": "Representa o total de requisições de serviço enviadas\ne processadas em uma rede blockchain descentralizada,\nincluindo transações, registros, consultas ou execuções de\ncontratos inteligentes. A métrica reflete a carga operacional e o nível de utilização do ecossistema descentralizado\nde serviços.",
+    "objective": "Avaliar o desempenho, escalabilidade e confiabilidade de\num ecossistema de serviços descentralizados baseado em\nblockchain. O número de requisições serve como indicador da capacidade do sistema de lidar com múltiplas\ninterações simultâneas de usuários e entidades de serviço,\nmantendo integridade e latência aceitável.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "equation": "Nr =\nT\nX\ni=1\nRi, onde Nr é o número total de requisições\nprocessadas em um intervalo de tempo T, e Ri representa\ncada requisição registrada pelo sistema blockchain.\nMétricas\nAssociadas\nThroughput (TPS); Tempo Médio de Resposta; Taxa de\nSucesso de Requisições; Utilização de Recursos\nAtributo\nRelacionado\nEscalabilidade; Confiabilidade; Carga de Rede; Taxa de\nTransações; Eficiência Operacional",
+    "protocol": "1) Definir a janela de observação (t0, t1) no ambiente\nT-DSES.\n2) Coletar o número total de requisições recebidas por\ncada nó de serviço (Service Provider Node).\n3) Registrar requisições válidas e rejeitadas separadamente.\n4) Calcular a média e variação temporal de Nr ao longo\nda execução.\n5) Correlacionar o volume de requisições com o tempo\nde resposta e a taxa de transações confirmadas.\n248",
+    "comment": "No modelo T-DSES, o número de requisições é uma métrica central para mensurar a carga de serviço e o\ndesempenho da rede. Cada requisição envolve operações criptográficas e registro imutável em blockchain,\ne o sistema é projetado para distribuir essas requisições\nentre múltiplos nós de forma confiável. Os experimentos demonstraram que o T-DSES processa um grande\nnúmero de requisições simultâneas com latência controlada, mantendo alta taxa de sucesso e baixo overhead de\ncomunicação.\nInterpretação\ndo\nValor Medido\nValores altos indicam elevada demanda de serviços e\nbom desempenho de escalabilidade. Valores baixos\npodem indicar baixa utilização, gargalos ou falhas na\npropagação das requisições.",
+    "unit": "Número de requisições processadas",
+    "scale_type": "Razão",
+    "precision": "Alta, desde que as requisições sejam monitoradas por\nlogs de rede e contratos inteligentes em tempo real.",
+    "data_collection": "Automática / Experimental",
+    "measurement_tool": "Framework T-DSES; logs de requisições blockchain; ferramentas de monitoramento distribuído; banco de dados\nde registro de serviços.",
+    "use_processes": "Avaliação de desempenho de serviços blockchain; análise\nde carga em ecossistemas descentralizados; dimensionamento de infraestrutura; teste de resiliência sob alta\ndemanda.",
+    "beneficiaries": "Engenheiros de blockchain; desenvolvedores de plataformas descentralizadas; analistas de desempenho; arquite-\ntos de sistemas distribuídos.",
+    "references": "Wang, S.; Zhang, Y.; Guo, S.; Zhang, Y. T-DSES: A Blockchainpowered Trusted Decentralized Service Eco-System. IEEE Transac-\ntions on Services Computing, vol. 14, no. 6, pp. 1792–1804, 2021.\n— A métrica Number of Requests é utilizada para mensurar o\nvolume de requisições de serviço processadas na rede T-DSES, refletindo o comportamento em carga e a escalabilidade do ecossistema\ndescentralizado.\n249"
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Número de Requisições",
+    "Palavras-chave / Alias": "Number of requests; Request count; Service requests;\nUser interactions; Transaction requests",
+    "Definição do Atributo": "Representa o total de requisições de serviço enviadas\ne processadas em uma rede blockchain descentralizada,\nincluindo transações, registros, consultas ou execuções de\ncontratos inteligentes. A métrica reflete a carga operacional e o nível de utilização do ecossistema descentralizado\nde serviços.",
+    "Objetivo / Motivação": "Avaliar o desempenho, escalabilidade e confiabilidade de\num ecossistema de serviços descentralizados baseado em\nblockchain. O número de requisições serve como indicador da capacidade do sistema de lidar com múltiplas\ninterações simultâneas de usuários e entidades de serviço,\nmantendo integridade e latência aceitável.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Capacidade / Comportamento em Carga",
+    "Equação": "Nr =\nT\nX\ni=1\nRi, onde Nr é o número total de requisições\nprocessadas em um intervalo de tempo T, e Ri representa\ncada requisição registrada pelo sistema blockchain.\nMétricas\nAssociadas\nThroughput (TPS); Tempo Médio de Resposta; Taxa de\nSucesso de Requisições; Utilização de Recursos\nAtributo\nRelacionado\nEscalabilidade; Confiabilidade; Carga de Rede; Taxa de\nTransações; Eficiência Operacional",
+    "Protocolo": "1) Definir a janela de observação (t0, t1) no ambiente\nT-DSES.\n2) Coletar o número total de requisições recebidas por\ncada nó de serviço (Service Provider Node).\n3) Registrar requisições válidas e rejeitadas separadamente.\n4) Calcular a média e variação temporal de Nr ao longo\nda execução.\n5) Correlacionar o volume de requisições com o tempo\nde resposta e a taxa de transações confirmadas.\n248",
+    "Comentário": "No modelo T-DSES, o número de requisições é uma métrica central para mensurar a carga de serviço e o\ndesempenho da rede. Cada requisição envolve operações criptográficas e registro imutável em blockchain,\ne o sistema é projetado para distribuir essas requisições\nentre múltiplos nós de forma confiável. Os experimentos demonstraram que o T-DSES processa um grande\nnúmero de requisições simultâneas com latência controlada, mantendo alta taxa de sucesso e baixo overhead de\ncomunicação.\nInterpretação\ndo\nValor Medido\nValores altos indicam elevada demanda de serviços e\nbom desempenho de escalabilidade. Valores baixos\npodem indicar baixa utilização, gargalos ou falhas na\npropagação das requisições.",
+    "Unidade": "Número de requisições processadas",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Alta, desde que as requisições sejam monitoradas por\nlogs de rede e contratos inteligentes em tempo real.",
+    "Tipo de Coleta de Dados": "Automática / Experimental",
+    "Ferramenta de Medição": "Framework T-DSES; logs de requisições blockchain; ferramentas de monitoramento distribuído; banco de dados\nde registro de serviços.",
+    "Processos de Uso Potenciais": "Avaliação de desempenho de serviços blockchain; análise\nde carga em ecossistemas descentralizados; dimensionamento de infraestrutura; teste de resiliência sob alta\ndemanda.",
+    "Beneficiários Potenciais": "Engenheiros de blockchain; desenvolvedores de plataformas descentralizadas; analistas de desempenho; arquite-\ntos de sistemas distribuídos.",
+    "Referências": "Wang, S.; Zhang, Y.; Guo, S.; Zhang, Y. T-DSES: A Blockchainpowered Trusted Decentralized Service Eco-System. IEEE Transac-\ntions on Services Computing, vol. 14, no. 6, pp. 1792–1804, 2021.\n— A métrica Number of Requests é utilizada para mensurar o\nvolume de requisições de serviço processadas na rede T-DSES, refletindo o comportamento em carga e a escalabilidade do ecossistema\ndescentralizado.\n249"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 103"
+  }
+}

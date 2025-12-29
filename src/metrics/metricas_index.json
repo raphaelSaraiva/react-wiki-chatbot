@@ -1,0 +1,950 @@
+[
+  {
+    "id": "t1",
+    "table_no": 1,
+    "name": "Propagação de Bloco",
+    "file": "metricas/t1_propagacao_de_bloco.json"
+  },
+  {
+    "id": "t2",
+    "table_no": 2,
+    "name": "Block Size",
+    "file": "metricas/t2_block_size.json"
+  },
+  {
+    "id": "t3",
+    "table_no": 3,
+    "name": "Block Time",
+    "file": "metricas/t3_block_time.json"
+  },
+  {
+    "id": "t4",
+    "table_no": 4,
+    "name": "Delay",
+    "file": "metricas/t4_delay.json"
+  },
+  {
+    "id": "t5",
+    "table_no": 5,
+    "name": "Availability",
+    "file": "metricas/t5_availability.json"
+  },
+  {
+    "id": "t6",
+    "table_no": 6,
+    "name": "Energy Consumption",
+    "file": "metricas/t6_energy_consumption.json"
+  },
+  {
+    "id": "t7",
+    "table_no": 7,
+    "name": "Error Rate",
+    "file": "metricas/t7_error_rate.json"
+  },
+  {
+    "id": "t8",
+    "table_no": 8,
+    "name": "Execution Time",
+    "file": "metricas/t8_execution_time.json"
+  },
+  {
+    "id": "t9",
+    "table_no": 9,
+    "name": "Fairness",
+    "file": "metricas/t9_fairness.json"
+  },
+  {
+    "id": "t10",
+    "table_no": 10,
+    "name": "Gas Consumption",
+    "file": "metricas/t10_gas_consumption.json"
+  },
+  {
+    "id": "t11",
+    "table_no": 11,
+    "name": "Gas Cost",
+    "file": "metricas/t11_gas_cost.json"
+  },
+  {
+    "id": "t12",
+    "table_no": 12,
+    "name": "Latência",
+    "file": "metricas/t12_latencia.json"
+  },
+  {
+    "id": "t13",
+    "table_no": 13,
+    "name": "Tamanho do Ledger",
+    "file": "metricas/t13_tamanho_do_ledger.json"
+  },
+  {
+    "id": "t14",
+    "table_no": 14,
+    "name": "Number of Transactions",
+    "file": "metricas/t14_number_of_transactions.json"
+  },
+  {
+    "id": "t15",
+    "table_no": 15,
+    "name": "Custo de Operação",
+    "file": "metricas/t15_custo_de_operacao.json"
+  },
+  {
+    "id": "t16",
+    "table_no": 16,
+    "name": "Gas price",
+    "file": "metricas/t16_gas_price.json"
+  },
+  {
+    "id": "t17",
+    "table_no": 17,
+    "name": "Processing Time",
+    "file": "metricas/t17_processing_time.json"
+  },
+  {
+    "id": "t18",
+    "table_no": 18,
+    "name": "Propagation Time",
+    "file": "metricas/t18_propagation_time.json"
+  },
+  {
+    "id": "t19",
+    "table_no": 19,
+    "name": "Consumo de Recursos",
+    "file": "metricas/t19_consumo_de_recursos.json"
+  },
+  {
+    "id": "t20",
+    "table_no": 20,
+    "name": "Response Time",
+    "file": "metricas/t20_response_time.json"
+  },
+  {
+    "id": "t21",
+    "table_no": 21,
+    "name": "Storage Cost",
+    "file": "metricas/t21_storage_cost.json"
+  },
+  {
+    "id": "t22",
+    "table_no": 22,
+    "name": "Sobrecarga de Armazenamento",
+    "file": "metricas/t22_sobrecarga_de_armazenamento.json"
+  },
+  {
+    "id": "t23",
+    "table_no": 23,
+    "name": "forks Rate",
+    "file": "metricas/t23_forks_rate.json"
+  },
+  {
+    "id": "t24",
+    "table_no": 24,
+    "name": "Throughput",
+    "file": "metricas/t24_throughput.json"
+  },
+  {
+    "id": "t25",
+    "table_no": 25,
+    "name": "Transaction Cost",
+    "file": "metricas/t25_transaction_cost.json"
+  },
+  {
+    "id": "t26",
+    "table_no": 26,
+    "name": "Taxa de Transação",
+    "file": "metricas/t26_taxa_de_transacao.json"
+  },
+  {
+    "id": "t27",
+    "table_no": 27,
+    "name": "Transactions per Second",
+    "file": "metricas/t27_transactions_per_second.json"
+  },
+  {
+    "id": "t28",
+    "table_no": 28,
+    "name": "Accuracy of the Summary Information",
+    "file": "metricas/t28_accuracy_of_the_summary_information.json"
+  },
+  {
+    "id": "t29",
+    "table_no": 29,
+    "name": "Age of Information (AoI)",
+    "file": "metricas/t29_age_of_information_aoi.json"
+  },
+  {
+    "id": "t30",
+    "table_no": 30,
+    "name": "Anonymity Level",
+    "file": "metricas/t30_anonymity_level.json"
+  },
+  {
+    "id": "t31",
+    "table_no": 31,
+    "name": "Anonymity Loss",
+    "file": "metricas/t31_anonymity_loss.json"
+  },
+  {
+    "id": "t32",
+    "table_no": 32,
+    "name": "Nível de Autenticação de Identidade",
+    "file": "metricas/t32_nivel_de_autenticacao_de_identidade.json"
+  },
+  {
+    "id": "t33",
+    "table_no": 33,
+    "name": "Tempo de Autenticação",
+    "file": "metricas/t33_tempo_de_autenticacao.json"
+  },
+  {
+    "id": "t34",
+    "table_no": 34,
+    "name": "Tempo Disponível",
+    "file": "metricas/t34_tempo_disponivel.json"
+  },
+  {
+    "id": "t35",
+    "table_no": 35,
+    "name": "Consumo Médio de Gas",
+    "file": "metricas/t35_consumo_medio_de_gas.json"
+  },
+  {
+    "id": "t36",
+    "table_no": 36,
+    "name": "Taxa de Erro de Bits (Bit Error Rate — BER)",
+    "file": "metricas/t36_taxa_de_erro_de_bits_bit_error_rate_ber.json"
+  },
+  {
+    "id": "t37",
+    "table_no": 37,
+    "name": "Cobertura de Bloco (Block Coverage)",
+    "file": "metricas/t37_cobertura_de_bloco_block_coverage.json"
+  },
+  {
+    "id": "t38",
+    "table_no": 38,
+    "name": "Entrega de Bloco",
+    "file": "metricas/t38_entrega_de_bloco.json"
+  },
+  {
+    "id": "t39",
+    "table_no": 39,
+    "name": "Limite de Atualização de Bloco",
+    "file": "metricas/t39_limite_de_atualizacao_de_bloco.json"
+  },
+  {
+    "id": "t40",
+    "table_no": 40,
+    "name": "Taxa de Bifurcação da Blockchain",
+    "file": "metricas/t40_taxa_de_bifurcacao_da_blockchain.json"
+  },
+  {
+    "id": "t41",
+    "table_no": 41,
+    "name": "Índice de Saúde da Blockchain",
+    "file": "metricas/t41_indice_de_saude_da_blockchain.json"
+  },
+  {
+    "id": "t42",
+    "table_no": 42,
+    "name": "Tamanho da Blockchain (Blockchain Size)",
+    "file": "metricas/t42_tamanho_da_blockchain_blockchain_size.json"
+  },
+  {
+    "id": "t43",
+    "table_no": 43,
+    "name": "Taxa de Dados Limpos",
+    "file": "metricas/t43_taxa_de_dados_limpos.json"
+  },
+  {
+    "id": "t44",
+    "table_no": 44,
+    "name": "Taxa de Blocos Confirmados",
+    "file": "metricas/t44_taxa_de_blocos_confirmados.json"
+  },
+  {
+    "id": "t45",
+    "table_no": 45,
+    "name": "Complexidade de Comunicação",
+    "file": "metricas/t45_complexidade_de_comunicacao.json"
+  },
+  {
+    "id": "t46",
+    "table_no": 46,
+    "name": "Custo Computacional",
+    "file": "metricas/t46_custo_computacional.json"
+  },
+  {
+    "id": "t47",
+    "table_no": 47,
+    "name": "Nível de Sucesso do Consenso",
+    "file": "metricas/t47_nivel_de_sucesso_do_consenso.json"
+  },
+  {
+    "id": "t48",
+    "table_no": 48,
+    "name": "Nível de Tempo de Consenso",
+    "file": "metricas/t48_nivel_de_tempo_de_consenso.json"
+  },
+  {
+    "id": "t49",
+    "table_no": 49,
+    "name": "Sobrecarga de CPU",
+    "file": "metricas/t49_sobrecarga_de_cpu.json"
+  },
+  {
+    "id": "t50",
+    "table_no": 50,
+    "name": "Uso de CPU",
+    "file": "metricas/t50_uso_de_cpu.json"
+  },
+  {
+    "id": "t51",
+    "table_no": 51,
+    "name": "Utilização da CPU (CPU Utilization)",
+    "file": "metricas/t51_utilizacao_da_cpu_cpu_utilization.json"
+  },
+  {
+    "id": "t52",
+    "table_no": 52,
+    "name": "Peso Cumulativo",
+    "file": "metricas/t52_peso_cumulativo.json"
+  },
+  {
+    "id": "t53",
+    "table_no": 53,
+    "name": "Taxa de Acesso a Dados",
+    "file": "metricas/t53_taxa_de_acesso_a_dados.json"
+  },
+  {
+    "id": "t54",
+    "table_no": 54,
+    "name": "Confidencialidade dos Dados (Data Confidentiality)",
+    "file": "metricas/t54_confidencialidade_dos_dados_data_confidentiality.json"
+  },
+  {
+    "id": "t55",
+    "table_no": 55,
+    "name": "Consistência dos Dados",
+    "file": "metricas/t55_consistencia_dos_dados.json"
+  },
+  {
+    "id": "t56",
+    "table_no": 56,
+    "name": "Integridade dos Dados",
+    "file": "metricas/t56_integridade_dos_dados.json"
+  },
+  {
+    "id": "t57",
+    "table_no": 57,
+    "name": "Integridade dos Dados (Data Integrity)",
+    "file": "metricas/t57_integridade_dos_dados_data_integrity.json"
+  },
+  {
+    "id": "t58",
+    "table_no": 58,
+    "name": "Taxa de Utilidade dos Dados",
+    "file": "metricas/t58_taxa_de_utilidade_dos_dados.json"
+  },
+  {
+    "id": "t59",
+    "table_no": 59,
+    "name": "Nível de Descentralização",
+    "file": "metricas/t59_nivel_de_descentralizacao.json"
+  },
+  {
+    "id": "t60",
+    "table_no": 60,
+    "name": "Custo de Implantação (Deployment Cost)",
+    "file": "metricas/t60_custo_de_implantacao_deployment_cost.json"
+  },
+  {
+    "id": "t61",
+    "table_no": 61,
+    "name": "Tempo de Download",
+    "file": "metricas/t61_tempo_de_download.json"
+  },
+  {
+    "id": "t62",
+    "table_no": 62,
+    "name": "Taxa Dinâmica de Chegada",
+    "file": "metricas/t62_taxa_dinamica_de_chegada.json"
+  },
+  {
+    "id": "t63",
+    "table_no": 63,
+    "name": "Tempo Decorrido",
+    "file": "metricas/t63_tempo_decorrido.json"
+  },
+  {
+    "id": "t64",
+    "table_no": 64,
+    "name": "Blocos Vazios (Empty Blocks)",
+    "file": "metricas/t64_blocos_vazios_empty_blocks.json"
+  },
+  {
+    "id": "t65",
+    "table_no": 65,
+    "name": "Taxa de Omissão de Eventos",
+    "file": "metricas/t65_taxa_de_omissao_de_eventos.json"
+  },
+  {
+    "id": "t66",
+    "table_no": 66,
+    "name": "Custo de Execução",
+    "file": "metricas/t66_custo_de_execucao.json"
+  },
+  {
+    "id": "t67",
+    "table_no": 67,
+    "name": "Taxa de Requisições Falhas",
+    "file": "metricas/t67_taxa_de_requisicoes_falhas.json"
+  },
+  {
+    "id": "t68",
+    "table_no": 68,
+    "name": "Custo de Execução (Execution Cost)",
+    "file": "metricas/t68_custo_de_execucao_execution_cost.json"
+  },
+  {
+    "id": "t69",
+    "table_no": 69,
+    "name": "Nível de Tolerância a Falhas",
+    "file": "metricas/t69_nivel_de_tolerancia_a_falhas.json"
+  },
+  {
+    "id": "t70",
+    "table_no": 70,
+    "name": "Nível de Resistência à Falsificação",
+    "file": "metricas/t70_nivel_de_resistencia_a_falsificacao.json"
+  },
+  {
+    "id": "t71",
+    "table_no": 71,
+    "name": "Fork Frequency (Frequência de Forks)",
+    "file": "metricas/t71_fork_frequency_frequencia_de_forks.json"
+  },
+  {
+    "id": "t72",
+    "table_no": 72,
+    "name": "Taxa de Gás",
+    "file": "metricas/t72_taxa_de_gas.json"
+  },
+  {
+    "id": "t73",
+    "table_no": 73,
+    "name": "Preço do Gás (Gas Price)",
+    "file": "metricas/t73_preco_do_gas_gas_price.json"
+  },
+  {
+    "id": "t74",
+    "table_no": 74,
+    "name": "Razão Gas/Tempo",
+    "file": "metricas/t74_razao_gas_tempo.json"
+  },
+  {
+    "id": "t75",
+    "table_no": 75,
+    "name": "Taxa de Detecção de Usuários Genuínos (Genuine User",
+    "file": "metricas/t75_taxa_de_deteccao_de_usuarios_genuinos_genuine_user.json"
+  },
+  {
+    "id": "t76",
+    "table_no": 76,
+    "name": "Group Conflict Rate",
+    "file": "metricas/t76_group_conflict_rate.json"
+  },
+  {
+    "id": "t77",
+    "table_no": 77,
+    "name": "Índice de Modificadores de Acesso Inseguros",
+    "file": "metricas/t77_indice_de_modificadores_de_acesso_inseguros.json"
+  },
+  {
+    "id": "t78",
+    "table_no": 78,
+    "name": "Taxa de Vulnerabilidade a Overflow/Underflow de Inteiros",
+    "file": "metricas/t78_taxa_de_vulnerabilidade_a_overflow_underflow_de_inteiros.json"
+  },
+  {
+    "id": "t79",
+    "table_no": 79,
+    "name": "Nível de Centralização de Serviços Internos",
+    "file": "metricas/t79_nivel_de_centralizacao_de_servicos_internos.json"
+  },
+  {
+    "id": "t80",
+    "table_no": 80,
+    "name": "Número de Blocos Inválidos",
+    "file": "metricas/t80_numero_de_blocos_invalidos.json"
+  },
+  {
+    "id": "t81",
+    "table_no": 81,
+    "name": "Liquidez Limitada",
+    "file": "metricas/t81_liquidez_limitada.json"
+  },
+  {
+    "id": "t82",
+    "table_no": 82,
+    "name": "Redução de Carga",
+    "file": "metricas/t82_reducao_de_carga.json"
+  },
+  {
+    "id": "t83",
+    "table_no": 83,
+    "name": "Número de Transações Máximas",
+    "file": "metricas/t83_numero_de_transacoes_maximas.json"
+  },
+  {
+    "id": "t84",
+    "table_no": 84,
+    "name": "Consumo de Memória",
+    "file": "metricas/t84_consumo_de_memoria.json"
+  },
+  {
+    "id": "t85",
+    "table_no": 85,
+    "name": "Taxa de Entrega de Mensagens",
+    "file": "metricas/t85_taxa_de_entrega_de_mensagens.json"
+  },
+  {
+    "id": "t86",
+    "table_no": 86,
+    "name": "Propagação de Mensagens",
+    "file": "metricas/t86_propagacao_de_mensagens.json"
+  },
+  {
+    "id": "t87",
+    "table_no": 87,
+    "name": "Utilização do Poder de Mineração",
+    "file": "metricas/t87_utilizacao_do_poder_de_mineracao.json"
+  },
+  {
+    "id": "t88",
+    "table_no": 88,
+    "name": "Mutabilidade de Metadados",
+    "file": "metricas/t88_mutabilidade_de_metadados.json"
+  },
+  {
+    "id": "t89",
+    "table_no": 89,
+    "name": "Parâmetros Mutáveis",
+    "file": "metricas/t89_parametros_mutaveis.json"
+  },
+  {
+    "id": "t90",
+    "table_no": 90,
+    "name": "Largura de Banda da Rede",
+    "file": "metricas/t90_largura_de_banda_da_rede.json"
+  },
+  {
+    "id": "t91",
+    "table_no": 91,
+    "name": "Sobrecarga de Rede",
+    "file": "metricas/t91_sobrecarga_de_rede.json"
+  },
+  {
+    "id": "t92",
+    "table_no": 92,
+    "name": "Desempenho da Rede",
+    "file": "metricas/t92_desempenho_da_rede.json"
+  },
+  {
+    "id": "t93",
+    "table_no": 93,
+    "name": "Conectividade de Nós",
+    "file": "metricas/t93_conectividade_de_nos.json"
+  },
+  {
+    "id": "t94",
+    "table_no": 94,
+    "name": "Garantia de Não Repúdio",
+    "file": "metricas/t94_garantia_de_nao_repudio.json"
+  },
+  {
+    "id": "t95",
+    "table_no": 95,
+    "name": "Número de Saltos",
+    "file": "metricas/t95_numero_de_saltos.json"
+  },
+  {
+    "id": "t96",
+    "table_no": 96,
+    "name": "Quantidade de Blocos Encaminhados",
+    "file": "metricas/t96_quantidade_de_blocos_encaminhados.json"
+  },
+  {
+    "id": "t97",
+    "table_no": 97,
+    "name": "Quantidade de Blocos Perdidos",
+    "file": "metricas/t97_quantidade_de_blocos_perdidos.json"
+  },
+  {
+    "id": "t98",
+    "table_no": 98,
+    "name": "Número de Bifurcações em Função da Dificuldade de",
+    "file": "metricas/t98_numero_de_bifurcacoes_em_funcao_da_dificuldade_de.json"
+  },
+  {
+    "id": "t99",
+    "table_no": 99,
+    "name": "Número de Instruções Executadas",
+    "file": "metricas/t99_numero_de_instrucoes_executadas.json"
+  },
+  {
+    "id": "t100",
+    "table_no": 100,
+    "name": "Número de Mineradores",
+    "file": "metricas/t100_numero_de_mineradores.json"
+  },
+  {
+    "id": "t101",
+    "table_no": 101,
+    "name": "Número de Nós",
+    "file": "metricas/t101_numero_de_nos.json"
+  },
+  {
+    "id": "t102",
+    "table_no": 102,
+    "name": "Número de Canais de Pagamento",
+    "file": "metricas/t102_numero_de_canais_de_pagamento.json"
+  },
+  {
+    "id": "t103",
+    "table_no": 103,
+    "name": "Número de Requisições",
+    "file": "metricas/t103_numero_de_requisicoes.json"
+  },
+  {
+    "id": "t104",
+    "table_no": 104,
+    "name": "Número de Rodadas",
+    "file": "metricas/t104_numero_de_rodadas.json"
+  },
+  {
+    "id": "t105",
+    "table_no": 105,
+    "name": "Número de Transações Suspeitas",
+    "file": "metricas/t105_numero_de_transacoes_suspeitas.json"
+  },
+  {
+    "id": "t106",
+    "table_no": 106,
+    "name": "Número de Transações de Escrita",
+    "file": "metricas/t106_numero_de_transacoes_de_escrita.json"
+  },
+  {
+    "id": "t107",
+    "table_no": 107,
+    "name": "Taxa de Forks por Minerador Único",
+    "file": "metricas/t107_taxa_de_forks_por_minerador_unico.json"
+  },
+  {
+    "id": "t108",
+    "table_no": 108,
+    "name": "Tempo de Operação",
+    "file": "metricas/t108_tempo_de_operacao.json"
+  },
+  {
+    "id": "t109",
+    "table_no": 109,
+    "name": "Exceção de Sem Gás (OGEx — Out-of-Gas Exception)",
+    "file": "metricas/t109_excecao_de_sem_gas_ogex_out_of_gas_exception.json"
+  },
+  {
+    "id": "t110",
+    "table_no": 110,
+    "name": "Razão de Sobrecarga",
+    "file": "metricas/t110_razao_de_sobrecarga.json"
+  },
+  {
+    "id": "t111",
+    "table_no": 111,
+    "name": "Índice de Centralização de Controle",
+    "file": "metricas/t111_indice_de_centralizacao_de_controle.json"
+  },
+  {
+    "id": "t112",
+    "table_no": 112,
+    "name": "Taxa de Queda de Pacotes",
+    "file": "metricas/t112_taxa_de_queda_de_pacotes.json"
+  },
+  {
+    "id": "t113",
+    "table_no": 113,
+    "name": "Índice de Perda de Pacotes",
+    "file": "metricas/t113_indice_de_perda_de_pacotes.json"
+  },
+  {
+    "id": "t114",
+    "table_no": 114,
+    "name": "Taxa de Penalidades",
+    "file": "metricas/t114_taxa_de_penalidades.json"
+  },
+  {
+    "id": "t115",
+    "table_no": 115,
+    "name": "Desempenho dos Recursos (Performance of Resources)",
+    "file": "metricas/t115_desempenho_dos_recursos_performance_of_resources.json"
+  },
+  {
+    "id": "t116",
+    "table_no": 116,
+    "name": "Desempenho em Diferentes Máquinas (Performance on",
+    "file": "metricas/t116_desempenho_em_diferentes_maquinas_performance_on.json"
+  },
+  {
+    "id": "t117",
+    "table_no": 117,
+    "name": "Exceções Mal Gerenciadas",
+    "file": "metricas/t117_excecoes_mal_gerenciadas.json"
+  },
+  {
+    "id": "t118",
+    "table_no": 118,
+    "name": "Preço de Consumo (Price of Consumption)",
+    "file": "metricas/t118_preco_de_consumo_price_of_consumption.json"
+  },
+  {
+    "id": "t119",
+    "table_no": 119,
+    "name": "Economia de Preço (Price Savings)",
+    "file": "metricas/t119_economia_de_preco_price_savings.json"
+  },
+  {
+    "id": "t120",
+    "table_no": 120,
+    "name": "Taxa de Vazamento de Chaves Privadas (Private Key",
+    "file": "metricas/t120_taxa_de_vazamento_de_chaves_privadas_private_key.json"
+  },
+  {
+    "id": "t121",
+    "table_no": 121,
+    "name": "Tempo de Consulta",
+    "file": "metricas/t121_tempo_de_consulta.json"
+  },
+  {
+    "id": "t122",
+    "table_no": 122,
+    "name": "Utilização de Memória RAM",
+    "file": "metricas/t122_utilizacao_de_memoria_ram.json"
+  },
+  {
+    "id": "t123",
+    "table_no": 123,
+    "name": "Taxa de Blocos Órfãos (Rate of Stale Blocks)",
+    "file": "metricas/t123_taxa_de_blocos_orfaos_rate_of_stale_blocks.json"
+  },
+  {
+    "id": "t124",
+    "table_no": 124,
+    "name": "Tempo de Execução de Opcode",
+    "file": "metricas/t124_tempo_de_execucao_de_opcode.json"
+  },
+  {
+    "id": "t125",
+    "table_no": 125,
+    "name": "Vulnerabilidade de Reentrância",
+    "file": "metricas/t125_vulnerabilidade_de_reentrancia.json"
+  },
+  {
+    "id": "t126",
+    "table_no": 126,
+    "name": "Reliability Rate",
+    "file": "metricas/t126_reliability_rate.json"
+  },
+  {
+    "id": "t127",
+    "table_no": 127,
+    "name": "Taxa de Sucesso de Requisições",
+    "file": "metricas/t127_taxa_de_sucesso_de_requisicoes.json"
+  },
+  {
+    "id": "t128",
+    "table_no": 128,
+    "name": "Razão de Energia Residual",
+    "file": "metricas/t128_razao_de_energia_residual.json"
+  },
+  {
+    "id": "t129",
+    "table_no": 129,
+    "name": "Consumo de Recursos (Resource Consumption)",
+    "file": "metricas/t129_consumo_de_recursos_resource_consumption.json"
+  },
+  {
+    "id": "t130",
+    "table_no": 130,
+    "name": "Tempo de Resposta do Sistema (System Responsiveness",
+    "file": "metricas/t130_tempo_de_resposta_do_sistema_system_responsiveness.json"
+  },
+  {
+    "id": "t131",
+    "table_no": 131,
+    "name": "Risco de Centralização de RPC",
+    "file": "metricas/t131_risco_de_centralizacao_de_rpc.json"
+  },
+  {
+    "id": "t132",
+    "table_no": 132,
+    "name": "Índice de Auto-Balanceamento de Shards",
+    "file": "metricas/t132_indice_de_auto_balanceamento_de_shards.json"
+  },
+  {
+    "id": "t133",
+    "table_no": 133,
+    "name": "Tempo de Criação de Assinatura",
+    "file": "metricas/t133_tempo_de_criacao_de_assinatura.json"
+  },
+  {
+    "id": "t134",
+    "table_no": 134,
+    "name": "Taxa de Serviço Estática",
+    "file": "metricas/t134_taxa_de_servico_estatica.json"
+  },
+  {
+    "id": "t135",
+    "table_no": 135,
+    "name": "Uso de Armazenamento (Storage Usage)",
+    "file": "metricas/t135_uso_de_armazenamento_storage_usage.json"
+  },
+  {
+    "id": "t136",
+    "table_no": 136,
+    "name": "Taxa de Sucesso e Falha",
+    "file": "metricas/t136_taxa_de_sucesso_e_falha.json"
+  },
+  {
+    "id": "t137",
+    "table_no": 137,
+    "name": "Probabilidade de Sucesso",
+    "file": "metricas/t137_probabilidade_de_sucesso.json"
+  },
+  {
+    "id": "t138",
+    "table_no": 138,
+    "name": "Custo do Sistema (System Cost)",
+    "file": "metricas/t138_custo_do_sistema_system_cost.json"
+  },
+  {
+    "id": "t139",
+    "table_no": 139,
+    "name": "Índice de Operabilidade do Sistema",
+    "file": "metricas/t139_indice_de_operabilidade_do_sistema.json"
+  },
+  {
+    "id": "t140",
+    "table_no": 140,
+    "name": "Risco de Integração de SDKs de Terceiros (Third-Party",
+    "file": "metricas/t140_risco_de_integracao_de_sdks_de_terceiros_third_party.json"
+  },
+  {
+    "id": "t141",
+    "table_no": 141,
+    "name": "Tempo de Poda",
+    "file": "metricas/t141_tempo_de_poda.json"
+  },
+  {
+    "id": "t142",
+    "table_no": 142,
+    "name": "Tempo para Vencer",
+    "file": "metricas/t142_tempo_para_vencer.json"
+  },
+  {
+    "id": "t143",
+    "table_no": 143,
+    "name": "Etapas para Recompensa",
+    "file": "metricas/t143_etapas_para_recompensa.json"
+  },
+  {
+    "id": "t144",
+    "table_no": 144,
+    "name": "Custo Total",
+    "file": "metricas/t144_custo_total.json"
+  },
+  {
+    "id": "t145",
+    "table_no": 145,
+    "name": "Capacidade de Transações (Transaction Capacity)",
+    "file": "metricas/t145_capacidade_de_transacoes_transaction_capacity.json"
+  },
+  {
+    "id": "t146",
+    "table_no": 146,
+    "name": "Tempo de Confirmação da Transação",
+    "file": "metricas/t146_tempo_de_confirmacao_da_transacao.json"
+  },
+  {
+    "id": "t147",
+    "table_no": 147,
+    "name": "Taxa de Conflito de Transações",
+    "file": "metricas/t147_taxa_de_conflito_de_transacoes.json"
+  },
+  {
+    "id": "t148",
+    "table_no": 148,
+    "name": "Cobertura de Transações",
+    "file": "metricas/t148_cobertura_de_transacoes.json"
+  },
+  {
+    "id": "t149",
+    "table_no": 149,
+    "name": "Gas Utilizado por Transação (Transaction Gas Used)",
+    "file": "metricas/t149_gas_utilizado_por_transacao_transaction_gas_used.json"
+  },
+  {
+    "id": "t150",
+    "table_no": 150,
+    "name": "Taxa de Processamento de Transações",
+    "file": "metricas/t150_taxa_de_processamento_de_transacoes.json"
+  },
+  {
+    "id": "t151",
+    "table_no": 151,
+    "name": "Reordenação de Transações",
+    "file": "metricas/t151_reordenacao_de_transacoes.json"
+  },
+  {
+    "id": "t152",
+    "table_no": 152,
+    "name": "Tempo de Transação (Transaction Time)",
+    "file": "metricas/t152_tempo_de_transacao_transaction_time.json"
+  },
+  {
+    "id": "t153",
+    "table_no": 153,
+    "name": "Taxa de Transações",
+    "file": "metricas/t153_taxa_de_transacoes.json"
+  },
+  {
+    "id": "t154",
+    "table_no": 154,
+    "name": "Taxa de Typecast Incorreto",
+    "file": "metricas/t154_taxa_de_typecast_incorreto.json"
+  },
+  {
+    "id": "t155",
+    "table_no": 155,
+    "name": "Taxa de Chamadas para Desconhecido",
+    "file": "metricas/t155_taxa_de_chamadas_para_desconhecido.json"
+  },
+  {
+    "id": "t156",
+    "table_no": 156,
+    "name": "Variabilidade da Distribuição da Razão Gas/Tempo",
+    "file": "metricas/t156_variabilidade_da_distribuicao_da_razao_gas_tempo.json"
+  },
+  {
+    "id": "t157",
+    "table_no": 157,
+    "name": "Vulnerable Scarcity Index",
+    "file": "metricas/t157_vulnerable_scarcity_index.json"
+  },
+  {
+    "id": "t158",
+    "table_no": 158,
+    "name": "Validação do Lance Vencedor",
+    "file": "metricas/t158_validacao_do_lance_vencedor.json"
+  }
+]
