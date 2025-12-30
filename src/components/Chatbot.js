@@ -45,6 +45,9 @@ const Chatbot = () => {
   const [option2, setOption2] = useState("");
   const [preferredOption, setPreferredOption] = useState(1);
 
+  // ✅ NOVO: nota da resposta escolhida (1..5)
+  const [rating, setRating] = useState(0);
+
   // ✅ agora o histórico exibido vem do experimentState (sincronizado com Firebase)
   const [history, setHistory] = useState([]);
 
@@ -253,9 +256,12 @@ const Chatbot = () => {
       metricId: e?.metricId || "",
       metricName: e?.metricName || "",
       createdAt: e?.createdAt || null,
-      response: e?.chosenText || "", // ✅ aqui é o ponto: no state é chosenText
+      response: e?.chosenText || "",
       chosenText: e?.chosenText || "",
       preferredOption: e?.preferredOption || 0,
+
+      // ✅ NOVO: nota
+      rating: Number(e?.rating || 0),
     }));
 
     setHistory(mapped);
@@ -264,7 +270,6 @@ const Chatbot = () => {
   useEffect(() => {
     syncHistoryFromExperiment();
 
-    // atualiza sempre que o experimentState mudar (inclui overwrite do Firebase)
     const unsub = subscribeExperimentState(() => {
       syncHistoryFromExperiment();
     });
@@ -448,6 +453,9 @@ const Chatbot = () => {
     setOption2("");
     setPreferredOption(1);
 
+    // ✅ reset nota quando gerar nova pergunta
+    setRating(0);
+
     try {
       const res = await axios.post("http://127.0.0.1:3333/ask-question", {
         question,
@@ -475,9 +483,14 @@ const Chatbot = () => {
       return;
     }
 
+    // ✅ exige nota
+    if (!rating || rating < 1 || rating > 5) {
+      alert("Por favor, dê uma nota (1 a 5) para a resposta escolhida.");
+      return;
+    }
+
     const preferredText = preferredOption === 1 ? option1 : option2;
 
-    // ✅ salva no experimentState (vai pro Firebase via sync)
     addChatEntry({
       question: question.trim() ? question : "(pergunta anterior)",
       model,
@@ -485,12 +498,14 @@ const Chatbot = () => {
       metricName,
       preferredOption,
       chosenText: preferredText || "(sem resposta)",
+      rating, // ✅ NOVO
       createdAt: new Date().toISOString(),
     });
 
     setOption1("");
     setOption2("");
     setPreferredOption(1);
+    setRating(0);
 
     setFloatOpen(true);
     setFloatMin(false);
@@ -513,6 +528,22 @@ const Chatbot = () => {
   const completed = useMemo(() => getChatCompletedCount(), [expTick]);
   const remaining = EXP_CONFIG.QUESTIONS_REQUIRED - completed;
   const canAskMore = completed < EXP_CONFIG.QUESTIONS_REQUIRED;
+
+  // ✅ UI: seletor de nota (1..5)
+  const ratingBtnStyle = (active) => ({
+    width: 44,
+    height: 40,
+    borderRadius: 12,
+    border: active
+      ? "2px solid rgba(251,191,36,0.95)"
+      : "1px solid rgba(255,255,255,0.22)",
+    background: active ? "rgba(251,191,36,0.18)" : "rgba(15, 23, 42, 0.20)",
+    color: "#fff",
+    fontWeight: 900,
+    cursor: "pointer",
+    boxShadow: active ? "0 14px 26px rgba(0,0,0,0.22)" : "none",
+    userSelect: "none",
+  });
 
   // Snap helpers
   const snapPosition = (x, y, w, hEff) => {
@@ -571,7 +602,6 @@ const Chatbot = () => {
     resizeRef.current.mode = null;
   };
 
-  // ✅ NEW: wrappers para iniciar resize via handles
   const onMouseDownResize = (mode) => (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -626,7 +656,6 @@ const Chatbot = () => {
         setFloatBox((p) => ({ ...p, h: nextH }));
       }
 
-      // ✅ left / cornerLeft ajustam X também (pra “puxar da esquerda” de verdade)
       if (mode === "left" || mode === "cornerLeft") {
         const nextW = clamp(
           resizeRef.current.startW - dx,
@@ -961,10 +990,62 @@ const Chatbot = () => {
                   </div>
                 </div>
 
+                {/* ✅ NOVO: Nota da resposta escolhida */}
+                <div
+                  className="mt-3"
+                  style={{
+                    borderRadius: 14,
+                    border: "1px solid rgba(255,255,255,0.16)",
+                    background: "rgba(255,255,255,0.08)",
+                    padding: 12,
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      gap: 10,
+                      marginBottom: 8,
+                    }}
+                  >
+                    <div style={{ fontWeight: 900 }}>
+                      Dê uma nota para a resposta escolhida
+                    </div>
+                    <div style={{ fontSize: 12, opacity: 0.8 }}>
+                      Selecionada: Opção {preferredOption}
+                    </div>
+                  </div>
+
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <button
+                        key={n}
+                        type="button"
+                        onClick={() => setRating(n)}
+                        style={ratingBtnStyle(rating === n)}
+                        title={`Nota ${n}`}
+                      >
+                        {n}★
+                      </button>
+                    ))}
+                  </div>
+
+                  <div style={{ marginTop: 8, fontSize: 12, opacity: 0.85 }}>
+                    {rating ? (
+                      <>
+                        Nota escolhida: <strong>{rating}/5</strong>
+                      </>
+                    ) : (
+                      "Selecione uma nota para habilitar o salvamento."
+                    )}
+                  </div>
+                </div>
+
                 <button
                   className="btn btn-light w-100 mt-3"
                   onClick={handleSavePreferred}
-                  disabled={loading || (!option1 && !option2)}
+                  disabled={loading || (!option1 && !option2) || rating < 1}
                   style={saveBtnStyle}
                 >
                   Salvar preferida no histórico
@@ -1004,8 +1085,23 @@ const Chatbot = () => {
           }}
         >
           <div
-            onMouseDown={onMouseDownHeader}
-            onTouchStart={onTouchStartHeader}
+            onMouseDown={(e) => {
+              if (docked) return;
+              if (e.target.closest('[data-no-drag="true"]')) return;
+              e.preventDefault();
+              dragRef.current.active = true;
+              dragRef.current.dx = e.clientX - floatBox.x;
+              dragRef.current.dy = e.clientY - floatBox.y;
+            }}
+            onTouchStart={(e) => {
+              if (docked) return;
+              if (e.target.closest('[data-no-drag="true"]')) return;
+              const t = e.touches?.[0];
+              if (!t) return;
+              dragRef.current.active = true;
+              dragRef.current.dx = t.clientX - floatBox.x;
+              dragRef.current.dy = t.clientY - floatBox.y;
+            }}
             style={{
               height: 54,
               display: "flex",
@@ -1033,7 +1129,9 @@ const Chatbot = () => {
                 data-no-drag="true"
                 type="button"
                 title={docked ? "Desafixar (flutuar)" : "Fixar na direita (dock)"}
-                onClick={toggleDock}
+                onClick={() => {
+                  setDocked((prev) => !prev);
+                }}
                 style={headerPillBtn(docked, false)}
                 {...pressableHandlers(false)}
               >
@@ -1251,10 +1349,9 @@ const Chatbot = () => {
             </div>
           )}
 
-          {/* ✅ NEW: Handles de resize (funciona flutuando; e no dock ajusta largura) */}
+          {/* Handles de resize (mantidos) */}
           {!floatMin && (
             <>
-              {/* direita (sempre, inclusive docked) */}
               <div
                 onMouseDown={onMouseDownResize("right")}
                 onTouchStart={onTouchStartResize("right")}
@@ -1270,7 +1367,6 @@ const Chatbot = () => {
                 }}
               />
 
-              {/* esquerda (somente flutuando) */}
               {!docked && (
                 <div
                   onMouseDown={onMouseDownResize("left")}
@@ -1288,7 +1384,6 @@ const Chatbot = () => {
                 />
               )}
 
-              {/* baixo (somente flutuando) */}
               {!docked && (
                 <div
                   onMouseDown={onMouseDownResize("bottom")}
@@ -1306,7 +1401,6 @@ const Chatbot = () => {
                 />
               )}
 
-              {/* canto inferior direito (somente flutuando) */}
               {!docked && (
                 <div
                   onMouseDown={onMouseDownResize("corner")}
@@ -1327,7 +1421,6 @@ const Chatbot = () => {
                 />
               )}
 
-              {/* canto inferior esquerdo (somente flutuando) */}
               {!docked && (
                 <div
                   onMouseDown={onMouseDownResize("cornerLeft")}
@@ -1363,24 +1456,7 @@ const Chatbot = () => {
             boxShadow: "0 12px 26px rgba(0,0,0,0.25)",
             ...(closedBtn.docked
               ? { right: MARGIN + RIGHT_SAFE_PAD, top: 70 }
-              : {
-                  left: clamp(
-                    closedBtn.x,
-                    MARGIN,
-                    Math.max(
-                      MARGIN,
-                      window.innerWidth -
-                        CLOSED_BTN_SAFE_W -
-                        MARGIN -
-                        RIGHT_SAFE_PAD
-                    )
-                  ),
-                  top: clamp(
-                    closedBtn.y,
-                    MARGIN,
-                    Math.max(MARGIN, window.innerHeight - CLOSED_BTN_SAFE_H - MARGIN)
-                  ),
-                }),
+              : { left: closedBtn.x, top: closedBtn.y }),
           }}
           onClick={() => {
             setFloatOpen(true);

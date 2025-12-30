@@ -601,6 +601,28 @@ export default function AdminFeedbacksPage() {
       })
     );
 
+    // ✅ NOTAS: média por usuário (submissão)
+    const perUserAvgRatings = filtered
+      .map((sub) => {
+        const qs = Array.isArray(sub?.experiment?.questions)
+          ? sub.experiment.questions
+          : [];
+        const vals = qs.map((q) => safeNum(q?.rating)).filter((n) => n !== null);
+        if (!vals.length) return null;
+        return mean(vals); // média 1..5 do usuário
+      })
+      .filter((v) => v !== null);
+
+    const ratingUsersCount = perUserAvgRatings.length;
+    const ratingUsersAvg = ratingUsersCount ? mean(perUserAvgRatings) : null;
+
+    // Distribuição da média por usuário (arredondada para 1..5)
+    const ratingUsersLikert = countLikert(
+      perUserAvgRatings.map((v) => Math.max(1, Math.min(5, Math.round(v)))),
+      1,
+      5
+    );
+
     // TAM
     const tamIndexLocal = buildTamIndex();
     const tamResponses = filtered
@@ -695,7 +717,7 @@ export default function AdminFeedbacksPage() {
 
     const avgByFamiliarity = avgEngagementBy("DQ7_familiarity");
 
-    // ✅ KPIs gerais (Visão geral) — sem completude (porque é obrigatório)
+    // ✅ KPIs gerais (para Overview)
     const createdDates = filtered
       .map((x) => x._createdDate)
       .filter((d) => d instanceof Date && !Number.isNaN(d.getTime()))
@@ -723,6 +745,11 @@ export default function AdminFeedbacksPage() {
 
       modelCounts,
       optionCounts,
+
+      // ✅ ratings (média por usuário)
+      ratingUsersLikert,
+      ratingUsersAvg,
+      ratingUsersCount,
 
       tamSectionMeans,
       selectedTamMeta,
@@ -874,34 +901,6 @@ export default function AdminFeedbacksPage() {
       {/* ---------------- OVERVIEW ---------------- */}
       {tab === "overview" ? (
         <div className="row g-3 mb-3">
-          {/* KPIs gerais */}
-          <div className="col-12">
-            <div className="card" style={styles.card}>
-              <div className="card-body">
-                <div className="fw-bold" style={{ fontSize: 14 }}>
-                  Resumo geral
-                </div>
-                <div className="text-muted" style={{ fontSize: 12 }}>
-                  Visão macro do estudo (sem repetir Perfis/TAM/Chat).
-                </div>
-
-                <div className="d-flex flex-wrap gap-2 mt-3">
-                  <span className="badge text-bg-light">
-                    Período:{" "}
-                    <b>
-                      {stats.dateMin ? formatDateTime(stats.dateMin) : "-"} →{" "}
-                      {stats.dateMax ? formatDateTime(stats.dateMax) : "-"}
-                    </b>
-                  </span>
-
-                  <span className="badge text-bg-light">
-                    Perguntas no chat (total): <b>{stats.totalChatQuestions}</b>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Submissões por dia */}
           <div className="col-12 col-lg-6">
             <SvgBarChart
@@ -1123,6 +1122,17 @@ export default function AdminFeedbacksPage() {
               maxBars={10}
             />
           </div>
+
+          <div className="col-12">
+            <SvgBarChart
+              title="Chat · Nota média por usuário (1–5)"
+              exportName="chat_media_nota_por_usuario"
+              subtitle="Distribuição da média de notas de cada usuário (arredondada)"
+              data={stats.ratingUsersLikert}
+              height={260}
+              maxBars={5}
+            />
+          </div>
         </div>
       ) : null}
 
@@ -1169,10 +1179,7 @@ export default function AdminFeedbacksPage() {
                               >
                                 {x.id}
                               </div>
-                              <div
-                                className="text-muted"
-                                style={{ fontSize: 12 }}
-                              >
+                              <div className="text-muted" style={{ fontSize: 12 }}>
                                 {formatDateTime(x._createdDate)}
                               </div>
                             </div>
@@ -1187,9 +1194,7 @@ export default function AdminFeedbacksPage() {
 
                               <button
                                 className={`btn btn-sm ${
-                                  isOpen
-                                    ? "btn-outline-secondary"
-                                    : "btn-warning"
+                                  isOpen ? "btn-outline-secondary" : "btn-warning"
                                 } fw-semibold`}
                                 onClick={() =>
                                   setExpandedSubmissionId(isOpen ? null : x.id)
@@ -1243,12 +1248,7 @@ export default function AdminFeedbacksPage() {
                                       >
                                         {label}
                                       </div>
-                                      <div
-                                        style={{
-                                          fontSize: 13,
-                                          fontWeight: 800,
-                                        }}
-                                      >
+                                      <div style={{ fontSize: 13, fontWeight: 800 }}>
                                         {value}
                                       </div>
                                     </div>

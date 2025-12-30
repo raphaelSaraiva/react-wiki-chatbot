@@ -8,7 +8,7 @@ export const EXP_CONFIG = {
 };
 
 let CURRENT_UID = "anonymous";
-const STORAGE_VERSION = 1;
+const STORAGE_VERSION = 2; // ✅ bump: agora temos rating/nota por resposta
 
 export function setExperimentUser(uid) {
   CURRENT_UID = uid ? String(uid) : "anonymous";
@@ -22,6 +22,15 @@ function nowIso() {
   return new Date().toISOString();
 }
 
+function clampInt(n, min, max) {
+  const x = Number(n);
+  if (!Number.isFinite(x)) return null;
+  const xi = Math.round(x);
+  if (xi < min) return min;
+  if (xi > max) return max;
+  return xi;
+}
+
 function getDefaultState() {
   return {
     metricsVisited: {}, // { t1: true, t2: true }
@@ -31,7 +40,7 @@ function getDefaultState() {
       version: STORAGE_VERSION,
       updatedAt: null,
 
-      // ✅ NOVO: contador persistente (não diminui ao limpar histórico)
+      // ✅ contador persistente (não diminui ao limpar histórico)
       chatCompletedCount: 0,
     },
   };
@@ -75,9 +84,21 @@ function normalizeState(parsed) {
   }
 
   // sanity: não deixa negativo / NaN
-  if (!Number.isFinite(next.meta.chatCompletedCount) || next.meta.chatCompletedCount < 0) {
+  if (
+    !Number.isFinite(next.meta.chatCompletedCount) ||
+    next.meta.chatCompletedCount < 0
+  ) {
     next.meta.chatCompletedCount = next.chatEntries.length || 0;
   }
+
+  // ✅ migração: garante que cada chatEntry tenha campo "rating" (nota)
+  next.chatEntries = (next.chatEntries || []).map((e) => {
+    const rating = clampInt(e?.rating, 1, 5);
+    return {
+      ...e,
+      rating: rating ?? null, // null = não avaliado ainda
+    };
+  });
 
   return next;
 }
@@ -135,7 +156,8 @@ export function addChatEntry(entry) {
   const state = getExperimentState();
 
   // ✅ limite do experimento baseado no contador persistente (não no histórico)
-  if ((state?.meta?.chatCompletedCount || 0) >= EXP_CONFIG.QUESTIONS_REQUIRED) return;
+  if ((state?.meta?.chatCompletedCount || 0) >= EXP_CONFIG.QUESTIONS_REQUIRED)
+    return;
 
   const safeEntry = {
     question: String(entry?.question || "").trim(),
@@ -145,6 +167,9 @@ export function addChatEntry(entry) {
     metricId: String(entry?.metricId || "").trim(),
     metricName: String(entry?.metricName || "").trim(),
     createdAt: entry?.createdAt || nowIso(),
+
+    // ✅ NOVO: nota/rating (1..5) opcional
+    rating: clampInt(entry?.rating, 1, 5) ?? null,
   };
 
   if (!safeEntry.question) return;
@@ -180,7 +205,10 @@ export function canAccessChatbot() {
 }
 
 export function canAccessFeedback() {
-  return canAccessChatbot() && getChatCompletedCount() >= EXP_CONFIG.QUESTIONS_REQUIRED;
+  return (
+    canAccessChatbot() &&
+    getChatCompletedCount() >= EXP_CONFIG.QUESTIONS_REQUIRED
+  );
 }
 
 export function markFeedbackSent() {
@@ -197,7 +225,9 @@ export function resetExperiment() {
 
 export function getVisitedMetrics() {
   const state = getExperimentState();
-  return Object.keys(state.metricsVisited || {}).filter((k) => state.metricsVisited[k]);
+  return Object.keys(state.metricsVisited || {}).filter(
+    (k) => state.metricsVisited[k]
+  );
 }
 
 export function getChatEntries() {
@@ -260,8 +290,33 @@ export function removeChatEntryByKey(question, createdAt) {
 
   // ✅ remove somente do histórico, NÃO mexe no contador persistente
   state.chatEntries = (state.chatEntries || []).filter(
-    (e) => !(String(e?.question || "") === q && String(e?.createdAt || "") === c)
+    (e) =>
+      !(
+        String(e?.question || "") === q && String(e?.createdAt || "") === c
+      )
   );
+
+  saveExperimentState(state);
+}
+
+/**
+ * ✅ NOVO: atualizar a nota (rating) de um item do histórico
+ * - Não mexe no contador persistente
+ */
+export function setChatEntryRatingByKey(question, createdAt, rating) {
+  const q = String(question || "");
+  const c = String(createdAt || "");
+  const r = clampInt(rating, 1, 5);
+  if (!q || !c || r === null) return;
+
+  const state = getExperimentState();
+
+  state.chatEntries = (state.chatEntries || []).map((e) => {
+    const same =
+      String(e?.question || "") === q && String(e?.createdAt || "") === c;
+    if (!same) return e;
+    return { ...e, rating: r };
+  });
 
   saveExperimentState(state);
 }
