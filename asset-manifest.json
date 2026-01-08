@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/react-wiki-chatbot/static/css/main.d4eeab53.css",
-    "main.js": "/react-wiki-chatbot/static/js/main.b36854c4.js",
+    "main.js": "/react-wiki-chatbot/static/js/main.c109e0ad.js",
     "static/js/488.76ef92d0.chunk.js": "/react-wiki-chatbot/static/js/488.76ef92d0.chunk.js",
     "static/media/termo_de_consentimento.pdf": "/react-wiki-chatbot/static/media/termo_de_consentimento.2140b77d606a82c05a34.pdf",
     "static/media/logo.png": "/react-wiki-chatbot/static/media/logo.1b351e4717d005b70b4b.png",
     "index.html": "/react-wiki-chatbot/index.html",
     "main.d4eeab53.css.map": "/react-wiki-chatbot/static/css/main.d4eeab53.css.map",
-    "main.b36854c4.js.map": "/react-wiki-chatbot/static/js/main.b36854c4.js.map",
+    "main.c109e0ad.js.map": "/react-wiki-chatbot/static/js/main.c109e0ad.js.map",
     "488.76ef92d0.chunk.js.map": "/react-wiki-chatbot/static/js/488.76ef92d0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d4eeab53.css",
-    "static/js/main.b36854c4.js"
+    "static/js/main.c109e0ad.js"
   ]
 }
