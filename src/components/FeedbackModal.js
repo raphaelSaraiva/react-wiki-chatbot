@@ -3,12 +3,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
 // ✅ Firebase (Firestore)
-import {
-  doc,
-  getDoc,
-  setDoc,
-  serverTimestamp,
-} from "firebase/firestore";
+import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebaseConfig"; // <-- ajuste o caminho se necessário
 
 import questions from "../questions.json";
@@ -19,6 +14,9 @@ import {
   canAccessFeedback,
   getChatEntries,
   getVisitedMetrics,
+
+  // ✅ NOVO: requisito "busca por métricas"
+  hasCompletedMetricSearchTask,
 } from "../experiment/experimentState";
 
 const CONSENT_PDF_URL = termoConsentimentoPdf;
@@ -38,7 +36,12 @@ function marcouOutro(value) {
   return false;
 }
 
-export default function FeedbackModal({ show, handleClose, userUid, onSubmitted }) {
+export default function FeedbackModal({
+  show,
+  handleClose,
+  userUid,
+  onSubmitted,
+}) {
   const [etapa, setEtapa] = useState(0);
   const [consentiuTermo, setConsentiuTermo] = useState(false);
 
@@ -146,16 +149,21 @@ export default function FeedbackModal({ show, handleClose, userUid, onSubmitted 
     setPreValue(id, next);
   };
 
-  const setTamValue = (id, value) =>
-    setTam((t) => ({ ...t, [String(id)]: value }));
+  const setTamValue = (id, value) => setTam((t) => ({ ...t, [String(id)]: value }));
 
   const setFbValue = (id, value) =>
     setFeedbackAberto((f) => ({ ...f, [id]: value }));
 
   const enviar = async () => {
     if (!canAccessFeedback()) {
+      const searchOk = hasCompletedMetricSearchTask();
+
       alert(
-        `Complete o experimento antes de enviar o feedback.\n\nRequisitos:\n- ${EXP_CONFIG.METRICS_REQUIRED} métricas\n- ${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas respondidas`
+        `Complete o experimento antes de enviar o feedback.\n\nRequisitos:\n` +
+          `- ${EXP_CONFIG.METRICS_REQUIRED} métricas\n` +
+          `- Usar a busca por métricas (digitar e clicar em uma métrica)\n` +
+          `- ${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas respondidas\n\n` +
+          (searchOk ? "" : "Obs: a busca por métricas ainda não foi registrada.")
       );
       return;
     }
@@ -204,14 +212,14 @@ export default function FeedbackModal({ show, handleClose, userUid, onSubmitted 
         experiment: {
           visitedMetrics: getVisitedMetrics(),
           questions: (chatEntries || []).slice(0, EXP_CONFIG.QUESTIONS_REQUIRED),
+
+          // ✅ NOVO: salva também se a tarefa de busca foi concluída (auditoria)
+          metricSearchTaskDone: true,
         },
         created_at: new Date().toISOString(),
       };
 
-      console.log(
-        "📦 PAYLOAD SALVO NO FIRESTORE:",
-        JSON.stringify(payload, null, 2)
-      );
+      console.log("📦 PAYLOAD SALVO NO FIRESTORE:", JSON.stringify(payload, null, 2));
 
       // ✅ 2) Salva apenas se ainda não existia (e sem merge!)
       await setDoc(ref, {
@@ -284,10 +292,7 @@ export default function FeedbackModal({ show, handleClose, userUid, onSubmitted 
       return (
         <Form.Group className="mb-3" key={id}>
           <Form.Label className="fw-semibold">{c.rotulo}</Form.Label>
-          <Form.Control
-            value={pre[id] || ""}
-            onChange={(e) => setPreValue(id, e.target.value)}
-          />
+          <Form.Control value={pre[id] || ""} onChange={(e) => setPreValue(id, e.target.value)} />
         </Form.Group>
       );
     }

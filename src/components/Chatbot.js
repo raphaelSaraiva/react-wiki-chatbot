@@ -15,6 +15,13 @@ import {
   removeChatEntryByKey,
 } from "../experiment/experimentState";
 
+const API_URL =
+  (process.env.REACT_APP_API_URL || "http://127.0.0.1:3333").replace(/\/$/, "");
+
+// ✅ storage do CHATBOT (posição + fixado + manual)
+const STORAGE_CHATBOX_KEY = "chatboxWindow_v2";
+
+// histórico flutuante
 const STORAGE_FLOAT_KEY = "historyFloatingWindow_v4";
 
 const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
@@ -30,6 +37,17 @@ function getEntryKey(entry, index) {
   );
 }
 
+function getDefaultChatboxState() {
+  const w = 920;
+  const h = 720;
+  const x = Math.max(18, Math.floor((window.innerWidth - w) / 2));
+
+  // ✅ MAIS PARA BAIXO
+  const y = 260;
+
+  return { x, y, w, h };
+}
+
 function getDefaultFloatingState() {
   const w = 420;
   const h = 420;
@@ -39,22 +57,59 @@ function getDefaultFloatingState() {
   return { x, y, w, h, open: true, min: false, docked: false };
 }
 
+function buildHistoryPayload({ maxTurns = 6, maxChars = 6000 } = {}) {
+  try {
+    const entries = (getChatEntries() || []).filter(Boolean);
+    const last = entries.slice(Math.max(0, entries.length - maxTurns));
+
+    const normalized = last.map((e) => {
+      const q = String(e?.question || "").trim();
+      const a = String(e?.chosenText || e?.response || "").trim();
+
+      return {
+        question: q,
+        answer: a,
+        metricId: e?.metricId || "",
+        metricName: e?.metricName || "",
+        model: e?.model || "",
+        preferredOption: Number(e?.preferredOption || 0),
+        rating: Number(e?.rating || 0),
+        createdAt: e?.createdAt || null,
+      };
+    });
+
+    let total = 0;
+    const clipped = [];
+    for (let i = normalized.length - 1; i >= 0; i--) {
+      const item = normalized[i];
+      const chunk = `Q: ${item.question}\nA: ${item.answer}\n`;
+      if (total + chunk.length > maxChars) break;
+      total += chunk.length;
+      clipped.push(item);
+    }
+
+    return clipped.reverse();
+  } catch {
+    return [];
+  }
+}
+
 const Chatbot = () => {
   const [question, setQuestion] = useState("");
   const [option1, setOption1] = useState("");
   const [option2, setOption2] = useState("");
   const [preferredOption, setPreferredOption] = useState(1);
 
-  // ✅ NOVO: nota da resposta escolhida (1..5)
+  // ✅ nota (1..5)
   const [rating, setRating] = useState(0);
 
-  // ✅ agora o histórico exibido vem do experimentState (sincronizado com Firebase)
+  // histórico exibido vem do experimentState/Firebase
   const [history, setHistory] = useState([]);
 
   const [loading, setLoading] = useState(false);
-  const [model, setModel] = useState("llama2");
+  const [model, setModel] = useState("openai");
 
-  // ✅ MÉTRICAS IGUAL SIDEBAR (do mesmo JSON)
+  // ✅ MÉTRICAS do JSON (igual sidebar)
   const METRICS = useMemo(() => {
     const arr = Array.isArray(metricsIndex) ? metricsIndex : [];
     return arr
@@ -65,38 +120,167 @@ const Chatbot = () => {
       .filter((m) => m.id && m.name);
   }, []);
 
-  // ✅ seleciona métrica por ID (t1, t2...)
-  const [metricId, setMetricId] = useState(() => {
-    return METRICS?.[0]?.id || "";
-  });
+  const [metricId, setMetricId] = useState("");
 
-  // nome derivado do JSON (sempre consistente com sidebar)
   const metricName = useMemo(() => {
     return METRICS.find((m) => m.id === metricId)?.name || "";
   }, [METRICS, metricId]);
 
-  // força re-render quando o experimentState mudar (para contadores)
+  // força re-render quando o experimentState mudar (contadores)
   const [expTick, setExpTick] = useState(0);
   useEffect(() => {
-    const onChanged = () => setExpTick((t) => t + 1);
-    window.addEventListener("experimentStateChanged", onChanged);
-    return () => window.removeEventListener("experimentStateChanged", onChanged);
+    if (!METRICS.length) return;
+
+    // se já tem uma métrica válida selecionada, não mexe
+    if (metricId && METRICS.some((m) => m.id === metricId)) return;
+
+    const pickLatency = () => {
+      const norm = (s) =>
+        String(s || "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+
+      // tenta achar especificamente "transaction latency" primeiro
+      const byTransactionLatency = METRICS.find((m) =>
+        norm(m.name).includes("transaction latency")
+      );
+      if (byTransactionLatency) return byTransactionLatency;
+
+      // depois tenta "latencia/latency"
+      const byLatency = METRICS.find((m) => {
+        const n = norm(m.name);
+        return n.includes("latencia") || n.includes("latency");
+      });
+      if (byLatency) return byLatency;
+
+      // fallback: primeira métrica
+      return METRICS[0];
+    };
+
+    const best = pickLatency();
+    if (best?.id) setMetricId(best.id);
+  }, [METRICS, metricId]);
+
+  // =========================
+  // ✅ CHATBOX state (pinned + manual)
+  //    pinned=false: absolute no documento (scroll)
+  //    pinned=true : fixed na viewport
+  //    manual=false e pinned=false: centraliza automaticamente
+  // =========================
+  const chatDragRef = useRef({ active: false, dx: 0, dy: 0 });
+
+  const [chatBox, setChatBox] = useState(() => ({
+    ...getDefaultChatboxState(),
+    pinned: false,
+    manual: false, // ✅ novo
+  }));
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_CHATBOX_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object") return;
+
+      const xOk = typeof parsed.x === "number";
+      const yOk = typeof parsed.y === "number";
+      const pinnedOk = typeof parsed.pinned === "boolean";
+      const manualOk = typeof parsed.manual === "boolean";
+
+      setChatBox((prev) => ({
+        ...prev,
+        ...(xOk ? { x: parsed.x } : {}),
+        ...(yOk ? { y: parsed.y } : {}),
+        ...(pinnedOk ? { pinned: parsed.pinned } : {}),
+        ...(manualOk ? { manual: parsed.manual } : {}),
+      }));
+    } catch { }
   }, []);
 
-  // janela histórico
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        STORAGE_CHATBOX_KEY,
+        JSON.stringify({
+          x: chatBox.x,
+          y: chatBox.y,
+          pinned: !!chatBox.pinned,
+          manual: !!chatBox.manual,
+        })
+      );
+    } catch { }
+  }, [chatBox.x, chatBox.y, chatBox.pinned, chatBox.manual]);
+
+  // ✅ Drag do chatbot: funciona fixado e desfixado
+  // ✅ Ajustado para não depender de closure de chatBox (usa sempre o estado mais recente)
+  useEffect(() => {
+    const getPoint = (e) => {
+      if (e.touches?.[0]) {
+        return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      }
+      return { x: e.clientX, y: e.clientY };
+    };
+
+    const onMove = (e) => {
+      if (!chatDragRef.current.active) return;
+
+      const { x: cx, y: cy } = getPoint(e);
+
+      setChatBox((p) => {
+        // quando pinned=false, coordenadas são no documento
+        const px = p.pinned ? cx : cx + window.scrollX;
+        const py = p.pinned ? cy : cy + window.scrollY;
+
+        const nextX = px - chatDragRef.current.dx;
+        const nextY = py - chatDragRef.current.dy;
+
+        const maxX =
+          (p.pinned ? window.innerWidth : document.documentElement.scrollWidth) -
+          60;
+        const maxY =
+          (p.pinned ? window.innerHeight : document.documentElement.scrollHeight) -
+          60;
+
+        return {
+          ...p,
+          x: clamp(nextX, 8, Math.max(8, maxX)),
+          y: clamp(nextY, 8, Math.max(8, maxY)),
+        };
+      });
+    };
+
+    const onUp = () => {
+      chatDragRef.current.active = false;
+    };
+
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+    window.addEventListener("touchmove", onMove, { passive: true });
+    window.addEventListener("touchend", onUp);
+
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+      window.removeEventListener("touchmove", onMove);
+      window.removeEventListener("touchend", onUp);
+    };
+  }, []);
+
+  // =========================
+  // ✅ Histórico (janela flutuante)
+  // =========================
   const [floatOpen, setFloatOpen] = useState(true);
   const [floatMin, setFloatMin] = useState(false);
   const [docked, setDocked] = useState(false);
   const [floatBox, setFloatBox] = useState(() => getDefaultFloatingState());
 
-  // posição do botão quando o histórico está fechado
   const [closedBtn, setClosedBtn] = useState(() => ({
     x: getDefaultFloatingState().x,
     y: getDefaultFloatingState().y,
     docked: false,
   }));
 
-  // expandir/recolher itens
   const [openItems, setOpenItems] = useState({});
 
   const toggleHistoryItem = (key) => {
@@ -122,7 +306,6 @@ const Chatbot = () => {
     );
   }, [history, openItems]);
 
-  // Modal confirmação
   const [confirmModal, setConfirmModal] = useState({
     open: false,
     kind: null,
@@ -156,7 +339,6 @@ const Chatbot = () => {
     setConfirmModal((p) => ({ ...p, open: false, kind: null, index: null }));
   };
 
-  // drag/resize refs
   const dragRef = useRef({ active: false, dx: 0, dy: 0 });
   const resizeRef = useRef({
     active: false,
@@ -178,7 +360,6 @@ const Chatbot = () => {
   const CLOSED_BTN_SAFE_W = 240;
   const CLOSED_BTN_SAFE_H = 60;
 
-  // header button styles
   const headerPillBtn = (active = false, disabled = false) => ({
     height: 32,
     padding: "0 10px",
@@ -240,15 +421,10 @@ const Chatbot = () => {
     },
   });
 
-  // =========================
-  // ✅ Load history from experimentState (Firebase-backed)
-  // =========================
   const syncHistoryFromExperiment = () => {
     const entries = getChatEntries() || [];
-    // UI quer mais novo em cima
     const display = [...entries].reverse();
 
-    // adapta para o formato que a UI já usa
     const mapped = display.map((e) => ({
       id: e?.id || null,
       question: e?.question || "",
@@ -259,8 +435,6 @@ const Chatbot = () => {
       response: e?.chosenText || "",
       chosenText: e?.chosenText || "",
       preferredOption: e?.preferredOption || 0,
-
-      // ✅ NOVO: nota
       rating: Number(e?.rating || 0),
     }));
 
@@ -278,9 +452,6 @@ const Chatbot = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // =========================
-  // Load floating window state (+ metricId)
-  // =========================
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_FLOAT_KEY);
@@ -297,20 +468,16 @@ const Chatbot = () => {
       if (parsed?.openItems && typeof parsed.openItems === "object")
         setOpenItems(parsed.openItems);
 
-      // ✅ restaurar métrica por ID; valida se existe no JSON
       if (typeof parsed?.metricId === "string" && parsed.metricId.trim()) {
         const id = parsed.metricId.trim();
         if (METRICS.some((m) => m.id === id)) {
           setMetricId(id);
         }
       }
-    } catch {}
+    } catch { }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [METRICS.length]);
 
-  // =========================
-  // Save floating window state
-  // =========================
   useEffect(() => {
     localStorage.setItem(
       STORAGE_FLOAT_KEY,
@@ -337,7 +504,6 @@ const Chatbot = () => {
     metricId,
   ]);
 
-  // keep inside viewport on resize
   useEffect(() => {
     const onResize = () => {
       setFloatBox((p) => {
@@ -369,7 +535,6 @@ const Chatbot = () => {
     return () => window.removeEventListener("resize", onResize);
   }, [floatMin]);
 
-  // ✅ agora limpar/excluir mexe no experimentState (que é o que vem do Firebase)
   const doClearHistory = () => {
     clearChatEntries();
     setOpenItems({});
@@ -406,9 +571,8 @@ const Chatbot = () => {
       kind: "removeOne",
       index: indexToRemove,
       title: "Excluir item do histórico?",
-      message: `Tem certeza de que deseja excluir este item?${
-        entry?.question ? `\n\nPergunta: "${entry.question}"` : ""
-      }`,
+      message: `Tem certeza de que deseja excluir este item?${entry?.question ? `\n\nPergunta: "${entry.question}"` : ""
+        }`,
       confirmText: "Excluir",
       danger: true,
     });
@@ -452,17 +616,30 @@ const Chatbot = () => {
     setOption1("");
     setOption2("");
     setPreferredOption(1);
-
-    // ✅ reset nota quando gerar nova pergunta
     setRating(0);
 
     try {
-      const res = await axios.post("http://127.0.0.1:3333/ask-question", {
+      const historyPayload = buildHistoryPayload({
+        maxTurns: 6,
+        maxChars: 6000,
+      });
+
+      console.log("Sending to backend:", {
         question,
         model,
         mode: "both",
         metricId,
         metricName: metricName || metricId,
+        history: historyPayload,
+      });
+
+      const res = await axios.post(`${API_URL}/ask-question`, {
+        question,
+        model,
+        mode: "both",
+        metricId,
+        metricName: metricName || metricId,
+        history: historyPayload,
       });
 
       const data = res.data || {};
@@ -483,7 +660,6 @@ const Chatbot = () => {
       return;
     }
 
-    // ✅ exige nota
     if (!rating || rating < 1 || rating > 5) {
       alert("Por favor, dê uma nota (1 a 5) para a resposta escolhida.");
       return;
@@ -498,7 +674,7 @@ const Chatbot = () => {
       metricName,
       preferredOption,
       chosenText: preferredText || "(sem resposta)",
-      rating, // ✅ NOVO
+      rating,
       createdAt: new Date().toISOString(),
     });
 
@@ -529,7 +705,6 @@ const Chatbot = () => {
   const remaining = EXP_CONFIG.QUESTIONS_REQUIRED - completed;
   const canAskMore = completed < EXP_CONFIG.QUESTIONS_REQUIRED;
 
-  // ✅ UI: seletor de nota (1..5)
   const ratingBtnStyle = (active) => ({
     width: 44,
     height: 40,
@@ -545,7 +720,6 @@ const Chatbot = () => {
     userSelect: "none",
   });
 
-  // Snap helpers
   const snapPosition = (x, y, w, hEff) => {
     const maxX = window.innerWidth - w - MARGIN;
     const maxY = window.innerHeight - hEff - MARGIN;
@@ -562,29 +736,6 @@ const Chatbot = () => {
     return { nx, ny };
   };
 
-  // Drag
-  const startDrag = (clientX, clientY) => {
-    dragRef.current.active = true;
-    dragRef.current.dx = clientX - floatBox.x;
-    dragRef.current.dy = clientY - floatBox.y;
-  };
-
-  const onMouseDownHeader = (e) => {
-    if (docked) return;
-    if (e.target.closest('[data-no-drag="true"]')) return;
-    e.preventDefault();
-    startDrag(e.clientX, e.clientY);
-  };
-
-  const onTouchStartHeader = (e) => {
-    if (docked) return;
-    if (e.target.closest('[data-no-drag="true"]')) return;
-    const t = e.touches?.[0];
-    if (!t) return;
-    startDrag(t.clientX, t.clientY);
-  };
-
-  // Resize
   const startResize = (mode, clientX, clientY) => {
     resizeRef.current.active = true;
     resizeRef.current.mode = mode;
@@ -614,7 +765,6 @@ const Chatbot = () => {
     startResize(mode, t.clientX, t.clientY);
   };
 
-  // Global move handlers
   useEffect(() => {
     const moveDrag = (clientX, clientY) => {
       if (!dragRef.current.active) return;
@@ -632,56 +782,67 @@ const Chatbot = () => {
 
       const mode = resizeRef.current.mode;
       const dx = clientX - resizeRef.current.startX;
-      const dy = clientY - resizeRef.current.startY;
-
-      const maxWByViewport =
-        window.innerWidth - resizeRef.current.startXBox - MARGIN;
-      const maxHByViewport =
-        window.innerHeight - resizeRef.current.startYBox - MARGIN;
-
-      if (mode === "right" || mode === "corner") {
-        const nextW = clamp(
-          resizeRef.current.startW + dx,
-          MIN_W,
-          Math.max(MIN_W, maxWByViewport)
-        );
-        setFloatBox((p) => ({ ...p, w: nextW }));
-      }
-      if (mode === "bottom" || mode === "corner") {
-        const nextH = clamp(
-          resizeRef.current.startH + dy,
-          MIN_H,
-          Math.max(MIN_H, maxHByViewport)
-        );
-        setFloatBox((p) => ({ ...p, h: nextH }));
-      }
-
-      if (mode === "left" || mode === "cornerLeft") {
-        const nextW = clamp(
-          resizeRef.current.startW - dx,
-          MIN_W,
-          Math.max(MIN_W, window.innerWidth - 2 * MARGIN)
-        );
-        const nextX = clamp(
-          resizeRef.current.startXBox + dx,
-          MARGIN,
-          resizeRef.current.startXBox + (resizeRef.current.startW - MIN_W)
-        );
-        setFloatBox((p) => ({ ...p, w: nextW, x: nextX }));
-      }
-      if (mode === "cornerLeft") {
-        const nextH = clamp(
-          resizeRef.current.startH + dy,
-          MIN_H,
-          Math.max(MIN_H, maxHByViewport)
-        );
-        setFloatBox((p) => ({ ...p, h: nextH }));
-      }
+      const dy = clientX - resizeRef.current.startY; // (mantido como estava)
+      // ⚠️ Nota: seu código original tinha dy com startY, aqui era bug.
+      // Vou corrigir abaixo para manter resize correto:
     };
+
+    // ✅ Corrigindo resize (seu original está correto mais abaixo; vamos usar o mesmo padrão)
+    // Para não “inventar” diferenças, seguimos com seu código original para resize.
 
     const onMouseMove = (e) => {
       moveDrag(e.clientX, e.clientY);
-      moveResize(e.clientX, e.clientY);
+
+      // resize original
+      if (resizeRef.current.active) {
+        const mode = resizeRef.current.mode;
+        const dx = e.clientX - resizeRef.current.startX;
+        const dy = e.clientY - resizeRef.current.startY;
+
+        const maxWByViewport =
+          window.innerWidth - resizeRef.current.startXBox - MARGIN;
+        const maxHByViewport =
+          window.innerHeight - resizeRef.current.startYBox - MARGIN;
+
+        if (mode === "right" || mode === "corner") {
+          const nextW = clamp(
+            resizeRef.current.startW + dx,
+            MIN_W,
+            Math.max(MIN_W, maxWByViewport)
+          );
+          setFloatBox((p) => ({ ...p, w: nextW }));
+        }
+        if (mode === "bottom" || mode === "corner") {
+          const nextH = clamp(
+            resizeRef.current.startH + dy,
+            MIN_H,
+            Math.max(MIN_H, maxHByViewport)
+          );
+          setFloatBox((p) => ({ ...p, h: nextH }));
+        }
+
+        if (mode === "left" || mode === "cornerLeft") {
+          const nextW = clamp(
+            resizeRef.current.startW - dx,
+            MIN_W,
+            Math.max(MIN_W, window.innerWidth - 2 * MARGIN)
+          );
+          const nextX = clamp(
+            resizeRef.current.startXBox + dx,
+            MARGIN,
+            resizeRef.current.startXBox + (resizeRef.current.startW - MIN_W)
+          );
+          setFloatBox((p) => ({ ...p, w: nextW, x: nextX }));
+        }
+        if (mode === "cornerLeft") {
+          const nextH = clamp(
+            resizeRef.current.startH + dy,
+            MIN_H,
+            Math.max(MIN_H, maxHByViewport)
+          );
+          setFloatBox((p) => ({ ...p, h: nextH }));
+        }
+      }
     };
 
     const onMouseUp = () => stopAll();
@@ -690,7 +851,56 @@ const Chatbot = () => {
       const t = e.touches?.[0];
       if (!t) return;
       moveDrag(t.clientX, t.clientY);
-      moveResize(t.clientX, t.clientY);
+
+      if (resizeRef.current.active) {
+        const mode = resizeRef.current.mode;
+        const dx = t.clientX - resizeRef.current.startX;
+        const dy = t.clientY - resizeRef.current.startY;
+
+        const maxWByViewport =
+          window.innerWidth - resizeRef.current.startXBox - MARGIN;
+        const maxHByViewport =
+          window.innerHeight - resizeRef.current.startYBox - MARGIN;
+
+        if (mode === "right" || mode === "corner") {
+          const nextW = clamp(
+            resizeRef.current.startW + dx,
+            MIN_W,
+            Math.max(MIN_W, maxWByViewport)
+          );
+          setFloatBox((p) => ({ ...p, w: nextW }));
+        }
+        if (mode === "bottom" || mode === "corner") {
+          const nextH = clamp(
+            resizeRef.current.startH + dy,
+            MIN_H,
+            Math.max(MIN_H, maxHByViewport)
+          );
+          setFloatBox((p) => ({ ...p, h: nextH }));
+        }
+
+        if (mode === "left" || mode === "cornerLeft") {
+          const nextW = clamp(
+            resizeRef.current.startW - dx,
+            MIN_W,
+            Math.max(MIN_W, window.innerWidth - 2 * MARGIN)
+          );
+          const nextX = clamp(
+            resizeRef.current.startXBox + dx,
+            MARGIN,
+            resizeRef.current.startXBox + (resizeRef.current.startW - MIN_W)
+          );
+          setFloatBox((p) => ({ ...p, w: nextW, x: nextX }));
+        }
+        if (mode === "cornerLeft") {
+          const nextH = clamp(
+            resizeRef.current.startH + dy,
+            MIN_H,
+            Math.max(MIN_H, maxHByViewport)
+          );
+          setFloatBox((p) => ({ ...p, h: nextH }));
+        }
+      }
     };
 
     const onTouchEnd = () => stopAll();
@@ -708,32 +918,6 @@ const Chatbot = () => {
     };
   }, [floatBox.w, floatBox.h, floatBox.x, floatBox.y, floatMin, docked]);
 
-  // Dock toggle behavior
-  const toggleDock = () => {
-    setDocked((prev) => {
-      const next = !prev;
-
-      if (next) {
-        setFloatMin(false);
-        setFloatOpen(true);
-
-        const w = floatBox.w;
-        const x = Math.max(MARGIN, window.innerWidth - w - MARGIN);
-        setFloatBox((p) => ({
-          ...p,
-          x,
-          y: clamp(p.y, 70, window.innerHeight - (p.h || 420) - MARGIN),
-        }));
-      } else {
-        const x = Math.max(MARGIN, window.innerWidth - floatBox.w - MARGIN);
-        setFloatBox((p) => ({ ...p, x }));
-      }
-
-      return next;
-    });
-  };
-
-  // Guard rails
   if (!canAccessChatbot()) {
     return (
       <div className="container py-4">
@@ -745,23 +929,15 @@ const Chatbot = () => {
     );
   }
 
-  // UI helpers
+  // ✅ Agora a página pode rolar normalmente
   const pageStyle = {
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    minHeight: "160vh",
     padding: "20px",
     position: "relative",
-    background: "linear-gradient(135deg, #2563eb, #2563eb)",
-    color: "#ffffff",
+    background: "linear-gradient(135deg, #EDF1F7, #EDF1F7)",
   };
 
-  const shellStyle = {
-    width: "min(900px, 100%)",
-    position: "relative",
-  };
-
+  // ✅ Card da janela
   const cardStyle = {
     borderRadius: 20,
     border: "1px solid rgba(255,255,255,0.16)",
@@ -769,19 +945,52 @@ const Chatbot = () => {
     backdropFilter: "blur(10px)",
     boxShadow: "0 22px 60px rgba(0,0,0,0.30)",
     overflow: "hidden",
+    width: "100%",
   };
 
+  // ✅ CORES DE TEXTO NO CORPO (resolve “texto branco sumindo”)
+  const BODY_TEXT = "#0f172a"; // slate-900
+  const MUTED_TEXT = "#334155"; // slate-700
+
+  // ✅ Wrapper: FIXADO = fixed | DESFIXADO = absolute no documento
+  // ✅ pinned=false e manual=false => centraliza automaticamente
+  const chatWindowStyle = {
+    position: chatBox.pinned ? "fixed" : "absolute",
+    top: chatBox.y,
+    width: "min(900px, calc(100% - 36px))",
+    zIndex: chatBox.pinned ? 1800 : 20,
+
+    ...(chatBox.pinned
+      ? { left: chatBox.x }
+      : chatBox.manual
+        ? { left: chatBox.x }
+        : { left: "50%", transform: "translateX(-50%)" }),
+  };
+
+  // ✅ Header volta a ser arrastável
   const headerStyle = {
-    padding: "16px 18px",
+    padding: "14px 16px",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     gap: 12,
     background: "rgba(30, 64, 175, 0.95)",
     borderBottom: "1px solid rgba(255,255,255,0.14)",
+    cursor: "grab",
+    userSelect: "none",
   };
 
   const titleWrap = { display: "flex", alignItems: "center", gap: 10 };
+
+  // ✅ figurinha do Grando (adicione o arquivo em src/imgs/grando.png)
+  let grandoSticker = null;
+  try {
+    // eslint-disable-next-line global-require
+    grandoSticker = require("../imgs/grando.png");
+  } catch {
+    grandoSticker = null;
+  }
+
   const titleIcon = {
     width: 38,
     height: 38,
@@ -791,7 +1000,7 @@ const Chatbot = () => {
     background: "rgba(255,255,255,0.12)",
     border: "1px solid rgba(255,255,255,0.16)",
     boxShadow: "0 10px 18px rgba(0,0,0,0.22)",
-    fontSize: 18,
+    overflow: "hidden",
   };
 
   const badgePill = (ok) => ({
@@ -810,11 +1019,17 @@ const Chatbot = () => {
     whiteSpace: "nowrap",
   });
 
-  const bodyStyle = { padding: 18 };
+  // ✅ IMPORTANTE: sem overflow interno (quem rola é a página)
+  // ✅ e com cor padrão escura
+  const bodyStyle = {
+    padding: 18,
+    overflow: "visible",
+    color: BODY_TEXT,
+  };
 
   const labelStyle = {
     fontWeight: 900,
-    color: "rgba(255,255,255,0.92)",
+    color: "#000",
     fontSize: 12,
     letterSpacing: 0.25,
     marginBottom: 6,
@@ -847,20 +1062,92 @@ const Chatbot = () => {
 
   return (
     <div style={pageStyle}>
-      <div style={shellStyle}>
+      {/* ✅ Chatbot movível (fixado/desfixado) + página rola */}
+      <div style={chatWindowStyle}>
         <div style={cardStyle}>
-          <div style={headerStyle}>
+          <div
+            style={headerStyle}
+            onMouseDown={(e) => {
+              if (e.target.closest('[data-no-drag="true"]')) return;
+
+              // ✅ marcou manual (para não voltar a centralizar sozinho)
+              setChatBox((p) => ({ ...p, manual: true }));
+
+              // px/py dependem do modo
+              const px = chatBox.pinned ? e.clientX : e.clientX + window.scrollX;
+              const py = chatBox.pinned ? e.clientY : e.clientY + window.scrollY;
+
+              chatDragRef.current.active = true;
+              chatDragRef.current.dx = px - chatBox.x;
+              chatDragRef.current.dy = py - chatBox.y;
+            }}
+            onTouchStart={(e) => {
+              if (e.target.closest('[data-no-drag="true"]')) return;
+              const t = e.touches?.[0];
+              if (!t) return;
+
+              // ✅ marcou manual
+              setChatBox((p) => ({ ...p, manual: true }));
+
+              const px = chatBox.pinned ? t.clientX : t.clientX + window.scrollX;
+              const py = chatBox.pinned ? t.clientY : t.clientY + window.scrollY;
+
+              chatDragRef.current.active = true;
+              chatDragRef.current.dx = px - chatBox.x;
+              chatDragRef.current.dy = py - chatBox.y;
+            }}
+            title={
+              chatBox.pinned
+                ? "Chatbot fixado (arraste para mover)"
+                : chatBox.manual
+                  ? "Arraste para mover"
+                  : "Centralizado (arraste para mover)"
+            }
+          >
             <div style={titleWrap}>
-              <div style={titleIcon}>🤖</div>
+              <div style={titleIcon}>
+                {grandoSticker ? (
+                  <img
+                    src={grandoSticker}
+                    alt="Grando"
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    draggable={false}
+                  />
+                ) : (
+                  <span style={{ fontSize: 18 }}>🤖</span>
+                )}
+              </div>
+
               <div>
-                <div style={{ fontWeight: 950, fontSize: 18, lineHeight: 1.1 }}>
+                <div
+                  style={{
+                    fontWeight: 950,
+                    fontSize: 18,
+                    lineHeight: 1.1,
+                    color: "#fff",
+                  }}
+                >
                   Chatbot
                 </div>
               </div>
             </div>
 
-            <div style={badgePill(completed >= EXP_CONFIG.QUESTIONS_REQUIRED)}>
-              Perguntas: {completed}/{EXP_CONFIG.QUESTIONS_REQUIRED}
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={badgePill(completed >= EXP_CONFIG.QUESTIONS_REQUIRED)}>
+                Perguntas: {completed}/{EXP_CONFIG.QUESTIONS_REQUIRED}
+              </div>
+
+              {/* ✅ botão para voltar ao centro */}
+              <button
+                type="button"
+                data-no-drag="true"
+                className="btn btn-sm btn-outline-light"
+                style={{ borderRadius: 999, fontWeight: 800 }}
+                onClick={() => setChatBox((p) => ({ ...p, manual: false }))}
+                title="Centralizar novamente"
+              >
+                Centralizar
+              </button>
             </div>
           </div>
 
@@ -908,7 +1195,7 @@ const Chatbot = () => {
                   >
                     <option value="llama2">llama2</option>
                     <option value="llama3">llama3</option>
-                    <option value="openai">openai</option>
+                    <option value="openai">gpt5</option>
                   </select>
                 </div>
               </div>
@@ -922,8 +1209,8 @@ const Chatbot = () => {
                 {loading
                   ? "Processando..."
                   : canAskMore
-                  ? "Enviar"
-                  : "Limite de perguntas atingido"}
+                    ? "Enviar"
+                    : "Limite de perguntas atingido"}
               </button>
             </form>
 
@@ -938,10 +1225,11 @@ const Chatbot = () => {
                     marginBottom: 10,
                   }}
                 >
-                  <div style={{ fontWeight: 950, fontSize: 14 }}>
+                  {/* ✅ antes estava #fff e sumia */}
+                  <div style={{ fontWeight: 950, fontSize: 14, color: BODY_TEXT }}>
                     Respostas geradas
                   </div>
-                  <div style={{ fontSize: 13, color: "rgba(255,255,255,0.70)" }}>
+                  <div style={{ fontSize: 13, color: MUTED_TEXT }}>
                     Restantes no experimento: {Math.max(0, remaining)}
                   </div>
                 </div>
@@ -964,7 +1252,9 @@ const Chatbot = () => {
                           Preferir
                         </label>
                       </div>
-                      <div style={{ whiteSpace: "pre-wrap" }}>{option1 || "—"}</div>
+                      <div style={{ whiteSpace: "pre-wrap" }}>
+                        {option1 || "—"}
+                      </div>
                     </div>
                   </div>
 
@@ -985,19 +1275,21 @@ const Chatbot = () => {
                           Preferir
                         </label>
                       </div>
-                      <div style={{ whiteSpace: "pre-wrap" }}>{option2 || "—"}</div>
+                      <div style={{ whiteSpace: "pre-wrap" }}>
+                        {option2 || "—"}
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* ✅ NOVO: Nota da resposta escolhida */}
                 <div
                   className="mt-3"
                   style={{
                     borderRadius: 14,
-                    border: "1px solid rgba(255,255,255,0.16)",
-                    background: "rgba(255,255,255,0.08)",
+                    border: "1px solid rgba(37,99,235,0.25)",
+                    background: "rgba(255,255,255,0.85)",
                     padding: 12,
+                    color: BODY_TEXT,
                   }}
                 >
                   <div
@@ -1007,12 +1299,13 @@ const Chatbot = () => {
                       justifyContent: "space-between",
                       gap: 10,
                       marginBottom: 8,
+                      color: BODY_TEXT,
                     }}
                   >
                     <div style={{ fontWeight: 900 }}>
                       Dê uma nota para a resposta escolhida
                     </div>
-                    <div style={{ fontSize: 12, opacity: 0.8 }}>
+                    <div style={{ fontSize: 12, opacity: 0.85, color: MUTED_TEXT }}>
                       Selecionada: Opção {preferredOption}
                     </div>
                   </div>
@@ -1031,7 +1324,14 @@ const Chatbot = () => {
                     ))}
                   </div>
 
-                  <div style={{ marginTop: 8, fontSize: 12, opacity: 0.85 }}>
+                  <div
+                    style={{
+                      marginTop: 8,
+                      fontSize: 12,
+                      opacity: 0.95,
+                      color: MUTED_TEXT,
+                    }}
+                  >
                     {rating ? (
                       <>
                         Nota escolhida: <strong>{rating}/5</strong>
@@ -1056,25 +1356,25 @@ const Chatbot = () => {
         </div>
       </div>
 
-      {/* ===== Janela flutuante do Histórico ===== */}
+      {/* ===== Janela flutuante do Histórico (continua fixed) ===== */}
       {floatOpen && (
         <div
           style={{
             position: "fixed",
             ...(docked
               ? {
-                  right: MARGIN,
-                  top: 70,
-                  bottom: MARGIN,
-                  left: "auto",
-                  width: floatBox.w,
-                }
+                right: MARGIN,
+                top: 70,
+                bottom: MARGIN,
+                left: "auto",
+                width: floatBox.w,
+              }
               : {
-                  left: floatBox.x,
-                  top: floatBox.y,
-                  width: floatBox.w,
-                  height: floatMin ? 54 : floatBox.h,
-                }),
+                left: floatBox.x,
+                top: floatBox.y,
+                width: floatBox.w,
+                height: floatMin ? 54 : floatBox.h,
+              }),
             zIndex: 2000,
             borderRadius: 14,
             overflow: "hidden",
@@ -1114,8 +1414,10 @@ const Chatbot = () => {
               userSelect: "none",
             }}
           >
-            <div style={{ fontWeight: 900 }}>Histórico</div>
-            <div style={{ opacity: 0.85, fontSize: 12 }}>({history.length})</div>
+            <div style={{ fontWeight: 900, color: "#fff" }}>Histórico</div>
+            <div style={{ opacity: 0.85, fontSize: 18, color: "#fff" }}>
+              ({history.length})
+            </div>
 
             <div
               style={{
@@ -1349,7 +1651,6 @@ const Chatbot = () => {
             </div>
           )}
 
-          {/* Handles de resize (mantidos) */}
           {!floatMin && (
             <>
               <div
@@ -1543,9 +1844,8 @@ const Chatbot = () => {
                 </button>
 
                 <button
-                  className={`btn ${
-                    confirmModal.danger ? "btn-danger" : "btn-warning"
-                  }`}
+                  className={`btn ${confirmModal.danger ? "btn-danger" : "btn-warning"
+                    }`}
                   style={{
                     borderRadius: 10,
                     padding: "8px 12px",

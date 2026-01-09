@@ -7,6 +7,11 @@ import {
   EXP_CONFIG,
   getMetricsVisitedCount,
   getChatCompletedCount,
+
+  // ✅ busca por métricas (já existem no seu experimentState)
+  hasCompletedMetricSearchTask,
+  getMetricSearchUsedCount,
+  getMetricSearchClickCount,
 } from "../experiment/experimentState";
 
 export default function TopBar({
@@ -39,8 +44,7 @@ export default function TopBar({
   useEffect(() => {
     const onChanged = () => setExpTick((t) => t + 1);
     window.addEventListener("experimentStateChanged", onChanged);
-    return () =>
-      window.removeEventListener("experimentStateChanged", onChanged);
+    return () => window.removeEventListener("experimentStateChanged", onChanged);
   }, []);
 
   // lê do estado real (fallback para props)
@@ -55,8 +59,33 @@ export default function TopBar({
   }, [expTick, questionsCompletedCountProp]);
 
   const metricsOk = metricsVisitedCount >= EXP_CONFIG.METRICS_REQUIRED;
-  const questionsOk =
-    questionsCompletedCount >= EXP_CONFIG.QUESTIONS_REQUIRED;
+
+  // ✅ NOVO: busca por métricas
+  const searchOk = useMemo(() => hasCompletedMetricSearchTask(), [expTick]);
+
+  // ✅ contagens reais (vêm do seu state.meta)
+  const searchUsedCount = useMemo(() => {
+    const v = getMetricSearchUsedCount();
+    return Number.isFinite(v) ? v : 0;
+  }, [expTick]);
+
+  const searchClickCount = useMemo(() => {
+    const v = getMetricSearchClickCount();
+    return Number.isFinite(v) ? v : 0;
+  }, [expTick]);
+
+  // ✅ O requisito do seu EXP_CONFIG é "METRIC_SEARCH_REQUIRED"
+  // você implementou conclusão por: usedCount >= required OR clickCount >= 1
+  const searchRequired = Number(EXP_CONFIG.METRIC_SEARCH_REQUIRED || 1);
+
+  // ✅ badge: eu recomendo mostrar "clique" porque é o que conclui de forma mais forte
+  // mas como seu critério também aceita usedCount, exibimos ambos de forma simples:
+  const searchProgressText =
+    searchClickCount > 0
+      ? `clique ${Math.min(searchClickCount, 1)}/1`
+      : `uso ${Math.min(searchUsedCount, searchRequired)}/${searchRequired}`;
+
+  const questionsOk = questionsCompletedCount >= EXP_CONFIG.QUESTIONS_REQUIRED;
 
   const feedbackOk = useMemo(() => canAccessFeedback(), [expTick]);
   const chatbotOk = useMemo(() => canAccessChatbot(), [expTick]);
@@ -64,20 +93,20 @@ export default function TopBar({
   const canOpenFeedbackFinal =
     typeof canOpenFeedback === "boolean" ? canOpenFeedback : feedbackOk;
 
+  // ✅ stepText atualizado com a etapa da busca
   const stepText = !metricsOk
     ? `1) Explore as métricas (mín. ${EXP_CONFIG.METRICS_REQUIRED})`
+    : !searchOk
+    ? `2) Use a busca por métricas (digite e clique em uma métrica)`
     : !questionsOk
-    ? `2) Faça ${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas`
-    : `3) Envie o feedback final`;
+    ? `3) Faça ${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas`
+    : `4) Envie o feedback final`;
 
   const showAdminButton = !!user && !adminLoading && isAdmin;
 
   return (
     <div className="sticky-top" style={{ zIndex: 1030 }}>
-      <div
-        className="border-bottom"
-        style={{ background: "#2563EB", color: "#fff" }}
-      >
+      <div className="border-bottom" style={{ background: "#2563EB", color: "#fff" }}>
         <div className="container-fluid px-4 py-2 d-flex align-items-center justify-content-between gap-3">
           {/* ESQUERDA — Logo + título */}
           <div className="d-flex align-items-center gap-3">
@@ -103,28 +132,20 @@ export default function TopBar({
           {/* CENTRO — Fluxo do experimento */}
           {user && !isInAdmin && (
             <div className="d-flex align-items-center gap-2 flex-wrap">
-              <span
-                className={`badge ${
-                  metricsOk ? "bg-success" : "bg-secondary"
-                }`}
-              >
+              <span className={`badge ${metricsOk ? "bg-success" : "bg-secondary"}`}>
                 Métricas {metricsVisitedCount}/{EXP_CONFIG.METRICS_REQUIRED}
               </span>
 
-              <span
-                className={`badge ${
-                  questionsOk ? "bg-success" : "bg-secondary"
-                }`}
-              >
-                Perguntas {questionsCompletedCount}/
-                {EXP_CONFIG.QUESTIONS_REQUIRED}
+              {/* ✅ NOVO: badge de busca */}
+              <span className={`badge ${searchOk ? "bg-success" : "bg-secondary"}`}>
+                Busca {searchOk ? "ok" : searchProgressText}
               </span>
 
-              <span
-                className={`badge ${
-                  feedbackOk ? "bg-success" : "bg-secondary"
-                }`}
-              >
+              <span className={`badge ${questionsOk ? "bg-success" : "bg-secondary"}`}>
+                Perguntas {questionsCompletedCount}/{EXP_CONFIG.QUESTIONS_REQUIRED}
+              </span>
+
+              <span className={`badge ${feedbackOk ? "bg-success" : "bg-secondary"}`}>
                 Feedback {feedbackOk ? "ok" : "pendente"}
               </span>
 
@@ -151,9 +172,7 @@ export default function TopBar({
                   disabled={!canOpenFeedbackFinal}
                   title={
                     feedbackTooltip ||
-                    (!canOpenFeedbackFinal
-                      ? "Complete o experimento antes"
-                      : "")
+                    (!canOpenFeedbackFinal ? "Complete o experimento antes" : "")
                   }
                 >
                   Feedback
@@ -169,18 +188,10 @@ export default function TopBar({
               {showAdminButton && (
                 <button
                   className={`btn btn-sm fw-semibold ${
-                    isInAdmin
-                      ? "btn-outline-light"
-                      : "btn-outline-warning"
+                    isInAdmin ? "btn-outline-light" : "btn-outline-warning"
                   }`}
-                  onClick={() =>
-                    navigate(isInAdmin ? "/" : "/admin")
-                  }
-                  title={
-                    isInAdmin
-                      ? "Sair do modo administrador"
-                      : "Entrar no modo administrador"
-                  }
+                  onClick={() => navigate(isInAdmin ? "/" : "/admin")}
+                  title={isInAdmin ? "Sair do modo administrador" : "Entrar no modo administrador"}
                 >
                   {isInAdmin ? "⬅️ Sair do Admin" : "🛠️ Modo Admin"}
                 </button>
@@ -199,18 +210,12 @@ export default function TopBar({
                     border: "2px solid rgba(255,255,255,.4)",
                   }}
                 />
-                <div
-                  className="d-none d-md-block"
-                  style={{ fontSize: 13, opacity: 0.9 }}
-                >
+                <div className="d-none d-md-block" style={{ fontSize: 13, opacity: 0.9 }}>
                   {user.displayName || "Usuário"}
                 </div>
               </div>
 
-              <button
-                className="btn btn-warning btn-sm"
-                onClick={onLogout}
-              >
+              <button className="btn btn-warning btn-sm" onClick={onLogout}>
                 Logout
               </button>
             </div>

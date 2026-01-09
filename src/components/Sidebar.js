@@ -1,10 +1,14 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import metricsIndex from "../metrics/metricas_index.json";
 import {
   canAccessChatbot,
   getMetricsVisitedCount,
   EXP_CONFIG,
+
+  // ✅ NOVO: registrar uso da busca e concluir a tarefa ao clicar em um resultado
+  markMetricSearchUsed,
+  markMetricSearchClick,
 } from "../experiment/experimentState";
 import "../styles/sidebar.css";
 
@@ -16,6 +20,9 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
   // força re-render quando o experimentState mudar
   const [expTick, setExpTick] = useState(0);
 
+  // ✅ debounce para evitar contar “uso da busca” a cada tecla
+  const searchDebounceRef = useRef(null);
+
   useEffect(() => {
     setMetrics(Array.isArray(metricsIndex) ? metricsIndex : []);
   }, []);
@@ -25,6 +32,23 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
     window.addEventListener("experimentStateChanged", onChanged);
     return () => window.removeEventListener("experimentStateChanged", onChanged);
   }, []);
+
+  // ✅ registra "uso" da busca (termo >= 2 chars) com debounce
+  useEffect(() => {
+    const term = query.trim();
+    if (term.length < 2) return;
+
+    if (searchDebounceRef.current) clearTimeout(searchDebounceRef.current);
+
+    searchDebounceRef.current = setTimeout(() => {
+      // conta 1x por termo diferente (anti-spam é tratado no experimentState)
+      markMetricSearchUsed(term);
+    }, 350);
+
+    return () => {
+      if (searchDebounceRef.current) clearTimeout(searchDebounceRef.current);
+    };
+  }, [query]);
 
   const filteredMetrics = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -49,9 +73,7 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
       {/* HEADER FIXO */}
       <div className="sidebar-header">
         <div className="sidebar-title">
-          <div className="sidebar-kicker">
-            MENU
-          </div>
+          <div className="sidebar-kicker">MENU</div>
         </div>
 
         <button
@@ -97,14 +119,15 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
           ) : (
             <div
               className="sidebar-cta-card disabled"
-              title="Explore as métricas para liberar o Chatbot"
+              title={`Explore as métricas para liberar o Chatbot (${visitedCount}/${EXP_CONFIG.METRICS_REQUIRED})`}
             >
               <div className="sidebar-cta-icon">🔒</div>
 
               <div className="sidebar-cta-content">
                 <div className="sidebar-cta-title">Chatbot Experimental</div>
                 <div className="sidebar-cta-subtitle">
-                  Libera após explorar métricas
+                  Libera após explorar métricas ({visitedCount}/
+                  {EXP_CONFIG.METRICS_REQUIRED}) e realizar uma busca Valida
                 </div>
               </div>
 
@@ -124,7 +147,7 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
           ) : (
             <div className="sidebar-list">
               {filteredMetrics.map((m, idx) => {
-                const id = String(m.id);     // t1, t2... (interno)
+                const id = String(m.id); // t1, t2... (interno)
                 const name = String(m.name); // exibido
                 const active = isMetricActive(id);
 
@@ -134,6 +157,10 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
                     to={`/metric/${id}`}
                     className={`sidebar-item ${active ? "active" : ""}`}
                     title={name}
+                    onClick={() => {
+                      // ✅ conclui a tarefa de busca se há busca ativa (>=2 chars)
+                      markMetricSearchClick(query, id);
+                    }}
                   >
                     <span className="sidebar-icon">📌</span>
                     <span className="sidebar-text">{name}</span>

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+// src/components/ExperimentBanner.js
+import React, { useEffect, useMemo, useState } from "react";
 import {
   EXP_CONFIG,
   canAccessChatbot,
@@ -6,74 +7,100 @@ import {
   resetExperiment,
   getChatCompletedCount,
   getMetricsVisitedCount,
+  subscribeExperimentState,
+
+  // ✅ NOVO: requisito "busca por métricas"
+  hasCompletedMetricSearchTask,
 } from "../experiment/experimentState";
 
-export default function ExperimentBanner() {
-  const [metricsCount, setMetricsCount] = useState(getMetricsVisitedCount());
-  const [chatCount, setChatCount] = useState(getChatCompletedCount());
+const ExperimentBanner = () => {
+  // força re-render quando o experimentState mudar
+  const [expTick, setExpTick] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => {
-      setMetricsCount(getMetricsVisitedCount());
-      setChatCount(getChatCompletedCount());
-    }, 600);
-    return () => clearInterval(t);
+    const unsub = subscribeExperimentState(() => {
+      setExpTick((t) => t + 1);
+    });
+    return unsub;
   }, []);
 
-  const stepLabel = !canAccessChatbot()
-    ? `1) Explore as métricas (mín. ${EXP_CONFIG.METRICS_REQUIRED})`
-    : !canAccessFeedback()
-    ? `2) Faça ${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas e escolha a melhor resposta`
-    : "3) Envie o feedback final";
+  const visitedCount = useMemo(() => getMetricsVisitedCount(), [expTick]);
+  const chatCount = useMemo(() => getChatCompletedCount(), [expTick]);
+  const canChat = useMemo(() => canAccessChatbot(), [expTick]);
+  const canFeedback = useMemo(() => canAccessFeedback(), [expTick]);
+
+  // ✅ novo status
+  const searchOk = useMemo(() => hasCompletedMetricSearchTask(), [expTick]);
+
+  const stepLabel = useMemo(() => {
+    if (!canChat) {
+      return `1) Explore as métricas (mín. ${EXP_CONFIG.METRICS_REQUIRED})`;
+    }
+    if (!canFeedback) {
+      // aqui o banner detalha os requisitos restantes do passo 2
+      const parts = [];
+      parts.push(
+        `Use a busca por métricas ${searchOk ? "✅" : `(${EXP_CONFIG.METRIC_SEARCH_REQUIRED || 1}x)`}`
+      );
+      parts.push(`faça ${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas`);
+      return `2) ${parts.join(" + ")}`;
+    }
+    return "3) Envie o feedback final";
+  }, [canChat, canFeedback, searchOk]);
+
+  const progressText = useMemo(() => {
+    const metricsTxt = `${visitedCount}/${EXP_CONFIG.METRICS_REQUIRED} métricas`;
+    const searchTxt = `busca ${searchOk ? "✅" : "⏳"}`;
+    const chatTxt = `${chatCount}/${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas`;
+    return `${metricsTxt} • ${searchTxt} • ${chatTxt}`;
+  }, [visitedCount, chatCount, searchOk]);
+
+  const badge = canFeedback ? "Concluído" : canChat ? "Em andamento" : "Início";
 
   return (
-    <div className="sticky-top" style={{ zIndex: 1030 }}>
-      <div className="bg-light border-bottom">
-        <div className="container py-2 d-flex flex-wrap align-items-center justify-content-between gap-2">
-          <div>
-            <strong>Experimento</strong>{" "}
-            <span className="text-muted" style={{ fontSize: 13 }}>
-              (siga as etapas)
-            </span>
-            <div className="text-muted" style={{ fontSize: 12 }}>
-              {stepLabel}
-            </div>
-          </div>
-
-          <div className="d-flex flex-wrap align-items-center gap-2">
-            <span
-              className={`badge ${
-                metricsCount >= EXP_CONFIG.METRICS_REQUIRED ? "bg-success" : "bg-secondary"
-              }`}
-            >
-              Métricas: {metricsCount}/{EXP_CONFIG.METRICS_REQUIRED}
-            </span>
-
-            <span
-              className={`badge ${
-                chatCount >= EXP_CONFIG.QUESTIONS_REQUIRED ? "bg-success" : "bg-secondary"
-              }`}
-            >
-              Perguntas: {chatCount}/{EXP_CONFIG.QUESTIONS_REQUIRED}
-            </span>
-
-            <span className={`badge ${canAccessFeedback() ? "bg-success" : "bg-secondary"}`}>
-              Feedback: {canAccessFeedback() ? "liberado" : "bloqueado"}
-            </span>
-
-            <button
-              className="btn btn-outline-danger btn-sm"
-              onClick={() => {
-                resetExperiment();
-                window.location.reload();
-              }}
-              title="Limpa progresso do experimento (métricas + perguntas)."
-            >
-              Resetar experimento
-            </button>
-          </div>
+    <div
+      style={{
+        borderRadius: 14,
+        padding: "12px 14px",
+        border: "1px solid rgba(255,255,255,0.18)",
+        background: "rgba(255,255,255,0.10)",
+        color: "#fff",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 12,
+        marginBottom: 14,
+      }}
+    >
+      <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+        <div style={{ fontSize: 12, opacity: 0.85, letterSpacing: 0.6 }}>
+          {badge}
         </div>
+
+        <div style={{ fontSize: 15, fontWeight: 700 }}>{stepLabel}</div>
+
+        <div style={{ fontSize: 12, opacity: 0.9 }}>{progressText}</div>
       </div>
+
+      <button
+        className="btn btn-outline-light btn-sm"
+        onClick={() => {
+          if (
+            window.confirm(
+              "Isso vai resetar o progresso do experimento neste dispositivo. Continuar?"
+            )
+          ) {
+            resetExperiment();
+            window.location.reload();
+          }
+        }}
+        title="Resetar progresso do experimento"
+        style={{ whiteSpace: "nowrap" }}
+      >
+        Resetar
+      </button>
     </div>
   );
-}
+};
+
+export default ExperimentBanner;

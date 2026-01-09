@@ -32,11 +32,15 @@ import {
   resetExperiment,
   setExperimentUser,
   subscribeExperimentState,
+
+  // ✅ requisito "busca por métricas"
+  hasCompletedMetricSearchTask,
 } from './experiment/experimentState';
 
 import { initExperimentSync } from './experiment/experimentSync';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/login.css';
 import logo from './imgs/logo.png';
 import googleIcon from './imgs/google.png';
 
@@ -47,6 +51,12 @@ const STORAGE_FLOAT_KEY = (uid) => `historyFloatingWindow_v4__${uid || 'anon'}`;
 // ✅ mesma chave do experimentState.js (por usuário)
 const STORAGE_EXPERIMENT_KEY = (uid) =>
   `experimentState_v1__uid_${uid || 'anonymous'}`;
+
+const LOGIN_GRADIENT = `linear-gradient(135deg,
+  #0B0F5A 0%,
+  #1E3FA3 40%,
+  #2F6BFF 75%,
+  #5C8DFF 100%)`;
 
 const AppContent = ({
   user,
@@ -95,7 +105,11 @@ const AppContent = ({
         style={{
           height: user ? 'calc(100vh - 64px)' : '100vh',
           overflow: 'hidden',
-          backgroundColor: '#2563EB',
+
+          // ✅ ÚNICA MUDANÇA: degradê azul no login
+          ...(user
+            ? { backgroundColor: '#EDF1F7' }
+            : { background: LOGIN_GRADIENT }),
         }}
       >
         <div className="d-flex" style={{ height: '100%' }}>
@@ -424,12 +438,18 @@ const App = () => {
         ? 'Você já enviou o feedback. Clique para ver a mensagem.'
         : canAccessFeedback()
           ? 'Enviar feedback final'
-          : `Complete o experimento (${EXP_CONFIG.METRICS_REQUIRED} métricas + ${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas)`;
+          : `Complete o experimento (${EXP_CONFIG.METRICS_REQUIRED} métricas + usar a busca + ${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas)`;
 
   const handleOpenFeedback = async () => {
     if (!canAccessFeedback()) {
+      const searchOk = hasCompletedMetricSearchTask();
+
       alert(
-        `Complete o experimento antes: visualize ${EXP_CONFIG.METRICS_REQUIRED} métricas e salve ${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas com escolha.`
+        `Complete o experimento antes:\n\n` +
+          `1) Visualize ${EXP_CONFIG.METRICS_REQUIRED} métricas\n` +
+          `2) Use a busca por métricas (digite e clique em uma métrica)\n` +
+          `3) Salve ${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas com escolha\n\n` +
+          (searchOk ? '' : 'Obs: a busca por métricas ainda não foi registrada.')
       );
       return;
     }

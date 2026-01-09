@@ -5,10 +5,16 @@ export const EXP_EVENT_NAME = "experimentStateChanged";
 export const EXP_CONFIG = {
   METRICS_REQUIRED: 3,
   QUESTIONS_REQUIRED: 5,
+
+  // ✅ NOVO: atividade "usar busca por métricas"
+  // Recomendação: concluir quando clicar em uma métrica com busca ativa (>=2 chars).
+  METRIC_SEARCH_REQUIRED: 1,
 };
 
 let CURRENT_UID = "anonymous";
-const STORAGE_VERSION = 2; // ✅ bump: agora temos rating/nota por resposta
+
+// ✅ bump: agora temos atividade de busca por métricas
+const STORAGE_VERSION = 3;
 
 export function setExperimentUser(uid) {
   CURRENT_UID = uid ? String(uid) : "anonymous";
@@ -42,6 +48,13 @@ function getDefaultState() {
 
       // ✅ contador persistente (não diminui ao limpar histórico)
       chatCompletedCount: 0,
+
+      // ✅ NOVO: busca por métricas (tarefa do estudo)
+      metricSearchUsedCount: 0, // quantas buscas válidas (termo >=2) registradas
+      metricSearchClickCount: 0, // cliques em uma métrica com busca ativa
+      metricSearchTaskDone: false, // concluída (recomendado: por clique com busca ativa)
+      lastMetricSearchTerm: null, // anti-spam para não contar o mesmo termo repetidamente
+      lastMetricSearchClickedMetricId: null, // opcional
     },
   };
 }
@@ -100,6 +113,37 @@ function normalizeState(parsed) {
     };
   });
 
+  // ✅ migração: busca por métricas
+  if (typeof next.meta.metricSearchUsedCount !== "number") {
+    next.meta.metricSearchUsedCount = 0;
+  }
+  if (typeof next.meta.metricSearchClickCount !== "number") {
+    next.meta.metricSearchClickCount = 0;
+  }
+  if (typeof next.meta.metricSearchTaskDone !== "boolean") {
+    next.meta.metricSearchTaskDone = false;
+  }
+  if (typeof next.meta.lastMetricSearchTerm !== "string") {
+    next.meta.lastMetricSearchTerm = null;
+  }
+  if (typeof next.meta.lastMetricSearchClickedMetricId !== "string") {
+    next.meta.lastMetricSearchClickedMetricId = null;
+  }
+
+  // sanity extra
+  if (
+    !Number.isFinite(next.meta.metricSearchUsedCount) ||
+    next.meta.metricSearchUsedCount < 0
+  ) {
+    next.meta.metricSearchUsedCount = 0;
+  }
+  if (
+    !Number.isFinite(next.meta.metricSearchClickCount) ||
+    next.meta.metricSearchClickCount < 0
+  ) {
+    next.meta.metricSearchClickCount = 0;
+  }
+
   return next;
 }
 
@@ -124,7 +168,28 @@ function saveExperimentState(state) {
       ...(normalized.meta || {}),
       version: STORAGE_VERSION,
       updatedAt: nowIso(),
+
+      // garante persistência do contador
       chatCompletedCount: Number(normalized?.meta?.chatCompletedCount || 0),
+
+      // garante persistência dos campos da busca
+      metricSearchUsedCount: Number(
+        normalized?.meta?.metricSearchUsedCount || 0
+      ),
+      metricSearchClickCount: Number(
+        normalized?.meta?.metricSearchClickCount || 0
+      ),
+      metricSearchTaskDone: Boolean(
+        normalized?.meta?.metricSearchTaskDone || false
+      ),
+      lastMetricSearchTerm:
+        typeof normalized?.meta?.lastMetricSearchTerm === "string"
+          ? normalized.meta.lastMetricSearchTerm
+          : null,
+      lastMetricSearchClickedMetricId:
+        typeof normalized?.meta?.lastMetricSearchClickedMetricId === "string"
+          ? normalized.meta.lastMetricSearchClickedMetricId
+          : null,
     },
   };
 
@@ -168,7 +233,7 @@ export function addChatEntry(entry) {
     metricName: String(entry?.metricName || "").trim(),
     createdAt: entry?.createdAt || nowIso(),
 
-    // ✅ NOVO: nota/rating (1..5) opcional
+    // ✅ nota/rating (1..5) opcional
     rating: clampInt(entry?.rating, 1, 5) ?? null,
   };
 
@@ -179,6 +244,67 @@ export function addChatEntry(entry) {
   // ✅ incrementa contador persistente
   const prev = Number(state?.meta?.chatCompletedCount || 0);
   state.meta.chatCompletedCount = prev + 1;
+
+  saveExperimentState(state);
+}
+
+/* =========================================================
+   ✅ NOVO: atividade "usar busca por métricas"
+   - markMetricSearchUsed(term): registra uso de busca (anti-spam)
+   - markMetricSearchClick(term, metricId): conclui tarefa ao clicar em resultado com busca ativa
+   ========================================================= */
+
+export function getMetricSearchUsedCount() {
+  const state = getExperimentState();
+  return Number(state?.meta?.metricSearchUsedCount || 0);
+}
+
+export function getMetricSearchClickCount() {
+  const state = getExperimentState();
+  return Number(state?.meta?.metricSearchClickCount || 0);
+}
+
+export function hasCompletedMetricSearchTask() {
+  const state = getExperimentState();
+  if (state?.meta?.metricSearchTaskDone) return true;
+
+  return getMetricSearchClickCount() >= 1;
+}
+
+
+/**
+ * Registra "uso de busca" (não conclui por si só).
+ * - conta 1x por termo diferente (anti-spam)
+ * - só conta se term >= 2 chars
+ */
+export function markMetricSearchUsed(rawTerm) {
+  const term = String(rawTerm || "").trim().toLowerCase();
+  if (term.length < 2) return;
+
+  const state = getExperimentState();
+  const last = String(state?.meta?.lastMetricSearchTerm || "");
+  if (term === last) return;
+
+  state.meta.lastMetricSearchTerm = term;
+  state.meta.metricSearchUsedCount =
+    Number(state?.meta?.metricSearchUsedCount || 0) + 1;
+
+  saveExperimentState(state);
+}
+
+/**
+ * Conclui a tarefa ao clicar em uma métrica com busca ativa.
+ * - só conclui se term >= 2 chars (busca real)
+ */
+export function markMetricSearchClick(rawTerm, metricId) {
+  const term = String(rawTerm || "").trim();
+  if (term.length < 2) return;
+
+  const state = getExperimentState();
+  state.meta.metricSearchClickCount =
+    Number(state?.meta?.metricSearchClickCount || 0) + 1;
+  state.meta.metricSearchTaskDone = true;
+  state.meta.lastMetricSearchClickedMetricId = String(metricId || "").trim();
 
   saveExperimentState(state);
 }
@@ -201,13 +327,17 @@ export function getChatCompletedCount() {
 }
 
 export function canAccessChatbot() {
-  return getMetricsVisitedCount() >= EXP_CONFIG.METRICS_REQUIRED;
+  return (
+    getMetricsVisitedCount() >= EXP_CONFIG.METRICS_REQUIRED &&
+    hasCompletedMetricSearchTask() // ✅ exige busca antes de liberar chat
+  );
 }
 
 export function canAccessFeedback() {
   return (
     canAccessChatbot() &&
-    getChatCompletedCount() >= EXP_CONFIG.QUESTIONS_REQUIRED
+    getChatCompletedCount() >= EXP_CONFIG.QUESTIONS_REQUIRED &&
+    hasCompletedMetricSearchTask() // ✅ NOVO: exige uso da busca
   );
 }
 
@@ -264,6 +394,23 @@ export function overwriteExperimentState(nextState) {
     safe.meta.chatCompletedCount = safe.chatEntries.length || 0;
   }
 
+  // ✅ migração extra: garante campos da busca mesmo vindo do cloud
+  if (typeof safe.meta.metricSearchUsedCount !== "number") {
+    safe.meta.metricSearchUsedCount = 0;
+  }
+  if (typeof safe.meta.metricSearchClickCount !== "number") {
+    safe.meta.metricSearchClickCount = 0;
+  }
+  if (typeof safe.meta.metricSearchTaskDone !== "boolean") {
+    safe.meta.metricSearchTaskDone = false;
+  }
+  if (typeof safe.meta.lastMetricSearchTerm !== "string") {
+    safe.meta.lastMetricSearchTerm = null;
+  }
+  if (typeof safe.meta.lastMetricSearchClickedMetricId !== "string") {
+    safe.meta.lastMetricSearchClickedMetricId = null;
+  }
+
   localStorage.setItem(storageKey(), JSON.stringify(safe));
   notifyChanged();
 }
@@ -300,7 +447,7 @@ export function removeChatEntryByKey(question, createdAt) {
 }
 
 /**
- * ✅ NOVO: atualizar a nota (rating) de um item do histórico
+ * ✅ atualizar a nota (rating) de um item do histórico
  * - Não mexe no contador persistente
  */
 export function setChatEntryRatingByKey(question, createdAt, rating) {
