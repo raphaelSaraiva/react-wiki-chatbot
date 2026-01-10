@@ -5939,10 +5939,10 @@
   {
     "id": "t130",
     "table_no": 130,
-    "name": "Tempo de Resposta do Sistema (System Responsiveness",
+    "name": "Tempo de Resposta do Sistema",
     "iso25010": {
       "characteristic": "Eficiência de Desempenho",
-      "subcharacteristic": "Comportamento Temporal (Time Behavior)"
+      "subcharacteristic": "Comportamento Temporal"
     },
     "fields": {
       "keywords_alias": "Responsiveness; Response Time; System Responsiveness\nRate; Service Delay; Latency",

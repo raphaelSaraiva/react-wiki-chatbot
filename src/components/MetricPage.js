@@ -1,7 +1,8 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import metricsIndex from "../metrics/metricas_index.json";
 import { markMetricVisited } from "../experiment/experimentState";
+import html2pdf from "html2pdf.js";
 
 // CRA/Webpack: mapa dos JSONs em /metrics/metricas
 const metricFiles = require.context("../metrics/metricas", false, /\.json$/);
@@ -96,6 +97,8 @@ function normalizePdfText(input) {
 
 export default function MetricPage() {
   const { metricId } = useParams();
+  const printRef = useRef(null);
+  const [pdfLoading, setPdfLoading] = useState(false);
 
   // ✅ conta visita sempre que trocar de métrica (t1 -> t2 -> t3...)
   useEffect(() => {
@@ -151,129 +154,197 @@ export default function MetricPage() {
 
   const metric = metricData?.default || metricData;
 
-  const entries = Object.entries(metric?.fields || {}).filter(
-    ([, v]) => hasValue(v)
+  const entries = Object.entries(metric?.fields || {}).filter(([, v]) =>
+    hasValue(v)
   );
+
+  const handleGeneratePdf = async () => {
+    if (!printRef.current) return;
+
+    setPdfLoading(true);
+    try {
+      const safeName =
+        String(metric?.name || meta?.name || "metrica")
+          .trim()
+          .replace(/[\\/:*?"<>|]+/g, "-")
+          .slice(0, 80) || "metrica";
+
+      const opt = {
+        margin: [12, 12, 12, 12], // mm
+        filename: `${safeName}.pdf`,
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: "#ffffff",
+          logging: false,
+        },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        pagebreak: { mode: ["css", "legacy"] },
+      };
+
+      // ✅ pequeno truque: força layout “print-friendly”
+      const el = printRef.current;
+
+      await html2pdf().set(opt).from(el).save();
+    } finally {
+      setPdfLoading(false);
+    }
+  };
 
   return (
     <div className="container py-4" style={{ maxWidth: 980 }}>
-      {/* HEADER */}
-      <div
-        className="mb-3 p-3"
-        style={{
-          borderRadius: 14,
-          background: "#ffffff",
-          boxShadow: "0 8px 22px rgba(0,0,0,0.06)",
-        }}
-      >
-        <h2 className="mb-0">{metric?.name || meta?.name}</h2>
-      </div>
+      {/* ✅ CSS local para quebrar páginas melhor */}
+      <style>{`
+        @media print {
+          .no-print { display: none !important; }
+        }
+        .pdf-section {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+        hr { opacity: 0.18; }
+      `}</style>
 
-      {/* ISO/IEC 25010 */}
-      {metric?.iso25010 && (
+      {/* ✅ Conteúdo exportável */}
+      <div ref={printRef}>
+        {/* HEADER */}
         <div
-          className="card mb-3"
+          className="mb-3 p-3"
+          style={{
+            borderRadius: 14,
+            background: "#ffffff",
+            boxShadow: "0 8px 22px rgba(0,0,0,0.06)",
+          }}
+        >
+          <div className="d-flex align-items-center justify-content-between gap-2">
+            <h2 className="mb-0">{metric?.name || meta?.name}</h2>
+
+            {/* ✅ Botão PDF */}
+            {!pdfLoading && (
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={handleGeneratePdf}
+                style={{
+                  borderRadius: 12,
+                  fontWeight: 800,
+                  padding: "10px 12px",
+                  whiteSpace: "nowrap",
+                }}
+                title="Exportar esta página para PDF"
+              >
+                Gerar PDF
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* ISO/IEC 25010 */}
+        {metric?.iso25010 && (
+          <div
+            className="card mb-3 pdf-section"
+            style={{
+              borderRadius: 14,
+              border: "1px solid rgba(0,0,0,0.08)",
+            }}
+          >
+            <div className="card-body">
+              <h5 className="card-title mb-3">Classificação (ISO/IEC 25010)</h5>
+
+              <div className="row g-3">
+                {metric.iso25010.model && (
+                  <div className="col-md-4">
+                    <div style={{ opacity: 0.7, fontSize: 12 }}>Modelo</div>
+                    <div style={{ fontWeight: 600 }}>
+                      {metric.iso25010.model}
+                    </div>
+                  </div>
+                )}
+
+                {metric.iso25010.characteristic && (
+                  <div className="col-md-4">
+                    <div style={{ opacity: 0.7, fontSize: 12 }}>
+                      Característica
+                    </div>
+                    <div style={{ fontWeight: 600 }}>
+                      {metric.iso25010.characteristic}
+                    </div>
+                  </div>
+                )}
+
+                {metric.iso25010.subcharacteristic && (
+                  <div className="col-md-4">
+                    <div style={{ opacity: 0.7, fontSize: 12 }}>
+                      Sub-característica
+                    </div>
+                    <div style={{ fontWeight: 600 }}>
+                      {metric.iso25010.subcharacteristic}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* CAMPOS */}
+        <div
+          className="card"
           style={{
             borderRadius: 14,
             border: "1px solid rgba(0,0,0,0.08)",
           }}
         >
           <div className="card-body">
-            <h5 className="card-title mb-3">
-              Classificação (ISO/IEC 25010)
-            </h5>
+            {entries.length > 0 ? (
+              entries.map(([k, v], idx) => {
+                const content = normalizePdfText(v);
 
-            <div className="row g-3">
-              {metric.iso25010.model && (
-                <div className="col-md-4">
-                  <div style={{ opacity: 0.7, fontSize: 12 }}>Modelo</div>
-                  <div style={{ fontWeight: 600 }}>
-                    {metric.iso25010.model}
-                  </div>
-                </div>
-              )}
-
-              {metric.iso25010.characteristic && (
-                <div className="col-md-4">
-                  <div style={{ opacity: 0.7, fontSize: 12 }}>
-                    Característica
-                  </div>
-                  <div style={{ fontWeight: 600 }}>
-                    {metric.iso25010.characteristic}
-                  </div>
-                </div>
-              )}
-
-              {metric.iso25010.subcharacteristic && (
-                <div className="col-md-4">
-                  <div style={{ opacity: 0.7, fontSize: 12 }}>
-                    Sub-característica
-                  </div>
-                  <div style={{ fontWeight: 600 }}>
-                    {metric.iso25010.subcharacteristic}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* CAMPOS */}
-      <div
-        className="card"
-        style={{
-          borderRadius: 14,
-          border: "1px solid rgba(0,0,0,0.08)",
-        }}
-      >
-        <div className="card-body">
-          {entries.length > 0 ? (
-            entries.map(([k, v], idx) => {
-              const content = normalizePdfText(v);
-
-              return (
-                <div
-                  key={k}
-                  style={{ marginBottom: idx === entries.length - 1 ? 0 : 18 }}
-                >
-                  <div className="d-flex align-items-center gap-2">
-                    <div
-                      style={{
-                        width: 8,
-                        height: 8,
-                        borderRadius: 999,
-                        background: "#2563eb",
-                      }}
-                    />
-                    <h6 className="mb-0">{prettyLabel(k)}</h6>
-                  </div>
-
+                return (
                   <div
-                    className="mt-2"
-                    style={{
-                      whiteSpace: "pre-wrap",
-                      textAlign: "justify",
-                      hyphens: "auto",
-                      wordBreak: "normal",
-                      overflowWrap: "break-word",
-                      lineHeight: 1.65,
-                      fontSize: 15,
-                      color: "#111827",
-                    }}
+                    key={k}
+                    className="pdf-section"
+                    style={{ marginBottom: idx === entries.length - 1 ? 0 : 18 }}
                   >
-                    {content}
-                  </div>
+                    <div className="d-flex align-items-center gap-2">
+                      <div
+                        style={{
+                          width: 8,
+                          height: 8,
+                          borderRadius: 999,
+                          background: "#2563eb",
+                        }}
+                      />
+                      <h6 className="mb-0">{prettyLabel(k)}</h6>
+                    </div>
 
-                  {idx !== entries.length - 1 && <hr className="mt-3" />}
-                </div>
-              );
-            })
-          ) : (
-            <div style={{ opacity: 0.8 }}>
-              Sem conteúdo em <code>fields</code>.
-            </div>
-          )}
+                    <div
+                      className="mt-2"
+                      style={{
+                        whiteSpace: "pre-wrap",
+                        textAlign: "justify",
+                        hyphens: "auto",
+                        wordBreak: "normal",
+                        overflowWrap: "break-word",
+                        lineHeight: 1.65,
+                        fontSize: 15,
+                        color: "#111827",
+                      }}
+                    >
+                      {content}
+                    </div>
+
+                    {idx !== entries.length - 1 && <hr className="mt-3" />}
+                  </div>
+                );
+              })
+            ) : (
+              <div style={{ opacity: 0.8 }}>
+                Sem conteúdo em <code>fields</code>.
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

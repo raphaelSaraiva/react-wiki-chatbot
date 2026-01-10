@@ -49,49 +49,12 @@ function getDefaultChatboxState() {
 }
 
 function getDefaultFloatingState() {
-  const w = 420;
+  const w = 540;
   const h = 420;
   const margin = 18;
   const x = Math.max(margin, window.innerWidth - w - margin);
   const y = 110;
   return { x, y, w, h, open: true, min: false, docked: false };
-}
-
-function buildHistoryPayload({ maxTurns = 6, maxChars = 6000 } = {}) {
-  try {
-    const entries = (getChatEntries() || []).filter(Boolean);
-    const last = entries.slice(Math.max(0, entries.length - maxTurns));
-
-    const normalized = last.map((e) => {
-      const q = String(e?.question || "").trim();
-      const a = String(e?.chosenText || e?.response || "").trim();
-
-      return {
-        question: q,
-        answer: a,
-        metricId: e?.metricId || "",
-        metricName: e?.metricName || "",
-        model: e?.model || "",
-        preferredOption: Number(e?.preferredOption || 0),
-        rating: Number(e?.rating || 0),
-        createdAt: e?.createdAt || null,
-      };
-    });
-
-    let total = 0;
-    const clipped = [];
-    for (let i = normalized.length - 1; i >= 0; i--) {
-      const item = normalized[i];
-      const chunk = `Q: ${item.question}\nA: ${item.answer}\n`;
-      if (total + chunk.length > maxChars) break;
-      total += chunk.length;
-      clipped.push(item);
-    }
-
-    return clipped.reverse();
-  } catch {
-    return [];
-  }
 }
 
 const Chatbot = () => {
@@ -103,11 +66,20 @@ const Chatbot = () => {
   // ✅ nota (1..5)
   const [rating, setRating] = useState(0);
 
+  // ✅ NOVO: quando a resposta for "não é pergunta sobre métricas",
+  // não renderiza 2 caixas e não permite avaliar/salvar
+  const NOT_A_METRIC_MSG = "A mensagem enviada não parece ser uma pergunta sobre métricas.";
+  const [invalidForExperiment, setInvalidForExperiment] = useState(false);
+
   // histórico exibido vem do experimentState/Firebase
   const [history, setHistory] = useState([]);
 
   const [loading, setLoading] = useState(false);
   const [model, setModel] = useState("openai");
+
+  // ✅ NOVO: controle do que vai ser enviado no history
+  // por padrão: tudo desmarcado
+  const [sendHistoryMap, setSendHistoryMap] = useState({}); // { [entryKey]: boolean }
 
   // ✅ MÉTRICAS do JSON (igual sidebar)
   const METRICS = useMemo(() => {
@@ -164,9 +136,6 @@ const Chatbot = () => {
 
   // =========================
   // ✅ CHATBOX state (pinned + manual)
-  //    pinned=false: absolute no documento (scroll)
-  //    pinned=true : fixed na viewport
-  //    manual=false e pinned=false: centraliza automaticamente
   // =========================
   const chatDragRef = useRef({ active: false, dx: 0, dy: 0 });
 
@@ -195,7 +164,7 @@ const Chatbot = () => {
         ...(pinnedOk ? { pinned: parsed.pinned } : {}),
         ...(manualOk ? { manual: parsed.manual } : {}),
       }));
-    } catch { }
+    } catch {}
   }, []);
 
   useEffect(() => {
@@ -209,11 +178,10 @@ const Chatbot = () => {
           manual: !!chatBox.manual,
         })
       );
-    } catch { }
+    } catch {}
   }, [chatBox.x, chatBox.y, chatBox.pinned, chatBox.manual]);
 
   // ✅ Drag do chatbot: funciona fixado e desfixado
-  // ✅ Ajustado para não depender de closure de chatBox (usa sempre o estado mais recente)
   useEffect(() => {
     const getPoint = (e) => {
       if (e.touches?.[0]) {
@@ -239,8 +207,9 @@ const Chatbot = () => {
           (p.pinned ? window.innerWidth : document.documentElement.scrollWidth) -
           60;
         const maxY =
-          (p.pinned ? window.innerHeight : document.documentElement.scrollHeight) -
-          60;
+          (p.pinned
+            ? window.innerHeight
+            : document.documentElement.scrollHeight) - 60;
 
         return {
           ...p,
@@ -305,6 +274,31 @@ const Chatbot = () => {
       (entry, index) => openItems[getEntryKey(entry, index)] !== false
     );
   }, [history, openItems]);
+
+  // ✅ NOVO: existe algum item marcado pra enviar?
+  const anySendChecked = useMemo(() => {
+    if (!history.length) return false;
+    return history.some(
+      (entry, index) => !!sendHistoryMap[getEntryKey(entry, index)]
+    );
+  }, [history, sendHistoryMap]);
+
+  const toggleSendAll = () => {
+    if (!history.length) return;
+
+    // se tem algum marcado, o toggle vira "desmarcar tudo"
+    const shouldMarkAll = !anySendChecked;
+
+    const next = {};
+    history.forEach((entry, index) => {
+      next[getEntryKey(entry, index)] = shouldMarkAll;
+    });
+    setSendHistoryMap(next);
+  };
+
+  const toggleSendOne = (key) => {
+    setSendHistoryMap((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
 
   const [confirmModal, setConfirmModal] = useState({
     open: false,
@@ -383,6 +377,7 @@ const Chatbot = () => {
     transition:
       "transform .08s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease",
     outline: "none",
+    whiteSpace: "nowrap",
   });
 
   const headerIconBubble = (active = false, disabled = false) => ({
@@ -439,6 +434,18 @@ const Chatbot = () => {
     }));
 
     setHistory(mapped);
+
+    // ✅ mantém o mapa de envio consistente:
+    // - adiciona novas chaves como false
+    // - remove chaves que não existem mais
+    setSendHistoryMap((prev) => {
+      const next = {};
+      mapped.forEach((entry, idx) => {
+        const k = getEntryKey(entry, idx);
+        next[k] = !!prev[k]; // default false se não existir
+      });
+      return next;
+    });
   };
 
   useEffect(() => {
@@ -446,6 +453,7 @@ const Chatbot = () => {
 
     const unsub = subscribeExperimentState(() => {
       syncHistoryFromExperiment();
+      setExpTick((t) => t + 1);
     });
 
     return () => unsub();
@@ -474,7 +482,10 @@ const Chatbot = () => {
           setMetricId(id);
         }
       }
-    } catch { }
+
+      // ❌ não persistimos sendHistoryMap por design (você pediu iniciar desmarcado)
+      // então, sempre que abrir, começa desmarcado.
+    } catch {}
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [METRICS.length]);
 
@@ -538,6 +549,7 @@ const Chatbot = () => {
   const doClearHistory = () => {
     clearChatEntries();
     setOpenItems({});
+    setSendHistoryMap({}); // ✅ limpa seleções também
   };
 
   const doRemoveHistoryEntry = (indexToRemove) => {
@@ -548,6 +560,12 @@ const Chatbot = () => {
 
     const removedKey = getEntryKey(removed, indexToRemove);
     setOpenItems((prev) => {
+      const next = { ...prev };
+      delete next[removedKey];
+      return next;
+    });
+
+    setSendHistoryMap((prev) => {
       const next = { ...prev };
       delete next[removedKey];
       return next;
@@ -571,8 +589,9 @@ const Chatbot = () => {
       kind: "removeOne",
       index: indexToRemove,
       title: "Excluir item do histórico?",
-      message: `Tem certeza de que deseja excluir este item?${entry?.question ? `\n\nPergunta: "${entry.question}"` : ""
-        }`,
+      message: `Tem certeza de que deseja excluir este item?${
+        entry?.question ? `\n\nPergunta: "${entry.question}"` : ""
+      }`,
       confirmText: "Excluir",
       danger: true,
     });
@@ -597,6 +616,67 @@ const Chatbot = () => {
   }, [confirmModal.open]);
 
   // =========================
+  // ✅ Build history payload APENAS dos marcados
+  // =========================
+  const buildSelectedHistoryPayload = ({ maxTurns = 6, maxChars = 6000 } = {}) => {
+    try {
+      if (!history.length) return [];
+
+      // history no UI está em ordem: mais recente primeiro
+      // para o backend, normalmente é melhor cronológico (antigo -> novo)
+      const chrono = [...history].reverse();
+
+      const selected = chrono.filter((entry) => {
+        const idxDisplay = history.findIndex(
+          (h) =>
+            (h?.id && entry?.id && h.id === entry.id) ||
+            (h?.createdAt === entry?.createdAt && h?.question === entry?.question)
+        );
+
+        const k =
+          idxDisplay >= 0 ? getEntryKey(history[idxDisplay], idxDisplay) : null;
+
+        return k ? !!sendHistoryMap[k] : false;
+      });
+
+      // limita por turnos (pega os últimos maxTurns selecionados)
+      const lastTurns =
+        selected.length > maxTurns
+          ? selected.slice(selected.length - maxTurns)
+          : selected;
+
+      const normalized = lastTurns.map((e) => {
+        const q = String(e?.question || "").trim();
+        const a = String(e?.chosenText || e?.response || "").trim();
+        return {
+          question: q,
+          answer: a,
+          metricId: e?.metricId || "",
+          metricName: e?.metricName || "",
+          model: e?.model || "",
+          preferredOption: Number(e?.preferredOption || 0),
+          rating: Number(e?.rating || 0),
+          createdAt: e?.createdAt || null,
+        };
+      });
+
+      let total = 0;
+      const clipped = [];
+      for (let i = normalized.length - 1; i >= 0; i--) {
+        const item = normalized[i];
+        const chunk = `Q: ${item.question}\nA: ${item.answer}\n`;
+        if (total + chunk.length > maxChars) break;
+        total += chunk.length;
+        clipped.push(item);
+      }
+
+      return clipped.reverse();
+    } catch {
+      return [];
+    }
+  };
+
+  // =========================
   // Chat logic
   // =========================
   const handleQuestionSubmit = async (e) => {
@@ -617,9 +697,10 @@ const Chatbot = () => {
     setOption2("");
     setPreferredOption(1);
     setRating(0);
+    setInvalidForExperiment(false); // ✅ reset
 
     try {
-      const historyPayload = buildHistoryPayload({
+      const historyPayload = buildSelectedHistoryPayload({
         maxTurns: 6,
         maxChars: 6000,
       });
@@ -643,18 +724,49 @@ const Chatbot = () => {
       });
 
       const data = res.data || {};
-      setOption1(data.response_rag || "(sem resposta)");
-      setOption2(data.response_norag || "(sem resposta)");
+      const r1 = String(data.response_rag || "").trim();
+      const r2 = String(data.response_norag || "").trim();
+
+      // ✅ detecta mensagem de "não é pergunta sobre métricas"
+      const isNotMetric =
+        r1 === NOT_A_METRIC_MSG ||
+        r2 === NOT_A_METRIC_MSG ||
+        r1.includes(NOT_A_METRIC_MSG) ||
+        r2.includes(NOT_A_METRIC_MSG);
+
+      setInvalidForExperiment(isNotMetric);
+
+      if (isNotMetric) {
+        // ✅ só UMA caixa (aviso) e bloqueia avaliação/salvamento
+        const msg = r1 || r2 || NOT_A_METRIC_MSG;
+        setOption1(msg);
+        setOption2(""); // importante: evita segunda caixa
+        setPreferredOption(1);
+        setRating(0);
+        return;
+      }
+
+      setOption1(r1 || "(sem resposta)");
+      setOption2(r2 || "(sem resposta)");
     } catch (error) {
       console.error("Erro ao enviar a pergunta:", error.message || error);
       setOption1("Ocorreu um erro ao processar sua pergunta.");
       setOption2("Ocorreu um erro ao processar sua pergunta.");
+      setInvalidForExperiment(false);
     } finally {
       setLoading(false);
     }
   };
 
   const handleSavePreferred = () => {
+    // ✅ bloqueia salvar no caso inválido
+    if (invalidForExperiment) {
+      alert(
+        "Essa resposta não pode ser avaliada/salva porque a mensagem não é uma pergunta sobre métricas."
+      );
+      return;
+    }
+
     if (!question.trim() && !option1 && !option2) {
       alert("Não há resposta para salvar ainda.");
       return;
@@ -682,9 +794,12 @@ const Chatbot = () => {
     setOption2("");
     setPreferredOption(1);
     setRating(0);
+    setInvalidForExperiment(false);
 
     setFloatOpen(true);
     setFloatMin(false);
+
+    // ✅ não altera seleção de envio automaticamente (continua desmarcado por padrão)
   };
 
   const answerBoxStyle = (isSelected) => ({
@@ -705,6 +820,7 @@ const Chatbot = () => {
   const remaining = EXP_CONFIG.QUESTIONS_REQUIRED - completed;
   const canAskMore = completed < EXP_CONFIG.QUESTIONS_REQUIRED;
 
+  // ✅ GARANTIA: existe UMA ÚNICA declaração de ratingBtnStyle no arquivo
   const ratingBtnStyle = (active) => ({
     width: 44,
     height: 40,
@@ -713,7 +829,10 @@ const Chatbot = () => {
       ? "2px solid rgba(251,191,36,0.95)"
       : "1px solid rgba(255,255,255,0.22)",
     background: active ? "rgba(251,191,36,0.18)" : "rgba(15, 23, 42, 0.20)",
-    color: "#fff",
+
+    // ✅ AQUI: quando selecionado, número + estrela ficam pretos
+    color: active ? "#0f172a" : "#fff",
+
     fontWeight: 900,
     cursor: "pointer",
     boxShadow: active ? "0 14px 26px rgba(0,0,0,0.22)" : "none",
@@ -777,23 +896,9 @@ const Chatbot = () => {
       setFloatBox((p) => ({ ...p, x: nx, y: ny }));
     };
 
-    const moveResize = (clientX, clientY) => {
-      if (!resizeRef.current.active) return;
-
-      const mode = resizeRef.current.mode;
-      const dx = clientX - resizeRef.current.startX;
-      const dy = clientX - resizeRef.current.startY; // (mantido como estava)
-      // ⚠️ Nota: seu código original tinha dy com startY, aqui era bug.
-      // Vou corrigir abaixo para manter resize correto:
-    };
-
-    // ✅ Corrigindo resize (seu original está correto mais abaixo; vamos usar o mesmo padrão)
-    // Para não “inventar” diferenças, seguimos com seu código original para resize.
-
     const onMouseMove = (e) => {
       moveDrag(e.clientX, e.clientY);
 
-      // resize original
       if (resizeRef.current.active) {
         const mode = resizeRef.current.mode;
         const dx = e.clientX - resizeRef.current.startX;
@@ -948,7 +1053,7 @@ const Chatbot = () => {
     width: "100%",
   };
 
-  // ✅ CORES DE TEXTO NO CORPO (resolve “texto branco sumindo”)
+  // ✅ CORES DE TEXTO NO CORPO
   const BODY_TEXT = "#0f172a"; // slate-900
   const MUTED_TEXT = "#334155"; // slate-700
 
@@ -963,8 +1068,8 @@ const Chatbot = () => {
     ...(chatBox.pinned
       ? { left: chatBox.x }
       : chatBox.manual
-        ? { left: chatBox.x }
-        : { left: "50%", transform: "translateX(-50%)" }),
+      ? { left: chatBox.x }
+      : { left: "50%", transform: "translateX(-50%)" }),
   };
 
   // ✅ Header volta a ser arrastável
@@ -1019,8 +1124,7 @@ const Chatbot = () => {
     whiteSpace: "nowrap",
   });
 
-  // ✅ IMPORTANTE: sem overflow interno (quem rola é a página)
-  // ✅ e com cor padrão escura
+  // ✅ IMPORTANTE: sem overflow interno
   const bodyStyle = {
     padding: 18,
     overflow: "visible",
@@ -1062,7 +1166,7 @@ const Chatbot = () => {
 
   return (
     <div style={pageStyle}>
-      {/* ✅ Chatbot movível (fixado/desfixado) + página rola */}
+      {/* ✅ Chatbot movível */}
       <div style={chatWindowStyle}>
         <div style={cardStyle}>
           <div
@@ -1070,10 +1174,8 @@ const Chatbot = () => {
             onMouseDown={(e) => {
               if (e.target.closest('[data-no-drag="true"]')) return;
 
-              // ✅ marcou manual (para não voltar a centralizar sozinho)
               setChatBox((p) => ({ ...p, manual: true }));
 
-              // px/py dependem do modo
               const px = chatBox.pinned ? e.clientX : e.clientX + window.scrollX;
               const py = chatBox.pinned ? e.clientY : e.clientY + window.scrollY;
 
@@ -1086,7 +1188,6 @@ const Chatbot = () => {
               const t = e.touches?.[0];
               if (!t) return;
 
-              // ✅ marcou manual
               setChatBox((p) => ({ ...p, manual: true }));
 
               const px = chatBox.pinned ? t.clientX : t.clientX + window.scrollX;
@@ -1100,8 +1201,8 @@ const Chatbot = () => {
               chatBox.pinned
                 ? "Chatbot fixado (arraste para mover)"
                 : chatBox.manual
-                  ? "Arraste para mover"
-                  : "Centralizado (arraste para mover)"
+                ? "Arraste para mover"
+                : "Centralizado (arraste para mover)"
             }
           >
             <div style={titleWrap}>
@@ -1143,7 +1244,15 @@ const Chatbot = () => {
                 data-no-drag="true"
                 className="btn btn-sm btn-outline-light"
                 style={{ borderRadius: 999, fontWeight: 800 }}
-                onClick={() => setChatBox((p) => ({ ...p, manual: false }))}
+                onClick={() => {
+                  const def = getDefaultChatboxState();
+                  setChatBox((p) => ({
+                    ...p,
+                    x: def.x,
+                    y: def.y,
+                    manual: false,
+                  }));
+                }}
                 title="Centralizar novamente"
               >
                 Centralizar
@@ -1209,172 +1318,207 @@ const Chatbot = () => {
                 {loading
                   ? "Processando..."
                   : canAskMore
-                    ? "Enviar"
-                    : "Limite de perguntas atingido"}
+                  ? "Enviar"
+                  : "Limite de perguntas atingido"}
               </button>
             </form>
 
             {(option1 || option2) && (
               <div className="mt-4">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    gap: 10,
-                    marginBottom: 10,
-                  }}
-                >
-                  {/* ✅ antes estava #fff e sumia */}
-                  <div style={{ fontWeight: 950, fontSize: 14, color: BODY_TEXT }}>
-                    Respostas geradas
-                  </div>
-                  <div style={{ fontSize: 13, color: MUTED_TEXT }}>
-                    Restantes no experimento: {Math.max(0, remaining)}
-                  </div>
-                </div>
-
-                <div className="row g-3">
-                  <div className="col-md-6">
-                    <div style={answerBoxStyle(preferredOption === 1)}>
-                      <div className="d-flex justify-content-between align-items-center mb-2">
-                        <div className="fw-bold">Opção 1</div>
-                        <label
-                          className="d-flex align-items-center gap-2"
-                          style={{ cursor: "pointer", fontWeight: 800 }}
-                        >
-                          <input
-                            type="radio"
-                            name="preferred"
-                            checked={preferredOption === 1}
-                            onChange={() => setPreferredOption(1)}
-                          />
-                          Preferir
-                        </label>
-                      </div>
-                      <div style={{ whiteSpace: "pre-wrap" }}>
-                        {option1 || "—"}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-md-6">
-                    <div style={answerBoxStyle(preferredOption === 2)}>
-                      <div className="d-flex justify-content-between align-items-center mb-2">
-                        <div className="fw-bold">Opção 2</div>
-                        <label
-                          className="d-flex align-items-center gap-2"
-                          style={{ cursor: "pointer", fontWeight: 800 }}
-                        >
-                          <input
-                            type="radio"
-                            name="preferred"
-                            checked={preferredOption === 2}
-                            onChange={() => setPreferredOption(2)}
-                          />
-                          Preferir
-                        </label>
-                      </div>
-                      <div style={{ whiteSpace: "pre-wrap" }}>
-                        {option2 || "—"}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  className="mt-3"
-                  style={{
-                    borderRadius: 14,
-                    border: "1px solid rgba(37,99,235,0.25)",
-                    background: "rgba(255,255,255,0.85)",
-                    padding: 12,
-                    color: BODY_TEXT,
-                  }}
-                >
+                {/* ✅ Caso especial: NÃO é pergunta de métricas -> 1 caixa + sem avaliação */}
+                {invalidForExperiment ? (
                   <div
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      gap: 10,
-                      marginBottom: 8,
+                      borderRadius: 16,
+                      border: "1px solid rgba(15,23,42,0.18)",
+                      background: "rgba(255,255,255,0.92)",
+                      padding: 14,
                       color: BODY_TEXT,
+                      boxShadow: "0 14px 34px rgba(0,0,0,0.14)",
                     }}
                   >
-                    <div style={{ fontWeight: 900 }}>
-                      Dê uma nota para a resposta escolhida
-                    </div>
-                    <div style={{ fontSize: 12, opacity: 0.85, color: MUTED_TEXT }}>
-                      Selecionada: Opção {preferredOption}
-                    </div>
+                    <div style={{ fontWeight: 950, marginBottom: 6 }}>Aviso</div>
+                    <div style={{ whiteSpace: "pre-wrap" }}>{option1}</div>
                   </div>
-
-                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                    {[1, 2, 3, 4, 5].map((n) => (
-                      <button
-                        key={n}
-                        type="button"
-                        onClick={() => setRating(n)}
-                        style={ratingBtnStyle(rating === n)}
-                        title={`Nota ${n}`}
+                ) : (
+                  <>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: 10,
+                        marginBottom: 10,
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontWeight: 950,
+                          fontSize: 14,
+                          color: BODY_TEXT,
+                        }}
                       >
-                        {n}★
-                      </button>
-                    ))}
-                  </div>
+                        Respostas geradas
+                      </div>
+                      <div style={{ fontSize: 13, color: MUTED_TEXT }}>
+                        Restantes no experimento: {Math.max(0, remaining)}
+                      </div>
+                    </div>
 
-                  <div
-                    style={{
-                      marginTop: 8,
-                      fontSize: 12,
-                      opacity: 0.95,
-                      color: MUTED_TEXT,
-                    }}
-                  >
-                    {rating ? (
-                      <>
-                        Nota escolhida: <strong>{rating}/5</strong>
-                      </>
-                    ) : (
-                      "Selecione uma nota para habilitar o salvamento."
-                    )}
-                  </div>
-                </div>
+                    <div className="row g-3">
+                      <div className="col-md-6">
+                        <div style={answerBoxStyle(preferredOption === 1)}>
+                          <div className="d-flex justify-content-between align-items-center mb-2">
+                            <div className="fw-bold">Opção 1</div>
+                            <label
+                              className="d-flex align-items-center gap-2"
+                              style={{ cursor: "pointer", fontWeight: 800 }}
+                            >
+                              <input
+                                type="radio"
+                                name="preferred"
+                                checked={preferredOption === 1}
+                                onChange={() => setPreferredOption(1)}
+                              />
+                              Preferir
+                            </label>
+                          </div>
+                          <div style={{ whiteSpace: "pre-wrap" }}>
+                            {option1 || "—"}
+                          </div>
+                        </div>
+                      </div>
 
-                <button
-                  className="btn btn-light w-100 mt-3"
-                  onClick={handleSavePreferred}
-                  disabled={loading || (!option1 && !option2) || rating < 1}
-                  style={saveBtnStyle}
-                >
-                  Salvar preferida no histórico
-                </button>
+                      <div className="col-md-6">
+                        <div style={answerBoxStyle(preferredOption === 2)}>
+                          <div className="d-flex justify-content-between align-items-center mb-2">
+                            <div className="fw-bold">Opção 2</div>
+                            <label
+                              className="d-flex align-items-center gap-2"
+                              style={{ cursor: "pointer", fontWeight: 800 }}
+                            >
+                              <input
+                                type="radio"
+                                name="preferred"
+                                checked={preferredOption === 2}
+                                onChange={() => setPreferredOption(2)}
+                              />
+                              Preferir
+                            </label>
+                          </div>
+                          <div style={{ whiteSpace: "pre-wrap" }}>
+                            {option2 || "—"}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      className="mt-3"
+                      style={{
+                        borderRadius: 14,
+                        border: "1px solid rgba(37,99,235,0.25)",
+                        background: "rgba(255,255,255,0.85)",
+                        padding: 12,
+                        color: BODY_TEXT,
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          gap: 10,
+                          marginBottom: 8,
+                          color: BODY_TEXT,
+                        }}
+                      >
+                        <div style={{ fontWeight: 900 }}>
+                          Dê uma nota para a resposta escolhida
+                        </div>
+                        <div
+                          style={{
+                            fontSize: 12,
+                            opacity: 0.85,
+                            color: MUTED_TEXT,
+                          }}
+                        >
+                          Selecionada: Opção {preferredOption}
+                        </div>
+                      </div>
+
+                      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                        {[1, 2, 3, 4, 5].map((n) => (
+                          <button
+                            key={n}
+                            type="button"
+                            onClick={() => setRating(n)}
+                            style={ratingBtnStyle(rating === n)}
+                            title={`Nota ${n}`}
+                          >
+                            {n}★
+                          </button>
+                        ))}
+                      </div>
+
+                      <div
+                        style={{
+                          marginTop: 8,
+                          fontSize: 12,
+                          opacity: 0.95,
+                          color: MUTED_TEXT,
+                        }}
+                      >
+                        {rating ? (
+                          <>
+                            Nota escolhida: <strong>{rating}/5</strong>
+                          </>
+                        ) : (
+                          "Selecione uma nota para habilitar o salvamento."
+                        )}
+                      </div>
+                    </div>
+
+                    <button
+                      className="btn btn-light w-100 mt-3"
+                      onClick={handleSavePreferred}
+                      disabled={
+                        loading ||
+                        invalidForExperiment ||
+                        (!option1 && !option2) ||
+                        rating < 1
+                      }
+                      style={saveBtnStyle}
+                    >
+                      Salvar preferida no histórico
+                    </button>
+                  </>
+                )}
               </div>
             )}
           </div>
         </div>
       </div>
 
-      {/* ===== Janela flutuante do Histórico (continua fixed) ===== */}
+      {/* ===== Janela flutuante do Histórico ===== */}
       {floatOpen && (
         <div
           style={{
             position: "fixed",
             ...(docked
               ? {
-                right: MARGIN,
-                top: 70,
-                bottom: MARGIN,
-                left: "auto",
-                width: floatBox.w,
-              }
+                  right: MARGIN,
+                  top: 70,
+                  bottom: MARGIN,
+                  left: "auto",
+                  width: floatBox.w,
+                }
               : {
-                left: floatBox.x,
-                top: floatBox.y,
-                width: floatBox.w,
-                height: floatMin ? 54 : floatBox.h,
-              }),
+                  left: floatBox.x,
+                  top: floatBox.y,
+                  width: floatBox.w,
+                  height: floatMin ? 54 : floatBox.h,
+                }),
             zIndex: 2000,
             borderRadius: 14,
             overflow: "hidden",
@@ -1427,6 +1571,41 @@ const Chatbot = () => {
                 alignItems: "center",
               }}
             >
+              {/* ✅ NOVO: Marcar/Desmarcar todos (sem contagem) */}
+              <button
+                data-no-drag="true"
+                type="button"
+                disabled={!history.length}
+                title={
+                  anySendChecked
+                    ? "Desmarcar todos para envio"
+                    : "Marcar todos para envio"
+                }
+                onClick={toggleSendAll}
+                style={headerPillBtn(anySendChecked, !history.length)}
+                {...pressableHandlers(!history.length)}
+              >
+                <span
+                  aria-hidden="true"
+                  style={{
+                    width: 18,
+                    height: 18,
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: 8,
+                    background: anySendChecked
+                      ? "rgba(191, 219, 254, 0.18)"
+                      : "rgba(255,255,255,0.10)",
+                    border: "1px solid rgba(255,255,255,0.14)",
+                    fontSize: 12,
+                  }}
+                >
+                  ✓
+                </span>
+                {anySendChecked ? "Desmarcar todos" : "Marcar todos"}
+              </button>
+
               <button
                 data-no-drag="true"
                 type="button"
@@ -1548,73 +1727,108 @@ const Chatbot = () => {
                     {history.map((entry, index) => {
                       const k = getEntryKey(entry, index);
                       const isOpen = openItems[k] !== false;
+                      const sendChecked = !!sendHistoryMap[k];
 
                       return (
                         <li
                           key={k}
-                          className="list-group-item position-relative"
+                          className="list-group-item"
                           style={{
                             background: "rgba(241,245,249,0.95)",
                             borderColor: "rgba(37,99,235,0.35)",
                             borderRadius: 12,
                             marginBottom: 10,
-                            paddingRight: 52,
+                            padding: 12,
                           }}
                         >
-                          <button
-                            onClick={() => removeHistoryEntry(index)}
-                            className="btn-close position-absolute"
+                          {/* ✅ Header do item: Enviar em cima + ações à direita */}
+                          <div
                             style={{
-                              top: 10,
-                              right: 10,
-                              width: 16,
-                              height: 16,
-                              padding: 0,
-                              backgroundColor: "transparent",
-                              border: "none",
-                              cursor: "pointer",
-                              zIndex: 2,
-                            }}
-                            aria-label="Excluir"
-                            title="Excluir item"
-                          />
-
-                          <span
-                            onClick={() => toggleHistoryItem(k)}
-                            title={isOpen ? "Recolher resposta" : "Expandir resposta"}
-                            role="button"
-                            tabIndex={0}
-                            onKeyDown={(e) => {
-                              if (e.key === "Enter" || e.key === " ")
-                                toggleHistoryItem(k);
-                            }}
-                            style={{
-                              position: "absolute",
-                              top: 1,
-                              right: 34,
-                              width: 34,
-                              height: 34,
                               display: "flex",
                               alignItems: "center",
-                              justifyContent: "center",
-                              cursor: "pointer",
-                              userSelect: "none",
-                              zIndex: 3,
+                              justifyContent: "space-between",
+                              gap: 10,
+                              marginBottom: 8,
                             }}
                           >
-                            <span
+                            {/* ✅ Checkbox "Enviar" (AGORA EM CIMA, ANTES DA PERGUNTA) */}
+                            <label
                               style={{
-                                fontSize: 24,
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: 8,
+                                fontSize: 12,
                                 fontWeight: 900,
-                                color: "#000",
-                                lineHeight: 1,
-                                pointerEvents: "none",
+                                color: "#0f172a",
+                                userSelect: "none",
+                                cursor: "pointer",
+                                background: "rgba(255,255,255,0.75)",
+                                padding: "6px 10px",
+                                borderRadius: 999,
+                                border: "1px solid rgba(15,23,42,0.12)",
                               }}
+                              title="Marque para enviar este item junto a sua pergunta para alimentar o modelo"
                             >
-                              {isOpen ? "▾" : "▸"}
-                            </span>
-                          </span>
+                              <input
+                                type="checkbox"
+                                checked={sendChecked}
+                                onChange={() => toggleSendOne(k)}
+                                style={{ transform: "translateY(1px)" }}
+                              />
+                              Enviar este item
+                            </label>
 
+                            {/* Ações (expandir/recolher + excluir) */}
+                            <div
+                              style={{ display: "flex", alignItems: "center", gap: 8 }}
+                            >
+                              <button
+                                type="button"
+                                onClick={() => toggleHistoryItem(k)}
+                                title={isOpen ? "Recolher resposta" : "Expandir resposta"}
+                                style={{
+                                  width: 34,
+                                  height: 34,
+                                  borderRadius: 10,
+                                  border: "1px solid rgba(15,23,42,0.12)",
+                                  background: "rgba(255,255,255,0.75)",
+                                  cursor: "pointer",
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  fontWeight: 900,
+                                }}
+                              >
+                                <span style={{ fontSize: 18, lineHeight: 1 }}>
+                                  {isOpen ? "▾" : "▸"}
+                                </span>
+                              </button>
+
+                              <button
+                                type="button"
+                                onClick={() => removeHistoryEntry(index)}
+                                title="Excluir item"
+                                style={{
+                                  width: 34,
+                                  height: 34,
+                                  borderRadius: 10,
+                                  border: "1px solid rgba(255, 80, 80, 0.28)",
+                                  background: "rgba(239, 68, 68, 0.14)",
+                                  cursor: "pointer",
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  fontWeight: 900,
+                                  color: "#111827",
+                                }}
+                                aria-label="Excluir"
+                              >
+                                ✕
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Conteúdo do item */}
                           <div style={{ color: "#111827" }}>
                             <div style={{ fontSize: 12, opacity: 0.8 }}>
                               <strong>Modelo:</strong> {entry.model}
@@ -1844,8 +2058,9 @@ const Chatbot = () => {
                 </button>
 
                 <button
-                  className={`btn ${confirmModal.danger ? "btn-danger" : "btn-warning"
-                    }`}
+                  className={`btn ${
+                    confirmModal.danger ? "btn-danger" : "btn-warning"
+                  }`}
                   style={{
                     borderRadius: 10,
                     padding: "8px 12px",
