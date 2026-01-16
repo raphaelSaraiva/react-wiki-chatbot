@@ -58,6 +58,11 @@ const LOGIN_GRADIENT = `linear-gradient(135deg,
   #2F6BFF 75%,
   #5C8DFF 100%)`;
 
+/**
+ * ✅ IMPORTANTE:
+ * Tutorial deve ser uma "tela" fullscreen isolada.
+ * Então ele precisa ser renderizado ANTES do layout (TopBar / Sidebar / <main p-4>).
+ */
 const AppContent = ({
   user,
   isMenuVisible,
@@ -76,9 +81,22 @@ const AppContent = ({
   adminLoading,
 }) => {
   const location = useLocation();
-
-  // ✅ Aqui você controla em quais rotas o menu lateral aparece
   const isAdminRoute = location.pathname.startsWith('/admin');
+
+  // ✅ 1) Tutorial isolado (sem TopBar / Sidebar / padding / overflow do main)
+  if (user && showTutorial) {
+    return (
+      <>
+        <Tutorial onComplete={handleCompleteTutorial} />
+        {/* Pode manter o modal montado (opcional). Normalmente não precisa no tutorial. */}
+        <FeedbackModal
+          show={showFeedbackModal}
+          handleClose={() => setShowFeedbackModal(false)}
+          userUid={user?.uid}
+        />
+      </>
+    );
+  }
 
   return (
     <>
@@ -105,21 +123,17 @@ const AppContent = ({
         style={{
           height: user ? 'calc(100vh - 64px)' : '100vh',
           overflow: 'hidden',
-
-          // ✅ ÚNICA MUDANÇA: degradê azul no login
-          ...(user
-            ? { backgroundColor: '#EDF1F7' }
-            : { background: LOGIN_GRADIENT }),
+          ...(user ? { backgroundColor: '#EDF1F7' } : { background: LOGIN_GRADIENT }),
         }}
       >
         <div className="d-flex" style={{ height: '100%' }}>
           {/* ✅ Sidebar NÃO aparece no admin */}
-          {user && !showTutorial && !isAdminRoute && (
+          {user && !isAdminRoute && (
             <Sidebar isVisible={isMenuVisible} toggleMenu={toggleMenu} />
           )}
 
           {/* ✅ Botão ☰ Menu NÃO aparece no admin */}
-          {user && !showTutorial && !isMenuVisible && !isAdminRoute && (
+          {user && !isMenuVisible && !isAdminRoute && (
             <button
               className="btn btn-warning position-absolute"
               style={{ top: user ? '80px' : '20px', left: '20px', zIndex: 10 }}
@@ -134,40 +148,35 @@ const AppContent = ({
             style={{ overflow: 'auto', height: '100%' }}
           >
             {user ? (
-              showTutorial ? (
-                <Tutorial onComplete={handleCompleteTutorial} />
-              ) : (
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      canAccessChatbot() ? (
-                        // ✅ passa userUid e força remount ao trocar usuário
-                        <Chatbot userUid={user?.uid} key={user?.uid || 'anon'} />
-                      ) : (
-                        <Navigate to="/metric/t1" replace />
-                      )
-                    }
-                  />
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    canAccessChatbot() ? (
+                      <Chatbot userUid={user?.uid} key={user?.uid || 'anon'} />
+                    ) : (
+                      <Navigate to="/metric/t1" replace />
+                    )
+                  }
+                />
 
-                  <Route path="/metric/:metricId" element={<MetricPage />} />
+                <Route path="/metric/:metricId" element={<MetricPage />} />
 
-                  <Route
-                    path="/admin"
-                    element={
-                      adminLoading ? (
-                        <div className="text-white">Carregando permissões…</div>
-                      ) : isAdmin ? (
-                        <AdminFeedbacksPage />
-                      ) : (
-                        <Navigate to="/" replace />
-                      )
-                    }
-                  />
+                <Route
+                  path="/admin"
+                  element={
+                    adminLoading ? (
+                      <div className="text-white">Carregando permissões…</div>
+                    ) : isAdmin ? (
+                      <AdminFeedbacksPage />
+                    ) : (
+                      <Navigate to="/" replace />
+                    )
+                  }
+                />
 
-                  <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
-              )
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </Routes>
             ) : (
               <div
                 className="d-flex flex-column justify-content-center align-items-center text-white"
@@ -390,7 +399,6 @@ const App = () => {
   };
 
   const handleLogout = async () => {
-    // captura uid ANTES do signOut para limpar dados do último usuário
     const uidToClear = user?.uid || localStorage.getItem('userUid') || '';
 
     try {
@@ -399,16 +407,12 @@ const App = () => {
       setUser(null);
       setIsAdmin(false);
 
-      // ✅ reseta status local
       setFeedbackSubmitted(false);
       setFeedbackSubmittedLoading(false);
 
-      // ✅ limpa histórico + janela do Chatbot + estado do experimento (todos por usuário)
       if (uidToClear) {
         localStorage.removeItem(STORAGE_HISTORY_KEY(uidToClear));
         localStorage.removeItem(STORAGE_FLOAT_KEY(uidToClear));
-
-        // experimentState.js usa exatamente esse formato de key
         localStorage.removeItem(STORAGE_EXPERIMENT_KEY(uidToClear));
         localStorage.removeItem(`${STORAGE_EXPERIMENT_KEY(uidToClear)}__ping`);
       }
@@ -424,13 +428,14 @@ const App = () => {
     }
   };
 
+  // ✅ Sem reload: o AppContent já vai renderizar rotas quando showTutorial virar false
   const handleCompleteTutorial = () => {
-    setShowTutorial(false);
     localStorage.setItem('tutorialCompleted', 'true');
-    window.location.reload();
+    setShowTutorial(false);
+    // se você quiser garantir que volte para o início do app após completar, mantenha o usuário na rota "/"
+    // (como você já tem Route "*" -> "/"), normalmente não precisa de nada aqui.
   };
 
-  // ✅ Tooltip: quando já enviou, mostra a mensagem, mas NÃO desabilita botão
   const feedbackTooltip =
     feedbackSubmittedLoading
       ? 'Verificando status do feedback...'
