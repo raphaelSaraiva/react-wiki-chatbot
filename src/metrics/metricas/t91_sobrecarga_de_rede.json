@@ -4,7 +4,7 @@
   "name": "Sobrecarga de Rede",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Utilização de Recursos / Eficiência de Comunicação"
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "keywords_alias": "Network overhead; Communication overhead; Control\ndata load; Packet overhead; Blockchain communication\ncost",
@@ -28,7 +28,7 @@
     "Definição do Atributo": "Mede o volume adicional de dados de controle e\nmetadados transmitidos na rede blockchain, necessários para garantir consenso, segurança e integridade\ndas transações. Essa sobrecarga resulta do tráfego extra\ngerado por mensagens de verificação, blocos de cabeçalho, autenticação e roteamento distribuído entre nós.\nEm redes móveis ad hoc (MANETs) integradas à blockchain, esse fator influencia diretamente a eficiência da\ncomunicação e o uso de largura de banda.",
     "Objetivo / Motivação": "Quantificar o impacto do tráfego de controle e das mensagens de sincronização no desempenho da rede blockchain,\navaliando o custo de comunicação introduzido pelos mecanismos de consenso e validação distribuída. O objetivo é\notimizar a eficiência de comunicação e reduzir o consumo\nde recursos, mantendo a segurança e a confiabilidade da\nrede.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos / Eficiência de Comunicação",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "A métrica de Sobrecarga de Rede (SR) pode ser\nexpressa como:\nSR = Dcontrole\nDtotal\n× 100\nonde Dcontrole representa o volume de dados de controle\n(mensagens de consenso, cabeçalhos, assinaturas, etc.) e\nDtotal o volume total de dados transmitidos.\nValores mais altos indicam maior sobrecarga e, consequentemente, menor eficiência de comunicação.\nMétricas\nAssociadas\nLargura de Banda; Latência; Taxa de Entrega de Pacotes;\nThroughput; Taxa de Transmissão de Dados\nAtributo\nRelacionado\nEficiência de Comunicação; Escalabilidade; Custo de\nRede; Consumo Energético\n220",
     "Protocolo": "1) Configurar o ambiente de simulação blockchainMANET (número de nós, taxa de transmissão e intervalo\nde observação).\n2) Coletar o volume de dados de controle (Dcontrole) e o\nvolume total de dados transmitidos (Dtotal).\n3) Calcular a razão SR = Dcontrole/Dtotal.\n4) Comparar o desempenho da rede blockchain proposta\ncom soluções tradicionais, observando a redução de sobrecarga obtida.",
     "Comentário": "A Sobrecarga de Rede é um indicador crítico de desempenho em blockchains integradas a redes móveis\n(MANETs). No estudo analisado, o modelo TDRPMASA-DrpEnXLNN-BCMANET apresentou me-\nnor sobrecarga em relação a versões anteriores (TDRPBCMANET e TDRP-FPTE-MANET), devido ao uso de\naprendizado neural otimizado e roteamento distribuído.\nEssa redução demonstra maior eficiência e escalabilidade\nna transmissão de pacotes sob condições dinâmicas de\nmobilidade e verificação blockchain.\nInterpretação\ndo\nValor Medido\nValores baixos de SR indicam comunicação eficiente,\nmenor consumo de largura de banda e boa escalabilidade.\nValores altos apontam excesso de tráfego de controle e\nineficiência no protocolo de comunicação, podendo causar\naumento de latência e queda no throughput.",

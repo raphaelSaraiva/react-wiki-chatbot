@@ -1,10 +1,10 @@
 {
   "id": "t71",
   "table_no": 71,
-  "name": "Fork Frequency (Frequência de Forks)",
+  "name": "Frequência de Forks",
   "iso25010": {
     "characteristic": "Confiabilidade",
-    "subcharacteristic": "Maturidade / Estabilidade do consenso"
+    "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
     "keywords_alias": "Fork rate; Frequência de ramificações; Taxa de forks;\nBlocos concorrentes; Reorganização de cadeia",
@@ -23,12 +23,12 @@
     "references": "Ali, S.; Khan, A.; Wu, C.; et al. A Decentralized Lightweight Blockchain Nodes Architecture Based on a Secure OpenFlow Protocol\nController Channel. IEEE Access, 2022. — Avalia o comportamento da rede sob diferentes atrasos e dificuldades, relacionando a\nocorrência de forks à eficiência de propagação e à estabilidade do\nconsenso em arquiteturas leves.\n175"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Fork Frequency (Frequência de Forks)",
+    "Atributo Nome (Título)": "Frequência de Forks",
     "Palavras-chave / Alias": "Fork rate; Frequência de ramificações; Taxa de forks;\nBlocos concorrentes; Reorganização de cadeia",
     "Definição do Atributo": "Mede a frequência com que a blockchain sofre\nramificações (forks) — situações em que dois (ou\nmais) blocos são propostos quase simultaneamente para\na mesma altura, gerando cadeias concorrentes até que\numa seja adotada como principal. A frequência de forks\nreflete a eficiência de propagação de blocos e a\nestabilidade do consenso.",
     "Objetivo / Motivação": "Quantificar instabilidades do consenso causadas por\natrasos de rede, dificuldade de mineração e comportamento de nós (incluindo nós maliciosos). Frequências\nelevadas de fork aumentam desperdício de trabalho, latência de confirmação e risco de reorganizações, degradando\nthroughput e confiabilidade.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Confiabilidade",
-    "Sub-característica": "Maturidade / Estabilidade do consenso",
+    "Sub-característica": "Tolerância a Falhas",
     "Equação": "Forma por bloco: Fblk = Nforks\nNblocos\n.\nForma por tempo:\nFt\n=\nNforks\nTjanela\n(forks por segundo/minuto).\nOpcional: estratificar por comprimento de fork (profundidade 1, 2, . . . ) ou por causa (propagação, dificuldade,\nnós maliciosos).\nMétricas\nAssociadas\nTempo de propagação de blocos; Taxa de blocos órfãos;\nTaxa de blocos confirmados; Throughput; Tempo de\nconfirmação\nAtributo\nRelacionado\nEficiência do consenso; Latência de rede; Tamanho do\nbloco; Distribuição/quantidade de nós; Comportamento\nadversarial\n174",
     "Protocolo": "1) Definir a janela de observação [t0, t1] e o conjunto de\nnós monitorados.\n2) Registrar cada evento de blocos concorrentes na mesma\naltura (fork).\n3) Contabilizar Nforks e Nblocos na janela; calcular Fblk\ne/ou Ft.\n4) Repetir sob diferentes atrasos de rede, dificuldades de\nmineração e percentuais de nós maliciosos.\n5) Correlacionar a frequência de forks com latência de\npropagação e taxa de confirmação.",
     "Comentário": "Em arquiteturas distribuídas leves, a Fork Frequency\né sensível a aumentos no atraso de propagação e\nna dificuldade de mineração, especialmente sob presença de nós maliciosos. Reduções de atraso (melhor\nrede/propagação) e mecanismos de consenso eficientes\ntendem a reduzir a frequência de forks, melhorando a\nestabilidade e a Committed Block Rate.\nInterpretação\ndo\nValor Medido\nValores baixos indicam rede estável, boa propagação\ne consenso eficiente. Valores altos sugerem congestionamento/latência, blocos grandes ou comportamento\nadversarial, aumentando risco de reorganizações e atraso\nde confirmação.",

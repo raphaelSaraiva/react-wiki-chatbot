@@ -4,7 +4,7 @@
   "name": "Utilização do Poder de Mineração",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Utilização de recursos / eficiência energética"
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "keywords_alias": "Mining Power Utilization; Mining efficiency; Hash power\nusage; Effective mining rate; Mining resource utilization",
@@ -28,7 +28,7 @@
     "Definição do Atributo": "Mede a proporção do poder computacional de mineração efetivamente utilizado para produzir blo-\ncos válidos na cadeia principal, em relação ao total\nde poder de hash disponível na rede. Essa métrica reflete\na eficiência do protocolo de consenso em converter esforço\ncomputacional em progresso útil da blockchain, evitando\ndesperdício de energia em blocos órfãos ou inválidos.",
     "Objetivo / Motivação": "Avaliar o quanto do poder total de mineração é convertido\nem blocos aceitos, indicando a eficiência e robustez do\nprotocolo de consenso. Protocolos com alta utilização\nreduzem desperdício energético e melhoram o throughput,\nenquanto valores baixos sugerem ineficiência, alta taxa\nde forks ou atrasos de propagação.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de recursos / eficiência energética",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "Seja Bmain o número de blocos incluídos na cadeia principal e Btotal o total de blocos minerados (válidos + órfãos).\nA Utilização do Poder de Mineração (MPU) é definida como:\nMPU = Bmain\nBtotal\n.\nValores próximos a 1 indicam uso eficiente do poder\nde mineração; valores baixos refletem perdas de esforço\ncomputacional.\nMétricas\nAssociadas\nTaxa de Forks; Latência de Propagação; Throughput;\nEficiência Energética; Blocos Inválidos\nAtributo\nRelacionado\nTaxa de Produção de Blocos; Tempo de Confirmação;\nConsistência da Cadeia; Desperdício de Hash Power",
     "Protocolo": "1) Monitorar o total de blocos minerados (Btotal) durante\num intervalo [t0, t1].\n2) Identificar os blocos efetivamente aceitos na cadeia\nprincipal (Bmain).\n3) Calcular MPU = Bmain/Btotal.\n4) Repetir sob diferentes configurações de intervalo de\nbloco e atraso de propagação.\n5) Comparar a eficiência entre o protocolo de referência\n(ex.: Bitcoin) e o protocolo proposto (ex.: Bitcoin-NG).\n210",
     "Comentário": "A Utilização do Poder de Mineração é um indicador\nessencial da eficiência de protocolos de consenso baseados\nem proof-of-work. No estudo do Bitcoin-NG, observou-se\nque o protocolo proposto alcança maior utilização de\npoder de mineração em relação ao Bitcoin tradicional,\npois reduz o tempo ocioso entre blocos e minimiza perdas\ncausadas por forks. Isso implica melhor aproveitamento\nde energia e aumento de throughput.\nInterpretação\ndo\nValor Medido\nValores altos (próximos de 1) indicam que a maioria do\npoder computacional é efetivamente usada para expandir\na cadeia principal, caracterizando alta eficiência. Valores baixos indicam perda de esforço em blocos órfãos,\nfalhas de sincronização ou ineficiência no consenso.",

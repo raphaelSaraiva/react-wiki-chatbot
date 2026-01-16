@@ -1,10 +1,10 @@
 {
   "id": "t155",
   "table_no": 155,
-  "name": "Taxa de Chamadas para Desconhecido",
+  "name": "Taxa de Chamadas Desconhecidas",
   "iso25010": {
-    "characteristic": "Confiabilidade",
-    "subcharacteristic": "Tolerância a falhas / Robustez de comunicação"
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Unknown call; Chamada desconhecida; Mensagens inválidas; Taxa de chamadas externas não resolvidas; Cha-\nmadas não reconhecidas",
@@ -23,12 +23,12 @@
     "references": "Alkhader, M.; Alsmadi, I.; Jararweh, Y. An Efficient Distributed\nand Secure Algorithm for Transaction Confirmation in IOTA Using\nCloud Computing. IEEE Access, 2022. — O estudo propõe um\nmodelo de confirmação distribuída para IOTA e utiliza a taxa\nde chamadas para desconhecido como métrica de avaliação da\nestabilidade e da confiabilidade da rede durante o processo de\nvalidação de transações.\n356"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Taxa de Chamadas para Desconhecido",
+    "Atributo Nome (Título)": "Taxa de Chamadas Desconhecidas",
     "Palavras-chave / Alias": "Unknown call; Chamada desconhecida; Mensagens inválidas; Taxa de chamadas externas não resolvidas; Cha-\nmadas não reconhecidas",
     "Definição do Atributo": "Mede a proporção de chamadas ou transações realizadas por nós que não são reconhecidas ou não\nencontram destino válido na rede. Essa métrica\navalia o comportamento anômalo de comunicação entre\nnós ou dispositivos em redes distribuídas baseadas em\nblockchain ou DAGs (como IOTA), indicando falhas de\nroteamento, sincronização ou ataques maliciosos.",
     "Objetivo / Motivação": "Avaliar a eficiência e segurança da comunicação\nentre nós, especialmente em sistemas distribuídos com\nvalidação paralela, como o Tangle (IOTA). Chamadas\npara destinos desconhecidos podem representar tentativas de comunicação com nós fora de sincronia, falhas na\npropagação de transações ou tentativas de ataque à rede.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Confiabilidade",
-    "Sub-característica": "Tolerância a falhas / Robustez de comunicação",
+    "Característica": "Segurança",
+    "Sub-característica": "Integridade",
     "Equação": "Urate = Nunknown\nNtotal\n,\nonde Nunknown é o número de chamadas que resultam\nem falha por destino desconhecido e Ntotal é o número\ntotal de chamadas realizadas na rede durante o intervalo\nanalisado.\nMétricas\nAssociadas\nTaxa de falhas de transação; Tempo médio de confirmação; Latência de rede; Taxa de reenvio; Disponibilidade\nde nós\nAtributo\nRelacionado\nRobustez de comunicação; Eficiência de roteamento; Segurança de mensagens; Consistência do ledger",
     "Protocolo": "1) Monitorar as chamadas ou transações geradas por\ncada nó durante o período [t0, t1].\n2) Registrar aquelas que falham devido a destino desconhecido, inexistente ou não sincronizado.\n3) Calcular Urate = Nunknown/Ntotal.\n4) Avaliar a variação temporal e correlação com carga de\nrede ou número de nós inativos.\n5) Verificar se há padrões que indiquem falhas sistêmicas\nou comportamento malicioso.\n355",
     "Comentário": "O artigo propõe um algoritmo distribuído e seguro para\nconfirmação de transações em IOTA, utilizando computação em nuvem. Durante a avaliação experimental, foi\nanalisada a taxa de chamadas a nós desconhecidos como\nindicador de estabilidade e eficiência do processo de propagação. Reduzir esse índice implica em comunicação\nmais confiável entre nós e menor desperdício de recursos\ncomputacionais.\nInterpretação\ndo\nValor Medido\nValores altos de Urate indicam problemas de sincronização, falhas de rede ou presença de nós inválidos. Valores\nbaixos indicam boa conectividade e comunicação eficiente entre os participantes.",

@@ -1,10 +1,10 @@
 {
   "id": "t109",
   "table_no": 109,
-  "name": "Exceção de Sem Gás (OGEx — Out-of-Gas Exception)",
+  "name": "Taxa de Exceção por Falta de Gás",
   "iso25010": {
     "characteristic": "Confiabilidade",
-    "subcharacteristic": "Maturidade / Tolerância a Falhas"
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Out-of-gas; OOG; Gas limit; Gas stipend; Revert por\nfalta de gás; Falha de execução; EVM exception",
@@ -23,12 +23,12 @@
     "references": "G. Wood. Ethereum: A Secure Decentralised Generalised Transaction Ledger (Yellow Paper) — Semântica de gás e exceções de\nexecução na EVM.\nEIPs relevantes (ex.: EIP-150, EIP-1559) — mudanças de custos/precificação de gás que impactam comportamento de execução.\n262"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Exceção de Sem Gás (OGEx — Out-of-Gas Exception)",
+    "Atributo Nome (Título)": "Taxa de Exceção por Falta de Gás",
     "Palavras-chave / Alias": "Out-of-gas; OOG; Gas limit; Gas stipend; Revert por\nfalta de gás; Falha de execução; EVM exception",
     "Definição do Atributo": "Mede a ocorrência de falhas de execução de transações/ chamadas de contrato por esgotamento de\ngás antes da conclusão da computação. Em plataformas\ncompatíveis com EVM, quando o gás alocado não é suficiente para cobrir a execução (opcodes, armazenamento,\ntransferências), a execução aborta, o estado é revertido\ne a taxa de transação é consumida.",
     "Objetivo / Motivação": "Quantificar a robustez e eficiência do desenho de\ncontratos e da configuração de clientes/carteiras (estimativa de gás), reduzindo falhas por subprovisão. Apoia\ntuning de gas limit por função, prevenção de regressões\nde consumo de gás e melhoria de UX (menos transações\nfracassadas).\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Confiabilidade",
-    "Sub-característica": "Maturidade / Tolerância a Falhas",
+    "Característica": "Segurança",
+    "Sub-característica": "Integridade",
     "Equação": "Taxa_OGEx = Ntx com OOG\nNtx totais\n.\n(Headroom de gás por chamada) H = 1 −gas_used\ngas_limit.\n(Relatar p50/p95/p99 de H por função/versão de contrato).\nMétricas\nAssociadas\nGas Used; Custo de Execução; Taxa de Sucesso do Consenso; Taxa de Revert; Latência de Transação; Through-\nput\nAtributo\nRelacionado\nEficiência de código do contrato; Estratégia de estimativa\nde gás; Política de inclusão de transações; Complexidade\nde armazenamento",
     "Protocolo": "1) Definir janela [t0, t1] e escopo (funções, versões do\ncontrato, rede).\n2) Coletar recibos e traces das transações, registrando\nstatus, gasUsed, gasLimit e o motivo de falha (classificar out-of-gas vs. outras exceções).\n3) Calcular Taxa_OGEx global e por função; computar\nheadroom H e percentis (p50/p95/p99).\n4) Correlacionar OGEx com mudanças de código, parâmetros (ex.: tamanho de lote), e condições de rede.\n5) Definir guardrails:\nbuffers de estimativa (ex.:\n+10–30%), limites por função e alertas operacionais.\n261",
     "Comentário": "OGEx geralmente decorre de subestimação de gás por\ncarteiras/clients, laços dinâmicos e custos de armazenamento, chamadas externas (padrões checks-effects-\ninteractions) e variações de custos de opcodes/limites de\nbloco. Em EIP-1559, o preço/base fee não evita OGEx: o\ngas limit continua sendo o fator determinante. Boas práticas incluem pré-cálculo de custos, gas caps por função,\ne testes de carga com dados realistas.\nInterpretação\ndo\nValor Medido\nTaxa_OGEx baixa e headroom H estável (p95\n> 0,1) indicam estimativas seguras e código previsível.\nTaxa_OGEx alta sugere regressões de consumo, loops dependentes de entrada ou estimativas agressivas —\npriorizar otimização e buffers.",

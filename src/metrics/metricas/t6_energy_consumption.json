@@ -1,10 +1,10 @@
 {
   "id": "t6",
   "table_no": 6,
-  "name": "Energy Consumption",
+  "name": "Consumo de Energia",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Utilização de Recursos (energia)"
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "equation": "E =\nZ t1\nt0\nP(t) dt\n≈\nn\nX\ni=1\nP(ti) ∆t.\nEm medição discreta periódica (ex.: a cada 15 s), E\nresulta da soma das amostras de potência sobre o\nperíodo.\nMétricas\nAssociadas\nPotência média/instantânea; Latência de leitura;\nThroughput de medições; Custo de transação (se\non-chain); Taxa de agregação de medições; Taxa de\nperdas/irregularidades.\nAtributo\nRelacionado\nEficiência energética; Escalabilidade de\narmazenamento/telemetria; Confiabilidade/validação de\nleituras (anti-fraude).\n16",
@@ -20,7 +20,7 @@
   },
   "raw_fields": {
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos (energia)",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "E =\nZ t1\nt0\nP(t) dt\n≈\nn\nX\ni=1\nP(ti) ∆t.\nEm medição discreta periódica (ex.: a cada 15 s), E\nresulta da soma das amostras de potência sobre o\nperíodo.\nMétricas\nAssociadas\nPotência média/instantânea; Latência de leitura;\nThroughput de medições; Custo de transação (se\non-chain); Taxa de agregação de medições; Taxa de\nperdas/irregularidades.\nAtributo\nRelacionado\nEficiência energética; Escalabilidade de\narmazenamento/telemetria; Confiabilidade/validação de\nleituras (anti-fraude).\n16",
     "Protocolo": "1. Definir o período de observação [ t0, t1 ] e a\ngranularidade de amostragem (ex.: 15 s).\n2. Instrumentar o ponto de medição (medidor\ninteligente/dispositivo) com carimbo temporal\nsincronizado (NTP/PTP).\n3. Coletar potência ou energia incremental por\namostra; agregar leituras quando apropriado para\nreduzir overhead de armazenamento/transação.\n4. Persistir/ancorar as leituras: off-chain (BD/IPFS)\ncom hash on-chain, ou direto on-chain, conforme\ncusto/privacidade.\n5. Calcular E no intervalo e reportar estatísticas\n(média, p95/p99) por dispositivo/carga, além de\ncondições (com/sem BLE, assinatura, rede).\n6. Correlacionar consumo com custos/DRM e eventos\noperacionais.",
     "Comentário": "Em dispositivos IoT avaliados com janela de 30 s a 3.3\nV, BLE elevou o consumo médio e a energia em\n∼34–38%; já “habilitar blockchain”\n(assinatura/integração) acrescentou impacto marginal\nem relação ao BLE. Em redes de medição, agregação de\nleituras reduz drasticamente espaço/custo (até 86%),\nmantendo cadência adequada para análise operacional.",

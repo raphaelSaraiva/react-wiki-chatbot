@@ -1,7 +1,7 @@
 {
   "id": "t129",
   "table_no": 129,
-  "name": "Consumo de Recursos (Resource Consumption)",
+  "name": "Consumo de Recursos",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
     "subcharacteristic": "Utilização de Recursos"
@@ -23,7 +23,7 @@
     "references": "(1) Kumar, N., Singh, M., & Ahmad, M. (2023).\nT-DSES:\nA Blockchain-powered Trusted Decentralized Service Eco-System.\nIEEE Transactions on Industrial Informatics, 19(9), 10012–10023.\n(2) Liu, Y., Li, Z., Chen, X., & Xu, W. (2022). An Edge Intelligent\nBlockchain-Based Reputation System for IIoT Data Ecosystem.\nIEEE Internet of Things Journal, 9(22), 22143–22154.\n(3) Li, J., Zhang, C., & Zhou, X. (2021). A Blockchain-Based\nApproach Using Proof of Continuous Work. Cluster Computing,\n24(6), 5031–5045.\n(4) Khan, R., et al. (2021). A Blockchain-Enabled Approach for\nEnhancing Synchrophasor Measurement in Smart Grid 3.0. IEEE\nAccess, 9, 16751–16764.\n(5) Agbo, C. C., Mahmoud, Q. H., & Eklund, J. M. (2020).\nBlockchain-Based Electronic Healthcare Record System for Healthcare 4.0 Applications. Computers in Biology and Medicine, 122,\n103882.\n302"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Consumo de Recursos (Resource Consumption)",
+    "Atributo Nome (Título)": "Consumo de Recursos",
     "Palavras-chave / Alias": "Resource Utilization; CPU Usage; Memory Consumption;\nNetwork Load; Energy Cost; Computational Efficiency",
     "Definição do Atributo": "Mede a quantidade de recursos computacionais (CPU,\nmemória, largura de banda e energia) utilizados por\nnós ou dispositivos durante a execução de operações\nna blockchain, como mineração, verificação de blocos,\nexecução de contratos inteligentes e troca de dados. Essa\nmétrica avalia a eficiência e escalabilidade do sistema\nsob diferentes cargas de trabalho.",
     "Objetivo / Motivação": "Avaliar o impacto do consumo de recursos sobre a eficiência e sustentabilidade de sistemas blockchain, espe-\ncialmente em aplicações que exigem alto desempenho e\nrestrições energéticas, como Internet das Coisas (IoT),\nredes veiculares (V2G) e saúde digital.\nModelo\nde\nQualidade\nISO/IEC 25010",

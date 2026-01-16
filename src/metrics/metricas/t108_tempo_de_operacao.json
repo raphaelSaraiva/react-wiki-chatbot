@@ -4,7 +4,7 @@
   "name": "Tempo de Operação",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Tempo de Resposta"
+    "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
     "keywords_alias": "Operation time; Processing time; Execution latency;\nTask completion time; Smart contract execution time",
@@ -28,7 +28,7 @@
     "Definição do Atributo": "Mede o tempo total necessário para a execução de\numa operação ou transação em um sistema blockchain, incluindo as fases de autenticação, validação e\nregistro do bloco. Representa a eficiência temporal de\nprocessamento das operações — quanto menor o tempo,\nmais responsivo é o sistema.",
     "Objetivo / Motivação": "Quantificar a eficiência computacional e o tempo de\nresposta de operações executadas sobre um esquema\nblockchain em aplicações de IoT verde (Green IoT). O\ntempo de operação é um indicador direto da capacidade\ndo sistema de atender a requisitos de baixa latência e\neficiência energética.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Tempo de Resposta",
+    "Sub-característica": "Comportamento Temporal",
     "Equação": "O tempo médio de operação (Top) pode ser expresso\ncomo:\nTop =\nPn\ni=1(tfim,i −tini,i)\nn\nonde tini,i e tfim,i representam, respectivamente, o instante de início e término da operação i, e n o número\ntotal de operações observadas.\nMétricas\nAssociadas\nTempo de Execução de Transação; Latência de Confirmação; Throughput; Consumo de Energia; Tempo de\nComunicação\nAtributo\nRelacionado\nEficiência Energética; Escalabilidade; Latência de Rede;\nDesempenho de Execução",
     "Protocolo": "1) Implementar o esquema BENIGREEN em ambiente\nde simulação (Matlab).\n2) Executar operações de autenticação e transmissão de\ndados em diferentes tamanhos de rede.\n3) Registrar os tempos de início e fim de cada operação.\n4) Calcular o tempo médio de operação (Top) e comparar com protocolos de referência (ex.: ECC, blockchain\nconvencional).\n5) Analisar a variação de Top conforme o número de nós\ne o volume de transações.\n259",
     "Comentário": "No estudo, o BENIGREEN reduziu significativamente o\ntempo de operação em comparação com abordagens tradicionais baseadas em ECC e blockchain padrão. Essa\nmelhoria é atribuída ao uso de autenticação leve, estrutura eficiente de blocos e otimização no processo de\nvalidação. O menor tempo de operação contribui para\neconomia de energia e maior responsividade em aplicações IoT.\nInterpretação\ndo\nValor Medido\nValores baixos de Top indicam maior eficiência temporal e melhor desempenho do sistema. Valores altos\nsugerem gargalos no processamento, latência elevada ou\nsobrecarga de comunicação.",

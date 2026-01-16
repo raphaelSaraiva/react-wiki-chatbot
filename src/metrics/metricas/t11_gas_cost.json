@@ -1,10 +1,10 @@
 {
   "id": "t11",
   "table_no": 11,
-  "name": "Gas Cost",
+  "name": "Custo de Gás",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Utilização de Recursos (computacionais/on-chain)"
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "equation": "GasUsed = P gas(opcodei)+overheadsmem/sto−refunds.\nTransaction fee (fora do escopo do atributo, mas útil\npara conversão): fee = gasUsed × gasPrice.\nMétricas\nAssociadas\nTempo de execução; Throughput (TPS); Latência;\nTamanho do bloco/gasLimit; Custo de transação (em\nmoeda); Tamanho do ledger.\nAtributo\nRelacionado\nThroughput/TPS (afetado por gasLimit e TGS);\nLatência; Limite de gas por bloco.",
@@ -20,7 +20,7 @@
   },
   "raw_fields": {
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos (computacionais/on-chain)",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "GasUsed = P gas(opcodei)+overheadsmem/sto−refunds.\nTransaction fee (fora do escopo do atributo, mas útil\npara conversão): fee = gasUsed × gasPrice.\nMétricas\nAssociadas\nTempo de execução; Throughput (TPS); Latência;\nTamanho do bloco/gasLimit; Custo de transação (em\nmoeda); Tamanho do ledger.\nAtributo\nRelacionado\nThroughput/TPS (afetado por gasLimit e TGS);\nLatência; Limite de gas por bloco.",
     "Protocolo": "1) Definir escopo (funções e cenários) e rede\n(privada/consórcio PoA, testnet ou mainnet);\n2) Implantar/Executar contratos (Remix/Web3) e\ncoletar gasUsed no recibo;\n3) Repetir N vezes e reportar p50/p95;\n4) Controlar variáveis: estado idêntico, gasLimit e\nblock-time;\n5) Comparar ambientes: Ropsten vs. mainnet (gas\npor função tende a ser constante; depende do tamanho\ndos parâmetros).\n31",
     "Comentário": "(i) Entrada/armazenamento pesados elevam gas\n(SSTORE, parâmetros grandes);\n(ii) Crescimento linear do gas com estruturas de\ndados percorridas (arrays) e número de participantes;\n(iii) Para workloads massivos (p.ex., relatório de spam),\nagregação/bulk reduz transações; PoS e\ncamadas/sidechains ajudam a reduzir custo; IPFS\npode guardar dados e a cadeia manter apenas hashes.",

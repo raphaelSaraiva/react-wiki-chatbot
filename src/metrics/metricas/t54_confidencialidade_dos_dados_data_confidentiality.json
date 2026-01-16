@@ -1,7 +1,7 @@
 {
   "id": "t54",
   "table_no": 54,
-  "name": "Confidencialidade dos Dados (Data Confidentiality)",
+  "name": "Confidencialidade dos Dados",
   "iso25010": {
     "characteristic": "Segurança",
     "subcharacteristic": "Confidencialidade"
@@ -22,7 +22,7 @@
     "beneficiaries": "Pesquisadores(as) em blockchain e IoT; Engenheiros(as)\nde segurança; Desenvolvedores(as) de aplicações descentralizadas; Gestores(as) de privacidade e conformidade.\nReferência\nA. K. Bashir, M. Alazab, et al. Securing Data Exchange in the\nConvergence of Metaverse and IoT Applications. IEEE Internet of\nThings Journal, vol. 11, no. 3, pp. 5678–5692, 2024.\n140"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Confidencialidade dos Dados (Data Confidentiality)",
+    "Atributo Nome (Título)": "Confidencialidade dos Dados",
     "Palavras-chave / Alias": "Data confidentiality; data privacy; information protection; encryption strength; secure data exchange",
     "Definição do Atributo": "Mede o nível de proteção dos dados contra acesso\nnão autorizado durante sua transmissão e armazenamento em redes blockchain integradas a aplicações de\nInternet das Coisas (IoT) e Metaverso. A confidencialidade é assegurada por mecanismos de criptografia e\nautenticação que impedem que entidades não autorizadas\nleiam ou modifiquem informações sensíveis.",
     "Objetivo / Motivação": "Avaliar a eficácia das técnicas criptográficas e do\nconsenso blockchain em proteger dados pessoais e\nsensíveis contra ataques e vazamentos. Essa métrica é\nessencial em cenários onde a privacidade e integridade\nde dados sensoriais e interações do metaverso precisam\nser mantidas.\nModelo\nde\nQualidade\nISO/IEC 25010",

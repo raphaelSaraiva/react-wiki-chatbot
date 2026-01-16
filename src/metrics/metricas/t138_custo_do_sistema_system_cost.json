@@ -1,10 +1,10 @@
 {
   "id": "t138",
   "table_no": 138,
-  "name": "Custo do Sistema (System Cost)",
+  "name": "Custo do Sistema",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Utilização de Recursos / Comportamento Temporal"
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "keywords_alias": "System cost; Transaction fee; Gas consumption; Contract\nexecution cost; Economic efficiency",
@@ -23,12 +23,12 @@
     "references": "Tang, Z.; Pan, T.; Han, Y.; Shen, T.; Xu, L.; Xu, D. SmartMeasurer: A Secure and Automated Bandwidth Measurement for Tor\nwith Smart Contract. Mathematics, 11(19), 4105, 2023.\n320"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Custo do Sistema (System Cost)",
+    "Atributo Nome (Título)": "Custo do Sistema",
     "Palavras-chave / Alias": "System cost; Transaction fee; Gas consumption; Contract\nexecution cost; Economic efficiency",
     "Definição do Atributo": "Mede o custo total de operação e execução de um sistema\nblockchain, incluindo o custo de implantação, chamadas\nde funções, armazenamento e transações periódicas em\ncontratos inteligentes. Essa métrica quantifica o impacto\neconômico das operações em termos de taxa de gas e\ncusto monetário associado à execução no ambiente blockchain.",
     "Objetivo / Motivação": "Avaliar a viabilidade econômica e a eficiência de um sistema blockchain, considerando os custos operacionais\n(gas, transações e manutenção). A métrica permite comparar diferentes arquiteturas quanto à escalabilidade e\nsustentabilidade financeira em aplicações descentralizadas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos / Comportamento Temporal",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "Csistema =\nn\nX\ni=1\n(Gi × Pgas) + Ctransação\nonde Gi representa o consumo de gas da operação i, Pgas\né o preço médio do gas, e Ctransação é o custo adicional de transações externas (por exemplo, chamadas e\narmazenamento).\nMétricas\nAssociadas\nGas Used; Transaction Fee; Execution Time; Throughput; Operational Cost\nAtributo\nRelacionado\nCusto Computacional; Eficiência Econômica; Taxa de\nConsumo de Recursos",
     "Protocolo": "1) Implantar o contrato inteligente no ambiente de teste\n(ex.: Ethereum ou Polygon).\n2) Medir o custo de cada operação: implantação, registro,\nmedição, atualização e chamadas recorrentes.\n3) Calcular o total de gas consumido (Gi) e converter\npara moeda fiduciária (USD/ETH) conforme o preço do\ngas no momento da medição.\n4) Repetir o processo em diferentes cenários (tamanhos\nde entrada, frequência de execução).\n5) Comparar o custo médio com sistemas equivalentes\n(ex.: SmarTor) para avaliar ganhos econômicos.\n319",
     "Comentário": "O custo do sistema é um dos principais indicadores de\nviabilidade de aplicações blockchain. No artigo SmartMeasurer, o custo total das operações foi significativamente\nmenor em relação a soluções anteriores, mantendo a segurança e automação do processo de medição de largura\nde banda na rede Tor. Isso demonstra que a arquitetura\notimizada reduz o consumo de gas e melhora a eficiência\nfinanceira do contrato.\nInterpretação\ndo\nValor Medido\nValores menores indicam sistemas mais eficientes e economicamente sustentáveis.\nValores elevados sugerem\nnecessidade de otimização na lógica do contrato ou no\nmodelo de execução.",

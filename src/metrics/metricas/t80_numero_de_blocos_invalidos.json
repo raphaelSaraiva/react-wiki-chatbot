@@ -4,7 +4,7 @@
   "name": "Número de Blocos Inválidos",
   "iso25010": {
     "characteristic": "Confiabilidade",
-    "subcharacteristic": "Tolerância a falhas / integridade"
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Invalid block number; Invalid block rate; Forked blocks;\nSelfish mining; Stale blocks; Fork rate",

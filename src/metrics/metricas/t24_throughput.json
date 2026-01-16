@@ -1,9 +1,9 @@
 {
   "id": "t24",
   "table_no": 24,
-  "name": "Throughput",
+  "name": "Vazão",
   "iso25010": {
-    "characteristic": "Desempenho",
+    "characteristic": "Eficiência de Desempenho",
     "subcharacteristic": "Capacidade"
   },
   "fields": {
@@ -19,7 +19,7 @@
     "references": "Abdella et al. (2021), Architecture and Performance\nEvaluation of Blockchain-Based P2P Energy Trading\n(avalia read/write throughput comparando IBFT, PoW e\nRaft).\nKhezr et al. (2022), Edge-Intelligent Blockchain-Based\nReputation System for IIoT (mede transaction\nthroughput junto a latência e consumo de recursos).\nLiu et al. (2020), B4SDC: A Blockchain System for\nSecurity Data Collection in MANETs (simulações com\nfoco em eficiência e alta vazão sob PoS adaptado).\nGoyat et al. (2023), BENIGREEN: Blockchain-Based\nEnergy-Efficient Privacy-Preserving Scheme for Green\nIoT (experimentos reportam throughput e tempo de\noperação).\nChavhan et al. (2023), Edge-Enabled Blockchain-Based\nV2X Scheme (simula throughput, delay e jitter em ITS).\nZhang et al. (2022), How Much Communication\nResource is Needed to Run a Wireless Blockchain\nNetwork? (discute relação recurso de\ncomunicação–throughput/latência para PoW, PBFT e\nRaft).\nGonçalves et al. (2020), A Quality of Service\nCompliance System (throughput como parte de QoS e\nSLAs).\n67"
   },
   "raw_fields": {
-    "Característica": "Desempenho",
+    "Característica": "Eficiência de Desempenho",
     "Sub-característica": "Capacidade",
     "Equação": "Throughput = Ntransações confirmadas\n∆t\nMétricas\nAssociadas\nLatência; Taxa de falhas (fail rate); Utilização de banda;\nTaxa de reorg; Tamanho de bloco; Tempo médio de\nbloco.\nAtributo\nRelacionado\nEficiência no uso de recursos; Escalabilidade da rede;\nConfiabilidade de confirmação.",
     "Protocolo": "1. Definir o intervalo de observação (∆t) e o critério de\nconfirmação (inclusão em bloco, k confirmações ou\nfinality gadget).\n2. Gerar carga controlada (taxa de requisições) e\nregistrar transações confirmadas dentro de ∆t.\n3. Calcular TPS = N/∆t e reportar estatísticas (média,\ndesvio, picos).\n4. Documentar condições: consenso\n(PoW/PoS/PBFT/IBFT/Raft), número de nós, largura\nde banda, latência de rede, limites de bloco/mempool.",

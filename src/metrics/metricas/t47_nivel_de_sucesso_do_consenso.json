@@ -1,10 +1,10 @@
 {
   "id": "t47",
   "table_no": 47,
-  "name": "Nível de Sucesso do Consenso",
+  "name": "Taxa de Sucesso do Consenso",
   "iso25010": {
     "characteristic": "Confiabilidade",
-    "subcharacteristic": "Maturidade / Disponibilidade do Serviço"
+    "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
     "keywords_alias": "Consensus Success Rate; PBFT; RAFT; Wireless Blockchain; mmWave; THz; Reliability Gain",
@@ -22,12 +22,12 @@
     "beneficiaries": "Engenheiros(as) de redes; Pesquisadores(as) em blockchain e 6G; Arquitetos(as) de sistemas distribuídos; Es-\npecialistas em IoT.\nReferência\nLuo, Haoxiang; Yang, Xiangyue; Yu, Hongfang; Sun, Gang; Lei,\nBo; Guizani, Mohsen. Performance Analysis and Comparison of\nNonideal Wireless PBFT and RAFT Consensus Networks in 6G\nCommunications. IEEE Internet of Things Journal, vol. 11, no. 6,\n2024, pp. 9752–9765.\n126"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Nível de Sucesso do Consenso",
+    "Atributo Nome (Título)": "Taxa de Sucesso do Consenso",
     "Palavras-chave / Alias": "Consensus Success Rate; PBFT; RAFT; Wireless Blockchain; mmWave; THz; Reliability Gain",
     "Definição do Atributo": "Probabilidade de o processo de consenso em uma rede\nblockchain alcançar um acordo válido entre os nós participantes. Mede a proporção de rodadas de consenso\nque resultam em sucesso, considerando perdas de comunicação, falhas de nós e condições de canal em redes sem\nfio.",
     "Objetivo / Motivação": "Avaliar a capacidade de uma rede blockchain em ambientes sem fio (como 6G, IoT ou IIoT) de atingir consenso\nsob diferentes condições físicas de comunicação (atenuação, interferência, distância). Essa métrica é essencial\npara entender a confiabilidade e robustez de mecanismos de consenso como PBFT e RAFT em cenários de\ncomunicação não ideais.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Confiabilidade",
-    "Sub-característica": "Maturidade / Disponibilidade do Serviço",
+    "Sub-característica": "Tolerância a Falhas",
     "Equação": "A taxa média de sucesso do consenso Pc pode ser expressa\ncomo o produto das probabilidades de sucesso em cada\nfase do protocolo:\nPara PBFT:\nPc = Ppreprepare × Pprepare × Pcommit × Preply\nCada termo é definido por:\nPfase =\nb\nX\ni=0\n n −1\ni\n!\n(1 −Ps)iP (n−1−i)\ns\nonde Ps é a probabilidade média de sucesso de transmissão entre nós.\nMétricas\nAssociadas\nLatência; Throughput; Ganho de Confiabilidade (Reliability Gain); Consumo de Energia; Distância Ativa; Taxa\nde Erro de Bits (BER).\nAtributo\nRelacionado\nRobustez de Consenso; Disponibilidade de Rede; Sucesso\nde Transmissão; Tolerância a Falhas.\n125",
     "Protocolo": "1) Definir o tipo de consenso (PBFT, RAFT) e o número\nde nós n.\n2) Configurar os parâmetros de canal: potência de transmissão, perda de percurso (α), ruído (PN), interferência\n(PI) e limiar SINR (z).\n3) Calcular Ps com base no modelo de canal (Rayleigh\nFading e Free Space Path Loss).\n4) Aplicar as equações de probabilidade de sucesso para\ncada fase do consenso.\n5) Realizar simulações variando n, z e a densidade de\nnós γ, registrando a variação da taxa de sucesso.",
     "Comentário": "A métrica reflete diretamente a confiabilidade operacional do consenso em blockchains distribuídas sob condi-\nções de rede adversas. Estudos mostram que sinais THz\napresentam maior taxa de sucesso que mmWave, embora\nmais sensíveis à distância. O aumento da densidade de\nnós e a redução do limiar SINR (z) podem melhorar a\ntaxa de sucesso.\nInterpretação\ndo\nValor Medido\nMaior valor indica maior probabilidade de sucesso do\nconsenso e, portanto, maior confiabilidade da rede. Valores baixos sugerem instabilidade na comunicação entre\nnós ou falhas recorrentes no processo de consenso.",

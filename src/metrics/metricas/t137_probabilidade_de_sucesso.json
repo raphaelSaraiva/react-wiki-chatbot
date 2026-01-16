@@ -4,7 +4,7 @@
   "name": "Probabilidade de Sucesso",
   "iso25010": {
     "characteristic": "Confiabilidade",
-    "subcharacteristic": "Maturidade / Tolerância a falhas"
+    "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
     "keywords_alias": "Transmission success rate; Consensus success probability;\nPBFT success ratio; End-to-end success probability",
@@ -28,7 +28,7 @@
     "Definição do Atributo": "Mede a probabilidade de sucesso na transmissão e validação de uma transação em uma rede blockchain que\nutiliza o protocolo de consenso PBFT em ambiente sem\nfio. Considera fatores como colisões de pacotes, número\nde nós e janela de contenção (contention window).",
     "Objetivo / Motivação": "Avaliar a eficiência de consenso e a confiabilidade de\ntransmissão em redes blockchain sem fio, garantindo que\na quantidade mínima de nós necessários para validar um\nbloco seja alcançada com sucesso.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Confiabilidade",
-    "Sub-característica": "Maturidade / Tolerância a falhas",
+    "Sub-característica": "Tolerância a Falhas",
     "Equação": "Ps = nτ(1 −τ)n−1\n1 −(1 −τ)n , onde Ps representa a probabilidade\nde sucesso da transmissão, τ é a probabilidade de um nó\ntentar transmitir em um slot de tempo e n é o número\ntotal de nós.\nA probabilidade de sucesso de consenso fim-a-fim é obtida\ncombinando as fases “prepare” e “commit” do PBFT:\nPe\n=\nn−1\nX\ni=2f\nn\nX\nm=2f+1\n n\ni\n!\nP i\ns(1 −Ps)n−1−i\n n\nm\n!\nP m\ns (1 −\nPs)n−1−m.\nMétricas\nAssociadas\nTransaction Throughput; Transaction Delay; Reliability;\nConsensus Success Rate\nAtributo\nRelacionado\nTransaction\nConfirmation\nRate;\nFault\nTolerance;\nNetwork Scalability",
     "Protocolo": "1) Simular uma rede PBFT sobre IEEE 802.11 com\nnúmero variável de nós n e janelas de contenção W.\n2) Calcular a probabilidade de transmissão bem-sucedida\nem cada fase (pre-prepare, prepare, commit).\n3) Combinar as fases para estimar a probabilidade total\nde consenso bem-sucedido.\n4) Analisar a sensibilidade em relação à taxa de chegada\nde pacotes (λ) e ao tamanho da janela de contenção (W).\n317",
     "Comentário": "A métrica mostra que o PBFT sem fio tolera colisões\ne perdas até certo ponto, mas sofre queda significativa\nde desempenho à medida que o número de nós aumenta.\nValores de W maiores (como 128) mantêm alta probabilidade de sucesso, enquanto valores menores reduzem\ndrasticamente a escalabilidade e a taxa de sucesso.\nInterpretação\ndo\nValor Medido\nProbabilidades próximas de 1 indicam consenso estável\ne comunicação confiável; valores abaixo de 0,8 indicam\ninstabilidade e risco de falhas no consenso.",

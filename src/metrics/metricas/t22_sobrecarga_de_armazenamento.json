@@ -4,7 +4,7 @@
   "name": "Sobrecarga de Armazenamento",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Utilização de Recursos (armazenamento)"
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "keywords_alias": "Storage overhead; Sobrecarga de storage; Bytes extras\nno ledger; Metadados on-chain; Off-chain (IPFS/Cloud)",
@@ -30,7 +30,7 @@
     "Objetivo / Motivação": "Medir o impacto de design (on-chain vs. off-chain) sobre a capacidade e custo. Trabalhos recentes mostram\nque modelos com blockchain + armazenamento distribuído reduzem significativamente a carga de armazena-\nmento do sistema, mantendo integridade/consulta eficiente. :contentReference[oaicite:2]index=2 :contentRefe-\nrence[oaicite:3]index=3",
     "Nível de Independência do Domínio": "Alto — aplicável a educação, e-Health/IoT, cadeias de\nsuprimento, etc.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos (armazenamento)",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "Overheadabs(P)\n=\n∆Bledger(P) + ∆Boff-chain(P) −\nBpayload(P)\nOverhead%(P) = Overheadabs(P)\nBpayload(P)\n× 100%\nForma por transação: Overhead/tx = Bheader + Bmeta +\nBíndices/estado + Breplic.\nMétricas\nAssociadas\nCusto de Armazenamento; Custo de Operação; Throughput (TPS); Latência de consulta; Tamanho de Bloco;\nTamanho do ledger.\nAtributo\nRelacionado\nConsumo de Recursos (IO/rede/armazenamento); Disponibilidade e integridade de dados (âncoras/hashes).\n60",
     "Protocolo": "1) Escopo & cenários: definir janelas [t0, t1] e cenários\n(on-chain integral vs. híbrido com âncoras).\n2) Coleta on-chain: medir crescimento do ledger e do\nworld state (Fabric: CouchDB/LevelDB) por operação\n(write, update, deploy).\n3)\nColeta\noff-chain:\nmedir\nbytes\nefetivos\nem\nIPFS/Cloud (se houver), incluindo metadados e replicação.\n4)\nCálculo:\nobter\nOverheadabs,\nOverhead%\ne\nOverhead/tx; reportar p50/p95/p99.\n5) Contexto: registrar parâmetros (tamanho/timeout\nde bloco, política de batch, layout de dados) e perfil de\ncarga. :contentReference[oaicite:4]index=4 :contentReference[oaicite:5]index=5",
     "Comentário": "Em avaliações com Hyperledger Fabric para IoT/eHealth e gestão educacional, soluções que mantêm\napenas metadados/âncoras on-chain e dados cifrados\noff-chain mostram redução de storage overhead\ne aumento de throughput em relação a abordagens tradicionais, preservando segurança e auditabili-\ndade. :contentReference[oaicite:6]index=6 :contentReference[oaicite:7]index=7\nInterpretação\ndo\nValor Medido\nMenor é melhor. Reduções de Overhead% indicam\nmelhor eficiência de armazenamento; comparar por cenário e por tipo de operação (deploy, escrita, atuali-\nzação).\nEstudos reportam ganhos relevantes quando\nse migra o payload para off-chain com ancoragem na\nblockchain. :contentReference[oaicite:8]index=8 :contentReference[oaicite:9]index=9",

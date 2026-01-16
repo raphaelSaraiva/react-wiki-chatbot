@@ -4,7 +4,7 @@
   "name": "Anonymity Level",
   "iso25010": {
     "characteristic": "Segurança",
-    "subcharacteristic": "Confidencialidade / Proteção de privacidade"
+    "subcharacteristic": "Confidencialidade"
   },
   "fields": {
     "keywords_alias": "Privacy degree; Unlinkability; Participant indistinguishability; Bidder anonymity; Pseudonym set size",
@@ -28,7 +28,7 @@
     "Definição do Atributo": "Mede o grau de anonimato efetivo de um participante\nem um sistema blockchain, refletindo a dificuldade de\nassociar uma identidade real a uma transação ou ação\nregistrada on-chain. Em sistemas de leilão selado baseados em blockchain, representa o nível de proteção que\nimpede que terceiros ou outros participantes vinculem\num lance a um licitante específico.",
     "Objetivo / Motivação": "Garantir que as transações e interações realizadas em\numa aplicação blockchain, especialmente em leilões eletrônicos ou contratos inteligentes, permaneçam pseudôni-\nmas e não rastreáveis. O anonimato elevado preserva\na integridade e a equidade das negociações, impedindo\nque comportamentos estratégicos ou manipulações de\npreço ocorram com base na identidade dos licitantes.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Segurança",
-    "Sub-característica": "Confidencialidade / Proteção de privacidade",
+    "Sub-característica": "Confidencialidade",
     "Equação": "Pode ser representada por uma medida baseada no tamanho do conjunto de anonimato:\nA = |S0|\nN ,\nonde S0 é o conjunto de identidades indistinguíveis\n(anonymity set) e N o número total de participantes.\nAlternativamente, pode-se utilizar uma formulação baseada em entropia de Shannon:\nH = −\nn\nX\ni=1\npi log2(pi),\nonde pi é a probabilidade de um participante ser identificado. Valores maiores de H indicam anonimato mais\nforte.\nMétricas\nAssociadas\nAnonymity Loss;\nLinkability Index;\nBid Privacy;\nRe-identification Probability; Zero-Knowledge Proof\nStrength\nAtributo\nRelacionado\nConfidencialidade de transação; Privacidade de identidade; Segurança criptográfica; Descentralização\n81",
     "Protocolo": "1) O sistema registra as transações e identidades de forma\npseudônima (endereços ou chaves públicas).\n2) Cada participante gera um compromisso criptográfico de seu lance (Pedersen commitment) e o publica\non-chain.\n3) O smart contract valida o vencedor sem revelar identidades reais, utilizando provas de conhecimento zero (ex.:\nBulletproofs).\n4) Calcula-se o conjunto de identidades indistinguíveis\nS0 com base no grau de visibilidade das transações e\nmetadados.\n5) O valor de anonimato A é derivado de S0 e usado para\ncomparar esquemas de privacidade.",
     "Comentário": "O Anonymity Level avalia a eficácia dos mecanismos\nde anonimato em sistemas blockchain. No contexto de\nleilões selados, combina criptografia de compromisso (Pedersen) com provas de conhecimento zero (Bulletproofs)\npara ocultar o valor dos lances e as identidades dos licitantes. Um alto nível de anonimato impede inferências\na partir de padrões de transação, tempo de submissão e\nendereços utilizados.\nInterpretação\ndo\nValor Medido\nValores altos indicam que muitos participantes são\nindistinguíveis entre si, garantindo forte anonimato e\nprivacidade; valores baixos indicam menor diversidade\nou possíveis correlações entre identidades e atividades,\nexpondo risco de desanonimização.",

@@ -4,7 +4,7 @@
   "name": "Nível de Descentralização",
   "iso25010": {
     "characteristic": "Segurança",
-    "subcharacteristic": "Confiabilidade / Integridade"
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Decentralization; Grau de descentralização; Distribuição\nde nós; Poder de consenso; Concentração de mineração;\nEquidade de participação",
@@ -28,7 +28,7 @@
     "Definição do Atributo": "Mede o grau em que o controle, a validação e a\nmanutenção da blockchain são distribuídos entre múltiplos participantes independentes, sem\ndependência de uma autoridade central.\nO nível de\ndescentralização avalia a dispersão de poder entre mineradores, validadores e nós, refletindo a resistência do\nsistema contra censura, manipulação e colusão.",
     "Objetivo / Motivação": "Quantificar a independência e a resiliência da rede\nblockchain. Um sistema mais descentralizado reduz a\nprobabilidade de ataques de controle (ex.: 51%) e aumenta a transparência. No contexto de leilões eletrônicos\ncom contratos inteligentes e provas de conhecimento zero,\na descentralização garante que nenhuma entidade isolada\npossa manipular resultados ou interceptar informações\nsensíveis.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Segurança",
-    "Sub-característica": "Confiabilidade / Integridade",
+    "Sub-característica": "Integridade",
     "Equação": "D = 1 −\nn\nX\ni=1\n(pi)2,\nonde pi é a proporção de poder de consenso (ou recursos\nde mineração/validação) detida pelo participante i.\nValores próximos de 1 indicam alta descentralização;\nvalores próximos de 0 indicam forte centralização.\nMétricas\nAssociadas\nNúmero de nós ativos; Distribuição de poder de hash;\nDiversidade de validadores; Tempo médio entre blocos;\nProbabilidade de ponto único de falha\nAtributo\nRelacionado\nSegurança do consenso; Equidade; Escalabilidade; Governança distribuída",
     "Protocolo": "1) Identificar todos os participantes que contribuem para\no consenso (mineradores, validadores, nós).\n2) Determinar a proporção pi de poder computacional,\nstake ou autoridade de cada participante.\n3) Calcular D = 1 −P(pi)2.\n4) Comparar o valor obtido com limiares de referência\n(ex.: D > 0.8 indica alta descentralização).\n149",
     "Comentário": "O artigo destaca que a descentralização é essencial para\ngarantir a imparcialidade e a segurança em sistemas de\nleilão eletrônico baseados em blockchain. Em tais ambientes, cada nó participante desempenha papel autônomo\nna verificação das transações e execução dos contratos\ninteligentes. A centralização excessiva comprometeria a\ntransparência do processo e poderia violar o anonimato\ngarantido pelas provas de conhecimento zero.\nInterpretação\ndo\nValor Medido\nValores altos (próximos de 1) indicam ampla distribuição de poder e segurança contra manipulações. Valores\nbaixos (próximos de 0) sugerem concentração de poder\ne risco de colusão.",

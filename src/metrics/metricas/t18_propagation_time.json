@@ -1,10 +1,10 @@
 {
   "id": "t18",
   "table_no": 18,
-  "name": "Propagation Time",
+  "name": "Tempo de Propagação",
   "iso25010": {
-    "characteristic": "Desempenho",
-    "subcharacteristic": "Comportamento temporal (disseminação)"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
     "equation": "Média/percentis gerais:\nT prop = 1\nN\nN\nX\ni=1\n(T (i)\nchegada −Torigem);\nTprop(p) = inf{t | f(t) ≥p}.\nRelação com fork rate e intervalo de bloco (tb) via f(t):\ntb =\n1\n1 −(1 −Pfork)\n1\nR ∞\n0\n(1−f(t)) dt\n. (Ajusta-se tb a partir do\ntempo de propagação alvo para manter Pfork dentro do\nlimite.)\nMétricas\nAssociadas\nFork rate / blocos órfãos (stale); Block time; Block size;\nTPS; Número de blocos perdidos (NBL); RTT/largura\nde banda; Grau/vizinhança (topologia).\nAtributo\nRelacionado\nLatência de confirmação; Disponibilidade;\nConfiabilidade da confirmação; Parâmetros de consenso\ne políticas de seleção de vizinhos.\n48",
@@ -19,8 +19,8 @@
     "references": "(1) Arakawa & Shudo — Block Interval Adjustment Based on Block\nPropagation Time in a Blockchain: método de ajuste de tb a partir\nde f(t)/tempo de propagação e relação com fork rate.\n(2) Jiang & Wu — Taming Propagation Delay and Fork Rate in\nBitcoin Mining Network: otimização de topologia (RNS) e correlação entre propagação e forks.\n(3) Alshihri & Park — A Decentralized Lightweight Blockchain Nodes Architecture Based on a Secure OpenFlow Protocol Controller\nChannel: simulações com SDN/OpenFlow mostrando redução do\ntempo de propagação (mediano).\n(4) Javed et al. — Health-ID: consórcio Ethereum; mede block\npropagation time e ajusta block-time/gas-limit/seladores para desempenho ótimo.\n50"
   },
   "raw_fields": {
-    "Característica": "Desempenho",
-    "Sub-característica": "Comportamento temporal (disseminação)",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Comportamento Temporal",
     "Equação": "Média/percentis gerais:\nT prop = 1\nN\nN\nX\ni=1\n(T (i)\nchegada −Torigem);\nTprop(p) = inf{t | f(t) ≥p}.\nRelação com fork rate e intervalo de bloco (tb) via f(t):\ntb =\n1\n1 −(1 −Pfork)\n1\nR ∞\n0\n(1−f(t)) dt\n. (Ajusta-se tb a partir do\ntempo de propagação alvo para manter Pfork dentro do\nlimite.)\nMétricas\nAssociadas\nFork rate / blocos órfãos (stale); Block time; Block size;\nTPS; Número de blocos perdidos (NBL); RTT/largura\nde banda; Grau/vizinhança (topologia).\nAtributo\nRelacionado\nLatência de confirmação; Disponibilidade;\nConfiabilidade da confirmação; Parâmetros de consenso\ne políticas de seleção de vizinhos.\n48",
     "Protocolo": "1) Escopo: medir blocos (ou transações) e definir alvo\nde cobertura (p50/p90/p99).\n2) Sincronização: usar NTP/GPS ou sincronização\nBFT entre nós para carimbar Torigem e T (i)\nchegada com\nrelógio comum.\n3) Coleta: instrumentar clientes/peers para logar o\ninstante de recepção por bloco e construir f(t); em\nconsórcios, registrar também block-time, gas-limit e #\nde seladores.\n4) Análise: calcular T prop, Tprop(p) e\nR ∞\n0 (1 −f(t))dt;\ncorrelacionar com fork rate/NBL.\n5) Topologia: testar otimizações (p.ex., seleção de\nvizinhos por capacidade de propagação) e comparar\nmedianas (center value) antes/depois.",
     "Comentário": "(i) Atrasos de propagação e intervalo de bloco\ndeterminam a taxa de forks; encurtar o intervalo sem\nreduzir propagação eleva forks. Método baseado em f(t)\najusta dinamicamente tb mantendo o alvo de Pfork. (ii)\nOtimização autônoma de vizinhos (RNS) reduz tempo\nde propagação e, por consequência, forks. (iii)\nArquiteturas com SDN/OpenFlow e controle de rotas\nmostram redução do tempo de propagação (mediano)\nem simulações de larga escala. (iv) Em consórcios,\nautores medem block propagation time e ajustam\nblock-time/gas-limit/seladores para atingir melhor TPS\ncom baixa perda de blocos.",

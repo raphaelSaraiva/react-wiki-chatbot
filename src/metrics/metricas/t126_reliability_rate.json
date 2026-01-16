@@ -1,10 +1,10 @@
 {
   "id": "t126",
   "table_no": 126,
-  "name": "Reliability Rate",
+  "name": "Taxa de Confiabilidade",
   "iso25010": {
     "characteristic": "Confiabilidade",
-    "subcharacteristic": "Maturidade / Tolerância a Falhas"
+    "subcharacteristic": "Disponibilidade"
   },
   "fields": {
     "keywords_alias": "Reliability; Reliability Rate; System Dependability;\nBlockchain Reliability; Task Completion Ratio",
@@ -23,7 +23,7 @@
     "references": "Javed, M., Rehman, S. U., & Hassan, S. (2023). Decentralized\nBlockchain-Based and Trust-Aware Task Offloading Strategy for\nHealthcare IoT. IEEE Access, 11, 39821–39836.\n296"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Reliability Rate",
+    "Atributo Nome (Título)": "Taxa de Confiabilidade",
     "Palavras-chave / Alias": "Reliability; Reliability Rate; System Dependability;\nBlockchain Reliability; Task Completion Ratio",
     "Definição do Atributo": "Mede a capacidade de um sistema blockchain de executar\ntarefas ou transações corretamente sem falhas, avaliando\na proporção de operações bem-sucedidas em relação ao\ntotal de operações solicitadas. Reflete a estabilidade e a\nrobustez do sistema sob diferentes condições de carga ou\nfalha de nós.",
     "Objetivo / Motivação": "Quantificar o grau de confiança e consistência de um\nsistema blockchain distribuído, especialmente em aplicações de IoT e saúde, onde falhas de execução podem\ncomprometer a integridade dos dados e a continuidade\ndo serviço.\nModelo\nde\nQualidade\nISO/IEC 25010",

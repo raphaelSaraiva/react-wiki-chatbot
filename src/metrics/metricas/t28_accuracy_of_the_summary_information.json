@@ -1,10 +1,10 @@
 {
   "id": "t28",
   "table_no": 28,
-  "name": "Accuracy of the Summary Information",
+  "name": "Acurácia das informações de resumo",
   "iso25010": {
-    "characteristic": "Segurança / Confiabilidade",
-    "subcharacteristic": "Integridade da informação / Precisão da representação"
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Acurácia Funcional"
   },
   "fields": {
     "keywords_alias": "Summary accuracy; Blockchain metadata accuracy;\nSmart contract data integrity; Matching reliability; Onchain data descriptor precision",
@@ -23,12 +23,12 @@
     "references": "Hu, D., Li, Y., Pan, L., Li, M., Zheng, S. A Blockchain-based\nTrading System for Big Data. Computer Networks, 191 (2021)\n107994 — define EUID(1)\ni\ncomo métrica para avaliar a precisão das\ninformações de sumário registradas em blockchain, determinando\na qualidade das negociações de dados e a reputação dos provedores\nno sistema DataTBC.\n77"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Accuracy of the Summary Information",
+    "Atributo Nome (Título)": "Acurácia das informações de resumo",
     "Palavras-chave / Alias": "Summary accuracy; Blockchain metadata accuracy;\nSmart contract data integrity; Matching reliability; Onchain data descriptor precision",
     "Definição do Atributo": "Mede a precisão dos metadados registrados em\nblockchain em relação ao conteúdo real dos dados armazenados off-chain. Indica o grau de correspondência\nentre o resumo das informações (data summary) inserido\nna Data Summary Chain (DSC) e o conjunto de dados\nefetivamente disponibilizado pelo provedor, verificável\npor meio de funções de hash e validações criptográficas.",
     "Objetivo / Motivação": "Garantir a veracidade das informações on-chain\nutilizadas em negociações de dados, promovendo confiança entre provedores e consumidores em ecossistemas\ndescentralizados. Essa métrica busca assegurar que o\nsumário armazenado em blockchain represente fielmente\no conteúdo real, prevenindo fraudes, discrepâncias ou metadados enganosos que possam comprometer contratos\ninteligentes e o processo de data trading.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Segurança / Confiabilidade",
-    "Sub-característica": "Integridade da informação / Precisão da representação",
+    "Característica": "Adequação Funcional",
+    "Sub-característica": "Acurácia Funcional",
     "Equação": "A métrica é representada por um valor escalar normalizado:\nEUID(1)\ni\n∈[0, 1].\nUm valor EUID(1)\ni\n= 1 indica total correspondência entre o resumo registrado no blockchain (hash, atributos,\ntipo e volume de dados) e o conjunto de dados real, enquanto valores próximos de 0 refletem inconsistências ou\nmetadados imprecisos.\nMétricas\nAssociadas\nQuality of Valid Data Features (EUID(2)\ni ); Data Application Performance Quality (EUID(3)\ni ); Data Provenance\nAccuracy; Hash Integrity Rate\nAtributo\nRelacionado\nIntegridade criptográfica; Confiabilidade dos metadados;\nVeracidade das transações on-chain; Consistência entre\ncadeias (summary chain e evaluation chain)\n75",
     "Protocolo": "1) O provedor registra no blockchain um data summary\ncontendo tipo, formato, quantidade e hash do conjunto\nde dados.\n2) Durante a negociação, o smart contract utiliza essas\ninformações para o processo de correspondência (data\nmatching).\n3) Após o consumo, o requisitante avalia a precisão entre\no sumário e o conjunto de dados real.\n4) O resultado da avaliação é convertido em uma pontuação EUID(1)\ni\ne armazenado na Evaluation Chain (EC)\npara compor o histórico de reputação do provedor.",
     "Comentário": "Em sistemas de comércio de dados baseados em blockchain, o conteúdo completo dos dados é mantido fora\nda cadeia, enquanto apenas o resumo e o hash são registrados on-chain. Assim, a Accuracy of the Summary\nInformation atua como um indicador essencial da integridade e transparência das representações on-\nchain, garantindo que as operações de troca de dados e\nrecompensas reflitam informações legítimas e verificáveis.\nInterpretação\ndo\nValor Medido\nValores mais altos (próximos de 1) indicam metadados\nprecisos e alta confiança no provedor; valores baixos\nsugerem inconsistências, podendo resultar em perda de\nreputação ou penalidades automáticas em contratos inteligentes.",

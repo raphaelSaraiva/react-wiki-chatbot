@@ -1,10 +1,10 @@
 {
   "id": "t20",
   "table_no": 20,
-  "name": "Response Time",
+  "name": "Tempo de Resposta",
   "iso25010": {
-    "characteristic": "Desempenho",
-    "subcharacteristic": "Tempo de Resposta"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
     "equation": "ResponseTime = Tresposta −Trequisição.\nPercentis: px = inf{t | F(t) ≥x/100} para\nx ∈{50, 95, 99}.\nMétricas\nAssociadas\nThroughput (TPS); Latência/Confirmação; Tamanho do\nBloco; Tempo de Bloco; Jitter; Taxa de falhas/timeout.\nParâmetros de corte de bloco (p.ex., “máx. 100 tx /\nespera 2s”) afetam diretamente tempos de transação.\nAtributo\nRelacionado\nTransaction per Second (TPS); Block Time; Block Size;\nAvailability\n54",
@@ -19,8 +19,8 @@
     "references": "(1) X. Wu et al. T-DSES: A Blockchain-powered Trusted Decentralized Service Eco-System — arquitetura, experimento em nuvem e\nanálise de tempo de resposta para query/transaction.\n(2) P. S. Rani; S. B. Priya. A blockchain-based approach using\nproof of continuous work — métrica “response time” e comparação\ncom baselines em diferentes escalas de instituições.\n(3) A. V. Jha et al. A Blockchain-Enabled Approach for Enhancing Synchrophasor Measurement in Smart Grid 3.0 — contexto\nde operação em tempo real e necessidades de comunicação eficiente/segura.\n56"
   },
   "raw_fields": {
-    "Característica": "Desempenho",
-    "Sub-característica": "Tempo de Resposta",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Comportamento Temporal",
     "Equação": "ResponseTime = Tresposta −Trequisição.\nPercentis: px = inf{t | F(t) ≥x/100} para\nx ∈{50, 95, 99}.\nMétricas\nAssociadas\nThroughput (TPS); Latência/Confirmação; Tamanho do\nBloco; Tempo de Bloco; Jitter; Taxa de falhas/timeout.\nParâmetros de corte de bloco (p.ex., “máx. 100 tx /\nespera 2s”) afetam diretamente tempos de transação.\nAtributo\nRelacionado\nTransaction per Second (TPS); Block Time; Block Size;\nAvailability\n54",
     "Protocolo": "1) Definir cenário e operação-alvo: query vs transaction.\n2) Instrumentar o cliente para registrar Trequisição e\nTresposta por requisição.\n3) Variar concorrência e tamanho de dados (quando\naplicável) e coletar distribuição (p50/p95/p99).\n4) Em DLT, registrar parâmetros de bloco\n(tamanho/timeout) e consenso; correlacionar com\ntempos medidos.\n5) Em estudos comparativos, avaliar evolução do tempo\nde resposta com o número de entidades (ex.:\n“instituições virtuais”).",
     "Comentário": "Em T-DSES, queries apresentaram tempos médios\n∼523–1031 ms conforme dados/concorrência;\ntransactions têm tempo significativamente maior por\nincluir execução/ordenação/empacotamento e mostram\n“ponto de inflexão” quando o limite de 100 tx por bloco\nelimina a espera de 2s. Em PoCW-BC-SSED, o tempo\nde resposta reduziu 23–36% vs baselines conforme o nº\nde instituições. Em SCS de sincrofasores, a exigência de\noperação em tempo real reforça priorizar percentis\nelevados e minimizar atrasos adicionais do uso de\nblockchain.",

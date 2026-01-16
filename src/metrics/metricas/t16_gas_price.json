@@ -1,10 +1,10 @@
 {
   "id": "t16",
   "table_no": 16,
-  "name": "Gas price",
+  "name": "Preço do Gás",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Utilização de recursos / custos de execução"
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "keywords_alias": "Gas price; Base fee; Priority fee (gorjeta); Max fee; EIP1559; Gwei",
@@ -23,7 +23,7 @@
     "references": "(1) Ali, Vecchio, Antonelli. A Blockchain-Based Framework for\nIoT Data Monetization Services — taxas de transação em dApps,\nintegração com IPFS e mecanismos de mercado/DoS. :contentReference[oaicite:11]index=11\n(2) Takegawa, Furuichi. Traceability Management System Using\nBlockchain Technology and Cost Estimation in the Metrology Field\n— equação gas = gas_price×gas_usage, componentes do gas price\n(EIP-1559) e análise de custo.\n44"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Gas price",
+    "Atributo Nome (Título)": "Preço do Gás",
     "Palavras-chave / Alias": "Gas price; Base fee; Priority fee (gorjeta); Max fee; EIP1559; Gwei",
     "Definição do Atributo": "Quantia paga por unidade de gas para priorizar a inclusão/execução de uma transação/contrato em uma rede\n(ex.: Ethereum). Desde o EIP-1559, o preço efetivo é\ncomposto por base fee dinâmica (queima) + priority\nfee (gorjeta ao validador), limitada por max fee.",
     "Objetivo / Motivação": "Quantificar e controlar o custo necessário para atingir\no tempo de confirmação desejado (trade-off custo vs latência) e estimar o impacto econômico de operações\non-chain. Em arquiteturas de monetização de dados IoT,\nas taxas de transação regulam abuso/DoS e viabilizam\ncontratos de mercado.\nModelo\nde\nQualidade\nISO/IEC 25010",

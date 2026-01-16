@@ -1,7 +1,7 @@
 {
   "id": "t120",
   "table_no": 120,
-  "name": "Taxa de Vazamento de Chaves Privadas (Private Key",
+  "name": "Taxa de Vazamento de Chave Privada",
   "iso25010": {
     "characteristic": "Segurança",
     "subcharacteristic": "Confidencialidade"
@@ -23,7 +23,7 @@
     "references": "Kappos, G., Yousaf, H., & Meiklejohn, S. (2021). Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosys-\ntems. IEEE Symposium on Security and Privacy.\n284"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Taxa de Vazamento de Chaves Privadas (Private Key\nLeakage Rate)",
+    "Atributo Nome (Título)": "Taxa de Vazamento de Chave Privada",
     "Palavras-chave / Alias": "Key Compromise; Key Exposure; Custodial Wallet Breach; Centralized Key Storage; Private Key Loss",
     "Definição do Atributo": "Mede a frequência com que chaves privadas são expostas\nou comprometidas em sistemas blockchain. Essa métrica\nreflete a vulnerabilidade de carteiras, exchanges e serviços de custódia a falhas de segurança centralizadas ou\nataques direcionados.",
     "Objetivo / Motivação": "Quantificar o risco de vazamento de chaves privadas em\necossistemas blockchain que dependem de componentes\ncentralizados, auxiliando na identificação de provedores\ncom maiores riscos de comprometimento.\nModelo\nde\nQualidade\nISO/IEC 25010",

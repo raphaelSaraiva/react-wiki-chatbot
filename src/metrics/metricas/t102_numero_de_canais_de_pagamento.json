@@ -4,7 +4,7 @@
   "name": "Número de Canais de Pagamento",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Capacidade e Utilização de Recursos"
+    "subcharacteristic": "Capacidade"
   },
   "fields": {
     "keywords_alias": "Number of payment channels; LN channels; Channel\ncount; Active channels; Bidirectional payment links",
@@ -28,7 +28,7 @@
     "Definição do Atributo": "Quantifica o total de canais de pagamento estabelecidos entre os nós da Lightning Network (LN), repre-\nsentando conexões bidirecionais off-chain utilizadas para\ntroca de valores entre pares. Cada canal é composto\npor uma transação de abertura e uma de fechamento\nna blockchain Bitcoin, e permite múltiplas transações\nintermediárias instantâneas e privadas.",
     "Objetivo / Motivação": "Avaliar a capacidade, densidade e conectividade da\nrede LN, refletindo o grau de adoção e a eficiência da\ninfraestrutura de micropagamentos baseada em blockchain. O número de canais é diretamente proporcional à\nescalabilidade e à redundância da rede.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Capacidade e Utilização de Recursos",
+    "Sub-característica": "Capacidade",
     "Equação": "Nc =\nNn\nX\ni=1\nci, onde Nc é o número total de canais ativos e ci representa os canais estabelecidos por cada nó\nparticipante (Nn é o total de nós ativos).\nMétricas\nAssociadas\nNúmero de Nós; Capacidade Total da Rede; Taxa de\nTransações Off-chain; Latência Média de Pagamento\nAtributo\nRelacionado\nConectividade de Rede; Descentralização; Throughput;\nResiliência da Rede",
     "Protocolo": "1) Implantar um crawler da Lightning Network (LN\nCrawler) baseado no cliente LND.\n2) Coletar periodicamente a topologia da rede via comando describegraph, que lista todos os canais ativos\nentre nós LN.\n3) Registrar os canais detectados ao longo de uma janela\nde 10 meses (maio/2019 a fevereiro/2020).\n4) Complementar os dados com estatísticas públicas de\nAPIs (ex.: lopp.net/lightning-information.html).\n5) Calcular o número total de canais ativos e sua evolução\ntemporal.\n246",
     "Comentário": "Durante o período de medição (2019–2020), foram detectados mais de 55.000 canais de pagamento ativos na\nLightning Network, com crescimento contínuo desde 2018\ne forte correlação com a valorização do Bitcoin. Cada\ncanal bidirecional permite milhares de micropagamentos\nsem sobrecarregar a blockchain. O estudo também observou que os canais se concentram entre nós de alto grau\n(hubs), indicando certo nível de centralização funcional.\nInterpretação\ndo\nValor Medido\nValores elevados indicam alta conectividade e capacidade transacional, reforçando a escalabilidade e a efici-\nência da rede LN. Valores reduzidos podem indicar\nretração de uso, fechamento de canais ou concentração\nem poucos nós.",

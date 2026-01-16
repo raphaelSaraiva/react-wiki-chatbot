@@ -4,7 +4,7 @@
   "name": "Custo Total",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Utilização de Recursos / Custo de Execução"
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "keywords_alias": "Total cost; Cost analysis; Transaction cost; Execution\ncost; Storage cost; IPFS cost-efficiency",
@@ -27,7 +27,7 @@
     "Definição do Atributo": "Mede o custo agregado de operação em uma rede\nblockchain, somando os custos de transação, execução\nde contratos inteligentes e armazenamento. Representa o\nesforço econômico necessário para executar uma operação\ncompleta na rede, incluindo as funções de smart contracts\ne o uso de mecanismos off-chain como IPFS.",
     "Objetivo / Motivação": "Avaliar a eficiência econômica global de um sistema\nblockchain, identificando a distribuição de custos entre\nexecução, armazenamento e transação. Essa métrica é\nútil para comparar diferentes implementações e estratégias de otimização, como o uso de IPFS para reduzir o\ncusto de armazenamento on-chain.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos / Custo de Execução",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "Ctotal = Ctransação + Cexecução + Carmazenamento\nonde:\nCustotransação = gastx × gasPrice,\nCustoexecução = gasexec × gasPrice,\nCustoarmazenamento representa o custo por byte armazenado na blockchain ou em repositórios externos (ex.:\nIPFS).\nMétricas\nAssociadas\nConsumo de gas; Custo de armazenamento; Taxa de\ntransação; Latência; Taxa de sucesso do consenso\nAtributo\nRelacionado\nEficiência Computacional; Throughput; Escalabilidade;\nCusto de Operação",
     "Protocolo": "1) Implantar o contrato inteligente na rede de teste (ex.:\nEthereum Testnet).\n2) Executar suas principais funções (ex.: registro, autorização, encerramento).\n3)\nRegistrar\ntransactionCost,\nexecutionCost\ne\nstorageCost para cada função.\n4) Calcular Ctotal e comparar entre funções e cenários\n(com e sem IPFS).\n332",
     "Comentário": "O estudo mostra que funções como adição de candidatos\n(FU1) geram maior custo total, enquanto operações de\nencerramento (FU4) são mais leves. A integração com\nIPFS reduz significativamente o custo de armazenamento,\nmantendo a segurança e integridade dos dados de votação. Essa métrica é essencial para avaliar a viabilidade\neconômica de soluções de votação seguras baseadas em\nblockchain.\nInterpretação\ndo\nValor Medido\nValores menores indicam melhor eficiência econômica\ne uso racional dos recursos. Valores mais altos podem sinalizar a necessidade de otimização de código,\nsegmentação de funções ou adoção de soluções off-chain.",

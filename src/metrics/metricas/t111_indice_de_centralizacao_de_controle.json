@@ -4,7 +4,7 @@
   "name": "Índice de Centralização de Controle",
   "iso25010": {
     "characteristic": "Segurança",
-    "subcharacteristic": "Controle de Acesso / Proteção contra Modificação Indevida"
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Overpowered owner; Privileged owner; Contract centralization risk; Ownership authority; Admin control",

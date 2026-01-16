@@ -1,10 +1,10 @@
 {
   "id": "t79",
   "table_no": 79,
-  "name": "Nível de Centralização de Serviços Internos",
+  "name": "Nível de Centralização Interna de Serviços",
   "iso25010": {
     "characteristic": "Segurança",
-    "subcharacteristic": "Confiabilidade Operacional / Controle de Acesso"
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Built-in centralized services; Dependência de serviços\ninternos; Centralização de infraestrutura; Serviços de\nsuporte centralizados; Oráculos centralizados; RPC providers",
@@ -23,12 +23,12 @@
     "references": "Ali, M.; Al-Bassam, M.; Alrawi, O.; et al. Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems.\nProceedings of the ACM CCS, 2023. — O estudo evidencia que\nvárias blockchains públicas dependem de serviços internos controlados por poucas entidades (RPC, autenticação, oráculos, indexação),\nintroduzindo riscos estruturais de centralização.\n192"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Nível de Centralização de Serviços Internos",
+    "Atributo Nome (Título)": "Nível de Centralização Interna de Serviços",
     "Palavras-chave / Alias": "Built-in centralized services; Dependência de serviços\ninternos; Centralização de infraestrutura; Serviços de\nsuporte centralizados; Oráculos centralizados; RPC providers",
     "Definição do Atributo": "Mede o grau de dependência de uma blockchain\nou dApp em relação a serviços internos que operam de forma centralizada, tais como provedores de\nRPC, oráculos, indexadores, gateways ou mecanismos de\nautenticação controlados por uma única entidade. Essa\nmétrica quantifica o impacto da centralização embutida\nna infraestrutura sobre a confiabilidade e a descentralização do sistema.",
     "Objetivo / Motivação": "Avaliar a descentralização estrutural de uma blockchain, verificando o quanto sua operação depende de\nprovedores únicos ou controlados. Em ecossistemas que\nse autodenominam descentralizados, tais dependências\nconfiguram riscos de censura, manipulação, interrupções\ne vulnerabilidades de segurança.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Segurança",
-    "Sub-característica": "Confiabilidade Operacional / Controle de Acesso",
+    "Sub-característica": "Integridade",
     "Equação": "Cint = Ncentralizados\nNtotal\n,\nonde Ncentralizados é o número de serviços internos operados ou controlados centralmente, e Ntotal é o número\ntotal de serviços de suporte da rede (armazenamento,\nindexação, RPC, oráculos etc.).\nMétricas\nAssociadas\nGrau de descentralização; Probabilidade de ponto único\nde falha; Confiabilidade de nós; Sobrecarga de armazenamento; Dependência de terceiros\nAtributo\nRelacionado\nDescentralização; Disponibilidade; Resiliência; Transparência",
     "Protocolo": "1) Identificar todos os serviços internos utilizados pela\nrede (RPC, autenticação, indexação, oráculos, gateways).\n2) Classificar cada serviço como centralizado (controlado\npor uma entidade única) ou distribuído.\n3) Calcular Cint = Ncentralizados/Ntotal.\n4) Avaliar o impacto da centralização sobre a execução\nde contratos, consenso e acesso a dados.\n191",
     "Comentário": "O artigo demonstra que diversas blockchains e dApps\nmantêm forte dependência de componentes centralizados\nembutidos, como provedores de RPC e serviços de autenticação hospedados em nuvem. Essa dependência reduz\na resiliência da rede, cria pontos de falha e reintroduz\nvulnerabilidades típicas de sistemas centralizados. A\nmétrica permite quantificar esse grau de risco estrutural.\nInterpretação\ndo\nValor Medido\nValores altos (próximos de 1) indicam centralização\nsignificativa e maior vulnerabilidade a falhas e censura.\nValores baixos indicam que os serviços internos são\ndistribuídos, com maior descentralização e resiliência.",

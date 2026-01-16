@@ -1,7 +1,7 @@
 {
   "id": "t122",
   "table_no": 122,
-  "name": "Utilização de Memória RAM",
+  "name": "Utilização de RAM",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
     "subcharacteristic": "Utilização de Recursos"
@@ -23,7 +23,7 @@
     "references": "El Koshiry, A. M., Eliwa, E., & Abdel Hameed, H. (2023). The\nEffectiveness of Using Blockchain Technology in Building HighQuality Educational Content Based on A Participatory Learning\nEnvironment and Its Impact on Increasing Student Achievement.\nInternational Journal of Intelligent Systems and Applications in\nEngineering, 11(1), 50–62.\n288"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Utilização de Memória RAM",
+    "Atributo Nome (Título)": "Utilização de RAM",
     "Palavras-chave / Alias": "Memory Usage; RAM Consumption; Memory Load; Resource Utilization; Memory Performance",
     "Definição do Atributo": "Mede a quantidade de memória RAM utilizada por nós\nou mineradores durante a execução de operações em\numa blockchain. A métrica reflete a eficiência de uso de\nrecursos de hardware e sua relação com o tamanho da\nblockchain, dificuldade dos blocos e carga de transações.",
     "Objetivo / Motivação": "Avaliar a eficiência do uso da memória durante a execução de processos de mineração, validação e operação\nde contratos inteligentes, a fim de identificar gargalos e\ndimensionar corretamente os recursos de infraestrutura\nblockchain.\nModelo\nde\nQualidade\nISO/IEC 25010",

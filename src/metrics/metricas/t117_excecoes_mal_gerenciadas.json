@@ -1,10 +1,10 @@
 {
   "id": "t117",
   "table_no": 117,
-  "name": "Exceções Mal Gerenciadas",
+  "name": "Taxa de Exceções Mal Gerenciadas",
   "iso25010": {
-    "characteristic": "Confiabilidade",
-    "subcharacteristic": "Tolerância a Falhas"
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Exception handling; Error management; Fault handling;\nException rate; Falhas não tratadas; Erros de execução",
@@ -23,12 +23,12 @@
     "references": "Alkhader, M.; Alsmadi, I.; Jararweh, Y. An Efficient Distributed\nand Secure Algorithm for Transaction Confirmation in IOTA Using\nCloud Computing. IEEE Access, 2022. — O estudo aborda a\nconfiabilidade de algoritmos distribuídos e identifica falhas não\ntratadas em processos de comunicação e validação de transações,\nque afetam diretamente a estabilidade do sistema.\n278"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Exceções Mal Gerenciadas",
+    "Atributo Nome (Título)": "Taxa de Exceções Mal Gerenciadas",
     "Palavras-chave / Alias": "Exception handling; Error management; Fault handling;\nException rate; Falhas não tratadas; Erros de execução",
     "Definição do Atributo": "Mede a frequência e o impacto de exceções que não\nsão corretamente tratadas ou recuperadas pelo\nsistema blockchain, resultando em falhas de execução,\ninconsistências de estado, ou degradação de desempenho.\nEssas exceções podem ocorrer em componentes de consenso, comunicação entre nós, ou processos de verificação\nde transações.",
     "Objetivo / Motivação": "Avaliar a robustez e tolerância a falhas do sistema\ndistribuído, identificando pontos onde o tratamento de\nerros é insuficiente. Exceções mal gerenciadas reduzem\na confiabilidade, podendo interromper a propagação de\ntransações ou comprometer a integridade do ledger.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Confiabilidade",
-    "Sub-característica": "Tolerância a Falhas",
+    "Característica": "Segurança",
+    "Sub-característica": "Integridade",
     "Equação": "Eph = Nunhandled\nNtotal\n,\nonde Nunhandled é o número de exceções não tratadas e\nNtotal é o número total de exceções detectadas durante o\nperíodo de observação.\nMétricas\nAssociadas\nTaxa de falhas de transação; Taxa de chamadas para\ndesconhecido; Tempo de recuperação; Disponibilidade;\nLatência de confirmação\nAtributo\nRelacionado\nRobustez do sistema; Integridade operacional; Recuperação de falhas; Resiliência de comunicação",
     "Protocolo": "1) Executar a aplicação blockchain sob diferentes cargas\nde transação e cenários de falha (rede, validação, I/O).\n2) Registrar o total de exceções capturadas e quantas\nforam tratadas com sucesso.\n3) Contabilizar exceções não tratadas (Nunhandled) e calcular Eph.\n4) Classificar as falhas por tipo: comunicação, consenso,\nsincronização ou armazenamento.\n5) Analisar logs de execução para identificar padrões e\npropor melhorias no tratamento de erros.\n277",
     "Comentário": "O artigo propõe um algoritmo distribuído e seguro para\nconfirmação de transações no IOTA com suporte em\ncomputação em nuvem. Durante os testes, observou-se\nque falhas de comunicação e exceções não tratadas afetam\ndiretamente a estabilidade e a eficiência do processo de\nvalidação. A métrica de exceções mal gerenciadas auxilia\nna avaliação da resiliência do sistema e na identificação\nde gargalos no código de consenso.\nInterpretação\ndo\nValor Medido\nValores altos de Eph indicam vulnerabilidade e baixa\nrobustez do sistema, exigindo melhorias no tratamento\nde erros e mecanismos de recuperação. Valores baixos\nrefletem boa capacidade de isolamento e correção de\nfalhas sem interrupção do serviço.",

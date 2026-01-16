@@ -1,10 +1,10 @@
 {
   "id": "t154",
   "table_no": 154,
-  "name": "Taxa de Typecast Incorreto",
+  "name": "Taxa de Erro de Conversão de Tipo",
   "iso25010": {
-    "characteristic": "Confiabilidade",
-    "subcharacteristic": "Tolerância a Falhas / Maturidade"
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Typecast error; Type conversion failure; Casting exception; Data type mismatch; Smart contract runtime error",
@@ -23,12 +23,12 @@
     "references": "Jabbar, M. H., et al. An Efficient Distributed and Secure Algorithm\nfor Transaction Confirmation in IOTA Using Cloud Computing.\n(Usado como contexto experimental de validação/execução distribuída).\n354"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Taxa de Typecast Incorreto",
+    "Atributo Nome (Título)": "Taxa de Erro de Conversão de Tipo",
     "Palavras-chave / Alias": "Typecast error; Type conversion failure; Casting exception; Data type mismatch; Smart contract runtime error",
     "Definição do Atributo": "Mede a proporção de falhas de conversão de tipo\n(typecast) ocorridas durante a execução de transações/contratos, quando um valor é convertido para um\ntipo incompatível (ex.: inteiro →endereço) ou fora de\nfaixa. Essas falhas podem abortar a transação, impactar\na confiabilidade e gerar consumo de recursos sem efeito\n(gás desperdiçado em blockchains com gás).",
     "Objetivo / Motivação": "Quantificar a robustez de contratos e pipelines de validação frente a erros de tipagem, reduzindo falhas em\nprodução, reexecuções e atrasos de confirmação. Útil\npara auditoria de qualidade de código e para comparar\nversões de contratos/sistemas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Confiabilidade",
-    "Sub-característica": "Tolerância a Falhas / Maturidade",
+    "Sub-característica": "Integridade",
     "Equação": "Taxa_Typecast =\nNerros_typecast\nNoperacoes_typecast\n× 100%\nonde Nerros_typecast é o número de falhas de conversão de\ntipo detectadas e Noperacoes_typecast é o total de operações\nde conversão realizadas no período de medição.\nMétricas\nAssociadas\nTaxa de Exceções em Execução; Taxa de Sucesso da Transação; Latência de Commit; Consumo de Gás/Recursos\npor Falha\nAtributo\nRelacionado\nRobustez de Contratos; Validação de Entradas; Tratamento de Erros; Tipagem Estática/Dinâmica",
     "Protocolo": "1) Instrumentar o ambiente (nós/VM de contratos) para\nregistrar exceções de typecast por transação.\n2) Contabilizar o total de operações de conversão\n(casts/parses) executadas no intervalo [t0, t1].\n3) Identificar e classificar falhas: tipo incompatível, overflow/underflow, null/undefined, formato inválido.\n4) Calcular Taxa_Typecast e reportar média e percentis\n(p50/p95).\n5) Correlacionar com estágios de validação, versões de\ncontrato e perfis de carga.\n353",
     "Comentário": "Ambientes\ndistribuídos\ne\nintegrações\n(ex.:\npréprocessamento em nuvem, APIs) podem introduzir dados\nmal formatados que elevam a taxa de typecast incorreto.\nBoas práticas incluem validação estrita, checagem de\nfaixas e conversões seguras antes de persisti-los em estruturas on-chain.\nInterpretação\ndo\nValor Medido\nBaixos valores indicam código robusto e validação adequada; valores altos sugerem problemas de sanitização\nde dados, tipagem inadequada ou regressões entre versões.",

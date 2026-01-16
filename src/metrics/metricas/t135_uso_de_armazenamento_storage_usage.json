@@ -1,7 +1,7 @@
 {
   "id": "t135",
   "table_no": 135,
-  "name": "Uso de Armazenamento (Storage Usage)",
+  "name": "Uso de Armazenamento",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
     "subcharacteristic": "Utilização de Recursos"
@@ -23,7 +23,7 @@
     "references": "Shelke, K.; Shinde, S. K. Optimization with Blockchain-Based\nSecure Authentication and Collaborative Data Sharing Model in\nCloud.\nIn: Proceedings of the 14th International Conference on Computing Communication and Networking\nTechnologies (ICCCNT), 2023.\n314"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Uso de Armazenamento (Storage Usage)",
+    "Atributo Nome (Título)": "Uso de Armazenamento",
     "Palavras-chave / Alias": "Memory consumption; Storage efficiency; Blockchain\nstorage cost; Resource usage; Data overhead",
     "Definição do Atributo": "Mede a quantidade média de memória ou espaço de\narmazenamento utilizado durante o processamento e\nvalidação de dados em um sistema blockchain. Essa\nmétrica avalia a eficiência do modelo proposto quanto à\nutilização de recursos computacionais e armazenamento\nlocal ou em nuvem.",
     "Objetivo / Motivação": "Quantificar o consumo de armazenamento para determinar a eficiência e a escalabilidade de soluções blockchain\naplicadas à autenticação segura e ao compartilhamento\ncolaborativo de dados em nuvem. A redução do uso de\nmemória reflete maior desempenho e economia de custos.\nModelo\nde\nQualidade\nISO/IEC 25010",

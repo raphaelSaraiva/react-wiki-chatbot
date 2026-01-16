@@ -1,10 +1,10 @@
 {
   "id": "t13",
   "table_no": 13,
-  "name": "Tamanho do Ledger",
+  "name": "Tamanho do Livro-Razão",
   "iso25010": {
-    "characteristic": "Eficiência de desempenho",
-    "subcharacteristic": "Utilização de recursos (armazenamento)"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "keywords_alias": "Ledger size; Tamanho do livro-razão; Tamanho da cadeia;\nChaindata; World state; Crescimento do ledger",
@@ -24,13 +24,13 @@
     "references": "(1) Muttavarapu et al.\nDistributed Ledger for Spammers’ Resume — avaliação prática de métricas (taxas de processamento,\ncustos de gas e tamanhos de ledger) em redes Ethereum (Ropsten/mainnet) e discussão de escalabilidade/estratégias de reporte.\n:contentReference[oaicite:9]index=9\n(2) Fang et al. Fast Policy Interpretation and Dynamic Conflict\nResolution for Blockchain-Based IoT System — método FPICR\npara interpretação rápida e resolução dinâmica de conflitos, com\nredução de armazenamento (17%) via grafo de políticas ponderado.\n37"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Tamanho do Ledger",
+    "Atributo Nome (Título)": "Tamanho do Livro-Razão",
     "Palavras-chave / Alias": "Ledger size; Tamanho do livro-razão; Tamanho da cadeia;\nChaindata; World state; Crescimento do ledger",
     "Definição do Atributo": "Quantidade total de bytes ocupados pelos dados persistidos da blockchain em um nó: blocos (cabeçalhos, transa-\nções, recibos, índices) e, quando aplicável, o estado (world\nstate). Em estudos aplicados, o tamanho do ledger é monitorado para avaliar escalabilidade e custos ao registrar\neventos de domínio (p. ex., relatórios de spam como transações on-chain). :contentReference[oaicite:0]index=0",
     "Objetivo / Motivação": "Dimensionar capacidade e custo de armazenamento,\ncomparar alternativas de projeto (on-chain vs. offchain/âncoras), e orientar políticas de retenção/pruning.\nMétodos de gestão de políticas em BC-IoT que removem\nredundâncias podem reduzir o espaço ocupado no ledger.\n:contentReference[oaicite:1]index=1",
     "Nível de Independência do Domínio": "Alto — aplicável a diferentes setores (IoT, segurança,\neducação, etc.), variando apenas o perfil de carga e a\nplataforma.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de desempenho",
-    "Sub-característica": "Utilização de recursos (armazenamento)",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "Tamanho instantâneo: L(t) = Lblocos(t) + Lestado(t).\nCrescimento no período P = [t0, t1]: ∆L(P) = L(t1) −\nL(t0).\nCrescimento médio por transação: L/tx = ∆L(P)\nNtx(P).\nMétricas\nAssociadas\nStorage overhead; Custo de Armazenamento; Custo de\nOperação; Tamanho do Bloco; TPS; Latência de leitura/consulta.\nAtributo\nRelacionado\nConsumo de Recursos (disco/rede); Disponibilidade\nde dados; Estratégias de pruning/arquivo; Off-chain\n(IPFS/ancoragem).\n35",
     "Protocolo": "1) Escopo:\ndefinir janela [t0, t1],\nnós avaliados\n(full/archival/pruned) e rede (mainnet/testnet).\n2) Coleta on-disk: medir o diretório de dados do cliente\n(p. ex., geth chaindata) em t0 e t1 (ex.: du, ls -l).\n3) Coleta lógica: via RPC/Explorer, obter #blocos,\n#transações e tamanhos de bloco na janela.\n4) Cálculo: computar L(t), ∆L(P) e L/tx; reportar\nestatísticas (p50/p95/p99) e séries de crescimento.\n5) Contexto: registrar parâmetros (tamanho/intervalo\nde bloco, políticas de batching), versão do cliente/DB e\nuso de off-chain/âncoras.",
     "Comentário": "Cargas com muitas escritas elevam ∆L, especialmente\nquando cada evento é registrado como transação onchain; estratégias como sumarização/relato periódico\ne ancoragem de hashes reduzem o crescimento.\nEm\nBC-IoT, um modelo de gestão de políticas com grafo\nponderado pode diminuir o espaço de armazenamento no ledger ao eliminar redundâncias ( 17% em\nrelação ao método tradicional, em avaliação experimental). :contentReference[oaicite:4]index=4 :contentRefe-\nrence[oaicite:5]index=5\nInterpretação\ndo\nValor Medido\nMenor crescimento (MB/dia) para o mesmo SLA\nde TPS/latência indica maior eficiência. Acompanhar\ncaudas (p95/p99) ajuda a detectar períodos de explosão\nde dados (deploys, picos de escrita).",
