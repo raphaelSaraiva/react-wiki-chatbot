@@ -3,7 +3,8 @@
   "table_no": 53,
   "name": "Taxa de Acesso a Dados",
   "iso25010": {
-    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nComportamento Temporal (Tempo de Resposta)"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal (Tempo de Resposta)"
   },
   "fields": {
     "keywords_alias": "Data access rate; data retrieval rate; access efficiency;\ndata throughput; access latency",
@@ -25,7 +26,8 @@
     "Palavras-chave / Alias": "Data access rate; data retrieval rate; access efficiency;\ndata throughput; access latency",
     "Definição do Atributo": "Mede a velocidade com que dados podem ser compartilhados e recuperados em um sistema blockchain\ndurante operações de autenticação, criptografia e verificação. Representa o desempenho do sistema na execução\nde requisições de leitura e escrita de dados com segurança\ne integridade.",
     "Objetivo / Motivação": "Avaliar a eficiência de acesso e compartilhamento\nde dados em sistemas baseados em blockchain. Uma\nalta taxa de acesso indica que o sistema mantém boa\nperformance mesmo sob múltiplas requisições simultâneas, assegurando confiabilidade e estabilidade — espe-\ncialmente em ambientes de computação em nuvem com\ngrande volume de dados.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho\nSubcaracterística\nComportamento Temporal (Tempo de Resposta)",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Comportamento Temporal (Tempo de Resposta)",
     "Equação": "TAD = Ndados_acessados\nTexecução\nonde Ndados_acessados é o número de dados lidos ou compartilhados e Texecução é o tempo total gasto em operações\nde criação de bloco, criptografia, descriptografia e verificação de autenticação.\nMétricas\nAssociadas\nLatência; Taxa de entrega de mensagens; Consumo de\nenergia; Taxa de sucesso do consenso; Throughput\nAtributo\nRelacionado\nDesempenho de leitura e escrita; Tempo de resposta;\nEficiência de transmissão de dados",
     "Protocolo": "1) Configurar o ambiente de nuvem com o protocolo\nBC-IAS baseado em blockchain.\n2) Executar cenários de leitura e gravação de dados sob\ndiferentes volumes de usuários.\n3) Registrar tempos de criação de bloco, autenticação e\ncriptografia.\n4) Calcular o número de acessos bem-sucedidos por unidade de tempo.\n5) Comparar os resultados com outros modelos (ex.:\nIECCA, ACOMKSV, PFP, FS).\n137",
     "Comentário": "O estudo demonstrou que o protocolo BC-IAS apresentou\numa taxa de acesso superior às abordagens anteriores, mantendo alto desempenho em ambientes de alta\ndemanda. Essa eficiência se deve à integração de autenticação com curva elíptica avançada (HECC) e controle\nde acesso via smart contracts, que reduzem o tempo de\nverificação e melhoram a escalabilidade.\nInterpretação\ndo\nValor Medido\nValores altos indicam alta eficiência e estabilidade do\nsistema; valores baixos podem refletir gargalos em\nautenticação, criptografia ou latência de rede.",

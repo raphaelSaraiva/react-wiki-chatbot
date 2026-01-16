@@ -3,7 +3,8 @@
   "table_no": 50,
   "name": "Uso de CPU",
   "iso25010": {
-    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos Computacionais"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos Computacionais"
   },
   "fields": {
     "keywords_alias": "CPU usage; processor utilization; computational performance; node workload; blockchain healthcare efficiency",
@@ -25,7 +26,8 @@
     "Palavras-chave / Alias": "CPU usage; processor utilization; computational performance; node workload; blockchain healthcare efficiency",
     "Definição do Atributo": "Mede a proporção de tempo de processamento\nutilizada pela CPU durante a execução das operações\nde blockchain, como verificação de blocos, execução de\ncontratos inteligentes e transmissão de dados médicos.\nIndica o nível de carga computacional imposto ao sistema\ndurante o funcionamento normal da rede.",
     "Objetivo / Motivação": "Avaliar a eficiência e escalabilidade computacional\ndo sistema blockchain em cenários de saúde, especialmente em dispositivos de baixo custo ou infraestrutura\nlimitada, como os de países em desenvolvimento. Um uso\nde CPU eficiente garante estabilidade, menor consumo\nenergético e viabilidade prática.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos Computacionais",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de Recursos Computacionais",
     "Equação": "Uso de CPU (%) = Tativo\nTtotal\n× 100\nonde Tativo é o tempo gasto pela CPU processando tarefas\nblockchain e Ttotal é o tempo total de observação.\nMétricas\nAssociadas\nSobrecarga de CPU; Uso de memória; Consumo de energia; Throughput; Latência\nAtributo\nRelacionado\nEficiência computacional; Escalabilidade; Desempenho\nde execução",
     "Protocolo": "1) Implantar o sistema blockchain (nós, smart contracts\ne módulos de comunicação).\n2) Realizar transações simuladas sob diferentes níveis de\ncarga (ex.: 10, 100 e 500 transações).\n3) Monitorar o uso médio e máximo da CPU durante o\nperíodo de execução.\n4) Comparar resultados com outros sistemas (ex.: modelos centralizados ou híbridos).",
     "Comentário": "O estudo demonstrou que o sistema proposto apresentou\nuso de CPU moderado, mesmo sob alta carga transacional, sendo adequado para ambientes de infraestrutura\nlimitada. Essa eficiência resulta do uso otimizado de\nsmart contracts e da arquitetura híbrida blockchain-offchain.\n131\n\nInterpretação\ndo\nValor Medido\nValores mais baixos indicam maior eficiência computacional e melhor escalabilidade. Valores muito altos\npodem sinalizar gargalos de processamento ou necessidade de otimização da arquitetura.",

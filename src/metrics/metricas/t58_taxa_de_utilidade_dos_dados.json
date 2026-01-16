@@ -13,7 +13,7 @@
     "equation": "Data Utility Rate =\nDados válidos e consistentes\nTotal de dados consumidos pela aplicação\nou\nData Utility Rate = Rcorretos\nRtotais\n× 100\nMétricas\nAssociadas\nAccuracy of Summary Information; Data Integrity; Transaction Validity; Data Latency\nAtributo\nRelacionado\nConfiabilidade dos Dados; Desempenho da Aplicação;\nEficiência de Processamento",
     "protocol": "1) Identificar aplicações que consomem dados blockchain.\n2) Medir a consistência e precisão dos dados usados pela\naplicação.\n3) Calcular a proporção de resultados corretos em relação\nao total de dados processados.\n4) Comparar com benchmarks off-chain para avaliar perdas de utilidade.",
     "comment": "O artigo demonstra que a utilidade dos dados depende\nda precisão do registro, do tempo de confirmação e das\npolíticas de privacidade da blockchain. Mecanismos de\nconsenso aumentam a confiança, mas podem reduzir a\neficiência se o volume de dados crescer rapidamente.\n147\n\nInterpretação\ndo\nValor Medido\nValores altos indicam alta preservação da utilidade e\nconfiança nos dados. Valores baixos sugerem degradação\ninformacional, inconsistências ou sobrecarga nos processos de validação.",
-    "unit": "Percentual (",
+    "unit": "Percentual (%)",
     "scale_type": "Razão",
     "precision": "Alta — depende da disponibilidade de datasets de referência e rastreabilidade do consumo de dados.",
     "data_collection": "Experimental / Analítica",
@@ -32,7 +32,7 @@
     "Equação": "Data Utility Rate =\nDados válidos e consistentes\nTotal de dados consumidos pela aplicação\nou\nData Utility Rate = Rcorretos\nRtotais\n× 100\nMétricas\nAssociadas\nAccuracy of Summary Information; Data Integrity; Transaction Validity; Data Latency\nAtributo\nRelacionado\nConfiabilidade dos Dados; Desempenho da Aplicação;\nEficiência de Processamento",
     "Protocolo": "1) Identificar aplicações que consomem dados blockchain.\n2) Medir a consistência e precisão dos dados usados pela\naplicação.\n3) Calcular a proporção de resultados corretos em relação\nao total de dados processados.\n4) Comparar com benchmarks off-chain para avaliar perdas de utilidade.",
     "Comentário": "O artigo demonstra que a utilidade dos dados depende\nda precisão do registro, do tempo de confirmação e das\npolíticas de privacidade da blockchain. Mecanismos de\nconsenso aumentam a confiança, mas podem reduzir a\neficiência se o volume de dados crescer rapidamente.\n147\n\nInterpretação\ndo\nValor Medido\nValores altos indicam alta preservação da utilidade e\nconfiança nos dados. Valores baixos sugerem degradação\ninformacional, inconsistências ou sobrecarga nos processos de validação.",
-    "Unidade": "Percentual (",
+    "Unidade": "Percentual (%)",
     "Tipo de Escala": "Razão",
     "Precisão": "Alta — depende da disponibilidade de datasets de referência e rastreabilidade do consumo de dados.",
     "Tipo de Coleta de Dados": "Experimental / Analítica",
@@ -46,3 +46,4 @@
     "table": "Tabela 58"
   }
 }
+

@@ -3,7 +3,8 @@
   "table_no": 42,
   "name": "Tamanho da Blockchain (Blockchain Size)",
   "iso25010": {
-    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos / Capacidade de Armazenamento"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos / Capacidade de Armazenamento"
   },
   "fields": {
     "keywords_alias": "Blockchain size; Ledger size; Crescimento da cadeia;\nArmazenamento distribuído; Tamanho do ledger",
@@ -26,7 +27,8 @@
     "Palavras-chave / Alias": "Blockchain size; Ledger size; Crescimento da cadeia;\nArmazenamento distribuído; Tamanho do ledger",
     "Definição do Atributo": "Mede o volume total de dados armazenados na\nblockchain, incluindo blocos, transações, metadados e\ncabeçalhos, refletindo a expansão do ledger ao longo do\ntempo. O tamanho da blockchain é um indicador crítico\nda escalabilidade e da sustentabilidade do armazenamento distribuído, impactando a acessibilidade\nde nós completos e a descentralização efetiva da rede.",
     "Objetivo / Motivação": "Avaliar o crescimento e a capacidade de armazenamento necessária para manter a integridade e a\nauditabilidade da rede blockchain. O aumento contínuo do tamanho pode tornar inviável a execução de nós\ncompletos por usuários comuns, gerando dependência de\nprovedores centralizados e enfraquecendo a descentralização.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos / Capacidade de Armazenamento",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de Recursos / Capacidade de Armazenamento",
     "Equação": "Sbc(t) =\nNblocos\nX\ni=1\nsize(Bi),\nonde size(Bi) é o tamanho do bloco i e Nblocos o número\ntotal de blocos até o instante t.\nA variação temporal pode ser expressa como ∆Sbc/∆t,\nindicando a taxa de crescimento do ledger.\nMétricas\nAssociadas\nTamanho do bloco; Taxa de crescimento do ledger; Throughput; Tempo de sincronização de nó; Consumo de\narmazenamento\nAtributo\nRelacionado\nEscalabilidade; Custo de manutenção de nós; Descentralização; Capacidade de sincronização\n114",
     "Protocolo": "1) Definir o intervalo de análise [t0, t1] e selecionar um\nnó completo da rede.\n2) Obter o tamanho de cada bloco registrado e somar\npara obter Sbc(t).\n3) Calcular a taxa de crescimento ∆Sbc/∆t para observar\ntendências.\n4) Registrar o tamanho acumulado e compará-lo entre\ndiferentes redes (ex.: Bitcoin, Ethereum, Litecoin).\n5) Identificar períodos de crescimento abrupto e relacionar com mudanças de protocolo (ex.: hard forks, atuali-\nzação de contratos).",
     "Comentário": "O Tamanho da Blockchain é uma métrica chave para a\nsustentabilidade da rede. O artigo destaca que blockchains maiores e mais antigos apresentam crescente de-\npendência de provedores centralizados para armazenamento e acesso a dados históricos, o que reintroduz riscos\nde segurança típicos de sistemas centralizados. O rápido\ncrescimento do ledger também eleva custos de operação,\nlimita a execução de nós completos e incentiva soluções\nde terceiros para acesso parcial, comprometendo a transparência.\nInterpretação\ndo\nValor Medido\nValores altos indicam crescimento e histórico robusto,\nmas podem comprometer descentralização e acessibilidade. Valores moderados refletem equilíbrio entre\nauditabilidade e sustentabilidade. A análise deve considerar o custo de armazenamento e sincronização de nós\npara garantir operação distribuída.",

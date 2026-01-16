@@ -3,7 +3,8 @@
   "table_no": 38,
   "name": "Entrega de Bloco",
   "iso25010": {
-    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nTempo de resposta / Desempenho de comunicação"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Tempo de resposta / Desempenho de comunicação"
   },
   "fields": {
     "keywords_alias": "Block propagation; Tempo de entrega de bloco; Disseminação de bloco; Tempo de propagação; Block relay delay;\nTempo de sincronização de blocos",
@@ -26,7 +27,8 @@
     "Palavras-chave / Alias": "Block propagation; Tempo de entrega de bloco; Disseminação de bloco; Tempo de propagação; Block relay delay;\nTempo de sincronização de blocos",
     "Definição do Atributo": "Mede o tempo necessário para que um bloco minerado seja propagado e recebido por todos os nós\nda rede blockchain. A métrica quantifica a eficiência da comunicação entre mineradores e nós completos,\nsendo essencial para manter a consistência do ledger\ndistribuído e minimizar bifurcações (forks).",
     "Objetivo / Motivação": "Avaliar a eficiência da propagação de blocos e seu\nimpacto sobre o tempo de confirmação de transações e a\ntaxa de bifurcação. A entrega rápida de blocos é fundamental para reduzir a latência global do sistema, garantir\na equidade entre mineradores e manter o consenso distribuído estável, especialmente em redes públicas como\nBitcoin e Ethereum.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho\nSubcaracterística\nTempo de resposta / Desempenho de comunicação",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Tempo de resposta / Desempenho de comunicação",
     "Equação": "Tdelivery = Treceive −Tgenerate,\nonde Tgenerate é o instante de geração (mineração) do\nbloco e Treceive o instante em que ele é recebido e validado\npelos nós da rede.\nA média sobre múltiplos blocos fornece o tempo médio\nde entrega de bloco: T delivery =\n1\nN\nPN\ni=1(Treceive,i −\nTgenerate,i).\nMétricas\nAssociadas\nTempo de confirmação; Latência de rede; Taxa de bifurcação; Tamanho do bloco; Throughput; Atraso de\npropagação\nAtributo\nRelacionado\nDesempenho de rede; Consistência de ledger; Escalabilidade; Tempo de consenso",
     "Protocolo": "1) Definir um conjunto de nós de referência na rede\nblockchain.\n2) Medir o instante em que o bloco é minerado (Tgenerate).\n3) Registrar o tempo em que o bloco é recebido e validado\npor cada nó (Treceive).\n4) Calcular Tdelivery para cada nó e a média geral T delivery.\n5) Repetir medições sob diferentes tamanhos de bloco,\nlatências de rede e incentivos de mineração.\n104",
     "Comentário": "A Entrega de Bloco reflete diretamente o desempenho\nda infraestrutura de comunicação entre os nós da blockchain. O artigo demonstra que incentivos de mineração\ninfluenciam a velocidade de propagação dos blocos, pois\nmineradores podem ajustar o tamanho e a frequência\ndos blocos em função da recompensa esperada. Uma propagação lenta aumenta o risco de forks, enquanto uma\nentrega eficiente melhora a segurança e o throughput da\nrede.\nInterpretação\ndo\nValor Medido\nValores baixos (em segundos) indicam boa conectividade e sincronização rápida entre os nós. Valores altos\nsugerem gargalos de rede, blocos muito grandes ou nós\nmal conectados, elevando a probabilidade de bifurcações\ne atrasos na confirmação de transações.",

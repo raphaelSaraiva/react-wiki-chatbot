@@ -3,7 +3,8 @@
   "table_no": 57,
   "name": "Integridade dos Dados (Data Integrity)",
   "iso25010": {
-    "characteristic": "Segurança\nSubcaracterística\nIntegridade"
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Data integrity; tamper-resistance; immutability; blockchain validation; transaction correctness",
@@ -25,7 +26,8 @@
     "Palavras-chave / Alias": "Data integrity; tamper-resistance; immutability; blockchain validation; transaction correctness",
     "Definição do Atributo": "Mede o grau de precisão, completude e imutabilidade dos dados armazenados e transmitidos em\nsistemas blockchain integrados ao Metaverso e à Internet\ndas Coisas (IoT). Garante que as informações não sejam\nalteradas ou corrompidas durante o ciclo de transmissão,\nvalidação e registro na blockchain.",
     "Objetivo / Motivação": "Avaliar a capacidade do sistema blockchain em preservar a integridade das transações entre dispositi-\nvos e aplicações distribuídas. Essa métrica é fundamental\npara assegurar que os dados do Metaverso-IoT permaneçam confiáveis e verificáveis após sua inclusão na cadeia\nde blocos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Segurança\nSubcaracterística\nIntegridade",
+    "Característica": "Segurança",
+    "Sub-característica": "Integridade",
     "Equação": "Id = Ntransações válidas\nNtransações totais\nonde Ntransações válidas é o número de transações confirmadas sem violação de integridade e Ntransações totais é o\nnúmero total de transações processadas no sistema.\nMétricas\nAssociadas\nConfidencialidade dos dados; Autenticidade; Consistência dos dados; Taxa de validação de blocos\nAtributo\nRelacionado\nImutabilidade; Validação criptográfica; Autenticação;\nSegurança de transação",
     "Protocolo": "1) Implantar o protocolo SafeMetaNet com integração\nblockchain-IoT.\n2) Registrar transações de troca de dados entre dispositivos do Metaverso.\n3) Validar a integridade de cada transação via hashes e\nregistros na blockchain.\n4) Calcular a proporção de transações válidas em relação\nao total processado.\n5) Comparar a taxa de integridade obtida com abordagens anteriores de troca de dados seguras.\n145",
     "Comentário": "No estudo, o modelo SafeMetaNet alcançou níveis superiores de integridade dos dados em comparação a outros\nprotocolos, devido ao uso combinado de criptografia\nAES, troca de chaves Diffie–Hellman e registro\nimutável em blockchain. Esses mecanismos asseguram\nque as informações trocadas entre entidades do Metaverso e IoT permaneçam consistentes e não adulteradas.\nInterpretação\ndo\nValor Medido\nValores próximos a 1 indicam que a maioria das transações foi validada com sucesso e sem violação de inte-\ngridade; valores baixos refletem falhas de autenticação,\ncorrupção de dados ou inconsistência nos blocos registrados.",
@@ -42,3 +44,4 @@
     "table": "Tabela 57"
   }
 }
+

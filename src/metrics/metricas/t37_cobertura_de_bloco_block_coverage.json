@@ -3,7 +3,8 @@
   "table_no": 37,
   "name": "Cobertura de Bloco (Block Coverage)",
   "iso25010": {
-    "characteristic": "Confiabilidade\nSubcaracterística\nCompletude dos dados / Integridade da coleta"
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Completude dos dados / Integridade da coleta"
   },
   "fields": {
     "keywords_alias": "Block coverage; Cobertura de blockchain; Cobertura\nde nós; Amostragem de blocos; Alcance de observação;\nBlock explorer completeness",
@@ -26,7 +27,8 @@
     "Palavras-chave / Alias": "Block coverage; Cobertura de blockchain; Cobertura\nde nós; Amostragem de blocos; Alcance de observação;\nBlock explorer completeness",
     "Definição do Atributo": "Mede a proporção de blocos observáveis ou registrados por um conjunto de nós ou exploradores\nem relação ao total de blocos realmente produzidos na rede blockchain. Essa métrica avalia a comple-\ntude da coleta de dados e a representatividade das medições realizadas por exploradores públicos, detectando\npossíveis lacunas, atrasos ou omissões na visualização de\nblocos.",
     "Objetivo / Motivação": "Avaliar a visibilidade e confiabilidade das medições em blockchain, especialmente em estudos que\ndependem de dados públicos provenientes de exploradores de blocos. Uma baixa cobertura pode indicar blocos\nórfãos, divergências entre nós, falhas de rede ou inconsistências em APIs de coleta, impactando a precisão de\nanálises sobre desempenho, segurança e comportamento\nde transações.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Confiabilidade\nSubcaracterística\nCompletude dos dados / Integridade da coleta",
+    "Característica": "Confiabilidade",
+    "Sub-característica": "Completude dos dados / Integridade da coleta",
     "Equação": "Cblock = Nobservado\nNtotal\n,\nonde Nobservado é o número de blocos detectados e registrados por um conjunto de exploradores ou nós de\nmedição, e Ntotal o número real de blocos minerados na\nrede no mesmo intervalo.\nCblock ∈[0, 1], sendo 1 equivalente à cobertura total da\ncadeia.\nMétricas\nAssociadas\nTaxa de blocos órfãos; Latência de propagação de blocos;\nTaxa de entrega de blocos; Taxa de sincronização de nós;\nDisponibilidade de dados\nAtributo\nRelacionado\nConsistência de ledger; Sincronização de nós; Integridade\nde medição; Qualidade da observação em blockchain\n101",
     "Protocolo": "1) Selecionar um conjunto de exploradores públicos ou\nnós de monitoramento distribuído.\n2) Registrar todos os blocos visíveis durante o período\nde observação [t0, t1].\n3) Determinar o número total de blocos efetivamente\nminerados (Ntotal) via comparação entre múltiplas fontes\nconfiáveis.\n4) Calcular a razão Cblock = Nobservado/Ntotal.\n5) Repetir o processo em diferentes redes (ex.: Bitcoin,\nEthereum, Litecoin) e comparar o nível de cobertura\nentre exploradores.",
     "Comentário": "A Cobertura de Bloco revela o quanto as ferramentas\nde medição e exploradores públicos refletem a realidade\ncompleta da blockchain. O artigo demonstra que exploradores populares frequentemente perdem blocos devido à\nlimitação de conexões P2P, atrasos de propagação e bloqueios por políticas de taxa. Tais lacunas afetam estudos\nempíricos sobre segurança e desempenho da rede. Uma\nalta cobertura é essencial para medições representativas\ne análises precisas.\nInterpretação\ndo\nValor Medido\nValores altos (próximos de 1) indicam observação completa e dados confiáveis. Valores baixos apontam fa-\nlhas de coleta, limitação de visibilidade ou desconexões\ntemporárias entre exploradores e a rede principal, comprometendo a validade de medições e auditorias.",

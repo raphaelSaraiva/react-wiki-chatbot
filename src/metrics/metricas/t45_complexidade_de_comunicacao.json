@@ -3,7 +3,8 @@
   "table_no": 45,
   "name": "Complexidade de Comunicação",
   "iso25010": {
-    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos / Capacidade de Comunicação"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos / Capacidade de Comunicação"
   },
   "fields": {
     "keywords_alias": "Communication overhead; Message complexity; Comunicação entre nós; Custo de comunicação; Eficiência de\nrede; Shard communication cost",
@@ -26,7 +27,8 @@
     "Palavras-chave / Alias": "Communication overhead; Message complexity; Comunicação entre nós; Custo de comunicação; Eficiência de\nrede; Shard communication cost",
     "Definição do Atributo": "Mede o número de mensagens trocadas entre os nós\nda rede durante a execução de um protocolo blockchain,\nespecialmente em operações de consenso, sincronização\nou alocação de shards. Representa a sobrecarga de comunicação necessária para que os nós alcancem estado\nconsistente e distribuam corretamente suas responsabilidades sem comprometer o desempenho da rede.",
     "Objetivo / Motivação": "Avaliar a eficiência e escalabilidade da comunicação\nem sistemas blockchain. Em blockchains fragmentadas\n(sharded), a complexidade de comunicação impacta diretamente a latência e o throughput, sendo determinante\npara o custo e a viabilidade de cada protocolo de alocação\nde shards.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos / Capacidade de Comunicação",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de Recursos / Capacidade de Comunicação",
     "Equação": "CC = f(n, fn),\nonde n é o número total de nós e fn é o número de nós\nfalhos ou bizantinos.\nA forma exata de f(·) depende do protocolo: por exemplo,\nO(n), O(n2) ou O(n3).\nMétricas\nAssociadas\nLatência de consenso; Throughput; Taxa de blocos confirmados; Eficiência de alocação de shards; Escalabilidade\nAtributo\nRelacionado\nDesempenho de rede; Capacidade de sincronização; Eficiência de consenso; Consumo de largura de banda",
     "Protocolo": "1) Selecionar o protocolo blockchain ou de sharding a\nser avaliado (ex.: Elastico, Omniledger, RapidChain, Zilliqa).\n2) Definir o intervalo de observação e o número de nós n.\n3) Registrar o número de mensagens trocadas durante\noperações específicas: Join, Update, consenso e verificação.\n4) Estimar a complexidade assintótica (O(nk)) e comparar entre protocolos.\n5) Avaliar a influência da falha de nós (fn) sobre a quantidade total de mensagens.\n121",
     "Comentário": "A Complexidade de Comunicação é fundamental para\nmedir a eficiência de protocolos blockchain distribuídos. O artigo demonstra que protocolos de alocação de\nshards variam significativamente em custo de comunicação: Elastico (O(nf)), Omniledger (O(n)–O(n3)), Ra-\npidChain (O(n2)), Zilliqa (O(n)) e Monoxide/Ethereum\n2.0 (0, pois a alocação é local). Protocolos com menor\ncomplexidade apresentam melhor escalabilidade e menor\nsobrecarga de rede.\nInterpretação\ndo\nValor Medido\nValores menores de complexidade indicam maior eficiência e escalabilidade da rede. Valores elevados repre-\nsentam alto custo de comunicação e menor viabilidade\nem grandes redes.",
@@ -44,3 +46,4 @@
     "table": "Tabela 45"
   }
 }
+

@@ -3,7 +3,8 @@
   "table_no": 61,
   "name": "Tempo de Download",
   "iso25010": {
-    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nTempo de Resposta (Throughput e Latência)"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Tempo de Resposta (Throughput e Latência)"
   },
   "fields": {
     "keywords_alias": "Download duration; file retrieval latency; data access\ntime; blockchain storage performance",
@@ -25,7 +26,8 @@
     "Palavras-chave / Alias": "Download duration; file retrieval latency; data access\ntime; blockchain storage performance",
     "Definição do Atributo": "Mede o tempo total necessário para recuperar e\ntransferir um arquivo armazenado em uma plataforma blockchain, desde o início da requisição até\na conclusão do download. Avalia a eficiência da rede\ndescentralizada e o impacto de fatores como paralelismo\nde hosts, redundância e largura de banda na entrega dos\ndados ao usuário.",
     "Objetivo / Motivação": "Quantificar o desempenho do sistema blockchain em operações de leitura e recuperação de arquivos. Essa métrica\né essencial para avaliar a usabilidade e responsividade\nde plataformas de armazenamento descentralizado em\ncomparação com serviços de nuvem tradicionais (TCS).\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho\nSubcaracterística\nTempo de Resposta (Throughput e Latência)",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Tempo de Resposta (Throughput e Latência)",
     "Equação": "DT = tfim −tinício\nonde tinício é o momento da requisição de download e tfim\no momento em que o arquivo é completamente recebido\npelo cliente. O resultado é expresso em segundos (s) ou\nminutos (min).\nMétricas\nAssociadas\nTempo de Upload; Available Time; Throughput; Latência\nde rede; Tamanho do arquivo\nAtributo\nRelacionado\nLargura de banda; Redundância de armazenamento; Eficiência de recuperação; Paralelismo de hosts",
     "Protocolo": "1) Implantar a plataforma Sia em ambiente físico com\nconfiguração padrão (CPU 2.3 GHz, 16 GB RAM, HDD\n2 TB, Ubuntu 18.04).\n2) Selecionar arquivos de 512 MB, 1 GB e 10 GB.\n3) Realizar múltiplas execuções de download e registrar\no tempo médio.\n4) Comparar com os tempos médios obtidos na plataforma Google Drive.\n5) Calcular o ganho de desempenho e o fator de paralelismo obtido em Sia.\n153",
     "Comentário": "Os resultados demonstraram que o Sia apresentou tempos de download de 1,5 a 3 vezes mais rápidos\ndo que o Google Drive para todos os tamanhos de arquivo testados. O desempenho superior foi atribuído ao\nmodelo de fragmentação 10-de-30 e à recuperação\nparalela de fatias (slices) em múltiplos hosts, o que reduz\na latência de rede e acelera a reconstrução do arquivo.\nInterpretação\ndo\nValor Medido\nMenor tempo de download indica maior eficiência e\nmelhor desempenho de acesso a dados. Valores elevados podem apontar gargalos na rede, baixa disponibili-\ndade de hosts ou configuração inadequada de redundância.",
