@@ -1,10 +1,10 @@
 {
   "id": "t3",
   "table_no": 3,
-  "name": "Block Time",
+  "name": "Tempo de Bloco",
   "iso25010": {
-    "characteristic": "Desempenho",
-    "subcharacteristic": "Comportamento temporal"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
     "equation": "Para uma sequência de n blocos com timestamps\nT1, . . . , Tn:\n(a) Tempo de bloco por bloco i: BTi = Ti −Ti−1, i ≥2.\n(b) Tempo médio de bloco: BT =\n1\nn−1\nPn\ni=2(Ti −Ti−1).\n(c) Recomenda-se também a mediana (robusta a\noutliers).\nMétricas\nAssociadas\nLatência de confirmação; Throughput (TPS); Taxa de\nvalidação; Tempo de validação de bloco; Utilização de\nrecursos (CPU/RAM/energia em edge).\nAtributo\nRelacionado\nParâmetros de consenso (ex.: dificuldade/slot\ntime/epoch); Limite de gás por bloco; Tamanho de\nbloco; Configuração de rede (propagação).\n7",
@@ -19,8 +19,8 @@
     "references": "Maftei et al. (2023), Blockchain for IoT: A Consensus\nMechanism Analysis — compara PoW/PoS/PoA em\ntestnets, medindo average block time.\nPal et al. (2021), A Blockchain-based Trust\nManagement Framework with Verifiable Interactions —\nimplementação em Ethereum e detalhes de desempenho.\nKayathri et al. (2023), SDBGPChain — inclui block\nvalidation time como métrica em ambiente SDN+BGP\ncom DiemBFT.\nLedwaba et al. (2021), Smart Microgrid Energy Market\n— avalia tempos/custos de operações DLT em\nIIoT/edge.\nGec et al. (2022), Towards a Smarter IoT Environment\nwith EVM-enabling Ledgers — compara ledgers EVM e\npropriedades (incl. tempos de geração/transação).\n9"
   },
   "raw_fields": {
-    "Característica": "Desempenho",
-    "Sub-característica": "Comportamento temporal",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Comportamento Temporal",
     "Equação": "Para uma sequência de n blocos com timestamps\nT1, . . . , Tn:\n(a) Tempo de bloco por bloco i: BTi = Ti −Ti−1, i ≥2.\n(b) Tempo médio de bloco: BT =\n1\nn−1\nPn\ni=2(Ti −Ti−1).\n(c) Recomenda-se também a mediana (robusta a\noutliers).\nMétricas\nAssociadas\nLatência de confirmação; Throughput (TPS); Taxa de\nvalidação; Tempo de validação de bloco; Utilização de\nrecursos (CPU/RAM/energia em edge).\nAtributo\nRelacionado\nParâmetros de consenso (ex.: dificuldade/slot\ntime/epoch); Limite de gás por bloco; Tamanho de\nbloco; Configuração de rede (propagação).\n7",
     "Protocolo": "1. Definir escopo: rede (pública/testnet/privada),\nconsenso (PoW/PoS/PoA/BFT) e janela de observação.\n2. Coletar cabeçalhos: obter sequência de blocos\n[bk, . . . , bk+m] e seus timestamps via API/SDK (ex.:\nWeb3).\n3. Calcular BTi = Ti −Ti−1 e estatísticas (média,\nmediana, p90/p95/p99).\n4. Registrar condições: número de nós/validadores,\nparâmetros (intervalo/slot, dificuldade, block gas limit),\ne ambiente (edge/IIoT).\n5. Analisar correlação com latência/TPS/validação e\nrelatar impacto em aplicações (IoT/microgrids/BGP).",
     "Comentário": "Em avaliações com foco em IoT, PoS e PoA tendem a\nmenores average block time que PoW, favorecendo\ntransações de baixa latência em dispositivos restritos.\nEm SDN+BGP com blockchain, o block validation time\nreportado ( 20,2 s em simulação) evidencia o papel da\nescolha de consenso/estrutura do bloco. Para microgrids\ne ambientes de borda, a seleção do ledger EVM também\nconsidera tempos de geração de bloco e custo.",

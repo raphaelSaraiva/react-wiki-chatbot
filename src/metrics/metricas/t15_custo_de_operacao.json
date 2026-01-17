@@ -1,10 +1,10 @@
 {
   "id": "t15",
   "table_no": 15,
-  "name": "Custo de Operação",
+  "name": "Custo Operacional",
   "iso25010": {
-    "characteristic": "Eficiência de desempenho",
-    "subcharacteristic": "Utilização de recursos"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "keywords_alias": "OPEX; Custo operacional; Gas fee; Transaction fee;\nCusto de execução; Custo por transação; Custo de infraestrutura",
@@ -24,13 +24,13 @@
     "references": "Gonçalves et al., Distributed Network Slicing Management Using Blockchains in E-Health Environments (Mo-\nbile Networks and Applications, 2021).\nGonçalves et al., A Quality of Service Compliance System Empowered by Smart Contracts and Oracles (IEEE\nBlockchain, 2020).\n42"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Custo de Operação",
+    "Atributo Nome (Título)": "Custo Operacional",
     "Palavras-chave / Alias": "OPEX; Custo operacional; Gas fee; Transaction fee;\nCusto de execução; Custo por transação; Custo de infraestrutura",
     "Definição do Atributo": "Soma dos recursos computacionais e dos custos monetários consumidos por uma aplicação ou rede blockchain ao\nlongo do tempo de operação (processamento, memória,\narmazenamento, E/S, rede), incluindo as taxas pagas\npor transações/execuções de contratos inteligentes.",
     "Objetivo / Motivação": "Quantificar e otimizar o custo para operar soluções baseadas em blockchain, suportando decisões de arquitetura\n(p. ex., on-chain vs. off-chain), parametrização de gas e\nplanejamento orçamentário/SLAs.",
     "Nível de Independência do Domínio": "Totalmente independente de domínio (aplicável a saúde,\nIoT, redes, energia, etc.).\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de desempenho",
-    "Sub-característica": "Utilização de recursos",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "Cop(P) = P\ni∈TP\n\u0010\ngasUsedi · gasPricei\n\u0011\n+ Cinfra(P) +\nCenergia(P)\nOnde P é o período de medição; TP o conjunto de transações no período; o primeiro termo representa os custos\non-chain (taxas), e os demais contemplam infraestrutura\n(CPU, RAM, armazenamento, rede) e energia.\nMétricas\nAssociadas\nCusto de Gas; Custo por Transação; Consumo de Energia; Vazão (impacta volume e custo total); Tamanho de\nBloco/Armazenamento (impacta custo indireto).\nAtributo\nRelacionado\nCusto de Armazenamento; Tempo de Confirmação (tradeoff custo/velocidade); Taxa de Transações (TPS).",
     "Protocolo": "1) Definir o período e a unidade monetária de reporte\n(e.g., ETH, USD, BRL).\n2) Coletar por transação: gasUsed e gasPrice (via\nnó/Explorer/API).\n3) Calcular custo on-chain: P gasUsed · gasPrice.\n4) Somar custos de infraestrutura/energia do ambiente\n(cloud, bare-metal).\n5) Segmentar por tipo de operação (deploy, escrita, leitura) para otimização.\n6) Reportar estatísticas (total, média por transação,\np50/p95/p99) e condições (rede, consenso, parâmetros\nde gas, uso de off-chain/IPFS).\n41",
     "Comentário": "Há trade-off entre preço do gas e tempo de confirmação:\npreços maiores tendem a priorizar a inclusão da transação,\nelevando o custo; preços menores reduzem custo mas\npodem aumentar a latência. Em Ethereum, o custo de\ndeploy é tipicamente o mais caro (parte fixa + parte\nvariável proporcional ao tamanho do bytecode). O uso\nde armazenamento off-chain (e.g., IPFS) reduz custos\non-chain ao registrar apenas hashes.\nInterpretação\ndo\nValor Medido\nQuanto\nmenor\no\ncusto\npara\natender\no\nmesmo\nSLA/funcionalidade, melhor (eficiência). Avaliar custo\ntotal e custo unitário (por transação/por evento), além\ndos percentis (p50/p95/p99) para entender caudas de\ncusto.",

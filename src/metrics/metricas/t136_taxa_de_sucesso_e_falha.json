@@ -4,7 +4,7 @@
   "name": "Taxa de Sucesso e Falha",
   "iso25010": {
     "characteristic": "Confiabilidade",
-    "subcharacteristic": "Maturidade / Tolerância a falhas"
+    "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
     "keywords_alias": "Success rate; Failure rate; Transaction success ratio;\nError rate; Blockchain reliability",
@@ -28,7 +28,7 @@
     "Definição do Atributo": "Mede a proporção entre transações bem-sucedidas e falhas registradas em um ambiente blockchain. Representa\na confiabilidade operacional do sistema, indicando a estabilidade da execução de transações dentro de uma rede\ndistribuída (ex.: Hyperledger Fabric).",
     "Objetivo / Motivação": "Avaliar a eficiência e confiabilidade da rede blockchain,\nespecialmente em cenários de armazenamento descentralizado de dados de saúde, garantindo integridade e\nconsistência entre nós e serviços distribuídos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Confiabilidade",
-    "Sub-característica": "Maturidade / Tolerância a falhas",
+    "Sub-característica": "Tolerância a Falhas",
     "Equação": "Success Rate = Nsucesso\nNtotal\n× 100%\nFail Rate = Nfalhas\nNtotal\n× 100%\nMétricas\nAssociadas\nTempo de resposta; Disponibilidade; Throughput; Reliability; Transaction Latency\nAtributo\nRelacionado\nDesempenho do sistema; Eficiência da comunicação; Integridade dos dados",
     "Protocolo": "1) Registrar todas as requisições de transação enviadas\nà rede blockchain durante um intervalo [t0, t1].\n2) Classificar cada requisição como “bem-sucedida” ou\n“falha” com base no resultado de confirmação do ledger.\n3) Calcular as proporções relativas de sucesso e falha\nconforme as equações.\n4) Repetir o experimento sob diferentes cargas e tamanhos de blocos para avaliar a robustez da rede.",
     "Comentário": "Em sistemas como o Hyperledger Healthchain, altas taxas\nde sucesso indicam bom desempenho do mecanismo de\nconsenso e da integração com IPFS. Já taxas elevadas\nde falha podem apontar problemas de congestionamento,\ninconsistência de blocos ou falhas de sincronização entre\npeers.\nInterpretação\ndo\nValor Medido\nValores mais altos de sucesso (>95%) refletem boa confiabilidade da rede; taxas elevadas de falha (>5%) indicam\nnecessidade de otimização no consenso, na arquitetura\nde comunicação ou na configuração dos nós.\n315",

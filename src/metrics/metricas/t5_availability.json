@@ -1,7 +1,7 @@
 {
   "id": "t5",
   "table_no": 5,
-  "name": "Availability",
+  "name": "Nivel de Disponibilidade",
   "iso25010": {
     "characteristic": "Confiabilidade",
     "subcharacteristic": "Disponibilidade"
@@ -24,7 +24,7 @@
     "references": "(1) Melo et al. (2021–2022). A model-based approach for planning\nblockchain service provisioning — modelagem RBD/CTMC para\nHLF; expressões de disponibilidade; análise AND/OR/K-de-N e\ncustos.\n(2) AbdulKader & Kumar (2023). A privacy-preserving data transfer in a blockchain-based commercial real estate platform — arqui-\ntetura com endereço aleatório/stealth, integridade e avaliação de\ndesempenho/segurança, com implicações operacionais.\n15"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Availability",
+    "Atributo Nome (Título)": "Nivel de Disponibilidade",
     "Palavras-chave / Alias": "Availability; Alta disponibilidade; Níveis de serviço; Número de “noves”; Tempo de inatividade (downtime)",
     "Definição do Atributo": "Probabilidade de o serviço estar operacional quando\nrequerido. Em plataformas blockchain (ex.: Hyperledger\nFabric), depende da saúde de hardware/SO/engine de\ncontêineres e dos nós lógicos (MSP, Endorser, Orderer)\ne da política de endosso (AND/OR/K-de-N)",
     "Objetivo / Motivação": "Planejar e comprovar SLAs, comparar arranjos de endosso (AND/OR/K-de-N) e orientar decisões de implan-\ntação/manutenção para reduzir downtime anual. Em\nsoluções com requisitos de privacidade e integridade (ex.:\nplataformas imobiliárias com endereços aleatórios e antitampering), a disponibilidade assegura operação contínua\ndo serviço além de segurança/privacidade.",

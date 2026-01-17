@@ -3,7 +3,8 @@
   "table_no": 84,
   "name": "Consumo de Memória",
   "iso25010": {
-    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos Computacionais"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "keywords_alias": "Memory consumption; RAM usage; memory overhead;\nblockchain resource utilization; healthcare blockchain\nperformance",
@@ -25,7 +26,8 @@
     "Palavras-chave / Alias": "Memory consumption; RAM usage; memory overhead;\nblockchain resource utilization; healthcare blockchain\nperformance",
     "Definição do Atributo": "Mede a quantidade de memória (RAM) utilizada\npor um sistema blockchain durante a execução de suas\noperações, incluindo verificação de transações, execução\nde contratos inteligentes e armazenamento temporário de\ndados. Indica a eficiência no uso de recursos de memória\ndurante o funcionamento da rede.",
     "Objetivo / Motivação": "Avaliar a eficiência de alocação e uso de memória\nem sistemas blockchain, especialmente em aplicações voltadas a dispositivos ou servidores de baixa capacidade,\ncomo em ambientes hospitalares de países em desenvolvimento. Essa métrica permite identificar gargalos e\npropor otimizações de arquitetura e armazenamento.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos Computacionais",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "Consumo de Memória (MB) = Memóriafinal−Memóriainicial\nou, em termos relativos:\nConsumo Relativo (%) =\nMemória utilizada\nMemória total disponível×100\nMétricas\nAssociadas\nUso de CPU; Sobrecarga de CPU; Eficiência de armazenamento; Throughput; Consumo de energia\nAtributo\nRelacionado\nEficiência computacional; Escalabilidade; Desempenho\nde execução",
     "Protocolo": "1) Implantar o sistema blockchain com as operações de\ntransação e registro de dados.\n2) Monitorar o consumo de memória ao longo do ciclo\nde operação (inicialização, execução e finalização).\n3) Repetir o teste sob diferentes volumes de transações e\ntamanhos de blocos.\n4) Registrar a média e o pico de consumo de memória.\n203",
     "Comentário": "O estudo mostrou que a arquitetura proposta apresentou\nbaixo consumo de memória, sendo adequada para sistemas de saúde em infraestrutura limitada. A otimização\nno uso de memória deriva da combinação de blockchain\nleve com armazenamento descentralizado off-chain, reduzindo a carga de dados na camada principal.\nInterpretação\ndo\nValor Medido\nValores menores indicam uso mais eficiente da memória e maior escalabilidade. Valores altos sugerem\nnecessidade de otimização na estrutura de dados, cache\nou armazenamento temporário.",

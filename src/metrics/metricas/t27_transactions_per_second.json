@@ -1,10 +1,10 @@
 {
   "id": "t27",
   "table_no": 27,
-  "name": "Transactions per Second",
+  "name": "Transações por Segundo",
   "iso25010": {
-    "characteristic": "Desempenho",
-    "subcharacteristic": "Capacidade (Throughput)"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
   },
   "fields": {
     "equation": "Definição geral: TPS = Ntx,confirmadas\n∆t\n.\nPoW (Bitcoin): TPS = (1 −Rstale) ·\nNt\nTblock\n, onde Rstale é\na razão de blocos órfãos e Nt o nº de transações por\nbloco; Tblock é o tempo médio de bloco.\nMétricas\nAssociadas\nBlock time; Razão de blocos órfãos/stale; # de uncle\nblocks; Latência; Gas limit; # de blocos perdidos (NBL).\nAtributo\nRelacionado\nLatência; Confiabilidade da confirmação;\nDisponibilidade.",

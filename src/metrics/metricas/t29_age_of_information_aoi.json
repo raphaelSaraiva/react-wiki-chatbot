@@ -1,10 +1,10 @@
 {
   "id": "t29",
   "table_no": 29,
-  "name": "Age of Information (AoI)",
+  "name": "Idade da Informação",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Tempo de resposta / Latência percebida"
+    "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
     "keywords_alias": "Data freshness; Information latency; Blockchain delay;\nUpdate timeliness; Staleness; Data propagation delay",
@@ -23,12 +23,12 @@
     "references": "Pérez García, J. C.; Benslimane, A.; Su, Z. Analysis on the AoI in\nBlockchain-based IoT Networks with Different Sensing Mechanisms.\nIEEE International Conference on Communications (ICC), 2022.\n— Define a métrica AoI no contexto de redes IoT com blockchain,\nmodelando matematicamente os atrasos de sensoriamento, transmissão e consenso, e demonstrando a influência de parâmetros\ncomo taxa de chegada, tempo médio de bloco e ocorrência de forks\nsobre a atualidade da informação.\n80"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Age of Information (AoI)",
+    "Atributo Nome (Título)": "Idade da Informação",
     "Palavras-chave / Alias": "Data freshness; Information latency; Blockchain delay;\nUpdate timeliness; Staleness; Data propagation delay",
     "Definição do Atributo": "Mede a “idade” da informação — o tempo decorrido entre a geração de uma atualização e o momento\nem que ela se torna acessível ao usuário final. Em redes baseadas em blockchain, representa o intervalo\ndesde a coleta de um dado até sua confirmação e registro\nimutável na cadeia de blocos, refletindo a frescura e\natualidade das informações disponíveis on-chain ou\nno servidor de destino.",
     "Objetivo / Motivação": "Avaliar a atualidade da informação em sistemas\nblockchain-IoT, onde atrasos podem ser causados por mineração, propagação de blocos, tempo de fila e resolução\nde forks. Essa métrica é essencial para aplicações sensíveis a tempo (por exemplo, monitoramento de saúde,\ncontrole industrial e cidades inteligentes), em que decisões baseadas em dados desatualizados podem gerar\nações incorretas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Tempo de resposta / Latência percebida",
+    "Sub-característica": "Comportamento Temporal",
     "Equação": "O valor instantâneo do AoI é dado por:\nAoI(t) = t −u(t),\npara ti−1 ≤t ≤ti,\nonde u(t) representa o instante da última atualização\nrecebida.\nO tempo total de atualização é composto por:\nti = Ts + Ttx + Ttp + TBC,\nem que Ts é o tempo de sensoriamento, Ttx o tempo\nde transmissão, Ttp o tempo de disseminação entre gateways e TBC o tempo gasto nas operações de blockchain\n(mineração, propagação e resolução de forks).\nMétricas\nAssociadas\nTransaction latency; Confirmation time; Fork probability;\nBlock propagation delay; Throughput; Queue time (TQ);\nMining time (TM)\nAtributo\nRelacionado\nTempo de confirmação de bloco; Desempenho do consenso; Tempo de mineração; Delay de comunicação; De-\nsempenho de atualização de estado\n78",
     "Protocolo": "1) Modelar a rede blockchain-IoT considerando dispositivos IoT, gateways (como mineradores) e servidores em\nnuvem.\n2) Medir o tempo total de atualização ti desde o sensoriamento até o dado ser confirmado na blockchain.\n3) Calcular o AoI(t) conforme as equações acima, monitorando variações entre blocos e eventos.\n4) Considerar o impacto de parâmetros como taxa de\nchegada (λ), taxa de mineração (µ), tempo médio de\nbloco (Tw), e probabilidade de fork (pf).\n5) Repetir a análise para diferentes mecanismos de sensoriamento (periódico, orientado a evento e baseado em\nconsulta).",
     "Comentário": "O Age of Information em sistemas blockchain-IoT captura o trade-off entre segurança e atualidade. A natu-\nreza distribuída e o consenso aumentam a confiabilidade,\nmas introduzem atrasos de mineração e propagação. A\nmétrica permite encontrar o ponto ótimo de configuração (tamanho de bloco, taxa de mineração e frequência\nde atualização) para manter a informação “fresca” sem\ncomprometer a integridade e o desempenho do sistema.\nInterpretação\ndo\nValor Medido\nValores menores indicam maior atualidade da informação e melhor eficiência de atualização. O AoI cresce\nlinearmente com o tempo até que uma nova atualização\nseja registrada na blockchain, momento em que o valor é\nreiniciado conforme o atraso total do processo. Um crescimento acentuado do AoI indica gargalos na propagação\nde blocos, congestionamento ou mineração lenta.",

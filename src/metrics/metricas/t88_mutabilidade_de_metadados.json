@@ -1,7 +1,7 @@
 {
   "id": "t88",
   "table_no": 88,
-  "name": "Mutabilidade de Metadados",
+  "name": "Metadados Mutáveis",
   "iso25010": {
     "characteristic": "Segurança",
     "subcharacteristic": "Integridade"
@@ -23,7 +23,7 @@
     "references": "Yan, K.; Zhang, J.; Liu, X.; Diao, W.; Guo, S. Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems.\nProceedings of the ACM Web Conference (WWW), 2023. — Introduz a métrica Mutable Metadata, utilizada para identificar\ncontratos inteligentes que permitem alteração de metadados após\no deploy, comprometendo a integridade e a descentralização do\nsistema.\n214"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Mutabilidade de Metadados",
+    "Atributo Nome (Título)": "Metadados Mutáveis",
     "Palavras-chave / Alias": "Mutable metadata; Metadata alteration; Token metadata\nchange; Contract updatability; Centralized metadata\ncontrol",
     "Definição do Atributo": "Mede o grau em que os metadados de um contrato\ninteligente podem ser alterados após sua implantação na blockchain. Metadados incluem informações\ncomo nome, símbolo, URI, baseURI ou outros identificadores associados a tokens e ativos digitais. A presença\nde funções que permitem modificar esses dados representa risco à integridade e à confiabilidade dos registros\non-chain.",
     "Objetivo / Motivação": "Avaliar a imutabilidade e a segurança das informações\ndescritivas associadas a contratos inteligentes, garantindo\nque desenvolvedores ou administradores não possam modificar metadados críticos após o deploy, o que poderia\nenganar usuários, alterar propriedades de tokens ou comprometer a rastreabilidade dos ativos.\nModelo\nde\nQualidade\nISO/IEC 25010",

@@ -4,7 +4,7 @@
   "name": "Nível de Resistência à Falsificação",
   "iso25010": {
     "characteristic": "Segurança",
-    "subcharacteristic": "Integridade / Autenticidade"
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Unforgeability; Signature unforgeability; ZK-proof soundness; Auction integrity; Sealed-bid; Non-repudiation",
@@ -28,7 +28,7 @@
     "Definição do Atributo": "Mede a capacidade do sistema de leilão/contrato inteligente baseado em blockchain de impedir a falsificação\nde assinaturas, lances e provas de conhecimento zero.\nRepresenta quão improvável é para um adversário gerar artefatos válidos (assinaturas/provas) sem possuir os\nsegredos correspondentes, preservando autenticidade e\nintegridade do processo de leilão selado.",
     "Objetivo / Motivação": "Garantir que lances e resultados não possam ser manipulados por partes desonestas, assegurando binding,\nhiding e verificabilidade pública do protocolo de e-auction\ncom contratos inteligentes e ZKPs. Uma alta resistência\nà falsificação é essencial para confiabilidade, justiça e\nauditabilidade do leilão.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Segurança",
-    "Sub-característica": "Integridade / Autenticidade",
+    "Sub-característica": "Integridade",
     "Equação": "Modelo criptográfico esperado: a probabilidade de um\nadversário A produzir um artefato válido sem o segredo é\nPr[Forge] ≤(k), onde k é o parâmetro de segurança. Para\navaliação empírica, usar: Índiceresist = 1 −Nforjas_detectadas\nNtentativas\n.\nMétricas\nAssociadas\nNonrepudiation Level; Authentication Success Rate;\nZKP Verification Time; Auction Correctness\nAtributo\nRelacionado\nIntegridade de Dados; Autenticidade de Assinaturas;\nSolidez de Provas (soundness); Imutabilidade do Ledger",
     "Protocolo": "1) Implementar o esquema de leilão selado com contrato\ninteligente e provas de conhecimento zero conforme o\nprotocolo do artigo.\n2) Instrumentar verificações on-chain de assinaturas/provas (verificadores ZK e checks de assinatura).\n3) Executar testes adversariais com tentativas de falsificação (assinaturas/provas/lances) sem os segredos\nlegítimos.\n4) Contabilizar forjas detectadas e calcular o índice empírico de resistência; registrar também a taxa de verificação\nbem-sucedida para entradas válidas.\n5) Reportar estatísticas (média, p95) por cenário de\nameaça e por parâmetro de segurança k.\n172",
     "Comentário": "No esquema de e-auction com ZKP e smart contract,\na soundness das provas e a segurança de assinatura garantem que forjas sejam computacionalmente inviáveis.\nA verificação pública on-chain e o desenho de compromisso/abertura (commit-reveal) reforçam a inforgeabili-\ndade prática do sistema.\nInterpretação\ndo\nValor Medido\nÍndice próximo de 1 indica ambiente altamente resistente a falsificações; valores menores sugerem fragili-\ndades no verificador on-chain, na parametrização criptográfica ou na implementação do contrato/prova.",

@@ -1,10 +1,10 @@
 {
   "id": "t21",
   "table_no": 21,
-  "name": "Storage Cost",
+  "name": "Custo de Armazenamento",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Utilização de Recursos (armazenamento/on-chain)"
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "equation": "Custoon-chain = gasUsedstorage × gasPrice (ETH/gas) ×\npreçoETH (USD/ETH).\nNa EVM, a escrita de uma palavra de 256 bits\n(32 bytes) custa tipicamente GSSTORE = 20,000 gas.\nPara 1 KB: 1024\n32 × 20,000 = 640,000 gas. (O artigo\nexemplifica o cálculo e compara com IPFS.)\nMétricas\nAssociadas\nGas Cost; Transaction Cost (fee); Tamanho do bloco;\nTamanho do ledger; Latência de acesso a dados.\nAtributo\nRelacionado\nThroughput (TPS) e block gas limit (capacidade por\nbloco); Estratégia de armazenamento (on-chain vs.\nIPFS); Disponibilidade/Integridade de dados.\n57",
@@ -20,7 +20,7 @@
   },
   "raw_fields": {
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos (armazenamento/on-chain)",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "Custoon-chain = gasUsedstorage × gasPrice (ETH/gas) ×\npreçoETH (USD/ETH).\nNa EVM, a escrita de uma palavra de 256 bits\n(32 bytes) custa tipicamente GSSTORE = 20,000 gas.\nPara 1 KB: 1024\n32 × 20,000 = 640,000 gas. (O artigo\nexemplifica o cálculo e compara com IPFS.)\nMétricas\nAssociadas\nGas Cost; Transaction Cost (fee); Tamanho do bloco;\nTamanho do ledger; Latência de acesso a dados.\nAtributo\nRelacionado\nThroughput (TPS) e block gas limit (capacidade por\nbloco); Estratégia de armazenamento (on-chain vs.\nIPFS); Disponibilidade/Integridade de dados.\n57",
     "Protocolo": "1) Definir escopo: o que será armazenado on-chain\n(valores, metadados) e o que vai para IPFS (dados\nvolumosos).\n2) Medir gasUsedstorage das operações de escrita (ex.:\nSSTORE) no contrato/cliente e coletar gasPrice e preço\ndo ETH da janela analisada.\n3) Calcular custo por palavra, por KB e por objeto;\nincluir cenários de hash-only (IPFS) vs. dados\nintegrais on-chain.\n4) Reportar estatísticas (média, mediana, p95) e\ncondições de teste (rede, block time, gas limit).\n5) Comparar custo/latência entre solução tradicional\n(on-chain) e arquitetura com IPFS (âncora on-chain do\nhash).",
     "Comentário": "O artigo demonstra que armazenar dados diretamente\nna Ethereum é caro, e propõe IPFS para reduzir custo\n(mantendo apenas o hash na cadeia). Apresenta fórmula\npara estimar custo por palavra/KB e um estudo\ncomparativo em que o arranjo com IPFS reduz\nsignificativamente o storage cost e melhora latência de\nacesso.",

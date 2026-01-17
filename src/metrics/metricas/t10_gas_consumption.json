@@ -1,10 +1,10 @@
 {
   "id": "t10",
   "table_no": 10,
-  "name": "Gas Consumption",
+  "name": "Consumo de Gás",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Utilização de Recursos (on-chain)"
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "equation": "Gas Consumption = gasUsed =\nX\ni\ngas(opcodei) + overheadsmem/sto −refunds. (Distinto\nde transaction fee, que envolve gasPrice.)\nMétricas\nAssociadas\nExecution time; Latência fim-a-fim; Throughput (TPS);\nTaxa de sucesso; Tamanho de payload/armazenamento;\nTransaction cost.\nAtributo\nRelacionado\nGas Cost (fee monetária); Limite de gás por bloco;\nEscalabilidade do contrato; Custo de armazenamento vs.\neventos/IPFS.\n28",
@@ -20,7 +20,7 @@
   },
   "raw_fields": {
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos (on-chain)",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "Gas Consumption = gasUsed =\nX\ni\ngas(opcodei) + overheadsmem/sto −refunds. (Distinto\nde transaction fee, que envolve gasPrice.)\nMétricas\nAssociadas\nExecution time; Latência fim-a-fim; Throughput (TPS);\nTaxa de sucesso; Tamanho de payload/armazenamento;\nTransaction cost.\nAtributo\nRelacionado\nGas Cost (fee monetária); Limite de gás por bloco;\nEscalabilidade do contrato; Custo de armazenamento vs.\neventos/IPFS.\n28",
     "Protocolo": "1) Definir escopo: funções (incl. deploy) e cenários de\nentrada/estado.\n2) Ambiente: usar testnet/rede privada e ferramentas\n(Remix/Truffle/Web3); registrar parâmetros de rede.\n3) Executar & medir: coletar gasUsed dos receipts\npor função/transação; repetir N vezes e reportar\np50/p95.\n4) Instrumentação opcional: monitoramento\ndinâmico em nível de função (tempo, instruções e gas)\npara identificar gargalos.\n5) Otimizações: avaliar trade-offs on-chain vs.\nIPFS/off-chain para reduzir consumo de gás.",
     "Comentário": "Consumo de gás varia substancialmente entre funções:\nem energy trading para EVs, uma função (SF5) atingiu\n∼186,571 gas no experimento; no e-voting, analisou-se\nconsumo por função e pela quantidade de\nvotos/usuários; em dispositivos de energia/IoT, os\nautores julgam “adequados” os custos de desempenho\nem termos de uso de gás na prova de conceito.",

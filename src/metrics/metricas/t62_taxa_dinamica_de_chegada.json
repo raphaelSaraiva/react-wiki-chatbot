@@ -3,7 +3,8 @@
   "table_no": 62,
   "name": "Taxa Dinâmica de Chegada",
   "iso25010": {
-    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nCapacidade (Throughput) e Tempo de Resposta"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
   },
   "fields": {
     "keywords_alias": "Arrival frequency; Transaction input rate; Transaction\ninflow rate; (lambda)",
@@ -25,7 +26,8 @@
     "Palavras-chave / Alias": "Arrival frequency; Transaction input rate; Transaction\ninflow rate; (lambda)",
     "Definição do Atributo": "Mede a frequência de chegada de novas transações\nao serviço de ordenação (ordering service) em um sistema\nblockchain, variando ao longo do tempo de forma dinâmica. Essa métrica representa o ritmo em que os usuários\nenviam transações para processamento na rede Hyperledger Fabric, afetando diretamente o uso dos recursos e\no tempo de resposta.",
     "Objetivo / Motivação": "Avaliar o comportamento dinâmico do fluxo de transações e determinar o ponto em que a taxa de chegada\nexcede a capacidade de serviço de um nó de ordenação.\nEssa informação é fundamental para identificar a necessidade de adicionar novos nós orderers para manter o\ndesempenho e a estabilidade da rede blockchain.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho\nSubcaracterística\nCapacidade (Throughput) e Tempo de Resposta",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Capacidade",
     "Equação": "P = λ\nµ\nonde λ é a taxa dinâmica de chegada de transações\n(transações/segundo) e µ é a taxa de serviço determinística (transações/segundo). O sistema permanece estável\nenquanto P < 1.\nMétricas\nAssociadas\nService Rate (µ); Throughput; Average Latency; Utilization; Queue Length (Lq); Waiting Time (Wq)\nAtributo\nRelacionado\nCapacidade do nó de ordenação; Tamanho do bloco\n(BatchSize); Tempo máximo de agrupamento (BatchTimeout)",
     "Protocolo": "1) Implementar a rede Hyperledger Fabric com dois peers\ne um único nó orderer.\n2) Configurar parâmetros fixos: BatchTimeout = 1s,\nMaxMessageCount = 10, ServiceRate µ = 10 tps.\n3) Aumentar gradualmente o valor de λ (taxa de chegada\nde transações) entre 1 e 9 tps.\n4) Calcular o fator de utilização P = λ/µ e observar o\ncomportamento da fila e da latência.\n5) Identificar o ponto em que P ≥1, indicando saturação\ndo sistema e necessidade de novos nós orderers.\n155",
     "Comentário": "O estudo mostrou que, ao aumentar λ, a utilização do\nnó orderer cresce proporcionalmente. Quando a taxa\nde chegada se aproxima ou ultrapassa a taxa de serviço\n(P ≥1), o sistema torna-se instável, gerando filas longas\ne maiores tempos de espera. Recomenda-se a adição de\nnós orderers para manter a estabilidade e a eficiência do\nsistema Hyperledger Fabric.\nInterpretação\ndo\nValor Medido\nBaixos valores de λ indicam carga leve e boa estabilidade. Valores elevados (próximos a µ) sinalizam\ncongestionamento iminente e risco de atraso no processamento das transações.",

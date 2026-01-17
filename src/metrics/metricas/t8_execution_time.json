@@ -1,10 +1,10 @@
 {
   "id": "t8",
   "table_no": 8,
-  "name": "Execution Time",
+  "name": "Tempo de Execução",
   "iso25010": {
-    "characteristic": "Desempenho",
-    "subcharacteristic": "Comportamento temporal (tempo de processamento)"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
     "equation": "Execution Time = Tfim_exec −Tinício_exec.\nExemplos: (a) Chaincode: do invoke até a conclusão da\nfunção; (b) Smart contract: do envio da chamada até o\nreceipt/evento de término on-chain (quando aplicável).\nMétricas\nAssociadas\nLatência (end-to-end); Throughput (TPS); Overhead de\ncomunicação; Consumo de recursos (CPU/memória);\nCusto de transação (gás).\nAtributo\nRelacionado\nEficiência no uso de recursos; Escalabilidade;\nConfiabilidade de confirmação.\n22",
@@ -19,8 +19,8 @@
     "references": "(1) Nasir et al., Performance Analysis of Hyperledger Fabric Platforms — avalia execution time, latência e throughput em Fabric.\n(2) Kumar & Chand, MedHypChain — mede execution time, latência e throughput em rede permissionada de saúde.\n(3) Deebak et al., Lightweight Blockchain-Based Remote Mutual\nAuthentication (B-RMA) — usa Node.js e avalia execution time,\nthroughput e overhead.\n(4) Chatterjee et al., Blockchain-Enabled Security Framework for\nSmart Agriculture — reporta average execution time, gas cost,\nthroughput e latência.\n(5) Uddin et al., From Hype to Reality—Blockchain in SCM —\ncompara soluções com foco em eficiência, execution time, segurança\ne latência.\n(6) Bai et al., GDPR-Compliant Data Storage and Sharing in\nSmart Healthcare — discute arquitetura com IPFS/Blockchain e\nimpactos de desempenho.\n24"
   },
   "raw_fields": {
-    "Característica": "Desempenho",
-    "Sub-característica": "Comportamento temporal (tempo de processamento)",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Comportamento Temporal",
     "Equação": "Execution Time = Tfim_exec −Tinício_exec.\nExemplos: (a) Chaincode: do invoke até a conclusão da\nfunção; (b) Smart contract: do envio da chamada até o\nreceipt/evento de término on-chain (quando aplicável).\nMétricas\nAssociadas\nLatência (end-to-end); Throughput (TPS); Overhead de\ncomunicação; Consumo de recursos (CPU/memória);\nCusto de transação (gás).\nAtributo\nRelacionado\nEficiência no uso de recursos; Escalabilidade;\nConfiabilidade de confirmação.\n22",
     "Protocolo": "1. Definir precisamente os pontos de medição\n(Tinício_exec, Tfim_exec): no cliente/SDK (chamada), no\npeer/validador (início/fim de chaincode) ou via\nevent/receipt.\n2. Sincronizar relógios (NTP/PTP) e registrar\ncondições (nós, consenso, banda, carga).\n3. Executar workloads controlados variando: tamanho\ndo payload, concorrência, consenso\n(PBFT/IBFT/Raft/PoW/PoS), nós.\n4. Calcular estatísticas (média, mediana, p90/p95/p99)\ne correlacionar com latência e TPS.\n5. Reportar overheads de comunicação/armazenamento\ne configurações (ex.: compactação, endorsement policy).",
     "Comentário": "Em cenários reais, execution time é afetado por I/O de\nestado e sobrecarga criptográfica. Trabalhos em\nIIoT/Agro e saúde medem average execution time junto\nde gas cost/latência/throughput; soluções com off-chain\n(ex.: IPFS) reduzem custos e podem melhorar o tempo\nde execução percebido na camada de contrato.",

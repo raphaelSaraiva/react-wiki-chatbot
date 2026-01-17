@@ -3,8 +3,8 @@
   "table_no": 148,
   "name": "Cobertura de Transações",
   "iso25010": {
-    "characteristic": "Confiabilidade (Reliability)",
-    "subcharacteristic": "Completude de Dados (Data Completeness)"
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Completude Funcional"
   },
   "fields": {
     "keywords_alias": "Transaction coverage; Observed transaction ratio; Blockchain data completeness; Unseen transactions; Block\ninclusion rate",
@@ -27,8 +27,8 @@
     "Palavras-chave / Alias": "Transaction coverage; Observed transaction ratio; Blockchain data completeness; Unseen transactions; Block\ninclusion rate",
     "Definição do Atributo": "Mede a proporção de transações observadas por medidores de rede (nós monitoradores) em relação ao total de\ntransações efetivamente incluídas nos blocos válidos da\nblockchain. A métrica avalia o grau de completude e\ntransparência dos dados observáveis da rede, identificando lacunas causadas por atrasos, perda de mensagens\nou comportamento não cooperativo de nós.",
     "Objetivo / Motivação": "Avaliar a confiabilidade e a completude das medições\npúblicas sobre blockchains, determinando se os observadores conseguem capturar todas as transações que\nrealmente compõem o ledger. Uma alta cobertura indica\nque o monitoramento da rede é representativo e preciso;\numa baixa cobertura sugere perda de dados, transações\nnão propagadas ou censura.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Confiabilidade (Reliability)",
-    "Sub-característica": "Completude de Dados (Data Completeness)",
+    "Característica": "Adequação Funcional",
+    "Sub-característica": "Completude Funcional",
     "Equação": "Coverage = Nobservadas\nNbloco\n× 100%\nonde Nobservadas é o número de transações observadas\npelos medidores e Nbloco é o número total de transações\nincluídas em blocos confirmados.\nMétricas\nAssociadas\nTransaction Propagation Delay; Transaction Loss Rate;\nNetwork Coverage; Node Visibility\nAtributo\nRelacionado\nDisponibilidade de Dados; Integridade de Rede; Transparência de Observação",
     "Protocolo": "1) Configurar múltiplos nós observadores em diferentes\nregiões geográficas.\n2) Coletar todas as transações recebidas via P2P e registrar o momento de recepção.\n3) Comparar o conjunto de transações observadas com o\nconjunto efetivo de transações incluídas em blocos válidos\n(extraídas de exploradores de blocos ou nós completos).\n4) Calcular a proporção de cobertura Coverage.\n5) Repetir a análise sob diferentes condições de rede e\nperíodos para obter séries temporais.\n341",
     "Comentário": "Uma cobertura de transações incompleta pode resultar\nda topologia P2P, da posição dos nós medidores, da limitação de conexões, ou de políticas de retransmissão\nrestritas. O estudo evidencia que blockchains populares\n(ex.: Bitcoin, Ethereum) apresentam taxas de cobertura inferiores a 100%, revelando lacunas relevantes para\nestudos de segurança e transparência.\nInterpretação\ndo\nValor Medido\nValores próximos de 100% indicam cobertura total e\nalta transparência da rede. Valores menores sugerem que\nparte das transações não foi observada, comprometendo a\nconfiabilidade das medições e a análise de comportamento\ndos nós.",

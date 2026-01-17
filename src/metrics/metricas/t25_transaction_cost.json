@@ -1,10 +1,10 @@
 {
   "id": "t25",
   "table_no": 25,
-  "name": "Transaction Cost",
+  "name": "Custo da Transação",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Utilização de Recursos (computacionais/financeiros)"
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "equation": "Custo de Transação (ETH) =\ngasUsed (gas) × gasPrice (ETH/gas). Componentes do\npreço em Ethereum (EIP-1559): Base Fee Per Gas +\nPriority Fee Per Gas (limitados por Max Fee Per Gas).\nMétricas\nAssociadas\nExecution cost; Deployment cost; GasUsed por função;\nTaxa de sucesso de transação; Tamanho médio de bloco;\nThroughput. Exemplos práticos reportam transaction\ncost e execution cost por função em contratos de energia\ne PHR.\nAtributo\nRelacionado\nLatência (tempo de confirmação pode influenciar\npriority fee); Escalabilidade; Disponibilidade\norçamentária (FinOps).\n68",
@@ -20,7 +20,7 @@
   },
   "raw_fields": {
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos (computacionais/financeiros)",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "Custo de Transação (ETH) =\ngasUsed (gas) × gasPrice (ETH/gas). Componentes do\npreço em Ethereum (EIP-1559): Base Fee Per Gas +\nPriority Fee Per Gas (limitados por Max Fee Per Gas).\nMétricas\nAssociadas\nExecution cost; Deployment cost; GasUsed por função;\nTaxa de sucesso de transação; Tamanho médio de bloco;\nThroughput. Exemplos práticos reportam transaction\ncost e execution cost por função em contratos de energia\ne PHR.\nAtributo\nRelacionado\nLatência (tempo de confirmação pode influenciar\npriority fee); Escalabilidade; Disponibilidade\norçamentária (FinOps).\n68",
     "Protocolo": "1) Definir o escopo: funções on-chain a medir (incluindo\ndeploy).\n2) Instrumentar a coleta de gasUsed por função (ex.:\nRemix/Truffle/Hardhat) e registrar gasPrice efetivo.\n3) Calcular custo via gasUsed × gasPrice e converter\npara moeda desejada (ETH, USD).\n4) Identificar hotspots de gás (ex.: SSTORE, custo fixo de\nTRANSACTION) e otimizar armazenamento/lógicas.\n5) Reportar estatísticas por função (mediana, p95) e\ncenários de rede (congestionada/normal).\nFundamentos: custo depende do opcode executado;\nTRANSACTION e SSTORE dominam o uso de gás em\nmuitos casos.",
     "Comentário": "Redução de custo de dados: usar\nIPFS/armazenamento off-chain e manter apenas hashes\non-chain reduz gas. Demostrado em energia/EVs (IPFS\npara aliviar custo de armazenamento) e em PHR (tabela\nde custos por função). Escolha de ledger: BSC/PoSA\ntende a custos menores vs. Ethereum; avaliar trade-offs\nde segurança/descentralização. Mitigações: L2, PoS e\notimização de contratos são práticas recomendadas.",

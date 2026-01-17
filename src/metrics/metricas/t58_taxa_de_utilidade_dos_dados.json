@@ -3,8 +3,8 @@
   "table_no": 58,
   "name": "Taxa de Utilidade dos Dados",
   "iso25010": {
-    "characteristic": "Qualidade de Dados / Funcionalidade",
-    "subcharacteristic": "Precisão / Confiabilidade Funcional"
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Completude Funcional"
   },
   "fields": {
     "keywords_alias": "Data Application Quality; Data Service Quality; Application Accuracy; Blockchain Data Trust; Data Utility",
@@ -13,7 +13,7 @@
     "equation": "Data Utility Rate =\nDados válidos e consistentes\nTotal de dados consumidos pela aplicação\nou\nData Utility Rate = Rcorretos\nRtotais\n× 100\nMétricas\nAssociadas\nAccuracy of Summary Information; Data Integrity; Transaction Validity; Data Latency\nAtributo\nRelacionado\nConfiabilidade dos Dados; Desempenho da Aplicação;\nEficiência de Processamento",
     "protocol": "1) Identificar aplicações que consomem dados blockchain.\n2) Medir a consistência e precisão dos dados usados pela\naplicação.\n3) Calcular a proporção de resultados corretos em relação\nao total de dados processados.\n4) Comparar com benchmarks off-chain para avaliar perdas de utilidade.",
     "comment": "O artigo demonstra que a utilidade dos dados depende\nda precisão do registro, do tempo de confirmação e das\npolíticas de privacidade da blockchain. Mecanismos de\nconsenso aumentam a confiança, mas podem reduzir a\neficiência se o volume de dados crescer rapidamente.\n147\n\nInterpretação\ndo\nValor Medido\nValores altos indicam alta preservação da utilidade e\nconfiança nos dados. Valores baixos sugerem degradação\ninformacional, inconsistências ou sobrecarga nos processos de validação.",
-    "unit": "Percentual (",
+    "unit": "Percentual (%)",
     "scale_type": "Razão",
     "precision": "Alta — depende da disponibilidade de datasets de referência e rastreabilidade do consumo de dados.",
     "data_collection": "Experimental / Analítica",
@@ -27,12 +27,12 @@
     "Palavras-chave / Alias": "Data Application Quality; Data Service Quality; Application Accuracy; Blockchain Data Trust; Data Utility",
     "Definição do Atributo": "Mede a proporção de dados válidos, consistentes e úteis\nefetivamente empregados em aplicações que consomem\ninformações de uma blockchain. Avalia o quanto o processo de registro e verificação descentralizada preserva o\nvalor analítico dos dados.",
     "Objetivo / Motivação": "Quantificar a eficácia das aplicações que utilizam dados\nregistrados em blockchain, garantindo que o uso de mecanismos de consenso e criptografia não reduza a precisão\ne utilidade da informação.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Qualidade de Dados / Funcionalidade",
-    "Sub-característica": "Precisão / Confiabilidade Funcional",
+    "Característica": "Adequação Funcional",
+    "Sub-característica": "Completude Funcional",
     "Equação": "Data Utility Rate =\nDados válidos e consistentes\nTotal de dados consumidos pela aplicação\nou\nData Utility Rate = Rcorretos\nRtotais\n× 100\nMétricas\nAssociadas\nAccuracy of Summary Information; Data Integrity; Transaction Validity; Data Latency\nAtributo\nRelacionado\nConfiabilidade dos Dados; Desempenho da Aplicação;\nEficiência de Processamento",
     "Protocolo": "1) Identificar aplicações que consomem dados blockchain.\n2) Medir a consistência e precisão dos dados usados pela\naplicação.\n3) Calcular a proporção de resultados corretos em relação\nao total de dados processados.\n4) Comparar com benchmarks off-chain para avaliar perdas de utilidade.",
     "Comentário": "O artigo demonstra que a utilidade dos dados depende\nda precisão do registro, do tempo de confirmação e das\npolíticas de privacidade da blockchain. Mecanismos de\nconsenso aumentam a confiança, mas podem reduzir a\neficiência se o volume de dados crescer rapidamente.\n147\n\nInterpretação\ndo\nValor Medido\nValores altos indicam alta preservação da utilidade e\nconfiança nos dados. Valores baixos sugerem degradação\ninformacional, inconsistências ou sobrecarga nos processos de validação.",
-    "Unidade": "Percentual (",
+    "Unidade": "Percentual (%)",
     "Tipo de Escala": "Razão",
     "Precisão": "Alta — depende da disponibilidade de datasets de referência e rastreabilidade do consumo de dados.",
     "Tipo de Coleta de Dados": "Experimental / Analítica",
@@ -46,3 +46,4 @@
     "table": "Tabela 58"
   }
 }
+

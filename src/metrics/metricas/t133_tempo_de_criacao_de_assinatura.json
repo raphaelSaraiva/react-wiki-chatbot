@@ -3,8 +3,8 @@
   "table_no": 133,
   "name": "Tempo de Criação de Assinatura",
   "iso25010": {
-    "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Comportamento Temporal"
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Signature generation; Signature creation delay; Cryptographic signing; Authentication latency; IoMT block-\nchain",
@@ -28,7 +28,7 @@
     "Definição do Atributo": "Mede o tempo necessário para a geração e aplicação\nde uma assinatura digital em uma transação ou dado\ncriptografado no contexto de um sistema blockchain em\nconsórcio. A métrica reflete o custo computacional do\nprocesso de autenticação usando chaves privadas e algoritmos de criptografia homomórfica.",
     "Objetivo / Motivação": "Avaliar a eficiência do processo de autenticação e verificação de dados em sistemas blockchain aplicados à\nInternet Industrial das Coisas Médicas (IIoMT), onde\nbaixa latência e segurança são cruciais para o fluxo de\ndados sensíveis.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Comportamento Temporal",
+    "Sub-característica": "Integridade",
     "Equação": "Tsig = tfim −tinício, onde tinício representa o instante em\nque o processo de geração da assinatura é iniciado e tfim\no momento em que a assinatura é concluída e anexada\nao bloco ou transação.\nMétricas\nAssociadas\nTempo de Verificação de Assinatura; Latência de Transação; Throughput; Overhead de Comunicação\nAtributo\nRelacionado\nAutenticação; Integridade de Dados; Segurança Criptográfica",
     "Protocolo": "1) Selecionar o algoritmo de assinatura utilizado (por\nexemplo, RSA, ECC, ou homomorphic signing).\n2) Executar a criação de assinatura em diferentes tamanhos de dados (por exemplo, 128, 256 e 512 bits).\n3) Medir o tempo total de geração da assinatura, desde\na solicitação até a conclusão.\n4) Repetir o experimento em diferentes cenários de carga\ne registrar a média, desvio padrão e variação percentual.\n5) Comparar com métodos tradicionais de autenticação\nsem blockchain para medir ganho de eficiência.\n309",
     "Comentário": "O tempo de criação de assinatura impacta diretamente\na latência total de autenticação e a viabilidade de uso\ndo blockchain em aplicações médicas de tempo real. O\nuso de técnicas de criptografia homomórfica e modelos\nde aprendizado híbrido ajuda a reduzir a sobrecarga sem\ncomprometer a segurança.\nInterpretação\ndo\nValor Medido\nValores menores de tempo de criação indicam maior eficiência do sistema e melhor adequação a cenários críticos\n(por exemplo, monitoramento remoto de pacientes).",

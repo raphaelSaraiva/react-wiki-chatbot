@@ -3,7 +3,8 @@
   "table_no": 55,
   "name": "Consistência dos Dados",
   "iso25010": {
-    "characteristic": "Confiabilidade\nSubcaracterística\nConsistência"
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Data consistency; state synchronization; ledger consistency; control state coherence; blockchain synchroniza-\ntion",
@@ -25,7 +26,8 @@
     "Palavras-chave / Alias": "Data consistency; state synchronization; ledger consistency; control state coherence; blockchain synchroniza-\ntion",
     "Definição do Atributo": "Mede o grau de coerência e sincronização dos dados\nmantidos entre controladores e dispositivos em uma arquitetura distribuída baseada em blockchain. Representa\na capacidade do sistema de manter estados uniformes e\natualizados em todos os nós, mesmo diante de falhas ou\natrasos de comunicação.",
     "Objetivo / Motivação": "Avaliar a habilidade do sistema blockchain em garantir a consistência global de informações entre\ncontroladores e elementos de rede em um ambiente distribuído. Essa métrica é essencial em redes SDN/SDON,\nonde comandos duplicados ou inconsistências podem\ncausar falhas graves na operação.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Confiabilidade\nSubcaracterística\nConsistência",
+    "Característica": "Segurança",
+    "Sub-característica": "Integridade",
     "Equação": "Cd = 1 −Dinc\nDtot\nonde Cd é o índice de consistência de dados, Dinc é o\nnúmero de divergências detectadas entre os estados dos\ncontroladores e Dtot é o número total de estados monitorados. Valores próximos a 1 indicam alta consistência.\nMétricas\nAssociadas\nTaxa de consenso; Latência de sincronização; Tempo de\nrecuperação; Integridade dos dados\nAtributo\nRelacionado\nSincronização de estados; Confiabilidade de controle;\nDisponibilidade",
     "Protocolo": "1) Implantar a arquitetura distribuída com múltiplos\ncontroladores e ledger blockchain.\n2) Simular falhas de controladores ou desconexões de\nrede.\n3) Comparar os estados armazenados nos controladores\ne no ledger.\n4) Calcular o número de divergências observadas e aplicar\na fórmula.\n5) Repetir o processo em diferentes cenários de carga e\nfalha para obter médias e desvios.\n141",
     "Comentário": "No estudo, a arquitetura BlockCtrl foi capaz de manter\nalta consistência de dados entre controladores distribuídos em uma rede óptica definida por software (SDON). O\nuso do ledger blockchain impediu a execução duplicada\nde comandos e assegurou que todas as atualizações de estado fossem replicadas de forma imutável e sincronizada,\nmesmo após falhas.\nInterpretação\ndo\nValor Medido\nValores altos indicam sincronização estável e coerência\nentre todos os controladores. Valores baixos refletem\ndivergências, perda de sincronismo ou falhas na replicação de blocos.",

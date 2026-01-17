@@ -1,9 +1,10 @@
 {
   "id": "t51",
   "table_no": 51,
-  "name": "Utilização da CPU (CPU Utilization)",
+  "name": "Utilização da CPU",
   "iso25010": {
-    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos Computacionais"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
     "keywords_alias": "CPU utilization; processor load; computational demand;\nresource usage; blockchain performance",
@@ -21,11 +22,12 @@
     "beneficiaries": "Engenheiros(as) de software; Pesquisadores(as) em blockchain educacional; Administradores(as) de sistemas; De-\nsenvolvedores(as) de plataformas colaborativas.\nReferência\nA. H. Almalki, M. Alharbi, et al. The Effectiveness of Using Blockchain Technology in Building High-Quality Educational Content\nBased on a Participatory Learning Environment and Its Impact on\nIncreasing Student Achievement. International Journal of Emerging Technologies in Learning (iJET), vol. 18, no. 17, pp. 82–99,\n2023.\n134"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Utilização da CPU (CPU Utilization)",
+    "Atributo Nome (Título)": "Utilização da CPU",
     "Palavras-chave / Alias": "CPU utilization; processor load; computational demand;\nresource usage; blockchain performance",
     "Definição do Atributo": "Mede o percentual médio de utilização da CPU\npelos nós de uma rede blockchain durante a execução\nde operações, como validação de blocos, mineração e\nexecução de contratos inteligentes. Indica a quantidade\nde recursos computacionais efetivamente empregados\npara manter o sistema operacional.",
     "Objetivo / Motivação": "Avaliar a eficiência de processamento e o impacto da\ncarga computacional imposta pelos mecanismos de consenso e validação de transações. Essa métrica é essencial\nem aplicações educacionais e ambientes colaborativos baseados em blockchain, nos quais o desempenho influencia\ndiretamente a qualidade e disponibilidade dos serviços.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho\nSubcaracterística\nUtilização de Recursos Computacionais",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de Recursos",
     "Equação": "Utilização da CPU (%) =\nTempo ativo da CPU\nTempo total de observação×100\nonde o tempo ativo inclui o processamento de transações,\nconsenso e operações de rede.\nMétricas\nAssociadas\nUso de CPU; Sobrecarga de CPU; Consumo de energia;\nLatência; Throughput\nAtributo\nRelacionado\nEficiência computacional; Desempenho de execução; Escalabilidade",
     "Protocolo": "1) Executar o sistema blockchain em ambiente controlado com diferentes volumes de transações.\n2) Monitorar continuamente a utilização da CPU em\ncada nó.\n3) Calcular a média e o desvio padrão da utilização ao\nlongo do tempo.\n4) Comparar com limites aceitáveis de desempenho definidos pelo SLA ou requisitos de sistema.\n133",
     "Comentário": "No estudo, a utilização da CPU foi usada como indicador da eficiência da arquitetura blockchain aplicada\nà educação, mostrando que a tecnologia é viável sem\nsobrecarregar o ambiente computacional. Resultados\nindicaram que o uso de blockchain pode ser otimizado\nmantendo a carga da CPU dentro de limites sustentáveis\nmesmo com alto número de operações simultâneas.\nInterpretação\ndo\nValor Medido\nValores moderados indicam bom equilíbrio entre carga\ne desempenho. Valores muito altos sugerem sobrecarga e necessidade de otimização; valores muito bai-\nxos podem indicar subutilização dos recursos.",

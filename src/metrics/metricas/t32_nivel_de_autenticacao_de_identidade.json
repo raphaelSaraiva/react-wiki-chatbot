@@ -1,9 +1,10 @@
 {
   "id": "t32",
   "table_no": 32,
-  "name": "Nível de Autenticação de Identidade",
+  "name": "Nível de Autenticação",
   "iso25010": {
-    "characteristic": "Segurança\nSubcaracterística\nAutenticidade"
+    "characteristic": "Segurança",
+    "subcharacteristic": "Autenticidade"
   },
   "fields": {
     "keywords_alias": "Nível de autenticação; Verificação de identidade; Autenticação de usuário; Validação de chave; Verificação de\nassinatura digital; Controle de acesso",
@@ -22,11 +23,12 @@
     "references": "Li, H.; Xue, W. A Blockchain-Based Sealed-Bid e-Auction Scheme\nwith Smart Contract and Zero-Knowledge Proof. Security and\nCommunication Networks, 2021, Article ID 5523394. — Define e\nimplementa autenticação distribuída via smart contract, permitindo que apenas entidades autenticadas participem de leilões, com\nverificação de identidade e assinatura digital sem necessidade de\nautoridade central.\n89"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Nível de Autenticação de Identidade",
+    "Atributo Nome (Título)": "Nível de Autenticação",
     "Palavras-chave / Alias": "Nível de autenticação; Verificação de identidade; Autenticação de usuário; Validação de chave; Verificação de\nassinatura digital; Controle de acesso",
     "Definição do Atributo": "Mede o nível de autenticação de identidade em um\nsistema blockchain, ou seja, a capacidade do sistema em\nconfirmar que as entidades que interagem com a rede\n(usuários, nós, contratos) são legítimas e não falsificadas.\nEm contextos de leilões selados e contratos inteligentes,\nesse nível representa a força com que o sistema garante\nque apenas participantes autenticados possam realizar\nações válidas, sem revelar suas identidades reais.",
     "Objetivo / Motivação": "Garantir que todas as operações registradas na blockchain sejam realizadas por entidades devidamente au-\ntenticadas, prevenindo falsificação de identidade, acessos\nindevidos e ações não autorizadas. O objetivo é elevar o\ngrau de confiabilidade e integridade das interações\non-chain, mantendo a descentralização e eliminando a\nnecessidade de uma autoridade central de autenticação.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Segurança\nSubcaracterística\nAutenticidade",
+    "Característica": "Segurança",
+    "Sub-característica": "Autenticidade",
     "Equação": "O nível de autenticação pode ser expresso como a proporção de autenticações bem-sucedidas em relação ao\ntotal de tentativas:\nAL = Nauth_success\nNauth_total\n,\nonde Nauth_success representa o número de interações autenticadas com sucesso (assinatura digital válida, chave\npública confirmada) e Nauth_total o total de tentativas.\nAlternativamente, a verificação criptográfica é formalizada como:\nV = Verify(M, Sig, PK) ⇒true/false,\nonde M é a mensagem (transação), Sig a assinatura\ndigital e PK a chave pública correspondente.\nMétricas\nAssociadas\nNível de Não Repúdio; Efetividade do Controle de Acesso;\nTaxa de Validação de Assinatura; Força da Prova de\nIdentidade; Taxa de Falha de Autenticação\nAtributo\nRelacionado\nIntegridade; Controle de acesso; Autorização de contratos\ninteligentes; Confidencialidade de identidade\n87",
     "Protocolo": "1) Cada participante registra um par de chaves pública/privada associado ao contrato inteligente.\n2) As interações (envio de lance, verificação, pagamento)\ndevem conter assinaturas digitais válidas (Sig).\n3) O contrato inteligente executa automaticamente a\nverificação via Verify(M, Sig, PK).\n4) Registra-se o número de autenticações válidas\n(Nauth_success) e inválidas (Nauth_fail).\n5) Calcula-se o nível de autenticação AL e analisa-se sua\nconsistência ao longo do tempo e entre transações.",
     "Comentário": "O Nível de Autenticação de Identidade indica o grau de\nconfiabilidade do processo de autenticação em sistemas\nblockchain descentralizados. No esquema de leilão selado, a autenticação é realizada por meio de assinaturas\ndigitais verificadas automaticamente por contratos inteligentes, dispensando autoridades centralizadas. Um nível\nelevado reflete a eficácia da infraestrutura criptográfica\ne a integridade do processo de verificação distribuída.\nInterpretação\ndo\nValor Medido\nValores altos (próximos de 1) indicam um sistema com\nautenticação forte e verificações confiáveis.\nValores\nbaixos sugerem falhas na verificação de identidade, comprometimento de chaves privadas ou vulnerabilidades em\ncontratos inteligentes.",

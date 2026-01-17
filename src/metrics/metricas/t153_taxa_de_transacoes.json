@@ -4,7 +4,7 @@
   "name": "Taxa de Transações",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Comportamento sob Carga / Capacidade"
+    "subcharacteristic": "Capacidade"
   },
   "fields": {
     "keywords_alias": "Transaction Throughput; Transaction Frequency; Transaction Load; Transaction Arrival Rate; TPS (Transacti-\nons per Second)",
@@ -28,7 +28,7 @@
     "Definição do Atributo": "Mede a quantidade de transações processadas ou confirmadas por unidade de tempo em uma rede blockchain.\nEssa métrica representa a intensidade de fluxo de transações, refletindo a demanda e o desempenho dinâmico\nda rede.",
     "Objetivo / Motivação": "Quantificar o desempenho operacional da blockchain sob\ndiferentes níveis de carga e avaliar sua capacidade de lidar\ncom variações no volume de transações sem comprometer\na latência ou a estabilidade da rede.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Comportamento sob Carga / Capacidade",
+    "Sub-característica": "Capacidade",
     "Equação": "Transaction Rate = Ntransações processadas\n∆t\nonde Ntransações processadas é o número de transações concluídas em um intervalo de tempo ∆t.\nMétricas\nAssociadas\nTransaction Latency; Confirmation Time; Number of\nTransactions; Block Size; Network Throughput\nAtributo\nRelacionado\nVolume de Transações; Taxa de Chegada; Capacidade\nde Bloco; Desempenho da Rede",
     "Protocolo": "1) Definir o intervalo de observação [t0, t1].\n2) Contar as transações processadas/confirmadas nesse\nperíodo usando logs de nós ou exploradores.\n3) Calcular a taxa média TPS = N/(t1 −t0).\n4) Repetir a medição sob diferentes cargas de rede para\ndeterminar o comportamento sob carga.",
     "Comentário": "A Taxa de Transações é uma métrica fundamental para\nmedir a escalabilidade e o desempenho de blockchains\npúblicas e privadas. No contexto de Bitcoin e Ethereum,\nessa métrica é influenciada pelo tamanho do bloco, tempo\nde propagação e incentivos de mineração. Uma taxa\nbaixa pode indicar gargalos na rede, enquanto uma taxa\nalta pode afetar a descentralização se exigir maior poder\ncomputacional.\n351\n\nInterpretação\ndo\nValor Medido\nValores mais altos indicam maior eficiência e capacidade\nde throughput, mas podem estar associados a maior uso\nde recursos e risco de centralização. Valores muito baixos\nindicam congestionamento ou limitação de desempenho.",

@@ -3,8 +3,8 @@
   "table_no": 131,
   "name": "Risco de Centralização de RPC",
   "iso25010": {
-    "characteristic": "Segurança",
-    "subcharacteristic": "Integridade / Disponibilidade"
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Completude Funcional"
   },
   "fields": {
     "keywords_alias": "RPC Services; Centralized RPC Providers; Infura Dependence; Node Access Centralization; RPC Endpoint\nVulnerability",
@@ -27,8 +27,8 @@
     "Palavras-chave / Alias": "RPC Services; Centralized RPC Providers; Infura Dependence; Node Access Centralization; RPC Endpoint\nVulnerability",
     "Definição do Atributo": "Mede o grau de dependência de um ecossistema blockchain em relação a provedores de RPC (Remote Proce-\ndure Call) centralizados, como Infura ou Alchemy, utilizados para comunicação entre carteiras, DApps e a\nrede. Essa dependência introduz riscos de centralização,\ncensura, interrupção de serviço e manipulação de transações, comprometendo a integridade e a disponibilidade\nda rede.",
     "Objetivo / Motivação": "Avaliar o impacto da centralização dos serviços de RPC\nna confiabilidade e segurança das redes blockchain, identificando vulnerabilidades decorrentes de pontos únicos\nde falha e dependência de provedores externos que podem\nafetar a natureza descentralizada da tecnologia.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Segurança",
-    "Sub-característica": "Integridade / Disponibilidade",
+    "Característica": "Adequação Funcional",
+    "Sub-característica": "Completude Funcional",
     "Equação": "RPC Centralization Risk = Ncarteiras dependentes de RPC centralizado\nNcarteiras totais\n×100\nonde Ncarteiras dependentes de RPC centralizado representa o número de aplicações que utilizam provedores RPC únicos\ne não configuráveis, e Ncarteiras totais é o número total de\ncarteiras ou DApps analisados.\nMétricas\nAssociadas\nNode Decentralization Index; Network Availability; Fault\nTolerance; Service Redundancy\nAtributo\nRelacionado\nDisponibilidade da Rede; Robustez de Serviço; Segurança\nde Comunicação\n305",
     "Protocolo": "1) Identificar as carteiras e DApps mais utilizados em\num determinado ecossistema blockchain.\n2) Analisar o provedor de RPC utilizado e verificar se\nele é configurável pelo usuário.\n3) Contabilizar o número de aplicações que dependem\nexclusivamente de provedores RPC centralizados (ex.:\nInfura, Alchemy).\n4) Calcular a proporção de dependência e comparar entre\ndiferentes redes (Ethereum, Polygon, etc.).\n5) Documentar os riscos associados a eventos de indisponibilidade ou censura.",
     "Comentário": "A centralização de serviços RPC é um ponto crítico que\ncontradiz a filosofia descentralizada das blockchains. A\nfalha de um provedor RPC centralizado pode causar interrupção em larga escala, como o ocorrido com a Infura\nem 2020, ou resultar em censura seletiva de usuários,\ncomo no caso da Metamask em 2022. A métrica evidencia o grau de vulnerabilidade do ecossistema diante da\nconcentração de infraestrutura de acesso à rede.\nInterpretação\ndo\nValor Medido\nValores altos indicam alto risco de centralização, implicando vulnerabilidade a interrupções e censura. Valores\nbaixos refletem ecossistemas mais descentralizados e resilientes, com múltiplos provedores RPC configuráveis.",

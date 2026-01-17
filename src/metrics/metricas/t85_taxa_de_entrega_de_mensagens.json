@@ -3,7 +3,8 @@
   "table_no": 85,
   "name": "Taxa de Entrega de Mensagens",
   "iso25010": {
-    "characteristic": "Eficiência de Desempenho\nSubcaracterística\nComportamento Temporal / Confiabilidade da Comunicação"
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
     "keywords_alias": "Message delivery rate; packet delivery ratio; communication reliability; message success rate",
@@ -25,7 +26,8 @@
     "Palavras-chave / Alias": "Message delivery rate; packet delivery ratio; communication reliability; message success rate",
     "Definição do Atributo": "Mede a proporção de mensagens transmitidas com\nsucesso em relação ao total de mensagens enviadas entre\nusuários e provedores de dados em uma rede blockchain.\nEssa métrica avalia a confiabilidade da comunicação\nponta a ponta dentro do sistema distribuído.",
     "Objetivo / Motivação": "Avaliar a confiabilidade e robustez da comunicação\nem sistemas blockchain integrados a ambientes de computação em nuvem. Uma alta taxa de entrega de mensagens\nindica que o sistema mantém integridade e consistência\nmesmo na presença de falhas ou nós defeituosos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho\nSubcaracterística\nComportamento Temporal / Confiabilidade da Comunicação",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Comportamento Temporal",
     "Equação": "Taxa de Entrega de Mensagens = Nmensagens entregues com sucesso\nNmensagens enviadas\nonde Nmensagens entregues com sucesso representa o número\nde pacotes recebidos corretamente pelo destino, e\nNmensagens enviadas é o total de pacotes transmitidos.\nMétricas\nAssociadas\nTaxa de Acesso a Dados; Atraso Fim a Fim (End-to-End\nDelay); Consumo de Energia; Throughput\nAtributo\nRelacionado\nConfiabilidade da rede; Estabilidade de transmissão; Robustez de comunicação",
     "Protocolo": "1) Configurar a simulação do protocolo BC-IAS em ambiente de nuvem.\n2) Transmitir mensagens entre usuários e provedores de\ndados sob diferentes taxas de falha de nós.\n3) Registrar o número total de pacotes enviados e os\npacotes recebidos com sucesso.\n4) Calcular a razão entre mensagens entregues e enviadas.\n5) Comparar o desempenho com modelos de referência\n(IECCA, ACOMKSV, PFP e FS).\n205",
     "Comentário": "O artigo demonstrou que o protocolo BC-IAS apresentou uma taxa de entrega de mensagens estável\ne elevada, mesmo com o aumento de nós defeituosos.\nIsso é atribuído ao uso de criptografia elíptica avançada\n(HECC) e autenticação distribuída, que reforçam a integridade da comunicação e evitam perdas durante a\ntransmissão.\nInterpretação\ndo\nValor Medido\nValores próximos a 1 (ou 100%) indicam comunicação confiável e sistema estável; valores menores sugerem\nfalhas na autenticação, congestionamento ou perda de\npacotes.",

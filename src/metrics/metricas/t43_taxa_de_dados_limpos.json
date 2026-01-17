@@ -3,8 +3,8 @@
   "table_no": 43,
   "name": "Taxa de Dados Limpos",
   "iso25010": {
-    "characteristic": "Qualidade de Dados",
-    "subcharacteristic": "Completude / Correção Sintática"
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Completude Funcional"
   },
   "fields": {
     "keywords_alias": "Quality of Valid Data Features; Data Cleaning Quality;\nValid Feature Ratio; Data Integrity; Data Preprocessing\nQuality",
@@ -13,7 +13,7 @@
     "equation": "Clean Data Ratio = Atributos válidos após limpeza\nTotal de atributos analisados\nou, segundo o artigo:\nEUIDi2 = λ1(1 −V ′\n1j) + λ2(1 −V ′\n2j) + λ3(1 −V ′\n3j)\nonde V ′\n1j, V ′\n2j, V ′\n3j representam flags para valores nulos,\nanormais e tipos incorretos, e λk são os pesos associados\na cada fator de qualidade.\nMétricas\nAssociadas\nAccuracy of Summary Information; Data Utility Rate;\nData Integrity Ratio; Missing Value Rate\nAtributo\nRelacionado\nIntegridade dos Dados; Qualidade da Aplicação de Dados;\nConsistência de Atributos",
     "protocol": "1) Identificar o conjunto de dados submetido ao processo\nde limpeza e validação.\n2) Verificar valores nulos, anormais e tipos incorretos.\n3) Calcular a proporção de atributos válidos após a correção.\n4) Atribuir pesos aos diferentes tipos de erro conforme\nsua relevância (λk).\n5) Agregar os resultados em um índice de qualidade\nEUIDi2.\n117",
     "comment": "O artigo destaca que dados com alta taxa de validade\nsão essenciais para análises precisas em sistemas de negociação baseados em blockchain. O processo de limpeza\n(Algorithm 5) reduz ruídos e inconsistências, elevando\na confiança dos consumidores de dados e aumentando o\nvalor das transações no marketplace.\nInterpretação\ndo\nValor Medido\nValores próximos de 1 indicam alta qualidade e consistência dos dados. Valores baixos sugerem presença\nsignificativa de ruídos, valores nulos ou erros de tipo,\nreduzindo a confiabilidade do dataset.",
-    "unit": "Proporção (0–1) ou Percentual (",
+    "unit": "Proporção (0–1) ou Percentual (%)",
     "scale_type": "Razão",
     "precision": "Alta, dependente da exatidão dos mecanismos de verificação e dos pesos atribuídos aos fatores de erro.",
     "data_collection": "Automática / Experimental",
@@ -27,12 +27,12 @@
     "Palavras-chave / Alias": "Quality of Valid Data Features; Data Cleaning Quality;\nValid Feature Ratio; Data Integrity; Data Preprocessing\nQuality",
     "Definição do Atributo": "Mede a proporção de atributos ou registros que permanecem válidos, completos e consistentes após o processo de\nverificação e limpeza dos dados em um sistema blockchain.\nEssa métrica reflete o grau de integridade e utilidade dos\ndados processados antes de sua análise ou troca na rede.",
     "Objetivo / Motivação": "Avaliar a eficácia dos processos de limpeza e verificação\nde dados em ambientes blockchain, garantindo que as\ninformações armazenadas ou comercializadas possuam\nalta qualidade, minimizando ruídos, valores nulos e tipos\nincorretos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Qualidade de Dados",
-    "Sub-característica": "Completude / Correção Sintática",
+    "Característica": "Adequação Funcional",
+    "Sub-característica": "Completude Funcional",
     "Equação": "Clean Data Ratio = Atributos válidos após limpeza\nTotal de atributos analisados\nou, segundo o artigo:\nEUIDi2 = λ1(1 −V ′\n1j) + λ2(1 −V ′\n2j) + λ3(1 −V ′\n3j)\nonde V ′\n1j, V ′\n2j, V ′\n3j representam flags para valores nulos,\nanormais e tipos incorretos, e λk são os pesos associados\na cada fator de qualidade.\nMétricas\nAssociadas\nAccuracy of Summary Information; Data Utility Rate;\nData Integrity Ratio; Missing Value Rate\nAtributo\nRelacionado\nIntegridade dos Dados; Qualidade da Aplicação de Dados;\nConsistência de Atributos",
     "Protocolo": "1) Identificar o conjunto de dados submetido ao processo\nde limpeza e validação.\n2) Verificar valores nulos, anormais e tipos incorretos.\n3) Calcular a proporção de atributos válidos após a correção.\n4) Atribuir pesos aos diferentes tipos de erro conforme\nsua relevância (λk).\n5) Agregar os resultados em um índice de qualidade\nEUIDi2.\n117",
     "Comentário": "O artigo destaca que dados com alta taxa de validade\nsão essenciais para análises precisas em sistemas de negociação baseados em blockchain. O processo de limpeza\n(Algorithm 5) reduz ruídos e inconsistências, elevando\na confiança dos consumidores de dados e aumentando o\nvalor das transações no marketplace.\nInterpretação\ndo\nValor Medido\nValores próximos de 1 indicam alta qualidade e consistência dos dados. Valores baixos sugerem presença\nsignificativa de ruídos, valores nulos ou erros de tipo,\nreduzindo a confiabilidade do dataset.",
-    "Unidade": "Proporção (0–1) ou Percentual (",
+    "Unidade": "Proporção (0–1) ou Percentual (%)",
     "Tipo de Escala": "Razão",
     "Precisão": "Alta, dependente da exatidão dos mecanismos de verificação e dos pesos atribuídos aos fatores de erro.",
     "Tipo de Coleta de Dados": "Automática / Experimental",

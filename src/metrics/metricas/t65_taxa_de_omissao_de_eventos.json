@@ -3,8 +3,8 @@
   "table_no": 65,
   "name": "Taxa de Omissão de Eventos",
   "iso25010": {
-    "characteristic": "Confiabilidade",
-    "subcharacteristic": "Integridade / Completude dos dados"
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Adequação Funcional"
   },
   "fields": {
     "keywords_alias": "Event omission rate; Missing events; Logging gap; Blockchain monitoring loss; Unrecorded on-chain activity",
@@ -27,8 +27,8 @@
     "Palavras-chave / Alias": "Event omission rate; Missing events; Logging gap; Blockchain monitoring loss; Unrecorded on-chain activity",
     "Definição do Atributo": "Mede a proporção de eventos esperados que não\nforam registrados ou detectados na blockchain, devido a falhas em serviços intermediários, censura, atrasos\nou perdas em mecanismos de coleta e indexação. Representa o grau de incompletude e confiabilidade dos\nregistros observáveis na rede, especialmente em ecossistemas que dependem de infraestruturas centralizadas.",
     "Objetivo / Motivação": "Quantificar a perda de transparência e de auditabilidade\ndos dados em sistemas blockchain monitorados por serviços centralizados (exchanges, indexadores, oráculos).\nEssa métrica permite identificar lacunas de registro e\navaliar a confiabilidade das fontes de dados on-chain,\ndestacando riscos à integridade e à verificabilidade do\nsistema.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Confiabilidade",
-    "Sub-característica": "Integridade / Completude dos dados",
+    "Característica": "Adequação Funcional",
+    "Sub-característica": "Adequação Funcional",
     "Equação": "Seja Eexp o número total de eventos esperados (definido\npor logs de referência, contratos ou transações previstas)\ne Eobs o número de eventos realmente observados. A\nTaxa de Omissão de Eventos (TOE) é calculada\ncomo:\nTOE = 1 −Eobs\nEexp\n.\nValores próximos a 0 indicam registros completos; valores\naltos indicam omissões ou censura.\nMétricas\nAssociadas\nTaxa de falhas de monitoramento; Completude de logs;\nDisponibilidade de dados; Censorship probability; Latência de indexação\nAtributo\nRelacionado\nTransparência de auditoria; Integridade operacional; Dependência de serviços; Confiabilidade de monitoramento\n161",
     "Protocolo": "1) Identificar o conjunto de eventos esperados (Eexp) com\nbase em contratos inteligentes, cronogramas ou logs de\nreferência.\n2) Coletar os eventos registrados na blockchain ou por\nindexadores (Eobs).\n3) Calcular TOE = 1 −Eobs/Eexp.\n4) Comparar resultados entre diferentes provedores ou\ncamadas (on-chain vs off-chain).\n5) Avaliar a origem das omissões: falhas técnicas, censura\nintencional ou perda de conectividade.",
     "Comentário": "A Taxa de Omissão de Eventos destaca a influência\nda centralização em ecossistemas blockchain. O artigo\n“Bad Apples” evidencia que provedores de infraestrutura\ne APIs centralizadas podem omitir ou atrasar eventos,\nreduzindo a visibilidade da rede e comprometendo a\ntransparência dos dados. Essa métrica ajuda a quantificar o impacto dessas omissões sobre a confiabilidade e a\nauditabilidade do sistema.\nInterpretação\ndo\nValor Medido\nValores baixos indicam alta integridade e confiabilidade\ndos registros. Valores altos apontam falhas de coleta,\nomissões sistemáticas ou possíveis tentativas de censura\npor intermediários, sugerindo centralização de poder e\nperda de transparência.",

@@ -1,10 +1,10 @@
 {
   "id": "t145",
   "table_no": 145,
-  "name": "Capacidade de Transações (Transaction Capacity)",
+  "name": "Capacidade de Transações",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
-    "subcharacteristic": "Capacidade / Desempenho da Rede"
+    "subcharacteristic": "Capacidade"
   },
   "fields": {
     "keywords_alias": "Transaction capacity; Lightning Network capacity; Payment channel liquidity; Transaction throughput; Scalabi-\nlity potential",
@@ -23,12 +23,12 @@
     "references": "Casas, P., Romiti, M., Holzer, P., Ben Mariem, S., Donnet, B.,\nHaslhofer, B. (2021). Where is the Light(ning) in the Taproot\nDawn? Unveiling the Bitcoin Lightning (IP) Network. IEEE 10th\nInternational Conference on Cloud Networking (CloudNet). —\nDefine e analisa a capacidade de transações como um indicador\nde liquidez e adoção da Lightning Network, correlacionando a\ntopologia da rede com sua eficiência operacional e escalabilidade.\n336"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Capacidade de Transações (Transaction Capacity)",
+    "Atributo Nome (Título)": "Capacidade de Transações",
     "Palavras-chave / Alias": "Transaction capacity; Lightning Network capacity; Payment channel liquidity; Transaction throughput; Scalabi-\nlity potential",
     "Definição do Atributo": "Quantidade total de valor (em BTC ou moeda equivalente) disponível em todos os canais de pagamento ativos\nda Lightning Network, representando a capacidade agregada de transações off-chain que podem ser realizadas\nsem depender diretamente do blockchain principal. A\nmétrica indica o limite teórico de volume que a rede pode\nsuportar em termos de liquidez e escalabilidade.",
     "Objetivo / Motivação": "Avaliar o potencial de escalabilidade e a eficiência de\nliquidez da Lightning Network. A capacidade total de\ntransações é um indicador fundamental da maturidade\ne adoção do sistema, refletindo a confiança dos participantes na rede e sua utilidade para micropagamentos e\ntransações instantâneas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Capacidade / Desempenho da Rede",
+    "Sub-característica": "Capacidade",
     "Equação": "Ctotal =\nn\nX\ni=1\nCapcanali\nonde Capcanali representa a capacidade de cada canal\nativo i, e n é o número total de canais na rede Lightning.\nO resultado pode ser expresso em BTC ou convertido em\nmoeda fiduciária (USD, EUR, BRL) conforme a cotação\nvigente.\nMétricas\nAssociadas\nTransaction Throughput; Network Liquidity; Channel\nAvailability; Node Connectivity\nAtributo\nRelacionado\nEficiência de Liquidez; Escalabilidade da Rede; Capacidade de Pagamento\n334",
     "Protocolo": "1) Mapear os nós e canais ativos da Lightning Network\nutilizando exploradores ou clientes LN (ex.: LND, clightning).\n2) Coletar a capacidade declarada de cada canal ativo\n(channel.capacity).\n3) Calcular a soma das capacidades de todos os canais\nabertos na rede no momento da análise.\n4) Converter o valor total para unidades monetárias\nequivalentes, se desejado.\n5) Analisar a evolução temporal da capacidade total\ne correlacionar com eventos de adoção (ex.: Taproot,\natualizações de protocolo).",
     "Comentário": "A Capacidade de Transações é um indicador-chave de\nliquidez e saúde econômica da Lightning Network. O\naumento da capacidade total reflete a maior confiança\ndos usuários e operadores de nós, indicando avanço na\nescalabilidade da rede Bitcoin. Entretanto, concentração\nde liquidez em poucos nós pode comprometer a descentralização, afetando a resiliência e a equidade das\ntransações.\nInterpretação\ndo\nValor Medido\nValores mais altos indicam maior liquidez e escalabilidade da rede, possibilitando maior volume de transações\nsimultâneas e valores mais altos de transferência. Valores baixos podem apontar concentração de canais, baixa\nadoção ou limitação na abertura de novos canais de\npagamento.",

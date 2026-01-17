@@ -4,7 +4,7 @@
   "name": "Índice de Modificadores de Acesso Inseguros",
   "iso25010": {
     "characteristic": "Segurança",
-    "subcharacteristic": "Confidencialidade / Integridade"
+    "subcharacteristic": "Integridade"
   },
   "fields": {
     "keywords_alias": "Weak Access Modifiers; Access Control Vulnerability;\nVisibility Misconfiguration; Smart Contract Access Index;\nPublic Function Exposure",
@@ -27,7 +27,7 @@
     "Definição do Atributo": "Mede a proporção de funções em contratos inteligentes\nque utilizam modificadores de acesso indevidamente permissivos, como public ou external, quando deveriam\nser restritos. Essa métrica avalia o grau de exposição\nindevida de funções críticas e seu impacto potencial na\nsegurança da aplicação blockchain.",
     "Objetivo / Motivação": "Avaliar a robustez dos controles de acesso em contratos\ninteligentes, quantificando o uso incorreto de modificadores de visibilidade. O objetivo é reduzir a superfície de\nataque e prevenir que funções internas sejam exploradas\npor agentes externos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "Característica": "Segurança",
-    "Sub-característica": "Confidencialidade / Integridade",
+    "Sub-característica": "Integridade",
     "Equação": "IAM Index = Funções com acesso inseguro\nTotal de funções\nMétricas\nAssociadas\nVulnerabilidades de Controle de Acesso; Authorization\nFailure Rate; Privilege Escalation Ratio; Secure Coding\nCompliance\nAtributo\nRelacionado\nSegurança de Contrato; Confidencialidade; Integridade;\nControle de Acesso",
     "Protocolo": "1) Realizar auditoria do código-fonte do contrato inteligente.\n2) Identificar funções declaradas com modificadores\npublic ou external.\n3) Classificar se o nível de acesso é compatível com a\nfunção.\n4) Contar o número de funções com modificadores excessivamente permissivos.\n5) Calcular a proporção de funções inseguras em relação\nao total.",
     "Comentário": "Um alto valor do índice indica fragilidade no controle\nde acesso e maior risco de vulnerabilidades exploráveis.\nRevisões automatizadas e ferramentas de análise estática,\ncomo Slither ou Mythril, são recomendadas para reduzir\no número de funções inseguras.\n187\n\nInterpretação\ndo\nValor Medido\nMenor índice indica melhor segurança e aplicação adequada de níveis de visibilidade. Valores elevados sugerem\nexposição indevida de lógica sensível e necessidade de\nrefatoração.",

@@ -1,7 +1,7 @@
 {
   "id": "t75",
   "table_no": 75,
-  "name": "Taxa de Detecção de Usuários Genuínos (Genuine User",
+  "name": "Taxa de Detecção de Usuários Genuínos",
   "iso25010": {
     "characteristic": "Segurança",
     "subcharacteristic": "Autenticidade"
@@ -22,7 +22,7 @@
     "beneficiaries": "Engenheiros(as) de Segurança; Arquitetos(as) de Blockchain; Pesquisadores(as) em Sistemas Distribuídos; Ges-\ntores(as) de Confiabilidade.\nReferência\nZhang, Y., Xu, C., Gao, H., Liu, X., & Li, H. (2021). BlockchainBased Access Control and Data Sharing Mechanism in Cloud De-\ncentralized Storage System. IEEE Internet of Things Journal, 8(4),\n2342–2355.\n183"
   },
   "raw_fields": {
-    "Atributo Nome (Título)": "Taxa de Detecção de Usuários Genuínos (Genuine User\nDetection Rate)",
+    "Atributo Nome (Título)": "Taxa de Detecção de Usuários Genuínos",
     "Palavras-chave / Alias": "Genuine User Detection; Authentication Accuracy; Access Control Rate; User Validation; Blockchain-based\nIdentity Verification",
     "Definição do Atributo": "Mede a proporção de usuários legítimos corretamente\nidentificados pelo sistema em relação ao total de tentativas de autenticação. Essa métrica avalia a precisão\ne a confiabilidade do mecanismo de controle de acesso\nbaseado em blockchain no reconhecimento de usuários\ngenuínos.",
     "Objetivo / Motivação": "Avaliar a capacidade do sistema de distinguir usuários legítimos de entidades maliciosas, garantindo acesso seguro\ne integridade dos dados em um ambiente descentralizado\nde armazenamento em nuvem.\nModelo\nde\nQualidade\nISO/IEC 25010",
