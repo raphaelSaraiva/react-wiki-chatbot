@@ -7,7 +7,6 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "keywords_alias": "Data access rate; data retrieval rate; access efficiency;\ndata throughput; access latency",
     "definition": "Mede a velocidade com que dados podem ser compartilhados e recuperados em um sistema blockchain\ndurante operações de autenticação, criptografia e verificação. Representa o desempenho do sistema na execução\nde requisições de leitura e escrita de dados com segurança\ne integridade.",
     "objective": "Avaliar a eficiência de acesso e compartilhamento\nde dados em sistemas baseados em blockchain. Uma\nalta taxa de acesso indica que o sistema mantém boa\nperformance mesmo sob múltiplas requisições simultâneas, assegurando confiabilidade e estabilidade — espe-\ncialmente em ambientes de computação em nuvem com\ngrande volume de dados.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "TAD = Ndados_acessados\nTexecução\nonde Ndados_acessados é o número de dados lidos ou compartilhados e Texecução é o tempo total gasto em operações\nde criação de bloco, criptografia, descriptografia e verificação de autenticação.\nMétricas\nAssociadas\nLatência; Taxa de entrega de mensagens; Consumo de\nenergia; Taxa de sucesso do consenso; Throughput\nAtributo\nRelacionado\nDesempenho de leitura e escrita; Tempo de resposta;\nEficiência de transmissão de dados",

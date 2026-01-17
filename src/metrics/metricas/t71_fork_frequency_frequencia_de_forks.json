@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Fork rate; Frequência de ramificações; Taxa de forks;\nBlocos concorrentes; Reorganização de cadeia",
     "definition": "Mede a frequência com que a blockchain sofre\nramificações (forks) — situações em que dois (ou\nmais) blocos são propostos quase simultaneamente para\na mesma altura, gerando cadeias concorrentes até que\numa seja adotada como principal. A frequência de forks\nreflete a eficiência de propagação de blocos e a\nestabilidade do consenso.",
     "objective": "Quantificar instabilidades do consenso causadas por\natrasos de rede, dificuldade de mineração e comportamento de nós (incluindo nós maliciosos). Frequências\nelevadas de fork aumentam desperdício de trabalho, latência de confirmação e risco de reorganizações, degradando\nthroughput e confiabilidade.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Forma por bloco: Fblk = Nforks\nNblocos\n.\nForma por tempo:\nFt\n=\nNforks\nTjanela\n(forks por segundo/minuto).\nOpcional: estratificar por comprimento de fork (profundidade 1, 2, . . . ) ou por causa (propagação, dificuldade,\nnós maliciosos).\nMétricas\nAssociadas\nTempo de propagação de blocos; Taxa de blocos órfãos;\nTaxa de blocos confirmados; Throughput; Tempo de\nconfirmação\nAtributo\nRelacionado\nEficiência do consenso; Latência de rede; Tamanho do\nbloco; Distribuição/quantidade de nós; Comportamento\nadversarial\n174",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Transaction reordering; Out-of-order transactions; Nonce\norder; Pending pool; Mempool ordering; Ethereum",
     "definition": "Quantifica ocorrências em que transações do mesmo remetente chegam/propagam-se fora da sequência esperada\nde nonce (ou seja, uma transação com nonce maior é\nobservada antes de outra com nonce menor). A reordenação aumenta a latência de confirmação porque transações\ncom nonce alto ficam bloqueadas até a inclusão das anteriores.",
     "objective": "Medir o impacto de atrasos de propagação, variabilidade\ngeográfica e políticas de mempool na ordem efetiva de\nchegada e processamento de transações, avaliando efeitos\nsobre a previsibilidade de confirmação e desempenho\npercebido pelos usuários.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Taxa de reordenação por janela: ReorderRate = NOoO\nNtotal\n×\n100%,\nem que NOoO é o número de transações fora de ordem\n(Out-of-Order) detectadas e Ntotal é o total de transações\nobservadas do mesmo remetente.\n(Alternativa – atraso de reordenação) ReorderDelay =\ntincl(nonce k+1) −tincl(nonce k) quando k+1 foi observado antes de k.\nMétricas\nAssociadas\nTransaction Latency; Transaction Commit Time; Block\nPropagation Delay; Pending Time; Transaction Coverage\nAtributo\nRelacionado\nOrdenação por Nonce; Política do Mempool; Propagação\nP2P; Congestionamento\n347",

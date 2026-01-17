@@ -1,0 +1,47 @@
+{
+  "id": "t68",
+  "table_no": 68,
+  "name": "Taxa de Recuperação de Falhas",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Recuperabilidade"
+  },
+  "fields": {
+    "definition": "Mede a proporção de falhas detectadas em um sistema blockchain ou distribuído que são recuperadas com sucesso dentro de um intervalo de tempo aceitável, garantindo a continuidade do serviço após falhas de componentes como nós, controladores ou validadores.",
+    "objective": "Avaliar a capacidade do sistema de restaurar seu funcionamento normal após a ocorrência de falhas. Em arquiteturas blockchain e sistemas distribuídos baseados em SDN, a taxa de recuperação de falhas indica a eficácia dos mecanismos de tolerância a falhas, consenso distribuído e estratégias automáticas de recuperação.",
+    "equation": "FRR = N_rec / N_fail,\nonde N_rec representa o número de falhas recuperadas com sucesso e N_fail o número total de falhas detectadas no período analisado.",
+    "protocol": "1) Induzir ou observar falhas no sistema (ex.: queda de controlador, falha de nó, ataque DoS).\n2) Registrar automaticamente a detecção das falhas.\n3) Monitorar os mecanismos de recuperação acionados (ex.: troca de controlador, consenso, smart contracts).\n4) Verificar se o serviço foi restaurado corretamente.\n5) Calcular a taxa de recuperação de falhas (FRR).\n6) Comparar resultados entre diferentes arquiteturas ou configurações.",
+    "comment": "No modelo BlockCtrl com a estratégia BlockRec, a taxa de recuperação de falhas é elevada devido ao uso de consenso blockchain, registros distribuídos e contratos inteligentes. O sistema é capaz de detectar rapidamente falhas em controladores e recuperar o serviço automaticamente, reduzindo impactos operacionais e evitando pontos únicos de falha.",
+    "unit": "Proporção (0–1) ou percentual (%)",
+    "scale_type": "Razão",
+    "precision": "Depende da precisão na detecção de falhas e da granularidade do monitoramento do processo de recuperação.",
+    "data_collection": "Automática (logs do sistema, monitoramento de falhas e registros de recuperação)",
+    "measurement_tool": "Logs de consenso; Hyperledger Fabric; ferramentas de monitoramento de SDN; Prometheus; scripts de análise de falhas e recuperação.",
+    "use_processes": "Avaliação de confiabilidade de sistemas blockchain; análise de tolerância a falhas; comparação de arquiteturas distribuídas; validação de mecanismos de recuperação automática.",
+    "beneficiaries": "Engenheiros de blockchain; arquitetos de sistemas distribuídos; pesquisadores em confiabilidade; administradores de redes e infraestrutura crítica.",
+    "references": "Yang, H.; Liang, Y.; Yao, Q.; et al. Blockchain-Based Secure Distributed Control for Software Defined Optical Networking. China Communications, 2019. — O estudo avalia mecanismos de tolerância a falhas e recuperação automática baseados em blockchain, incluindo métricas de recuperação de falhas e latência de recuperação."
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Taxa de Recuperação de Falhas (Failure Recovery Rate)",
+    "Palavras-chave / Alias": "Failure recovery rate; Fault recovery rate; Recovery success ratio; Fault tolerance recovery",
+    "Definição do Atributo": "Mede a proporção de falhas detectadas que são recuperadas com sucesso pelo sistema, assegurando a continuidade do serviço após eventos de falha.",
+    "Objetivo / Motivação": "Avaliar a capacidade de recuperação automática e a robustez do sistema frente a falhas, especialmente em arquiteturas blockchain e sistemas distribuídos tolerantes a falhas.",
+    "Característica": "Confiabilidade",
+    "Sub-característica": "Recuperabilidade",
+    "Equação": "FRR = N_rec / N_fail",
+    "Protocolo": "Indução ou observação de falhas, monitoramento da recuperação, validação do restabelecimento do serviço e cálculo da taxa de recuperação.",
+    "Comentário": "Arquiteturas baseadas em blockchain e consenso distribuído tendem a apresentar taxas de recuperação mais elevadas, devido à ausência de pontos únicos de falha e à automação do processo de recuperação.",
+    "Unidade": "Percentual (%)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Dependente do mecanismo de detecção de falhas e do nível de observabilidade do sistema.",
+    "Tipo de Coleta de Dados": "Automática",
+    "Ferramenta de Medição": "Logs de falhas, ferramentas de monitoramento de rede, frameworks blockchain.",
+    "Processos de Uso Potenciais": "Avaliação de confiabilidade; comparação de soluções blockchain; análise de tolerância a falhas.",
+    "Beneficiários Potenciais": "Desenvolvedores; pesquisadores; operadores de sistemas críticos.",
+    "Referências": "Yang et al., Blockchain-Based Secure Distributed Control for Software Defined Optical Networking, China Communications, 2019."
+  },
+  "source": {
+    "pdf": "Blockchain-Based_Secure_Distributed_Control_for_Software_Defined_Optical_Networking.pdf",
+    "table": "Tabela 68"
+  }
+}

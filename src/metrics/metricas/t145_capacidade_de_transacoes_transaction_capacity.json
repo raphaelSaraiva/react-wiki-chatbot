@@ -7,7 +7,6 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "keywords_alias": "Transaction capacity; Lightning Network capacity; Payment channel liquidity; Transaction throughput; Scalabi-\nlity potential",
     "definition": "Quantidade total de valor (em BTC ou moeda equivalente) disponível em todos os canais de pagamento ativos\nda Lightning Network, representando a capacidade agregada de transações off-chain que podem ser realizadas\nsem depender diretamente do blockchain principal. A\nmétrica indica o limite teórico de volume que a rede pode\nsuportar em termos de liquidez e escalabilidade.",
     "objective": "Avaliar o potencial de escalabilidade e a eficiência de\nliquidez da Lightning Network. A capacidade total de\ntransações é um indicador fundamental da maturidade\ne adoção do sistema, refletindo a confiança dos participantes na rede e sua utilidade para micropagamentos e\ntransações instantâneas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Ctotal =\nn\nX\ni=1\nCapcanali\nonde Capcanali representa a capacidade de cada canal\nativo i, e n é o número total de canais na rede Lightning.\nO resultado pode ser expresso em BTC ou convertido em\nmoeda fiduciária (USD, EUR, BRL) conforme a cotação\nvigente.\nMétricas\nAssociadas\nTransaction Throughput; Network Liquidity; Channel\nAvailability; Node Connectivity\nAtributo\nRelacionado\nEficiência de Liquidez; Escalabilidade da Rede; Capacidade de Pagamento\n334",

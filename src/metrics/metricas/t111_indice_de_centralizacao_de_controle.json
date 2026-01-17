@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Overpowered owner; Privileged owner; Contract centralization risk; Ownership authority; Admin control",
     "definition": "Mede o grau de centralização e privilégio de controle concedido ao proprietário de um contrato\ninteligente, especialmente em blockchains públicas. Avalia a presença de funções administrativas que permitem\nalterar, pausar, substituir ou revogar comportamentos\ncríticos do contrato, comprometendo os princípios de\ndescentralização e confiança distribuída.",
     "objective": "Identificar e quantificar riscos de centralização indevida\nem contratos inteligentes, onde o proprietário detém poderes excessivos sobre ativos, parâmetros ou usuários.\nEssa métrica permite avaliar a conformidade de contratos com boas práticas de governança descentralizada e\nsegurança.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O índice de centralização de controle (ICC) pode ser\ndefinido como:\nICC = Nfunções_privilegiadas\nNfunções_totais\n× 100\nonde Nfunções_privilegiadas representa o número de funções com acesso restrito ao proprietário (ex.: onlyOwner,\nadmin, set_param) e Nfunções_totais é o total de funções\npúblicas do contrato.\nMétricas\nAssociadas\nGrau de Mutabilidade de Parâmetros; Grau de Mutabilidade de Metadados; Razão de Liquidez Limitada; Taxa\nde Perda de Anonimato\nAtributo\nRelacionado\nDescentralização; Governança; Confiança; Transparência;\nImutabilidade\n265",

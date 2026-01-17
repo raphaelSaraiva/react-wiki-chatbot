@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Failed request ratio; Request error rate; Transaction\nfailure rate; Falhas de requisição; Erros de serviço; Reliability rate",
     "definition": "Mede a proporção de requisições ou transações que\nfalham durante a execução em relação ao número\ntotal de requisições processadas por um sistema blockchain. Essa métrica indica a confiabilidade operacional e\na robustez do ecossistema distribuído frente a diferentes\ncargas de trabalho e condições de rede.",
     "objective": "Avaliar a estabilidade e confiabilidade do sistema\nem operações descentralizadas, como consultas e transações em um ecossistema blockchain. No T-DSES, a\nmétrica foi usada para medir o sucesso das operações\nsob alta concorrência, verificando se o sistema mantém\nestabilidade ao lidar com milhares de requisições simultâneas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "FRR = Nfalhas\nNtotal\n× 100%,\nonde Nfalhas representa o número de requisições que\nnão foram concluídas com sucesso e Ntotal é o total de\nrequisições executadas durante o período analisado.\nMétricas\nAssociadas\nTaxa de sucesso; Latência média; Throughput; Taxa de\ntimeout; Taxa de retransmissões\nAtributo\nRelacionado\nRobustez do sistema; Disponibilidade; Estabilidade de\nrede; Eficiência de execução",

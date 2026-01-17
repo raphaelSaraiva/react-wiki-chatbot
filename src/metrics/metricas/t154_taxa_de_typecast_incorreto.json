@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Typecast error; Type conversion failure; Casting exception; Data type mismatch; Smart contract runtime error",
     "definition": "Mede a proporção de falhas de conversão de tipo\n(typecast) ocorridas durante a execução de transações/contratos, quando um valor é convertido para um\ntipo incompatível (ex.: inteiro →endereço) ou fora de\nfaixa. Essas falhas podem abortar a transação, impactar\na confiabilidade e gerar consumo de recursos sem efeito\n(gás desperdiçado em blockchains com gás).",
     "objective": "Quantificar a robustez de contratos e pipelines de validação frente a erros de tipagem, reduzindo falhas em\nprodução, reexecuções e atrasos de confirmação. Útil\npara auditoria de qualidade de código e para comparar\nversões de contratos/sistemas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Taxa_Typecast =\nNerros_typecast\nNoperacoes_typecast\n× 100%\nonde Nerros_typecast é o número de falhas de conversão de\ntipo detectadas e Noperacoes_typecast é o total de operações\nde conversão realizadas no período de medição.\nMétricas\nAssociadas\nTaxa de Exceções em Execução; Taxa de Sucesso da Transação; Latência de Commit; Consumo de Gás/Recursos\npor Falha\nAtributo\nRelacionado\nRobustez de Contratos; Validação de Entradas; Tratamento de Erros; Tipagem Estática/Dinâmica",

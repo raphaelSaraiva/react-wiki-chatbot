@@ -7,7 +7,6 @@
     "subcharacteristic": "Disponibilidade"
   },
   "fields": {
-    "keywords_alias": "Node connectivity; Network degree; Peer connections;\nTopologia de rede; Resiliência da rede; Fork propagation",
     "definition": "Mede o grau de interconexão entre os nós da rede\nblockchain, refletindo a eficiência da propagação de\ntransações e blocos e a resiliência da rede a falhas de comunicação. Uma maior conectividade reduz a ocorrência\nde bifurcações (forks) e melhora a sincronização entre os\nnós mineradores.",
     "objective": "Avaliar o impacto da topologia da rede e do número de\nconexões entre pares (peers) na estabilidade e desempenho da blockchain. A métrica permite estimar como a\nconectividade influencia o tempo de confirmação de transações, a ocorrência de forks e a consistência do ledger\ndistribuído.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O grau médio de conectividade (CN) pode ser\nexpresso como:\nCN =\n2E\nN(N −1)\nonde E representa o número total de conexões entre os\nnós e N o número total de nós ativos na rede.\nAlternativamente, pode-se medir o número médio de\nconexões por nó:\nCNmédio =\nPN\ni=1 ki\nN\nonde ki é o número de vizinhos do nó i.\nMétricas\nAssociadas\nLatência de Propagação; Tempo de Confirmação; Taxa\nde Forks; Throughput; Disponibilidade da Rede\nAtributo\nRelacionado\nDesempenho da Rede; Robustez; Escalabilidade; Confiabilidade do Ledger\n226",

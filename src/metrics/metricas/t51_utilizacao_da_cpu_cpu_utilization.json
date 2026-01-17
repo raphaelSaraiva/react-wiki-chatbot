@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "CPU utilization; processor load; computational demand;\nresource usage; blockchain performance",
     "definition": "Mede o percentual médio de utilização da CPU\npelos nós de uma rede blockchain durante a execução\nde operações, como validação de blocos, mineração e\nexecução de contratos inteligentes. Indica a quantidade\nde recursos computacionais efetivamente empregados\npara manter o sistema operacional.",
     "objective": "Avaliar a eficiência de processamento e o impacto da\ncarga computacional imposta pelos mecanismos de consenso e validação de transações. Essa métrica é essencial\nem aplicações educacionais e ambientes colaborativos baseados em blockchain, nos quais o desempenho influencia\ndiretamente a qualidade e disponibilidade dos serviços.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Utilização da CPU (%) =\nTempo ativo da CPU\nTempo total de observação×100\nonde o tempo ativo inclui o processamento de transações,\nconsenso e operações de rede.\nMétricas\nAssociadas\nUso de CPU; Sobrecarga de CPU; Consumo de energia;\nLatência; Throughput\nAtributo\nRelacionado\nEficiência computacional; Desempenho de execução; Escalabilidade",

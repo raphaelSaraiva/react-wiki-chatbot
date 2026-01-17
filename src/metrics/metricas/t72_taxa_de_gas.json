@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Gas cost; Transaction fee; Gas price; EVM fee; Blockchain cost",
     "definition": "Quantidade de taxa cobrada por operação ou transação\nrealizada na blockchain. Essa taxa é determinada pelo\npreço do gás multiplicado pelo consumo de gás necessário\npara a execução de uma transação ou contrato inteligente,\nrefletindo o custo computacional e o congestionamento\nda rede.",
     "objective": "Avaliar o custo financeiro associado à execução de operações em uma rede blockchain. Essa métrica é importante\npara otimizar o uso de recursos e garantir que as aplicações descentralizadas mantenham um equilíbrio entre\ndesempenho e custo, especialmente em ambientes que\nexigem alto volume de transações como e-health ou IoT.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Taxatransação = gasUsed × gasPrice.\nCusto\ntotal\nem\nmoeda\nfiduciária:\nCustofiat\n=\nTaxatransação × cotação(ETH →moeda).\nMétricas\nAssociadas\nThroughput; Latência de Transação; Tempo de Confirmação; Uso de Gás; Custo Total de Transação\nAtributo\nRelacionado\nCusto de Execução; Preço do Gás; Eficiência de Rede",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Residual Energy; Energy Efficiency; Remaining Power;\nEnergy Consumption Ratio; Node Battery Level",
     "definition": "Mede a proporção de energia restante disponível em um\nnó ou veículo em relação à sua capacidade total, após\na execução de tarefas de comunicação, computação e\ncompartilhamento de conteúdo em uma rede blockchain\nveicular. Essa métrica avalia a eficiência energética e a\nsustentabilidade do sistema no contexto de redes Vehicleto-Grid (V2G).",
     "objective": "Quantificar a eficiência energética dos nós participantes\nna rede blockchain, garantindo que o consumo de energia\ndecorrente de transações, mineração e comunicação seja\nequilibrado com a necessidade de preservar a autonomia\ndos dispositivos e veículos envolvidos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Residual Energy Ratio = Eresidual\nEtotal\n× 100\nonde Eresidual é a energia remanescente após o processamento das tarefas, e Etotal é a energia inicial disponível\nno nó ou veículo.\nMétricas\nAssociadas\nEnergy Consumption; Lifetime of Node; Power Utilization Efficiency; Energy Balance Ratio\nAtributo\nRelacionado\nConsumo Energético; Sustentabilidade de Rede; Eficiência Computacional",

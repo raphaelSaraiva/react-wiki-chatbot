@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Price of Consumption; Minimum Transaction Fee; Transaction Cost; fmin; Consumption Price Stability",
     "definition": "Representa o valor mínimo de taxa de transação\n(fmin) que um usuário deve pagar para que sua\ntransação seja processada em uma blockchain. Esse\nvalor reflete o custo mínimo percebido pelo usuário para\nparticipar da rede e é determinado dinamicamente conforme o comportamento dos mineradores e a saturação\nda mempool.",
     "objective": "Avaliar a estabilidade do custo mínimo de processamento\nde transações em um sistema blockchain e sua influência\nna justiça e saúde econômica da rede. Um preço de\nconsumo estável indica um sistema justo e sustentável,\nenquanto variações elevadas sugerem congestionamento,\ncomportamento oportunista de mineradores ou desequilíbrio entre oferta e demanda de espaço em blocos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O preço de consumo é definido como:\nfmin = min(ftxn)\nsujeito a\nlatência de processamento ≤Lmax\nonde ftxn é a taxa de transação ofertada e Lmax é o\nlimite de latência aceitável. A estabilidade é medida pela\nvariação de fmin ao longo do tempo (σ(fmin)).\nMétricas\nAssociadas\nLatência de Processamento; Saúde da Blockchain; Custo\nde Transação; Número de Transações Processadas; Honest Mining Power\nAtributo\nRelacionado\nTaxa Mínima de Transação; Estabilidade Econômica;\nEquidade de Usuário\n279",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Memory Usage; RAM Consumption; Memory Load; Resource Utilization; Memory Performance",
     "definition": "Mede a quantidade de memória RAM utilizada por nós\nou mineradores durante a execução de operações em\numa blockchain. A métrica reflete a eficiência de uso de\nrecursos de hardware e sua relação com o tamanho da\nblockchain, dificuldade dos blocos e carga de transações.",
     "objective": "Avaliar a eficiência do uso da memória durante a execução de processos de mineração, validação e operação\nde contratos inteligentes, a fim de identificar gargalos e\ndimensionar corretamente os recursos de infraestrutura\nblockchain.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "RAM Utilization (%) =\nMemória utilizada (MB)\nMemória total disponível (MB)×100\nou, em bytes:\nRAM Utilization = RAM usada\nRAM total\nMétricas\nAssociadas\nCPU Utilization; Storage Usage; Block Size; Network\nBandwidth; Energy Consumption\nAtributo\nRelacionado\nEficiência Computacional; Desempenho de Processamento; Capacidade de Armazenamento",

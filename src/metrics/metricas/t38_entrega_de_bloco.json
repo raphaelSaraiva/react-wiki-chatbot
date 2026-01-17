@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Block propagation; Tempo de entrega de bloco; Disseminação de bloco; Tempo de propagação; Block relay delay;\nTempo de sincronização de blocos",
     "definition": "Mede o tempo necessário para que um bloco minerado seja propagado e recebido por todos os nós\nda rede blockchain. A métrica quantifica a eficiência da comunicação entre mineradores e nós completos,\nsendo essencial para manter a consistência do ledger\ndistribuído e minimizar bifurcações (forks).",
     "objective": "Avaliar a eficiência da propagação de blocos e seu\nimpacto sobre o tempo de confirmação de transações e a\ntaxa de bifurcação. A entrega rápida de blocos é fundamental para reduzir a latência global do sistema, garantir\na equidade entre mineradores e manter o consenso distribuído estável, especialmente em redes públicas como\nBitcoin e Ethereum.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Tdelivery = Treceive −Tgenerate,\nonde Tgenerate é o instante de geração (mineração) do\nbloco e Treceive o instante em que ele é recebido e validado\npelos nós da rede.\nA média sobre múltiplos blocos fornece o tempo médio\nde entrega de bloco: T delivery =\n1\nN\nPN\ni=1(Treceive,i −\nTgenerate,i).\nMétricas\nAssociadas\nTempo de confirmação; Latência de rede; Taxa de bifurcação; Tamanho do bloco; Throughput; Atraso de\npropagação\nAtributo\nRelacionado\nDesempenho de rede; Consistência de ledger; Escalabilidade; Tempo de consenso",

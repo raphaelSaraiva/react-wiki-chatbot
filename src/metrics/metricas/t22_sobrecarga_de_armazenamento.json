@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Storage overhead; Sobrecarga de storage; Bytes extras\nno ledger; Metadados on-chain; Off-chain (IPFS/Cloud)",
     "definition": "Quantidade de bytes adicionais além do conteúdo útil\n(payload) necessários para registrar/gerir dados na solução (on-chain e/ou off-chain): cabeçalhos, índices/estado\n(world state), metadados de acesso, hashes/âncoras\ne replicação.\nEm estudos com Hyperledger Fabric/arquiteturas híbridas, a métrica é reportada para\ncomparar alternativas e evidenciar reduções ao mover\ndados volumosos para repositórios externos e ancorar\napenas hashes. :contentReference[oaicite:0]index=0 :contentReference[oaicite:1]index=1",
     "objective": "Medir o impacto de design (on-chain vs. off-chain) sobre a capacidade e custo. Trabalhos recentes mostram\nque modelos com blockchain + armazenamento distribuído reduzem significativamente a carga de armazena-\nmento do sistema, mantendo integridade/consulta eficiente. :contentReference[oaicite:2]index=2 :contentRefe-\nrence[oaicite:3]index=3",
     "domain_independence": "Alto — aplicável a educação, e-Health/IoT, cadeias de\nsuprimento, etc.\nModelo\nde\nQualidade\nISO/IEC 25010",

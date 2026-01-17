@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Data consistency; state synchronization; ledger consistency; control state coherence; blockchain synchroniza-\ntion",
     "definition": "Mede o grau de coerência e sincronização dos dados\nmantidos entre controladores e dispositivos em uma arquitetura distribuída baseada em blockchain. Representa\na capacidade do sistema de manter estados uniformes e\natualizados em todos os nós, mesmo diante de falhas ou\natrasos de comunicação.",
     "objective": "Avaliar a habilidade do sistema blockchain em garantir a consistência global de informações entre\ncontroladores e elementos de rede em um ambiente distribuído. Essa métrica é essencial em redes SDN/SDON,\nonde comandos duplicados ou inconsistências podem\ncausar falhas graves na operação.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Cd = 1 −Dinc\nDtot\nonde Cd é o índice de consistência de dados, Dinc é o\nnúmero de divergências detectadas entre os estados dos\ncontroladores e Dtot é o número total de estados monitorados. Valores próximos a 1 indicam alta consistência.\nMétricas\nAssociadas\nTaxa de consenso; Latência de sincronização; Tempo de\nrecuperação; Integridade dos dados\nAtributo\nRelacionado\nSincronização de estados; Confiabilidade de controle;\nDisponibilidade",

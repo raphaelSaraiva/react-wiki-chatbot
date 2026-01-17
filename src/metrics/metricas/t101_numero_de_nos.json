@@ -7,7 +7,6 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "keywords_alias": "Number of nodes; Node count; Active nodes; Network\nsize; Peer-to-peer nodes; LN nodes; BTC nodes",
     "definition": "Mede o número total de nós ativos em uma rede\nblockchain ou em sua camada de sobreposição (overlay),\ncomo a Lightning Network (LN). Essa métrica representa\no tamanho e o grau de descentralização da rede, refletindo\nsua robustez, resiliência e capacidade de propagação de\ntransações e blocos.",
     "objective": "Avaliar o crescimento, descentralização e resiliência da\nrede blockchain e suas extensões (ex.: LN). O número de\nnós é um indicador-chave da participação de usuários, da\nconectividade da infraestrutura e do grau de centralização\nem provedores de nuvem ou redes anônimas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O número total de nós ativos (Na) pode ser expresso\ncomo:\nNa =\nk\nX\ni=1\nni\nonde ni representa cada nó ativo detectado em um determinado instante e k é o total de nós com canais de\npagamento estabelecidos ou conectados à rede P2P.\nMétricas\nAssociadas\nNúmero de Canais; Número de Transações; Conectividade de Nós; Latência de Propagação; Capacidade Total\nda Rede\nAtributo\nRelacionado\nDescentralização; Robustez da Rede; Escalabilidade; Distribuição Geográfica dos Nós\n243",

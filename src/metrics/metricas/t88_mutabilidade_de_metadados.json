@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Mutable metadata; Metadata alteration; Token metadata\nchange; Contract updatability; Centralized metadata\ncontrol",
     "definition": "Mede o grau em que os metadados de um contrato\ninteligente podem ser alterados após sua implantação na blockchain. Metadados incluem informações\ncomo nome, símbolo, URI, baseURI ou outros identificadores associados a tokens e ativos digitais. A presença\nde funções que permitem modificar esses dados representa risco à integridade e à confiabilidade dos registros\non-chain.",
     "objective": "Avaliar a imutabilidade e a segurança das informações\ndescritivas associadas a contratos inteligentes, garantindo\nque desenvolvedores ou administradores não possam modificar metadados críticos após o deploy, o que poderia\nenganar usuários, alterar propriedades de tokens ou comprometer a rastreabilidade dos ativos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "A Mutabilidade de Metadados (MM) é medida de\nforma binária:\nMM =\n\n\n\n1,\nse funções permitem alterar metadados após o deploy;\n0,\ncaso contrário.\nUm valor 1 indica risco à integridade e potencial centralização; valor 0 indica contrato totalmente imutável.\nMétricas\nAssociadas\nCentralization Risk Index; Contract Updatability; Ownership Control; Metadata Integrity; Token Authenticity\nAtributo\nRelacionado\nImutabilidade de Contrato; Integridade de Dados; Risco\nde Centralização; Transparência de Código\n212",

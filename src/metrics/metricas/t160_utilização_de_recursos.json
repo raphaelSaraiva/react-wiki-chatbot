@@ -1,0 +1,48 @@
+{
+  "id": "t160",
+  "table_no": 160,
+  "name": "Utilização de Recursos",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "keywords_alias": "Resource utilization; CPU usage; Memory consumption; Network utilization; Storage overhead; Energy efficiency",
+    "definition": "Mede o grau de utilização dos recursos computacionais e de infraestrutura empregados por um sistema blockchain, incluindo CPU, memória, armazenamento e largura de banda de rede, durante a execução de transações, validação de blocos e execução de contratos inteligentes.",
+    "objective": "Avaliar a eficiência operacional de sistemas blockchain aplicados à saúde digital, identificando o impacto do uso de arquiteturas híbridas (on-chain/off-chain) e mecanismos de consenso permissionados sobre o consumo de recursos e a escalabilidade do sistema.",
+    "equation": "RU = (Σ Ri) / T,\nonde Ri representa o consumo individual de recursos (CPU, memória, rede e armazenamento) durante o intervalo de tempo T.",
+    "protocol": "1) Implantar o sistema blockchain em ambiente controlado (ex.: Hyperledger Fabric com IPFS).\n2) Definir cargas de trabalho representativas (criação, atualização e consulta de registros de saúde).\n3) Executar os experimentos sob diferentes volumes de transações.\n4) Monitorar o uso de CPU, memória, rede e armazenamento dos nós.\n5) Calcular a utilização média e pico de recursos.\n6) Comparar resultados entre abordagens on-chain puras e híbridas.",
+    "comment": "Os estudos HealthBlock e Hyperledger Healthchain demonstram que o armazenamento off-chain via IPFS reduz significativamente o consumo de armazenamento e o uso de CPU na blockchain, mantendo hashes e metadados on-chain. A utilização de recursos cresce com o número de transações, mas permanece controlada em arquiteturas permissionadas com PBFT, evidenciando melhor eficiência quando comparadas a blockchains públicas.",
+    "unit": "Percentual (%) para CPU e memória; MB/GB para armazenamento; Mbps para rede",
+    "scale_type": "Razão",
+    "precision": "Alta, quando monitorada com ferramentas de benchmark e coleta automática de métricas.",
+    "data_collection": "Automática / Experimental (monitoramento contínuo dos nós)",
+    "measurement_tool": "Hyperledger Caliper; Docker Stats; Prometheus/Grafana; ferramentas de monitoramento de sistema e rede.",
+    "use_processes": "Avaliação de desempenho de sistemas blockchain em saúde; análise de escalabilidade; otimização de arquitetura; comparação entre soluções on-chain e off-chain.",
+    "beneficiaries": "Engenheiros de blockchain; arquitetos de sistemas de saúde digital; pesquisadores em sistemas distribuídos; gestores de infraestrutura.",
+    "references": "Mani, V.; Manickam, P.; et al. Hyperledger Healthchain: Patient-Centric IPFS-Based Storage of Health Records. Electronics, 2021. — O artigo avalia explicitamente a utilização de recursos (CPU, memória e throughput) usando Hyperledger Caliper em uma arquitetura híbrida blockchain + IPFS :contentReference[oaicite:1]{index=1}."
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Utilização de Recursos (Resource Utilization)",
+    "Palavras-chave / Alias": "Resource utilization; CPU usage; Memory consumption; Network utilization",
+    "Definição do Atributo": "Mede o nível de consumo de recursos computacionais utilizados por nós blockchain durante sua operação.",
+    "Objetivo / Motivação": "Avaliar eficiência e escalabilidade de soluções blockchain em cenários de saúde digital.",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de Recursos",
+    "Equação": "RU = (Σ Ri) / T",
+    "Protocolo": "Monitorar continuamente CPU, memória, rede e armazenamento durante a execução do sistema.",
+    "Comentário": "Arquiteturas híbridas com IPFS reduzem significativamente a pressão sobre recursos on-chain.",
+    "Unidade": "Percentual (%) e MB/GB",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Alta",
+    "Tipo de Coleta de Dados": "Automática / Experimental",
+    "Ferramenta de Medição": "Hyperledger Caliper; Prometheus; Docker Stats.",
+    "Processos de Uso Potenciais": "Otimização de desempenho; análise de escalabilidade; planejamento de infraestrutura.",
+    "Beneficiários Potenciais": "Desenvolvedores; pesquisadores; gestores de sistemas.",
+    "Referências": "Mani et al., Hyperledger Healthchain, Electronics, 2021."
+  },
+  "source": {
+    "pdf": "Hyperledger_Healthchain_Patient_Centric_IPFS_Based_Storage_of_Health_Records.pdf",
+    "table": "Tabela 160"
+  }
+}

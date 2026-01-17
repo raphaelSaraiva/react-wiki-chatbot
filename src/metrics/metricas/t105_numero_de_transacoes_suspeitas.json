@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Number of suspicious transactions; Suspiciousness score;\nRisky transactions; Anomalous behavior; Account risk\nrating",
     "definition": "Mede o número total de transações identificadas\ncomo suspeitas em uma rede blockchain, com base\nem um modelo de análise de risco que utiliza métricas\nde confiabilidade, credibilidade e grau de suspiciousness.\nEssa métrica indica a frequência e a intensidade de comportamentos potencialmente anômalos ou fraudulentos\nem contas e transações.",
     "objective": "Identificar e quantificar o volume de transações de risco\nem sistemas blockchain, permitindo a classificação de\ncontas potencialmente maliciosas e a detecção de comportamentos irregulares, como lavagem de dinheiro, ma-\nnipulação de tokens e wash trading.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O número de transações suspeitas (Ns) é calculado como:\nNs =\nT\nX\ni=1\nI(Si ≥θ)\nonde Si é o grau de suspiciousness da transação i e θ é\no limiar definido pelo modelo de classificação. Apenas\ntransações com Si ≥θ são consideradas suspeitas.\nMétricas\nAssociadas\nGrau de Confiabilidade da Conta; Grau de Credibilidade;\nGrau de Suspiciousness; Número de Contas de Risco;\nNúmero Total de Transações\nAtributo\nRelacionado\nDetecção de Anomalias; Classificação de Contas; Segurança Transacional; Análise de Comportamento",

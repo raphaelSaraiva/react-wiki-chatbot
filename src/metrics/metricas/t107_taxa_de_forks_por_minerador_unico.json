@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "One-miner fork rate; Selfish fork frequency; Redundant\nmining rate; Same-miner block divergence; Miner duplication ratio",
     "definition": "Mede a frequência com que um mesmo minerador\ngera múltiplos blocos na mesma altura da blockchain, resultando em forks redundantes (chamados de\none-miner forks). Essa métrica avalia o comportamento\ne a eficiência dos mineradores, identificando práticas de\nmineração egoístas ou falhas de sincronização em pools.",
     "objective": "Quantificar o impacto de forks gerados por um único\nminerador sobre a eficiência da rede e o desperdício de\nrecursos computacionais. A métrica permite detectar\npráticas desleais ou ineficientes que afetam a propagação\nde blocos e a justiça na distribuição de recompensas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "A taxa de forks de minerador único (R1m) é dada por:\nR1m = F1m\nFtotal\n× 100\nonde F1m representa o número de forks causados por\num único minerador e Ftotal é o número total de forks\nobservados no período de análise.\nMétricas\nAssociadas\nTaxa de Forks Total; Taxa de Blocos Órfãos; Eficiência\nde Mineração; Utilização de Blocos\nAtributo\nRelacionado\nConsistência da Blockchain; Estabilidade de Rede; Justiça no Consenso; Desempenho de Pools",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Completude Funcional"
   },
   "fields": {
-    "keywords_alias": "Data Application Quality; Data Service Quality; Application Accuracy; Blockchain Data Trust; Data Utility",
     "definition": "Mede a proporção de dados válidos, consistentes e úteis\nefetivamente empregados em aplicações que consomem\ninformações de uma blockchain. Avalia o quanto o processo de registro e verificação descentralizada preserva o\nvalor analítico dos dados.",
     "objective": "Quantificar a eficácia das aplicações que utilizam dados\nregistrados em blockchain, garantindo que o uso de mecanismos de consenso e criptografia não reduza a precisão\ne utilidade da informação.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Data Utility Rate =\nDados válidos e consistentes\nTotal de dados consumidos pela aplicação\nou\nData Utility Rate = Rcorretos\nRtotais\n× 100\nMétricas\nAssociadas\nAccuracy of Summary Information; Data Integrity; Transaction Validity; Data Latency\nAtributo\nRelacionado\nConfiabilidade dos Dados; Desempenho da Aplicação;\nEficiência de Processamento",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Machine Performance; Hardware Comparison; Execution\nSpeed; Computational Power; Gas Efficiency",
     "definition": "Mede o impacto do desempenho de hardware (CPU,\nmemória e arquitetura da máquina) na execução de transações e contratos inteligentes em uma rede blockchain.\nEssa métrica avalia a variação de tempo de execução e\nconsumo de gas em diferentes configurações de máquinas,\nrefletindo a influência do poder computacional sobre o\ncusto e a eficiência da execução.",
     "objective": "Determinar se diferenças na capacidade computacional\ndas máquinas (como velocidade de CPU e memória disponível) afetam o custo e o tempo de execução das ope-\nrações na blockchain Ethereum. Essa análise é essencial\npara compreender a influência do ambiente físico sobre\nmétricas de gas e otimização de contratos inteligentes.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O desempenho relativo (Pm) entre máquinas pode ser\ndefinido como:\nPm = Tref\nTm\nonde Tref é o tempo médio de execução em uma máquina\nde referência e Tm é o tempo médio de execução na máquina avaliada. Valores de Pm > 1 indicam desempenho\nsuperior em relação à referência.\nMétricas\nAssociadas\nCusto de Gas; Tempo de Execução; Throughput; Latência de Execução; Utilização de CPU\nAtributo\nRelacionado\nEficiência Computacional; Escalabilidade; Portabilidade\nde Execução\n275",

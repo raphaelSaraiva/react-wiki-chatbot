@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Transaction conflict; Dependency graph; Concurrency;\nGroup conflict rate; Largest Connected Component\n(LCC)",
     "definition": "Mede a proporção de transações em um bloco que entram em conflito (isto é, não podem ser executadas em\nparalelo) devido a dependências de leitura/escrita sobre\no mesmo estado/dados. Reflete diretamente o grau de\nparalelizabilidade do bloco e os gargalos para execução\nconcorrente na camada de execução.",
     "objective": "Quantificar o potencial de execução paralela em diferentes arquiteturas de blockchain (UTXO vs. account-based)\ne estimar ganhos de desempenho possíveis ao explorar\nconcorrência, além de identificar blocos com alto acoplamento entre transações.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "ConflictRatesingle = Ntransações em conflito\nNtransações no bloco\n× 100%.\nOpcional\n(visão\nde\ngrupo):\nConflictRategroup\n=\nLCCsize\nNtransações no bloco\n× 100%, onde LCCsize é o tamanho do\nmaior componente conexo no grafo de dependências do\nbloco.\nMétricas\nAssociadas\nGroup Conflict Rate; Transaction Parallelism; Throughput; Block Size; Transaction Dependency Degree\nAtributo\nRelacionado\nEscalonamento de Execução; Serializabilidade; Taxa de\nSucesso de Execução Paralela",

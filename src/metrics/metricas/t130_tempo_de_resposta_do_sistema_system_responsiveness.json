@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal (Time Behavior)"
   },
   "fields": {
-    "keywords_alias": "Responsiveness; Response Time; System Responsiveness\nRate; Service Delay; Latency",
     "definition": "Mede a capacidade de um sistema blockchain em responder de forma rápida e eficiente às solicitações de usuários\nou nós, representando a prontidão do sistema sob diferentes cargas de transação. Essa métrica quantifica o tempo\nmédio necessário para que uma requisição enviada receba\nresposta dentro do intervalo esperado, refletindo a eficiência temporal da infraestrutura blockchain integrada à\nnuvem.",
     "objective": "Avaliar o desempenho temporal e a agilidade de resposta do sistema descentralizado, assegurando tempos\nde resposta compatíveis com os requisitos de usabilidade\ne confiabilidade esperados em ambientes de armazenamento e controle de acesso baseados em blockchain.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "R = 1 −f\n\u0012P rm\nrmax\n\u0013\nonde R representa a taxa de resposta, rm o tempo médio\nde resposta para cada requisição e rmax o tempo máximo\naceitável definido para o serviço.\nMétricas\nAssociadas\nLatency; Throughput; Service Availability; Transaction\nCompletion Time\nAtributo\nRelacionado\nDesempenho de Serviço;\nEficiência Computacional;\nTempo de Processamento",

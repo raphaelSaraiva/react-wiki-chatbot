@@ -7,7 +7,6 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "keywords_alias": "Number of writing transactions; Write operations; Data\ninsertion count; IoT data recording; Blockchain write\nthroughput",
     "definition": "Mede a quantidade total de transações que realizam operações de escrita na blockchain durante\num intervalo de tempo, como inserções, atualizações\nou registros de dados provenientes de dispositivos IoT\nou contratos inteligentes. Representa o volume de operações que modificam o estado da cadeia e impactam\ndiretamente o desempenho e o custo da rede.",
     "objective": "Avaliar o impacto da frequência de gravações na blockchain sobre a latência, o custo computacional e a eficiên-\ncia energética de sistemas distribuídos baseados em IoT.\nEssa métrica ajuda a dimensionar a taxa de atualização\nviável em aplicações que exigem registro contínuo de\ndados, como monitoramento energético e trocas automatizadas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O número de transações de escrita (Nw) é calculado\ncomo:\nNw =\nT\nX\ni=1\nI(tx(tipo)\ni\n= write)\nonde tx(tipo)\ni\nindica se a transação i envolve uma operação\nde escrita e T é o total de transações observadas no\nperíodo de medição.\nMétricas\nAssociadas\nTaxa de Transações por Segundo (TPS); Número de Transações de Leitura; Custo de Gás; Latência de Transação;\nThroughput da Rede\nAtributo\nRelacionado\nCarga da Rede; Desempenho de Contrato Inteligente;\nConsumo de Energia; Escalabilidade\n254",

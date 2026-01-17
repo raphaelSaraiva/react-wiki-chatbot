@@ -1,0 +1,47 @@
+{
+  "id": "t57",
+  "table_no": 57,
+  "name": "Taxa de Acerto de Cache",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Mede a proporção de acessos a dados que são atendidos diretamente por caches em memória, em vez de requererem acesso a armazenamento persistente (disco). Em sistemas blockchain, a métrica reflete a eficácia dos mecanismos de cache utilizados para acelerar a execução de transações e a verificação de estado.",
+    "objective": "Avaliar a eficiência dos mecanismos de cache na redução de custos computacionais e de I/O durante a execução de transações blockchain. Uma alta taxa de acerto de cache indica melhor aproveitamento da memória e menor dependência de acessos ao disco, contribuindo para maior desempenho e escalabilidade dos nós.",
+    "equation": "CHR = N_hit / (N_hit + N_miss),\nonde N_hit representa o número de acessos atendidos pelo cache e N_miss o número de acessos que resultaram em leitura a partir do armazenamento persistente.",
+    "protocol": "1) Instrumentar o cliente blockchain para registrar acessos a estruturas de estado (ex.: state trie).\n2) Executar transações representativas da carga real do sistema.\n3) Registrar eventos de cache hit e cache miss durante a execução.\n4) Calcular a taxa de acerto de cache (CHR).\n5) Analisar a correlação entre CHR, latência de execução e custo computacional.\n6) Comparar resultados entre diferentes tipos de cache ou configurações de hardware.",
+    "comment": "O estudo empírico sobre o mecanismo de gas do Ethereum mostra que caches em memória podem reduzir significativamente o tempo de execução de opcodes que acessam o estado, como BALANCE e EXTCODESIZE. Entretanto, a eficácia do cache depende do padrão de acesso ao estado, sendo menor quando há baixa localidade de referência, como em acessos frequentes a contas distintas.",
+    "unit": "Proporção (0–1) ou percentual (%)",
+    "scale_type": "Razão",
+    "precision": "Dependente da instrumentação do cliente e da granularidade do registro de acessos ao cache.",
+    "data_collection": "Automática (instrumentação do cliente blockchain e logs de execução)",
+    "measurement_tool": "Instrumentação do cliente Ethereum; logs de cache hit/miss; ferramentas de tracing (ex.: LTTng); scripts de análise estatística.",
+    "use_processes": "Avaliação de desempenho de clientes blockchain; otimização de execução de contratos inteligentes; análise de impacto de I/O; comparação de arquiteturas e configurações de hardware.",
+    "beneficiaries": "Desenvolvedores de clientes blockchain; engenheiros de desempenho; pesquisadores em sistemas distribuídos; operadores de nós.",
+    "references": "Yang, R.; Murray, T.; Rimba, P.; Parampalli, U. Empirically Analyzing Ethereum’s Gas Mechanism. IEEE Access / arXiv, 2019. — O estudo analisa o impacto de caches em memória na execução de opcodes e mede explicitamente taxas de acerto de cache e sua relação com desempenho."
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Taxa de Acerto de Cache (Cache Hit Rate)",
+    "Palavras-chave / Alias": "Cache hit rate; Cache effectiveness; Memory cache efficiency",
+    "Definição do Atributo": "Mede a proporção de acessos ao estado blockchain atendidos por caches em memória, em relação ao total de acessos realizados.",
+    "Objetivo / Motivação": "Avaliar a eficiência do uso de cache para reduzir acessos a disco e melhorar o desempenho da execução de transações.",
+    "Característica": "Eficiência de Desempenho",
+    "Sub-característica": "Utilização de Recursos",
+    "Equação": "CHR = N_hit / (N_hit + N_miss)",
+    "Protocolo": "Monitorar acessos ao estado durante a execução de transações e registrar eventos de cache hit e miss.",
+    "Comentário": "Caches são mais eficazes quando há localidade de referência. Em contratos inteligentes com acessos dispersos ao estado, a taxa de acerto tende a ser menor.",
+    "Unidade": "Percentual (%)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Relacionada à precisão dos mecanismos de logging e tracing.",
+    "Tipo de Coleta de Dados": "Automática",
+    "Ferramenta de Medição": "Clientes instrumentados; ferramentas de tracing; logs de execução.",
+    "Processos de Uso Potenciais": "Otimização de clientes blockchain; análise de gargalos de I/O; avaliação de impacto de hardware.",
+    "Beneficiários Potenciais": "Desenvolvedores; pesquisadores; operadores de infraestrutura.",
+    "Referências": "Yang et al., Empirically Analyzing Ethereum’s Gas Mechanism, 2019."
+  },
+  "source": {
+    "pdf": "Empirically_Analyzing_Ethereum_Gas_Mechanism.pdf",
+    "table": "Tabela 57"
+  }
+}

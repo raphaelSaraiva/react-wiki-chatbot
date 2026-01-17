@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "OPEX; Custo operacional; Gas fee; Transaction fee;\nCusto de execução; Custo por transação; Custo de infraestrutura",
     "definition": "Soma dos recursos computacionais e dos custos monetários consumidos por uma aplicação ou rede blockchain ao\nlongo do tempo de operação (processamento, memória,\narmazenamento, E/S, rede), incluindo as taxas pagas\npor transações/execuções de contratos inteligentes.",
     "objective": "Quantificar e otimizar o custo para operar soluções baseadas em blockchain, suportando decisões de arquitetura\n(p. ex., on-chain vs. off-chain), parametrização de gas e\nplanejamento orçamentário/SLAs.",
     "domain_independence": "Totalmente independente de domínio (aplicável a saúde,\nIoT, redes, energia, etc.).\nModelo\nde\nQualidade\nISO/IEC 25010",

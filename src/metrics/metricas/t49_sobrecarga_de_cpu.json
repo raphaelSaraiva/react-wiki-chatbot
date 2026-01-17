@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "CPU overhead; computational overhead; processing time;\nresource consumption; IoT blockchain performance",
     "definition": "Mede o tempo adicional de processamento e uso\nda CPU necessário para interpretar políticas, executar\nregras de consenso ou resolver conflitos em um sistema\nblockchain. Representa o impacto computacional das\noperações realizadas no nó durante a validação e atualização do ledger.",
     "objective": "Avaliar a eficiência computacional de mecanismos de\nexecução e controle em arquiteturas blockchain aplicadas\nà IoT. A métrica busca identificar quanto a adição de\ncamadas de segurança ou políticas dinâmicas afeta a\nutilização da CPU dos nós participantes.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "SobrecargaCPU = Tprocessamento_com_blockchain −Tprocessamento_base\nTprocessamento_base\n×100%\nou, alternativamente, em termos de uso de CPU:\nSobrecargaCPU = CPUuso_com_blockchain −CPUuso_base\nMétricas\nAssociadas\nTempo de resposta; Latência; Throughput; Uso de memória; Consumo de energia\nAtributo\nRelacionado\nDesempenho de execução; Eficiência computacional; Escalabilidade",

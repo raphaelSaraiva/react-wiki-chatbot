@@ -7,7 +7,6 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "keywords_alias": "Number of requests; Request count; Service requests;\nUser interactions; Transaction requests",
     "definition": "Representa o total de requisições de serviço enviadas\ne processadas em uma rede blockchain descentralizada,\nincluindo transações, registros, consultas ou execuções de\ncontratos inteligentes. A métrica reflete a carga operacional e o nível de utilização do ecossistema descentralizado\nde serviços.",
     "objective": "Avaliar o desempenho, escalabilidade e confiabilidade de\num ecossistema de serviços descentralizados baseado em\nblockchain. O número de requisições serve como indicador da capacidade do sistema de lidar com múltiplas\ninterações simultâneas de usuários e entidades de serviço,\nmantendo integridade e latência aceitável.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Nr =\nT\nX\ni=1\nRi, onde Nr é o número total de requisições\nprocessadas em um intervalo de tempo T, e Ri representa\ncada requisição registrada pelo sistema blockchain.\nMétricas\nAssociadas\nThroughput (TPS); Tempo Médio de Resposta; Taxa de\nSucesso de Requisições; Utilização de Recursos\nAtributo\nRelacionado\nEscalabilidade; Confiabilidade; Carga de Rede; Taxa de\nTransações; Eficiência Operacional",

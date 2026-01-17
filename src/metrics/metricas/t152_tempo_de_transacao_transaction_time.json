@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Transaction time; Transaction confirmation time; Transaction latency; Blockchain delay; Throughput trade-off;\nMANET blockchain",
     "definition": "Tempo médio necessário para que uma transação seja\nvalidada e registrada de forma definitiva no blockchain.\nMede o intervalo entre o envio de uma transação e sua\nconfirmação na rede, refletindo o desempenho e a eficiência do consenso utilizado.",
     "objective": "Avaliar a eficiência temporal do mecanismo de consenso e\na escalabilidade da rede blockchain aplicada em sistemas\nde coleta de dados em MANETs. A métrica é essencial\npara medir a responsividade e a capacidade da rede em\nlidar com múltiplas transações sob diferentes cargas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Ttx = tconf −tenv, onde tenv é o instante de envio da transação e tconf é o instante em que a transação é confirmada\ne incluída no blockchain.\nMétricas\nAssociadas\nTransaction Throughput; Latência de Bloco; Taxa de\nConfirmação; Transaction Processing Rate; Transaction\nDelay\nAtributo\nRelacionado\nConsenso; Eficiência de Rede; Escalabilidade; Propagação de Blocos",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Packet loss index; Packet drop count; Lost packets; Packet failure; Network failure",
     "definition": "Mede o número total de pacotes de dados perdidos\ndurante a transmissão em uma rede blockchain,\ndevido a falhas de nós, congestionamento, ataques ou\nlimite de retransmissão.\nÉ uma medida absoluta da\nconfiabilidade de comunicação entre os nós da rede.",
     "objective": "Quantificar o volume total de perdas de comunicação\nentre nós blockchain, permitindo diagnosticar gargalos e\nfalhas estruturais. Essa métrica auxilia na avaliação da\nrobustez da rede e na análise de impacto sobre o consenso\ne a propagação de blocos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O índice de perda de pacotes (Iloss) é dado por:\nIloss = Nenviados −Nrecebidos\nonde Nenviados é o número total de pacotes transmitidos\ne Nrecebidos o número entregue com sucesso.\nMétricas\nAssociadas\nTaxa de Queda de Pacotes (Packet Drop Ratio); Largura\nde Banda da Rede; Latência Média; Throughput; Tempo\nde Propagação\nAtributo\nRelacionado\nRobustez da Rede; Eficiência de Comunicação; Estabilidade de Conexão; Tolerância a Falhas",

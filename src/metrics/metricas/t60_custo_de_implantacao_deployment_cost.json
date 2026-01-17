@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Deployment gas cost; contract deployment fee; blockchain deployment cost; transaction fee; BNB cost",
     "definition": "Mede o custo total em gás ou tokens necessário\npara implantar contratos inteligentes e inicializar\no sistema blockchain em uma rede específica. Reflete\no investimento computacional e financeiro associado ao\nprocesso de registro do contrato na blockchain, incluindo\ntaxas de transação e consumo de recursos de execução.",
     "objective": "Quantificar o custo inicial de implantação do sistema\nproposto e avaliar sua viabilidade econômica em ambientes públicos, privados ou híbridos. Essa métrica per-\nmite comparar soluções blockchain quanto à eficiência do\nuso de gás e à escalabilidade financeira de implantações\nem larga escala.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "DC = GasUsed × GasPrice\nonde GasUsed representa o total de gás consumido na\nimplantação e GasPrice é o preço médio pago por unidade\nde gás no momento da operação.\nMétricas\nAssociadas\nTransaction Cost; Execution Cost; Gas Usage; Throughput\nAtributo\nRelacionado\nCusto de Operação; Eficiência Computacional; Escalabilidade Econômica",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "keywords_alias": "Number of miners; Miner count; Mining nodes; Validator\nnodes; Blockchain participants",
     "definition": "Mede o número total de mineradores (ou validadores) ativos em uma rede blockchain durante a execução\nde um protocolo de consenso. Essa métrica influencia\ndiretamente a segurança, o desempenho e a escalabilidade da rede, afetando o tempo de validação de blocos e\no consumo de energia.",
     "objective": "Avaliar o impacto da quantidade de mineradores na eficiência e robustez da rede blockchain. Um número elevado\nde mineradores aumenta a descentralização e a segurança\ncontra ataques (como 51%), enquanto um número reduzido favorece maior rapidez de consenso, menor latência\ne menor custo de comunicação.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Pode-se representar a métrica como:\nM = Ntotal ou Ms ⊆Ntotal\nonde Ntotal representa o número total de mineradores\ndisponíveis na rede e Ms o subconjunto de mineradores\nselecionados para participar do consenso ou mineração\nem um dado bloco.\nMétricas\nAssociadas\nTempo de Validação de Bloco; Taxa de Hash; Taxa de\nTransações Confirmadas; Consumo de Energia; Escalabilidade\nAtributo\nRelacionado\nCapacidade de Mineração; Desempenho da Rede; Segurança de Consenso; Descentralização",

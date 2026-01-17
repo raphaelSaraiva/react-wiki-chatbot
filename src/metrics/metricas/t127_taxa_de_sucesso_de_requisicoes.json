@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Request Success Rate; Service Success Ratio; Response\nReliability; Request Completion Rate",
     "definition": "Mede a proporção de requisições ou transações processadas com sucesso em um sistema blockchain descentrali-\nzado, em relação ao total de requisições enviadas. Essa\nmétrica avalia a estabilidade da rede e a confiabilidade\ndos serviços fornecidos por nós e smart contracts dentro\nde um ecossistema blockchain.",
     "objective": "Avaliar a capacidade do sistema blockchain em responder\nde forma correta e completa às requisições de serviço,\nrepresentando a robustez e eficiência da comunicação\nentre nós participantes.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Request Success Rate = Nrequisições bem-sucedidas\nNrequisições totais\n× 100\nonde Nrequisições bem-sucedidas representa o número de requisições concluídas com resposta válida e Nrequisições totais o\nnúmero total de tentativas.\nMétricas\nAssociadas\nResponse Time; Throughput; Fault Tolerance; Reliability\nRate\nAtributo\nRelacionado\nDisponibilidade; Robustez de Serviço; Integridade de\nComunicação",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Number of forks on mining difficulty; Block forks; Fork\noccurrence rate; Mining difficulty impact; Blockchain\nstability",
     "definition": "Mede o número de bifurcações (forks) que ocorrem\nna blockchain sob diferentes níveis de dificuldade de\nmineração. Essa métrica permite avaliar como o ajuste\ndinâmico da dificuldade influencia a frequência de blocos\nconflitantes e a estabilidade geral da rede blockchain.",
     "objective": "Avaliar a estabilidade e a consistência do consenso sob variações no parâmetro de dificuldade de mineração. Uma\nmaior dificuldade tende a reduzir a taxa de blocos simultâneos e, portanto, o número de forks, enquanto\ndificuldades muito baixas podem aumentar a ocorrência\nde bifurcações devido à competição entre mineradores.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O número de bifurcações pode ser representado como\numa função da dificuldade de mineração (D):\nF(D) = Nforks\nNblocks\nonde F(D) é a frequência relativa de forks, Nforks é o\nnúmero de blocos que resultaram em bifurcação e Nblocks\no número total de blocos minerados sob uma dificuldade\nD. A curva F(D) deve decrescer com o aumento de D\nem redes estáveis.\nMétricas\nAssociadas\nDificuldade de Mineração; Taxa de Blocos Huérfanos;\nThroughput de Blocos; Tempo de Confirmação; Conectividade de Nós\nAtributo\nRelacionado\nEstabilidade do Consenso; Robustez da Rede; Sincronização de Blocos; Eficiência de Mineração\n236",

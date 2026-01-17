@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Unforgeability; Signature unforgeability; ZK-proof soundness; Auction integrity; Sealed-bid; Non-repudiation",
     "definition": "Mede a capacidade do sistema de leilão/contrato inteligente baseado em blockchain de impedir a falsificação\nde assinaturas, lances e provas de conhecimento zero.\nRepresenta quão improvável é para um adversário gerar artefatos válidos (assinaturas/provas) sem possuir os\nsegredos correspondentes, preservando autenticidade e\nintegridade do processo de leilão selado.",
     "objective": "Garantir que lances e resultados não possam ser manipulados por partes desonestas, assegurando binding,\nhiding e verificabilidade pública do protocolo de e-auction\ncom contratos inteligentes e ZKPs. Uma alta resistência\nà falsificação é essencial para confiabilidade, justiça e\nauditabilidade do leilão.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Modelo criptográfico esperado: a probabilidade de um\nadversário A produzir um artefato válido sem o segredo é\nPr[Forge] ≤(k), onde k é o parâmetro de segurança. Para\navaliação empírica, usar: Índiceresist = 1 −Nforjas_detectadas\nNtentativas\n.\nMétricas\nAssociadas\nNonrepudiation Level; Authentication Success Rate;\nZKP Verification Time; Auction Correctness\nAtributo\nRelacionado\nIntegridade de Dados; Autenticidade de Assinaturas;\nSolidez de Provas (soundness); Imutabilidade do Ledger",

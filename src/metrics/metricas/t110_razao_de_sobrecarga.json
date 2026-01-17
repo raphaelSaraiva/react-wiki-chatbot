@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Overhead ratio; Communication overhead; Computational overhead; Network load ratio; Efficiency degradation\nrate",
     "definition": "Mede a proporção de recursos adicionais (tempo,\nprocessamento, comunicação ou energia) consumidos por um protocolo de autenticação ou transação\nem relação à carga útil efetiva. Essa métrica avalia o\ncusto operacional adicional introduzido por mecanismos\nde segurança ou de blockchain em sistemas distribuídos\nde IoT.",
     "objective": "Quantificar o impacto dos mecanismos de autenticação,\ncriptografia e consenso sobre o desempenho global da\nrede e sobre a sustentabilidade do sistema. O objetivo\né identificar protocolos leves que mantenham segurança\nadequada com mínima sobrecarga de recursos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "A razão de sobrecarga (Ro) é definida como:\nRo = Ctotal −Cbase\nCbase\n× 100\nonde Ctotal representa o custo total do sistema com o\nprotocolo blockchain (computacional, de comunicação ou\nenergético) e Cbase representa o custo sem o mecanismo\nadicional.\nMétricas\nAssociadas\nTempo de Operação; Consumo de Energia; Latência de\nComunicação; Custo Computacional; Throughput\nAtributo\nRelacionado\nEscalabilidade; Sustentabilidade; Eficiência Energética;\nCusto de Execução",

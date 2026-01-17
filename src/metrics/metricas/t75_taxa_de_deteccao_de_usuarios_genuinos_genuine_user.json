@@ -7,7 +7,6 @@
     "subcharacteristic": "Autenticidade"
   },
   "fields": {
-    "keywords_alias": "Genuine User Detection; Authentication Accuracy; Access Control Rate; User Validation; Blockchain-based\nIdentity Verification",
     "definition": "Mede a proporção de usuários legítimos corretamente\nidentificados pelo sistema em relação ao total de tentativas de autenticação. Essa métrica avalia a precisão\ne a confiabilidade do mecanismo de controle de acesso\nbaseado em blockchain no reconhecimento de usuários\ngenuínos.",
     "objective": "Avaliar a capacidade do sistema de distinguir usuários legítimos de entidades maliciosas, garantindo acesso seguro\ne integridade dos dados em um ambiente descentralizado\nde armazenamento em nuvem.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Taxa de Detecção de Usuários Genuínos\n=\nNúmero de usuários legítimos corretamente identificados\nTotal de tentativas de autenticação\nMétricas\nAssociadas\nFalse Acceptance Rate (FAR); False Rejection Rate\n(FRR); Accuracy; Authentication Latency\nAtributo\nRelacionado\nControle de Acesso; Integridade de Dados; Confidencialidade; Taxa de Erro de Autenticação",

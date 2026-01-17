@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Gas price; Base fee; Priority fee (gorjeta); Max fee; EIP1559; Gwei",
     "definition": "Quantia paga por unidade de gas para priorizar a inclusão/execução de uma transação/contrato em uma rede\n(ex.: Ethereum). Desde o EIP-1559, o preço efetivo é\ncomposto por base fee dinâmica (queima) + priority\nfee (gorjeta ao validador), limitada por max fee.",
     "objective": "Quantificar e controlar o custo necessário para atingir\no tempo de confirmação desejado (trade-off custo vs latência) e estimar o impacto econômico de operações\non-chain. Em arquiteturas de monetização de dados IoT,\nas taxas de transação regulam abuso/DoS e viabilizam\ncontratos de mercado.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Custo básico de uma transação em ETH: gas(ETH) =\ngas_price(ETH/gas) × gas_used(gas).\nSob EIP-1559: gas_priceefetivo = min(maxFee, baseFee+\npriorityFee).\nConversão\npara\nmoeda\nfiduciária:\ncustofiat\n=\ngas(ETH) × cotação(ETH →moeda).\nMétricas\nAssociadas\nGas used; Custo de Gas; Custo por Transação; Latência/Tempo de confirmação; Utilização do bloco; TPS\nAtributo\nRelacionado\nCusto de Operação; Custo de Transação; Consumo de\nEnergia; Throughput",

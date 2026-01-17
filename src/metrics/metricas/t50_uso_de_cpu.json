@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "CPU usage; processor utilization; computational performance; node workload; blockchain healthcare efficiency",
     "definition": "Mede a proporção de tempo de processamento\nutilizada pela CPU durante a execução das operações\nde blockchain, como verificação de blocos, execução de\ncontratos inteligentes e transmissão de dados médicos.\nIndica o nível de carga computacional imposto ao sistema\ndurante o funcionamento normal da rede.",
     "objective": "Avaliar a eficiência e escalabilidade computacional\ndo sistema blockchain em cenários de saúde, especialmente em dispositivos de baixo custo ou infraestrutura\nlimitada, como os de países em desenvolvimento. Um uso\nde CPU eficiente garante estabilidade, menor consumo\nenergético e viabilidade prática.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Uso de CPU (%) = Tativo\nTtotal\n× 100\nonde Tativo é o tempo gasto pela CPU processando tarefas\nblockchain e Ttotal é o tempo total de observação.\nMétricas\nAssociadas\nSobrecarga de CPU; Uso de memória; Consumo de energia; Throughput; Latência\nAtributo\nRelacionado\nEficiência computacional; Escalabilidade; Desempenho\nde execução",

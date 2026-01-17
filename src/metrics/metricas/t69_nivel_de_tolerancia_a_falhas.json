@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Fault tolerance; Fault-tolerant mechanism; Resilience;\nFail-safe level; Byzantine fault handling; Robustez do\nsistema",
     "definition": "Mede o grau de capacidade do sistema blockchain\nde continuar executando corretamente operações\ne transações na presença de falhas de nós, controladores ou ataques. Representa a resiliência do\nsistema em manter o consenso e o funcionamento normal,\nmesmo sob degradação parcial da rede.",
     "objective": "Avaliar a robustez e continuidade operacional do\nsistema distribuído frente a falhas. O nível de tolerância\na falhas indica o quanto a arquitetura descentralizada\n(como a baseada em Hyperledger) é capaz de preservar a\nintegridade do controle e a consistência dos dados mesmo\ndiante de falhas de componentes.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "A métrica é avaliada em função do número de falhas\ntoleradas (f) em relação ao limite máximo aceitável\n(fmax):\nNTF =\nf\nfmax\n, com NTF ≤1.\nPodetambémsermedidaindiretamentepelaproporçãodeoperaçõesconcluída\nMétricas\nAssociadas\nTaxa de requisições falhas; Latência de recuperação;\nDisponibilidade; Eficiência de consenso; Robustez da\nrede\nAtributo\nRelacionado\nRecuperação de falhas; Confiabilidade operacional; Continuidade de serviço; Desempenho de consenso",

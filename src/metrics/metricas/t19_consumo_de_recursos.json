@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Resource utilization; Uso de CPU; Uso de memória; I/O\nde disco; Tráfego de rede; Armazenamento on/off-chain",
     "definition": "Quantificação dos recursos computacionais consumidos\npor uma aplicação/rede blockchain para executar operações (transações, consultas, deploys) em um período:\nCPU (núcleo·s ou %), memória (MB·s), I/O de disco\n(MB), rede (MB), e bytes armazenados no ledger (onchain) ou em repositórios externos (off-chain, p.ex. IPFS).\nEm avaliações com Hyperledger Fabric, a métrica é reportada junto a latência e TPS sob benchmark Cali-\nper. :contentReference[oaicite:0]index=0 :contentReference[oaicite:1]index=1",
     "objective": "Dimensionar capacidade, identificar gargalos e otimizar\neficiência/custos operacionais (compute, rede, armazenamento). Em e-saúde, arquiteturas que ancoram da-\ndos no ledger e armazenam conteúdo no IPFS reduzem\npressão de armazenamento on-chain, melhorando a escalabilidade sem abrir mão de integridade/controle de\nacesso. :contentReference[oaicite:2]index=2 :contentReference[oaicite:3]index=3",
     "domain_independence": "Alto — aplicável em saúde, IoT/IIoT, identidade, energia,\netc. (dependente do stack e do perfil de carga, não do\ndomínio).\nModelo\nde\nQualidade\nISO/IEC 25010",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Out-of-gas; OOG; Gas limit; Gas stipend; Revert por\nfalta de gás; Falha de execução; EVM exception",
     "definition": "Mede a ocorrência de falhas de execução de transações/ chamadas de contrato por esgotamento de\ngás antes da conclusão da computação. Em plataformas\ncompatíveis com EVM, quando o gás alocado não é suficiente para cobrir a execução (opcodes, armazenamento,\ntransferências), a execução aborta, o estado é revertido\ne a taxa de transação é consumida.",
     "objective": "Quantificar a robustez e eficiência do desenho de\ncontratos e da configuração de clientes/carteiras (estimativa de gás), reduzindo falhas por subprovisão. Apoia\ntuning de gas limit por função, prevenção de regressões\nde consumo de gás e melhoria de UX (menos transações\nfracassadas).\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Taxa_OGEx = Ntx com OOG\nNtx totais\n.\n(Headroom de gás por chamada) H = 1 −gas_used\ngas_limit.\n(Relatar p50/p95/p99 de H por função/versão de contrato).\nMétricas\nAssociadas\nGas Used; Custo de Execução; Taxa de Sucesso do Consenso; Taxa de Revert; Latência de Transação; Through-\nput\nAtributo\nRelacionado\nEficiência de código do contrato; Estratégia de estimativa\nde gás; Política de inclusão de transações; Complexidade\nde armazenamento",

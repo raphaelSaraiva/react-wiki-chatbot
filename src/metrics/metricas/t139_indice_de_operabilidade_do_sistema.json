@@ -7,7 +7,6 @@
     "subcharacteristic": "Operabilidade"
   },
   "fields": {
-    "keywords_alias": "System Operability Index; Operability Score; Shard Coordination Efficiency; System Manageability; Shard Sta-\nbility Rate",
     "definition": "Mede o nível de eficiência operacional e estabilidade de um sistema blockchain fragmentado\n(sharded blockchain) durante processos de redistribuição de shards, mudanças no número de nós ou variações\nde carga. Representa a capacidade do sistema de manter\ndesempenho, coordenação e disponibilidade de forma\ncontínua.",
     "objective": "Quantificar o grau em que o protocolo de sharding mantém sua funcionalidade e estabilidade operacional diante\nde reconfigurações, reduzindo o tempo de realocação e\no custo de coordenação. Essa métrica busca refletir a\nrobustez operacional e a facilidade de manutenção de um\nprotocolo blockchain em ambientes dinâmicos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O índice de operabilidade (IOs) pode ser definido por:\nIOs =\nRstability\nTreconfig × Ccoord\nonde Rstability é a taxa de estabilidade após redistribuição\nde shards, Treconfig é o tempo médio de reconfiguração, e\nCcoord o custo médio de coordenação entre shards. Valores maiores de IOs indicam maior eficiência operacional.\nMétricas\nAssociadas\nTempo de Reconfiguração de Shard; Custo de Coordenação; Taxa de Estabilidade de Shard; Throughput;\nLatência Média\nAtributo\nRelacionado\nEscalabilidade; Tolerância a Falhas; Disponibilidade; Manutenibilidade",

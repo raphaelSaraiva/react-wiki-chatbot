@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Packet drop ratio; Packet loss rate; Packet failure;\nNetwork loss; Transmission reliability",
     "definition": "Mede a porcentagem de pacotes descartados durante a transmissão entre nós da rede blockchain\ndevido a falhas de roteamento, ataques BGP, congestionamento ou desconexões temporárias. Essa métrica\nrepresenta a confiabilidade e estabilidade da comunicação\nentre nós distribuídos em ambientes blockchain-SDN.",
     "objective": "Quantificar a eficiência de transmissão de dados em redes\nblockchain integradas a controladores SDN, avaliando\no impacto de ataques de roteamento (ex.: sequestro\nde prefixos BGP) e a eficácia do mecanismo de defesa\nSDBGPChain em reduzir perdas de pacotes.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "A taxa de queda de pacotes (Pdr) é definida como:\nPdr = Nperdidos\nNenviados\n× 100\nonde Nperdidos é o número de pacotes descartados ou\nnão entregues e Nenviados é o número total de pacotes\ntransmitidos.\nMétricas\nAssociadas\nTaxa de Entrega de Pacotes; Latência Média; Throughput; Largura de Banda Efetiva; Taxa de Ataques Detec-\ntados\nAtributo\nRelacionado\nRobustez de Rede; Segurança de Comunicação; Tolerância a Falhas; Integridade de Dados",

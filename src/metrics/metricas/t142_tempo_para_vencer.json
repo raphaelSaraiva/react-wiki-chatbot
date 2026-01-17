@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Time to win; Block generation latency; Leader election\ntime; Key block selection delay; Mining success delay",
     "definition": "Intervalo de tempo necessário para que um minerador ou\nnó produza um bloco vencedor após iniciar o processo\nde mineração. Representa o atraso médio entre o início\nda tentativa de mineração e a descoberta do bloco válido\naceito pela rede.",
     "objective": "Avaliar a eficiência e o tempo de resposta do protocolo\nde consenso na eleição de um novo líder (bloco vencedor).\nEssa métrica é essencial para analisar o desempenho de\nprotocolos escaláveis como o Bitcoin-NG, que utilizam\nblocos principais (key blocks) e microblocos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Twin = tdiscover −tstart\nonde tstart é o momento de início da tentativa de mineração e tdiscover é o instante em que o bloco vencedor é\nencontrado e validado.\nMétricas\nAssociadas\nBlock Propagation Delay; Time to Prune; Mining Power\nUtilization; Throughput\nAtributo\nRelacionado\nTempo de Confirmação; Latência de Consenso; Dificuldade de Mineração",

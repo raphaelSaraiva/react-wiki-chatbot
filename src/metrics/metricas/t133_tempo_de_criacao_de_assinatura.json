@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Signature generation; Signature creation delay; Cryptographic signing; Authentication latency; IoMT block-\nchain",
     "definition": "Mede o tempo necessário para a geração e aplicação\nde uma assinatura digital em uma transação ou dado\ncriptografado no contexto de um sistema blockchain em\nconsórcio. A métrica reflete o custo computacional do\nprocesso de autenticação usando chaves privadas e algoritmos de criptografia homomórfica.",
     "objective": "Avaliar a eficiência do processo de autenticação e verificação de dados em sistemas blockchain aplicados à\nInternet Industrial das Coisas Médicas (IIoMT), onde\nbaixa latência e segurança são cruciais para o fluxo de\ndados sensíveis.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Tsig = tfim −tinício, onde tinício representa o instante em\nque o processo de geração da assinatura é iniciado e tfim\no momento em que a assinatura é concluída e anexada\nao bloco ou transação.\nMétricas\nAssociadas\nTempo de Verificação de Assinatura; Latência de Transação; Throughput; Overhead de Comunicação\nAtributo\nRelacionado\nAutenticação; Integridade de Dados; Segurança Criptográfica",

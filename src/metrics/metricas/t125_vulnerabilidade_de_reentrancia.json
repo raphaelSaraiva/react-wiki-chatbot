@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Reentrancy Attack; Recursive Call; Smart Contract Vulnerability; Function Call Exploit; Reentrancy Detection",
     "definition": "Mede a proporção de funções ou contratos inteligentes\nsuscetíveis a ataques de reentrância — uma vulnerabilidade em que uma função externa maliciosa é executada\nantes do término da execução da função original, permitindo múltiplas modificações no estado do contrato.\nEssa métrica indica o nível de exposição do sistema a\nfalhas de integridade em transações distribuídas.",
     "objective": "Avaliar o grau de segurança de contratos inteligentes\nquanto à integridade de suas operações, identificando\nimplementações vulneráveis a chamadas recursivas indevidas. Essa métrica é fundamental para auditorias\nde segurança e mitigação de ataques em blockchains\nbaseadas em contratos inteligentes, como Ethereum e\nIOTA.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Reentrancy Vulnerability Rate = Nfunções vulneráveis\nNfunções externas\n×100\nonde Nfunções vulneráveis representa o número de funções\ncom risco de reentrância detectado, e Nfunções externas o\ntotal de funções analisadas.\nMétricas\nAssociadas\nFunction Call Depth; State Consistency Rate; Smart\nContract Reliability; Attack Success Rate\nAtributo\nRelacionado\nRobustez de Contrato; Segurança de Execução; Consistência de Estado\n293",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Tempo de propagação; Block propagation delay; Disseminação de bloco; sendheaders; compact block relay\n(CBR)",
     "definition": "Tempo decorrido desde o anúncio de um novo bloco por\num nó minerador até que uma fração p% dos pares na\nrede o receba/valide. Em Bitcoin (e redes similares),\nprotocolos como sendheaders e compact block relay\ninfluenciam diretamente esse tempo.",
     "objective": "Quantificar a eficiência da camada P2P na disseminação de blocos, pois maiores tempos de propagação\nelevam a taxa de órfãos (stale) e prejudicam a segurança/consistência da cadeia. Também subsidia decisões\nsobre tamanho de bloco e intervalos de geração.",
     "domain_independence": "Totalmente independente do domínio — aplicável a criptomoedas, IoT/IIoMT e consórcios.\nModelo\nde\nQualidade\nISO/IEC 25010 (Eficiência de Desempenho)",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Confidencialidade"
   },
   "fields": {
-    "keywords_alias": "Key Compromise; Key Exposure; Custodial Wallet Breach; Centralized Key Storage; Private Key Loss",
     "definition": "Mede a frequência com que chaves privadas são expostas\nou comprometidas em sistemas blockchain. Essa métrica\nreflete a vulnerabilidade de carteiras, exchanges e serviços de custódia a falhas de segurança centralizadas ou\nataques direcionados.",
     "objective": "Quantificar o risco de vazamento de chaves privadas em\necossistemas blockchain que dependem de componentes\ncentralizados, auxiliando na identificação de provedores\ncom maiores riscos de comprometimento.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Private Key Leakage Rate =\nChaves comprometidas\nChaves totais armazenadas\nou, quando aplicável:\nImpacto de Exposição = Taxa de Vazamento×Valor médio dos ativos afet\nMétricas\nAssociadas\nFalhas de Custódia; Taxa de Comprometimento de Carteiras; Incidentes de Segurança Centralizados\nAtributo\nRelacionado\nAutenticidade; Integridade; Não Repúdio",

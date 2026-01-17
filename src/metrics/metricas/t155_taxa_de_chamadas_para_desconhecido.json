@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Unknown call; Chamada desconhecida; Mensagens inválidas; Taxa de chamadas externas não resolvidas; Cha-\nmadas não reconhecidas",
     "definition": "Mede a proporção de chamadas ou transações realizadas por nós que não são reconhecidas ou não\nencontram destino válido na rede. Essa métrica\navalia o comportamento anômalo de comunicação entre\nnós ou dispositivos em redes distribuídas baseadas em\nblockchain ou DAGs (como IOTA), indicando falhas de\nroteamento, sincronização ou ataques maliciosos.",
     "objective": "Avaliar a eficiência e segurança da comunicação\nentre nós, especialmente em sistemas distribuídos com\nvalidação paralela, como o Tangle (IOTA). Chamadas\npara destinos desconhecidos podem representar tentativas de comunicação com nós fora de sincronia, falhas na\npropagação de transações ou tentativas de ataque à rede.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Urate = Nunknown\nNtotal\n,\nonde Nunknown é o número de chamadas que resultam\nem falha por destino desconhecido e Ntotal é o número\ntotal de chamadas realizadas na rede durante o intervalo\nanalisado.\nMétricas\nAssociadas\nTaxa de falhas de transação; Tempo médio de confirmação; Latência de rede; Taxa de reenvio; Disponibilidade\nde nós\nAtributo\nRelacionado\nRobustez de comunicação; Eficiência de roteamento; Segurança de mensagens; Consistência do ledger",

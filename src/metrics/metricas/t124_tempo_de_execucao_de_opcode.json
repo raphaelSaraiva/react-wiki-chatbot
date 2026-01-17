@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Opcode Runtime; Gas Efficiency; EVM Instruction Cost;\nExecution Time per Opcode; Gas-Time Ratio",
     "definition": "Mede a razão entre o tempo real de execução e o custo\nem gas associado a cada opcode da Ethereum Virtual\nMachine (EVM). Essa métrica identifica discrepâncias\nentre o custo computacional efetivo e o valor de gas\ndefinido, permitindo avaliar a eficiência e a equidade do\nmecanismo de precificação da Ethereum.",
     "objective": "Avaliar a correlação entre o custo teórico em gas e o\ntempo real de execução dos opcodes, a fim de detectar\ninstruções sub ou superprecificadas e propor ajustes que\nmelhorem o desempenho e a previsibilidade dos contratos\ninteligentes.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Opcode Runtime Rate = Texecução\nCgas\nonde Texecução é o tempo médio de execução de um opcode\nem nanossegundos e Cgas é o custo de gas correspondente\ndefinido pela EVM.\nMétricas\nAssociadas\nGas Cost per Instruction; CPU Utilization; Execution\nLatency; Gas Price Volatility\nAtributo\nRelacionado\nEficiência de Instrução; Custo de Gas; Tempo de Execução de Contrato",

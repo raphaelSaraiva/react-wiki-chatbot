@@ -1,0 +1,47 @@
+{
+  "id": "t129",
+  "table_no": 129,
+  "name": "Razão de Impacto de Ataques DoS",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Disponibilidade"
+  },
+  "fields": {
+    "definition": "Mede o impacto causado por ataques de negação de serviço (DoS) sobre o desempenho e a disponibilidade de um sistema blockchain, quantificando a degradação observada em métricas como throughput, latência de confirmação e taxa de transações válidas durante o ataque.",
+    "objective": "Avaliar a resiliência e robustez de sistemas blockchain frente a ataques DoS. A métrica indica o quanto o sistema é afetado em termos de disponibilidade e qualidade de serviço quando submetido a tráfego malicioso ou sobrecarga intencional.",
+    "equation": "DIR = M_attack / M_normal,\nonde M_attack representa o valor da métrica de desempenho sob ataque (ex.: latência ou throughput) e M_normal representa o valor da mesma métrica em operação normal.",
+    "protocol": "1) Definir a métrica base a ser analisada (ex.: throughput, latência ou taxa de confirmação).\n2) Medir o desempenho do sistema em condições normais.\n3) Executar ou simular um ataque DoS (ex.: flooding de transações).\n4) Medir o desempenho do sistema durante o ataque.\n5) Calcular a razão de impacto DoS (DIR).\n6) Comparar resultados entre mecanismos de defesa ou arquiteturas distintas.",
+    "comment": "Em sistemas baseados em IOTA e Tangle, o impacto de ataques DoS pode ser mitigado por mecanismos de validação distribuída e confirmação paralela de transações. Uma baixa razão de impacto indica maior resiliência do sistema e melhor manutenção da disponibilidade durante ataques.",
+    "unit": "Razão adimensional ou percentual (%)",
+    "scale_type": "Razão",
+    "precision": "Dependente da precisão das medições de desempenho e da intensidade do ataque simulado.",
+    "data_collection": "Experimental / Automática (monitoramento de desempenho durante ataques controlados)",
+    "measurement_tool": "Ferramentas de monitoramento de rede; simuladores de ataque DoS; logs de transações; scripts de análise de throughput e latência.",
+    "use_processes": "Avaliação de segurança e disponibilidade; comparação de mecanismos anti-DoS; validação de arquiteturas blockchain resilientes.",
+    "beneficiaries": "Engenheiros de segurança; desenvolvedores de blockchain; pesquisadores em sistemas distribuídos; operadores de infraestruturas críticas.",
+    "references": "Li, W.; Chen, X.; Zhang, J.; et al. An Efficient Distributed and Secure Algorithm for Transaction Confirmation in IOTA Using Cloud Computing. IEEE Access, 2020. — O estudo analisa o impacto de ataques DoS sobre a confirmação de transações e avalia mecanismos para manter a disponibilidade do sistema."
+  },
+  "raw_fields": {
+    "Atributo Nome (Título)": "Razão de Impacto de Ataques DoS (DoS Impact Ratio)",
+    "Palavras-chave / Alias": "DoS impact ratio; Denial of Service impact; Availability degradation",
+    "Definição do Atributo": "Mede a degradação relativa do desempenho e da disponibilidade de um sistema blockchain quando submetido a ataques de negação de serviço.",
+    "Objetivo / Motivação": "Avaliar o quanto ataques DoS afetam a disponibilidade e a qualidade de serviço do sistema, identificando sua capacidade de manter operações essenciais sob condições adversas.",
+    "Característica": "Segurança",
+    "Sub-característica": "Disponibilidade",
+    "Equação": "DIR = M_attack / M_normal",
+    "Protocolo": "Comparação do desempenho do sistema em condições normais e sob ataque DoS controlado.",
+    "Comentário": "Sistemas com baixa razão de impacto conseguem manter níveis aceitáveis de desempenho mesmo durante ataques, demonstrando maior resiliência.",
+    "Unidade": "Razão ou percentual (%)",
+    "Tipo de Escala": "Razão",
+    "Precisão": "Dependente da intensidade do ataque e da estabilidade do ambiente experimental.",
+    "Tipo de Coleta de Dados": "Experimental / Automática",
+    "Ferramenta de Medição": "Simuladores de ataque; ferramentas de monitoramento de blockchain; scripts de análise.",
+    "Processos de Uso Potenciais": "Avaliação de mecanismos de defesa; análise de disponibilidade; comparação de arquiteturas resistentes a DoS.",
+    "Beneficiários Potenciais": "Desenvolvedores; engenheiros de segurança; pesquisadores.",
+    "Referências": "Li et al., An Efficient Distributed and Secure Algorithm for Transaction Confirmation in IOTA Using Cloud Computing, IEEE Access, 2020."
+  },
+  "source": {
+    "pdf": "An_efficient_distributed_and_secure_algorithm_for_transaction_confirmation_in_IOTA_using_cloud_computing.pdf",
+    "table": "Tabela 129"
+  }
+}

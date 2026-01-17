@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Number of blocks lost; Block loss rate; Block failure;\nMissing blocks; Blockchain reliability; Propagation loss",
     "definition": "Mede o número total de blocos que não foram entregues, propagados ou confirmados corretamente\nentre os nós de uma rede blockchain. Essa métrica reflete\nfalhas de transmissão, inconsistências de consenso ou perdas causadas por sobrecarga de rede, desconexão de nós\nou ataques. É essencial para avaliar a confiabilidade\nda infraestrutura blockchain, especialmente em sistemas\nsensíveis como aplicações de saúde remota.",
     "objective": "Quantificar o nível de confiabilidade e estabilidade da\nrede blockchain em ambientes distribuídos. O objetivo é\nminimizar perdas de blocos, que comprometem a consistência do ledger e a integridade das transações, garan-\ntindo assim comunicação segura e sincronização confiável\nentre nós validadores.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "A métrica pode ser expressa como:\nBlost = Nexpected −Nreceived\nonde Blost representa o número de blocos perdidos,\nNexpected o número total de blocos esperados para propagação e Nreceived o número de blocos efetivamente recebi-\ndos e registrados pelos nós.\nMétricas\nAssociadas\nQuantidade de Blocos Encaminhados; Latência de Propagação; Taxa de Sucesso de Transmissão; Desempenho\nda Rede; Integridade do Ledger\nAtributo\nRelacionado\nRobustez da Rede; Disponibilidade; Confiabilidade de\nComunicação; Consistência de Dados",

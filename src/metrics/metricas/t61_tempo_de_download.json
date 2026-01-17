@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Download duration; file retrieval latency; data access\ntime; blockchain storage performance",
     "definition": "Mede o tempo total necessário para recuperar e\ntransferir um arquivo armazenado em uma plataforma blockchain, desde o início da requisição até\na conclusão do download. Avalia a eficiência da rede\ndescentralizada e o impacto de fatores como paralelismo\nde hosts, redundância e largura de banda na entrega dos\ndados ao usuário.",
     "objective": "Quantificar o desempenho do sistema blockchain em operações de leitura e recuperação de arquivos. Essa métrica\né essencial para avaliar a usabilidade e responsividade\nde plataformas de armazenamento descentralizado em\ncomparação com serviços de nuvem tradicionais (TCS).\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "DT = tfim −tinício\nonde tinício é o momento da requisição de download e tfim\no momento em que o arquivo é completamente recebido\npelo cliente. O resultado é expresso em segundos (s) ou\nminutos (min).\nMétricas\nAssociadas\nTempo de Upload; Available Time; Throughput; Latência\nde rede; Tamanho do arquivo\nAtributo\nRelacionado\nLargura de banda; Redundância de armazenamento; Eficiência de recuperação; Paralelismo de hosts",

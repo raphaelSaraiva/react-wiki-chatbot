@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Gas Usage; Gas Consumption; Consumo de Gas; Eficiência de Execução; Média de Gas Usado",
     "definition": "Quantidade média de unidades de gas consumidas na\nexecução de um conjunto de transações ou contratos\ninteligentes em uma blockchain. Cada operação executada na EVM (Ethereum Virtual Machine) consome uma\nquantidade específica de gas, e a média dessas execuções\nreflete a eficiência e o custo médio de operação.",
     "objective": "Avaliar a eficiência computacional média e o custo operacional de contratos inteligentes em diferentes cenários\nde execução. Um menor consumo médio de gas indica\nmelhor otimização de código e utilização mais eficiente\ndos recursos da rede.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Consumo Médio de Gas\n=\n1\nn\nPn\ni=1 GasUsedi,\nonde\nGasUsedi é o gas efetivamente consumido em cada execução.\nMétricas\nAssociadas\nGas Used; Gas Price; Gas Fee; Execution Cost; Throughput\nAtributo\nRelacionado\nEficiência de Contrato; Escalabilidade; Tempo de Execução; Custos de Transação",

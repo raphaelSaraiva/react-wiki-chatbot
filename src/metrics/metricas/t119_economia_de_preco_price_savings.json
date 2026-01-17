@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Price Saving; Cost Saving; Energy Incentive; Load Reduction Reward; Demand Response Saving",
     "definition": "Mede o valor monetário economizado pelos consumidores\ne provedores de energia após a aplicação de um esquema\nde gerenciamento de demanda baseado em blockchain.\nA métrica reflete o impacto da redução do consumo\nenergético e do redirecionamento de cargas de pico, comparando o custo efetivo antes e depois da adoção do\nmodelo proposto.",
     "objective": "Avaliar o benefício financeiro gerado pela utilização do\nesquema ε-Sutra, considerando a economia obtida em\nrelação a soluções convencionais de gerenciamento de demanda. Essa métrica evidencia a viabilidade econômica\ndo uso de contratos inteligentes e incentivos para promover comportamento energético eficiente e sustentável.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "A economia de preço é calculada como:\nPriceSaving =\nn\nX\ni=1\n(Cbase(i) −CDRM(i))\nonde Cbase(i) representa o custo de energia sem o esquema\nde gerenciamento de demanda e CDRM(i) o custo após a\naplicação do esquema ε-Sutra.\nMétricas\nAssociadas\nRedução de Carga (Load Reduction); Incentivo ao Consumidor; Custo de Armazenamento de Dados; Escalabi-\nlidade do Sistema\nAtributo\nRelacionado\nEficiência Econômica; Sustentabilidade Energética; Estabilidade do Sistema de Rede",

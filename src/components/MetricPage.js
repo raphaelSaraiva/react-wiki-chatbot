@@ -9,7 +9,6 @@ const metricFiles = require.context("../metrics/metricas", false, /\.json$/);
 
 function prettyLabel(key) {
   const map = {
-    keywords_alias: "Palavras-chave / Alias",
     definition: "Definição do Atributo",
     objective: "Objetivo / Motivação",
     domain_independence: "Nível de Independência do Domínio",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Total cost; Cost analysis; Transaction cost; Execution\ncost; Storage cost; IPFS cost-efficiency",
     "definition": "Mede o custo agregado de operação em uma rede\nblockchain, somando os custos de transação, execução\nde contratos inteligentes e armazenamento. Representa o\nesforço econômico necessário para executar uma operação\ncompleta na rede, incluindo as funções de smart contracts\ne o uso de mecanismos off-chain como IPFS.",
     "objective": "Avaliar a eficiência econômica global de um sistema\nblockchain, identificando a distribuição de custos entre\nexecução, armazenamento e transação. Essa métrica é\nútil para comparar diferentes implementações e estratégias de otimização, como o uso de IPFS para reduzir o\ncusto de armazenamento on-chain.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Ctotal = Ctransação + Cexecução + Carmazenamento\nonde:\nCustotransação = gastx × gasPrice,\nCustoexecução = gasexec × gasPrice,\nCustoarmazenamento representa o custo por byte armazenado na blockchain ou em repositórios externos (ex.:\nIPFS).\nMétricas\nAssociadas\nConsumo de gas; Custo de armazenamento; Taxa de\ntransação; Latência; Taxa de sucesso do consenso\nAtributo\nRelacionado\nEficiência Computacional; Throughput; Escalabilidade;\nCusto de Operação",

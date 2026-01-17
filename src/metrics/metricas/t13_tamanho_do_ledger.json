@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Ledger size; Tamanho do livro-razão; Tamanho da cadeia;\nChaindata; World state; Crescimento do ledger",
     "definition": "Quantidade total de bytes ocupados pelos dados persistidos da blockchain em um nó: blocos (cabeçalhos, transa-\nções, recibos, índices) e, quando aplicável, o estado (world\nstate). Em estudos aplicados, o tamanho do ledger é monitorado para avaliar escalabilidade e custos ao registrar\neventos de domínio (p. ex., relatórios de spam como transações on-chain). :contentReference[oaicite:0]index=0",
     "objective": "Dimensionar capacidade e custo de armazenamento,\ncomparar alternativas de projeto (on-chain vs. offchain/âncoras), e orientar políticas de retenção/pruning.\nMétodos de gestão de políticas em BC-IoT que removem\nredundâncias podem reduzir o espaço ocupado no ledger.\n:contentReference[oaicite:1]index=1",
     "domain_independence": "Alto — aplicável a diferentes setores (IoT, segurança,\neducação, etc.), variando apenas o perfil de carga e a\nplataforma.\nModelo\nde\nQualidade\nISO/IEC 25010",

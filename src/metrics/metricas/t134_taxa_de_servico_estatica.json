@@ -7,7 +7,6 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "keywords_alias": "Service rate; Deterministic service rate; µ; Orderer node\nperformance; Hyperledger Fabric; M/D/1 queue",
     "definition": "Mede a taxa determinística de atendimento (µ) do nó\norderer na rede Hyperledger Fabric, representando o número máximo de transações que podem ser processadas\npor segundo sob configuração fixa. A métrica reflete a\ncapacidade do serviço de ordenação em processar transações com estabilidade e eficiência em um modelo de fila\nM/D/1.",
     "objective": "Avaliar o desempenho e a estabilidade do serviço de ordenação no Hyperledger Fabric considerando uma taxa\nde serviço fixa e um fluxo aleatório de chegada de transações. Permite determinar quando adicionar novos nós\nde ordenação para evitar gargalos e atrasos excessivos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "µ = 1\nTs\nonde µ é a taxa de serviço (transações/segundo) e Ts\né o tempo médio de serviço de uma transação pelo nó\norderer. Em um sistema estável, a condição λ < µ deve\nser satisfeita, sendo λ a taxa de chegada das transações.\nMétricas\nAssociadas\nUtilização do Sistema (P); Latência Média de Serviço\n(Ws); Número Médio de Transações em Serviço (Ls);\nThroughput\nAtributo\nRelacionado\nTempo de Serviço; Latência de Transação; Desempenho\ndo Orderer; Escalabilidade",

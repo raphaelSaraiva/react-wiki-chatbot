@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Committed block; Block commitment rate; Confirmação de bloco; Blocos validados; Taxa de consenso bem-\nsucedido",
     "definition": "Mede a proporção de blocos propostos que são\nefetivamente confirmados e adicionados à cadeia\nprincipal da blockchain, refletindo a eficiência e a\nestabilidade do processo de consenso. Essa métrica indica\na capacidade da rede de validar e registrar transações de\nforma consistente, evitando bifurcações e blocos órfãos.",
     "objective": "Avaliar o desempenho e a confiabilidade do consenso em arquiteturas blockchain distribuídas. Uma\nalta taxa de blocos confirmados demonstra que a rede\nestá operando de forma sincronizada, enquanto taxas\nbaixas podem indicar latência, desacordo entre nós ou\nproblemas de comunicação.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Crate = Ncommitted\nNproposed\n,\nonde Ncommitted é o número de blocos confirmados e efetivamente adicionados à cadeia principal, e Nproposed é\no número total de blocos propostos durante o mesmo\nperíodo de observação.\nMétricas\nAssociadas\nTaxa de blocos órfãos; Tempo médio de confirmação;\nThroughput; Taxa de consenso; Latência de blocos\nAtributo\nRelacionado\nEficiência do consenso; Estabilidade de rede; Integridade\nda cadeia; Taxa de bifurcação",

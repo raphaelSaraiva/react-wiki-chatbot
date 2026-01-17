@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Data integrity; immutability; hash verification; blockchain data validity; Merkle proof",
     "definition": "Mede a capacidade do sistema blockchain de preservar a exatidão e consistência dos dados durante\no armazenamento, a transmissão e a verificação de certificados. Garante que informações não sejam alteradas,\ncorrompidas ou manipuladas sem detecção, assegurando\nque cada bloco e registro de revogação permaneçam autênticos e imutáveis.",
     "objective": "Avaliar o nível de proteção contra modificações indevidas ou perdas de integridade em sistemas block-\nchain que gerenciam certificados digitais. Essa métrica\nassegura que todas as operações — geração, revogação e\nvalidação — mantenham dados consistentes e verificáveis\ncriptograficamente.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Id = 1 −\nNfalhas\nNverificações\nonde Id representa o índice de integridade, Nfalhas é o\nnúmero de verificações de integridade que falharam (hash\nou assinatura inválida) e Nverificações é o número total de\nverificações executadas. Valores próximos de 1 indicam\nalta integridade.\nMétricas\nAssociadas\nConfidencialidade dos dados; Autenticidade; Consistência dos dados; Tempo de verificação\nAtributo\nRelacionado\nImutabilidade; Autenticação de dados; Validade de certificado; Segurança criptográfica",

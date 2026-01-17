@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Invalid block number; Invalid block rate; Forked blocks;\nSelfish mining; Stale blocks; Fork rate",
     "definition": "Mede a quantidade total de blocos minerados que\nnão foram aceitos pela cadeia principal da blockchain, por terem sido substituídos ou descartados du-\nrante a propagação ou em decorrência de estratégias\ndesonestas como o selfish mining. Esses blocos são considerados inválidos do ponto de vista do consenso, ainda\nque possam ser tecnicamente válidos quanto à estrutura.",
     "objective": "Quantificar o impacto de comportamentos desonestos e\nda imperfeição da rede (atrasos de propagação, forks) na\neficiência da mineração e na segurança do consenso. O\nnúmero de blocos inválidos fornece um indicador da taxa\nde desperdício de recursos e da vulnerabilidade da rede\na ataques estratégicos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Seja Binv o número de blocos inválidos observados em\num intervalo [t0, t1] e Btot o total de blocos minerados\n(válidos + inválidos). A métrica pode ser expressa como:\nTaxa de blocos inválidos = Binv\nBtot\n.\nO número absoluto de blocos inválidos é dado por Binv,\nenquanto a proporção fornece uma visão relativa da perda\nde eficiência da rede.\nMétricas\nAssociadas\nTaxa de Forks; Taxa de Propagação; Tempo de Propagação de Bloco; Taxa de Mineração Honesta; Eficiência de\nMineração\nAtributo\nRelacionado\nSelfish Mining Rate; Block Orphan Rate; Block Propagation Delay; Consistência de Cadeia",

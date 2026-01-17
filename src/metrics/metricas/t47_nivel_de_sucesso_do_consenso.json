@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Consensus Success Rate; PBFT; RAFT; Wireless Blockchain; mmWave; THz; Reliability Gain",
     "definition": "Probabilidade de o processo de consenso em uma rede\nblockchain alcançar um acordo válido entre os nós participantes. Mede a proporção de rodadas de consenso\nque resultam em sucesso, considerando perdas de comunicação, falhas de nós e condições de canal em redes sem\nfio.",
     "objective": "Avaliar a capacidade de uma rede blockchain em ambientes sem fio (como 6G, IoT ou IIoT) de atingir consenso\nsob diferentes condições físicas de comunicação (atenuação, interferência, distância). Essa métrica é essencial\npara entender a confiabilidade e robustez de mecanismos de consenso como PBFT e RAFT em cenários de\ncomunicação não ideais.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "A taxa média de sucesso do consenso Pc pode ser expressa\ncomo o produto das probabilidades de sucesso em cada\nfase do protocolo:\nPara PBFT:\nPc = Ppreprepare × Pprepare × Pcommit × Preply\nCada termo é definido por:\nPfase =\nb\nX\ni=0\n n −1\ni\n!\n(1 −Ps)iP (n−1−i)\ns\nonde Ps é a probabilidade média de sucesso de transmissão entre nós.\nMétricas\nAssociadas\nLatência; Throughput; Ganho de Confiabilidade (Reliability Gain); Consumo de Energia; Distância Ativa; Taxa\nde Erro de Bits (BER).\nAtributo\nRelacionado\nRobustez de Consenso; Disponibilidade de Rede; Sucesso\nde Transmissão; Tolerância a Falhas.\n125",

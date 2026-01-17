@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Justiça de mineração; Representatividade; Desbalanceamento; Block reception fairness; Centralização",
     "definition": "Grau em que a participação efetiva nos blocos/transições\nreflete a distribuição de poder de mineração/recursos\nentre os participantes. Em protocolos do tipo Nakamoto,\nmede-se se o maior minerador (ou conjunto dominante)\nestá representado nos blocos de forma proporcional ao\nseu poder de mineração; variações capturam tendências\nde centralização. Em análise de propagação, também\nse avalia a equidade pelo desvio entre os tempos médios\nde recebimento de blocos entre nós (quanto menor a\ndiferença, mais justa é a rede).",
     "objective": "Detectar e mitigar vieses que favorecem mineradores\nmaiores (ex.: por atrasos de propagação, intervalos de\nbloco ou tamanhos de bloco), os quais podem levar à\ncentralização e perda de segurança. Ajustes de topologia\ne de parâmetros de protocolo podem melhorar equidade,\nreduzindo forks e desperdício de hashpower.",
     "domain_independence": "Alto — aplicável a redes públicas (PoW/PoS) e consórcios, sempre que haja competição por inclusão/ordenação\nde transações.\nModelo\nde\nQualidade\nISO/IEC 25010",

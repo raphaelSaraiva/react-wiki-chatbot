@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Memory consumption; Storage efficiency; Blockchain\nstorage cost; Resource usage; Data overhead",
     "definition": "Mede a quantidade média de memória ou espaço de\narmazenamento utilizado durante o processamento e\nvalidação de dados em um sistema blockchain. Essa\nmétrica avalia a eficiência do modelo proposto quanto à\nutilização de recursos computacionais e armazenamento\nlocal ou em nuvem.",
     "objective": "Quantificar o consumo de armazenamento para determinar a eficiência e a escalabilidade de soluções blockchain\naplicadas à autenticação segura e ao compartilhamento\ncolaborativo de dados em nuvem. A redução do uso de\nmemória reflete maior desempenho e economia de custos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Uso_de_Armazenamento = Memória Utilizada (MB)\nTempo de Execução (s)\nou simplesmente, o valor médio de memória consumida\npor operação, conforme registros experimentais.\nMétricas\nAssociadas\nCusto Computacional; Throughput; Tempo de Execução;\nEficiência Energética\nAtributo\nRelacionado\nConsumo de Recursos; Desempenho de Processamento;\nOverhead de Execução",

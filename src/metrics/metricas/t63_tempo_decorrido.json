@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Smart contract runtime; Blockchain performance",
     "definition": "Mede o tempo total necessário para a execução de\num contrato inteligente em uma rede blockchain,\ndesde o envio da transação até a confirmação e retorno\ndo resultado. Avalia a eficiência computacional e o impacto do consenso, comunicação e execução no tempo de\nresposta global do sistema.",
     "objective": "Quantificar o desempenho e a responsividade da execução\nde contratos inteligentes em diferentes redes blockchain.\nEssa métrica permite identificar gargalos de desempenho\ne comparar a eficiência entre blockchains locais, públicas\ne privadas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "ET = tfim −tinício\nonde tinício é o instante de envio da transação e tfim o\ninstante em que a execução do contrato inteligente é\nconcluída e o resultado é confirmado na blockchain.\nMétricas\nAssociadas\nGas Used; Latência; Throughput; Transaction Delay;\nExecution Cost\nAtributo\nRelacionado\nEficiência Computacional; Custo de Execução; Tempo\nde Confirmação de Bloco",

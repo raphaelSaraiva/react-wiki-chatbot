@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Integer overflow; Integer underflow; Arithmetic overflow;\nAritmética insegura; Integer bug; Vulnerabilidade numérica",
     "definition": "Mede a ocorrência de erros de estouro (overflow) e subfluxo (underflow) em operações aritméticas dentro de\ncontratos inteligentes ou mecanismos de consenso blockchain. Esses erros acontecem quando um valor excede\nou cai abaixo dos limites do tipo de dado, resultando em\nfalhas de cálculo, corrupção de estado ou comportamento\nexplorável por atacantes.",
     "objective": "Quantificar a robustez de sistemas blockchain frente a\nvulnerabilidades aritméticas, assegurando que operações\ncríticas de validação e transação não gerem resultados\nincorretos ou manipuláveis. Essa métrica contribui para\navaliar a segurança e a integridade computacional de\ncontratos e algoritmos distribuídos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "IOUR = Noverflow/underflow detectados\nNoperações aritméticas totais\nonde\nNoverflow/underflow detectados\nrepresenta o número\nde\neventos\nde\nfalha\naritmética\nidentificados\ne\nNoperações aritméticas totais o total de operações realizadas\nno sistema avaliado.\nMétricas\nAssociadas\nArithmetic Safety Index; Execution Error Rate; Smart\nContract Robustness; Vulnerability Density\nAtributo\nRelacionado\nConsistência de Execução; Verificação Numérica; Uso de\nSafeMath; Validação de Tipos",

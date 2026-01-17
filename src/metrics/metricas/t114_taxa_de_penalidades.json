@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Penalties; Punishment rate; Q-learning penalty; Reinforcement learning penalty; Recompensa negativa",
     "definition": "Mede a quantidade de penalizações acumuladas\npor um agente de negociação de energia P2P em\num ambiente baseado em blockchain e aprendizado por\nreforço (Q-learning). Representa o número de decisões\nincorretas, transações ineficientes ou violações de política\nótima que resultam em punições atribuídas ao agente\ndurante o processo de aprendizado.",
     "objective": "Avaliar a eficiência e estabilidade do algoritmo de aprendizado por reforço em reduzir comportamentos incorretos\ne melhorar a tomada de decisão dos agentes em sistemas blockchain. Uma menor taxa de penalidades indica\nconvergência do aprendizado e maior confiabilidade do\nprocesso de negociação.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "A taxa de penalidades (Pr) pode ser expressa como:\nPr = Npenalidades\nNepisódios\nonde Npenalidades é o número total de penalizações atribuídas ao agente e Nepisódios é o número total de interações\nde aprendizado (episódios) realizadas.\nMétricas\nAssociadas\nTaxa de Recompensa; Taxa de Convergência; Custo de\nTransação; Tempo de Execução; Eficiência Energética\nAtributo\nRelacionado\nDesempenho do Agente; Estabilidade do Modelo; Precisão de Recomendação",

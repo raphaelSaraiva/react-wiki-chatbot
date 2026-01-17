@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Block pruning time; Chain pruning delay; State cleanup\ntime; Ledger maintenance",
     "definition": "Intervalo de tempo necessário para remover blocos antigos ou irrelevantes da cadeia principal e liberar espaço\nde armazenamento sem comprometer a integridade da\nblockchain. Representa a eficiência do mecanismo de\nmanutenção do ledger distribuído.",
     "objective": "Avaliar a rapidez com que o sistema é capaz de realizar\na poda de blocos ou estados obsoletos, garantindo sustentabilidade do armazenamento e desempenho contínuo\nda rede, especialmente em protocolos escaláveis como o\nBitcoin-NG.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Tprune = tfinal −tstart, onde tstart é o momento de início\nda operação de poda e tfinal é o tempo em que o processo\né concluído.\nMétricas\nAssociadas\nStorage Usage; Block Propagation Delay; State Size;\nDisk Throughput\nAtributo\nRelacionado\nTempo de Sincronização; Consumo de Recursos; Escalabilidade",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "keywords_alias": "Arrival frequency; Transaction input rate; Transaction\ninflow rate; (lambda)",
     "definition": "Mede a frequência de chegada de novas transações\nao serviço de ordenação (ordering service) em um sistema\nblockchain, variando ao longo do tempo de forma dinâmica. Essa métrica representa o ritmo em que os usuários\nenviam transações para processamento na rede Hyperledger Fabric, afetando diretamente o uso dos recursos e\no tempo de resposta.",
     "objective": "Avaliar o comportamento dinâmico do fluxo de transações e determinar o ponto em que a taxa de chegada\nexcede a capacidade de serviço de um nó de ordenação.\nEssa informação é fundamental para identificar a necessidade de adicionar novos nós orderers para manter o\ndesempenho e a estabilidade da rede blockchain.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "P = λ\nµ\nonde λ é a taxa dinâmica de chegada de transações\n(transações/segundo) e µ é a taxa de serviço determinística (transações/segundo). O sistema permanece estável\nenquanto P < 1.\nMétricas\nAssociadas\nService Rate (µ); Throughput; Average Latency; Utilization; Queue Length (Lq); Waiting Time (Wq)\nAtributo\nRelacionado\nCapacidade do nó de ordenação; Tamanho do bloco\n(BatchSize); Tempo máximo de agrupamento (BatchTimeout)",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Gas Used; Consumo de Gas por Transação; Gas Utilizado;\nExecução de Transação; Transaction Gas Consumption",
     "definition": "Quantidade total de gas efetivamente consumida pela execução de uma única transação em uma rede blockchain.\nEsse valor é determinado pela soma dos custos de todas\nas operações (opcodes) executadas na EVM (Ethereum\nVirtual Machine) até a finalização da transação.",
     "objective": "Medir a eficiência de uma transação específica em termos\nde custo computacional. O valor de Gas Used é essencial\npara estimar o custo total da operação, diagnosticar\ngargalos de desempenho e comparar implementações de\ncontratos inteligentes.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Gas Used (gas) = Pn\ni=1 OpcodeCosti, onde cada operação executada pela EVM consome uma quantidade espe-\ncífica de gas.\nMétricas\nAssociadas\nGas Price; Gas Fee; Execution Cost; Throughput; Consumo Médio de Gas\nAtributo\nRelacionado\nEficiência de Contrato; Escalabilidade; Custo de Transação; Latência",

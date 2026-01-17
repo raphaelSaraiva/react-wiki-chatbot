@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Resource Performance; Performance of Resources; CPU\nUtilization; Memory Utilization; Resource Efficiency",
     "definition": "Mede o nível de desempenho obtido a partir do\nuso dos recursos computacionais (CPU e memória)\ndurante a execução de operações em sistemas blockchain.\nIndica o equilíbrio entre velocidade de processamento,\ncarga de recursos e estabilidade operacional em aplicações\ndistribuídas, como o sistema automatizado de registros\neletrônicos de saúde proposto.",
     "objective": "Avaliar o impacto do consumo de CPU e memória sobre o\ndesempenho global do sistema blockchain, especialmente\nem aplicações de alta carga e dados sensíveis. A métrica busca demonstrar que o sistema pode manter bom\ndesempenho sem sobrecarregar os recursos, garantindo\neficiência e escalabilidade.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O desempenho dos recursos (Pr) pode ser representado\npela relação entre a carga média de utilização dos\nrecursos e a capacidade total do sistema:\nPr = UCPU + UMEM\n2\nonde UCPU é o uso médio de CPU (%) e UMEM é o\nuso médio de memória (%). O valor resultante indica\no desempenho médio combinado dos recursos utilizados\ndurante as operações.\nMétricas\nAssociadas\nTempo de Resposta; Throughput; Eficiência Energética;\nCusto Computacional; Latência\nAtributo\nRelacionado\nEscalabilidade; Capacidade de Processamento; Consumo\nde Recursos",

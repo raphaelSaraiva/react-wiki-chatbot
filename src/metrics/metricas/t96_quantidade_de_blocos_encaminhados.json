@@ -7,7 +7,6 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "keywords_alias": "Number of blocks forwarded; Block propagation; Block\nforwarding rate; Throughput de blocos; Disseminação de\nblocos; Encaminhamento P2P",
     "definition": "Mede o número total de blocos transmitidos ou\nencaminhados por um nó blockchain em um determinado intervalo de tempo. Essa métrica representa a\neficiência de disseminação de blocos na rede peer-to-peer\ne é essencial para avaliar o desempenho da arquitetura\ndescentralizada e a integridade da sincronização entre\nnós validadores.",
     "objective": "Avaliar a eficiência da propagação de blocos na rede blockchain, garantindo que todos os nós recebam rapidamente\nas novas informações mineradas. Um alto número de\nblocos encaminhados indica boa conectividade e cooperação entre nós, enquanto valores baixos podem apontar\ngargalos de comunicação, sobrecarga de canal ou falhas\nde topologia.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "A métrica pode ser expressa como:\nBf = Nb\nT\nonde Bf representa o número de blocos encaminhados\npor unidade de tempo, Nb o total de blocos transmitidos,\ne T o período de observação. Essa razão indica a taxa\nde propagação média de blocos por nó.\nMétricas\nAssociadas\nLatência de Propagação de Blocos; Taxa de Transmissão;\nDesempenho da Rede; Conectividade de Nós; Largura\nde Banda da Rede\nAtributo\nRelacionado\nEficiência de Encaminhamento; Robustez da Rede; Taxa\nde Sincronização de Blocos; Escalabilidade de Comunicação\n232",

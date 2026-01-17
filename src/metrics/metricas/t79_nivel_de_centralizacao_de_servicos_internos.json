@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Built-in centralized services; Dependência de serviços\ninternos; Centralização de infraestrutura; Serviços de\nsuporte centralizados; Oráculos centralizados; RPC providers",
     "definition": "Mede o grau de dependência de uma blockchain\nou dApp em relação a serviços internos que operam de forma centralizada, tais como provedores de\nRPC, oráculos, indexadores, gateways ou mecanismos de\nautenticação controlados por uma única entidade. Essa\nmétrica quantifica o impacto da centralização embutida\nna infraestrutura sobre a confiabilidade e a descentralização do sistema.",
     "objective": "Avaliar a descentralização estrutural de uma blockchain, verificando o quanto sua operação depende de\nprovedores únicos ou controlados. Em ecossistemas que\nse autodenominam descentralizados, tais dependências\nconfiguram riscos de censura, manipulação, interrupções\ne vulnerabilidades de segurança.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Cint = Ncentralizados\nNtotal\n,\nonde Ncentralizados é o número de serviços internos operados ou controlados centralmente, e Ntotal é o número\ntotal de serviços de suporte da rede (armazenamento,\nindexação, RPC, oráculos etc.).\nMétricas\nAssociadas\nGrau de descentralização; Probabilidade de ponto único\nde falha; Confiabilidade de nós; Sobrecarga de armazenamento; Dependência de terceiros\nAtributo\nRelacionado\nDescentralização; Disponibilidade; Resiliência; Transparência",

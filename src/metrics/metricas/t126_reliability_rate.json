@@ -7,7 +7,6 @@
     "subcharacteristic": "Disponibilidade"
   },
   "fields": {
-    "keywords_alias": "Reliability; Reliability Rate; System Dependability;\nBlockchain Reliability; Task Completion Ratio",
     "definition": "Mede a capacidade de um sistema blockchain de executar\ntarefas ou transações corretamente sem falhas, avaliando\na proporção de operações bem-sucedidas em relação ao\ntotal de operações solicitadas. Reflete a estabilidade e a\nrobustez do sistema sob diferentes condições de carga ou\nfalha de nós.",
     "objective": "Quantificar o grau de confiança e consistência de um\nsistema blockchain distribuído, especialmente em aplicações de IoT e saúde, onde falhas de execução podem\ncomprometer a integridade dos dados e a continuidade\ndo serviço.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Reliability Rate = Noperações bem-sucedidas\nNoperações totais\n× 100\nonde Noperações bem-sucedidas representa o número de tarefas\nou transações executadas com sucesso, e Noperações totais é\no número total de operações tentadas.\nMétricas\nAssociadas\nTask Success Rate; Fault Tolerance; Uptime Ratio; Response Success Ratio\nAtributo\nRelacionado\nDisponibilidade; Robustez; Eficiência de Desempenho",

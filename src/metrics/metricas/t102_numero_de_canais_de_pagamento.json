@@ -7,7 +7,6 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "keywords_alias": "Number of payment channels; LN channels; Channel\ncount; Active channels; Bidirectional payment links",
     "definition": "Quantifica o total de canais de pagamento estabelecidos entre os nós da Lightning Network (LN), repre-\nsentando conexões bidirecionais off-chain utilizadas para\ntroca de valores entre pares. Cada canal é composto\npor uma transação de abertura e uma de fechamento\nna blockchain Bitcoin, e permite múltiplas transações\nintermediárias instantâneas e privadas.",
     "objective": "Avaliar a capacidade, densidade e conectividade da\nrede LN, refletindo o grau de adoção e a eficiência da\ninfraestrutura de micropagamentos baseada em blockchain. O número de canais é diretamente proporcional à\nescalabilidade e à redundância da rede.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Nc =\nNn\nX\ni=1\nci, onde Nc é o número total de canais ativos e ci representa os canais estabelecidos por cada nó\nparticipante (Nn é o total de nós ativos).\nMétricas\nAssociadas\nNúmero de Nós; Capacidade Total da Rede; Taxa de\nTransações Off-chain; Latência Média de Pagamento\nAtributo\nRelacionado\nConectividade de Rede; Descentralização; Throughput;\nResiliência da Rede",

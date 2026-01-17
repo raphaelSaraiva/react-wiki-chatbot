@@ -7,7 +7,6 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "keywords_alias": "Number of hops; Hop count; Propagation path length;\nMessage dissemination; P2P routing; Propagation efficiency",
     "definition": "Mede o número médio de saltos (ou hops) necessários\npara que uma mensagem — seja uma transação ou um\nbloco — alcance a maioria dos nós da rede blockchain.\nEssa métrica reflete a eficiência da topologia P2P na\ndisseminação de informações e está diretamente relacionada à latência de propagação e ao tempo de consenso\nda rede.",
     "objective": "Avaliar a eficiência da disseminação de mensagens e a\nconectividade entre nós na rede blockchain. Um número\nmenor de saltos indica uma rede mais eficiente e com\nmenor atraso na entrega de blocos e transações, o que\nimpacta diretamente o desempenho global e o tempo de\nconfirmação.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O número médio de saltos (H) é calculado pela distância\nmédia entre o nó de origem e os demais nós alcançados\nna rede:\nH = 1\nN\nN\nX\ni=1\ndi\nonde di representa o número de saltos percorridos até o\nnó i e N é o total de nós alcançados.\nEm redes blockchain, H é geralmente estimado a partir\nda diferença temporal de recebimento de mensagens entre\npares conhecidos e pela topologia inferida da rede P2P.\nMétricas\nAssociadas\nLatência de Propagação; Desempenho da Rede; Conectividade de Nós; Throughput; Tempo de Confirmação\nAtributo\nRelacionado\nEficiência de Comunicação; Propagação de Mensagens;\nSincronização de Rede\n230",

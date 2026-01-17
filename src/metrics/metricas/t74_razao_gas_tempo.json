@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Gas/Time Ratio; Relação Gas-Tempo; Gas Efficiency per\nTime; Tempo de Execução vs Gas; Eficiência Temporal",
     "definition": "Relação entre a quantidade de gas consumido e o tempo\ntotal de execução de uma transação ou contrato inteligente. Mede o custo computacional relativo ao tempo\nnecessário para processar a operação, permitindo avaliar\na eficiência temporal da execução.",
     "objective": "Quantificar a eficiência temporal do consumo de gas,\ncorrelacionando custo de execução e tempo de processamento. Essa métrica permite identificar gargalos na\nexecução de contratos e o impacto do gas no tempo total\nde confirmação.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Gas/Time Ratio =\nGasUsed (gas)\nExecutionTime (s)\nMétricas\nAssociadas\nGas Used; Transaction Latency; Throughput; Execution\nCost; Confirmation Time\nAtributo\nRelacionado\nEficiência Computacional; Tempo de Processamento; Escalabilidade; Custo de Transação",

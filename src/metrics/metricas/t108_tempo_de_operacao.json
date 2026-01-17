@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Operation time; Processing time; Execution latency;\nTask completion time; Smart contract execution time",
     "definition": "Mede o tempo total necessário para a execução de\numa operação ou transação em um sistema blockchain, incluindo as fases de autenticação, validação e\nregistro do bloco. Representa a eficiência temporal de\nprocessamento das operações — quanto menor o tempo,\nmais responsivo é o sistema.",
     "objective": "Quantificar a eficiência computacional e o tempo de\nresposta de operações executadas sobre um esquema\nblockchain em aplicações de IoT verde (Green IoT). O\ntempo de operação é um indicador direto da capacidade\ndo sistema de atender a requisitos de baixa latência e\neficiência energética.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O tempo médio de operação (Top) pode ser expresso\ncomo:\nTop =\nPn\ni=1(tfim,i −tini,i)\nn\nonde tini,i e tfim,i representam, respectivamente, o instante de início e término da operação i, e n o número\ntotal de operações observadas.\nMétricas\nAssociadas\nTempo de Execução de Transação; Latência de Confirmação; Throughput; Consumo de Energia; Tempo de\nComunicação\nAtributo\nRelacionado\nEficiência Energética; Escalabilidade; Latência de Rede;\nDesempenho de Execução",

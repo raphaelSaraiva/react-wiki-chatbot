@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Fork rate; Taxa de órfãos; Blocos órfãos/obsoletos;\nStale/orphan blocks; Reorgs",
     "definition": "Proporção de blocos gerados que não permanecem na\ncadeia principal (isto é, blocos órfãos/obsoletos). Mede\no desperdício de poder de mineração/validação devido a\nconcorrência de blocos durante a propagação.",
     "objective": "Avaliar a saúde do plano de dados e do protocolo de\npropagação: taxas mais altas indicam atraso de difusão\nelevado e maior risco para segurança/eficiência; melhorias\nde protocolo/topologia e de rede tendem a reduzir a taxa\nde forks.",
     "domain_independence": "Alto — aplicável a redes públicas (PoW/PoS) e consórcios que mantêm cadeia canônica única.\nModelo\nde\nQualidade\nISO/IEC 25010",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Computational cost; Tempo de computação; Overhead\nde processamento; Tempo de execução; Custo de CPU",
     "definition": "Mede os recursos de processamento consumidos\npor um esquema/protocolo (p. ex., autenticação segura,\ncompartilhamento colaborativo de dados e operações de\nsmart contract), usualmente expresso como tempo de\nexecução por tarefa/experimento, mas podendo incluir\nciclos de CPU ou energia. No artigo-base, o custo computacional é usado para comparar implementações sob\ndiferentes tamanhos de bloco/dataset.",
     "objective": "Quantificar a eficiência de processamento do sistema\npara suportar autenticação segura e compartilhamento de\ndados com blockchain, permitindo comparar abordagens\ne verificar ganhos de otimização (menor tempo = maior\neficiência).\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Definição temporal média por tarefa: Ccomp = 1\nN\nN\nX\ni=1\nti,\nonde ti é o tempo de execução da tarefa i.\n(Alternativa por throughput) Ccomp = Tjanela\nNops\n(s/op).\nOpcional (energia): E ≈Pmédia · Ccomp.\nMétricas\nAssociadas\nUso de memória; Throughput; Latência de transação;\nTaxa de blocos confirmados; Tempo de confirmação\nAtributo\nRelacionado\nEscalabilidade; Disponibilidade; Custo de armazenamento; Overhead criptográfico",

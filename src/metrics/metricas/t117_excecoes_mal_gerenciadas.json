@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Exception handling; Error management; Fault handling;\nException rate; Falhas não tratadas; Erros de execução",
     "definition": "Mede a frequência e o impacto de exceções que não\nsão corretamente tratadas ou recuperadas pelo\nsistema blockchain, resultando em falhas de execução,\ninconsistências de estado, ou degradação de desempenho.\nEssas exceções podem ocorrer em componentes de consenso, comunicação entre nós, ou processos de verificação\nde transações.",
     "objective": "Avaliar a robustez e tolerância a falhas do sistema\ndistribuído, identificando pontos onde o tratamento de\nerros é insuficiente. Exceções mal gerenciadas reduzem\na confiabilidade, podendo interromper a propagação de\ntransações ou comprometer a integridade do ledger.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Eph = Nunhandled\nNtotal\n,\nonde Nunhandled é o número de exceções não tratadas e\nNtotal é o número total de exceções detectadas durante o\nperíodo de observação.\nMétricas\nAssociadas\nTaxa de falhas de transação; Taxa de chamadas para\ndesconhecido; Tempo de recuperação; Disponibilidade;\nLatência de confirmação\nAtributo\nRelacionado\nRobustez do sistema; Integridade operacional; Recuperação de falhas; Resiliência de comunicação",

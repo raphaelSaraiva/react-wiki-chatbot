@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Success rate; Failure rate; Transaction success ratio;\nError rate; Blockchain reliability",
     "definition": "Mede a proporção entre transações bem-sucedidas e falhas registradas em um ambiente blockchain. Representa\na confiabilidade operacional do sistema, indicando a estabilidade da execução de transações dentro de uma rede\ndistribuída (ex.: Hyperledger Fabric).",
     "objective": "Avaliar a eficiência e confiabilidade da rede blockchain,\nespecialmente em cenários de armazenamento descentralizado de dados de saúde, garantindo integridade e\nconsistência entre nós e serviços distribuídos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Success Rate = Nsucesso\nNtotal\n× 100%\nFail Rate = Nfalhas\nNtotal\n× 100%\nMétricas\nAssociadas\nTempo de resposta; Disponibilidade; Throughput; Reliability; Transaction Latency\nAtributo\nRelacionado\nDesempenho do sistema; Eficiência da comunicação; Integridade dos dados",

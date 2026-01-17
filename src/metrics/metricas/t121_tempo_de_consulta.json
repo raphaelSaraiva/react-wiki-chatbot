@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Query Latency; Data Retrieval Time; Block Access Delay;\nResponse Time; Read Latency",
     "definition": "Mede o tempo decorrido entre a solicitação e a resposta\ncompleta de uma consulta a dados armazenados em blocos da blockchain. Essa métrica avalia o desempenho\nde leitura e o comportamento temporal do sistema ao\nrecuperar informações de transações ou contratos inteligentes.",
     "objective": "Avaliar a eficiência de acesso e recuperação de dados\nem diferentes mecanismos de consenso aplicados a redes\nblockchain voltadas para Internet das Coisas (IoT), onde\na latência de leitura impacta diretamente a responsividade de aplicações em tempo real.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Query Timeavg = 1\nN\nN\nX\ni=1\n(trespostai −tsolicitaçãoi)\nonde tsolicitaçãoi é o instante em que a consulta foi iniciada\ne trespostai o instante em que os dados foram completamente retornados.\nMétricas\nAssociadas\nTransaction Latency; Average Block Time; Throughput;\nQuery Success Rate\nAtributo\nRelacionado\nTempo de Resposta; Latência de Transação; Tempo de\nExecução de Contrato",

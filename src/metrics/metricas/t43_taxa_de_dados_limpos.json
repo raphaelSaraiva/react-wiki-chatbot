@@ -7,7 +7,6 @@
     "subcharacteristic": "Completude Funcional"
   },
   "fields": {
-    "keywords_alias": "Quality of Valid Data Features; Data Cleaning Quality;\nValid Feature Ratio; Data Integrity; Data Preprocessing\nQuality",
     "definition": "Mede a proporção de atributos ou registros que permanecem válidos, completos e consistentes após o processo de\nverificação e limpeza dos dados em um sistema blockchain.\nEssa métrica reflete o grau de integridade e utilidade dos\ndados processados antes de sua análise ou troca na rede.",
     "objective": "Avaliar a eficácia dos processos de limpeza e verificação\nde dados em ambientes blockchain, garantindo que as\ninformações armazenadas ou comercializadas possuam\nalta qualidade, minimizando ruídos, valores nulos e tipos\nincorretos.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Clean Data Ratio = Atributos válidos após limpeza\nTotal de atributos analisados\nou, segundo o artigo:\nEUIDi2 = λ1(1 −V ′\n1j) + λ2(1 −V ′\n2j) + λ3(1 −V ′\n3j)\nonde V ′\n1j, V ′\n2j, V ′\n3j representam flags para valores nulos,\nanormais e tipos incorretos, e λk são os pesos associados\na cada fator de qualidade.\nMétricas\nAssociadas\nAccuracy of Summary Information; Data Utility Rate;\nData Integrity Ratio; Missing Value Rate\nAtributo\nRelacionado\nIntegridade dos Dados; Qualidade da Aplicação de Dados;\nConsistência de Atributos",

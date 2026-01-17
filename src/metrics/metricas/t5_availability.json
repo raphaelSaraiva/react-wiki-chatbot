@@ -7,7 +7,6 @@
     "subcharacteristic": "Disponibilidade"
   },
   "fields": {
-    "keywords_alias": "Availability; Alta disponibilidade; Níveis de serviço; Número de “noves”; Tempo de inatividade (downtime)",
     "definition": "Probabilidade de o serviço estar operacional quando\nrequerido. Em plataformas blockchain (ex.: Hyperledger\nFabric), depende da saúde de hardware/SO/engine de\ncontêineres e dos nós lógicos (MSP, Endorser, Orderer)\ne da política de endosso (AND/OR/K-de-N)",
     "objective": "Planejar e comprovar SLAs, comparar arranjos de endosso (AND/OR/K-de-N) e orientar decisões de implan-\ntação/manutenção para reduzir downtime anual. Em\nsoluções com requisitos de privacidade e integridade (ex.:\nplataformas imobiliárias com endereços aleatórios e antitampering), a disponibilidade assegura operação contínua\ndo serviço além de segurança/privacidade.",
     "domain_independence": "Alto — aplicável a consórcios (saúde, educação, imobiliário), públicas e privadas, variando parâmetros de\narquitetura e consenso.\nModelo\nde\nQualidade\nISO/IEC 25010",

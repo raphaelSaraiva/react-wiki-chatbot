@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Communication overhead; Message complexity; Comunicação entre nós; Custo de comunicação; Eficiência de\nrede; Shard communication cost",
     "definition": "Mede o número de mensagens trocadas entre os nós\nda rede durante a execução de um protocolo blockchain,\nespecialmente em operações de consenso, sincronização\nou alocação de shards. Representa a sobrecarga de comunicação necessária para que os nós alcancem estado\nconsistente e distribuam corretamente suas responsabilidades sem comprometer o desempenho da rede.",
     "objective": "Avaliar a eficiência e escalabilidade da comunicação\nem sistemas blockchain. Em blockchains fragmentadas\n(sharded), a complexidade de comunicação impacta diretamente a latência e o throughput, sendo determinante\npara o custo e a viabilidade de cada protocolo de alocação\nde shards.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "CC = f(n, fn),\nonde n é o número total de nós e fn é o número de nós\nfalhos ou bizantinos.\nA forma exata de f(·) depende do protocolo: por exemplo,\nO(n), O(n2) ou O(n3).\nMétricas\nAssociadas\nLatência de consenso; Throughput; Taxa de blocos confirmados; Eficiência de alocação de shards; Escalabilidade\nAtributo\nRelacionado\nDesempenho de rede; Capacidade de sincronização; Eficiência de consenso; Consumo de largura de banda",

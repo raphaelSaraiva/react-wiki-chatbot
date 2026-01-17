@@ -7,7 +7,6 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "keywords_alias": "Number of instructions; Instruction count; Opcode execution; Código EVM; Desempenho de contrato; Comple-\nxidade de execução",
     "definition": "Mede o número total de instruções executadas\ndurante a execução de um contrato inteligente em uma\nmáquina virtual blockchain (como a EVM). Essa métrica\nrepresenta a carga computacional associada a uma função\nou transação e está diretamente relacionada ao consumo\nde gás, tempo de execução e eficiência do contrato.",
     "objective": "Avaliar a eficiência de execução e identificar possíveis\ngargalos de desempenho em contratos inteligentes. O\nnúmero de instruções permite mensurar a complexidade\ne o custo computacional das funções, auxiliando no processo de otimização do código e na redução do consumo\nde gás em execuções on-chain.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O número total de instruções (I) é dado por:\nI =\nn\nX\nj=1\ninstj\nonde instj representa cada instrução executada durante\na execução de uma função, e n é o número total de\ninstruções emitidas pelo compilador e executadas na\nEVM.\nMétricas\nAssociadas\nConsumo de Gás; Tempo de Execução; Eficiência do\nContrato; Complexidade de Código; Desempenho da\nEVM\nAtributo\nRelacionado\nCusto Computacional; Otimização de Código; Escalabilidade; Eficiência de Execução\n238",

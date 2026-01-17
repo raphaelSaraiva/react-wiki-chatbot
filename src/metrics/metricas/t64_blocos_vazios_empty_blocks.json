@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Empty block; Bloco sem transações; Taxa de blocos\nvazios;",
     "definition": "Proporção de blocos minerados/validados que não contêm transações de usuários (apenas o cabeçalho e,\nquando aplicável, a transação de recompensa). Em redes\ncomo Ethereum (pré-Merge PoW e pós-Merge PoS), a\nincidência de blocos vazios reflete estratégias de mineração/validação e condições de rede que reduzem o\nthroughput efetivo e podem aumentar o tempo de\nconfirmação.",
     "objective": "Quantificar o impacto de comportamentos de mineradores/pools e da geodistribuição na eficiência\nda rede. Uma taxa elevada de blocos vazios sinaliza\ndesperdício de capacidade de inclusão de transações e\npode indicar incentivos desalinhados ou latências de propagação entre regiões/pools.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Taxa_BlocosVazios = Nblocos vazios\nNblocos totais\n.\n(Em janelas temporais) Taxa_BlocosVazios[t0, t1] =\nP\nb∈[t0,t1] 1{tx_count(b) = 0}\nP\nb∈[t0,t1] 1\n.\nMétricas\nAssociadas\nThroughput (tx/s); Taxa de bifurcação/órfãos; Latência\nde propagação de blocos; Utilização de bloco (tx por\nbloco); Tempo de confirmação\nAtributo\nRelacionado\nEficiência do mempool; Política de inclusão de transações;\nIncentivos de mineração/validação; Geodistribuição e\nconectividade entre pools",

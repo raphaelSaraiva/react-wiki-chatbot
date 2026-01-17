@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Execution cost; Transaction cost; Smart contract cost;\nComputational overhead; Gas cost; Blockchain operation\nfee",
     "definition": "Mede o custo total associado à execução de transações e contratos inteligentes em uma rede block-\nchain, considerando o uso de recursos computacionais,\narmazenamento e energia. O custo de execução reflete\no esforço necessário para processar uma operação blockchain dentro de um ambiente permissionado ou público,\ncomo Hyperledger Fabric ou Ethereum.",
     "objective": "Avaliar a eficiência econômica e computacional das\noperações na blockchain. No contexto do MedHypChain,\no custo de execução representa o esforço necessário para\nvalidar e registrar interações médicas (acesso, compartilhamento ou atualização de registros) entre diferentes\nentidades hospitalares e provedores de dados durante a\npandemia de COVID-19.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "EC = Ccomp + Cstor + Ccomm,\nonde Ccomp é o custo computacional (processamento e\nexecução de contratos), Cstor é o custo de armazenamento\nde dados, e Ccomm representa o custo de comunicação de\nrede. Em blockchains baseadas em gas, o custo é dado\npor: Custo = GasUsed × GasPrice.\nMétricas\nAssociadas\nLatência de transação; Throughput; Custo de armazenamento; Custo energético; Tempo de execução do contrato\nAtributo\nRelacionado\nEficiência computacional; Custo de operação; Desempenho do contrato; Escalabilidade",

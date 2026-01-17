@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Memory consumption; RAM usage; memory overhead;\nblockchain resource utilization; healthcare blockchain\nperformance",
     "definition": "Mede a quantidade de memória (RAM) utilizada\npor um sistema blockchain durante a execução de suas\noperações, incluindo verificação de transações, execução\nde contratos inteligentes e armazenamento temporário de\ndados. Indica a eficiência no uso de recursos de memória\ndurante o funcionamento da rede.",
     "objective": "Avaliar a eficiência de alocação e uso de memória\nem sistemas blockchain, especialmente em aplicações voltadas a dispositivos ou servidores de baixa capacidade,\ncomo em ambientes hospitalares de países em desenvolvimento. Essa métrica permite identificar gargalos e\npropor otimizações de arquitetura e armazenamento.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Consumo de Memória (MB) = Memóriafinal−Memóriainicial\nou, em termos relativos:\nConsumo Relativo (%) =\nMemória utilizada\nMemória total disponível×100\nMétricas\nAssociadas\nUso de CPU; Sobrecarga de CPU; Eficiência de armazenamento; Throughput; Consumo de energia\nAtributo\nRelacionado\nEficiência computacional; Escalabilidade; Desempenho\nde execução",

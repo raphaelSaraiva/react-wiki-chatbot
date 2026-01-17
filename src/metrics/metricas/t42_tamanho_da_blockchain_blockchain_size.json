@@ -7,7 +7,6 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "keywords_alias": "Blockchain size; Ledger size; Crescimento da cadeia;\nArmazenamento distribuído; Tamanho do ledger",
     "definition": "Mede o volume total de dados armazenados na\nblockchain, incluindo blocos, transações, metadados e\ncabeçalhos, refletindo a expansão do ledger ao longo do\ntempo. O tamanho da blockchain é um indicador crítico\nda escalabilidade e da sustentabilidade do armazenamento distribuído, impactando a acessibilidade\nde nós completos e a descentralização efetiva da rede.",
     "objective": "Avaliar o crescimento e a capacidade de armazenamento necessária para manter a integridade e a\nauditabilidade da rede blockchain. O aumento contínuo do tamanho pode tornar inviável a execução de nós\ncompletos por usuários comuns, gerando dependência de\nprovedores centralizados e enfraquecendo a descentralização.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Sbc(t) =\nNblocos\nX\ni=1\nsize(Bi),\nonde size(Bi) é o tamanho do bloco i e Nblocos o número\ntotal de blocos até o instante t.\nA variação temporal pode ser expressa como ∆Sbc/∆t,\nindicando a taxa de crescimento do ledger.\nMétricas\nAssociadas\nTamanho do bloco; Taxa de crescimento do ledger; Throughput; Tempo de sincronização de nó; Consumo de\narmazenamento\nAtributo\nRelacionado\nEscalabilidade; Custo de manutenção de nós; Descentralização; Capacidade de sincronização\n114",

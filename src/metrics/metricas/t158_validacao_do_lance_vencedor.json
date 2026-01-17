@@ -7,7 +7,6 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "keywords_alias": "Verificação de preço vencedor; Prova de lance vencedor; Bulletproofs; Pedersen Commitment; Leilão selado;\nSmart contract",
     "definition": "Mede a capacidade do sistema baseado em blockchain\nde validar de forma descentralizada e criptograficamente\ncorreta o preço vencedor em um leilão eletrônico selado,\ngarantindo que o valor mais alto foi realmente o vencedor\nsem revelar os lances perdedores.",
     "objective": "Assegurar a integridade e a verificabilidade do resultado\nde um leilão on-chain sem a necessidade de um terceiro\nauditor. Essa métrica avalia se o sistema é capaz de\nprovar a validade do preço vencedor utilizando provas\nde conhecimento nulo (zero-knowledge proofs) e compromissos criptográficos, protegendo a privacidade dos\nparticipantes.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "A verificação do preço vencedor p∗é feita através da\nvalidação da diferença de compromissos: ˆCi = C∗−Ci =\n(r∗−ri)G + (p∗−pi)H, onde C∗e Ci são compromissos\nPedersen dos lances, ri o fator de ocultação, e G, H\ngeradores elípticos. A condição p∗> pi é provada com o\nprotocolo Bulletproofs garantindo p∗\ni ≥0.\nMétricas\nAssociadas\nAutenticação; Anonimato; Integridade de Transação;\nNão-repúdio; Fairness\nAtributo\nRelacionado\nConfirmação de Transação; Segurança Criptográfica; Auditoria Distribuída",

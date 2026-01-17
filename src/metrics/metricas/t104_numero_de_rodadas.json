@@ -7,7 +7,6 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "keywords_alias": "Number of rounds; Training rounds; Iterations; Blockchain consensus cycles; Federated learning epochs",
     "definition": "Mede o número de rodadas de processamento ou\ntreinamento necessárias para que um modelo federado\nbaseado em blockchain atinja convergência ou consenso.\nEm sistemas híbridos de aprendizado e blockchain, cada\nrodada representa uma iteração de coleta, agregação e\nvalidação de parâmetros entre os nós participantes.",
     "objective": "Quantificar a eficiência e o desempenho do sistema blockchain integrado ao aprendizado federado. O número de\nrodadas está diretamente relacionado à velocidade de\nconvergência, custo computacional e consumo de largura\nde banda na troca de parâmetros criptografados.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "O número total de rodadas (R) é definido por:\nR = T\nI\nonde T é o número total de iterações necessárias para\natingir convergência e I é o número de interações realizadas por rodada entre os nós do consórcio.\nMétricas\nAssociadas\nTempo de Convergência; Consumo de Banda; Precisão\ndo Modelo; Custo Computacional; Eficiência de Comunicação\nAtributo\nRelacionado\nEficiência de Treinamento; Escalabilidade; Desempenho\nde Consenso; Complexidade de Processamento",

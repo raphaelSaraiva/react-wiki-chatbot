@@ -7,7 +7,6 @@
     "subcharacteristic": "Confidencialidade"
   },
   "fields": {
-    "keywords_alias": "Third-party SDKs; External libraries; Dependency risk;\nData leakage; Privacy vulnerability; App centralization",
     "definition": "Mede o nível de dependência e risco introduzido por\nSDKs e bibliotecas de terceiros integradas em aplicações\nblockchain (ex.: carteiras e DApps). Essa métrica avalia\no impacto potencial sobre a segurança, privacidade e\ndescentralização quando componentes externos acessam,\nprocessam ou transmitem dados sensíveis dos usuários.",
     "objective": "Identificar vulnerabilidades de centralização e vazamento\nde dados causadas pela inclusão de SDKs externos (ex.:\nde análise, notificações, verificação de identidade). A\nmétrica busca mensurar o quanto esses componentes\ncomprometem a descentralização e a integridade dos\necossistemas blockchain.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "RSDK = NSDKs_riscos\nNSDKs_totais\n× 100\nonde NSDKs_riscos representa o número de SDKs identificados como potencialmente vulneráveis (coleta de dados\nsensíveis, rastreamento, autenticação centralizada, etc.),\ne NSDKs_totais é o total de SDKs integrados na aplicação.\nMétricas\nAssociadas\nData Leakage Rate; Privacy Exposure Index; RPC Centralization Risk; App Dependency Ratio\nAtributo\nRelacionado\nPrivacidade de Dados; Segurança de Dependências;\nTransparência de Código-Fonte",

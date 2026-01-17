@@ -7,7 +7,6 @@
     "subcharacteristic": "Confidencialidade"
   },
   "fields": {
-    "keywords_alias": "Data confidentiality; data privacy; information protection; encryption strength; secure data exchange",
     "definition": "Mede o nível de proteção dos dados contra acesso\nnão autorizado durante sua transmissão e armazenamento em redes blockchain integradas a aplicações de\nInternet das Coisas (IoT) e Metaverso. A confidencialidade é assegurada por mecanismos de criptografia e\nautenticação que impedem que entidades não autorizadas\nleiam ou modifiquem informações sensíveis.",
     "objective": "Avaliar a eficácia das técnicas criptográficas e do\nconsenso blockchain em proteger dados pessoais e\nsensíveis contra ataques e vazamentos. Essa métrica é\nessencial em cenários onde a privacidade e integridade\nde dados sensoriais e interações do metaverso precisam\nser mantidas.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Confidencialidade dos Dados = f(Eeficaz, Acontrole, Lviolação)\nonde Eeficaz representa a força efetiva da criptografia,\nAcontrole é o nível de autenticação e Lviolação o número\nde tentativas de acesso indevido bem-sucedidas (quanto\nmenor, melhor).\nMétricas\nAssociadas\nIntegridade dos dados; Taxa de acesso; Desempenho de\nautenticação; Latência; Consumo de energia\nAtributo\nRelacionado\nPrivacidade de dados; Segurança de transação; Resiliência a ataques de interceptação",

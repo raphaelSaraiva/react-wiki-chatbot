@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Stale block rate; Orphan block ratio; Fork rate; Block\npropagation delay; Network congestion",
     "definition": "Mede a proporção de blocos minerados que não são incluídos na cadeia principal devido a atrasos de propagação ou\ncongestionamentos na rede. Esses blocos são chamados\nde “blocos órfãos” (stale blocks) e representam esforço\ncomputacional desperdiçado, afetando a eficiência e a\nsegurança da blockchain.",
     "objective": "Avaliar o impacto da latência e da largura de banda na\npropagação de blocos e na segurança do consenso. A\nmétrica permite identificar gargalos de rede que aumentam a chance de bifurcações e reduzem a eficiência da\nmineração.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Taxa de Blocos Órfãos =\nNórfãos\nNtotal de blocos\n× 100\nonde Nórfãos é o número de blocos minerados que não\nforam adicionados à cadeia principal e Ntotal de blocos é o\nnúmero total de blocos minerados no mesmo período.\nMétricas\nAssociadas\nTempo de propagação de blocos; Largura de banda; Tamanho do bloco; Dificuldade de mineração; Taxa de\nhash\nAtributo\nRelacionado\nThroughput; Latência de rede; Consistência da cadeia;\nEficiência da mineração",

@@ -7,7 +7,6 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "keywords_alias": "Fork rate; Blockchain forks; Uncle blocks; One-miner\nforks; Taxa de bifurcação; Fragmentação de cadeia; Reorganização de blocos",
     "definition": "Mede a proporção de blocos que resultam em bifurcações (forks) em relação ao total de blocos minerados\nna rede. Essa métrica indica a frequência com que ocorrem divergências temporárias ou permanentes entre nós\nsobre o estado atual da cadeia, refletindo a eficiência do\nprotocolo de consenso e da propagação de blocos.",
     "objective": "Avaliar a estabilidade e a eficiência do consenso\nem redes blockchain públicas. Altas taxas de bifurcação\nindicam atrasos na propagação de blocos, comportamento\negoísta de mineradores ou centralização em pools de\nmineração. Essa métrica também é usada para identificar\nriscos de ataques, desperdício de poder computacional e\ndegradação do throughput da rede.\nModelo\nde\nQualidade\nISO/IEC 25010",
     "equation": "Frate = Nfork\nNtotal\n,\nonde Nfork representa o número total de blocos que\nresultaram em bifurcações (incluindo forks reconhecidos\ne não reconhecidos) e Ntotal é o número total de blocos\nminerados no mesmo período.\nMétricas\nAssociadas\nTempo de confirmação; Taxa de blocos órfãos (orphan\nrate); Entrega de blocos; Taxa de consenso; Throughput\nAtributo\nRelacionado\nEficiência do consenso; Integridade da cadeia; Distribuição geográfica de mineradores; Taxa de blocos vazios",
