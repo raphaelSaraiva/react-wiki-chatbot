@@ -63,6 +63,39 @@ const Chatbot = () => {
   const [option2, setOption2] = useState("");
   const [preferredOption, setPreferredOption] = useState(1);
 
+  // ✅ Modal para expandir resposta
+  const [answerModal, setAnswerModal] = useState({
+    open: false,
+    option: 1,      // 1 ou 2
+    title: "",
+    text: "",
+  });
+
+  const openAnswerModal = (opt) => {
+    const txt = opt === 1 ? option1 : option2;
+    setAnswerModal({
+      open: true,
+      option: opt,
+      title: `Opção ${opt}`,
+      text: txt || "—",
+    });
+  };
+
+  const closeAnswerModal = () => {
+    setAnswerModal((p) => ({ ...p, open: false }));
+  };
+
+  // ESC fecha modal
+  useEffect(() => {
+    if (!answerModal.open) return;
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") closeAnswerModal();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [answerModal.open]);
+
+
   // ✅ nota (1..5)
   const [rating, setRating] = useState(0);
 
@@ -164,7 +197,7 @@ const Chatbot = () => {
         ...(pinnedOk ? { pinned: parsed.pinned } : {}),
         ...(manualOk ? { manual: parsed.manual } : {}),
       }));
-    } catch {}
+    } catch { }
   }, []);
 
   useEffect(() => {
@@ -178,7 +211,7 @@ const Chatbot = () => {
           manual: !!chatBox.manual,
         })
       );
-    } catch {}
+    } catch { }
   }, [chatBox.x, chatBox.y, chatBox.pinned, chatBox.manual]);
 
   // ✅ Drag do chatbot: funciona fixado e desfixado
@@ -485,7 +518,7 @@ const Chatbot = () => {
 
       // ❌ não persistimos sendHistoryMap por design (você pediu iniciar desmarcado)
       // então, sempre que abrir, começa desmarcado.
-    } catch {}
+    } catch { }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [METRICS.length]);
 
@@ -589,9 +622,8 @@ const Chatbot = () => {
       kind: "removeOne",
       index: indexToRemove,
       title: "Excluir item do histórico?",
-      message: `Tem certeza de que deseja excluir este item?${
-        entry?.question ? `\n\nPergunta: "${entry.question}"` : ""
-      }`,
+      message: `Tem certeza de que deseja excluir este item?${entry?.question ? `\n\nPergunta: "${entry.question}"` : ""
+        }`,
       confirmText: "Excluir",
       danger: true,
     });
@@ -1068,8 +1100,8 @@ const Chatbot = () => {
     ...(chatBox.pinned
       ? { left: chatBox.x }
       : chatBox.manual
-      ? { left: chatBox.x }
-      : { left: "50%", transform: "translateX(-50%)" }),
+        ? { left: chatBox.x }
+        : { left: "50%", transform: "translateX(-50%)" }),
   };
 
   // ✅ Header volta a ser arrastável
@@ -1201,8 +1233,8 @@ const Chatbot = () => {
               chatBox.pinned
                 ? "Chatbot fixado (arraste para mover)"
                 : chatBox.manual
-                ? "Arraste para mover"
-                : "Centralizado (arraste para mover)"
+                  ? "Arraste para mover"
+                  : "Centralizado (arraste para mover)"
             }
           >
             <div style={titleWrap}>
@@ -1318,8 +1350,8 @@ const Chatbot = () => {
                 {loading
                   ? "Processando..."
                   : canAskMore
-                  ? "Enviar"
-                  : "Limite de perguntas atingido"}
+                    ? "Enviar"
+                    : "Limite de perguntas atingido"}
               </button>
             </form>
 
@@ -1367,7 +1399,40 @@ const Chatbot = () => {
 
                     <div className="row g-3">
                       <div className="col-md-6">
-                        <div style={answerBoxStyle(preferredOption === 1)}>
+                        <div
+                          style={{
+                            ...answerBoxStyle(preferredOption === 1),
+                            position: "relative",
+                            paddingTop: 44, // ✅ espaço reservado pro ícone
+                          }}
+                        >
+                          {/* Ícone expandir (esquerda) */}
+                          <span
+                            title="Expandir resposta"
+                            onClick={() => openAnswerModal(1)}
+                            style={{
+                              width: 22,
+                              height: 22,
+                              borderRadius: 6,
+                              display: "inline-flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              cursor: "pointer",
+                              color: "rgba(255,255,255,0.85)",
+                              fontSize: 16,
+                              fontWeight: 900,
+                              userSelect: "none",
+                              opacity: 0.7,
+                              position: "absolute",
+                              top: 10,
+                              right: 10,
+                            }}
+                            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+                            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.6")}
+                          >
+                            ⤢
+                          </span>
+
                           <div className="d-flex justify-content-between align-items-center mb-2">
                             <div className="fw-bold">Opção 1</div>
                             <label
@@ -1383,6 +1448,7 @@ const Chatbot = () => {
                               Preferir
                             </label>
                           </div>
+
                           <div style={{ whiteSpace: "pre-wrap" }}>
                             {option1 || "—"}
                           </div>
@@ -1390,7 +1456,40 @@ const Chatbot = () => {
                       </div>
 
                       <div className="col-md-6">
-                        <div style={answerBoxStyle(preferredOption === 2)}>
+                        <div
+                          style={{
+                            ...answerBoxStyle(preferredOption === 2),
+                            position: "relative",
+                            paddingTop: 44, // ✅ espaço reservado pro ícone
+                          }}
+                        >
+                          {/* Ícone expandir (esquerda) */}
+                          <span
+                            title="Expandir resposta"
+                            onClick={() => openAnswerModal(2)}
+                            style={{
+                              width: 22,
+                              height: 22,
+                              borderRadius: 6,
+                              display: "inline-flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              cursor: "pointer",
+                              color: "rgba(255,255,255,0.85)",
+                              fontSize: 16,
+                              fontWeight: 900,
+                              userSelect: "none",
+                              opacity: 0.7,
+                              position: "absolute",
+                              top: 10,
+                              right: 10,
+                            }}
+                            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+                            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.6")}
+                          >
+                            ⤢
+                          </span>
+
                           <div className="d-flex justify-content-between align-items-center mb-2">
                             <div className="fw-bold">Opção 2</div>
                             <label
@@ -1406,6 +1505,7 @@ const Chatbot = () => {
                               Preferir
                             </label>
                           </div>
+
                           <div style={{ whiteSpace: "pre-wrap" }}>
                             {option2 || "—"}
                           </div>
@@ -1507,18 +1607,18 @@ const Chatbot = () => {
             position: "fixed",
             ...(docked
               ? {
-                  right: MARGIN,
-                  top: 70,
-                  bottom: MARGIN,
-                  left: "auto",
-                  width: floatBox.w,
-                }
+                right: MARGIN,
+                top: 70,
+                bottom: MARGIN,
+                left: "auto",
+                width: floatBox.w,
+              }
               : {
-                  left: floatBox.x,
-                  top: floatBox.y,
-                  width: floatBox.w,
-                  height: floatMin ? 54 : floatBox.h,
-                }),
+                left: floatBox.x,
+                top: floatBox.y,
+                width: floatBox.w,
+                height: floatMin ? 54 : floatBox.h,
+              }),
             zIndex: 2000,
             borderRadius: 14,
             overflow: "hidden",
@@ -2058,9 +2158,8 @@ const Chatbot = () => {
                 </button>
 
                 <button
-                  className={`btn ${
-                    confirmModal.danger ? "btn-danger" : "btn-warning"
-                  }`}
+                  className={`btn ${confirmModal.danger ? "btn-danger" : "btn-warning"
+                    }`}
                   style={{
                     borderRadius: 10,
                     padding: "8px 12px",
@@ -2075,6 +2174,102 @@ const Chatbot = () => {
           </div>
         </div>
       )}
+
+
+      {answerModal.open && !invalidForExperiment && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          onMouseDown={(e) => {
+            if (e.target === e.currentTarget) closeAnswerModal();
+          }}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 3500,
+            background: "rgba(0,0,0,0.62)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 16,
+          }}
+        >
+          <div
+            onMouseDown={(e) => e.stopPropagation()}
+            style={{
+              width: "min(980px, 100%)",
+              height: "min(85vh, 920px)",
+              borderRadius: 18,
+              overflow: "hidden",
+              background: "rgba(30, 64, 175, 0.98)",
+              border: "1px solid rgba(255,255,255,0.16)",
+              boxShadow: "0 22px 70px rgba(0,0,0,0.50)",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            {/* Header */}
+            <div
+              style={{
+                padding: "12px 14px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 12,
+                background: "rgba(30, 58, 138, 0.95)",
+                borderBottom: "1px solid rgba(255,255,255,0.14)",
+                color: "#fff",
+              }}
+            >
+              <div style={{ fontWeight: 950 }}>
+                {answerModal.title}
+              </div>
+
+              <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                <button
+                  type="button"
+                  className="btn btn-sm btn-warning"
+                  style={{ borderRadius: 12, fontWeight: 900 }}
+                  onClick={() => {
+                    setPreferredOption(answerModal.option);
+                    closeAnswerModal();
+                  }}
+                  title="Selecionar como preferida"
+                >
+                  Preferir esta
+                </button>
+
+                <button
+                  type="button"
+                  className="btn btn-sm btn-outline-light"
+                  style={{ borderRadius: 12, fontWeight: 900 }}
+                  onClick={closeAnswerModal}
+                  title="Fechar (Esc)"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            {/* Body */}
+            <div
+              style={{
+                padding: 14,
+                background: "rgba(255,255,255,0.92)",
+                color: "#0f172a",
+                flex: 1,
+                overflow: "auto",
+              }}
+            >
+              <div style={{ whiteSpace: "pre-wrap", lineHeight: 1.35 }}>
+                {answerModal.text}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+
     </div>
   );
 };

@@ -9,10 +9,11 @@ const CARD_RADIUS = 14;
 
 const styles = {
   hero: {
-    background: `linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06))`,
-    border: "1px solid rgba(255,255,255,0.20)",
+    background: "linear-gradient(135deg, #2563EB, #2563EB)", // ✅ azul
+    border: "1px solid rgba(255,255,255,0.22)",
     borderRadius: CARD_RADIUS,
     color: "#fff",
+    boxShadow: "0 18px 46px rgba(0,0,0,0.22)",
   },
   pillNavWrap: {
     background: "rgba(255,255,255,0.10)",
@@ -1193,9 +1194,8 @@ export default function AdminFeedbacksPage() {
                               </span>
 
                               <button
-                                className={`btn btn-sm ${
-                                  isOpen ? "btn-outline-secondary" : "btn-warning"
-                                } fw-semibold`}
+                                className={`btn btn-sm ${isOpen ? "btn-outline-secondary" : "btn-warning"
+                                  } fw-semibold`}
                                 onClick={() =>
                                   setExpandedSubmissionId(isOpen ? null : x.id)
                                 }
