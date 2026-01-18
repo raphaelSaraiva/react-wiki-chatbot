@@ -35,10 +35,8 @@ export default function TopBar({
   const navigate = useNavigate();
   const location = useLocation();
 
-  // ✅ detecta se está no modo admin
   const isInAdmin = location.pathname.startsWith("/admin");
 
-  // força re-render quando o experimentState mudar
   const [expTick, setExpTick] = useState(0);
 
   useEffect(() => {
@@ -47,7 +45,6 @@ export default function TopBar({
     return () => window.removeEventListener("experimentStateChanged", onChanged);
   }, []);
 
-  // lê do estado real (fallback para props)
   const metricsVisitedCount = useMemo(() => {
     const v = getMetricsVisitedCount();
     return Number.isFinite(v) ? v : metricsVisitedCountProp;
@@ -60,10 +57,8 @@ export default function TopBar({
 
   const metricsOk = metricsVisitedCount >= EXP_CONFIG.METRICS_REQUIRED;
 
-  // ✅ NOVO: busca por métricas
   const searchOk = useMemo(() => hasCompletedMetricSearchTask(), [expTick]);
 
-  // ✅ contagens reais (vêm do seu state.meta)
   const searchUsedCount = useMemo(() => {
     const v = getMetricSearchUsedCount();
     return Number.isFinite(v) ? v : 0;
@@ -74,12 +69,8 @@ export default function TopBar({
     return Number.isFinite(v) ? v : 0;
   }, [expTick]);
 
-  // ✅ O requisito do seu EXP_CONFIG é "METRIC_SEARCH_REQUIRED"
-  // você implementou conclusão por: usedCount >= required OR clickCount >= 1
   const searchRequired = Number(EXP_CONFIG.METRIC_SEARCH_REQUIRED || 1);
 
-  // ✅ badge: eu recomendo mostrar "clique" porque é o que conclui de forma mais forte
-  // mas como seu critério também aceita usedCount, exibimos ambos de forma simples:
   const searchProgressText =
     searchClickCount > 0
       ? `clique ${Math.min(searchClickCount, 1)}/1`
@@ -93,7 +84,6 @@ export default function TopBar({
   const canOpenFeedbackFinal =
     typeof canOpenFeedback === "boolean" ? canOpenFeedback : feedbackOk;
 
-  // ✅ stepText atualizado com a etapa da busca
   const stepText = !metricsOk
     ? `1) Explore as métricas (mín. ${EXP_CONFIG.METRICS_REQUIRED})`
     : !searchOk
@@ -104,54 +94,129 @@ export default function TopBar({
 
   const showAdminButton = !!user && !adminLoading && isAdmin;
 
+  // ===================== estilos responsivos (notebook-friendly) =====================
+  // clamp() reduz em telas menores sem precisar CSS externo.
+  const titleStyle = {
+    fontSize: "clamp(13px, 1.05vw, 16px)",
+    lineHeight: 1.05,
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    maxWidth: 320,
+  };
+
+  const stepStyle = {
+    fontSize: "clamp(11px, 0.9vw, 12px)",
+    lineHeight: 1.1,
+    opacity: 0.88,
+    maxWidth: 420,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+  };
+
+  const badgeStyle = {
+    fontSize: "clamp(11px, 0.9vw, 12px)",
+    padding: "0.35rem 0.5rem",
+    whiteSpace: "nowrap",
+  };
+
+  const btnStyle = {
+    fontSize: "clamp(11px, 0.9vw, 12px)",
+    padding: "0.25rem 0.55rem",
+    whiteSpace: "nowrap",
+  };
+
+  const containerStyle = {
+    // menos altura no topo no notebook
+    paddingTop: 8,
+    paddingBottom: 8,
+    gap: 10,
+  };
+
   return (
     <div className="sticky-top" style={{ zIndex: 1030 }}>
       <div className="border-bottom" style={{ background: "#2563EB", color: "#fff" }}>
-        <div className="container-fluid px-4 py-2 d-flex align-items-center justify-content-between gap-3">
+        <div
+          className="container-fluid px-3 px-md-4 d-flex align-items-center justify-content-between"
+          style={containerStyle}
+        >
           {/* ESQUERDA — Logo + título */}
-          <div className="d-flex align-items-center gap-3">
+          <div
+            className="d-flex align-items-center gap-2 gap-md-3"
+            style={{
+              minWidth: 0, // ✅ permite ellipsis
+              flex: "0 1 auto",
+            }}
+          >
             {logo && (
               <img
                 src={logo}
                 alt="Logo"
                 style={{
-                  width: 42,
-                  height: 42,
+                  width: 38, // ✅ um pouco menor
+                  height: 38,
                   borderRadius: 10,
                   objectFit: "cover",
+                  flex: "0 0 auto",
                 }}
               />
             )}
 
-            <div className="d-flex flex-column" style={{ lineHeight: 1.1 }}>
-              <div className="fw-bold">Wiki Métricas Blockchain</div>
-              <div style={{ fontSize: 12, opacity: 0.85 }}>{stepText}</div>
+            <div className="d-flex flex-column" style={{ minWidth: 0 }}>
+              <div className="fw-bold" style={titleStyle}>
+                Wiki Métricas Blockchain
+              </div>
+              <div style={stepStyle} title={stepText}>
+                {stepText}
+              </div>
             </div>
           </div>
 
           {/* CENTRO — Fluxo do experimento */}
           {user && !isInAdmin && (
-            <div className="d-flex align-items-center gap-2 flex-wrap">
-              <span className={`badge ${metricsOk ? "bg-success" : "bg-secondary"}`}>
+            <div
+              className="d-flex align-items-center"
+              style={{
+                minWidth: 0,
+                flex: "1 1 auto",
+                justifyContent: "center",
+                gap: 8,
+                flexWrap: "wrap", // ✅ permite quebrar, mas com textos menores quebra menos
+              }}
+            >
+              <span
+                className={`badge ${metricsOk ? "bg-success" : "bg-secondary"}`}
+                style={badgeStyle}
+              >
                 Métricas {metricsVisitedCount}/{EXP_CONFIG.METRICS_REQUIRED}
               </span>
 
-              {/* ✅ NOVO: badge de busca */}
-              <span className={`badge ${searchOk ? "bg-success" : "bg-secondary"}`}>
+              <span
+                className={`badge ${searchOk ? "bg-success" : "bg-secondary"}`}
+                style={badgeStyle}
+              >
                 Busca {searchOk ? "ok" : searchProgressText}
               </span>
 
-              <span className={`badge ${questionsOk ? "bg-success" : "bg-secondary"}`}>
+              <span
+                className={`badge ${questionsOk ? "bg-success" : "bg-secondary"}`}
+                style={badgeStyle}
+              >
                 Perguntas {questionsCompletedCount}/{EXP_CONFIG.QUESTIONS_REQUIRED}
               </span>
 
-              <span className={`badge ${feedbackOk ? "bg-success" : "bg-secondary"}`}>
+              <span
+                className={`badge ${feedbackOk ? "bg-success" : "bg-secondary"}`}
+                style={badgeStyle}
+              >
                 Feedback {feedbackOk ? "ok" : "pendente"}
               </span>
 
-              <div className="btn-group ms-2">
+              <div className="btn-group ms-1 ms-md-2" style={{ flex: "0 0 auto" }}>
                 <button
                   className="btn btn-outline-light btn-sm"
+                  style={btnStyle}
                   onClick={() => navigate("/metric/t1")}
                 >
                   Métricas
@@ -159,6 +224,7 @@ export default function TopBar({
 
                 <button
                   className="btn btn-outline-light btn-sm"
+                  style={btnStyle}
                   onClick={() => navigate("/")}
                   disabled={!chatbotOk}
                   title={!chatbotOk ? "Veja as métricas antes" : ""}
@@ -168,6 +234,7 @@ export default function TopBar({
 
                 <button
                   className="btn btn-outline-light btn-sm"
+                  style={btnStyle}
                   onClick={onOpenFeedback}
                   disabled={!canOpenFeedbackFinal}
                   title={
@@ -183,13 +250,26 @@ export default function TopBar({
 
           {/* DIREITA — Admin + usuário */}
           {user && (
-            <div className="d-flex align-items-center gap-3">
-              {/* ✅ BOTÃO ADMIN (entra / sai do modo admin) */}
+            <div
+              className="d-flex align-items-center"
+              style={{
+                gap: 10,
+                minWidth: 0,
+                flex: "0 1 auto",
+              }}
+            >
               {showAdminButton && (
                 <button
                   className={`btn btn-sm fw-semibold ${
                     isInAdmin ? "btn-outline-light" : "btn-outline-warning"
                   }`}
+                  style={{
+                    ...btnStyle,
+                    // ✅ ajuda a caber no notebook
+                    maxWidth: 160,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
                   onClick={() => navigate(isInAdmin ? "/" : "/admin")}
                   title={isInAdmin ? "Sair do modo administrador" : "Entrar no modo administrador"}
                 >
@@ -197,25 +277,39 @@ export default function TopBar({
                 </button>
               )}
 
-              {/* Usuário */}
-              <div className="d-flex align-items-center gap-2">
+              <div className="d-flex align-items-center gap-2" style={{ minWidth: 0 }}>
                 <img
                   src={user.photoURL}
                   alt="User"
                   className="rounded-circle"
                   style={{
-                    width: 38,
-                    height: 38,
+                    width: 34, // ✅ menor
+                    height: 34,
                     objectFit: "cover",
                     border: "2px solid rgba(255,255,255,.4)",
+                    flex: "0 0 auto",
                   }}
                 />
-                <div className="d-none d-md-block" style={{ fontSize: 13, opacity: 0.9 }}>
+
+                {/* ✅ em notebook pequeno some no md; você já tinha d-md-block, mantive,
+                    mas com ellipsis e tamanho menor */}
+                <div
+                  className="d-none d-lg-block"
+                  style={{
+                    fontSize: "clamp(11px, 0.9vw, 13px)",
+                    opacity: 0.92,
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    maxWidth: 180,
+                  }}
+                  title={user.displayName || "Usuário"}
+                >
                   {user.displayName || "Usuário"}
                 </div>
               </div>
 
-              <button className="btn btn-warning btn-sm" onClick={onLogout}>
+              <button className="btn btn-warning btn-sm" style={btnStyle} onClick={onLogout}>
                 Logout
               </button>
             </div>
