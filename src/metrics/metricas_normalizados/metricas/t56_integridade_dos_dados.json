@@ -1,0 +1,27 @@
+{
+  "id": "t56",
+  "table_no": 56,
+  "name": "Integridade dos Dados",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Definition: Mede a capacidade do sistema blockchain de preservar a exatidão e consistência dos dados durante\no armazenamento, a transmissão e a verificação de certificados. Garante que informações não sejam alteradas,\ncorrompidas ou manipuladas sem detecção, assegurando\nque cada bloco e registro de revogação permaneçam autênticos e imutáveis.",
+    "equation": "Id = 1 −\nNfalhas\nNverificações\nonde Id representa o índice de integridade, Nfalhas é o\nnúmero de verificações de integridade que falharam (hash\nou assinatura inválida) e Nverificações é o número total de\nverificações executadas. Valores próximos de 1 indicam\nalta integridade.\nMétricas\nAssociadas\nConfidencialidade dos dados; Autenticidade; Consistência dos dados; Tempo de verificação\nAtributo\nRelacionado\nImutabilidade; Autenticação de dados; Validade de certificado; Segurança criptográfica",
+    "unit": "Índice adimensional (0–1) ou percentual (%)",
+    "protocol": "1) Implantar o sistema de revogação de certificados baseado em blockchain (Namecoin).\n2) Registrar certificados e eventos de revogação nas estruturas RSI e LRSI.\n3) Calcular hashes (SHA-256) e assinaturas digitais\n(ECDSA) para cada registro.\n4) Verificar periodicamente a consistência entre os valores\narmazenados na blockchain e os hashes originais.\n5) Detectar e registrar divergências, calculando o índice\nde integridade conforme a equação.\n143",
+    "comment": "O artigo demonstrou que a solução proposta manteve alta\nintegridade dos dados de revogação de certificados graças\nà imutabilidade da blockchain e ao uso de hashes\ncriptográficos e árvores de Merkle. Diferente dos\nmétodos tradicionais (CRL/OCSP), o sistema garante\nque qualquer tentativa de modificação seja detectada\nimediatamente, reforçando a confiança na verificação de\ncertificados.\nInterpretação\ndo\nValor Medido\nValores altos (próximos a 1) indicam que os dados\nmantêm sua integridade em todas as operações; valores\nbaixos refletem falhas de verificação, corrupção de blocos\nou vulnerabilidades na camada de armazenamento.",
+    "scale_type": "Razão",
+    "precision": "Depende da frequência de auditorias de integridade e da\nprofundidade das verificações de hash e Merkle proof.\nAuditorias completas garantem maior precisão.",
+    "data_collection": "Automática (validação periódica via verificação de hash\ne assinatura digital)",
+    "use_processes": "Avaliação de segurança em sistemas de certificação; auditoria de dados em blockchain; verificação de integridade\nem registros distribuídos; validação de transações.",
+    "objective": "Avaliar o nível de proteção contra modificações indevidas ou perdas de integridade em sistemas block-\nchain que gerenciam certificados digitais. Essa métrica\nassegura que todas as operações — geração, revogação e\nvalidação — mantenham dados consistentes e verificáveis\ncriptograficamente.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Namecoin API; scripts Python para validação de hash\n(SHA-256) e ECDSA; exploradores blockchain; OpenSSL.",
+    "beneficiaries": "Engenheiros(as) de segurança; Pesquisadores(as) em\nblockchain e PKI; Desenvolvedores(as) de infraestrutura\nde certificados digitais; Analistas de conformidade.\nReferência\nY. C. E. Adja, B. Hammi, A. Serhrouchni, and S. Zeadally. A\nBlockchain-Based Certificate Revocation Management and Status\nVerification System. Computers & Security, vol. 104, 102209, 2021.\n144"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 56"
+  }
+}

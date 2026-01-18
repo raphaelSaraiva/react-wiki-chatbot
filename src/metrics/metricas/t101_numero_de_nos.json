@@ -21,25 +21,6 @@
     "beneficiaries": "Pesquisadores em blockchain; engenheiros de redes P2P;\ndesenvolvedores de protocolos LN; analistas de descentralização e privacidade.\n244",
     "references": "Casas, P.; Romiti, M.; Holzer, P.; Ben Mariem, S.; Donnet, B.;\nHaslhofer, B. Where is the Light(ning) in the Taproot Dawn? Unveiling the Bitcoin Lightning (IP) Network. IEEE CloudNet, 2021.\n— A métrica Number of Nodes é utilizada para quantificar o\ntamanho e a descentralização da Lightning Network, revelando\ncerca de 8.267 nós ativos e mais de 12.000 nós com canais estabelecidos, distribuídos principalmente entre EUA e Alemanha, com\n40% conectados via Tor:contentReference[oaicite:0]index=0.\n245"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Número de Nós",
-    "Palavras-chave / Alias": "Number of nodes; Node count; Active nodes; Network\nsize; Peer-to-peer nodes; LN nodes; BTC nodes",
-    "Definição do Atributo": "Mede o número total de nós ativos em uma rede\nblockchain ou em sua camada de sobreposição (overlay),\ncomo a Lightning Network (LN). Essa métrica representa\no tamanho e o grau de descentralização da rede, refletindo\nsua robustez, resiliência e capacidade de propagação de\ntransações e blocos.",
-    "Objetivo / Motivação": "Avaliar o crescimento, descentralização e resiliência da\nrede blockchain e suas extensões (ex.: LN). O número de\nnós é um indicador-chave da participação de usuários, da\nconectividade da infraestrutura e do grau de centralização\nem provedores de nuvem ou redes anônimas.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Capacidade",
-    "Equação": "O número total de nós ativos (Na) pode ser expresso\ncomo:\nNa =\nk\nX\ni=1\nni\nonde ni representa cada nó ativo detectado em um determinado instante e k é o total de nós com canais de\npagamento estabelecidos ou conectados à rede P2P.\nMétricas\nAssociadas\nNúmero de Canais; Número de Transações; Conectividade de Nós; Latência de Propagação; Capacidade Total\nda Rede\nAtributo\nRelacionado\nDescentralização; Robustez da Rede; Escalabilidade; Distribuição Geográfica dos Nós\n243",
-    "Protocolo": "1) Implantar um nó personalizado (LN crawler) com o\nsoftware Lightning Network Daemon (LND).\n2) Realizar crawling ativo da rede LN, consultando\npares e obtendo endereços IP e identificadores públicos\nde nós.\n3) Coletar periodicamente instantâneos da topologia da\nrede durante o intervalo de 10 meses (maio de 2019 a\nfevereiro de 2020).\n4) Complementar as medições com dados públicos via\nAPI (lopp.net/lightning-information.html).\n5) Comparar o número de nós LN com os nós BTC\nobtidos via crawling da rede P2P do Bitcoin.",
-    "Comentário": "O estudo detectou um total de 8.267 nós ativos da\nLightning Network durante a campanha de medição\nde 10 meses, com mais de 12.000 nós ativos na rede\nno período posterior (2021).\nA rede LN apresentou\ncrescimento constante desde 2018, acompanhando a\nvalorização do Bitcoin, e mostrou dependência significativa de conexões IPv4 e redes anônimas (Tor), com mais\nde 40% dos nós conectando-se via Onion. Em contraste,\nos nós da blockchain Bitcoin (BTC) estavam concentrados em provedores de nuvem como Amazon, Google e\nHetzner, enquanto os nós LN estavam distribuídos em\nredes de clientes domésticos e ISPs.\nInterpretação\ndo\nValor Medido\nValores altos indicam ampla participação e maior descentralização, o que aumenta a resiliência da rede. Va-\nlores baixos sugerem centralização e maior vulnerabilidade a falhas ou censura.",
-    "Unidade": "Número de nós ativos (nós)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Alta, quando o crawling é realizado com intervalo regular\ne em múltiplos pontos de observação da rede.",
-    "Tipo de Coleta de Dados": "Automática / Experimental / Monitoramento contínuo",
-    "Ferramenta de Medição": "Lightning Network Daemon (LND); LN Crawler; APIs\npúblicas (Lopp.net); bases georreferenciadas de IP (MaxMind, RIPE).",
-    "Processos de Uso Potenciais": "Análise de crescimento e adoção da Lightning Network;\nestudo de descentralização e localização geográfica; comparação entre topologias BTC e LN; avaliação da eficiên-\ncia e cobertura de rede.",
-    "Beneficiários Potenciais": "Pesquisadores em blockchain; engenheiros de redes P2P;\ndesenvolvedores de protocolos LN; analistas de descentralização e privacidade.\n244",
-    "Referências": "Casas, P.; Romiti, M.; Holzer, P.; Ben Mariem, S.; Donnet, B.;\nHaslhofer, B. Where is the Light(ning) in the Taproot Dawn? Unveiling the Bitcoin Lightning (IP) Network. IEEE CloudNet, 2021.\n— A métrica Number of Nodes é utilizada para quantificar o\ntamanho e a descentralização da Lightning Network, revelando\ncerca de 8.267 nós ativos e mais de 12.000 nós com canais estabelecidos, distribuídos principalmente entre EUA e Alemanha, com\n40% conectados via Tor:contentReference[oaicite:0]index=0.\n245"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 101"

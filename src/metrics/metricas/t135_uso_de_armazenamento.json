@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros(as) de software; pesquisadores(as) de blockchain; administradores(as) de nuvem; analistas de de-\nsempenho.",
     "references": "Shelke, K.; Shinde, S. K. Optimization with Blockchain-Based\nSecure Authentication and Collaborative Data Sharing Model in\nCloud.\nIn: Proceedings of the 14th International Conference on Computing Communication and Networking\nTechnologies (ICCCNT), 2023.\n314"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Uso de Armazenamento",
-    "Palavras-chave / Alias": "Memory consumption; Storage efficiency; Blockchain\nstorage cost; Resource usage; Data overhead",
-    "Definição do Atributo": "Mede a quantidade média de memória ou espaço de\narmazenamento utilizado durante o processamento e\nvalidação de dados em um sistema blockchain. Essa\nmétrica avalia a eficiência do modelo proposto quanto à\nutilização de recursos computacionais e armazenamento\nlocal ou em nuvem.",
-    "Objetivo / Motivação": "Quantificar o consumo de armazenamento para determinar a eficiência e a escalabilidade de soluções blockchain\naplicadas à autenticação segura e ao compartilhamento\ncolaborativo de dados em nuvem. A redução do uso de\nmemória reflete maior desempenho e economia de custos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "Uso_de_Armazenamento = Memória Utilizada (MB)\nTempo de Execução (s)\nou simplesmente, o valor médio de memória consumida\npor operação, conforme registros experimentais.\nMétricas\nAssociadas\nCusto Computacional; Throughput; Tempo de Execução;\nEficiência Energética\nAtributo\nRelacionado\nConsumo de Recursos; Desempenho de Processamento;\nOverhead de Execução",
-    "Protocolo": "1) Implementar o modelo proposto (FHO-based OptiBCSecAuth-DS).\n2) Executar o processamento de blocos sob diferentes\ncargas de transação e registrar o consumo de memória\n(em MB).\n3) Calcular a média e o desvio padrão do uso de armazenamento durante a execução.\n4) Comparar os resultados com outros métodos, como\nABE e BC-SRDS, para avaliar ganhos de eficiência.\n5) Analisar o impacto do tamanho dos blocos e das operações de criptografia sobre o consumo total de recursos.",
-    "Comentário": "O uso de armazenamento é um dos principais indicadores de eficiência de soluções blockchain em nuvem. O\nmodelo proposto reduziu o uso médio para 65.295 MB,\nevidenciando uma melhora significativa na economia de\nmemória e na escalabilidade da solução.\n313\n\nInterpretação\ndo\nValor Medido\nValores menores indicam melhor desempenho e eficiência\nde armazenamento. Altos valores sugerem sobrecarga de\nmemória e possível necessidade de otimização no modelo\nde execução ou compactação de dados.",
-    "Unidade": "Megabytes (MB)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Depende da ferramenta de medição e da estabilidade do\nambiente de execução (hardware e carga de rede).",
-    "Tipo de Coleta de Dados": "Experimental",
-    "Ferramenta de Medição": "Python com monitoramento de uso de memória; simulador FHO-based; métricas coletadas via logs do sistema.",
-    "Processos de Uso Potenciais": "Avaliação de eficiência de sistemas blockchain; otimização\nde modelos de autenticação e compartilhamento seguro\nde dados; planejamento de infraestrutura em nuvem.",
-    "Beneficiários Potenciais": "Engenheiros(as) de software; pesquisadores(as) de blockchain; administradores(as) de nuvem; analistas de de-\nsempenho.",
-    "Referências": "Shelke, K.; Shinde, S. K. Optimization with Blockchain-Based\nSecure Authentication and Collaborative Data Sharing Model in\nCloud.\nIn: Proceedings of the 14th International Conference on Computing Communication and Networking\nTechnologies (ICCCNT), 2023.\n314"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 135"

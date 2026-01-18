@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros de blockchain; administradores de sistemas\nhospitalares; pesquisadores em interoperabilidade médica; arquitetos de sistemas distribuídos.",
     "references": "Kumar, R.; Ahmad, S.; Gadekallu, T. R.; et al. MedHypChain:\nA Patient-Centered Interoperability Hyperledger-Based Medical\nHealthcare System Regulation in COVID-19 Pandemic.\nIEEE\nTransactions on Computational Social Systems, 2023. — O estudo\npropõe uma arquitetura blockchain permissionada otimizada para\ninteroperabilidade médica, onde o custo de execução é utilizado\ncomo métrica de eficiência para mensurar o impacto do processamento distribuído e da comunicação entre entidades clínicas.\n165"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Custo de Execução",
-    "Palavras-chave / Alias": "Execution cost; Transaction cost; Smart contract cost;\nComputational overhead; Gas cost; Blockchain operation\nfee",
-    "Definição do Atributo": "Mede o custo total associado à execução de transações e contratos inteligentes em uma rede block-\nchain, considerando o uso de recursos computacionais,\narmazenamento e energia. O custo de execução reflete\no esforço necessário para processar uma operação blockchain dentro de um ambiente permissionado ou público,\ncomo Hyperledger Fabric ou Ethereum.",
-    "Objetivo / Motivação": "Avaliar a eficiência econômica e computacional das\noperações na blockchain. No contexto do MedHypChain,\no custo de execução representa o esforço necessário para\nvalidar e registrar interações médicas (acesso, compartilhamento ou atualização de registros) entre diferentes\nentidades hospitalares e provedores de dados durante a\npandemia de COVID-19.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "EC = Ccomp + Cstor + Ccomm,\nonde Ccomp é o custo computacional (processamento e\nexecução de contratos), Cstor é o custo de armazenamento\nde dados, e Ccomm representa o custo de comunicação de\nrede. Em blockchains baseadas em gas, o custo é dado\npor: Custo = GasUsed × GasPrice.\nMétricas\nAssociadas\nLatência de transação; Throughput; Custo de armazenamento; Custo energético; Tempo de execução do contrato\nAtributo\nRelacionado\nEficiência computacional; Custo de operação; Desempenho do contrato; Escalabilidade",
-    "Protocolo": "1) Selecionar a operação a ser analisada (ex.: envio de\nregistro médico, atualização de permissão, auditoria de\ndados).\n2) Registrar o tempo de execução e os recursos consumidos durante o processamento.\n3) Estimar Ccomp, Cstor e Ccomm a partir de logs e monitoramento da rede.\n4) Calcular o custo total de execução (EC) para diferentes tipos de transações.\n5) Comparar resultados entre arquiteturas (permissionadas vs públicas).\n164",
-    "Comentário": "No MedHypChain, o custo de execução é um parâmetro\ncrítico para garantir a viabilidade da solução em ambientes hospitalares. O artigo demonstra que a arquitetura\nbaseada em Hyperledger Fabric reduz significativamente\no custo de execução em comparação a blockchains públicas, ao eliminar taxas de gas e otimizar a comunicação\nentre peers, mantendo segurança e rastreabilidade.\nInterpretação\ndo\nValor Medido\nValores baixos de EC indicam maior eficiência e menor sobrecarga operacional.\nValores altos sugerem\ndesperdício de recursos ou arquitetura pouco otimizada.\nDeve-se buscar equilíbrio entre custo, segurança e tempo\nde resposta.",
-    "Unidade": "Unidades monetárias (USD, BRL, ETH) ou unidades de\nrecurso (ms, MB, kWh)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Depende da granularidade do monitoramento e do nível\nde abstração (transação individual ou lote de operações).",
-    "Tipo de Coleta de Dados": "Automática (via monitoramento de rede e logs de execução)",
-    "Ferramenta de Medição": "Hyperledger Explorer; Prometheus; Docker Stats; APIs\nde monitoramento de desempenho; scripts Python para\nanálise de tempo e custo.",
-    "Processos de Uso Potenciais": "Avaliação de desempenho de contratos inteligentes; planejamento de custo de infraestrutura; otimização de\nmodelos de blockchain em sistemas hospitalares e IoT.",
-    "Beneficiários Potenciais": "Engenheiros de blockchain; administradores de sistemas\nhospitalares; pesquisadores em interoperabilidade médica; arquitetos de sistemas distribuídos.",
-    "Referências": "Kumar, R.; Ahmad, S.; Gadekallu, T. R.; et al. MedHypChain:\nA Patient-Centered Interoperability Hyperledger-Based Medical\nHealthcare System Regulation in COVID-19 Pandemic.\nIEEE\nTransactions on Computational Social Systems, 2023. — O estudo\npropõe uma arquitetura blockchain permissionada otimizada para\ninteroperabilidade médica, onde o custo de execução é utilizado\ncomo métrica de eficiência para mensurar o impacto do processamento distribuído e da comunicação entre entidades clínicas.\n165"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 66"

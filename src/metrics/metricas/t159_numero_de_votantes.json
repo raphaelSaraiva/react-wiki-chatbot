@@ -21,25 +21,6 @@
     "beneficiaries": "Desenvolvedores de sistemas de votação; autoridades eleitorais; pesquisadores em e-governança; arquitetos de sistemas distribuídos.",
     "references": "Kumar, R.; Tripathi, R.; Khanna, A. Blockchain-Based Secure Voting Mechanism Underlying 5G Network: A Smart Contract Approach. IEEE Network / IEEE Access, 2020."
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Número de Votantes (Number of Voters)",
-    "Palavras-chave / Alias": "Number of voters; Voting participants; Active voters",
-    "Definição do Atributo": "Mede a quantidade total de eleitores que participam de um processo de votação baseado em blockchain.",
-    "Objetivo / Motivação": "Avaliar a capacidade do sistema de votação em suportar grandes volumes de participantes sem degradação significativa de desempenho.",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Capacidade",
-    "Equação": "NV = |V|",
-    "Protocolo": "Contabilizar o número de eleitores registrados e votos válidos submetidos ao contrato inteligente.",
-    "Comentário": "O aumento do número de votantes impacta diretamente a carga do sistema, influenciando latência, throughput e custo de execução.",
-    "Unidade": "Número inteiro",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Determinística, baseada em registros imutáveis da blockchain.",
-    "Tipo de Coleta de Dados": "Automática",
-    "Ferramenta de Medição": "Exploradores de blockchain; logs de contratos inteligentes.",
-    "Processos de Uso Potenciais": "Avaliação de escalabilidade; planejamento eleitoral; comparação de plataformas de votação.",
-    "Beneficiários Potenciais": "Desenvolvedores; pesquisadores; gestores públicos.",
-    "Referências": "Kumar et al., Blockchain-Based Secure Voting Mechanism Underlying 5G Network, 2020."
-  },
   "source": {
     "pdf": "Blockchain-Based_Secure_Voting_Mechanism_Underlying_5G_Network_A_Smart_Contract_Approach.pdf",
     "table": "Tabela 159"

@@ -1,0 +1,28 @@
+{
+  "id": "t31",
+  "table_no": 31,
+  "name": "Anonymity Loss",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Confidencialidade"
+  },
+  "fields": {
+    "definition": "Definition: Mede o grau de perda de anonimato de um usuário\nou entidade em um sistema blockchain, considerando\na possibilidade de associação entre endereços, transações e identidades reais. Representa a probabilidade\nou proporção de que as atividades de um participante\n— inicialmente pseudônimo — possam ser vinculadas a\numa identidade específica por meio de análise de dados\non-chain ou correlações fora da cadeia.",
+    "equation": "O grau de perda de anonimato pode ser expresso como:\nLA = 1 −|Su|\n|S0|,\nonde S0 é o conjunto inicial de identidades indistinguíveis\n(anonimato ideal) e Su o conjunto residual após a análise.\nAlternativamente, pode-se definir a probabilidade de\nreidentificação Preid como:\nPreid = Nlinked\nNtotal\n,\nonde Nlinked é o número de endereços ou transações que\npuderam ser vinculados a identidades reais.\nMétricas\nAssociadas\nLinkability index; Transaction graph entropy; Mixing\nefficiency; Address clustering rate; Metadata exposure\nratio; Re-identification probability\nAtributo\nRelacionado\nConfidencialidade; Privacidade de usuário; Desanonimização; Centralização de controle; Risco de correlação de\ntransações\n84",
+    "unit": "Escalar adimensional (0 a 1)",
+    "protocol": "1) Definir o escopo de análise (endereço, exchange, carteira, serviço).\n2) Mapear transações e interações entre entidades, formando o grafo de relacionamento.\n3) Aplicar algoritmos de agrupamento ou heurísticas de\nlinkagem (ex.: “multi-input heuristic”).\n4) Calcular o tamanho do conjunto de anonimato Su e o\nvalor de LA.\n5) Avaliar o impacto de entidades centralizadas (como\nexchanges e provedores de RPC) sobre a redução de\nanonimato.",
+    "comment": "O Anonymity Loss quantifica a degradação da privacidade em redes blockchain sob influência de serviços\ncentralizados. Mesmo em sistemas pseudônimos, padrões\nde uso e dependência de infraestrutura (ex.: carteiras\ncustodiadas, APIs de terceiros e validadores concentrados) criam “elos fracos” capazes de revelar identidades\nreais. Essa métrica permite analisar a vulnerabilidade\nestrutural de um ecossistema descentralizado e o grau de\nexposição de seus usuários a ataques de desanonimização.\nInterpretação\ndo\nValor Medido\nValores próximos a 0 indicam anonimato preservado\ne baixa probabilidade de reidentificação; valores altos (próximos a 1) representam perda significativa de\nanonimato e risco elevado de vinculação de identidade,\nrevelando falhas de privacidade ou centralização excessiva.",
+    "scale_type": "Razão",
+    "precision": "Depende da qualidade dos dados de transação e da disponibilidade de metadados externos (IP, timestamp, pa-\ndrões de uso). A precisão aumenta com a granularidade\nda análise de grafo e o uso de técnicas de aprendizado\npara detecção de clusters comportamentais.",
+    "data_collection": "Semi-automática (análise de logs, grafos de transação e\ncorrelações entre endereços e metadados externos)",
+    "use_processes": "Auditoria de privacidade em sistemas blockchain; avaliação de risco de centralização; verificação de conformidade\ncom GDPR; análise de comportamento de carteiras; teste\nde eficácia de mecanismos de anonimização (CoinJoin,\nmixers, zk-SNARKs).\n85",
+    "objective": "Avaliar o risco de reidentificação em ecossistemas descentralizados que dependem de infraestruturas centrali-\nzadas (como exchanges, carteiras custodiais e provedores\nde API). A métrica quantifica o impacto de vazamentos\nde metadados, comportamentos correlacionáveis e falhas\nde design que minam a privacidade, revelando vulnerabilidades estruturais em redes que se autodenominam\n“anônimas”.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Ferramentas de análise de grafos (Gephi, GraphX, Neo4j);\nframeworks de privacidade blockchain (BlockSci, Chainalysis, GraphSense); bibliotecas de aprendizado de má-\nquina para detecção de padrões e correlações.",
+    "beneficiaries": "Pesquisadores de segurança; desenvolvedores de protocolos de privacidade; auditores de compliance; operadores\nde exchanges; arquitetos de sistemas descentralizados.",
+    "references": "Eskandari, S.; Salehi-Abari, A.; Clark, J. Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosys-\ntems. ACM Conference on Computer and Communications Security (CCS), 2021. — Apresenta a métrica de Anonymity Loss como\nindicador da vulnerabilidade de redes blockchain à reidentificação\nde usuários e à centralização de controle, avaliando empiricamente\ncomo entidades centralizadas degradam o anonimato em ecossistemas descentralizados.\n86"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 31"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "t64",
+  "table_no": 64,
+  "name": "Blocos Vazios",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Definition: Proporção de blocos minerados/validados que não contêm transações de usuários (apenas o cabeçalho e,\nquando aplicável, a transação de recompensa). Em redes\ncomo Ethereum (pré-Merge PoW e pós-Merge PoS), a\nincidência de blocos vazios reflete estratégias de mineração/validação e condições de rede que reduzem o\nthroughput efetivo e podem aumentar o tempo de\nconfirmação.",
+    "equation": "Taxa_BlocosVazios = Nblocos vazios\nNblocos totais\n.\n(Em janelas temporais) Taxa_BlocosVazios[t0, t1] =\nP\nb∈[t0,t1] 1{tx_count(b) = 0}\nP\nb∈[t0,t1] 1\n.\nMétricas\nAssociadas\nThroughput (tx/s); Taxa de bifurcação/órfãos; Latência\nde propagação de blocos; Utilização de bloco (tx por\nbloco); Tempo de confirmação\nAtributo\nRelacionado\nEficiência do mempool; Política de inclusão de transações;\nIncentivos de mineração/validação; Geodistribuição e\nconectividade entre pools",
+    "unit": "Razão (0–1) ou percentual (%)",
+    "protocol": "1) Definir rede e janela [t0, t1].\n2)\nColetar\nblocos\ncom\nnumber,\ntimestamp,\nminer/validator, tx_count e extraData.\n3) Classificar como “vazio” quando tx_count = 0 (ou\napenas coinbase/recompensa).\n4) Calcular a taxa global e por pool/região; correlacionar\ncom latência de propagação e tamanho do mempool.\n5) Reportar estatísticas (média, p50/p95) e séries temporais; comparar entre períodos de congestionamento vs.\nnormalidade.\n159",
+    "comment": "O estudo de Ethereum mostra que geodistribuição\ndos pools e diferenças de latência/propagação\ninfluenciam a incidência de blocos vazios:\nvalidadores/mineradores podem preferir selar rapidamente um\nbloco vazio para competir pelo próximo, sacrificando\ninclusão de transações. Esse comportamento degrada\no throughput efetivo e pode aumentar a percepção\nde atraso pelos usuários, sobretudo sob alta distância\ngeográfica entre pools.\nInterpretação\ndo\nValor Medido\nValores baixos são desejáveis (maior aproveitamento\ndo espaço de bloco). Valores altos sugerem estratégia\noportunista de pools, gargalos de propagação ou políticas conservadoras de inclusão; podem exigir ajustes de\nincentivos ou otimizações de rede.",
+    "scale_type": "Razão",
+    "precision": "Depende da integridade dos dados de blocos/tx e da\ncorreta identificação de blocos sem transações; considerar\nreorgs e blocos tíos/órfãos conforme a rede.",
+    "data_collection": "Automática (clientes de nó e exploradores de blocos)",
+    "use_processes": "Monitoramento de saúde da rede; auditoria de pools/validadores; diagnóstico de throughput; avaliação\nde mudanças de protocolo/incentivos",
+    "objective": "Quantificar o impacto de comportamentos de mineradores/pools e da geodistribuição na eficiência\nda rede. Uma taxa elevada de blocos vazios sinaliza\ndesperdício de capacidade de inclusão de transações e\npode indicar incentivos desalinhados ou latências de propagação entre regiões/pools.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Clientes Ethereum (geth, Nethermind); APIs de exploradores (Etherscan/Etherchain); indexadores (Erigon);\nscripts (Web3.py/Web3.js, Pandas)",
+    "beneficiaries": "Pesquisadores(as) e engenheiros(as) de blockchain; operadores de pools/validadores; analistas de desempenho;\ndesigners de protocolos",
+    "references": "Gencer, A. E.; Basu, S.; Eyal, I.; van Renesse, R.; Sirer, E. G.\nImpact of Geo-Distribution and Mining Pools on Blockchains: A\nStudy of Ethereum.\n2018.\n(Análise empírica da influência de\ngeodistribuição e pools na eficiência, incluindo incidência de blocos\nvazios e efeitos no throughput.)\n160"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 64"
+  }
+}

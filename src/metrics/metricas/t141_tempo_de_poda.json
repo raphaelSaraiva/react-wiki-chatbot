@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros de sistemas distribuídos; Administradores\nde nós; Pesquisadores de blockchain escalável; Desenvolvedores de protocolos.",
     "references": "(1) Eyal, I., & Sirer, E. G. (2016). Bitcoin-NG: A Scalable Blockchain Protocol. — descreve a estrutura de key blocks e microblocks\ne mecanismos que permitem manutenção eficiente do ledger, reduzindo o tempo de poda e a sobrecarga de armazenamento.\n326"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Tempo para Poda",
-    "Palavras-chave / Alias": "Block pruning time; Chain pruning delay; State cleanup\ntime; Ledger maintenance",
-    "Definição do Atributo": "Intervalo de tempo necessário para remover blocos antigos ou irrelevantes da cadeia principal e liberar espaço\nde armazenamento sem comprometer a integridade da\nblockchain. Representa a eficiência do mecanismo de\nmanutenção do ledger distribuído.",
-    "Objetivo / Motivação": "Avaliar a rapidez com que o sistema é capaz de realizar\na poda de blocos ou estados obsoletos, garantindo sustentabilidade do armazenamento e desempenho contínuo\nda rede, especialmente em protocolos escaláveis como o\nBitcoin-NG.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Comportamento Temporal",
-    "Equação": "Tprune = tfinal −tstart, onde tstart é o momento de início\nda operação de poda e tfinal é o tempo em que o processo\né concluído.\nMétricas\nAssociadas\nStorage Usage; Block Propagation Delay; State Size;\nDisk Throughput\nAtributo\nRelacionado\nTempo de Sincronização; Consumo de Recursos; Escalabilidade",
-    "Protocolo": "1) Monitorar logs do nó durante o processo de poda de\nblocos antigos.\n2) Identificar timestamps de início e término da operação.\n3) Calcular a diferença para obter Tprune.\n4) Repetir em múltiplos nós para média e desvio padrão.\n5) Analisar impacto em latência e consumo de recursos.",
-    "Comentário": "O tempo de poda é influenciado pela estrutura do protocolo e pelo tamanho do ledger. Em protocolos como\nBitcoin-NG, a divisão entre microblocos e key blocks\npermite que a manutenção do ledger seja mais eficiente,\nreduzindo o impacto sobre a rede durante a poda periódica.\nInterpretação\ndo\nValor Medido\nValores menores de Tprune indicam maior eficiência e\nmenor sobrecarga de manutenção. Um valor alto pode\nsinalizar gargalos de I/O, fragmentação de estado ou\narquitetura de ledger pouco otimizada.",
-    "Unidade": "Segundos (s)",
-    "Tipo de Escala": "Razão\n325",
-    "Precisão": "Depende da granularidade dos logs e da sincronização\ntemporal entre nós (clock drift pode afetar medições\ncurtas).",
-    "Tipo de Coleta de Dados": "Automática / Experimental",
-    "Ferramenta de Medição": "Scripts de monitoramento (Prometheus, Node logs); Benchmark de poda; Ferramentas de análise de blocos (Bit-\ncoin Core, btcd, NG prototype).",
-    "Processos de Uso Potenciais": "Manutenção de nós completos; Otimização de espaço;\nAvaliação de escalabilidade; Comparação entre implementações de poda.",
-    "Beneficiários Potenciais": "Engenheiros de sistemas distribuídos; Administradores\nde nós; Pesquisadores de blockchain escalável; Desenvolvedores de protocolos.",
-    "Referências": "(1) Eyal, I., & Sirer, E. G. (2016). Bitcoin-NG: A Scalable Blockchain Protocol. — descreve a estrutura de key blocks e microblocks\ne mecanismos que permitem manutenção eficiente do ledger, reduzindo o tempo de poda e a sobrecarga de armazenamento.\n326"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 141"

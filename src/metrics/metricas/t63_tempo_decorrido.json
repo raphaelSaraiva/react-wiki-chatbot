@@ -20,24 +20,6 @@
     "use_processes": "Avaliação de desempenho de contratos inteligentes; comparação entre blockchains públicas e privadas; identifica-\nção de gargalos de execução e latência.",
     "beneficiaries": "Pesquisadores(as) em blockchain; Engenheiros(as) de desempenho; Desenvolvedores(as) de contratos inteligentes;\nArquitetos(as) de sistemas distribuídos.\nReferência\nT. Pflanzner, P. L. Bodnar, A. Kertesz. Performance Analysis\nof Blockchain Networks through Smart Contracts. Proceedings of\nthe IEEE 8th World Forum on Internet of Things (WF-IoT 2022),\n2022.\n158"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Tempo Decorrido",
-    "Palavras-chave / Alias": "Smart contract runtime; Blockchain performance",
-    "Definição do Atributo": "Mede o tempo total necessário para a execução de\num contrato inteligente em uma rede blockchain,\ndesde o envio da transação até a confirmação e retorno\ndo resultado. Avalia a eficiência computacional e o impacto do consenso, comunicação e execução no tempo de\nresposta global do sistema.",
-    "Objetivo / Motivação": "Quantificar o desempenho e a responsividade da execução\nde contratos inteligentes em diferentes redes blockchain.\nEssa métrica permite identificar gargalos de desempenho\ne comparar a eficiência entre blockchains locais, públicas\ne privadas.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Comportamento Temporal",
-    "Equação": "ET = tfim −tinício\nonde tinício é o instante de envio da transação e tfim o\ninstante em que a execução do contrato inteligente é\nconcluída e o resultado é confirmado na blockchain.\nMétricas\nAssociadas\nGas Used; Latência; Throughput; Transaction Delay;\nExecution Cost\nAtributo\nRelacionado\nEficiência Computacional; Custo de Execução; Tempo\nde Confirmação de Bloco",
-    "Protocolo": "1) Implementar contratos inteligentes de cálculo da série\nde Fibonacci com e sem gravação de transações (estado\nalterado e não alterado).\n2) Implantar os contratos em múltiplas redes: Ganache\n(local), Alastria Besu, Rinkeby e Kovan.\n3) Executar o contrato variando o tamanho da série de\nFibonacci (até 350 elementos).\n4) Medir o tempo total decorrido para cada execução e\ncalcular a média entre as execuções.\n5) Comparar o tempo decorrido médio entre as redes e\ncorrelacionar com o custo de gás utilizado.\n157",
-    "Comentário": "No estudo, observou-se que o tempo decorrido (elapsed\ntime) aumenta com a complexidade computacional\nquando não há transações, mas não segue um padrão\nlinear quando há gravação de estado. O tempo de execução das transações é significativamente maior que o\ntempo de cálculo puro, demonstrando que a latência de\nrede e o consenso são os principais fatores de atraso. A\nrede Alastria Besu apresentou o melhor desempenho,\nseguida por Ganache e Rinkeby, enquanto a Kovan\nfoi a mais lenta.\nInterpretação\ndo\nValor Medido\nValores menores de tempo decorrido indicam melhor\ndesempenho e maior eficiência na execução de contratos.\nValores elevados podem indicar congestionamento da\nrede, limitações do consenso ou processamento ineficiente\nno nó executor.",
-    "Unidade": "Segundos (s)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Depende da sincronização temporal entre o envio e a confirmação da transação; recomenda-se executar múltiplas\nmedições para reduzir variações.",
-    "Tipo de Coleta de Dados": "Automática (logs de execução e medição via cliente\nWeb3.js / MetaMask)",
-    "Ferramenta de Medição": "MetaMask; Web3.js; Ganache; Alastria Besu; Rinkeby;\nKovan; Truffle; Solidity; scripts de medição em JavaScript.",
-    "Processos de Uso Potenciais": "Avaliação de desempenho de contratos inteligentes; comparação entre blockchains públicas e privadas; identifica-\nção de gargalos de execução e latência.",
-    "Beneficiários Potenciais": "Pesquisadores(as) em blockchain; Engenheiros(as) de desempenho; Desenvolvedores(as) de contratos inteligentes;\nArquitetos(as) de sistemas distribuídos.\nReferência\nT. Pflanzner, P. L. Bodnar, A. Kertesz. Performance Analysis\nof Blockchain Networks through Smart Contracts. Proceedings of\nthe IEEE 8th World Forum on Internet of Things (WF-IoT 2022),\n2022.\n158"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 63"

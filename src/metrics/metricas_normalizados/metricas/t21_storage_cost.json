@@ -1,0 +1,25 @@
+{
+  "id": "t21",
+  "table_no": 21,
+  "name": "Custo de Armazenamento",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Definition: Menor custo indica solução mais eficiente\neconomicamente. Use o custo por KB/objeto para\ncomparar alternativas, e avalie o impacto em\nlatência/throughput quando migrar dados para IPFS.",
+    "equation": "Custoon-chain = gasUsedstorage × gasPrice (ETH/gas) ×\npreçoETH (USD/ETH).\nNa EVM, a escrita de uma palavra de 256 bits\n(32 bytes) custa tipicamente GSSTORE = 20,000 gas.\nPara 1 KB: 1024\n32 × 20,000 = 640,000 gas. (O artigo\nexemplifica o cálculo e compara com IPFS.)\nMétricas\nAssociadas\nGas Cost; Transaction Cost (fee); Tamanho do bloco;\nTamanho do ledger; Latência de acesso a dados.\nAtributo\nRelacionado\nThroughput (TPS) e block gas limit (capacidade por\nbloco); Estratégia de armazenamento (on-chain vs.\nIPFS); Disponibilidade/Integridade de dados.\n57",
+    "unit": "USD (ou moeda local) por palavra/KB/objeto;\nequivalente em ETH e em gas.",
+    "protocol": "1) Definir escopo: o que será armazenado on-chain\n(valores, metadados) e o que vai para IPFS (dados\nvolumosos).\n2) Medir gasUsedstorage das operações de escrita (ex.:\nSSTORE) no contrato/cliente e coletar gasPrice e preço\ndo ETH da janela analisada.\n3) Calcular custo por palavra, por KB e por objeto;\nincluir cenários de hash-only (IPFS) vs. dados\nintegrais on-chain.\n4) Reportar estatísticas (média, mediana, p95) e\ncondições de teste (rede, block time, gas limit).\n5) Comparar custo/latência entre solução tradicional\n(on-chain) e arquitetura com IPFS (âncora on-chain do\nhash).",
+    "comment": "O artigo demonstra que armazenar dados diretamente\nna Ethereum é caro, e propõe IPFS para reduzir custo\n(mantendo apenas o hash na cadeia). Apresenta fórmula\npara estimar custo por palavra/KB e um estudo\ncomparativo em que o arranjo com IPFS reduz\nsignificativamente o storage cost e melhora latência de\nacesso.",
+    "scale_type": "Razão",
+    "precision": "Sensível à cotação do ETH e ao gasPrice no período;\ngarantir mesmas versões de contrato/estado ao\ncomparar execuções. Em soluções híbridas, considerar\ncusto de pinning/disponibilidade no IPFS.",
+    "data_collection": "Automática/Analítica (a partir de gasUsed e preços);\nregistros de execução (receipts).\nFerramenta de\nMedição\nIDE/cliente (Remix, Truffle) para obter gasUsed; nós\nEthereum (geth/Besu) para receipts; IPFS para\narmazenamento off-chain; ferramentas de\nanálise/benchmark.",
+    "use_processes": "Planejamento de custos (FinOps) e orçamento on-chain;\ndesenho de arquitetura com IPFS (âncoras on-chain);\ntuning de contratos para minimizar SSTORE; avaliação\nde viabilidade em smart grid/IoT.\nBeneficiários\nPotenciais\nEngenheiros(as) de smart contracts; Arquitetos(as)\nWeb3/IoT; SRE/Operações; Gestores(as) de produto e\ncustos.\n58",
+    "references": "ET-DeaL: A P2P Smart Contract-based Secure Energy\nTrading Scheme for Smart Grid Systems — definição do\nproblema de custo de armazenamento on-chain, uso de\nIPFS, fórmula de custo e comparação experimental.\n59"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 21"
+  }
+}

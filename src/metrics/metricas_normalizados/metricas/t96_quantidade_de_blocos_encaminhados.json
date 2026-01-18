@@ -1,0 +1,28 @@
+{
+  "id": "t96",
+  "table_no": 96,
+  "name": "Número de Blocos Encaminhados",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Definition: Mede o número total de blocos transmitidos ou\nencaminhados por um nó blockchain em um determinado intervalo de tempo. Essa métrica representa a\neficiência de disseminação de blocos na rede peer-to-peer\ne é essencial para avaliar o desempenho da arquitetura\ndescentralizada e a integridade da sincronização entre\nnós validadores.",
+    "equation": "A métrica pode ser expressa como:\nBf = Nb\nT\nonde Bf representa o número de blocos encaminhados\npor unidade de tempo, Nb o total de blocos transmitidos,\ne T o período de observação. Essa razão indica a taxa\nde propagação média de blocos por nó.\nMétricas\nAssociadas\nLatência de Propagação de Blocos; Taxa de Transmissão;\nDesempenho da Rede; Conectividade de Nós; Largura\nde Banda da Rede\nAtributo\nRelacionado\nEficiência de Encaminhamento; Robustez da Rede; Taxa\nde Sincronização de Blocos; Escalabilidade de Comunicação\n232",
+    "unit": "Blocos por segundo (blocos/s) ou blocos por intervalo de\ntempo",
+    "protocol": "1) Implantar rede blockchain experimental com múltiplos\nnós leves e controladores OpenFlow.\n2) Monitorar o tráfego P2P e registrar o número de blocos encaminhados por nó durante o período T.\n3) Calcular a média Bf = Nb/T e comparar entre diferentes topologias (centralizada vs descentralizada).\n4) Avaliar a variação de Bf sob diferentes cargas de\ntransação e níveis de congestionamento.",
+    "comment": "A Quantidade de Blocos Encaminhados é uma métrica\ncrítica para redes blockchain leves baseadas em OpenFlow, pois reflete a eficiência do canal de controle seguro\nentre nós e controladores. O artigo demonstra que a\narquitetura proposta reduz a latência e melhora o encaminhamento ao descentralizar o controle e equilibrar o\ntráfego entre múltiplos canais.\nInterpretação\ndo\nValor Medido\nValores altos indicam boa performance de propagação\ne comunicação eficiente entre nós. Valores baixos sugerem gargalos de rede, perdas de pacotes ou topologia\ndeficiente.",
+    "scale_type": "Razão",
+    "precision": "Alta, desde que a coleta de dados de rede seja feita em\ntempo real com monitoramento dos pacotes de blocos\nencaminhados.",
+    "data_collection": "Experimental / Simulada / Monitoramento em tempo\nreal",
+    "use_processes": "Análise de desempenho da rede blockchain; otimização de\nprotocolos de encaminhamento; avaliação de controladores OpenFlow descentralizados; estudos de escalabilidade\ne propagação de blocos.",
+    "objective": "Avaliar a eficiência da propagação de blocos na rede blockchain, garantindo que todos os nós recebam rapidamente\nas novas informações mineradas. Um alto número de\nblocos encaminhados indica boa conectividade e cooperação entre nós, enquanto valores baixos podem apontar\ngargalos de comunicação, sobrecarga de canal ou falhas\nde topologia.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Controladores OpenFlow; Hyperledger Fabric; monitores\nde rede (Wireshark, NetFlow); scripts de auditoria em\nlogs P2P.",
+    "beneficiaries": "Engenheiros de redes blockchain; pesquisadores em sistemas distribuídos; projetistas de controladores SDN;\nanalistas de desempenho.",
+    "references": "Wang, S.; Zhang, H.; Xu, L.; Zhang, Y.; Guo, S. A Decentralized Lightweight Blockchain Nodes Architecture Based on a Secure\nOpenFlow Protocol Controller Channel. IEEE Access, vol. 8, pp.\n172839–172851, 2020. — A métrica Number of Blocks Forwarded é utilizada para avaliar a eficiência de propagação de blocos e\na comunicação entre nós na arquitetura descentralizada proposta,\ndemonstrando melhora significativa no desempenho de rede.\n233"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 96"
+  }
+}

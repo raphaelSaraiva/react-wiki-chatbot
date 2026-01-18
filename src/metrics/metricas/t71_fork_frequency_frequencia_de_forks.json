@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros de blockchain; pesquisadores de consenso;\noperadores de rede; analistas de desempenho e segurança.",
     "references": "Ali, S.; Khan, A.; Wu, C.; et al. A Decentralized Lightweight Blockchain Nodes Architecture Based on a Secure OpenFlow Protocol\nController Channel. IEEE Access, 2022. — Avalia o comportamento da rede sob diferentes atrasos e dificuldades, relacionando a\nocorrência de forks à eficiência de propagação e à estabilidade do\nconsenso em arquiteturas leves.\n175"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Frequência de Forks",
-    "Palavras-chave / Alias": "Fork rate; Frequência de ramificações; Taxa de forks;\nBlocos concorrentes; Reorganização de cadeia",
-    "Definição do Atributo": "Mede a frequência com que a blockchain sofre\nramificações (forks) — situações em que dois (ou\nmais) blocos são propostos quase simultaneamente para\na mesma altura, gerando cadeias concorrentes até que\numa seja adotada como principal. A frequência de forks\nreflete a eficiência de propagação de blocos e a\nestabilidade do consenso.",
-    "Objetivo / Motivação": "Quantificar instabilidades do consenso causadas por\natrasos de rede, dificuldade de mineração e comportamento de nós (incluindo nós maliciosos). Frequências\nelevadas de fork aumentam desperdício de trabalho, latência de confirmação e risco de reorganizações, degradando\nthroughput e confiabilidade.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Confiabilidade",
-    "Sub-característica": "Tolerância a Falhas",
-    "Equação": "Forma por bloco: Fblk = Nforks\nNblocos\n.\nForma por tempo:\nFt\n=\nNforks\nTjanela\n(forks por segundo/minuto).\nOpcional: estratificar por comprimento de fork (profundidade 1, 2, . . . ) ou por causa (propagação, dificuldade,\nnós maliciosos).\nMétricas\nAssociadas\nTempo de propagação de blocos; Taxa de blocos órfãos;\nTaxa de blocos confirmados; Throughput; Tempo de\nconfirmação\nAtributo\nRelacionado\nEficiência do consenso; Latência de rede; Tamanho do\nbloco; Distribuição/quantidade de nós; Comportamento\nadversarial\n174",
-    "Protocolo": "1) Definir a janela de observação [t0, t1] e o conjunto de\nnós monitorados.\n2) Registrar cada evento de blocos concorrentes na mesma\naltura (fork).\n3) Contabilizar Nforks e Nblocos na janela; calcular Fblk\ne/ou Ft.\n4) Repetir sob diferentes atrasos de rede, dificuldades de\nmineração e percentuais de nós maliciosos.\n5) Correlacionar a frequência de forks com latência de\npropagação e taxa de confirmação.",
-    "Comentário": "Em arquiteturas distribuídas leves, a Fork Frequency\né sensível a aumentos no atraso de propagação e\nna dificuldade de mineração, especialmente sob presença de nós maliciosos. Reduções de atraso (melhor\nrede/propagação) e mecanismos de consenso eficientes\ntendem a reduzir a frequência de forks, melhorando a\nestabilidade e a Committed Block Rate.\nInterpretação\ndo\nValor Medido\nValores baixos indicam rede estável, boa propagação\ne consenso eficiente. Valores altos sugerem congestionamento/latência, blocos grandes ou comportamento\nadversarial, aumentando risco de reorganizações e atraso\nde confirmação.",
-    "Unidade": "Razão por bloco (0–1) e/ou frequência por tempo\n(forks/s, forks/min)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Depende da visibilidade completa dos blocos concorrentes\ne da sincronização temporal entre nós; atrasos de log ou\nperda de eventos podem subestimar a métrica.",
-    "Tipo de Coleta de Dados": "Automática (instrumentação de nós/cliente, logs de consenso, rastreamento de blocos na rede)",
-    "Ferramenta de Medição": "Ambiente de testes/simulação (por ex., NS-3) com múltiplos nós e cenários de atraso; clientes blockchain instru-\nmentados; analisadores de logs e scripts para detecção\nde blocos em mesma altura.",
-    "Processos de Uso Potenciais": "Avaliação de estabilidade do consenso; calibração de\nparâmetros de rede (tamanho de bloco, intervalo-alvo);\nestudo de impacto de nós maliciosos; comparação entre\narquiteturas leves e tradicionais.",
-    "Beneficiários Potenciais": "Engenheiros de blockchain; pesquisadores de consenso;\noperadores de rede; analistas de desempenho e segurança.",
-    "Referências": "Ali, S.; Khan, A.; Wu, C.; et al. A Decentralized Lightweight Blockchain Nodes Architecture Based on a Secure OpenFlow Protocol\nController Channel. IEEE Access, 2022. — Avalia o comportamento da rede sob diferentes atrasos e dificuldades, relacionando a\nocorrência de forks à eficiência de propagação e à estabilidade do\nconsenso em arquiteturas leves.\n175"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 71"

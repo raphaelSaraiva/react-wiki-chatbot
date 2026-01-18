@@ -1,0 +1,29 @@
+{
+  "id": "t26",
+  "table_no": 26,
+  "name": "Taxa da Transação",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Definition: Valor pago para que uma transação/execução de contrato\nseja processada e incluída em bloco. Em plataformas\ncompatíveis com EVM, a taxa é proporcional ao gas\nconsumido pela operação e ao preço de gas vigente na\nrede.",
+    "equation": "Taxa (ETH) = gasUsed (gas) × gasPrice (ETH/gas).\nPara transferência simples em Ethereum, gasUsed ≈\n21,000 (sem execução de contrato).\nConversão para moeda fiduciária:\nTaxa (fiat)\n=\nTaxa (ETH) × cotação(ETH →moeda).\nMétricas\nAssociadas\nGas price; Gas used; Custo de Gas; Custo de Operação;\nThroughput (TPS); Latência/tempo de confirmação.\nAtributo\nRelacionado\nConsumo de Recursos; Disponibilidade orçamentária;\nPolítica de registro (on-chain vs. off-chain).",
+    "unit": "Gwei/gas, ETH, (opcional) USD/BRL após conversão.",
+    "protocol": "1) Definir rede e janela [t0, t1].\n2) Coletar, por transação: gasUsed, gasPrice (ou preço\nefetivo) e tipo (transferência, chamada de função, deploy).\n3) Calcular a taxa por transação e estatísticas (média,\np50/p95/p99); agregar por tipo de operação.\n4) Se PoC em testnet, estimar custo “como se” em mainnet: manter gasUsed medido e aplicar séries históricas\nde gasPrice/cotação do período-alvo.\n5) Relatar condições: congestão, política de priorização, parâmetros do cliente/rede, eventuais logs off-chain\n(IPFS) que reduzem gasUsed.\n71",
+    "comment": "Em PoCs com e-health, usa-se testnet pública (ex.:\nRopsten) para validar fluxo e inspecionar gas used/gas\nprice via explorer, sem custo real; em produção, a política de registro (âncoras/hashes vs. dados completos)\ne a frequência de eventos dominam o gasto total. Em\nmicrogrids IIoT, as taxas e o tempo de mineração são\nanalisados para prever custo ao usuário e possíveis slowdowns de rede; em dispositivos restritos, microtransações\nfrequentes podem ser economicamente inviáveis, motivando batching e uso de armazenamento off-chain.\nInterpretação\ndo\nValor Medido\nMenor custo por transação, mantendo o mesmo SLA\nde confirmação, é melhor. Avaliar caudas (p95/p99) —\nperíodos de congestão elevam a taxa. Comparar perfis: transferência simples (∼21k gas) vs. chamadas de\ncontrato (gasUsed maior).",
+    "scale_type": "Razão",
+    "precision": "Depende da acurácia de gasUsed/gasPrice obtidos do\nnó/explorer e da janela de câmbio usada na conversão.\nEm testnets, relatar claramente a metodologia de projeção para rede principal.",
+    "data_collection": "Automática",
+    "use_processes": "Planejamento de custos (FinOps); definição de políticas\n(frequência de registro, batching, off-chain); precificação\nde dApps; avaliação de viabilidade em IIoT/microgrids.",
+    "objective": "Medir e otimizar o custo econômico de operar a aplicação on-chain (dimensionamento de orçamento/FinOps,\nviabilidade de microtransações, impacto em SLAs). Em\ncenários de e-health e microgrids, as taxas influenciam\na adoção, pois afetam custo ao usuário e o desenho de\nprocessos (ex.: frequência de registro).",
+    "measurement_tool": "Explorers (detalhes de transação: status, bloco, gas\nused, gas price); APIs do nó/SDK (web3); planilhas/ETL para agregação e conversão cambial.",
+    "beneficiaries": "Engenheiros(as) de blockchain; SRE/Operações; Arquitetos(as); FinOps; Gestores(as) de produto/SLA.",
+    "domain_independence": "Alto — aplicável a vários domínios (saúde, IoT/IIoT,\nenergia, redes).\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "references": "(1) Distributed Network Slicing Management Using Blockchains in\nE-Health Environments — dApp em Ethereum (testnet), inspeção\nde gas used/gas price via explorer e uso de IPFS para logs.\n(2) Smart Microgrid Energy Market: Evaluating DLTs for Remote and Constrained Microgrid Deployments — análise de cus-\ntos/tempos de operações (taxas pagas, mineração) e implicações\npara IIoT.\n72"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 26"
+  }
+}

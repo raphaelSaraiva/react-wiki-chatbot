@@ -20,24 +20,6 @@
     "use_processes": "Análise de eficiência de transações; otimização de contratos inteligentes; estimativa de custos em dApps; auditoria\nde desempenho e consumo.",
     "beneficiaries": "Desenvolvedores(as) de Smart Contracts; Engenheiros(as) de Blockchain; Auditores(as) de Eficiência; Ges-\ntores(as) de Custos.\nReferência\nZahoor, S., Javaid, N., Qureshi, K. N., & Imran, M. (2022). Novel\nAir Pollution Measurement System Based on Ethereum Blockchain.\nSustainable Cities and Society, 82, 103902.\n344"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Gás Utilizado por Transação",
-    "Palavras-chave / Alias": "Gas Used; Consumo de Gas por Transação; Gas Utilizado;\nExecução de Transação; Transaction Gas Consumption",
-    "Definição do Atributo": "Quantidade total de gas efetivamente consumida pela execução de uma única transação em uma rede blockchain.\nEsse valor é determinado pela soma dos custos de todas\nas operações (opcodes) executadas na EVM (Ethereum\nVirtual Machine) até a finalização da transação.",
-    "Objetivo / Motivação": "Medir a eficiência de uma transação específica em termos\nde custo computacional. O valor de Gas Used é essencial\npara estimar o custo total da operação, diagnosticar\ngargalos de desempenho e comparar implementações de\ncontratos inteligentes.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "Gas Used (gas) = Pn\ni=1 OpcodeCosti, onde cada operação executada pela EVM consome uma quantidade espe-\ncífica de gas.\nMétricas\nAssociadas\nGas Price; Gas Fee; Execution Cost; Throughput; Consumo Médio de Gas\nAtributo\nRelacionado\nEficiência de Contrato; Escalabilidade; Custo de Transação; Latência",
-    "Protocolo": "1) Executar o contrato inteligente ou transação desejada\nem uma rede Ethereum (mainnet ou testnet).\n2) Capturar o valor de gasUsed retornado pelo recibo\nda transação (tx.receipt.gasUsed).\n3) Relacionar o valor de gas com o tipo de operação\nexecutada (ex.: gravação, leitura, transferência).\n4) Calcular o custo total em ETH ou moeda fiduciária\naplicando o preço do gas vigente.\n5) Comparar entre diferentes execuções para identificar\nvariações ou gargalos.",
-    "Comentário": "O Gas Used é um indicador direto da complexidade de\numa transação. Transações que envolvem gravação em\narmazenamento (SSTORE) ou interação com múltiplos\ncontratos consomem mais gas. Valores mais altos implicam maior custo e tempo de execução.\nInterpretação\ndo\nValor Medido\nMenor valor indica uma transação mais eficiente e menos\ncustosa. Entretanto, variações são esperadas conforme o\ntipo e a função do contrato executado.\n343",
-    "Unidade": "gas (unidades de execução)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Exata, pois o valor é calculado diretamente pela EVM\ndurante a execução da transação. Pode variar entre execuções conforme o estado da rede ou versão do compilador\nSolidity.",
-    "Tipo de Coleta de Dados": "Automática",
-    "Ferramenta de Medição": "Exploradores de blocos (Etherscan, BlockScout); bibliotecas (Web3.js, Ethers.js); frameworks (Truffle, Hardhat);\nlogs de transação Ethereum.",
-    "Processos de Uso Potenciais": "Análise de eficiência de transações; otimização de contratos inteligentes; estimativa de custos em dApps; auditoria\nde desempenho e consumo.",
-    "Beneficiários Potenciais": "Desenvolvedores(as) de Smart Contracts; Engenheiros(as) de Blockchain; Auditores(as) de Eficiência; Ges-\ntores(as) de Custos.\nReferência\nZahoor, S., Javaid, N., Qureshi, K. N., & Imran, M. (2022). Novel\nAir Pollution Measurement System Based on Ethereum Blockchain.\nSustainable Cities and Society, 82, 103902.\n344"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 149"

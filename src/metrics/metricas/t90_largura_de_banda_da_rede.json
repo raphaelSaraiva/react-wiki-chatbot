@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros de rede; pesquisadores em blockchain e IoT;\narquitetos de sistemas 5G; projetistas de UAVs inteligentes; analistas de desempenho distribuído.",
     "references": "Gupta, R.; Shukla, A.; Mehta, P.; Bhattacharya, P.; Tanwar,\nS.; Tyagi, S.; Kumar, N. VAHAK: A Blockchain-based Outdoor\nDelivery Scheme using UAV for Healthcare 4.0 Services. IEEE,\n2023. — A métrica de largura de banda foi utilizada para avaliar\no consumo de rede do sistema VAHAK, demonstrando eficiência\nsuperior (51–80 Kbps) em comparação à rede Ethereum tradicional\n(200–300 Kbps):contentReference[oaicite:1]index=1.\n219"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Largura de Banda da Rede",
-    "Palavras-chave / Alias": "Network Bandwidth;\nThroughput;\nData rate;\n5G\nbandwidth; IPFS network utilization",
-    "Definição do Atributo": "Mede a quantidade de dados transmitidos por segundo\nem uma rede blockchain distribuída durante a execução\nde transações ou comunicações entre entidades, como\ndrones, hospitais e pacientes. No contexto da arquitetura\nVAHAK, a largura de banda representa o volume médio\nde dados consumidos na comunicação entre UAVs, blockchain e IPFS durante as operações de entrega médica,\nrefletindo a eficiência da rede em sistemas descentralizados de alta demanda.",
-    "Objetivo / Motivação": "Avaliar a eficiência da rede de comunicação subjacente à\nblockchain, especialmente em sistemas que dependem de\ntransmissão contínua de dados críticos (ex.: localização\nem tempo real e atualização de status de entrega). Uma\nmenor largura de banda utilizada implica maior eficiência\nna comunicação e menor sobrecarga de rede, favorecendo\nescalabilidade e redução de custos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "A métrica é expressa como:\nBW = Total de Dados Transmitidos (bits)\nTempo de Transmissão (segundos)\nonde BW é a largura de banda média utilizada pela rede\ndurante um intervalo de tempo. No caso do VAHAK,\nobservou-se consumo entre 51 Kbps e 80 Kbps, enquanto a rede Ethereum tradicional opera entre 200\nKbps e 300 Kbps, demonstrando uma redução significativa de sobrecarga.\nMétricas\nAssociadas\nLatência; Escalabilidade; Throughput; Tempo de Confirmação; Taxa de Transmissão de Dados\nAtributo\nRelacionado\nTempo de Resposta; Consumo de Recursos; Eficiência\nda Rede; Custo de Comunicação\n218",
-    "Protocolo": "1) Definir o intervalo de observação da rede [t0, t1].\n2) Monitorar os dados transmitidos entre os nós (UAV,\nhospital, paciente, IPFS e blockchain).\n3) Coletar o volume total de dados transmitidos (Dtotal)\ne o tempo de transmissão (T).\n4) Calcular a largura de banda: BW = Dtotal/T.\n5) Comparar os valores obtidos com benchmarks (ex.:\nEthereum padrão) e avaliar eficiência.",
-    "Comentário": "A largura de banda é fundamental em aplicações blockchain integradas a redes 5G e sistemas de Internet Táctil\n(TI). No VAHAK, o uso combinado de 5G-TI e IPFS reduziu o consumo de banda, melhorando a escalabilidade\ne confiabilidade na transmissão de dados sensíveis. A\nmétrica demonstra a eficiência da arquitetura descentralizada proposta frente a sistemas tradicionais, otimizando\ncomunicações em tempo real e reduzindo custos de rede.\nInterpretação\ndo\nValor Medido\nBaixa largura de banda (ex.: 51–80 Kbps): indica\ncomunicação eficiente e otimizada.\nAlta largura de banda (ex.: >200 Kbps): sugere\nsobrecarga de rede e possível limitação de escalabilidade.",
-    "Unidade": "Kbps (Kilobits por segundo)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Moderada a alta, dependendo da estabilidade da rede e\nda granularidade da coleta de dados durante os testes.",
-    "Tipo de Coleta de Dados": "Experimental / Simulada (monitoramento de tráfego em\nIPFS e blockchain)",
-    "Ferramenta de Medição": "Simulação de nós IPFS; ferramentas de monitoramento\nde rede (Wireshark, NetFlow, iperf); logs do Ethereum\nclient; scripts de telemetria UAV.",
-    "Processos de Uso Potenciais": "Avaliação de desempenho de blockchain em redes\nIoT/UAV; planejamento de infraestrutura 5G; análise de\neficiência de protocolos descentralizados; benchmarking\nde sistemas blockchain em ambientes críticos.",
-    "Beneficiários Potenciais": "Engenheiros de rede; pesquisadores em blockchain e IoT;\narquitetos de sistemas 5G; projetistas de UAVs inteligentes; analistas de desempenho distribuído.",
-    "Referências": "Gupta, R.; Shukla, A.; Mehta, P.; Bhattacharya, P.; Tanwar,\nS.; Tyagi, S.; Kumar, N. VAHAK: A Blockchain-based Outdoor\nDelivery Scheme using UAV for Healthcare 4.0 Services. IEEE,\n2023. — A métrica de largura de banda foi utilizada para avaliar\no consumo de rede do sistema VAHAK, demonstrando eficiência\nsuperior (51–80 Kbps) em comparação à rede Ethereum tradicional\n(200–300 Kbps):contentReference[oaicite:1]index=1.\n219"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 90"

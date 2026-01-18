@@ -1,0 +1,28 @@
+{
+  "id": "t136",
+  "table_no": 136,
+  "name": "Taxa de Sucesso e Falha",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Definition: Mede a proporção entre transações bem-sucedidas e falhas registradas em um ambiente blockchain. Representa\na confiabilidade operacional do sistema, indicando a estabilidade da execução de transações dentro de uma rede\ndistribuída (ex.: Hyperledger Fabric).",
+    "equation": "Success Rate = Nsucesso\nNtotal\n× 100%\nFail Rate = Nfalhas\nNtotal\n× 100%\nMétricas\nAssociadas\nTempo de resposta; Disponibilidade; Throughput; Reliability; Transaction Latency\nAtributo\nRelacionado\nDesempenho do sistema; Eficiência da comunicação; Integridade dos dados",
+    "unit": "Percentual (%)",
+    "protocol": "1) Registrar todas as requisições de transação enviadas\nà rede blockchain durante um intervalo [t0, t1].\n2) Classificar cada requisição como “bem-sucedida” ou\n“falha” com base no resultado de confirmação do ledger.\n3) Calcular as proporções relativas de sucesso e falha\nconforme as equações.\n4) Repetir o experimento sob diferentes cargas e tamanhos de blocos para avaliar a robustez da rede.",
+    "comment": "Em sistemas como o Hyperledger Healthchain, altas taxas\nde sucesso indicam bom desempenho do mecanismo de\nconsenso e da integração com IPFS. Já taxas elevadas\nde falha podem apontar problemas de congestionamento,\ninconsistência de blocos ou falhas de sincronização entre\npeers.\nInterpretação\ndo\nValor Medido\nValores mais altos de sucesso (>95%) refletem boa confiabilidade da rede; taxas elevadas de falha (>5%) indicam\nnecessidade de otimização no consenso, na arquitetura\nde comunicação ou na configuração dos nós.\n315",
+    "scale_type": "Razão",
+    "precision": "Depende da quantidade de transações avaliadas e da\nestabilidade da rede durante a medição.",
+    "data_collection": "Automática",
+    "use_processes": "Avaliação de confiabilidade de sistemas de saúde descentralizados; Testes de desempenho em protótipos\nblockchain-IPFS; Monitoramento de qualidade em redes permissionadas.",
+    "objective": "Avaliar a eficiência e confiabilidade da rede blockchain,\nespecialmente em cenários de armazenamento descentralizado de dados de saúde, garantindo integridade e\nconsistência entre nós e serviços distribuídos.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Hyperledger Caliper; Logs do Fabric; Scripts Python\npara contagem de respostas de sucesso/falha; Docker\nlogs dos peers",
+    "beneficiaries": "Engenheiros de software blockchain; Pesquisadores em\nsistemas distribuídos; Gestores de infraestrutura; Analistas de desempenho.",
+    "references": "(1) Rajasekar, A., & Rajasekar, V. *Hyperledger Healthchain:\nPatient-centric IPFS-based Storage of Health Records.* IEEE\nXplore, 2023 — Avaliação empírica de taxa de sucesso/falha em\ntransações para mensurar a confiabilidade da rede Hyperledger\nintegrada ao IPFS.\n316"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 136"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "t55",
+  "table_no": 55,
+  "name": "Consistência dos Dados",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Definition: Mede o grau de coerência e sincronização dos dados\nmantidos entre controladores e dispositivos em uma arquitetura distribuída baseada em blockchain. Representa\na capacidade do sistema de manter estados uniformes e\natualizados em todos os nós, mesmo diante de falhas ou\natrasos de comunicação.",
+    "equation": "Cd = 1 −Dinc\nDtot\nonde Cd é o índice de consistência de dados, Dinc é o\nnúmero de divergências detectadas entre os estados dos\ncontroladores e Dtot é o número total de estados monitorados. Valores próximos a 1 indicam alta consistência.\nMétricas\nAssociadas\nTaxa de consenso; Latência de sincronização; Tempo de\nrecuperação; Integridade dos dados\nAtributo\nRelacionado\nSincronização de estados; Confiabilidade de controle;\nDisponibilidade",
+    "unit": "Índice adimensional (0–1) ou porcentagem (%)",
+    "protocol": "1) Implantar a arquitetura distribuída com múltiplos\ncontroladores e ledger blockchain.\n2) Simular falhas de controladores ou desconexões de\nrede.\n3) Comparar os estados armazenados nos controladores\ne no ledger.\n4) Calcular o número de divergências observadas e aplicar\na fórmula.\n5) Repetir o processo em diferentes cenários de carga e\nfalha para obter médias e desvios.\n141",
+    "comment": "No estudo, a arquitetura BlockCtrl foi capaz de manter\nalta consistência de dados entre controladores distribuídos em uma rede óptica definida por software (SDON). O\nuso do ledger blockchain impediu a execução duplicada\nde comandos e assegurou que todas as atualizações de estado fossem replicadas de forma imutável e sincronizada,\nmesmo após falhas.\nInterpretação\ndo\nValor Medido\nValores altos indicam sincronização estável e coerência\nentre todos os controladores. Valores baixos refletem\ndivergências, perda de sincronismo ou falhas na replicação de blocos.",
+    "scale_type": "Razão",
+    "precision": "Depende da frequência de auditoria dos estados e da\nlatência do consenso blockchain; maior frequência de\nverificação aumenta a precisão.",
+    "data_collection": "Automática (monitoramento do ledger e logs dos controladores)",
+    "use_processes": "Avaliação de consistência em arquiteturas SDN/SDON;\nteste de resiliência de controladores distribuídos; comparação entre mecanismos de consenso para controle de\nrede.",
+    "objective": "Avaliar a habilidade do sistema blockchain em garantir a consistência global de informações entre\ncontroladores e elementos de rede em um ambiente distribuído. Essa métrica é essencial em redes SDN/SDON,\nonde comandos duplicados ou inconsistências podem\ncausar falhas graves na operação.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Hyperledger Explorer; Prometheus/Grafana; logs de\neventos SDN; scripts Python de comparação de estados",
+    "beneficiaries": "Engenheiros(as) de redes; Pesquisadores(as) em SDN e\nblockchain; Desenvolvedores(as) de controladores distribuídos; Especialistas em resiliência de sistemas.\nReferência\nQ. Yang, M. Zhang, et al. Blockchain-based Secure Distributed\nControl for Software Defined Optical Networking. IEEE Journal on\nSelected Areas in Communications, vol. 38, no. 8, pp. 1659–1672,\n2020.\n142"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 55"
+  }
+}

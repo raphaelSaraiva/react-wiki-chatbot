@@ -63,6 +63,12 @@ const Chatbot = () => {
   const [option2, setOption2] = useState("");
   const [preferredOption, setPreferredOption] = useState(1);
 
+  // ✅ NOVO: embaralha qual resposta vira Opção 1 / Opção 2
+  // (sem revelar qual é "com RAG" vs "sem RAG" na UI)
+  // value: { option1: 'a' | 'b', option2: 'a' | 'b' }
+  // onde 'a' e 'b' são apenas rótulos internos para as duas respostas retornadas.
+  const [answerOrder, setAnswerOrder] = useState({ option1: "a", option2: "b" });
+
   // ✅ Modal para expandir resposta
   const [answerModal, setAnswerModal] = useState({
     open: false,
@@ -96,8 +102,8 @@ const Chatbot = () => {
   }, [answerModal.open]);
 
 
-  // ✅ nota (1..5)
-  const [rating, setRating] = useState(0);
+  // ✅ notas (1..5) para CADA resposta
+  const [ratings, setRatings] = useState({ option1: 0, option2: 0 });
 
   // ✅ NOVO: quando a resposta for "não é pergunta sobre métricas",
   // não renderiza 2 caixas e não permite avaliar/salvar
@@ -463,7 +469,42 @@ const Chatbot = () => {
       response: e?.chosenText || "",
       chosenText: e?.chosenText || "",
       preferredOption: e?.preferredOption || 0,
-      rating: Number(e?.rating || 0),
+      // ✅ notas para exibição (Opção 1 / Opção 2)
+      // A fonte oficial agora é e.ratings.{rag,norag} + e.answerOrder (embaralhamento).
+      // Mantemos fallback para históricos antigos.
+      ratingOption1: (() => {
+        const order1 = e?.answerOrder?.option1 || e?.answerOrder?.opt1 || null;
+        const rag = e?.ratings?.rag;
+        const norag = e?.ratings?.norag;
+
+        // 1) Preferir canônico (rag/norag) + embaralhamento
+        if (order1 && (rag || norag)) {
+          const v = order1 === "a" ? rag : norag;
+          if (v !== undefined && v !== null) return Number(v);
+        }
+
+        // 2) Fallback: campos legados
+        return Number(
+          e?.ratings?.option1 ?? e?.ratingOption1 ?? e?.rating_option1 ?? 0
+        );
+      })(),
+      ratingOption2: (() => {
+        const order1 = e?.answerOrder?.option1 || e?.answerOrder?.opt1 || null;
+        const rag = e?.ratings?.rag;
+        const norag = e?.ratings?.norag;
+
+        if (order1 && (rag || norag)) {
+          const v = order1 === "a" ? norag : rag;
+          if (v !== undefined && v !== null) return Number(v);
+        }
+
+        return Number(
+          e?.ratings?.option2 ?? e?.ratingOption2 ?? e?.rating_option2 ?? 0
+        );
+      })(),
+      legacyRating: Number(e?.rating || 0),
+      // ✅ embaralhamento (oculto)
+      answerOrder: e?.answerOrder || null,
     }));
 
     setHistory(mapped);
@@ -687,7 +728,11 @@ const Chatbot = () => {
           metricName: e?.metricName || "",
           model: e?.model || "",
           preferredOption: Number(e?.preferredOption || 0),
-          rating: Number(e?.rating || 0),
+          // ✅ envia as duas notas (neutras) + embaralhamento (oculto)
+          ratingOption1: Number(e?.ratingOption1 ?? 0),
+          ratingOption2: Number(e?.ratingOption2 ?? 0),
+          answerOrder: e?.answerOrder || null,
+          legacyRating: Number(e?.legacyRating ?? 0),
           createdAt: e?.createdAt || null,
         };
       });
@@ -728,7 +773,8 @@ const Chatbot = () => {
     setOption1("");
     setOption2("");
     setPreferredOption(1);
-    setRating(0);
+    setRatings({ option1: 0, option2: 0 });
+    setAnswerOrder({ option1: "a", option2: "b" });
     setInvalidForExperiment(false); // ✅ reset
 
     try {
@@ -774,17 +820,33 @@ const Chatbot = () => {
         setOption1(msg);
         setOption2(""); // importante: evita segunda caixa
         setPreferredOption(1);
-        setRating(0);
+        setRatings({ option1: 0, option2: 0 });
+        setAnswerOrder({ option1: "a", option2: "b" });
         return;
       }
 
-      setOption1(r1 || "(sem resposta)");
-      setOption2(r2 || "(sem resposta)");
+      // ✅ Embaralha: Opção 1 e Opção 2 aparecem em ordem aleatória
+      // "a" = primeira resposta do backend (response_rag)
+      // "b" = segunda resposta do backend (response_norag)
+      const a = r1 || "(sem resposta)";
+      const b = r2 || "(sem resposta)";
+      const flip = Math.random() < 0.5;
+
+      if (flip) {
+        setOption1(a);
+        setOption2(b);
+        setAnswerOrder({ option1: "a", option2: "b" });
+      } else {
+        setOption1(b);
+        setOption2(a);
+        setAnswerOrder({ option1: "b", option2: "a" });
+      }
     } catch (error) {
       console.error("Erro ao enviar a pergunta:", error.message || error);
       setOption1("Ocorreu um erro ao processar sua pergunta.");
       setOption2("Ocorreu um erro ao processar sua pergunta.");
       setInvalidForExperiment(false);
+      setAnswerOrder({ option1: "a", option2: "b" });
     } finally {
       setLoading(false);
     }
@@ -804,28 +866,91 @@ const Chatbot = () => {
       return;
     }
 
-    if (!rating || rating < 1 || rating > 5) {
-      alert("Por favor, dê uma nota (1 a 5) para a resposta escolhida.");
+    const rOpt1 = Number(ratings?.option1 || 0);
+    const rOpt2 = Number(ratings?.option2 || 0);
+
+    if (rOpt1 < 1 || rOpt1 > 5 || rOpt2 < 1 || rOpt2 > 5) {
+      alert(
+        "Por favor, dê uma nota (1 a 5) para as DUAS respostas (Opção 1 e Opção 2) antes de salvar."
+      );
       return;
     }
 
-    const preferredText = preferredOption === 1 ? option1 : option2;
+    // ✅ Se marcou "Ambas", ainda registramos só 1 texto no histórico,
+    // mas o preferredOption salvo fica 3.
+    const chosenOption =
+      preferredOption === 3 ? (Math.random() < 0.5 ? 1 : 2) : preferredOption;
+
+    const preferredText =
+      chosenOption === 1 ? option1 : chosenOption === 2 ? option2 : "";
+
+    // ✅ Converte as notas da UI (Opção 1 / Opção 2) para notas canônicas (rag / norag)
+    // "a" = primeira resposta do backend (response_rag)
+    // "b" = segunda resposta do backend (response_norag)
+    // Como as opções são embaralhadas, precisamos mapear corretamente.
+    const order1 = answerOrder?.option1 || "a";
+    const order2 = answerOrder?.option2 || (order1 === "a" ? "b" : "a");
+
+    // ✅ Mapeamento explícito para análise no Firebase:
+    // - option1_variant / option2_variant dizem qual caixa (Opção 1/2) era RAG vs NO_RAG
+    // (sem revelar isso na UI)
+    const option1_variant = order1 === "a" ? "rag" : "norag";
+    const option2_variant = order2 === "a" ? "rag" : "norag";
+    const ragRating = order1 === "a" ? rOpt1 : rOpt2;
+    const noragRating = order1 === "a" ? rOpt2 : rOpt1;
 
     addChatEntry({
       question: question.trim() ? question : "(pergunta anterior)",
       model,
       metricId,
       metricName,
-      preferredOption,
+
+      // ✅ NOVO: informa no Firebase qual opção (1/2) era RAG vs NO_RAG
+      option1_variant,
+      option2_variant,
+
+      // ✅ salva somente a opção efetivamente registrada no histórico
+      preferredOption, // ✅ agora salva 1,2 ou 3 (Ambas)
+      chosenOption,
       chosenText: preferredText || "(sem resposta)",
-      rating,
+
+      // ✅ salva as duas notas (canônicas): RAG e Sem RAG
+      ratings: {
+        rag: ragRating,
+        norag: noragRating,
+
+        // ✅ compat (legado): mantém também o que o participante viu como Opção 1/2
+        // (não usar como fonte oficial para análise)
+        option1: rOpt1,
+        option2: rOpt2,
+      },
+
+      // ✅ guarda o embaralhamento (oculto para análise posterior)
+      answerOrder,
+
+      // ✅ legado: mantém campo "rating" para não quebrar export/visões antigas
+      // Agora considera a opção escolhida + embaralhamento para apontar para rag/norag corretamente.
+      rating:
+        chosenOption  === 1
+          ? order1 === "a"
+            ? ragRating
+            : noragRating
+          : chosenOption  === 2
+            ? order1 === "a"
+              ? noragRating
+              : ragRating
+            : null,
+
+      // ✅ opcional (útil para análise): participante marcou "Ambas"?
+      bothSelected: preferredOption === 3,
+
       createdAt: new Date().toISOString(),
     });
 
     setOption1("");
     setOption2("");
     setPreferredOption(1);
-    setRating(0);
+    setRatings({ option1: 0, option2: 0 });
     setInvalidForExperiment(false);
 
     setFloatOpen(true);
@@ -870,6 +995,34 @@ const Chatbot = () => {
     boxShadow: active ? "0 14px 26px rgba(0,0,0,0.22)" : "none",
     userSelect: "none",
   });
+
+  // ✅ Escala Likert (qualidade percebida da resposta)
+  const LIKERT = {
+    1: {
+      label: "Muito ruim",
+      hint: "Resposta incorreta, irrelevante ou muito incompleta.",
+    },
+    2: {
+      label: "Ruim",
+      hint: "Alguns pontos úteis, mas com falhas relevantes.",
+    },
+    3: {
+      label: "Regular",
+      hint: "Cobre o básico, mas faltam detalhes ou clareza.",
+    },
+    4: {
+      label: "Boa",
+      hint: "Correta, clara e útil com pequenos pontos a melhorar.",
+    },
+    5: {
+      label: "Excelente",
+      hint: "Muito clara, correta e completa para a pergunta.",
+    },
+  };
+
+  const getLikertTitle = (n, optLabel) =>
+    `Nota ${n} : ${LIKERT[n]?.label || ""}\n${LIKERT[n]?.hint || ""
+    }`;
 
   const snapPosition = (x, y, w, hEff) => {
     const maxX = window.innerWidth - w - MARGIN;
@@ -1397,11 +1550,41 @@ const Chatbot = () => {
                       </div>
                     </div>
 
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        marginBottom: 10,
+                      }}
+                    >
+                      <label
+                        className="d-flex align-items-center gap-2"
+                        style={{
+                          cursor: 'pointer',
+                          fontWeight: 850,
+                          color: BODY_TEXT,
+                          background: 'rgba(255,255,255,0.75)',
+                          border: '1px solid rgba(15,23,42,0.12)',
+                          padding: '8px 10px',
+                          borderRadius: 12,
+                        }}
+                        title="Marque quando as duas respostas estiverem boas e você não quiser escolher apenas uma."
+                      >
+                        <input
+                          type="radio"
+                          name="preferred"
+                          checked={preferredOption === 3}
+                          onChange={() => setPreferredOption(3)}
+                        />
+                        Selecionar ambas
+                      </label>
+                    </div>
+
                     <div className="row g-3">
                       <div className="col-md-6">
                         <div
                           style={{
-                            ...answerBoxStyle(preferredOption === 1),
+                            ...answerBoxStyle(preferredOption === 1 || preferredOption === 3),
                             position: "relative",
                             paddingTop: 44, // ✅ espaço reservado pro ícone
                           }}
@@ -1434,7 +1617,9 @@ const Chatbot = () => {
                           </span>
 
                           <div className="d-flex justify-content-between align-items-center mb-2">
-                            <div className="fw-bold">Opção 1</div>
+                            <div className="fw-bold d-flex align-items-center gap-2">
+                              Opção 1
+                            </div>
                             <label
                               className="d-flex align-items-center gap-2"
                               style={{ cursor: "pointer", fontWeight: 800 }}
@@ -1458,7 +1643,7 @@ const Chatbot = () => {
                       <div className="col-md-6">
                         <div
                           style={{
-                            ...answerBoxStyle(preferredOption === 2),
+                            ...answerBoxStyle(preferredOption === 2 || preferredOption === 3),
                             position: "relative",
                             paddingTop: 44, // ✅ espaço reservado pro ícone
                           }}
@@ -1491,7 +1676,9 @@ const Chatbot = () => {
                           </span>
 
                           <div className="d-flex justify-content-between align-items-center mb-2">
-                            <div className="fw-bold">Opção 2</div>
+                            <div className="fw-bold d-flex align-items-center gap-2">
+                              Opção 2
+                            </div>
                             <label
                               className="d-flex align-items-center gap-2"
                               style={{ cursor: "pointer", fontWeight: 800 }}
@@ -1526,56 +1713,119 @@ const Chatbot = () => {
                       <div
                         style={{
                           display: "flex",
-                          alignItems: "center",
+                          alignItems: "flex-start",
                           justifyContent: "space-between",
                           gap: 10,
                           marginBottom: 8,
                           color: BODY_TEXT,
                         }}
                       >
-                        <div style={{ fontWeight: 900 }}>
-                          Dê uma nota para a resposta escolhida
+                        <div>
+                          <div style={{ fontWeight: 900 }}>
+                            Quanto ao nivel de preferência em relação as duas respostas:
+                          </div>
                         </div>
                         <div
                           style={{
                             fontSize: 12,
                             opacity: 0.85,
                             color: MUTED_TEXT,
+                            textAlign: "right",
+                            whiteSpace: "nowrap",
                           }}
                         >
-                          Selecionada: Opção {preferredOption}
+                          Preferida: {preferredOption === 3 ? "Ambas" : `Opção ${preferredOption}`}
                         </div>
                       </div>
 
-                      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                        {[1, 2, 3, 4, 5].map((n) => (
-                          <button
-                            key={n}
-                            type="button"
-                            onClick={() => setRating(n)}
-                            style={ratingBtnStyle(rating === n)}
-                            title={`Nota ${n}`}
-                          >
-                            {n}★
-                          </button>
-                        ))}
-                      </div>
-
+                      {/* ✅ Notas lado a lado (responsivo) */}
                       <div
                         style={{
-                          marginTop: 8,
-                          fontSize: 12,
-                          opacity: 0.95,
-                          color: MUTED_TEXT,
+                          display: "flex",
+                          gap: 12,
+                          alignItems: "stretch",
+                          flexWrap: "wrap", // ✅ no mobile quebra e fica em coluna
                         }}
                       >
-                        {rating ? (
-                          <>
-                            Nota escolhida: <strong>{rating}/5</strong>
-                          </>
-                        ) : (
-                          "Selecione uma nota para habilitar o salvamento."
-                        )}
+                        {/* ===== Nota Opção 1 ===== */}
+                        <div
+                          style={{
+                            flex: "1 1 260px",
+                            minWidth: 260,
+                            background: "rgba(255,255,255,0.65)",
+                            border: "1px solid rgba(15,23,42,0.10)",
+                            borderRadius: 12,
+                            padding: 10,
+                          }}
+                        >
+                          <div style={{ fontSize: 12, fontWeight: 900, marginBottom: 6 }}>
+                            Opção 1
+                          </div>
+                          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                            {[1, 2, 3, 4, 5].map((n) => (
+                              <button
+                                key={`r1-${n}`}
+                                type="button"
+                                onClick={() =>
+                                  setRatings((prev) => ({ ...prev, option1: n }))
+                                }
+                                style={ratingBtnStyle(ratings.option1 === n)}
+                                title={getLikertTitle(n, "Opção 1")}
+                              >
+                                {n}★
+                              </button>
+                            ))}
+                          </div>
+                          <div style={{ marginTop: 6, fontSize: 12, color: MUTED_TEXT }}>
+                            {ratings.option1 ? (
+                              <>
+                                Nota Opção 1: <strong>{ratings.option1}/5</strong>
+                              </>
+                            ) : (
+                              "Selecione a nota da Opção 1."
+                            )}
+                          </div>
+                        </div>
+
+                        {/* ===== Nota Opção 2 ===== */}
+                        <div
+                          style={{
+                            flex: "1 1 260px",
+                            minWidth: 260,
+                            background: "rgba(255,255,255,0.65)",
+                            border: "1px solid rgba(15,23,42,0.10)",
+                            borderRadius: 12,
+                            padding: 10,
+                          }}
+                        >
+                          <div style={{ fontSize: 12, fontWeight: 900, marginBottom: 6 }}>
+                            Opção 2
+                          </div>
+                          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                            {[1, 2, 3, 4, 5].map((n) => (
+                              <button
+                                key={`r2-${n}`}
+                                type="button"
+                                onClick={() =>
+                                  setRatings((prev) => ({ ...prev, option2: n }))
+                                }
+                                style={ratingBtnStyle(ratings.option2 === n)}
+                                title={getLikertTitle(n, "Opção 2")}
+                              >
+                                {n}★
+                              </button>
+                            ))}
+                          </div>
+                          <div style={{ marginTop: 6, fontSize: 12, color: MUTED_TEXT }}>
+                            {ratings.option2 ? (
+                              <>
+                                Nota Opção 2: <strong>{ratings.option2}/5</strong>
+                              </>
+                            ) : (
+                              "Selecione a nota da Opção 2."
+                            )}
+                          </div>
+                        </div>
                       </div>
                     </div>
 
@@ -1586,7 +1836,8 @@ const Chatbot = () => {
                         loading ||
                         invalidForExperiment ||
                         (!option1 && !option2) ||
-                        rating < 1
+                        ratings.option1 < 1 ||
+                        ratings.option2 < 1
                       }
                       style={saveBtnStyle}
                     >

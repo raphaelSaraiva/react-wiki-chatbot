@@ -1,0 +1,28 @@
+{
+  "id": "t150",
+  "table_no": 150,
+  "name": "Taxa de Processamento de Transações",
+  "iso25010": {
+    "characteristic": "Taxas de Processamento de Transações",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Definition: Mede a quantidade de transações que o sistema blockchain consegue processar por unidade de tempo, geral-\nmente expressa em transações por segundo (TPS). A\nmétrica reflete a capacidade do sistema de lidar com\ngrandes volumes de transações simultâneas, avaliando\nsua escalabilidade e eficiência sob carga.",
+    "equation": "TPS = Ntransações concluídas\nTexecução\n, onde Ntransações concluídas é o\nnúmero total de transações executadas e Texecução é o\ntempo total de processamento.\nMétricas\nAssociadas\nTransaction Latency; Block Throughput; Confirmation\nTime; Network Load\nAtributo\nRelacionado\nCapacidade de Rede; Eficiência de Execução; Tempo de\nConfirmação",
+    "unit": "Transações por segundo (TPS)",
+    "protocol": "1) Configurar ambiente de teste com volume definido de\ntransações simultâneas.\n2) Registrar o número de transações concluídas e o tempo\ntotal necessário.\n3) Calcular o valor médio de TPS em janelas de tempo\nfixas (ex.: 10 s, 60 s).\n4) Repetir o teste sob diferentes níveis de carga para\navaliar a estabilidade.",
+    "comment": "Uma taxa de processamento elevada indica boa escalabilidade e capacidade da rede em manter desempenho\nsob carga. O artigo demonstra que blockchains permissionadas (ex.: Hyperledger) alcançam TPS significativa-\nmente maiores que blockchains públicas (ex.: Ethereum),\nevidenciando o impacto do modelo de consenso e da\narquitetura na performance.\n345\n\nInterpretação\ndo\nValor Medido\nValores mais altos (>1000 TPS) indicam alta eficiência\ne escalabilidade. Valores baixos (< 50 TPS) sugerem\ngargalos de desempenho e necessidade de otimização do\nconsenso ou da comunicação entre nós.",
+    "scale_type": "Razão",
+    "precision": "Depende da sincronia dos relógios dos nós e da instrumentação correta para capturar início e término de execução\ndas transações.",
+    "data_collection": "Experimental / Automática",
+    "use_processes": "Benchmark de blockchains; testes de desempenho sob\ncarga; análise de escalabilidade; dimensionamento de\ninfraestrutura.",
+    "objective": "Avaliar o desempenho e a escalabilidade do blockchain\nao processar transações em alta demanda, determinando\nsua viabilidade para aplicações intensivas, como registro\nde eventos em tempo real ou sistemas distribuídos de\nreputação.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Ambientes de teste baseados em Ethereum (Truffle, Ganache, Web3.js) e Hyperledger; monitores de desempenho\nde rede (Prometheus, Grafana).",
+    "beneficiaries": "Engenheiros de blockchain; pesquisadores de desempenho; desenvolvedores de dApps; arquitetos de sistemas\ndistribuídos.",
+    "references": "Mahajan, S.; Saxena, N.; & Sharma, R. (2020). Distributed Ledger\nfor Spammers’ Resume. IEEE Access. — Avalia a taxa de processamento de transações em diferentes blockchains (Ethereum e\nHyperledger) para medir eficiência e escalabilidade de execução.\n346"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 150"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "t48",
+  "table_no": 48,
+  "name": "Tempo de Consenso",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Definition: Tempo médio necessário para que todos os nós participantes de um processo de consenso em uma rede blockchain\ncheguem a um acordo sobre a validade e a inclusão de\numa transação em um bloco. Mede o desempenho do\nmecanismo de consenso em plataformas permissionadas,\ncomo o Hyperledger Fabric, considerando políticas de\nendosso e falhas de componentes.",
+    "equation": "O tempo de consenso médio pode ser estimado como:\nTc = Treq + Tendorsement + Tordering + Tcommit\nonde:\n• Treq: tempo para envio da solicitação;\n• Tendorsement: tempo médio para que os peers endossem a transação;\n• Tordering: tempo gasto pelo orderer para agrupar\ntransações em blocos;\n• Tcommit: tempo de escrita e validação no ledger.\nNo caso do Hyperledger Fabric, o tempo total depende\nda política de endosso:\nT AND\nc\n> T KooN\nc\n> T OR\nc\n127\n\nMétricas\nAssociadas\nTaxa de Sucesso do Consenso; Disponibilidade; Latência;\nThroughput; Custo de Computação; Custo de Manutenção.\nAtributo\nRelacionado\nTempo de Transação; Tempo de Bloqueio; Taxa de Endosso; Eficiência do Nó.",
+    "unit": "Segundos (s)",
+    "protocol": "1) Selecionar o protocolo de consenso (PBFT no Hyperledger Fabric).\n2) Configurar as políticas de endosso (AND, OR, K-outof-N).\n3) Medir o tempo entre o envio de uma proposta de\ntransação e o commit final no ledger.\n4) Repetir o experimento variando o número de nós e a\ntaxa de falhas simuladas.\n5) Calcular o tempo médio e os percentis (p50, p95, p99).",
+    "comment": "O tempo de consenso reflete a capacidade de resposta\nda rede sob diferentes políticas de endosso. Políticas\ndo tipo AND aumentam a confiabilidade, mas também\no tempo de consenso, enquanto políticas OR reduzem\no tempo, porém podem comprometer a segurança. A\nabordagem K-out-of-N oferece um equilíbrio entre tempo\ne tolerância a falhas.\nInterpretação\ndo\nValor Medido\nMenores valores indicam maior eficiência e desempenho\ndo sistema. Entretanto, tempos muito baixos podem\nsignificar políticas de endosso frágeis (baixo nível de\nconfiança).",
+    "scale_type": "Razão",
+    "precision": "Depende da taxa de falhas dos componentes, da configuração da política de endosso e da latência de rede.\nRecomenda-se repetir as medições sob cargas variadas.",
+    "data_collection": "Simulação / Automática",
+    "use_processes": "Planejamento de serviços BaaS; análise de desempenho\nde políticas de endosso; ajuste de parâmetros em ambientes Hyperledger Fabric; suporte à decisão para migração\nde infraestrutura.",
+    "objective": "Avaliar o impacto das políticas de endosso (AND, OR\ne K-out-of-N) no tempo de confirmação de transações\nem ambientes blockchain privados. Essa métrica é essencial para balancear disponibilidade, desempenho e custo\nde manutenção em arquiteturas Blockchain-as-a-Service\n(BaaS).\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "BPPT (Blockchain Provisioning Planning Tool); Mercury; Wolfram Mathematica; Hyperledger Caliper.",
+    "beneficiaries": "Engenheiros(as) de blockchain; Arquitetos(as) de sistemas; Gestores(as) de infraestrutura; Pesquisadores(as)\nem confiabilidade e desempenho de redes distribuídas.\nReferência\nMelo, C.; Araujo, J.; Dantas, J.; Pereira, P.; Maciel, P. A ModelBased Approach for Planning Blockchain Service Provisioning.\nComputing, vol. 104, 2022, pp. 315–337. Springer Nature.\n128"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 48"
+  }
+}

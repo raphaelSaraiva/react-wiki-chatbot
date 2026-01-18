@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros de IoT; pesquisadores em blockchain sustentável; desenvolvedores de protocolos leves; analistas\nde segurança de sistemas distribuídos.",
     "references": "Riyaz, M. A.; Jalil, Z.; Khan, F. A.; Rehman, M. H. U.; Kumar,\nN.; Alazab, M.; Alshamrani, S. S. A Lightweight Blockchain-Based\nRemote Mutual Authentication for AI-Empowered IoT Sustainable\nComputing Systems. IEEE Transactions on Sustainable Computing, 2023. — O estudo define a métrica Overhead Ratio para\nquantificar a sobrecarga introduzida por mecanismos de segurança\nblockchain em sistemas IoT, destacando reduções significativas\nobtidas com o protocolo LBRMA.\n264"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Razão de Sobrecarga",
-    "Palavras-chave / Alias": "Overhead ratio; Communication overhead; Computational overhead; Network load ratio; Efficiency degradation\nrate",
-    "Definição do Atributo": "Mede a proporção de recursos adicionais (tempo,\nprocessamento, comunicação ou energia) consumidos por um protocolo de autenticação ou transação\nem relação à carga útil efetiva. Essa métrica avalia o\ncusto operacional adicional introduzido por mecanismos\nde segurança ou de blockchain em sistemas distribuídos\nde IoT.",
-    "Objetivo / Motivação": "Quantificar o impacto dos mecanismos de autenticação,\ncriptografia e consenso sobre o desempenho global da\nrede e sobre a sustentabilidade do sistema. O objetivo\né identificar protocolos leves que mantenham segurança\nadequada com mínima sobrecarga de recursos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "A razão de sobrecarga (Ro) é definida como:\nRo = Ctotal −Cbase\nCbase\n× 100\nonde Ctotal representa o custo total do sistema com o\nprotocolo blockchain (computacional, de comunicação ou\nenergético) e Cbase representa o custo sem o mecanismo\nadicional.\nMétricas\nAssociadas\nTempo de Operação; Consumo de Energia; Latência de\nComunicação; Custo Computacional; Throughput\nAtributo\nRelacionado\nEscalabilidade; Sustentabilidade; Eficiência Energética;\nCusto de Execução",
-    "Protocolo": "1) Implementar o protocolo proposto de autenticação\nmútua baseado em blockchain leve (LBRMA) e protocolos de comparação (ECC, LDA).\n2) Medir o custo computacional, o tempo de comunicação\ne o consumo de energia em diferentes cenários de nós\nIoT.\n3) Calcular a sobrecarga total adicionada pelo protocolo\nblockchain usando a equação de Ro.\n4) Analisar o impacto da sobrecarga em função do número de nós e do volume de transações.\n263",
-    "Comentário": "No estudo, o protocolo LBRMA reduziu significativamente a razão de sobrecarga em comparação com es-\nquemas convencionais baseados em ECC e autenticação\npesada. O uso de operações criptográficas otimizadas e\nestrutura leve de bloco permitiu reduzir o tempo de processamento e o consumo energético, mantendo segurança\nrobusta.\nInterpretação\ndo\nValor Medido\nValores baixos de Ro indicam alta eficiência e leve impacto de sobrecarga. Valores altos sugerem protocolos\npesados ou ineficientes, que comprometem o desempenho\ne o consumo sustentável de energia.",
-    "Unidade": "Percentual (%)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Elevada, quando obtida a partir de medições experimentais com controle de hardware e rede (por exemplo,\nsimulações em tempo real ou ambiente MATLAB/IoT).",
-    "Tipo de Coleta de Dados": "Experimental / Automática",
-    "Ferramenta de Medição": "Simuladores de IoT com integração blockchain (MATLAB, OMNeT++); ferramentas de profiling de CPU e\nenergia; scripts Python para cálculo da sobrecarga.",
-    "Processos de Uso Potenciais": "Avaliação de desempenho de esquemas de autenticação\nblockchain; comparação entre protocolos leves e convencionais; otimização de eficiência em redes IoT inteligentes.",
-    "Beneficiários Potenciais": "Engenheiros de IoT; pesquisadores em blockchain sustentável; desenvolvedores de protocolos leves; analistas\nde segurança de sistemas distribuídos.",
-    "Referências": "Riyaz, M. A.; Jalil, Z.; Khan, F. A.; Rehman, M. H. U.; Kumar,\nN.; Alazab, M.; Alshamrani, S. S. A Lightweight Blockchain-Based\nRemote Mutual Authentication for AI-Empowered IoT Sustainable\nComputing Systems. IEEE Transactions on Sustainable Computing, 2023. — O estudo define a métrica Overhead Ratio para\nquantificar a sobrecarga introduzida por mecanismos de segurança\nblockchain em sistemas IoT, destacando reduções significativas\nobtidas com o protocolo LBRMA.\n264"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 110"

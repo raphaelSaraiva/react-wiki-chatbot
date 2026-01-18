@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros(as) de sistemas distribuídos; arquitetos(as)\nde blockchain; analistas de confiabilidade; pesquisadores(as) de IoT e eHealth.",
     "references": "Javed, M., Rehman, S. U., & Hassan, S. (2023). Decentralized\nBlockchain-Based and Trust-Aware Task Offloading Strategy for\nHealthcare IoT. IEEE Access, 11, 39821–39836.\n296"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Taxa de Confiabilidade",
-    "Palavras-chave / Alias": "Reliability; Reliability Rate; System Dependability;\nBlockchain Reliability; Task Completion Ratio",
-    "Definição do Atributo": "Mede a capacidade de um sistema blockchain de executar\ntarefas ou transações corretamente sem falhas, avaliando\na proporção de operações bem-sucedidas em relação ao\ntotal de operações solicitadas. Reflete a estabilidade e a\nrobustez do sistema sob diferentes condições de carga ou\nfalha de nós.",
-    "Objetivo / Motivação": "Quantificar o grau de confiança e consistência de um\nsistema blockchain distribuído, especialmente em aplicações de IoT e saúde, onde falhas de execução podem\ncomprometer a integridade dos dados e a continuidade\ndo serviço.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Confiabilidade",
-    "Sub-característica": "Maturidade / Tolerância a Falhas",
-    "Equação": "Reliability Rate = Noperações bem-sucedidas\nNoperações totais\n× 100\nonde Noperações bem-sucedidas representa o número de tarefas\nou transações executadas com sucesso, e Noperações totais é\no número total de operações tentadas.\nMétricas\nAssociadas\nTask Success Rate; Fault Tolerance; Uptime Ratio; Response Success Ratio\nAtributo\nRelacionado\nDisponibilidade; Robustez; Eficiência de Desempenho",
-    "Protocolo": "1) Definir um conjunto de tarefas ou transações a serem\nprocessadas pela rede blockchain.\n2) Registrar o número total de tentativas e o número de\nexecuções bem-sucedidas.\n3) Avaliar a confiabilidade média sob diferentes cargas,\nlatências de rede e níveis de falha simulada.\n4) Calcular o percentual de sucesso usando a equação\ndefinida.",
-    "Comentário": "A confiabilidade é um indicador crítico em blockchains\naplicadas à IoT e saúde, onde interrupções ou falhas de\nconsenso podem causar perdas de dados sensíveis. Uma\nalta taxa de confiabilidade indica um sistema resiliente e\ncapaz de manter a integridade transacional mesmo sob\ncondições adversas.\n295\n\nInterpretação\ndo\nValor Medido\nValores mais altos indicam sistemas mais estáveis e consistentes. Uma confiabilidade próxima de 100% é ideal,\nsugerindo que o sistema opera de forma previsível e segura.",
-    "Unidade": "Percentual (%)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Alta, dependendo da amostragem de tarefas e do monitoramento contínuo das falhas e repetições de execução.",
-    "Tipo de Coleta de Dados": "Automática / Experimental",
-    "Ferramenta de Medição": "Simuladores de blockchain; logs de execução; plataformas IoT integradas (por exemplo, Ethereum Testnet,\nHyperledger Fabric, ou frameworks específicos de IoT).",
-    "Processos de Uso Potenciais": "Avaliação de estabilidade de redes blockchain; análise de\nrobustez em sistemas de saúde; auditoria de disponibilidade e confiança em ambientes distribuídos.",
-    "Beneficiários Potenciais": "Engenheiros(as) de sistemas distribuídos; arquitetos(as)\nde blockchain; analistas de confiabilidade; pesquisadores(as) de IoT e eHealth.",
-    "Referências": "Javed, M., Rehman, S. U., & Hassan, S. (2023). Decentralized\nBlockchain-Based and Trust-Aware Task Offloading Strategy for\nHealthcare IoT. IEEE Access, 11, 39821–39836.\n296"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 126"

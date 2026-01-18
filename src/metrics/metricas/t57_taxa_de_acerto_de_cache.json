@@ -21,25 +21,6 @@
     "beneficiaries": "Desenvolvedores de clientes blockchain; engenheiros de desempenho; pesquisadores em sistemas distribuídos; operadores de nós.",
     "references": "Yang, R.; Murray, T.; Rimba, P.; Parampalli, U. Empirically Analyzing Ethereum’s Gas Mechanism. IEEE Access / arXiv, 2019. — O estudo analisa o impacto de caches em memória na execução de opcodes e mede explicitamente taxas de acerto de cache e sua relação com desempenho."
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Taxa de Acerto de Cache (Cache Hit Rate)",
-    "Palavras-chave / Alias": "Cache hit rate; Cache effectiveness; Memory cache efficiency",
-    "Definição do Atributo": "Mede a proporção de acessos ao estado blockchain atendidos por caches em memória, em relação ao total de acessos realizados.",
-    "Objetivo / Motivação": "Avaliar a eficiência do uso de cache para reduzir acessos a disco e melhorar o desempenho da execução de transações.",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "CHR = N_hit / (N_hit + N_miss)",
-    "Protocolo": "Monitorar acessos ao estado durante a execução de transações e registrar eventos de cache hit e miss.",
-    "Comentário": "Caches são mais eficazes quando há localidade de referência. Em contratos inteligentes com acessos dispersos ao estado, a taxa de acerto tende a ser menor.",
-    "Unidade": "Percentual (%)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Relacionada à precisão dos mecanismos de logging e tracing.",
-    "Tipo de Coleta de Dados": "Automática",
-    "Ferramenta de Medição": "Clientes instrumentados; ferramentas de tracing; logs de execução.",
-    "Processos de Uso Potenciais": "Otimização de clientes blockchain; análise de gargalos de I/O; avaliação de impacto de hardware.",
-    "Beneficiários Potenciais": "Desenvolvedores; pesquisadores; operadores de infraestrutura.",
-    "Referências": "Yang et al., Empirically Analyzing Ethereum’s Gas Mechanism, 2019."
-  },
   "source": {
     "pdf": "Empirically_Analyzing_Ethereum_Gas_Mechanism.pdf",
     "table": "Tabela 57"

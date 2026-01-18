@@ -1,0 +1,29 @@
+{
+  "id": "t1",
+  "table_no": 1,
+  "name": "Propagação de Blocos",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo decorrido desde o anúncio de um novo bloco por\num nó minerador até que uma fração p% dos pares na\nrede o receba/valide. Em Bitcoin (e redes similares),\nprotocolos como sendheaders e compact block relay\ninfluenciam diretamente esse tempo.",
+    "equation": "Propagaçãop% = Tp% −Tanúncio\n(tempo até p% dos\npares).\nMétrica derivada útil: ρp% =\nPropagaçãop%\nIntervalo de Bloco (deve\nser ≪1).\nMétricas\nAssociadas\nTaxa de forks/órfãos; Tamanho de bloco; Intervalo de\nbloco; Latência de rede; Throughput; Localização geográfica dos mineradores.\n1\n\nAtributo\nRelacionado\nConfiabilidade/Consistência da cadeia; Segurança (chain\nquality); Justiça entre mineradores.",
+    "unit": "Milissegundos (ms) ou segundos (s).",
+    "protocol": "1. Definir o critério p (ex.: 50% e 90%) e o evento de\ninício Tanúncio (anúncio do bloco).\n2. Instrumentar nós de medição em regiões distintas\ne habilitar logs/telemetria do cliente (p.ex., cabeçalhos\nenviados, pedidos getdata, CBR).\n3.\nPara cada bloco observado, registrar o tempo de\nrecepção/validação por cada nó; calcular Tp%.\n4. Calcular estatísticas (mediana, p90, p95, p99) e a\nrazão ρp%; comparar esquemas (headers vs CBR) e\ncenários de tamanho de bloco/carga.\n5. Reportar condições de teste: largura de banda, RTT,\nnúmero de pares, topologia/Região do minerador e versão\ndo protocolo de propagação.",
+    "comment": "Em medições/simulações de Bitcoin, sendheaders e sobretudo CBR reduzem significativamente o tempo de pro-\npagação; blocos maiores elevam a validação/propagação\ne aumentam a taxa de órfãos sob métodos legados. A\nlocalização geográfica e a banda de upload do minerador\ninfluenciam o tempo para atingir p90 de cobertura. Em\ndesigns de consórcio/IIoMT, reduzir o payload on-chain\n(armazenando apenas metadados) diminui sobrecarga de\nrede e contribui para menor atraso fim-a-fim.\nInterpretação\ndo\nValor Medido\nMenor é melhor. Priorizar percentis altos (p90/p95/p99).\nRecomenda-se ρp% muito abaixo de 1; se ρp% crescer,\nespera-se maior taxa de órfãos e risco a segurança.",
+    "scale_type": "Absoluta",
+    "precision": "Depende de sincronização de relógio (NTP/PTP), granularidade de logs/eventos e relógio do sistema dos nós\nmedidos.",
+    "data_collection": "Automática",
+    "use_processes": "Avaliação/otimização de protocolos de propagação (headers/CBR); estudos de impacto de tamanho de bloco;\nplanejamento de infraestrutura P2P; definição de SLAs\noperacionais.",
+    "objective": "Quantificar a eficiência da camada P2P na disseminação de blocos, pois maiores tempos de propagação\nelevam a taxa de órfãos (stale) e prejudicam a segurança/consistência da cadeia. Também subsidia decisões\nsobre tamanho de bloco e intervalos de geração.",
+    "measurement_tool": "Clientes Bitcoin/ETH instrumentados (logs de rede),\npacket capture, simuladores (bns/ns-3) e testnets com\nmúltiplas regiões.",
+    "beneficiaries": "Engenheiros de protocolo; Operações/SRE; Mineradores/validadores; Arquitetos de redes e produto.\n2",
+    "domain_independence": "Totalmente independente do domínio — aplicável a criptomoedas, IoT/IIoMT e consórcios.\nModelo\nde\nQualidade\nISO/IEC 25010 (Eficiência de Desempenho)",
+    "references": "Rohrer & Tschorsch — Blockchain Layer Zero: Characterizing the Bitcoin Network through Measurements,\nModels, and Simulations.\nAli et al. — A Novel Homomorphic Encryption and Consortium Blockchain-Based Hybrid Deep Learning Model\nfor IIoMT.\n3"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 1"
+  }
+}

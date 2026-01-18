@@ -21,25 +21,6 @@
     "beneficiaries": "Pesquisadores(as) em redes blockchain; engenheiros(as)\nde protocolo; operadores(as) de pools de mineração; arquitetos(as) de infraestrutura distribuída.",
     "references": "Rohrer, E., & Tschorsch, F. (2021). Blockchain Layer Zero: Characterizing the Bitcoin Network through Measurements, Models,\nand Simulations.\nIEEE 46th Conference on Local Computer\nNetworks (LCN), 9–16. DOI: 10.1109/LCN52139.2021.9524930.\n290"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Taxa de Blocos Obsoletos",
-    "Palavras-chave / Alias": "Stale block rate; Orphan block ratio; Fork rate; Block\npropagation delay; Network congestion",
-    "Definição do Atributo": "Mede a proporção de blocos minerados que não são incluídos na cadeia principal devido a atrasos de propagação ou\ncongestionamentos na rede. Esses blocos são chamados\nde “blocos órfãos” (stale blocks) e representam esforço\ncomputacional desperdiçado, afetando a eficiência e a\nsegurança da blockchain.",
-    "Objetivo / Motivação": "Avaliar o impacto da latência e da largura de banda na\npropagação de blocos e na segurança do consenso. A\nmétrica permite identificar gargalos de rede que aumentam a chance de bifurcações e reduzem a eficiência da\nmineração.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Confiabilidade",
-    "Sub-característica": "Tolerância a Falhas",
-    "Equação": "Taxa de Blocos Órfãos =\nNórfãos\nNtotal de blocos\n× 100\nonde Nórfãos é o número de blocos minerados que não\nforam adicionados à cadeia principal e Ntotal de blocos é o\nnúmero total de blocos minerados no mesmo período.\nMétricas\nAssociadas\nTempo de propagação de blocos; Largura de banda; Tamanho do bloco; Dificuldade de mineração; Taxa de\nhash\nAtributo\nRelacionado\nThroughput; Latência de rede; Consistência da cadeia;\nEficiência da mineração",
-    "Protocolo": "1) Monitorar o total de blocos minerados e identificar\nquais foram rejeitados ou substituídos.\n2) Medir o atraso médio de propagação de blocos entre\nos nós mineradores.\n3) Correlacionar a taxa de blocos órfãos com o tamanho\nmédio do bloco e o nível de congestionamento da rede.\n4) Comparar os resultados sob diferentes esquemas de\npropagação (ex.: header-based vs compact block relay).\n289",
-    "Comentário": "O estudo mostra que o aumento do tamanho dos blocos\ne o uso de mecanismos de propagação menos eficientes\nelevam significativamente a taxa de blocos órfãos. A\nsimulação revelou que blocos de 16 MB propagados via\nmétodo tradicional (header-based) atingem taxas acima\nde 6%, enquanto o uso de compact block relay mantém a\ntaxa praticamente nula. Assim, a métrica é fundamental\npara avaliar a escalabilidade e segurança de redes PoW\ncomo o Bitcoin.\nInterpretação\ndo\nValor Medido\nUma taxa de blocos órfãos alta indica ineficiência de\nrede e risco de perda de segurança na camada de consenso. Valores próximos de 0% são ideais, sugerindo uma\npropagação eficiente e sincronizada entre os mineradores.",
-    "Unidade": "Percentual (%)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Alta, quando os blocos rejeitados são identificados corretamente pelos logs de nós mineradores e analisados em\nperíodos consistentes de mineração.",
-    "Tipo de Coleta de Dados": "Automática / Experimental (via simulação ou monitoramento da rede)",
-    "Ferramenta de Medição": "Simuladores como bns, SimBlock, ns-3, ou dados empíricos de plataformas como Blockchain.info e Bitnodes.",
-    "Processos de Uso Potenciais": "Avaliação de protocolos de propagação; análise de eficiência de rede; estudo de escalabilidade; teste de impacto de\naumento de tamanho de bloco; otimização de topologias\nde rede blockchain.",
-    "Beneficiários Potenciais": "Pesquisadores(as) em redes blockchain; engenheiros(as)\nde protocolo; operadores(as) de pools de mineração; arquitetos(as) de infraestrutura distribuída.",
-    "Referências": "Rohrer, E., & Tschorsch, F. (2021). Blockchain Layer Zero: Characterizing the Bitcoin Network through Measurements, Models,\nand Simulations.\nIEEE 46th Conference on Local Computer\nNetworks (LCN), 9–16. DOI: 10.1109/LCN52139.2021.9524930.\n290"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 123"

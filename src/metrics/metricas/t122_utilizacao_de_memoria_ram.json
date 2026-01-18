@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros(as) de blockchain; administradores(as) de\nsistemas; pesquisadores(as) em eficiência energética; desenvolvedores(as) de aplicações IoT.",
     "references": "El Koshiry, A. M., Eliwa, E., & Abdel Hameed, H. (2023). The\nEffectiveness of Using Blockchain Technology in Building HighQuality Educational Content Based on A Participatory Learning\nEnvironment and Its Impact on Increasing Student Achievement.\nInternational Journal of Intelligent Systems and Applications in\nEngineering, 11(1), 50–62.\n288"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Utilização de RAM",
-    "Palavras-chave / Alias": "Memory Usage; RAM Consumption; Memory Load; Resource Utilization; Memory Performance",
-    "Definição do Atributo": "Mede a quantidade de memória RAM utilizada por nós\nou mineradores durante a execução de operações em\numa blockchain. A métrica reflete a eficiência de uso de\nrecursos de hardware e sua relação com o tamanho da\nblockchain, dificuldade dos blocos e carga de transações.",
-    "Objetivo / Motivação": "Avaliar a eficiência do uso da memória durante a execução de processos de mineração, validação e operação\nde contratos inteligentes, a fim de identificar gargalos e\ndimensionar corretamente os recursos de infraestrutura\nblockchain.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "RAM Utilization (%) =\nMemória utilizada (MB)\nMemória total disponível (MB)×100\nou, em bytes:\nRAM Utilization = RAM usada\nRAM total\nMétricas\nAssociadas\nCPU Utilization; Storage Usage; Block Size; Network\nBandwidth; Energy Consumption\nAtributo\nRelacionado\nEficiência Computacional; Desempenho de Processamento; Capacidade de Armazenamento",
-    "Protocolo": "1) Monitorar a RAM utilizada por cada nó da rede durante períodos de execução definidos (ex.: intervalos de\n2 minutos).\n2) Registrar o uso médio e o desvio padrão da memória.\n3) Comparar a evolução da RAM utilizada com o crescimento do número de blocos e o aumento da dificuldade.\n4) Repetir a medição em diferentes dispositivos (ex.:\nRaspberry Pi, mineradores, servidores EC2).\n287",
-    "Comentário": "O estudo observou que o consumo de memória RAM\npor mineradores é linear e independente do tamanho\nda blockchain ou da dificuldade de mineração. Nos nós\nRaspberry Pi, o uso de RAM tende a convergir entre dispositivos diferentes, apresentando baixa variação (desvio\npadrão inferior a uma unidade). Isso indica estabilidade\nno uso de memória mesmo com o aumento do número\nde blocos.\nInterpretação\ndo\nValor Medido\nValores mais baixos indicam boa eficiência de recursos.\nUm uso de RAM estável e previsível é desejável para\ngarantir escalabilidade e sustentabilidade da rede em\ndispositivos de baixa capacidade, como nós IoT.",
-    "Unidade": "Megabytes (MB) ou Percentual de uso de memória (%)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Alta, desde que as medições sejam realizadas com intervalos constantes e monitoramento automatizado.",
-    "Tipo de Coleta de Dados": "Automática / Experimental",
-    "Ferramenta de Medição": "Monitoramento via\nhtop,\nvmstat,\nfree -m,\nPrometheus/Grafana, ou scripts Python para coleta em\ntempo real de /proc/meminfo.",
-    "Processos de Uso Potenciais": "Benchmarking de desempenho; otimização de nós de\nbaixo consumo; dimensionamento de infraestrutura para\nredes privadas; avaliação de eficiência em ambientes educacionais e IoT.",
-    "Beneficiários Potenciais": "Engenheiros(as) de blockchain; administradores(as) de\nsistemas; pesquisadores(as) em eficiência energética; desenvolvedores(as) de aplicações IoT.",
-    "Referências": "El Koshiry, A. M., Eliwa, E., & Abdel Hameed, H. (2023). The\nEffectiveness of Using Blockchain Technology in Building HighQuality Educational Content Based on A Participatory Learning\nEnvironment and Its Impact on Increasing Student Achievement.\nInternational Journal of Intelligent Systems and Applications in\nEngineering, 11(1), 50–62.\n288"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 122"

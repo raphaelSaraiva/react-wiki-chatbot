@@ -1,0 +1,29 @@
+{
+  "id": "t22",
+  "table_no": 22,
+  "name": "Sobrecarga de Armazenamento",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Definition: Quantidade de bytes adicionais além do conteúdo útil\n(payload) necessários para registrar/gerir dados na solução (on-chain e/ou off-chain): cabeçalhos, índices/estado\n(world state), metadados de acesso, hashes/âncoras\ne replicação.\nEm estudos com Hyperledger Fabric/arquiteturas híbridas, a métrica é reportada para\ncomparar alternativas e evidenciar reduções ao mover\ndados volumosos para repositórios externos e ancorar\napenas hashes. :contentReference[oaicite:0]index=0 :contentReference[oaicite:1]index=1",
+    "equation": "Overheadabs(P)\n=\n∆Bledger(P) + ∆Boff-chain(P) −\nBpayload(P)\nOverhead%(P) = Overheadabs(P)\nBpayload(P)\n× 100%\nForma por transação: Overhead/tx = Bheader + Bmeta +\nBíndices/estado + Breplic.\nMétricas\nAssociadas\nCusto de Armazenamento; Custo de Operação; Throughput (TPS); Latência de consulta; Tamanho de Bloco;\nTamanho do ledger.\nAtributo\nRelacionado\nConsumo de Recursos (IO/rede/armazenamento); Disponibilidade e integridade de dados (âncoras/hashes).\n60",
+    "unit": "Bytes (B), kB, MB (absoluto); % (relativo).",
+    "protocol": "1) Escopo & cenários: definir janelas [t0, t1] e cenários\n(on-chain integral vs. híbrido com âncoras).\n2) Coleta on-chain: medir crescimento do ledger e do\nworld state (Fabric: CouchDB/LevelDB) por operação\n(write, update, deploy).\n3)\nColeta\noff-chain:\nmedir\nbytes\nefetivos\nem\nIPFS/Cloud (se houver), incluindo metadados e replicação.\n4)\nCálculo:\nobter\nOverheadabs,\nOverhead%\ne\nOverhead/tx; reportar p50/p95/p99.\n5) Contexto: registrar parâmetros (tamanho/timeout\nde bloco, política de batch, layout de dados) e perfil de\ncarga. :contentReference[oaicite:4]index=4 :contentReference[oaicite:5]index=5",
+    "comment": "Em avaliações com Hyperledger Fabric para IoT/eHealth e gestão educacional, soluções que mantêm\napenas metadados/âncoras on-chain e dados cifrados\noff-chain mostram redução de storage overhead\ne aumento de throughput em relação a abordagens tradicionais, preservando segurança e auditabili-\ndade. :contentReference[oaicite:6]index=6 :contentReference[oaicite:7]index=7\nInterpretação\ndo\nValor Medido\nMenor é melhor. Reduções de Overhead% indicam\nmelhor eficiência de armazenamento; comparar por cenário e por tipo de operação (deploy, escrita, atuali-\nzação).\nEstudos reportam ganhos relevantes quando\nse migra o payload para off-chain com ancoragem na\nblockchain. :contentReference[oaicite:8]index=8 :contentReference[oaicite:9]index=9",
+    "scale_type": "Razão",
+    "precision": "Garantir medições antes/depois por janela; considerar\ncompressão/replicação; isolar warm-up; versionamento\nde esquemas (mudança de chave/índice) pode alterar o\nworld state. :contentReference[oaicite:10]index=10",
+    "data_collection": "Automática",
+    "use_processes": "Planejamento de capacidade; decisão on-chain vs. offchain; otimização de schema/metadados; avaliação de\npolíticas de retenção; análise de custo total (capex/opex)\npor cenário.",
+    "objective": "Medir o impacto de design (on-chain vs. off-chain) sobre a capacidade e custo. Trabalhos recentes mostram\nque modelos com blockchain + armazenamento distribuído reduzem significativamente a carga de armazena-\nmento do sistema, mantendo integridade/consulta eficiente. :contentReference[oaicite:2]index=2 :contentRefe-\nrence[oaicite:3]index=3",
+    "measurement_tool": "Hyperledger\nFabric\n(métricas\nde\nledger/CouchDB/LevelDB); scripts via SDK (getBlock,\ntamanho de estado); IPFS/Cloud & pinning; benchmarks (Caliper) para correlacionar overhead com\nTPS/latência.\n:contentReference[oaicite:11]index=11\n:contentReference[oaicite:12]index=12\n61",
+    "beneficiaries": "Engenheiros(as) de blockchain; SRE/Operações; FinOps;\nArquitetos(as) de dados; Gestores(as) de produto/SLA.",
+    "domain_independence": "Alto — aplicável a educação, e-Health/IoT, cadeias de\nsuprimento, etc.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "references": "(1) Alshehri, S.; Bamasag, O. AAC-IoT: Attribute Access Control\nScheme for IoT Using Lightweight Cryptography and Hyperledger Fabric. Resultados incluem latência, throughput e storage\noverhead, evidenciando ganhos com desenho leve e HLF. :contentReference[oaicite:13]index=13\n(2) Ouyang, S.; Huang, X. Education Evaluation Management\nBased on Blockchain Technology.\nDemonstra redução significativa da carga/overhead de armazenamento com a ar-\nquitetura proposta e ganhos de throughput.\n:contentReference[oaicite:14]index=14\n62"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 22"
+  }
+}

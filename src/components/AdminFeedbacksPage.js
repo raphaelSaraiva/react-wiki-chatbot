@@ -510,6 +510,9 @@ export default function AdminFeedbacksPage() {
   const [tab, setTab] = useState("overview");
   const [expandedSubmissionId, setExpandedSubmissionId] = useState(null);
 
+  // ✅ filtro do gráfico "Opção preferida" por usuário
+  const [chatUserId, setChatUserId] = useState("__ALL__");
+
   const tamIndex = useMemo(() => buildTamIndex(), []);
   const [tamItemSelected, setTamItemSelected] = useState(
     () => tamIndex.items?.[0]?.id || ""
@@ -586,21 +589,51 @@ export default function AdminFeedbacksPage() {
     const visitedVals = filtered.map((x) => x._visitedCount || 0);
     const questionsVals = filtered.map((x) => x._questionsCount || 0);
 
-    // Chat analytics
-    const allChat = filtered.flatMap((x) => x.experiment?.questions || []);
-    const modelCounts = countValues(
-      allChat.map((q) => q?.model || "(sem modelo)")
-    );
+    // ---------------- CHAT analytics ----------------
+    const allChatAllUsers = filtered.flatMap((x) => x.experiment?.questions || []);
 
-    // ✅ Opção preferida: 1 = com RAG, 2 = sem RAG
-    const optionCounts = countValues(
-      allChat.map((q) => {
-        const v = String(q?.preferredOption ?? "").trim();
-        if (v === "1") return "Com RAG";
-        if (v === "2") return "Sem RAG";
-        return "(sem)";
-      })
-    );
+    // ✅ opções do select
+    const chatUsersOptions = [
+      { value: "__ALL__", label: `Todos os usuários (${filtered.length})` },
+      ...filtered.map((x) => ({
+        value: x.id,
+        label: `${x._name ? x._name + " · " : ""}${x._email ? x._email + " · " : ""}${x.id}`,
+      })),
+    ];
+
+    // ✅ selecionado (ou todos)
+    const selectedUser =
+      chatUserId === "__ALL__"
+        ? null
+        : filtered.find((x) => String(x.id) === String(chatUserId));
+
+    const allChat =
+      selectedUser && Array.isArray(selectedUser.experiment?.questions)
+        ? selectedUser.experiment.questions
+        : allChatAllUsers;
+
+    const modelCounts = countValues(allChat.map((q) => q?.model || "(sem modelo)"));
+
+    // ✅ preferencia COM/SEM RAG/AMBAS (usa option1_variant/option2_variant + preferredOption)
+    function labelRagChoiceFromQuestion(q) {
+      const pref = String(q?.preferredOption ?? "").trim();
+
+      const v1 = String(q?.option1_variant ?? "").trim().toLowerCase(); // "rag" | "norag"
+      const v2 = String(q?.option2_variant ?? "").trim().toLowerCase(); // "rag" | "norag"
+
+      const toLabel = (variant) => {
+        if (variant === "rag") return "Com RAG";
+        if (variant === "norag") return "Sem RAG";
+        return "(sem variante)";
+      };
+
+      if (pref === "3") return "Ambas";
+      if (pref === "1") return toLabel(v1);
+      if (pref === "2") return toLabel(v2);
+      return "(sem)";
+    }
+
+    const chatOptionCounts = countValues(allChat.map((q) => labelRagChoiceFromQuestion(q)));
 
     // ✅ NOTAS: média por usuário (submissão)
     const perUserAvgRatings = filtered
@@ -744,8 +777,10 @@ export default function AdminFeedbacksPage() {
       visitedVals,
       questionsVals,
 
+      // chat
       modelCounts,
-      optionCounts,
+      chatOptionCounts,
+      chatUsersOptions,
 
       // ✅ ratings (média por usuário)
       ratingUsersLikert,
@@ -777,7 +812,7 @@ export default function AdminFeedbacksPage() {
       dateMax,
       totalChatQuestions,
     };
-  }, [filtered, tamItemSelected]);
+  }, [filtered, tamItemSelected, chatUserId]);
 
   const exportFiltered = () =>
     downloadJSON(
@@ -1113,15 +1148,49 @@ export default function AdminFeedbacksPage() {
             />
           </div>
 
+          {/* ✅ Card com select + gráfico filtrado */}
           <div className="col-12 col-lg-6">
-            <SvgBarChart
-              title="Chat · Opção preferida"
-              exportName="chat_opcao_preferida"
-              subtitle="Contagem de preferências entre as opções com/sem RAG"
-              data={stats.optionCounts}
-              height={260}
-              maxBars={10}
-            />
+            <div className="card" style={styles.card}>
+              <div className="card-body">
+                <div className="d-flex justify-content-between align-items-start gap-2">
+                  <div>
+                    <div className="fw-bold" style={{ fontSize: 14 }}>
+                      Chat · Opção preferida
+                    </div>
+                    <div className="text-muted" style={{ fontSize: 12 }}>
+                      Contagem de preferências: <b>Com RAG</b> / <b>Sem RAG</b> /{" "}
+                      <b>Ambas</b>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-3">
+                  <label className="form-label fw-semibold">Usuário</label>
+                  <select
+                    className="form-select"
+                    value={chatUserId}
+                    onChange={(e) => setChatUserId(e.target.value)}
+                  >
+                    {(stats.chatUsersOptions || []).map((u) => (
+                      <option key={u.value} value={u.value}>
+                        {u.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="mt-3">
+                  <SvgBarChart
+                    title="Preferência (Com RAG / Sem RAG / Ambas)"
+                    exportName={`chat_opcao_preferida_${chatUserId}`}
+                    subtitle="Baseado em preferredOption + option1_variant/option2_variant"
+                    data={stats.chatOptionCounts}
+                    height={260}
+                    maxBars={10}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="col-12">
@@ -1180,7 +1249,10 @@ export default function AdminFeedbacksPage() {
                               >
                                 {x.id}
                               </div>
-                              <div className="text-muted" style={{ fontSize: 12 }}>
+                              <div
+                                className="text-muted"
+                                style={{ fontSize: 12 }}
+                              >
                                 {formatDateTime(x._createdDate)}
                               </div>
                             </div>
@@ -1194,8 +1266,11 @@ export default function AdminFeedbacksPage() {
                               </span>
 
                               <button
-                                className={`btn btn-sm ${isOpen ? "btn-outline-secondary" : "btn-warning"
-                                  } fw-semibold`}
+                                className={`btn btn-sm ${
+                                  isOpen
+                                    ? "btn-outline-secondary"
+                                    : "btn-warning"
+                                } fw-semibold`}
                                 onClick={() =>
                                   setExpandedSubmissionId(isOpen ? null : x.id)
                                 }
@@ -1211,9 +1286,15 @@ export default function AdminFeedbacksPage() {
                                 {[
                                   ["Idade", prettyValue(p.DQ1_age)],
                                   ["Gênero", prettyValue(p.DQ1_gender)],
-                                  ["Escolaridade", prettyValue(p.DQ2_education)],
+                                  [
+                                    "Escolaridade",
+                                    prettyValue(p.DQ2_education),
+                                  ],
                                   ["Cargo/Função", prettyValue(p.DQ3_role)],
-                                  ["Área de expertise", prettyValue(p.DQ4_expertise)],
+                                  [
+                                    "Área de expertise",
+                                    prettyValue(p.DQ4_expertise),
+                                  ],
                                   [
                                     "Anos de experiência profissional",
                                     prettyValue(p.DQ5_years_professional),
@@ -1248,7 +1329,12 @@ export default function AdminFeedbacksPage() {
                                       >
                                         {label}
                                       </div>
-                                      <div style={{ fontSize: 13, fontWeight: 800 }}>
+                                      <div
+                                        style={{
+                                          fontSize: 13,
+                                          fontWeight: 800,
+                                        }}
+                                      >
                                         {value}
                                       </div>
                                     </div>

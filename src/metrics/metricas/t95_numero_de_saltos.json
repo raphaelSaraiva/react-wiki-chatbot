@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros de blockchain; pesquisadores em redes P2P;\ndesenvolvedores de protocolos Ethereum; analistas de\ndesempenho distribuído.",
     "references": "Heilman, E.; Al-Bassam, M.; Al-Khateeb, H. Ethna: Analyzing the\nUnderlying Peer-to-Peer Network of Ethereum Blockchain. IEEE\nAccess, vol. 8, pp. 2140–2145, 2020. — O estudo apresenta a métrica Number of Hops para mensurar a eficiência da propagação\nde mensagens e blocos na rede P2P do Ethereum, mostrando que\nsão necessários em média de 3 a 4 saltos para atingir a totalidade\ndos nós.\n231"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Número de Saltos",
-    "Palavras-chave / Alias": "Number of hops; Hop count; Propagation path length;\nMessage dissemination; P2P routing; Propagation efficiency",
-    "Definição do Atributo": "Mede o número médio de saltos (ou hops) necessários\npara que uma mensagem — seja uma transação ou um\nbloco — alcance a maioria dos nós da rede blockchain.\nEssa métrica reflete a eficiência da topologia P2P na\ndisseminação de informações e está diretamente relacionada à latência de propagação e ao tempo de consenso\nda rede.",
-    "Objetivo / Motivação": "Avaliar a eficiência da disseminação de mensagens e a\nconectividade entre nós na rede blockchain. Um número\nmenor de saltos indica uma rede mais eficiente e com\nmenor atraso na entrega de blocos e transações, o que\nimpacta diretamente o desempenho global e o tempo de\nconfirmação.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Capacidade",
-    "Equação": "O número médio de saltos (H) é calculado pela distância\nmédia entre o nó de origem e os demais nós alcançados\nna rede:\nH = 1\nN\nN\nX\ni=1\ndi\nonde di representa o número de saltos percorridos até o\nnó i e N é o total de nós alcançados.\nEm redes blockchain, H é geralmente estimado a partir\nda diferença temporal de recebimento de mensagens entre\npares conhecidos e pela topologia inferida da rede P2P.\nMétricas\nAssociadas\nLatência de Propagação; Desempenho da Rede; Conectividade de Nós; Throughput; Tempo de Confirmação\nAtributo\nRelacionado\nEficiência de Comunicação; Propagação de Mensagens;\nSincronização de Rede\n230",
-    "Protocolo": "1) Implantar nós de monitoramento (observer nodes)\nconectados a múltiplos nós Ethereum reais.\n2) Enviar e rastrear mensagens (transações e blocos) e\nregistrar o tempo de recebimento em cada nó.\n3) Calcular o número de saltos com base nas rotas de\npropagação reconstruídas e nos tempos de chegada.\n4) Analisar a distribuição dos valores de H e determinar\na média global de saltos por tipo de mensagem.\n5) Comparar resultados entre mensagens de transações\ne blocos.",
-    "Comentário": "O estudo Ethna mostra que o Ethereum possui uma topologia de pequeno mundo (small-world network), exigindo\nem média apenas 3 a 4 saltos para que uma transação ou\nbloco alcance a maioria dos nós. Esse comportamento\nindica alta eficiência na propagação, embora a latência\ntotal varie entre 200 ms (transações) e 477 ms (blocos). A\nmétrica é fundamental para compreender a escalabilidade\ne o desempenho do protocolo P2P subjacente.\nInterpretação\ndo\nValor Medido\nValores baixos de H indicam rede eficiente com boa\nconectividade e baixa latência. Valores altos sugerem\ntopologias fragmentadas ou gargalos na disseminação de\nblocos.",
-    "Unidade": "Número de saltos (hops)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Alta, dependendo da instrumentação e da capacidade de\nreconstruir rotas de propagação com precisão temporal.",
-    "Tipo de Coleta de Dados": "Experimental / Monitoramento em tempo real",
-    "Ferramenta de Medição": "Ethna (Ethereum Network Analyzer); nós de observação\ne monitoramento; análise de logs de propagação; scripts\nde reconstrução de rotas.",
-    "Processos de Uso Potenciais": "Avaliação da eficiência de redes blockchain; otimização\nda topologia P2P; redução da latência de propagação;\nanálise de escalabilidade e desempenho de rede.",
-    "Beneficiários Potenciais": "Engenheiros de blockchain; pesquisadores em redes P2P;\ndesenvolvedores de protocolos Ethereum; analistas de\ndesempenho distribuído.",
-    "Referências": "Heilman, E.; Al-Bassam, M.; Al-Khateeb, H. Ethna: Analyzing the\nUnderlying Peer-to-Peer Network of Ethereum Blockchain. IEEE\nAccess, vol. 8, pp. 2140–2145, 2020. — O estudo apresenta a métrica Number of Hops para mensurar a eficiência da propagação\nde mensagens e blocos na rede P2P do Ethereum, mostrando que\nsão necessários em média de 3 a 4 saltos para atingir a totalidade\ndos nós.\n231"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 95"

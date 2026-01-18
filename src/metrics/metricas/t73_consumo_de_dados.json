@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros de blockchain; arquitetos de segurança; administradores de infraestrutura; pesquisadores em sistemas distribuídos.",
     "references": "Khan, M. A.; Salah, K. A Blockchain-Based Certificate Revocation. IEEE Access, 2018."
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Consumo de Dados (Data Consumption)",
-    "Palavras-chave / Alias": "Data consumption; Network overhead; Bandwidth usage; Ledger growth",
-    "Definição do Atributo": "Mede o volume de dados transmitidos e armazenados por um sistema blockchain durante sua operação.",
-    "Objetivo / Motivação": "Avaliar o impacto do uso de blockchain sobre tráfego de rede e armazenamento, especialmente em aplicações de segurança digital.",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "DC = D_tx + D_ctrl + D_ledger",
-    "Protocolo": "Monitorar tráfego de rede, tamanho das transações e crescimento do ledger durante a operação do sistema.",
-    "Comentário": "Soluções blockchain tendem a consumir mais dados que abordagens centralizadas, porém oferecem maior disponibilidade e resistência a falhas.",
-    "Unidade": "MB ou GB",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Dependente da instrumentação e do ambiente experimental.",
-    "Tipo de Coleta de Dados": "Automática / Experimental",
-    "Ferramenta de Medição": "Ferramentas de monitoramento de rede e armazenamento.",
-    "Processos de Uso Potenciais": "Análise de escalabilidade; planejamento de infraestrutura; comparação de soluções de revogação.",
-    "Beneficiários Potenciais": "Desenvolvedores; pesquisadores; operadores de sistemas.",
-    "Referências": "Khan & Salah, A Blockchain-Based Certificate Revocation, IEEE Access, 2018."
-  },
   "source": {
     "pdf": "A_blockchain_based_certificate_revocation.pdf",
     "table": "Tabela 131 (adaptada)"

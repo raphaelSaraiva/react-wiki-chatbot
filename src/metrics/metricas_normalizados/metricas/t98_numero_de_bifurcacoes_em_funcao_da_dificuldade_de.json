@@ -1,0 +1,28 @@
+{
+  "id": "t98",
+  "table_no": 98,
+  "name": "Número de Forks por Dificuldade de Mineração",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Definition: Mede o número de bifurcações (forks) que ocorrem\nna blockchain sob diferentes níveis de dificuldade de\nmineração. Essa métrica permite avaliar como o ajuste\ndinâmico da dificuldade influencia a frequência de blocos\nconflitantes e a estabilidade geral da rede blockchain.",
+    "equation": "O número de bifurcações pode ser representado como\numa função da dificuldade de mineração (D):\nF(D) = Nforks\nNblocks\nonde F(D) é a frequência relativa de forks, Nforks é o\nnúmero de blocos que resultaram em bifurcação e Nblocks\no número total de blocos minerados sob uma dificuldade\nD. A curva F(D) deve decrescer com o aumento de D\nem redes estáveis.\nMétricas\nAssociadas\nDificuldade de Mineração; Taxa de Blocos Huérfanos;\nThroughput de Blocos; Tempo de Confirmação; Conectividade de Nós\nAtributo\nRelacionado\nEstabilidade do Consenso; Robustez da Rede; Sincronização de Blocos; Eficiência de Mineração\n236",
+    "unit": "Número de forks ou proporção de forks por bloco (%)",
+    "protocol": "1) Configurar ambiente blockchain com controle ajustável\nde dificuldade de mineração (D).\n2) Executar simulações ou mineração real em diferentes\nvalores de D.\n3) Registrar o número de blocos válidos e o número de\nbifurcações detectadas.\n4) Calcular F(D) para cada nível de dificuldade.\n5) Analisar a relação entre D e a frequência de forks para\ndeterminar a faixa de operação ideal.",
+    "comment": "O Número de Bifurcações em Função da Dificuldade\nde Mineração é uma métrica essencial para avaliar a\nrobustez e o equilíbrio do consenso. O estudo demonstra\nque a arquitetura descentralizada proposta, baseada em\ncontroladores OpenFlow seguros, reduz a frequência de\nforks ao estabilizar a dificuldade de mineração e otimizar\no processo de sincronização entre nós validadores.\nInterpretação\ndo\nValor Medido\nValores baixos indicam estabilidade e sincronização\nadequada entre os nós mineradores. Valores altos refletem instabilidade, ajustes inadequados de dificuldade ou\natrasos na propagação de blocos.",
+    "scale_type": "Razão",
+    "precision": "Alta, desde que haja monitoramento contínuo da cadeia\ne registro confiável de blocos conflitantes.",
+    "data_collection": "Experimental / Simulada / Observação de rede",
+    "use_processes": "Avaliação de estabilidade da rede blockchain; ajuste de\nparâmetros de dificuldade de mineração; estudo de impacto de conectividade e latência na ocorrência de forks;\notimização de consenso distribuído.",
+    "objective": "Avaliar a estabilidade e a consistência do consenso sob variações no parâmetro de dificuldade de mineração. Uma\nmaior dificuldade tende a reduzir a taxa de blocos simultâneos e, portanto, o número de forks, enquanto\ndificuldades muito baixas podem aumentar a ocorrência\nde bifurcações devido à competição entre mineradores.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Hyperledger Fabric; Bitcoin Core (modo simulado); Controladores OpenFlow; scripts de análise de forks; moni-\ntoramento de blocos via API RPC.",
+    "beneficiaries": "Engenheiros de blockchain; desenvolvedores de protocolos\nde consenso; arquitetos de sistemas distribuídos; analistas\nde desempenho e confiabilidade.",
+    "references": "Wang, S.; Zhang, H.; Xu, L.; Zhang, Y.; Guo, S. A Decentralized Lightweight Blockchain Nodes Architecture Based on a Secure\nOpenFlow Protocol Controller Channel. IEEE Access, vol. 8, pp.\n172839–172851, 2020. — A métrica Number of Forks on Mining Difficulty é usada para analisar a relação entre a dificuldade\nde mineração e a ocorrência de forks, demonstrando como a arquitetura descentralizada proposta melhora a estabilidade e reduz\nbifurcações.\n237"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 98"
+  }
+}

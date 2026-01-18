@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros(as) de blockchain e nuvem; equipes de desempenho; arquitetos(as) de segurança; pesquisadores(as)\nde sistemas distribuídos.",
     "references": "Shelke, K.; Shinde, S.K. Optimization with Blockchain-based Secure\nAuthentication and Collaborative Data Sharing Model in Cloud.\nIEEE ICCCNT 2023 — o estudo usa compute cost (tempo) junto\nde receita e uso de memória para avaliar a abordagem proposta,\nreportando reduções de tempo sob diferentes tamanhos de bloco e\ndatasets. :contentReference[oaicite:1]index=1\n124"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Custo Computacional",
-    "Palavras-chave / Alias": "Computational cost; Tempo de computação; Overhead\nde processamento; Tempo de execução; Custo de CPU",
-    "Definição do Atributo": "Mede os recursos de processamento consumidos\npor um esquema/protocolo (p. ex., autenticação segura,\ncompartilhamento colaborativo de dados e operações de\nsmart contract), usualmente expresso como tempo de\nexecução por tarefa/experimento, mas podendo incluir\nciclos de CPU ou energia. No artigo-base, o custo computacional é usado para comparar implementações sob\ndiferentes tamanhos de bloco/dataset.",
-    "Objetivo / Motivação": "Quantificar a eficiência de processamento do sistema\npara suportar autenticação segura e compartilhamento de\ndados com blockchain, permitindo comparar abordagens\ne verificar ganhos de otimização (menor tempo = maior\neficiência).\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "Definição temporal média por tarefa: Ccomp = 1\nN\nN\nX\ni=1\nti,\nonde ti é o tempo de execução da tarefa i.\n(Alternativa por throughput) Ccomp = Tjanela\nNops\n(s/op).\nOpcional (energia): E ≈Pmédia · Ccomp.\nMétricas\nAssociadas\nUso de memória; Throughput; Latência de transação;\nTaxa de blocos confirmados; Tempo de confirmação\nAtributo\nRelacionado\nEscalabilidade; Disponibilidade; Custo de armazenamento; Overhead criptográfico",
-    "Protocolo": "1) Definir o cenário (autenticação, registro, compartilhamento, decriptação) e a janela [t0, t1].\n2) Instrumentar o código para registrar tempos de início/fim por operação.\n3) Executar em diferentes tamanhos de bloco/dataset e\ncoletar ti.\n4) Calcular Ccomp (média/mediana e p95).\n5) Comparar com baselines/abordagens alternativas sob\nas mesmas condições.\n123",
-    "Comentário": "Em arquiteturas de secure authentication + collaborative\ndata sharing sobre blockchain, o custo computacional\ncaptura o impacto dos operadores de segurança (hash,\ncifragem, geração/validação de chaves, provas) e da lógica\nde contratos.\nO artigo demonstra que a abordagem\notimizada reduz substancialmente o tempo de execução\nfrente a métodos comparativos, mesmo com variação do\ntamanho de bloco. :contentReference[oaicite:0]index=0\nInterpretação\ndo\nValor Medido\nValores menores de Ccomp indicam maior eficiência.\nComparações devem considerar o mesmo hardware, dataset e parâmetros (ex.: tamanho de bloco) para evitar\nvieses.",
-    "Unidade": "Segundos (s) por tarefa/operação; (opcional) s/op; (opcional) Joule (via estimativa de potência)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Depende da resolução e sincronização do relógio, isolamento de carga no ambiente de teste e repetição su-\nficiente (amostragem). Recomenda-se reportar média,\ndesvio-padrão e percentis.",
-    "Tipo de Coleta de Dados": "Automática (instrumentação de código, time, perfis de\nCPU)",
-    "Ferramenta de Medição": "Python/Web timing; profiler (cProfile, perf); logs de contrato/cliente; dashboards (Prometheus/Grafana); medi-\ndores de energia (opcional).",
-    "Processos de Uso Potenciais": "Comparação de implementações; tuning de parâmetros\ncriptográficos; escolha de algoritmos/operadores; validação de impacto de tamanho de bloco; avaliação de SLA\nde processamento.",
-    "Beneficiários Potenciais": "Engenheiros(as) de blockchain e nuvem; equipes de desempenho; arquitetos(as) de segurança; pesquisadores(as)\nde sistemas distribuídos.",
-    "Referências": "Shelke, K.; Shinde, S.K. Optimization with Blockchain-based Secure\nAuthentication and Collaborative Data Sharing Model in Cloud.\nIEEE ICCCNT 2023 — o estudo usa compute cost (tempo) junto\nde receita e uso de memória para avaliar a abordagem proposta,\nreportando reduções de tempo sob diferentes tamanhos de bloco e\ndatasets. :contentReference[oaicite:1]index=1\n124"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 46"

@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros de blockchain; pesquisadores em desempenho de consenso; operadores de rede; arquitetos de\nsistemas distribuídos.",
     "references": "Ali, S.; Khan, A.; Wu, C.; et al. A Decentralized Lightweight\nBlockchain Nodes Architecture Based on a Secure OpenFlow Protocol Controller Channel. IEEE Access, 2022. — O estudo avalia\na eficiência do consenso em uma arquitetura leve de blockchain,\nutilizando a taxa de blocos confirmados como métrica principal\npara medir estabilidade e confiabilidade da rede.\n120"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Taxa de Blocos Confirmados",
-    "Palavras-chave / Alias": "Committed block; Block commitment rate; Confirmação de bloco; Blocos validados; Taxa de consenso bem-\nsucedido",
-    "Definição do Atributo": "Mede a proporção de blocos propostos que são\nefetivamente confirmados e adicionados à cadeia\nprincipal da blockchain, refletindo a eficiência e a\nestabilidade do processo de consenso. Essa métrica indica\na capacidade da rede de validar e registrar transações de\nforma consistente, evitando bifurcações e blocos órfãos.",
-    "Objetivo / Motivação": "Avaliar o desempenho e a confiabilidade do consenso em arquiteturas blockchain distribuídas. Uma\nalta taxa de blocos confirmados demonstra que a rede\nestá operando de forma sincronizada, enquanto taxas\nbaixas podem indicar latência, desacordo entre nós ou\nproblemas de comunicação.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Confiabilidade",
-    "Sub-característica": "Tolerância a Falhas",
-    "Equação": "Crate = Ncommitted\nNproposed\n,\nonde Ncommitted é o número de blocos confirmados e efetivamente adicionados à cadeia principal, e Nproposed é\no número total de blocos propostos durante o mesmo\nperíodo de observação.\nMétricas\nAssociadas\nTaxa de blocos órfãos; Tempo médio de confirmação;\nThroughput; Taxa de consenso; Latência de blocos\nAtributo\nRelacionado\nEficiência do consenso; Estabilidade de rede; Integridade\nda cadeia; Taxa de bifurcação",
-    "Protocolo": "1) Definir a janela temporal de observação [t0, t1].\n2) Contabilizar o número total de blocos propostos por\nnós validadores.\n3) Identificar quais blocos foram efetivamente confirmados (committed) e incluídos na cadeia principal.\n4) Calcular Crate = Ncommitted/Nproposed.\n5) Analisar o comportamento em diferentes condições de\ncarga e latência.\n119",
-    "Comentário": "O artigo propõe uma arquitetura leve e descentralizada\nbaseada em um canal seguro de controle OpenFlow para\nnós blockchain. A métrica de taxa de blocos confirmados\nfoi usada para avaliar a eficiência do mecanismo de consenso, demonstrando melhora significativa em relação às\narquiteturas tradicionais. Um aumento do Committed\nBlock Rate indica redução de atrasos e aumento da taxa\nde sucesso na propagação de blocos.\nInterpretação\ndo\nValor Medido\nValores altos (próximos de 1) indicam boa sincronização\ne confiabilidade do consenso. Valores baixos sugerem\ninstabilidade, perdas de blocos ou falhas de comunicação\nentre validadores.",
-    "Unidade": "Razão adimensional (0–1) ou percentual (%)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Depende da consistência na coleta de logs de blocos\npropostos e confirmados. Divergências entre nós podem\ncausar variações na estimativa da taxa real.",
-    "Tipo de Coleta de Dados": "Automática (via logs de consenso ou monitoramento de\nrede)",
-    "Ferramenta de Medição": "Clientes blockchain instrumentados; analisadores de logs\n(Prometheus, Grafana, ELK Stack); scripts de monitoramento de consenso.",
-    "Processos de Uso Potenciais": "Avaliação de eficiência de consenso; validação de desempenho em redes de teste; comparação entre algoritmos\nde consenso; monitoramento operacional em redes permissionadas.",
-    "Beneficiários Potenciais": "Engenheiros de blockchain; pesquisadores em desempenho de consenso; operadores de rede; arquitetos de\nsistemas distribuídos.",
-    "Referências": "Ali, S.; Khan, A.; Wu, C.; et al. A Decentralized Lightweight\nBlockchain Nodes Architecture Based on a Secure OpenFlow Protocol Controller Channel. IEEE Access, 2022. — O estudo avalia\na eficiência do consenso em uma arquitetura leve de blockchain,\nutilizando a taxa de blocos confirmados como métrica principal\npara medir estabilidade e confiabilidade da rede.\n120"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 44"

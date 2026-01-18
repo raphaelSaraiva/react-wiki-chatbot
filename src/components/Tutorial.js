@@ -106,7 +106,7 @@ const Tutorial = ({ onComplete }) => {
           title: "Wiki Métricas Blockchain",
           description:
             "Consulte métricas de qualidade com estrutura, equações, classificação e referências.",
-          imageHref: logo, // ✅ usa o MESMO ícone da tela de login
+          imageHref: logo,
         }),
         title: "Bem-vindo ao Wiki",
         text:

@@ -21,25 +21,6 @@
     "beneficiaries": "Engenheiros de blockchain; desenvolvedores de sistemas\nde saúde; analistas de desempenho; arquitetos de infraestrutura distribuída.",
     "references": "Patil, S. S.; Gaikwad, P. D.; Sagar, D. V. A Novel Blockchain-Based\nElectronic Health Record Automation System for Healthcare. International Journal of Innovative Science and Research Technology,\nvol. 6, no. 4, 2021.\n274"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Desempenho dos Recursos",
-    "Palavras-chave / Alias": "Resource Performance; Performance of Resources; CPU\nUtilization; Memory Utilization; Resource Efficiency",
-    "Definição do Atributo": "Mede o nível de desempenho obtido a partir do\nuso dos recursos computacionais (CPU e memória)\ndurante a execução de operações em sistemas blockchain.\nIndica o equilíbrio entre velocidade de processamento,\ncarga de recursos e estabilidade operacional em aplicações\ndistribuídas, como o sistema automatizado de registros\neletrônicos de saúde proposto.",
-    "Objetivo / Motivação": "Avaliar o impacto do consumo de CPU e memória sobre o\ndesempenho global do sistema blockchain, especialmente\nem aplicações de alta carga e dados sensíveis. A métrica busca demonstrar que o sistema pode manter bom\ndesempenho sem sobrecarregar os recursos, garantindo\neficiência e escalabilidade.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "O desempenho dos recursos (Pr) pode ser representado\npela relação entre a carga média de utilização dos\nrecursos e a capacidade total do sistema:\nPr = UCPU + UMEM\n2\nonde UCPU é o uso médio de CPU (%) e UMEM é o\nuso médio de memória (%). O valor resultante indica\no desempenho médio combinado dos recursos utilizados\ndurante as operações.\nMétricas\nAssociadas\nTempo de Resposta; Throughput; Eficiência Energética;\nCusto Computacional; Latência\nAtributo\nRelacionado\nEscalabilidade; Capacidade de Processamento; Consumo\nde Recursos",
-    "Protocolo": "1) Implementar o sistema blockchain de registros eletrônicos de saúde (EHR) proposto.\n2) Executar um conjunto de 100 operações de transação\ne monitorar o uso de CPU e memória.\n3) Registrar o uso médio de cada recurso e calcular o\nvalor combinado de desempenho.\n4) Comparar com sistemas tradicionais de EHR para\navaliar ganhos de eficiência.\n273",
-    "Comentário": "O experimento reporta uso médio de CPU de 63% e\nconsumo de memória de 65 MB para 100 registros processados, indicando que o sistema atinge bom equilíbrio\nentre desempenho e carga de recursos. Isso comprova a\nviabilidade de sistemas blockchain aplicados à saúde sem\ndegradação significativa de desempenho.\nInterpretação\ndo\nValor Medido\nValores menores de uso indicam maior eficiência e\nmelhor desempenho geral. O sistema ideal mantém desempenho estável com utilização de recursos moderada,\nmesmo em cenários de alta demanda.",
-    "Unidade": "Percentual de uso médio (% CPU e memória); MB",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Alta, desde que o ambiente de teste seja controlado e as\nmedições sejam contínuas.",
-    "Tipo de Coleta de Dados": "Automática",
-    "Ferramenta de Medição": "Scripts Python 3.8.4; bibliotecas de monitoramento como\npsutil; medição nativa do sistema operacional.",
-    "Processos de Uso Potenciais": "Avaliação de desempenho e otimização de sistemas blockchain; análise comparativa entre modelos tradicionais e\ndistribuídos; dimensionamento de infraestrutura.",
-    "Beneficiários Potenciais": "Engenheiros de blockchain; desenvolvedores de sistemas\nde saúde; analistas de desempenho; arquitetos de infraestrutura distribuída.",
-    "Referências": "Patil, S. S.; Gaikwad, P. D.; Sagar, D. V. A Novel Blockchain-Based\nElectronic Health Record Automation System for Healthcare. International Journal of Innovative Science and Research Technology,\nvol. 6, no. 4, 2021.\n274"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 115"

@@ -1,0 +1,28 @@
+{
+  "id": "t131",
+  "table_no": 131,
+  "name": "Risco de Centralização de RPC",
+  "iso25010": {
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Completude Funcional"
+  },
+  "fields": {
+    "definition": "Definition: Mede o grau de dependência de um ecossistema blockchain em relação a provedores de RPC (Remote Proce-\ndure Call) centralizados, como Infura ou Alchemy, utilizados para comunicação entre carteiras, DApps e a\nrede. Essa dependência introduz riscos de centralização,\ncensura, interrupção de serviço e manipulação de transações, comprometendo a integridade e a disponibilidade\nda rede.",
+    "equation": "RPC Centralization Risk = Ncarteiras dependentes de RPC centralizado\nNcarteiras totais\n×100\nonde Ncarteiras dependentes de RPC centralizado representa o número de aplicações que utilizam provedores RPC únicos\ne não configuráveis, e Ncarteiras totais é o número total de\ncarteiras ou DApps analisados.\nMétricas\nAssociadas\nNode Decentralization Index; Network Availability; Fault\nTolerance; Service Redundancy\nAtributo\nRelacionado\nDisponibilidade da Rede; Robustez de Serviço; Segurança\nde Comunicação\n305",
+    "unit": "Percentual (%)",
+    "protocol": "1) Identificar as carteiras e DApps mais utilizados em\num determinado ecossistema blockchain.\n2) Analisar o provedor de RPC utilizado e verificar se\nele é configurável pelo usuário.\n3) Contabilizar o número de aplicações que dependem\nexclusivamente de provedores RPC centralizados (ex.:\nInfura, Alchemy).\n4) Calcular a proporção de dependência e comparar entre\ndiferentes redes (Ethereum, Polygon, etc.).\n5) Documentar os riscos associados a eventos de indisponibilidade ou censura.",
+    "comment": "A centralização de serviços RPC é um ponto crítico que\ncontradiz a filosofia descentralizada das blockchains. A\nfalha de um provedor RPC centralizado pode causar interrupção em larga escala, como o ocorrido com a Infura\nem 2020, ou resultar em censura seletiva de usuários,\ncomo no caso da Metamask em 2022. A métrica evidencia o grau de vulnerabilidade do ecossistema diante da\nconcentração de infraestrutura de acesso à rede.\nInterpretação\ndo\nValor Medido\nValores altos indicam alto risco de centralização, implicando vulnerabilidade a interrupções e censura. Valores\nbaixos refletem ecossistemas mais descentralizados e resilientes, com múltiplos provedores RPC configuráveis.",
+    "scale_type": "Razão",
+    "precision": "Alta, desde que o levantamento de carteiras e DApps seja\nabrangente e atualizado. A análise pode variar conforme\no número de usuários e a infraestrutura RPC disponível\nem cada rede.",
+    "data_collection": "Manual / Empírica / Automática via APIs de monitoramento RPC",
+    "use_processes": "Avaliação de descentralização de infraestrutura; auditorias de confiabilidade de DApps; estudos de resiliência\nda rede; mitigação de riscos de dependência de terceiros.",
+    "objective": "Avaliar o impacto da centralização dos serviços de RPC\nna confiabilidade e segurança das redes blockchain, identificando vulnerabilidades decorrentes de pontos únicos\nde falha e dependência de provedores externos que podem\nafetar a natureza descentralizada da tecnologia.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Exploradores de rede; scripts de análise de endpoints\nRPC; APIs públicas de carteiras; relatórios de incidentes\n(Infura, Alchemy, QuickNode).",
+    "beneficiaries": "Pesquisadores(as) de segurança blockchain; desenvolvedores(as) de carteiras e DApps; engenheiros(as) de infra-\nestrutura; arquitetos(as) de rede descentralizada.",
+    "references": "He, S., Li, X., Chen, H., & Zhang, Y. (2023). Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems.\nIn Proceedings of the Web Conference (WWW 2023), 104–118.\n306"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 131"
+  }
+}

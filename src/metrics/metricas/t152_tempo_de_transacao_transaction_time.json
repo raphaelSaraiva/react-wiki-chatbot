@@ -21,25 +21,6 @@
     "beneficiaries": "Pesquisadores de desempenho; engenheiros de blockchain;\nprojetistas de sistemas MANET; analistas de segurança.",
     "references": "Liu, G.; Dong, H.; Yan, Z. B4SDC: A Blockchain System for\nSecurity Data Collection in MANETs. IEEE DSN 2020. :contentReference[oaicite:0]index=0\n350"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Tempo da Transação",
-    "Palavras-chave / Alias": "Transaction time; Transaction confirmation time; Transaction latency; Blockchain delay; Throughput trade-off;\nMANET blockchain",
-    "Definição do Atributo": "Tempo médio necessário para que uma transação seja\nvalidada e registrada de forma definitiva no blockchain.\nMede o intervalo entre o envio de uma transação e sua\nconfirmação na rede, refletindo o desempenho e a eficiência do consenso utilizado.",
-    "Objetivo / Motivação": "Avaliar a eficiência temporal do mecanismo de consenso e\na escalabilidade da rede blockchain aplicada em sistemas\nde coleta de dados em MANETs. A métrica é essencial\npara medir a responsividade e a capacidade da rede em\nlidar com múltiplas transações sob diferentes cargas.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Comportamento Temporal",
-    "Equação": "Ttx = tconf −tenv, onde tenv é o instante de envio da transação e tconf é o instante em que a transação é confirmada\ne incluída no blockchain.\nMétricas\nAssociadas\nTransaction Throughput; Latência de Bloco; Taxa de\nConfirmação; Transaction Processing Rate; Transaction\nDelay\nAtributo\nRelacionado\nConsenso; Eficiência de Rede; Escalabilidade; Propagação de Blocos",
-    "Protocolo": "1) Enviar um conjunto de transações e registrar os tempos\nde envio e confirmação.\n2) Calcular a diferença entre ambos para cada transação.\n3) Obter média, mediana e percentis (p50, p95, p99) do\ntempo de transação.\n4) Avaliar sob diferentes configurações de nós, número\nde blocos e frequência de tarefas.",
-    "Comentário": "O tempo de transação aumenta conforme o número de\nblocos de referência (nb) cresce, devido à redução de\nmineradores ativos.\nEm contrapartida, a diminuição\ndesse parâmetro melhora o throughput, indicando uma\nrelação inversa entre tempo e taxa de processamento.\n349\n\nInterpretação\ndo\nValor Medido\nValores menores de tempo de transação indicam maior\neficiência e capacidade de resposta da rede. Tempos\nelevados refletem gargalos de comunicação, sobrecarga\nde validação ou limitações do consenso.",
-    "Unidade": "Segundos (s)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Depende da sincronização de relógios entre os nós e da\nestabilidade da rede. Pequenas variações no atraso de\npropagação podem afetar significativamente a medição.",
-    "Tipo de Coleta de Dados": "Experimental / Simulada",
-    "Ferramenta de Medição": "Simulador NS3; C++; Monitoramento de logs de transações em nós mineradores.",
-    "Processos de Uso Potenciais": "Avaliação de desempenho de consenso; análise de escalabilidade; calibração de parâmetros de rede; otimização de\nprotocolos de roteamento em MANETs com blockchain.",
-    "Beneficiários Potenciais": "Pesquisadores de desempenho; engenheiros de blockchain;\nprojetistas de sistemas MANET; analistas de segurança.",
-    "Referências": "Liu, G.; Dong, H.; Yan, Z. B4SDC: A Blockchain System for\nSecurity Data Collection in MANETs. IEEE DSN 2020. :contentReference[oaicite:0]index=0\n350"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 152"

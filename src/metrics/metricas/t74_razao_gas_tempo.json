@@ -20,24 +20,6 @@
     "use_processes": "Análise de desempenho de contratos; identificação de\ngargalos de execução; otimização de tempo e custo; comparação entre implementações.",
     "beneficiaries": "Engenheiros(as) de Blockchain; Desenvolvedores(as) de\nSmart Contracts; Analistas de Desempenho; Arquitetos(as) de Sistema.\nReferência\nWu, J., Xue, M., Xu, K., & Wu, H. (2021). Empirically Analyzing\nEthereum’s Gas Mechanism. IEEE Transactions on Network and\nService Management, 18(3), 2541–2554.\n181"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Razão Gás/Tempo",
-    "Palavras-chave / Alias": "Gas/Time Ratio; Relação Gas-Tempo; Gas Efficiency per\nTime; Tempo de Execução vs Gas; Eficiência Temporal",
-    "Definição do Atributo": "Relação entre a quantidade de gas consumido e o tempo\ntotal de execução de uma transação ou contrato inteligente. Mede o custo computacional relativo ao tempo\nnecessário para processar a operação, permitindo avaliar\na eficiência temporal da execução.",
-    "Objetivo / Motivação": "Quantificar a eficiência temporal do consumo de gas,\ncorrelacionando custo de execução e tempo de processamento. Essa métrica permite identificar gargalos na\nexecução de contratos e o impacto do gas no tempo total\nde confirmação.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "Gas/Time Ratio =\nGasUsed (gas)\nExecutionTime (s)\nMétricas\nAssociadas\nGas Used; Transaction Latency; Throughput; Execution\nCost; Confirmation Time\nAtributo\nRelacionado\nEficiência Computacional; Tempo de Processamento; Escalabilidade; Custo de Transação",
-    "Protocolo": "1) Registrar o tempo de execução de uma transação\n(tstart a tend).\n2) Capturar o valor de gasUsed no recibo da transação.\n3) Calcular ExecutionTime = tend −tstart.\n4) Calcular a razão GasUsed/ExecutionTime.\n5) Repetir o experimento com diferentes tipos de transações para avaliar eficiência comparativa.",
-    "Comentário": "A razão Gas/Tempo permite identificar a eficiência de\nconsumo de gas ao longo do tempo. Transações com\nalto gasUsed e baixo tempo de execução tendem a ser\neficientes, enquanto transações lentas com alto consumo\nde gas indicam ineficiência ou gargalos de rede.\nInterpretação\ndo\nValor Medido\nMenor razão Gas/Tempo indica melhor eficiência temporal (menor consumo de gas por segundo). Valores\naltos sugerem operações custosas ou lentas, exigindo\notimização do código ou melhoria de infraestrutura.",
-    "Unidade": "gas/s (unidades de gas por segundo)",
-    "Tipo de Escala": "Razão\n180",
-    "Precisão": "Alta, pois depende de medições diretas de tempo e gas.\nA precisão pode ser afetada pela latência de rede ou\nvariações no estado da blockchain.",
-    "Tipo de Coleta de Dados": "Automática",
-    "Ferramenta de Medição": "Exploradores de blocos (Etherscan, BlockScout); ferramentas de benchmark (Hardhat, Remix profiler); bi-\nbliotecas (Web3.js, Ethers.js) com registro de tempo e\ngas.",
-    "Processos de Uso Potenciais": "Análise de desempenho de contratos; identificação de\ngargalos de execução; otimização de tempo e custo; comparação entre implementações.",
-    "Beneficiários Potenciais": "Engenheiros(as) de Blockchain; Desenvolvedores(as) de\nSmart Contracts; Analistas de Desempenho; Arquitetos(as) de Sistema.\nReferência\nWu, J., Xue, M., Xu, K., & Wu, H. (2021). Empirically Analyzing\nEthereum’s Gas Mechanism. IEEE Transactions on Network and\nService Management, 18(3), 2541–2554.\n181"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 74"

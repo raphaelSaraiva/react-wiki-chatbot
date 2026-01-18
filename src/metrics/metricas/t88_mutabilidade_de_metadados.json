@@ -21,25 +21,6 @@
     "beneficiaries": "Auditores de blockchain; desenvolvedores de contratos\ninteligentes; analistas de risco; pesquisadores em descentralização e segurança.\n213",
     "references": "Yan, K.; Zhang, J.; Liu, X.; Diao, W.; Guo, S. Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems.\nProceedings of the ACM Web Conference (WWW), 2023. — Introduz a métrica Mutable Metadata, utilizada para identificar\ncontratos inteligentes que permitem alteração de metadados após\no deploy, comprometendo a integridade e a descentralização do\nsistema.\n214"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Metadados Mutáveis",
-    "Palavras-chave / Alias": "Mutable metadata; Metadata alteration; Token metadata\nchange; Contract updatability; Centralized metadata\ncontrol",
-    "Definição do Atributo": "Mede o grau em que os metadados de um contrato\ninteligente podem ser alterados após sua implantação na blockchain. Metadados incluem informações\ncomo nome, símbolo, URI, baseURI ou outros identificadores associados a tokens e ativos digitais. A presença\nde funções que permitem modificar esses dados representa risco à integridade e à confiabilidade dos registros\non-chain.",
-    "Objetivo / Motivação": "Avaliar a imutabilidade e a segurança das informações\ndescritivas associadas a contratos inteligentes, garantindo\nque desenvolvedores ou administradores não possam modificar metadados críticos após o deploy, o que poderia\nenganar usuários, alterar propriedades de tokens ou comprometer a rastreabilidade dos ativos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Segurança",
-    "Sub-característica": "Integridade",
-    "Equação": "A Mutabilidade de Metadados (MM) é medida de\nforma binária:\nMM =\n\n\n\n1,\nse funções permitem alterar metadados após o deploy;\n0,\ncaso contrário.\nUm valor 1 indica risco à integridade e potencial centralização; valor 0 indica contrato totalmente imutável.\nMétricas\nAssociadas\nCentralization Risk Index; Contract Updatability; Ownership Control; Metadata Integrity; Token Authenticity\nAtributo\nRelacionado\nImutabilidade de Contrato; Integridade de Dados; Risco\nde Centralização; Transparência de Código\n212",
-    "Protocolo": "1) Realizar análise estática do código-fonte do contrato\ninteligente (ex.: ERC-20, ERC-721, ERC-1155).\n2) Identificar variáveis relacionadas a metadados (name,\nsymbol, uri, baseURI).\n3) Verificar se existem funções que permitem modificações após a implantação (setName, setURI, etc.).\n4) Registrar o valor de MM = 1 se qualquer variável de\nmetadado for mutável; caso contrário, MM = 0.\n5) Repetir a análise em múltiplos contratos para medir\na prevalência de mutabilidade no ecossistema.",
-    "Comentário": "A Mutabilidade de Metadados é um indicador de risco\nde centralização e manipulação em contratos inteligentes.\nO estudo “Bad Apples” revelou que muitos contratos\nconsiderados descentralizados permitem alterar informações fundamentais (como URI de tokens) após o deploy,\npossibilitando a substituição de ativos, golpes ou alterações de aparência. Essa prática viola o princípio de\nimutabilidade da blockchain e compromete a confiança\ndos usuários.\nInterpretação\ndo\nValor Medido\nValor 0 indica contrato seguro, com metadados imutáveis e confiança garantida. Valor 1 indica vulnerabili-\ndade — funções administrativas podem modificar metadados, representando risco à integridade, autenticidade\ne descentralização do ativo digital.",
-    "Unidade": "Valor binário (0 ou 1)",
-    "Tipo de Escala": "Nominal",
-    "Precisão": "Alta, pois depende de análise direta do código-fonte.\nPode variar conforme a ferramenta de detecção e a cobertura de padrões de funções de metadados.",
-    "Tipo de Coleta de Dados": "Automática (análise estática de código)",
-    "Ferramenta de Medição": "Naga (ferramenta de análise de centralização); Slither;\nMythril; ferramentas de auditoria de contratos inteligentes.",
-    "Processos de Uso Potenciais": "Auditoria de contratos inteligentes; avaliação de integridade de tokens; certificação de dApps; análise de\nconformidade e segurança descentralizada.",
-    "Beneficiários Potenciais": "Auditores de blockchain; desenvolvedores de contratos\ninteligentes; analistas de risco; pesquisadores em descentralização e segurança.\n213",
-    "Referências": "Yan, K.; Zhang, J.; Liu, X.; Diao, W.; Guo, S. Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems.\nProceedings of the ACM Web Conference (WWW), 2023. — Introduz a métrica Mutable Metadata, utilizada para identificar\ncontratos inteligentes que permitem alteração de metadados após\no deploy, comprometendo a integridade e a descentralização do\nsistema.\n214"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 88"

@@ -1,0 +1,28 @@
+{
+  "id": "t113",
+  "table_no": 113,
+  "name": "Índice de Perda de Pacotes",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Definition: Mede o número total de pacotes de dados perdidos\ndurante a transmissão em uma rede blockchain,\ndevido a falhas de nós, congestionamento, ataques ou\nlimite de retransmissão.\nÉ uma medida absoluta da\nconfiabilidade de comunicação entre os nós da rede.",
+    "equation": "O índice de perda de pacotes (Iloss) é dado por:\nIloss = Nenviados −Nrecebidos\nonde Nenviados é o número total de pacotes transmitidos\ne Nrecebidos o número entregue com sucesso.\nMétricas\nAssociadas\nTaxa de Queda de Pacotes (Packet Drop Ratio); Largura\nde Banda da Rede; Latência Média; Throughput; Tempo\nde Propagação\nAtributo\nRelacionado\nRobustez da Rede; Eficiência de Comunicação; Estabilidade de Conexão; Tolerância a Falhas",
+    "unit": "Número absoluto de pacotes",
+    "protocol": "1) Modelar a rede blockchain com nós P2P conectados.\n2) Simular transmissões sob diferentes condições de carga\ne falha de nós.\n3) Coletar o número total de pacotes enviados e recebidos.\n4) Calcular Iloss e analisar a variação conforme a topologia ou o número de nós críticos removidos.",
+    "comment": "Contratos e protocolos com menor Iloss demonstram\nmaior estabilidade e eficiência de rede. Essa métrica é\nusada como base para a derivação da Taxa de Queda\nde Pacotes (Packet Drop Ratio), permitindo comparações relativas entre cenários.\nInterpretação\ndo\nValor Medido\nValores baixos de Iloss indicam comunicação eficiente\ne rede estável. Valores altos sugerem falhas estruturais\nou sobrecarga de transmissão.\n269",
+    "scale_type": "Razão",
+    "precision": "Alta, quando baseada em logs diretos de transmissão e\nrecebimento. Deve considerar retransmissões e perdas\nintermitentes em medições reais.",
+    "data_collection": "Experimental / Automática",
+    "use_processes": "Avaliação de robustez de rede blockchain; testes de tolerância a falhas; otimização de retransmissão; calibração\nde parâmetros de rede.",
+    "objective": "Quantificar o volume total de perdas de comunicação\nentre nós blockchain, permitindo diagnosticar gargalos e\nfalhas estruturais. Essa métrica auxilia na avaliação da\nrobustez da rede e na análise de impacto sobre o consenso\ne a propagação de blocos.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Simuladores\nde\nrede\n(NS-3,\nMininet);\nscripts\nPython/Matlab; logs de transmissão em blockchain.",
+    "beneficiaries": "Engenheiros de redes blockchain; pesquisadores de desempenho distribuído; projetistas de protocolos P2P;\nanalistas de confiabilidade.",
+    "references": "Sharma, V.; Balasubramanian, R.; Suresh, A. Node Criticality Assessment in a Blockchain Network. IEEE Transactions on Network\nand Service Management, 2022. — O estudo utiliza o Índice de\nPerda de Pacotes (Packet Loss Index) como métrica absoluta\nde desempenho e base para derivar a Taxa de Queda de Pacotes\n(Packet Drop Ratio) em simulações com falhas de nós críticos.\n270"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 113"
+  }
+}

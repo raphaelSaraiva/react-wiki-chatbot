@@ -21,25 +21,6 @@
     "beneficiaries": "Pesquisadores(as) de execução blockchain; engenheiros(as) de nó/cliente; arquitetos(as) de runtime; equipes\nde desempenho e escalabilidade.",
     "references": "Reijsbergen, D.; Dinh, T. T. A. On Exploiting Transaction Concurrency to Speed Up Blockchains. 2020 IEEE ICDCS.\n340"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Taxa de Conflito de Transações",
-    "Palavras-chave / Alias": "Transaction conflict; Dependency graph; Concurrency;\nGroup conflict rate; Largest Connected Component\n(LCC)",
-    "Definição do Atributo": "Mede a proporção de transações em um bloco que entram em conflito (isto é, não podem ser executadas em\nparalelo) devido a dependências de leitura/escrita sobre\no mesmo estado/dados. Reflete diretamente o grau de\nparalelizabilidade do bloco e os gargalos para execução\nconcorrente na camada de execução.",
-    "Objetivo / Motivação": "Quantificar o potencial de execução paralela em diferentes arquiteturas de blockchain (UTXO vs. account-based)\ne estimar ganhos de desempenho possíveis ao explorar\nconcorrência, além de identificar blocos com alto acoplamento entre transações.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Confiabilidade",
-    "Sub-característica": "Tolerância a Falhas",
-    "Equação": "ConflictRatesingle = Ntransações em conflito\nNtransações no bloco\n× 100%.\nOpcional\n(visão\nde\ngrupo):\nConflictRategroup\n=\nLCCsize\nNtransações no bloco\n× 100%, onde LCCsize é o tamanho do\nmaior componente conexo no grafo de dependências do\nbloco.\nMétricas\nAssociadas\nGroup Conflict Rate; Transaction Parallelism; Throughput; Block Size; Transaction Dependency Degree\nAtributo\nRelacionado\nEscalonamento de Execução; Serializabilidade; Taxa de\nSucesso de Execução Paralela",
-    "Protocolo": "1) Construir, para cada bloco, um Grafo de Dependências de Transações (TDG): nós = transações;\narestas = dependências/conflitos (ex.: escrita-leitura no\nmesmo UTXO/estado).\n2) Identificar transações em conflito (com grau > 0 no\nTDG) e calcular ConflictRatesingle.\n3) Calcular o maior componente conexo (LCC) do\nTDG e obter ConflictRategroup.\n4) Repetir por janelas temporais e redes distintas para\nobter estatísticas (média, p50, p95).\n339",
-    "Comentário": "Taxas de conflito mais baixas indicam maior headroom\npara execução paralela. O estudo mostra que cadeias baseadas em UTXO tendem a apresentar taxas de conflito\nsignificativamente menores que cadeias account-based, implicando maior paralelizabilidade potencial no primeiro\ncaso.\nInterpretação\ndo\nValor Medido\nBaixa taxa (< 20%): alta concorrência e boa paralelizabilidade. Alta taxa (> 60%): forte acoplamento\nentre transações, menor ganho com paralelismo e maior\nprobabilidade de serialização.",
-    "Unidade": "Percentual (%)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Depende da correta extração das dependências (leitura/escrita) e da representatividade do conjunto de\nblocos analisados; falsos negativos/positivos na identificação de conflitos impactam o valor.",
-    "Tipo de Coleta de Dados": "Automática / Analítica (processamento de blocos e construção de grafos)",
-    "Ferramenta de Medição": "Pipelines de extração (ex.: consultas em BigQuery ou\nindexadores), construção de TDG (SQL/JS UDF +\nBFS/DFS), bibliotecas de grafos para LCC e métricas\nestruturais.",
-    "Processos de Uso Potenciais": "Comparação de arquiteturas (UTXO vs. account-based);\ndimensionamento de executores paralelos; scheduling de\ntransações; identificação de gargalos de execução.",
-    "Beneficiários Potenciais": "Pesquisadores(as) de execução blockchain; engenheiros(as) de nó/cliente; arquitetos(as) de runtime; equipes\nde desempenho e escalabilidade.",
-    "Referências": "Reijsbergen, D.; Dinh, T. T. A. On Exploiting Transaction Concurrency to Speed Up Blockchains. 2020 IEEE ICDCS.\n340"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 147"

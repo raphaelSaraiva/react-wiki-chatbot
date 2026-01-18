@@ -1,0 +1,28 @@
+{
+  "id": "t36",
+  "table_no": 36,
+  "name": "Taxa de Erro de Bits",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Definition: Mede a proporção de bits recebidos incorretamente\nem relação ao número total de bits transmitidos por\num canal de comunicação.\nNo contexto de sistemas\nblockchain integrados à infraestrutura 5G, a métrica\nquantifica a confiabilidade da transmissão de dados entre\ndispositivos, nós e contratos inteligentes, sendo crucial\npara a integridade das mensagens criptográficas e das\ntransações transmitidas via rede.",
+    "equation": "BER = Nbits_errados\nNbits_totais\n,\nonde Nbits_errados é o número de bits recebidos incorretamente e Nbits_totais o número total de bits transmitidos.\nValores menores indicam maior fidelidade e estabilidade\nde comunicação.\nMétricas\nAssociadas\nLatência de transmissão; Tempo de resposta; Throughput; Probabilidade de perda de pacote; Taxa de retrans-\nmissão; Eficiência espectral\nAtributo\nRelacionado\nIntegridade de dados; Confiabilidade de rede; Robustez\nde comunicação; Segurança física da camada de transmissão\n98",
+    "unit": "Razão adimensional (bits errados por bits totais)",
+    "protocol": "1) Definir o canal de transmissão blockchain–5G a ser\nmonitorado.\n2) Enviar um fluxo de dados conhecido ou mensagem\ncriptografada.\n3) Comparar os bits transmitidos e recebidos para identificar discrepâncias.\n4) Calcular a proporção BER = Nbits_errados/Nbits_totais.\n5) Repetir medições sob diferentes condições de canal\n(ruído, mobilidade, interferência) e obter a média.",
+    "comment": "A Taxa de Erro de Bits é uma métrica tradicional de\ncomunicações digitais que adquire nova relevância em\nsistemas blockchain sobre redes 5G. Em um esquema\nde votação eletrônica baseado em blockchain, o BER\ninfluencia diretamente a integridade das mensagens trocadas entre os votantes, a estação de base 5G e os nós\nblockchain responsáveis pelo registro de votos. Reduzir\no BER é essencial para evitar retransmissões, atrasos e\nfalhas de sincronização de blocos.\nInterpretação\ndo\nValor Medido\nValores baixos (próximos de 0) indicam um canal de\ncomunicação confiável e estável. Valores altos implicam\nperda ou corrupção de dados, afetando a confiabilidade\ndas transações blockchain e podendo exigir retransmissões ou correção de erros via protocolos de camada supe-\nrior.",
+    "scale_type": "Razão",
+    "precision": "Depende da largura de banda, potência de sinal, interferência e mobilidade dos nós. Amostragens longas e\nmedições sob múltiplas condições de canal aumentam a\nconfiabilidade do resultado.",
+    "data_collection": "Automática (monitoramento de canal e análise de transmissão em camadas física e de enlace)",
+    "use_processes": "Avaliação de desempenho em blockchain sobre redes 5G;\notimização de protocolos de consenso móveis; validação de canais seguros para votação eletrônica; testes de\nrobustez em transmissões criptográficas.",
+    "objective": "Avaliar a qualidade e estabilidade do canal de comunicação utilizado por sistemas blockchain em ambientes\nde rede 5G, garantindo que os dados trocados entre dispositivos e nós de consenso sejam recebidos sem corrupção.\nEm aplicações sensíveis como votação eletrônica, mesmo\npequenas taxas de erro podem comprometer a segurança\ne a validade das transações registradas.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Simuladores de rede 5G (NS-3, MATLAB, OMNeT++);\nmódulos de medição em hardware (SDR); protocolos de\nteste (BER Tester, BitScope); logs de comunicação entre\nnós blockchain via rede móvel.",
+    "beneficiaries": "Pesquisadores em redes 5G e blockchain; engenheiros de\ncomunicação; projetistas de sistemas de votação segura;\nequipes de segurança e integridade de dados; operadores\nde infraestrutura descentralizada.\n99",
+    "references": "Kumar, N.; Singh, P.; Tyagi, S. Blockchain-Based Secure Voting\nMechanism Underlying 5G Network: A Smart Contract Approach.\nIEEE Access, 2023. — O estudo propõe um mecanismo de votação\nsegura sobre redes 5G utilizando blockchain, avaliando métricas\ncomo latência, vazão e taxa de erro de bits (BER) para garantir a\nconfiabilidade e precisão da comunicação entre dispositivos e nós\nblockchain.\n100"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 36"
+  }
+}

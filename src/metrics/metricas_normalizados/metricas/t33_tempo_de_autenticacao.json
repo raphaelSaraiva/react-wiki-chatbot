@@ -1,0 +1,28 @@
+{
+  "id": "t33",
+  "table_no": 33,
+  "name": "Tempo de Autenticação",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Autenticidade"
+  },
+  "fields": {
+    "definition": "Definition: Mede o tempo necessário para autenticar uma entidade (usuário, dispositivo ou nó) em uma rede block-\nchain, desde o envio da solicitação até a confirmação da\nidentidade. Essa métrica reflete a eficiência do processo\nde autenticação em sistemas que utilizam mecanismos\ncriptográficos, contratos inteligentes ou técnicas de aprendizado de máquina combinadas a blockchain.",
+    "equation": "O tempo médio de autenticação é definido por:\nTauth = 1\nN\nN\nX\ni=1\n(tconfirm,i −trequest,i),\nonde trequest,i é o instante de envio da requisição de autenticação e tconfirm,i o instante de confirmação da iden-\ntidade pelo sistema blockchain.\nPode ser complementado pela medição do tempo de verificação criptográfica:\nTcrypto = Tsig_verify + Tblock_validation.\nMétricas\nAssociadas\nTempo de Resposta Total; Latência de Transação; Tempo\nde Verificação de Assinatura; Vazão (Throughput); Nível\nde Autenticação de Identidade\nAtributo\nRelacionado\nDesempenho de rede; Eficiência criptográfica; Latência\nde comunicação; Escalabilidade\n90",
+    "unit": "Milissegundos (ms) ou segundos (s)",
+    "protocol": "1) Selecionar o cenário de autenticação (usuário, nó, dispositivo IoMT).\n2) Registrar o tempo de envio da requisição (trequest) e o\ntempo de confirmação (tconfirm).\n3) Executar múltiplas autenticações em diferentes condições de rede e carga.\n4) Calcular o tempo médio Tauth e o desvio padrão para\navaliar estabilidade.\n5) Comparar resultados entre mecanismos distintos (criptografia homomórfica, autenticação via contrato inteli-\ngente, aprendizado profundo).",
+    "comment": "O Tempo de Autenticação é crítico em aplicações médicas\ne industriais, onde atrasos podem comprometer a disponibilidade de serviços ou causar falhas de sincronização. O\nartigo avalia essa métrica em um modelo híbrido baseado\nem blockchain consorcial e criptografia homomórfica, demonstrando que a autenticação segura pode ser realizada\ncom latência reduzida por meio da integração de técnicas\nde aprendizado profundo e armazenamento distribuído.\nInterpretação\ndo\nValor Medido\nValores menores indicam um processo de autenticação\nmais eficiente e adequado a sistemas sensíveis ao tempo.\nValores altos refletem gargalos de rede, sobrecarga de\nnós ou algoritmos criptográficos complexos, comprometendo a escalabilidade e o desempenho em tempo real.",
+    "scale_type": "Razão",
+    "precision": "Depende da resolução do relógio de medição, estabilidade\nde rede e número de repetições experimentais. Resultados\nmais precisos são obtidos por meio de medições diretas\nno nó blockchain, com sincronização de tempo entre\ndispositivos.",
+    "data_collection": "Automática (via monitoramento de logs, timestamps de\nrequisição e resposta)",
+    "use_processes": "Avaliação de desempenho de protocolos de autenticação\nem blockchain; comparação entre modelos criptográficos; análise de escalabilidade de sistemas IoMT/IIoT;\notimização de latência em aplicações sensíveis ao tempo.",
+    "objective": "Avaliar o desempenho temporal do processo de autenticação em arquiteturas blockchain, especialmente\nem aplicações do tipo Internet das Coisas Industrial e\nMédica (IIoT/IoMT). A autenticação deve ser segura\ne rápida o suficiente para permitir respostas em tempo\nquase real, garantindo confiabilidade sem comprometer\na experiência ou a operação contínua dos dispositivos.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Scripts de medição de desempenho (Python/Web3.py);\nexploradores blockchain para extração de timestamps;\nsimuladores de autenticação IoMT; ferramentas de monitoramento de rede (Wireshark, Prometheus, Grafana).",
+    "beneficiaries": "Engenheiros de sistemas distribuídos; desenvolvedores de\nplataformas blockchain médicas/industriais; pesquisadores em cibersegurança e IoMT; analistas de desempenho\nde rede; projetistas de contratos inteligentes.\n91",
+    "references": "Srinivas, K.; Durgadevi, K. A Novel Homomorphic Encryption\nand Consortium Blockchain-Based Hybrid Deep Learning Model\nfor Industrial Internet of Medical Things. IEEE Access, 2022.\n— Propõe um modelo híbrido de autenticação segura utilizando\nblockchain consorcial e criptografia homomórfica, medindo o tempo\nmédio de autenticação e demonstrando ganhos de desempenho e\nprivacidade em ambientes IoMT.\n92"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 33"
+  }
+}

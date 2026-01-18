@@ -1,0 +1,28 @@
+{
+  "id": "t107",
+  "table_no": 107,
+  "name": "Taxa de Fork com Um Único Minerador",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Definition: Mede a frequência com que um mesmo minerador\ngera múltiplos blocos na mesma altura da blockchain, resultando em forks redundantes (chamados de\none-miner forks). Essa métrica avalia o comportamento\ne a eficiência dos mineradores, identificando práticas de\nmineração egoístas ou falhas de sincronização em pools.",
+    "equation": "A taxa de forks de minerador único (R1m) é dada por:\nR1m = F1m\nFtotal\n× 100\nonde F1m representa o número de forks causados por\num único minerador e Ftotal é o número total de forks\nobservados no período de análise.\nMétricas\nAssociadas\nTaxa de Forks Total; Taxa de Blocos Órfãos; Eficiência\nde Mineração; Utilização de Blocos\nAtributo\nRelacionado\nConsistência da Blockchain; Estabilidade de Rede; Justiça no Consenso; Desempenho de Pools",
+    "unit": "Percentual de forks gerados por mineradores únicos (%)",
+    "protocol": "1) Implantar nós de monitoramento em múltiplas regiões\ngeográficas para registrar blocos e transações em tempo\nreal.\n2) Identificar blocos com a mesma altura (block_height)\ne minerador idêntico.\n3) Classificar ocorrências de forks produzidas por um\núnico minerador (pares, triplos, múltiplos).\n4) Calcular a proporção de forks de um único minerador\nsobre o total de forks observados.\n5) Correlacionar o valor obtido com a eficiência de mineração e distribuição de recompensas.\n257",
+    "comment": "O estudo observou que cerca de 11% dos forks na rede\nEthereum foram causados por um único minerador, com casos extremos de até sete blocos gerados na\nmesma altura. Esse comportamento reduz a eficiência\nglobal, aumenta o consumo de energia e pode indicar tentativas de manipulação de recompensas (uncle rewards).\nA métrica é útil para auditorias e análises de comportamento de pools.\nInterpretação\ndo\nValor Medido\nTaxas elevadas indicam má coordenação de mineração\nou comportamento egoísta, comprometendo a equidade e\no desempenho da rede. Taxas baixas sugerem propagação eficiente e sincronização estável entre os mineradores.",
+    "scale_type": "Razão",
+    "precision": "Alta, desde que a coleta de dados inclua identificação precisa de mineradores e timestamps de blocos em múltiplas\nregiões.",
+    "data_collection": "Automática / Experimental",
+    "use_processes": "Auditoria de pools de mineração; monitoramento de estabilidade de rede; avaliação da eficiência do consenso;\nestudos de impacto energético e de equidade na mineração.",
+    "objective": "Quantificar o impacto de forks gerados por um único\nminerador sobre a eficiência da rede e o desperdício de\nrecursos computacionais. A métrica permite detectar\npráticas desleais ou ineficientes que afetam a propagação\nde blocos e a justiça na distribuição de recompensas.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Cliente Ethereum modificado (Geth 1.8.23) com coleta\ndistribuída; análise de logs em Python (pandas, NumPy);\nmonitoramento global da propagação de blocos.",
+    "beneficiaries": "Pesquisadores de blockchain; operadores de pools; desenvolvedores de protocolos de consenso; auditores e\nreguladores de redes públicas.",
+    "references": "Silva, P.; Vavřička, D.; Barreto, J.; Matos, M. Impact of GeoDistribution and Mining Pools on Blockchains: A Study of Ethe-\nreum. IEEE/IFIP International Conference on Dependable Systems and Networks (DSN), 2020. — A métrica One-Miner Fork\nRate quantifica a proporção de forks gerados por um único minerador, identificando comportamentos ineficientes e práticas de\nmineração egoístas que afetam o desempenho da rede Ethereum.\n258"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 107"
+  }
+}

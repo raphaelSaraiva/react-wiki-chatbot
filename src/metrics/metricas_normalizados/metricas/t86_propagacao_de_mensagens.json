@@ -1,0 +1,28 @@
+{
+  "id": "t86",
+  "table_no": 86,
+  "name": "Propagação de Mensagens",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Definition: Mede o tempo necessário para que uma mensagem\n(transação ou bloco) seja propagada por toda a\nrede P2P blockchain. Essa métrica reflete a eficiência e\na conectividade da camada de rede subjacente, afetando\ndiretamente a sincronização entre nós, a latência de\nconfirmação e a resiliência da rede contra bifurcações\n(forks).",
+    "equation": "O atraso médio de propagação (Dp) pode ser expresso\ncomo:\nDp = 1\nN\nN\nX\ni=1\n(trecv,i −tsend),\nonde tsend é o instante em que a mensagem é transmitida\npelo nó de origem e trecv,i é o instante de recebimento\npor cada nó i. O tempo total de propagação (Tprop) é o\nmaior atraso entre os nós participantes:\nTprop = max\ni (trecv,i) −tsend.\nMétricas\nAssociadas\nLatência de rede; Taxa de retransmissão; Número de\nsaltos (hop count); Taxa de perda de mensagens; Desvio\npadrão de propagação\nAtributo\nRelacionado\nThroughput; Consistência de bloco; Taxa de bifurcação;\nResiliência de rede\n207",
+    "unit": "Segundos (s)",
+    "protocol": "1) Selecionar um conjunto de nós Ethereum conectados\nvia P2P (ex.: mainnet ou testnet).\n2) Injetar mensagens controladas (transações ou blocos)\ne registrar tsend e trecv,i em cada nó receptor.\n3) Calcular Dp (atraso médio) e Tprop (tempo total de\ndisseminação).\n4) Repetir o processo em diferentes horários e regiões\ngeográficas para capturar a variação temporal e de topologia.\n5) Analisar correlação entre o atraso e o grau de conexão,\ntamanho da mensagem e número de pares ativos.",
+    "comment": "A Propagação de Mensagens é um indicador crítico da\nsaúde da camada P2P da blockchain. O estudo Ethna\nmostrou que a propagação de blocos no Ethereum é heterogênea — nós com mais conexões e melhor latência de\nrede propagam mensagens mais rapidamente, enquanto\nnós periféricos sofrem atrasos significativos. Esses atrasos\npodem afetar a segurança e o desempenho, especialmente\nem protocolos que dependem de rápida convergência global de estado.\nInterpretação\ndo\nValor Medido\nValores baixos de Dp e Tprop indicam uma rede eficiente e sincronizada. Valores altos refletem gargalos\nde comunicação, vulnerabilidade a bifurcações e risco de\ninconsistência temporária entre nós.",
+    "scale_type": "Razão",
+    "precision": "Depende da sincronização de relógios entre nós e da\namostragem temporal. Recomenda-se o uso de NTP e\nregistro em múltiplos pontos geográficos para compensar\nvariações regionais.",
+    "data_collection": "Experimental (monitoramento da rede P2P)",
+    "use_processes": "Avaliação de desempenho da camada de rede; diagnóstico\nde atrasos na propagação de blocos e transações; estudo\nde vulnerabilidades de rede (eclipse, atraso seletivo);\notimização de conectividade entre nós.",
+    "objective": "Avaliar a capacidade de disseminação de informações\nna rede Ethereum e identificar gargalos de comunicação\nentre pares. Um tempo de propagação elevado pode\nlevar a desatualização de nós, aumento de bifurcações e\nrisco de exploração (ex.: ataques de atraso). A métrica\npermite quantificar o desempenho real da infraestrutura\nP2P, essencial para segurança e consistência global.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "Ethna Framework; Wireshark; Node monitors; scripts de\ninstrumentação (Python/Web3); P2P traffic loggers.",
+    "beneficiaries": "Pesquisadores em redes P2P; desenvolvedores de clientes Ethereum; analistas de desempenho e segurança de\nblockchain; engenheiros de rede.\n208",
+    "references": "Kim, J.; Lee, S.; Cho, J.; Kim, J. Ethna: Analyzing the Underlying\nPeer-to-Peer Network of Ethereum Blockchain. IEEE Transactions on Network and Service Management, 2022. — Introduz a\nmétrica Message Propagation para quantificar a latência e cobertura da disseminação de mensagens na rede P2P do Ethereum,\ncorrelacionando-a com topologia, conectividade e desempenho global do sistema.\n209"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 86"
+  }
+}

@@ -21,25 +21,6 @@
     "beneficiaries": "Provedores de energia; pesquisadores em blockchain e\nsmart grid; engenheiros de eficiência energética; formuladores de políticas públicas.",
     "references": "Kumari, A., Tanwar, S. A Data Analytics Scheme for Securityaware Demand Response Management in Smart Grid System.\nIEEE 7th Uttar Pradesh Section International Conference on Electrical, Electronics and Computer Engineering (UPCON), 2020.\n282"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Economia de Custos",
-    "Palavras-chave / Alias": "Price Saving; Cost Saving; Energy Incentive; Load Reduction Reward; Demand Response Saving",
-    "Definição do Atributo": "Mede o valor monetário economizado pelos consumidores\ne provedores de energia após a aplicação de um esquema\nde gerenciamento de demanda baseado em blockchain.\nA métrica reflete o impacto da redução do consumo\nenergético e do redirecionamento de cargas de pico, comparando o custo efetivo antes e depois da adoção do\nmodelo proposto.",
-    "Objetivo / Motivação": "Avaliar o benefício financeiro gerado pela utilização do\nesquema ε-Sutra, considerando a economia obtida em\nrelação a soluções convencionais de gerenciamento de demanda. Essa métrica evidencia a viabilidade econômica\ndo uso de contratos inteligentes e incentivos para promover comportamento energético eficiente e sustentável.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "A economia de preço é calculada como:\nPriceSaving =\nn\nX\ni=1\n(Cbase(i) −CDRM(i))\nonde Cbase(i) representa o custo de energia sem o esquema\nde gerenciamento de demanda e CDRM(i) o custo após a\naplicação do esquema ε-Sutra.\nMétricas\nAssociadas\nRedução de Carga (Load Reduction); Incentivo ao Consumidor; Custo de Armazenamento de Dados; Escalabi-\nlidade do Sistema\nAtributo\nRelacionado\nEficiência Econômica; Sustentabilidade Energética; Estabilidade do Sistema de Rede",
-    "Protocolo": "1) Coletar dados de consumo energético horário de diferentes consumidores e identificar os períodos de pico.\n2) Aplicar o algoritmo de classificação e o fator de redução (Curtailment Factor — CF) para ajustar o consumo.\n3) Calcular o custo de energia antes (Cbase) e depois\n(CDRM) da aplicação do esquema ε-Sutra.\n4) Determinar a diferença agregada de custo como economia de preço.\n5) Registrar os resultados no blockchain por meio de contrato inteligente (ESC) para transparência e auditoria.\n281",
-    "Comentário": "A métrica mostrou que o esquema ε-Sutra apresentou\nreduções significativas de custo e carga em comparação a\nabordagens tradicionais, como as de Jindal et al. e Vivekananthan et al. O sistema alcançou um equilíbrio entre\neconomia financeira e estabilidade da rede, estimulando\nconsumidores a participar do gerenciamento de demanda\nvia incentivos registrados em blockchain.\nInterpretação\ndo\nValor Medido\nValores mais altos de economia indicam maior eficiência\ndo esquema de gerenciamento de demanda e melhor aproveitamento dos incentivos. Reduções modestas podem\nindicar baixa adesão dos consumidores ou ineficiência na\nredistribuição da carga energética.",
-    "Unidade": "Unidade monetária (USD ou equivalente local por intervalo de tempo)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Alta, desde que os custos de consumo e incentivos sejam coletados em intervalos regulares e registrados via\ncontratos inteligentes.",
-    "Tipo de Coleta de Dados": "Automática / Experimental",
-    "Ferramenta de Medição": "Simulação em Python (Tkinter); Blockchain Ethereum\n(Smart Contracts com Solidity); IPFS para armazenamento de dados; Remix IDE para implantação de con-\ntratos.",
-    "Processos de Uso Potenciais": "Planejamento energético em redes inteligentes; avaliação\nde eficiência de programas de incentivo; otimização de\npolíticas de preços dinâmicos em blockchains energéticas.",
-    "Beneficiários Potenciais": "Provedores de energia; pesquisadores em blockchain e\nsmart grid; engenheiros de eficiência energética; formuladores de políticas públicas.",
-    "Referências": "Kumari, A., Tanwar, S. A Data Analytics Scheme for Securityaware Demand Response Management in Smart Grid System.\nIEEE 7th Uttar Pradesh Section International Conference on Electrical, Electronics and Computer Engineering (UPCON), 2020.\n282"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 119"

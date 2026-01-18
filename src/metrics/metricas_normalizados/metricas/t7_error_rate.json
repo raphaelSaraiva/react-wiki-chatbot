@@ -1,0 +1,25 @@
+{
+  "id": "t7",
+  "table_no": 7,
+  "name": "Taxa de Erro",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Menor é melhor. Investigar caudas (p95/p99) e\ncorrelação com throughput/latência; discriminar erros\nde canal (BER) vs. lógicos (revert/invalid). Em\npermissionadas, taxas de falha elevadas podem indicar\ntimeouts, contenção ou políticas de acesso; em públicas,\napontam gas insuficiente ou congestionamento.",
+    "equation": "Error Rate =\nNerros\nNtentativas\n.\nExemplos específicos:\nBER = Nbits_errados\nNbits_totais ; Tx Failure Rate = Ntx_falhas\nNtx_totais .\nMétricas\nAssociadas\nThroughput (TPS); Latência/Response time; Block\ntime; Taxa de sucesso; Precisão/accuracy (em esquemas\ncom classificação); Taxa de rejeição/invalidade.\nAtributo\nRelacionado\nDisponibilidade; Tolerância a falhas; Integridade dos\ndados; Confiabilidade da confirmação.\n19",
+    "unit": "Adimensional (fração) ou porcentagem (%). Para BER,\ntambém em ppm.",
+    "protocol": "1. Definir escopo e critério de erro: BER (bit\nincorreto), falha de transação (status/revert), rejeição\nde assinatura/política.\n2. Coleta: instrumentar cliente/SDK e nós (receipts,\nstatus, revert reason); para BER, registrar erros no\nenlace (p.ex., 5G/IP).\n3. Cenários: variar taxa de envio/carga, número de\nnós/validadores, block time/gas limit, tamanho de\npayload.\n4. Cálculo: estimar Error Rate por janela [t0, t1];\nreportar média/mediana p95/p99; estratificar por causa\n(rede, contrato, consenso).\n5. Relatar condições: topologia\n(pública/permissionada IBFT), uso de IPFS/off-chain,\npresença de ZK/assinaturas e ferramentas de fuzzing\n(p.ex., Echidna para verificação).",
+    "comment": "Em e-voting com 5G+IPFS, os autores reportam bit\nerror rate e custos, usando Echidna para segurança de\ncontratos; em EHR (Hyperledger Besu/IBFT+IPFS), a\nfailure rate é analisada com variação de volume e nós;\nabordagens LECDS e PoCW tratam error rate como\nindicador de eficácia sob diferentes\nmecanismos/criptografia. Além disso, estudos de\ne-voting com score voting avaliam limites de carga (até\n∼10k transações) antes de quedas nas métricas.",
+    "scale_type": "Proporção",
+    "precision": "Aumenta com o tamanho da amostra (bits/tx avaliadas)\ne com a correta classificação de falhas. Para BER,\nrecomenda-se amostragem extensa e canal controlado;\npara failure rate, usar receipts oficiais e cadeia canônica.",
+    "data_collection": "Automática\nFerramenta de\nMedição\nWeb3/JSON-RPC (status de transações), clients\n(geth/Besu) e receipts/logs; painéis de monitoramento;\ninjetores de carga; para BER, ferramentas de medição\nde enlace (5G) e sniffers. Echidna e testes formais\napoiam a redução de erros lógicos.\n20",
+    "use_processes": "SRE/Operações (confiabilidade); tuning de\nconsenso/parametrização; validação de arquiteturas\n(IPFS/off-chain) em e-voting e EHR; avaliação de novas\nabordagens criptográficas/consenso (LECDS, PoCW).\nBeneficiários\nPotenciais\nEngenheiros(as) de blockchain; SRE/DevOps;\nArquitetos(as) de sistemas; Gestores(as) de\nproduto/SLA; Pesquisadores(as).",
+    "references": "(1) Chaudhary et al., Blockchain-Based Secure Voting Mechanism\nUnderlying 5G Network — avalia bit error rate e desempenho do\ncontrato sob 5G+IPFS.\n(2) Sowmiya et al., LECDS With Blockchain for Enhanced Security\non Cloud Server — mede error rate, throughput e accuracy em\ncenário permissionado.\n(3) Sheela Rani & Priya, Proof of Continuous Work — relatório\nde métricas incluindo processing time, response time e error rate.\n(4) Alshehri et al., Privacy-Preserving E-Voting Supporting Score\nVoting — avaliação empírica de desempenho e limites de carga (até\n10k transações).\n(5) Shuaib et al., Secure Decentralized EHR Sharing (IBFT\n+ IPFS) — mede failure rate,\nlatência e throughput em\nBesu/permissionada.\n21"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 7"
+  }
+}

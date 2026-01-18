@@ -21,25 +21,6 @@
     "beneficiaries": "Pesquisadores em economia de blockchain; engenheiros\nde sistemas distribuídos; desenvolvedores de protocolos\nde consenso; analistas de políticas de taxa.",
     "references": "Siddiqui, S.; Vanahalli, G.; Gujar, S. BitcoinF: Achieving Fairness\nfor Bitcoin in Transaction-Fee-Only Model. International Institute\nof Information Technology Hyderabad, 2021.\n280"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Preço do Consumo",
-    "Palavras-chave / Alias": "Price of Consumption; Minimum Transaction Fee; Transaction Cost; fmin; Consumption Price Stability",
-    "Definição do Atributo": "Representa o valor mínimo de taxa de transação\n(fmin) que um usuário deve pagar para que sua\ntransação seja processada em uma blockchain. Esse\nvalor reflete o custo mínimo percebido pelo usuário para\nparticipar da rede e é determinado dinamicamente conforme o comportamento dos mineradores e a saturação\nda mempool.",
-    "Objetivo / Motivação": "Avaliar a estabilidade do custo mínimo de processamento\nde transações em um sistema blockchain e sua influência\nna justiça e saúde econômica da rede. Um preço de\nconsumo estável indica um sistema justo e sustentável,\nenquanto variações elevadas sugerem congestionamento,\ncomportamento oportunista de mineradores ou desequilíbrio entre oferta e demanda de espaço em blocos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Utilização de Recursos",
-    "Equação": "O preço de consumo é definido como:\nfmin = min(ftxn)\nsujeito a\nlatência de processamento ≤Lmax\nonde ftxn é a taxa de transação ofertada e Lmax é o\nlimite de latência aceitável. A estabilidade é medida pela\nvariação de fmin ao longo do tempo (σ(fmin)).\nMétricas\nAssociadas\nLatência de Processamento; Saúde da Blockchain; Custo\nde Transação; Número de Transações Processadas; Honest Mining Power\nAtributo\nRelacionado\nTaxa Mínima de Transação; Estabilidade Econômica;\nEquidade de Usuário\n279",
-    "Protocolo": "1) Simular a operação de uma blockchain sob condições\nmaduras (Mature Operating Conditions - MOC).\n2) Monitorar a evolução do valor mínimo de taxa fmin\npago pelos usuários cujas transações são efetivamente\nincluídas em blocos.\n3) Calcular a variação de fmin ao longo de múltiplos\nblocos ou épocas de observação.\n4) Analisar a correlação entre fmin, número de transações não confirmadas e comportamento dos mineradores\n(FIFO vs. Greedy).\n5) Avaliar o impacto de protocolos alternativos, como o\nBitcoinF, sobre a estabilidade de fmin.",
-    "Comentário": "O artigo mostra que, no modelo de apenas taxas de transação (Transaction-Fee-Only Model), o preço de consumo\ntende a subir de forma instável devido ao comportamento\nganancioso dos mineradores e ao acúmulo de transações\npresas (stranded). O protocolo BitcoinF corrige esse\nproblema impondo uma taxa mínima fixa (f0min), garantindo estabilidade e justiça tanto para usuários quanto\npara mineradores.\nInterpretação\ndo\nValor Medido\nMenores valores e baixa variação de fmin indicam\nestabilidade e equidade; variações grandes refletem desequilíbrio e degradação da saúde da blockchain.",
-    "Unidade": "Moeda da blockchain por transação (ex.: satoshi/byte,\nBTC/KB, ou equivalente em USD).",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Alta, dependente da coleta contínua de dados de taxas e\ntempos de confirmação em blocos consecutivos.",
-    "Tipo de Coleta de Dados": "Automática / Simulada",
-    "Ferramenta de Medição": "Simulações baseadas em Python; análise estatística de\nfmin por época; blockchain explorer; monitoramento da\nmempool.",
-    "Processos de Uso Potenciais": "Avaliação de justiça econômica de blockchains; modelagem de taxa mínima para sustentabilidade de mineração;\ncomparação entre políticas de inclusão de transações\n(FIFO vs Greedy).",
-    "Beneficiários Potenciais": "Pesquisadores em economia de blockchain; engenheiros\nde sistemas distribuídos; desenvolvedores de protocolos\nde consenso; analistas de políticas de taxa.",
-    "Referências": "Siddiqui, S.; Vanahalli, G.; Gujar, S. BitcoinF: Achieving Fairness\nfor Bitcoin in Transaction-Fee-Only Model. International Institute\nof Information Technology Hyderabad, 2021.\n280"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 118"

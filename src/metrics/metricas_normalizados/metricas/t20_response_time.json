@@ -1,0 +1,25 @@
+{
+  "id": "t20",
+  "table_no": 20,
+  "name": "Tempo de Resposta",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Definition: Menor é melhor. Avaliar p95/p99 para capturar picos\nsob concorrência. Considerar trade-offs:\nsegurança/descentralização adicionam atraso inerente;\notimizações (p.ex., restringir mineração a PDCs locais)\npodem mitigar a communication delay.",
+    "equation": "ResponseTime = Tresposta −Trequisição.\nPercentis: px = inf{t | F(t) ≥x/100} para\nx ∈{50, 95, 99}.\nMétricas\nAssociadas\nThroughput (TPS); Latência/Confirmação; Tamanho do\nBloco; Tempo de Bloco; Jitter; Taxa de falhas/timeout.\nParâmetros de corte de bloco (p.ex., “máx. 100 tx /\nespera 2s”) afetam diretamente tempos de transação.\nAtributo\nRelacionado\nTransaction per Second (TPS); Block Time; Block Size;\nAvailability\n54",
+    "unit": "Milissegundos (ms) ou segundos (s)",
+    "protocol": "1) Definir cenário e operação-alvo: query vs transaction.\n2) Instrumentar o cliente para registrar Trequisição e\nTresposta por requisição.\n3) Variar concorrência e tamanho de dados (quando\naplicável) e coletar distribuição (p50/p95/p99).\n4) Em DLT, registrar parâmetros de bloco\n(tamanho/timeout) e consenso; correlacionar com\ntempos medidos.\n5) Em estudos comparativos, avaliar evolução do tempo\nde resposta com o número de entidades (ex.:\n“instituições virtuais”).",
+    "comment": "Em T-DSES, queries apresentaram tempos médios\n∼523–1031 ms conforme dados/concorrência;\ntransactions têm tempo significativamente maior por\nincluir execução/ordenação/empacotamento e mostram\n“ponto de inflexão” quando o limite de 100 tx por bloco\nelimina a espera de 2s. Em PoCW-BC-SSED, o tempo\nde resposta reduziu 23–36% vs baselines conforme o nº\nde instituições. Em SCS de sincrofasores, a exigência de\noperação em tempo real reforça priorizar percentis\nelevados e minimizar atrasos adicionais do uso de\nblockchain.",
+    "scale_type": "Absoluta (razão)",
+    "precision": "Usar relógio monotônico no cliente e sincronização\n(NTP/PTP) quando envolver múltiplas fontes. Em\nDLT, padronizar o evento de término (primeira\nconfirmação/commit vs retorno do SDK) para\ncomparabilidade.",
+    "data_collection": "Automática\nFerramenta de\nMedição\nScripts de carga/benchmark do cliente; logs/telemetria\ndo nó; profilers de aplicação. (Em T-DSES, medições\nforam realizadas em ambiente INKchain/Kubernetes\ncom variação de concorrência e dataset.)",
+    "use_processes": "Benchmarking de serviços e consensos;\ndimensionamento/capacidade; SRE/Operações;\ndefinição/monitoramento de SLAs; avaliação de\narquiteturas (p.ex., SCS com PMU/PDC).\n55\n\nBeneficiários\nPotenciais\nEngenheiros(as) de blockchain; SRE/DevOps;\nArquitetos(as); Gestores(as) de produto/SLA;\nPesquisadores(as)",
+    "references": "(1) X. Wu et al. T-DSES: A Blockchain-powered Trusted Decentralized Service Eco-System — arquitetura, experimento em nuvem e\nanálise de tempo de resposta para query/transaction.\n(2) P. S. Rani; S. B. Priya. A blockchain-based approach using\nproof of continuous work — métrica “response time” e comparação\ncom baselines em diferentes escalas de instituições.\n(3) A. V. Jha et al. A Blockchain-Enabled Approach for Enhancing Synchrophasor Measurement in Smart Grid 3.0 — contexto\nde operação em tempo real e necessidades de comunicação eficiente/segura.\n56"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 20"
+  }
+}

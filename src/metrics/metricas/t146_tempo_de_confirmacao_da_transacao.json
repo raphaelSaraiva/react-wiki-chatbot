@@ -21,25 +21,6 @@
     "beneficiaries": "Pesquisadores de blockchain; engenheiros de software\ndistribuído; desenvolvedores de redes permissionadas;\narquitetos de sistemas de registro eletrônico em saúde.",
     "references": "Kanagasankari, S., & Vallinayagi, V. (2023). An Efficient Byzantine Consensus Mechanism Based on Healthcare Sector in Block-\nchain. Multimedia Tools and Applications. — Apresenta o algoritmo IPBFT e compara seu tempo de commit com o PBFT,\ndemonstrando redução significativa da latência e melhoria da eficiência na confirmação de transações em sistemas de saúde distri-\nbuídos.\n338"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Tempo de Confirmação da Transação",
-    "Palavras-chave / Alias": "Transaction commit time; Transaction latency; Confirmation time; Consensus delay; IPBFT; PBFT",
-    "Definição do Atributo": "Mede o tempo total necessário para que uma transação seja completamente validada, acordada e registrada\nna blockchain. Inclui as etapas de propagação, verificação, consenso e escrita no ledger. Essa métrica reflete\na eficiência temporal do mecanismo de consenso e a\nresponsividade da rede.",
-    "Objetivo / Motivação": "Avaliar a eficiência temporal do processo de consenso em\nredes blockchain, especialmente em cenários de validação\ndistribuída.\nNo artigo, o tempo de commit é usado\npara comparar o desempenho entre o protocolo PBFT\ntradicional e a versão aprimorada IPBFT, no contexto\nde registros médicos distribuídos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Comportamento Temporal",
-    "Equação": "Tcommit = Tconfirm −Tsubmit\nonde Tsubmit é o instante em que a transação é submetida\nao nó primário e Tconfirm é o instante em que a transação\né confirmada e registrada no ledger.\nMétricas\nAssociadas\nTransaction Latency; Block Confirmation Time; Consensus Delay; Throughput\nAtributo\nRelacionado\nEficiência de Consenso; Desempenho de Rede; Tempo de\nExecução de Transação",
-    "Protocolo": "1) Configurar uma rede blockchain de teste (ex.: Hyperledger Fabric) com o algoritmo PBFT e sua variante\nIPBFT.\n2) Submeter um conjunto de transações de forma controlada e medir o tempo entre o envio e a confirmação\nno ledger.\n3) Calcular a média de Tcommit para cada configuração.\n4) Comparar os resultados entre PBFT e IPBFT para\navaliar ganhos de eficiência.\n5) Registrar variações sob diferentes cargas de rede e\nnúmero de nós validadores.\n337",
-    "Comentário": "O tempo de commit reflete a eficiência do protocolo de\nconsenso e o desempenho da rede. O IPBFT reduz o\ntempo de confirmação ao otimizar o processo de autenticação e diminuir redundâncias nas fases pre-prepare,\nprepare e commit. Essa melhoria é crítica para aplicações\nsensíveis a tempo, como o gerenciamento de registros de\nsaúde.\nInterpretação\ndo\nValor Medido\nValores menores de Tcommit indicam melhor eficiência e\nmenor latência da rede. Valores altos podem sinalizar\ngargalos no consenso, excesso de comunicação entre nós\nou congestionamento da rede.",
-    "Unidade": "Segundos (s)",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Requer sincronização temporal entre os nós participantes\ne registros precisos de tempo de envio e confirmação.\nDiferenças de latência de rede e processamento podem\nafetar a precisão.",
-    "Tipo de Coleta de Dados": "Automática / Experimental",
-    "Ferramenta de Medição": "Hyperledger Fabric; IPBFT Prototype; scripts de benchmark; Prometheus; logs de consenso.",
-    "Processos de Uso Potenciais": "Avaliação de desempenho de mecanismos de consenso;\notimização de protocolos em redes permissionadas; análise de escalabilidade em sistemas distribuídos; validação\nde aplicações críticas (ex.: saúde e IoT).",
-    "Beneficiários Potenciais": "Pesquisadores de blockchain; engenheiros de software\ndistribuído; desenvolvedores de redes permissionadas;\narquitetos de sistemas de registro eletrônico em saúde.",
-    "Referências": "Kanagasankari, S., & Vallinayagi, V. (2023). An Efficient Byzantine Consensus Mechanism Based on Healthcare Sector in Block-\nchain. Multimedia Tools and Applications. — Apresenta o algoritmo IPBFT e compara seu tempo de commit com o PBFT,\ndemonstrando redução significativa da latência e melhoria da eficiência na confirmação de transações em sistemas de saúde distri-\nbuídos.\n338"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 146"

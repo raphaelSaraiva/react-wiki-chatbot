@@ -1,0 +1,28 @@
+{
+  "id": "t130",
+  "table_no": 130,
+  "name": "Taxa de Responsividade do Sistema",
+  "iso25010": {
+    "characteristic": "Usabilidade",
+    "subcharacteristic": "Comportamento Temporal (Time Behavior)"
+  },
+  "fields": {
+    "definition": "Definition: Mede a capacidade de um sistema blockchain em responder de forma rápida e eficiente às solicitações de usuários\nou nós, representando a prontidão do sistema sob diferentes cargas de transação. Essa métrica quantifica o tempo\nmédio necessário para que uma requisição enviada receba\nresposta dentro do intervalo esperado, refletindo a eficiência temporal da infraestrutura blockchain integrada à\nnuvem.",
+    "equation": "R = 1 −f\n\u0012P rm\nrmax\n\u0013\nonde R representa a taxa de resposta, rm o tempo médio\nde resposta para cada requisição e rmax o tempo máximo\naceitável definido para o serviço.\nMétricas\nAssociadas\nLatency; Throughput; Service Availability; Transaction\nCompletion Time\nAtributo\nRelacionado\nDesempenho de Serviço;\nEficiência Computacional;\nTempo de Processamento",
+    "unit": "Adimensional (taxa) ou tempo médio em milissegundos\n(ms)",
+    "protocol": "1) Implementar o sistema de controle de acesso e compartilhamento de dados em nuvem descentralizada.\n2) Configurar diferentes tamanhos de blockchain (100 a\n500 blocos).\n3) Enviar múltiplas requisições de acesso simultâneas e\nmedir o tempo de resposta de cada uma.\n4) Calcular o tempo médio de resposta (rm) e o tempo\nmáximo tolerável (rmax).\n5) Aplicar a equação para determinar a taxa de prontidão\ndo sistema sob diferentes cargas.\n303",
+    "comment": "O tempo de resposta é uma métrica essencial para avaliar a experiência do usuário e a capacidade do sistema\nblockchain de operar sob condições de carga elevada.\nO artigo demonstra que o modelo proposto apresenta\nmelhor desempenho de resposta em comparação com os\nesquemas ABAC, BSeIn e EACMS.\nInterpretação\ndo\nValor Medido\nValores mais próximos de 1 indicam alta responsividade\ne eficiência temporal. Valores mais baixos refletem degradação no tempo de resposta, possivelmente causada por\nsobrecarga de rede, aumento de tamanho da blockchain\nou limitações no mecanismo de consenso.",
+    "scale_type": "Razão",
+    "precision": "Alta, dependendo da resolução temporal das ferramentas\nde medição e do controle de variáveis externas (número\nde requisições, tamanho da blockchain).",
+    "data_collection": "Automática / Experimental",
+    "use_processes": "Avaliação de desempenho em sistemas blockchain-nuvem;\nteste de carga e escalabilidade; comparação de desempenho entre modelos de controle de acesso.",
+    "objective": "Avaliar o desempenho temporal e a agilidade de resposta do sistema descentralizado, assegurando tempos\nde resposta compatíveis com os requisitos de usabilidade\ne confiabilidade esperados em ambientes de armazenamento e controle de acesso baseados em blockchain.\nModelo\nde\nQualidade\nISO/IEC 25010",
+    "measurement_tool": "CloudSim; Simulações Python; cronômetros internos de\nexecução; logs de requisições de smart contracts.",
+    "beneficiaries": "Engenheiros(as) de desempenho; arquitetos(as) de sistemas distribuídos; desenvolvedores(as) de blockchain e\nserviços em nuvem; pesquisadores(as) em segurança e\nIoT.",
+    "references": "Huang, J., Liu, Z., Li, Q., & Chen, Y. (2022). Blockchain-Based\nAccess Control and Data Sharing Mechanism in Cloud Decentralized Storage System. IEEE Transactions on Industrial Informatics,\n18(8), 5530–5541.\n304"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 130"
+  }
+}

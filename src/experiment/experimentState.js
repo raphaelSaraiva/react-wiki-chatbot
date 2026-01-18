@@ -4,7 +4,7 @@ export const EXP_EVENT_NAME = "experimentStateChanged";
 
 export const EXP_CONFIG = {
   METRICS_REQUIRED: 3,
-  QUESTIONS_REQUIRED: 5,
+  QUESTIONS_REQUIRED: 3,
 
   // ✅ NOVO: atividade "usar busca por métricas"
   // Recomendação: concluir quando clicar em uma métrica com busca ativa (>=2 chars).
@@ -104,12 +104,55 @@ function normalizeState(parsed) {
     next.meta.chatCompletedCount = next.chatEntries.length || 0;
   }
 
-  // ✅ migração: garante que cada chatEntry tenha campo "rating" (nota)
+  // ✅ migração: garante que cada chatEntry tenha:
+  // - rating (legado) 1..5 ou null
+  // - ratings (novo) { option1, option2 } 1..5 ou null
+  // - option*_variant (novo) "rag" | "norag" | null
+  // - compat: aceita legado { rag, norag } se ainda existir
   next.chatEntries = (next.chatEntries || []).map((e) => {
     const rating = clampInt(e?.rating, 1, 5);
+
+    // novo formato (opção 1/2) — também aceita chaves antigas usadas em export
+    const opt1 = clampInt(
+      e?.ratings?.option1 ?? e?.ratingOption1 ?? e?.rating_option1,
+      1,
+      5
+    );
+    const opt2 = clampInt(
+      e?.ratings?.option2 ?? e?.ratingOption2 ?? e?.rating_option2,
+      1,
+      5
+    );
+
+    // legado (rag/norag)
+    const rag = clampInt(e?.ratings?.rag, 1, 5);
+    const norag = clampInt(e?.ratings?.norag, 1, 5);
+
+    const hasOptionRatings = opt1 !== null || opt2 !== null;
+
+    const v1 =
+      e?.option1_variant === "rag" || e?.option1_variant === "norag"
+        ? e.option1_variant
+        : null;
+    const v2 =
+      e?.option2_variant === "rag" || e?.option2_variant === "norag"
+        ? e.option2_variant
+        : null;
+
     return {
       ...e,
-      rating: rating ?? null, // null = não avaliado ainda
+
+      // legado (não quebra histórico antigo / telas antigas)
+      rating: rating ?? null,
+
+      // novo: notas separadas por resposta (neutras)
+      ratings: hasOptionRatings
+        ? { option1: opt1 ?? null, option2: opt2 ?? null }
+        : { rag: rag ?? null, norag: norag ?? null },
+
+      // novo: qual opção é RAG / NO_RAG (para análise no Firebase)
+      option1_variant: v1,
+      option2_variant: v2,
     };
   });
 
@@ -233,7 +276,27 @@ export function addChatEntry(entry) {
     metricName: String(entry?.metricName || "").trim(),
     createdAt: entry?.createdAt || nowIso(),
 
-    // ✅ nota/rating (1..5) opcional
+    // ✅ NOVO: notas separadas (1..5) – podem ser null
+    // padrão atual: option1/option2 (neutras)
+    ratings: {
+      option1: clampInt(entry?.ratings?.option1, 1, 5) ?? null,
+      option2: clampInt(entry?.ratings?.option2, 1, 5) ?? null,
+    },
+
+    // ✅ NOVO: persistir qual opção era RAG / NO_RAG (para análise posterior)
+    option1_variant:
+      entry?.option1_variant === "rag" || entry?.option1_variant === "norag"
+        ? entry.option1_variant
+        : null,
+    option2_variant:
+      entry?.option2_variant === "rag" || entry?.option2_variant === "norag"
+        ? entry.option2_variant
+        : null,
+
+    // ✅ opcional: mantém o embaralhamento (oculto)
+    answerOrder: entry?.answerOrder || null,
+
+    // ✅ legado: ainda salva "rating" se vier (pra compatibilidade)
     rating: clampInt(entry?.rating, 1, 5) ?? null,
   };
 
@@ -270,7 +333,6 @@ export function hasCompletedMetricSearchTask() {
 
   return getMetricSearchClickCount() >= 1;
 }
-
 
 /**
  * Registra "uso de busca" (não conclui por si só).
@@ -447,7 +509,7 @@ export function removeChatEntryByKey(question, createdAt) {
 }
 
 /**
- * ✅ atualizar a nota (rating) de um item do histórico
+ * ✅ atualizar a nota (rating) legado de um item do histórico
  * - Não mexe no contador persistente
  */
 export function setChatEntryRatingByKey(question, createdAt, rating) {
@@ -463,6 +525,47 @@ export function setChatEntryRatingByKey(question, createdAt, rating) {
       String(e?.question || "") === q && String(e?.createdAt || "") === c;
     if (!same) return e;
     return { ...e, rating: r };
+  });
+
+  saveExperimentState(state);
+}
+
+/**
+ * ✅ atualizar as duas notas (ratings) de um item do histórico
+ * - Não mexe no contador persistente
+ *
+ * OBS: este helper era baseado em rag/norag. Mantive, mas adaptei para:
+ * - preferir atualizar option1/option2 quando existir
+ * - se for chamado com valores (rag, norag), também registra legado em paralelo
+ *   sem tentar inferir variantes.
+ */
+export function setChatEntryRatingsByKey(question, createdAt, rag, norag) {
+  const q = String(question || "");
+  const c = String(createdAt || "");
+  const r1 = clampInt(rag, 1, 5);
+  const r2 = clampInt(norag, 1, 5);
+  if (!q || !c || r1 === null || r2 === null) return;
+
+  const state = getExperimentState();
+
+  state.chatEntries = (state.chatEntries || []).map((e) => {
+    const same =
+      String(e?.question || "") === q && String(e?.createdAt || "") === c;
+    if (!same) return e;
+
+    const hasOption = e?.ratings && ("option1" in e.ratings || "option2" in e.ratings);
+
+    return {
+      ...e,
+      ratings: hasOption
+        ? { option1: r1, option2: r2 } // usa os valores recebidos como nota das opções
+        : { rag: r1, norag: r2 },      // mantém legado se esse item ainda for legado
+
+      // legado: mantém também um "rating" coerente (ex.: média) se ainda não existir
+      rating:
+        clampInt(e?.rating, 1, 5) ??
+        Math.round((Number(r1) + Number(r2)) / 2),
+    };
   });
 
   saveExperimentState(state);

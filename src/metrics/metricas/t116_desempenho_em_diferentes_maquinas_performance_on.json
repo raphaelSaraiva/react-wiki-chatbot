@@ -21,25 +21,6 @@
     "beneficiaries": "Pesquisadores de desempenho; desenvolvedores de contratos inteligentes; operadores de nós; arquitetos de in-\nfraestrutura blockchain.",
     "references": "Khalilov, M. C. K.; Levi, A. Empirically Analyzing Ethereum’s\nGas Mechanism.\nIEEE Transactions on Network and Service\nManagement, vol. 18, no. 2, 2021.\n276"
   },
-  "raw_fields": {
-    "Atributo Nome (Título)": "Desempenho em Diferentes Máquinas",
-    "Palavras-chave / Alias": "Machine Performance; Hardware Comparison; Execution\nSpeed; Computational Power; Gas Efficiency",
-    "Definição do Atributo": "Mede o impacto do desempenho de hardware (CPU,\nmemória e arquitetura da máquina) na execução de transações e contratos inteligentes em uma rede blockchain.\nEssa métrica avalia a variação de tempo de execução e\nconsumo de gas em diferentes configurações de máquinas,\nrefletindo a influência do poder computacional sobre o\ncusto e a eficiência da execução.",
-    "Objetivo / Motivação": "Determinar se diferenças na capacidade computacional\ndas máquinas (como velocidade de CPU e memória disponível) afetam o custo e o tempo de execução das ope-\nrações na blockchain Ethereum. Essa análise é essencial\npara compreender a influência do ambiente físico sobre\nmétricas de gas e otimização de contratos inteligentes.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "Característica": "Eficiência de Desempenho",
-    "Sub-característica": "Comportamento Temporal",
-    "Equação": "O desempenho relativo (Pm) entre máquinas pode ser\ndefinido como:\nPm = Tref\nTm\nonde Tref é o tempo médio de execução em uma máquina\nde referência e Tm é o tempo médio de execução na máquina avaliada. Valores de Pm > 1 indicam desempenho\nsuperior em relação à referência.\nMétricas\nAssociadas\nCusto de Gas; Tempo de Execução; Throughput; Latência de Execução; Utilização de CPU\nAtributo\nRelacionado\nEficiência Computacional; Escalabilidade; Portabilidade\nde Execução\n275",
-    "Protocolo": "1) Selecionar múltiplas máquinas com diferentes capacidades de hardware (ex.: processadores Intel i7, Xeon,\nAMD Ryzen).\n2) Executar os mesmos contratos inteligentes e transações em cada ambiente, mantendo as mesmas condições\nde rede.\n3) Registrar tempos médios de execução, consumo de gas\ne variações de custo.\n4) Calcular Pm comparando com a máquina de referência.\n5) Analisar o impacto do hardware sobre a eficiência da\nexecução e custo de gas.",
-    "Comentário": "O estudo demonstrou que o tempo de execução e o consumo de gas variam de forma perceptível entre máquinas\ncom diferentes arquiteturas e frequências de CPU, embora a blockchain busque fornecer um ambiente uniforme\nde execução. Essa variação pode afetar o desempenho\nde ferramentas de análise e depuração de contratos.\nInterpretação\ndo\nValor Medido\nValores mais altos de Pm indicam melhor desempenho\ncomputacional para execução de transações. Diferenças pequenas entre máquinas demonstram bom nível de\nabstração da camada de execução da EVM (Ethereum\nVirtual Machine).",
-    "Unidade": "Razão adimensional (comparativa) ou tempo de execução\n(ms, s).",
-    "Tipo de Escala": "Razão",
-    "Precisão": "Alta, desde que os testes sejam conduzidos sob as mesmas\ncondições de rede e carga.",
-    "Tipo de Coleta de Dados": "Experimental / Automática",
-    "Ferramenta de Medição": "Ethereum Virtual Machine (EVM); Python scripts; Benchmarking tools (ex.: Truffle, Hardhat); ferramentas de\nprofiling de gas.",
-    "Processos de Uso Potenciais": "Avaliar a portabilidade e desempenho da execução em\ndiferentes plataformas; calibrar ambientes de teste; identificar gargalos de hardware em aplicações blockchain.",
-    "Beneficiários Potenciais": "Pesquisadores de desempenho; desenvolvedores de contratos inteligentes; operadores de nós; arquitetos de in-\nfraestrutura blockchain.",
-    "Referências": "Khalilov, M. C. K.; Levi, A. Empirically Analyzing Ethereum’s\nGas Mechanism.\nIEEE Transactions on Network and Service\nManagement, vol. 18, no. 2, 2021.\n276"
-  },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 116"
