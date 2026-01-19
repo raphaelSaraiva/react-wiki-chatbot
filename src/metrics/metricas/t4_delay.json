@@ -9,7 +9,7 @@
   "fields": {
     "definition": "Tempo que uma informação leva para ir do ponto de envio até o ponto de recebimento em uma blockchain ou sistema distribuído, como uma transação, um bloco ou uma mensagem entre nós.",
     "objective": "Avaliar a rapidez da comunicação na rede, pois atrasos elevados afetam a confirmação de transações, aumentam conflitos na cadeia e prejudicam aplicações sensíveis a tempo, como IoT e V2X.",
-    "equation": "Atraso = tempo de recebimento − tempo de envio. Dependendo do contexto, pode representar atraso de propagação de blocos, de transações ou atraso fim a fim de aplicações.",
+    "equation": "Atraso = tempo de recebimento − tempo de envio. \n\nDependendo do contexto, pode representar atraso de propagação de blocos, de transações ou atraso fim a fim de aplicações.",
     "comment": "Quanto menor o atraso, melhor o desempenho do sistema. Valores altos indicam maior risco de conflitos, menor estabilidade da rede e pior experiência para aplicações em tempo real. Recomenda-se observar percentis altos (p95 ou p99), que refletem situações críticas de carga ou mobilidade.",
     "scale_type": "Absoluta",
     "protocol": "1) Definir claramente o evento de envio e o evento de recebimento.\n2) Coletar os tempos de envio e recebimento em nós com relógios sincronizados.\n3) Executar medições em diferentes condições de rede, carga e topologia.\n4) Calcular a distribuição do atraso (mediana, p90, p95, p99).\n5) Relacionar o atraso com métricas como taxa de forks, sucesso de transmissão e throughput.",
