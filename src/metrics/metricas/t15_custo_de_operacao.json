@@ -7,20 +7,13 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "definition": "Soma dos recursos computacionais e dos custos monetários consumidos por uma aplicação ou rede blockchain ao\nlongo do tempo de operação (processamento, memória,\narmazenamento, E/S, rede), incluindo as taxas pagas\npor transações/execuções de contratos inteligentes.",
-    "objective": "Quantificar e otimizar o custo para operar soluções baseadas em blockchain, suportando decisões de arquitetura\n(p. ex., on-chain vs. off-chain), parametrização de gas e\nplanejamento orçamentário/SLAs.",
-    "domain_independence": "Totalmente independente de domínio (aplicável a saúde,\nIoT, redes, energia, etc.).\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Cop(P) = P\ni∈TP\n\u0010\ngasUsedi · gasPricei\n\u0011\n+ Cinfra(P) +\nCenergia(P)\nOnde P é o período de medição; TP o conjunto de transações no período; o primeiro termo representa os custos\non-chain (taxas), e os demais contemplam infraestrutura\n(CPU, RAM, armazenamento, rede) e energia.\nMétricas\nAssociadas\nCusto de Gas; Custo por Transação; Consumo de Energia; Vazão (impacta volume e custo total); Tamanho de\nBloco/Armazenamento (impacta custo indireto).\nAtributo\nRelacionado\nCusto de Armazenamento; Tempo de Confirmação (tradeoff custo/velocidade); Taxa de Transações (TPS).",
-    "protocol": "1) Definir o período e a unidade monetária de reporte\n(e.g., ETH, USD, BRL).\n2) Coletar por transação: gasUsed e gasPrice (via\nnó/Explorer/API).\n3) Calcular custo on-chain: P gasUsed · gasPrice.\n4) Somar custos de infraestrutura/energia do ambiente\n(cloud, bare-metal).\n5) Segmentar por tipo de operação (deploy, escrita, leitura) para otimização.\n6) Reportar estatísticas (total, média por transação,\np50/p95/p99) e condições (rede, consenso, parâmetros\nde gas, uso de off-chain/IPFS).\n41",
-    "comment": "Há trade-off entre preço do gas e tempo de confirmação:\npreços maiores tendem a priorizar a inclusão da transação,\nelevando o custo; preços menores reduzem custo mas\npodem aumentar a latência. Em Ethereum, o custo de\ndeploy é tipicamente o mais caro (parte fixa + parte\nvariável proporcional ao tamanho do bytecode). O uso\nde armazenamento off-chain (e.g., IPFS) reduz custos\non-chain ao registrar apenas hashes.\nInterpretação\ndo\nValor Medido\nQuanto\nmenor\no\ncusto\npara\natender\no\nmesmo\nSLA/funcionalidade, melhor (eficiência). Avaliar custo\ntotal e custo unitário (por transação/por evento), além\ndos percentis (p50/p95/p99) para entender caudas de\ncusto.",
-    "unit": "ETH, Gwei, USD, BRL (conforme política de conversão);\nJoules/kWh para energia.",
-    "scale_type": "Razão (valores não negativos com zero significativo).",
-    "precision": "Depende da acurácia de gasUsed/gasPrice e da amostragem de custos de infra/energia; considerar variação\ntemporal de preços (EIP-1559) e câmbio.",
-    "data_collection": "Automática (APIs do nó/Explorer, web3, coletores de\ncustos de cloud/energia).",
-    "measurement_tool": "Explorers (e.g., Etherscan) e bibliotecas (web3) para\ngasUsed/gasPrice; planilhas/FinOps para custos de\ninfra; coletores de energia.",
-    "use_processes": "Planejamento orçamentário; otimização de contratos (refatorar funções caras, usar IPFS/rollups); definição de\nSLAs e política de gas; capacity planning.",
-    "beneficiaries": "Engenheiros(as) de blockchain; SRE/Operações; FinOps;\nArquitetos(as); Gestores(as) de Produto.",
-    "references": "Gonçalves et al., Distributed Network Slicing Management Using Blockchains in E-Health Environments (Mo-\nbile Networks and Applications, 2021).\nGonçalves et al., A Quality of Service Compliance System Empowered by Smart Contracts and Oracles (IEEE\nBlockchain, 2020).\n42"
+    "definition": "Custo total para manter uma aplicação ou rede blockchain em funcionamento ao longo do tempo, considerando tanto os custos on-chain (taxas de transação e execução de contratos) quanto os custos off-chain de infraestrutura, como processamento, armazenamento, rede e energia.",
+    "objective": "Avaliar o impacto financeiro da operação de soluções baseadas em blockchain, apoiando decisões de arquitetura, otimização de contratos, uso de armazenamento off-chain e planejamento orçamentário.",
+    "equation": "Custo Operacional = soma das taxas on-chain (gasUsed × gasPrice) + custos de infraestrutura + custos de energia, medidos em um período definido.",
+    "comment": "O custo operacional reflete o efeito combinado de decisões técnicas e de mercado. Taxas de gás mais altas tendem a reduzir o tempo de confirmação, mas aumentam o custo. Estratégias como uso de IPFS, agregação de operações e escolha adequada de parâmetros de consenso ajudam a reduzir o custo total sem comprometer o SLA.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o período de análise e a moeda de referência (por exemplo, ETH ou USD).\n2) Coletar, para cada transação, os valores de gasUsed e gasPrice.\n3) Calcular o custo on-chain somando gasUsed × gasPrice no período.\n4) Somar os custos de infraestrutura e energia do ambiente de execução.\n5) Calcular métricas agregadas, como custo total e custo médio por transação.\n6) Comparar cenários (on-chain vs. off-chain, diferentes políticas de gás ou arquiteturas).",
+    "references": "1) Distributed Network Slicing Management Using Blockchains in E-Health Environments\n2) A Quality of Service Compliance System Empowered by Smart Contracts and Oracles"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

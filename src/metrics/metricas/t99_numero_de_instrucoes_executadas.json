@@ -1,7 +1,7 @@
 {
   "id": "t99",
   "table_no": 99,
-  "name": "Número de Instruções",
+  "name": "Número de Instruções Executada",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
     "subcharacteristic": "Capacidade"

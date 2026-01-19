@@ -1,7 +1,7 @@
 {
   "id": "t141",
   "table_no": 141,
-  "name": "Tempo para Poda",
+  "name": "Tempo de Poda do Ledger",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
     "subcharacteristic": "Comportamento Temporal"

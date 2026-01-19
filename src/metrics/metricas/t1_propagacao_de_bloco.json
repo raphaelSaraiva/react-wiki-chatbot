@@ -7,20 +7,13 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "definition": "Tempo decorrido desde o anúncio de um novo bloco por\num nó minerador até que uma fração p% dos pares na\nrede o receba/valide. Em Bitcoin (e redes similares),\nprotocolos como sendheaders e compact block relay\ninfluenciam diretamente esse tempo.",
-    "objective": "Quantificar a eficiência da camada P2P na disseminação de blocos, pois maiores tempos de propagação\nelevam a taxa de órfãos (stale) e prejudicam a segurança/consistência da cadeia. Também subsidia decisões\nsobre tamanho de bloco e intervalos de geração.",
-    "domain_independence": "Totalmente independente do domínio — aplicável a criptomoedas, IoT/IIoMT e consórcios.\nModelo\nde\nQualidade\nISO/IEC 25010 (Eficiência de Desempenho)",
-    "equation": "Propagaçãop% = Tp% −Tanúncio\n(tempo até p% dos\npares).\nMétrica derivada útil: ρp% =\nPropagaçãop%\nIntervalo de Bloco (deve\nser ≪1).\nMétricas\nAssociadas\nTaxa de forks/órfãos; Tamanho de bloco; Intervalo de\nbloco; Latência de rede; Throughput; Localização geográfica dos mineradores.\n1\n\nAtributo\nRelacionado\nConfiabilidade/Consistência da cadeia; Segurança (chain\nquality); Justiça entre mineradores.",
-    "protocol": "1. Definir o critério p (ex.: 50% e 90%) e o evento de\ninício Tanúncio (anúncio do bloco).\n2. Instrumentar nós de medição em regiões distintas\ne habilitar logs/telemetria do cliente (p.ex., cabeçalhos\nenviados, pedidos getdata, CBR).\n3.\nPara cada bloco observado, registrar o tempo de\nrecepção/validação por cada nó; calcular Tp%.\n4. Calcular estatísticas (mediana, p90, p95, p99) e a\nrazão ρp%; comparar esquemas (headers vs CBR) e\ncenários de tamanho de bloco/carga.\n5. Reportar condições de teste: largura de banda, RTT,\nnúmero de pares, topologia/Região do minerador e versão\ndo protocolo de propagação.",
-    "comment": "Em medições/simulações de Bitcoin, sendheaders e sobretudo CBR reduzem significativamente o tempo de pro-\npagação; blocos maiores elevam a validação/propagação\ne aumentam a taxa de órfãos sob métodos legados. A\nlocalização geográfica e a banda de upload do minerador\ninfluenciam o tempo para atingir p90 de cobertura. Em\ndesigns de consórcio/IIoMT, reduzir o payload on-chain\n(armazenando apenas metadados) diminui sobrecarga de\nrede e contribui para menor atraso fim-a-fim.\nInterpretação\ndo\nValor Medido\nMenor é melhor. Priorizar percentis altos (p90/p95/p99).\nRecomenda-se ρp% muito abaixo de 1; se ρp% crescer,\nespera-se maior taxa de órfãos e risco a segurança.",
-    "unit": "Milissegundos (ms) ou segundos (s).",
+    "definition": "Tempo que um novo bloco leva para se espalhar pela rede blockchain, contado a partir do momento em que é criado por um nó até que uma parte significativa dos outros nós (por exemplo, 50% ou 90%) o receba e aceite.",
+    "objective": "Avaliar a rapidez e a eficiência da comunicação entre os nós da rede, já que atrasos na propagação de blocos podem gerar blocos inválidos, conflitos na cadeia e reduzir a segurança do sistema.",
+    "equation": "Propagação_p% = tempo até que p% dos nós recebam o bloco − tempo de anúncio do bloco. Uma medida complementar é ρ_p% = Propagação_p% / Intervalo de Bloco.",
+    "comment": "Quanto menor o tempo de propagação, melhor o desempenho da rede. Valores altos indicam maior risco de conflitos entre blocos e menor segurança. Recomenda-se observar percentis altos (como p90 ou p95), pois eles mostram o comportamento da rede em situações mais críticas.",
     "scale_type": "Absoluta",
-    "precision": "Depende de sincronização de relógio (NTP/PTP), granularidade de logs/eventos e relógio do sistema dos nós\nmedidos.",
-    "data_collection": "Automática",
-    "measurement_tool": "Clientes Bitcoin/ETH instrumentados (logs de rede),\npacket capture, simuladores (bns/ns-3) e testnets com\nmúltiplas regiões.",
-    "use_processes": "Avaliação/otimização de protocolos de propagação (headers/CBR); estudos de impacto de tamanho de bloco;\nplanejamento de infraestrutura P2P; definição de SLAs\noperacionais.",
-    "beneficiaries": "Engenheiros de protocolo; Operações/SRE; Mineradores/validadores; Arquitetos de redes e produto.\n2",
-    "references": "Rohrer & Tschorsch — Blockchain Layer Zero: Characterizing the Bitcoin Network through Measurements,\nModels, and Simulations.\nAli et al. — A Novel Homomorphic Encryption and Consortium Blockchain-Based Hybrid Deep Learning Model\nfor IIoMT.\n3"
+    "protocol": "1) Escolher o percentual de nós a ser considerado (ex.: 50% ou 90%).\n2) Registrar o instante em que o bloco é criado e anunciado na rede.\n3) Medir o tempo em que cada nó recebe o bloco.\n4) Calcular o tempo necessário para que o percentual escolhido de nós receba o bloco.\n5) Analisar valores médios e percentis para comparar diferentes condições de rede.",
+    "references": "1) Blockchain Layer Zero: Characterizing the Bitcoin Network through Measurements, Models, and Simulations\n2) A Novel Homomorphic Encryption and Consortium Blockchain-Based Hybrid Deep Learning Model for IIoMT"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

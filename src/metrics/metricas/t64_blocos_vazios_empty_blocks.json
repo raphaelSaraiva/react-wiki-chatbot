@@ -1,7 +1,7 @@
 {
   "id": "t64",
   "table_no": 64,
-  "name": "Blocos Vazios",
+  "name": "Taxa de Blocos Vazios",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
     "subcharacteristic": "Utilização de Recursos"

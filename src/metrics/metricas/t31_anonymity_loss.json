@@ -1,7 +1,7 @@
 {
   "id": "t31",
   "table_no": 31,
-  "name": "Anonymity Loss",
+  "name": "Perda de Anonimato",
   "iso25010": {
     "characteristic": "Segurança",
     "subcharacteristic": "Confidencialidade"

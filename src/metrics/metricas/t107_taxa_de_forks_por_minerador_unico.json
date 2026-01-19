@@ -1,7 +1,7 @@
 {
   "id": "t107",
   "table_no": 107,
-  "name": "Taxa de Fork com Um Único Minerador",
+  "name": "Taxa de Fork por Minerador Único",
   "iso25010": {
     "characteristic": "Confiabilidade",
     "subcharacteristic": "Tolerância a Falhas"

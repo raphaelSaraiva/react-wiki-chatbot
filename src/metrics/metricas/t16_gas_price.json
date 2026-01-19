@@ -7,19 +7,13 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "definition": "Quantia paga por unidade de gas para priorizar a inclusão/execução de uma transação/contrato em uma rede\n(ex.: Ethereum). Desde o EIP-1559, o preço efetivo é\ncomposto por base fee dinâmica (queima) + priority\nfee (gorjeta ao validador), limitada por max fee.",
-    "objective": "Quantificar e controlar o custo necessário para atingir\no tempo de confirmação desejado (trade-off custo vs latência) e estimar o impacto econômico de operações\non-chain. Em arquiteturas de monetização de dados IoT,\nas taxas de transação regulam abuso/DoS e viabilizam\ncontratos de mercado.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Custo básico de uma transação em ETH: gas(ETH) =\ngas_price(ETH/gas) × gas_used(gas).\nSob EIP-1559: gas_priceefetivo = min(maxFee, baseFee+\npriorityFee).\nConversão\npara\nmoeda\nfiduciária:\ncustofiat\n=\ngas(ETH) × cotação(ETH →moeda).\nMétricas\nAssociadas\nGas used; Custo de Gas; Custo por Transação; Latência/Tempo de confirmação; Utilização do bloco; TPS\nAtributo\nRelacionado\nCusto de Operação; Custo de Transação; Consumo de\nEnergia; Throughput",
-    "protocol": "1) Definir rede e janela [t0, t1].\n2)\nColetar\nbaseFee,\npriorityFee,\nmaxFee\ne\neffectiveGasPrice\npor\ntransação\n(nó/Explorer;\nweb3.eth.getGasPrice como referência mediana).\n3) Para cada transação: registrar gasUsed e tipo (deploy,\nescrita, leitura).\n4) Calcular séries e estatísticas (média, p50/p95/p99)\nde gas_price e custo; converter para moeda local pela\ncotação do período.\n5) Reportar condições: congestionamento, parâmetros\ndo contrato, perfil de uso.\n43",
-    "comment": "Gas price é volátil e sensível à congestão; priorityFee\nmaior tende a reduzir o atraso de inclusão ao custo de\naumentar o preço efetivo. Estimativas práticas usam a\nmediana de web3.eth.getGasPrice e o gasUsed típico\npor operação. Em soluções de mercado de dados IoT, as\ntaxas viabilizam trocas e coíbem abuso (pagamento por\noperação), integrando-se a contratos e armazenamento\noff-chain (ex.: IPFS).\nInterpretação\ndo\nValor Medido\nMenor preço implica menor custo, porém pode elevar tempo de confirmação. Defina alvos por percentis\n(p95/p99) compatíveis com o SLA, e monitore o preço\nefetivo ao longo do tempo/uso.",
-    "unit": "Gwei/gas; ETH/gas; (opcional) USD/gas ou BRL/gas\napós conversão",
+    "definition": "Valor monetário pago por unidade de gás para que uma transação ou execução de contrato inteligente seja incluída e processada na blockchain. Em redes EVM, esse valor reflete a competição por recursos computacionais da rede.",
+    "objective": "Avaliar o impacto econômico da priorização de transações e apoiar decisões de custo versus tempo de confirmação, auxiliando no planejamento financeiro e na definição de SLAs.",
+    "equation": "Preço efetivo do gás (EIP-1559): gasPrice = min(maxFee, baseFee + priorityFee).\nCusto da transação = gasUsed × gasPrice.",
+    "comment": "Preço de gás mais alto aumenta a chance de inclusão rápida da transação, porém eleva o custo monetário. Preços mais baixos reduzem custo, mas podem resultar em maior latência. A métrica deve ser analisada junto com consumo de gás e latência.",
     "scale_type": "Razão",
-    "precision": "Depende da coleta em tempo real e da rede/época; o\nmecanismo EIP-1559 ajusta baseFee dinamicamente.\nRegistrar também a variação de priorityFee por tipo\nde transação.",
-    "data_collection": "Automática",
-    "measurement_tool": "APIs do cliente/Explorer; web3.js (getGasPrice); nós\n(geth/Besu); painéis (Prometheus/Grafana) para séries\ntemporais.",
-    "use_processes": "Planejamento de custos (FinOps); definição de preços\nem dApps/mercados de dados; otimização de contratos\n(reduzir gasUsed); escolha on-chain vs off-chain.",
-    "beneficiaries": "Engenheiros(as) de blockchain; SRE/Operações; FinOps;\nArquitetos(as) de sistemas; Gestores(as) de produto/SLA",
-    "references": "(1) Ali, Vecchio, Antonelli. A Blockchain-Based Framework for\nIoT Data Monetization Services — taxas de transação em dApps,\nintegração com IPFS e mecanismos de mercado/DoS. :contentReference[oaicite:11]index=11\n(2) Takegawa, Furuichi. Traceability Management System Using\nBlockchain Technology and Cost Estimation in the Metrology Field\n— equação gas = gas_price×gas_usage, componentes do gas price\n(EIP-1559) e análise de custo.\n44"
+    "protocol": "1) Definir a rede e o período de observação.\n2) Coletar baseFee, priorityFee, maxFee e preço efetivo por transação via nó ou explorador.\n3) Calcular estatísticas do preço do gás (média, mediana, p95/p99).\n4) Relacionar os valores observados com tempos de confirmação e congestionamento da rede.",
+    "references": "1) Traceability Management System Using Blockchain Technology and Cost Estimation in the Metrology Field\n2) A Blockchain-Based Framework for IoT Data Monetization Services"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

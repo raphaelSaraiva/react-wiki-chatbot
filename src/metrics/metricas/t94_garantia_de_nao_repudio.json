@@ -1,7 +1,7 @@
 {
   "id": "t94",
   "table_no": 94,
-  "name": "Não-Repúdio",
+  "name": "Garantia de Não Repúdio",
   "iso25010": {
     "characteristic": "Segurança",
     "subcharacteristic": "Não Repúdio"

@@ -1,7 +1,7 @@
 {
   "id": "t67",
   "table_no": 67,
-  "name": "Taxa de Requisições Falhadas",
+  "name": "Taxa de Requisições Falhas",
   "iso25010": {
     "characteristic": "Confiabilidade",
     "subcharacteristic": "Tolerância a Falhas"

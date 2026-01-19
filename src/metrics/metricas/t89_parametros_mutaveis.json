@@ -1,7 +1,7 @@
 {
   "id": "t89",
   "table_no": 89,
-  "name": "Parâmetros Mutáveis",
+  "name": "Número de Parâmetros Mutáveis",
   "iso25010": {
     "characteristic": "Segurança",
     "subcharacteristic": "Integridade"

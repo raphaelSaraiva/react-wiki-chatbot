@@ -1,7 +1,7 @@
 {
   "id": "t40",
   "table_no": 40,
-  "name": "Taxa de Forks da Blockchain",
+  "name": "Taxa de Bifurcação da Blockchain",
   "iso25010": {
     "characteristic": "Confiabilidade",
     "subcharacteristic": "Tolerância a Falhas"
