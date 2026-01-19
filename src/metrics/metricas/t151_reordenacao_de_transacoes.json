@@ -12,13 +12,7 @@
     "equation": "Taxa de reordenação por janela: ReorderRate = NOoO\nNtotal\n×\n100%,\nem que NOoO é o número de transações fora de ordem\n(Out-of-Order) detectadas e Ntotal é o total de transações\nobservadas do mesmo remetente.\n(Alternativa – atraso de reordenação) ReorderDelay =\ntincl(nonce k+1) −tincl(nonce k) quando k+1 foi observado antes de k.\nMétricas\nAssociadas\nTransaction Latency; Transaction Commit Time; Block\nPropagation Delay; Pending Time; Transaction Coverage\nAtributo\nRelacionado\nOrdenação por Nonce; Política do Mempool; Propagação\nP2P; Congestionamento\n347",
     "protocol": "1) Instrumentar nós Ethereum (ex.: geth) em múltiplas\nregiões para registrar {tx_hash, remetente, nonce, timestamp de chegada}.\n2) Para cada remetente, ordenar as transações por timestamp de chegada e checar a monotonicidade do nonce.\n3) Contabilizar ocorrências fora de ordem (OoO) e calcular ReorderRate; opcionalmente estimar ReorderDelay\ncom base em timestamps de inclusão em bloco.\n4) Agregar por janelas (ex.: 5–10 min) e reportar média,\np50/p95.\n5) Correlacionar com distância geográfica, políticas de\npeers e carga de rede.",
     "comment": "Em redes com ampla geo-distribuição e pools de mineração heterogêneos, diferenças de propagação e políticas\nde mempool ampliam a reordenação, elevando o tempo\nde confirmação para transações com nonce mais alto e\ndegradando a previsibilidade do usuário.\nInterpretação\ndo\nValor Medido\nReorderRate baixo indica boa ordenação/propagação\ne confirmações mais previsíveis. ReorderRate alto\nsugere gargalos de propagação, políticas de mempool restritivas ou hotspots regionais, implicando maior latência\ne variância no commit.",
-    "unit": "Percentual (%) para ReorderRate; Segundos (s) para\nReorderDelay",
     "scale_type": "Razão",
-    "precision": "Requer relógios sincronizados entre observadores e coleta consistente de logs de chegada e inclusão em bloco;\ndiferenças de fuso/deriva podem introduzir viés em\nReorderDelay.",
-    "data_collection": "Automática / Experimental (logs de nós instrumentados)",
-    "measurement_tool": "Clientes geth instrumentados; parsers de logs; scripts de\nanálise (Python/Pandas); correlacionadores com dados\non-chain para tempos de inclusão.",
-    "use_processes": "Diagnóstico de propagação P2P; ajuste de políticas do\nmempool; melhoria de UX de carteiras (gestão de nonces);\navaliação de resiliência sob carga.",
-    "beneficiaries": "Operadores de nós; desenvolvedores de clientes e carteiras; pesquisadores de desempenho; equipes SRE de infra\nblockchain.",
     "references": "Silva, P.; Vavřička, D.; Barreto, J.; Matos, M. Impact of GeoDistribution and Mining Pools on Blockchains: A Study of Ethe-\nreum. DSN 2020.\n348"
   },
   "source": {

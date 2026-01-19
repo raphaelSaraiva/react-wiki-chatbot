@@ -12,13 +12,7 @@
     "equation": "Data Utility Rate =\nDados válidos e consistentes\nTotal de dados consumidos pela aplicação\nou\nData Utility Rate = Rcorretos\nRtotais\n× 100\nMétricas\nAssociadas\nAccuracy of Summary Information; Data Integrity; Transaction Validity; Data Latency\nAtributo\nRelacionado\nConfiabilidade dos Dados; Desempenho da Aplicação;\nEficiência de Processamento",
     "protocol": "1) Identificar aplicações que consomem dados blockchain.\n2) Medir a consistência e precisão dos dados usados pela\naplicação.\n3) Calcular a proporção de resultados corretos em relação\nao total de dados processados.\n4) Comparar com benchmarks off-chain para avaliar perdas de utilidade.",
     "comment": "O artigo demonstra que a utilidade dos dados depende\nda precisão do registro, do tempo de confirmação e das\npolíticas de privacidade da blockchain. Mecanismos de\nconsenso aumentam a confiança, mas podem reduzir a\neficiência se o volume de dados crescer rapidamente.\n147\n\nInterpretação\ndo\nValor Medido\nValores altos indicam alta preservação da utilidade e\nconfiança nos dados. Valores baixos sugerem degradação\ninformacional, inconsistências ou sobrecarga nos processos de validação.",
-    "unit": "Percentual (%)",
     "scale_type": "Razão",
-    "precision": "Alta — depende da disponibilidade de datasets de referência e rastreabilidade do consumo de dados.",
-    "data_collection": "Experimental / Analítica",
-    "measurement_tool": "Ferramentas de monitoramento de aplicações (Grafana,\nKibana); scripts de auditoria blockchain; analisadores de\nconsistência de dados.",
-    "use_processes": "Avaliação da qualidade de aplicações descentralizadas\n(dApps); controle de confiabilidade em marketplaces de\ndados; certificação de provedores de dados blockchain.",
-    "beneficiaries": "Desenvolvedores de dApps; analistas de dados; engenheiros de blockchain; provedores de dados.",
     "references": "Wu, H., Zhang, X., & Liu, W. (2020). A Blockchain-Based Trading\nSystem for Big Data. IEEE Access, vol. 8, pp. 177642–177653.\n148"
   },
   "source": {

@@ -12,13 +12,7 @@
     "equation": "VSI = 1 −Nprovedores_independentes\nNtotal_provedores\nonde Nprovedores_independentes é o número de provedores distintos de um serviço essencial (como RPCs, carteiras\nou SDKs) e Ntotal_provedores é o total de instâncias disponíveis. Quanto mais próximo de 1, maior o risco de\nescassez vulnerável.\nMétricas\nAssociadas\nRPC Centralization Risk; Service Availability; Network\nRedundancy; Node Diversity\nAtributo\nRelacionado\nConcentração de Serviços; Descentralização de Infraestrutura; Ponto Único de Falha; Diversidade de Provedores",
     "protocol": "1) Identificar os tipos de serviço críticos (RPCs, carteiras,\nexploradores, oráculos).\n2) Coletar dados sobre o número e a independência de\nprovedores para cada categoria.\n3) Verificar concentração geográfica e de domínio (ex.:\nquantos usam AWS, Cloudflare, ou IPs compartilhados).\n4) Calcular o índice VSI e classificar em faixas (Baixo\n<0.3, Médio 0.3–0.6, Alto >0.6).\n5) Reportar resultados considerando redundância e mecanismos de fallback.\n359",
     "comment": "A escassez vulnerável é um indicador de “centralização\noculta” — mesmo em sistemas blockchain descentralizados, a infraestrutura pode depender de poucos provedo-\nres, como Infura ou MetaMask. Isso amplia a superfície\nde ataque e o risco de censura. A diversificação de provedores e a adoção de infraestruturas auto-hospedadas\nsão contramedidas recomendadas.\nInterpretação\ndo\nValor Medido\nValores altos (> 0.6) indicam forte centralização e vulnerabilidade a falhas em cadeia; valores baixos (< 0.3)\nrepresentam ecossistemas mais resilientes e diversificados.",
-    "unit": "Índice adimensional (0–1)",
     "scale_type": "Razão",
-    "precision": "Depende da disponibilidade de informações sobre provedores e da correta distinção entre entidades independen-\ntes e dependentes.",
-    "data_collection": "Manual (auditoria de infraestrutura) ou automatizada\nvia APIs e crawlers de rede.",
-    "measurement_tool": "Exploradores públicos; WHOIS/DNS lookup; mapeamento de IPs e ASNs; análise de RPC endpoints e SDKs\nusados.",
-    "use_processes": "Auditoria de descentralização; avaliação de risco operacional; comparação entre ecossistemas blockchain; definição\nde políticas de redundância.",
-    "beneficiaries": "Engenheiros(as) de blockchain; analistas de segurança;\narquitetos de infraestrutura; operadores de nós; pesquisadores de descentralização.",
     "references": "S. Eskandari, et al. Bad Apples: Understanding the Centralized\nSecurity Risks in Decentralized Ecosystems.\nAnálise de vulnerabilidade estrutural e escassez de provedores em ecossistemas\nblockchain.\n360"
   },
   "source": {

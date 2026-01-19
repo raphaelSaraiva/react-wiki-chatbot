@@ -15,7 +15,6 @@
     "protocol": "1) Definir o período de análise e o tipo de nó avaliado (completo, arquivado ou com pruning).\n2) Medir o tamanho total dos dados persistidos no nó no início (t0) e no fim (t1) do período.\n3) Obter o número de blocos e de transações registrados no mesmo intervalo.\n4) Calcular o crescimento total do livro-razão e o crescimento médio por transação.\n5) Registrar parâmetros do ambiente, como tamanho de bloco, intervalo de bloco, política de batching e uso de armazenamento off-chain.",
     "references": "1) Distributed Ledger for Spammers’ Resume.\n2) Fast Policy Interpretation and Dynamic Conflict Resolution for Blockchain-Based IoT System."
   },
-
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
     "table": "Tabela 13"

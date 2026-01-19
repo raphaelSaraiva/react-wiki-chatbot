@@ -12,13 +12,7 @@
     "equation": "IAM Index = Funções com acesso inseguro\nTotal de funções\nMétricas\nAssociadas\nVulnerabilidades de Controle de Acesso; Authorization\nFailure Rate; Privilege Escalation Ratio; Secure Coding\nCompliance\nAtributo\nRelacionado\nSegurança de Contrato; Confidencialidade; Integridade;\nControle de Acesso",
     "protocol": "1) Realizar auditoria do código-fonte do contrato inteligente.\n2) Identificar funções declaradas com modificadores\npublic ou external.\n3) Classificar se o nível de acesso é compatível com a\nfunção.\n4) Contar o número de funções com modificadores excessivamente permissivos.\n5) Calcular a proporção de funções inseguras em relação\nao total.",
     "comment": "Um alto valor do índice indica fragilidade no controle\nde acesso e maior risco de vulnerabilidades exploráveis.\nRevisões automatizadas e ferramentas de análise estática,\ncomo Slither ou Mythril, são recomendadas para reduzir\no número de funções inseguras.\n187\n\nInterpretação\ndo\nValor Medido\nMenor índice indica melhor segurança e aplicação adequada de níveis de visibilidade. Valores elevados sugerem\nexposição indevida de lógica sensível e necessidade de\nrefatoração.",
-    "unit": "Razão (funções inseguras / total de funções)",
-    "scale_type": "Proporção",
-    "precision": "Alta, quando obtida por análise estática completa do\ncódigo-fonte. Pode variar em contratos com herança ou\nbibliotecas externas.",
-    "data_collection": "Semi-automática",
-    "measurement_tool": "Slither; Mythril; Oyente; Securify; análise manual de\ncódigo Solidity.",
-    "use_processes": "Auditorias de segurança; revisão de conformidade com\nboas práticas; certificação de contratos; monitoramento\nde vulnerabilidades.",
-    "beneficiaries": "Auditores de Segurança; Desenvolvedores(as) de Smart\nContracts; Arquitetos(as) de Blockchain; Gestores(as)\nde Conformidade.\nReferência\nSaini, A., Singh, D., & Verma, P. (2022). An Efficient Distributed\nand Secure Algorithm for Transaction Confirmation in IOTA Using\nCloud Computing. IEEE Access, 10, 83341–83353.\n188"
+    "scale_type": "Proporção"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

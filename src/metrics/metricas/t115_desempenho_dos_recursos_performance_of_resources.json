@@ -12,13 +12,7 @@
     "equation": "O desempenho dos recursos (Pr) pode ser representado\npela relação entre a carga média de utilização dos\nrecursos e a capacidade total do sistema:\nPr = UCPU + UMEM\n2\nonde UCPU é o uso médio de CPU (%) e UMEM é o\nuso médio de memória (%). O valor resultante indica\no desempenho médio combinado dos recursos utilizados\ndurante as operações.\nMétricas\nAssociadas\nTempo de Resposta; Throughput; Eficiência Energética;\nCusto Computacional; Latência\nAtributo\nRelacionado\nEscalabilidade; Capacidade de Processamento; Consumo\nde Recursos",
     "protocol": "1) Implementar o sistema blockchain de registros eletrônicos de saúde (EHR) proposto.\n2) Executar um conjunto de 100 operações de transação\ne monitorar o uso de CPU e memória.\n3) Registrar o uso médio de cada recurso e calcular o\nvalor combinado de desempenho.\n4) Comparar com sistemas tradicionais de EHR para\navaliar ganhos de eficiência.\n273",
     "comment": "O experimento reporta uso médio de CPU de 63% e\nconsumo de memória de 65 MB para 100 registros processados, indicando que o sistema atinge bom equilíbrio\nentre desempenho e carga de recursos. Isso comprova a\nviabilidade de sistemas blockchain aplicados à saúde sem\ndegradação significativa de desempenho.\nInterpretação\ndo\nValor Medido\nValores menores de uso indicam maior eficiência e\nmelhor desempenho geral. O sistema ideal mantém desempenho estável com utilização de recursos moderada,\nmesmo em cenários de alta demanda.",
-    "unit": "Percentual de uso médio (% CPU e memória); MB",
     "scale_type": "Razão",
-    "precision": "Alta, desde que o ambiente de teste seja controlado e as\nmedições sejam contínuas.",
-    "data_collection": "Automática",
-    "measurement_tool": "Scripts Python 3.8.4; bibliotecas de monitoramento como\npsutil; medição nativa do sistema operacional.",
-    "use_processes": "Avaliação de desempenho e otimização de sistemas blockchain; análise comparativa entre modelos tradicionais e\ndistribuídos; dimensionamento de infraestrutura.",
-    "beneficiaries": "Engenheiros de blockchain; desenvolvedores de sistemas\nde saúde; analistas de desempenho; arquitetos de infraestrutura distribuída.",
     "references": "Patil, S. S.; Gaikwad, P. D.; Sagar, D. V. A Novel Blockchain-Based\nElectronic Health Record Automation System for Healthcare. International Journal of Innovative Science and Research Technology,\nvol. 6, no. 4, 2021.\n274"
   },
   "source": {

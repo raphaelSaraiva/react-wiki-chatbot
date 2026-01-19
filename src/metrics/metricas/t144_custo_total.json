@@ -12,13 +12,7 @@
     "equation": "Ctotal = Ctransação + Cexecução + Carmazenamento\nonde:\nCustotransação = gastx × gasPrice,\nCustoexecução = gasexec × gasPrice,\nCustoarmazenamento representa o custo por byte armazenado na blockchain ou em repositórios externos (ex.:\nIPFS).\nMétricas\nAssociadas\nConsumo de gas; Custo de armazenamento; Taxa de\ntransação; Latência; Taxa de sucesso do consenso\nAtributo\nRelacionado\nEficiência Computacional; Throughput; Escalabilidade;\nCusto de Operação",
     "protocol": "1) Implantar o contrato inteligente na rede de teste (ex.:\nEthereum Testnet).\n2) Executar suas principais funções (ex.: registro, autorização, encerramento).\n3)\nRegistrar\ntransactionCost,\nexecutionCost\ne\nstorageCost para cada função.\n4) Calcular Ctotal e comparar entre funções e cenários\n(com e sem IPFS).\n332",
     "comment": "O estudo mostra que funções como adição de candidatos\n(FU1) geram maior custo total, enquanto operações de\nencerramento (FU4) são mais leves. A integração com\nIPFS reduz significativamente o custo de armazenamento,\nmantendo a segurança e integridade dos dados de votação. Essa métrica é essencial para avaliar a viabilidade\neconômica de soluções de votação seguras baseadas em\nblockchain.\nInterpretação\ndo\nValor Medido\nValores menores indicam melhor eficiência econômica\ne uso racional dos recursos. Valores mais altos podem sinalizar a necessidade de otimização de código,\nsegmentação de funções ou adoção de soluções off-chain.",
-    "unit": "Gwei, ETH ou USD (após conversão)",
-    "scale_type": "Razão",
-    "precision": "Depende da flutuação do preço do gas, da carga de rede e\ndo método de coleta. Recomenda-se medir sob diferentes\ncondições de congestionamento e com amostragem de\nmúltiplas execuções.",
-    "data_collection": "Automática (por meio de logs de execução e ferramentas\nde análise de contratos)",
-    "measurement_tool": "Remix IDE; Ethereum Testnet; Web3.js; Exploradores de\nblocos (Etherscan, Blockchair); scripts de monitoramento\nde gas.",
-    "use_processes": "Planejamento de custos de dApps; auditoria de eficiência\nde contratos; otimização de recursos on-chain/off-chain;\nestudo de viabilidade de sistemas blockchain econômicos.",
-    "beneficiaries": "Engenheiros(as) de blockchain; Analistas de FinOps;\nArquitetos(as) de sistemas descentralizados; Pesquisadores(as) em eficiência de contratos inteligentes.\nReferência\nS. Chaudhary, R. Gupta, P. Kumar, et al. Blockchain-Based Secure\nVoting Mechanism Underlying 5G Network: A Smart Contract\nApproach. IEEE Access, vol. 11, pp. 76537–76550, 2023.\n333"
+    "scale_type": "Razão"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

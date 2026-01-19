@@ -12,13 +12,7 @@
     "equation": "P = λ\nµ\nonde λ é a taxa dinâmica de chegada de transações\n(transações/segundo) e µ é a taxa de serviço determinística (transações/segundo). O sistema permanece estável\nenquanto P < 1.\nMétricas\nAssociadas\nService Rate (µ); Throughput; Average Latency; Utilization; Queue Length (Lq); Waiting Time (Wq)\nAtributo\nRelacionado\nCapacidade do nó de ordenação; Tamanho do bloco\n(BatchSize); Tempo máximo de agrupamento (BatchTimeout)",
     "protocol": "1) Implementar a rede Hyperledger Fabric com dois peers\ne um único nó orderer.\n2) Configurar parâmetros fixos: BatchTimeout = 1s,\nMaxMessageCount = 10, ServiceRate µ = 10 tps.\n3) Aumentar gradualmente o valor de λ (taxa de chegada\nde transações) entre 1 e 9 tps.\n4) Calcular o fator de utilização P = λ/µ e observar o\ncomportamento da fila e da latência.\n5) Identificar o ponto em que P ≥1, indicando saturação\ndo sistema e necessidade de novos nós orderers.\n155",
     "comment": "O estudo mostrou que, ao aumentar λ, a utilização do\nnó orderer cresce proporcionalmente. Quando a taxa\nde chegada se aproxima ou ultrapassa a taxa de serviço\n(P ≥1), o sistema torna-se instável, gerando filas longas\ne maiores tempos de espera. Recomenda-se a adição de\nnós orderers para manter a estabilidade e a eficiência do\nsistema Hyperledger Fabric.\nInterpretação\ndo\nValor Medido\nBaixos valores de λ indicam carga leve e boa estabilidade. Valores elevados (próximos a µ) sinalizam\ncongestionamento iminente e risco de atraso no processamento das transações.",
-    "unit": "Transações por segundo (tps)",
-    "scale_type": "Razão",
-    "precision": "Depende da granularidade do monitoramento e da estabilidade do clock de medição do sistema.",
-    "data_collection": "Automática (via Hyperledger Fabric SDK e logs do Orderer)",
-    "measurement_tool": "Hyperledger Caliper; Hyperledger Fabric SDK; logs do\nOrderer; scripts Python para cálculo de λ.",
-    "use_processes": "Planejamento de capacidade da rede blockchain; avaliação de desempenho do serviço de ordenação; otimização\nde parâmetros de blocagem (BatchTimeout, MaxMessageCount).",
-    "beneficiaries": "Arquitetos(as) de blockchain; Engenheiros(as) de desempenho; Pesquisadores(as) em sistemas distribuídos;\nAdministradores de rede.\nReferência\nK. S. S. Wai, E. C. Htoon, N. N. M. Thein. Performance Evaluation of M/D/1 Queuing Model on Hyperledger Fabric. IEEE\nInternational Conference on Information Technology (ICIT), Yangon, Myanmar, 2020.\n156"
+    "scale_type": "Razão"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

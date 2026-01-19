@@ -12,13 +12,7 @@
     "equation": "µ = 1\nTs\nonde µ é a taxa de serviço (transações/segundo) e Ts\né o tempo médio de serviço de uma transação pelo nó\norderer. Em um sistema estável, a condição λ < µ deve\nser satisfeita, sendo λ a taxa de chegada das transações.\nMétricas\nAssociadas\nUtilização do Sistema (P); Latência Média de Serviço\n(Ws); Número Médio de Transações em Serviço (Ls);\nThroughput\nAtributo\nRelacionado\nTempo de Serviço; Latência de Transação; Desempenho\ndo Orderer; Escalabilidade",
     "protocol": "1) Definir o nó de ordenação (orderer) e os parâmetros de configuração estática:\nBatchTimeout,\nBatchSize, MaxMessageCount, AbsoluteMaxBytes, e\nPreferredMaxBytes.\n2) Registrar o número de transações processadas por\nsegundo (µ) sob carga controlada.\n3) Calcular a utilização P = λ/µ e verificar se P < 1\npara garantir estabilidade.\n4) Se P ≥1, recomendar a adição de nós de ordenação\npara manter desempenho adequado.\n5) Repetir o experimento para diferentes taxas de chegada (λ) e comparar o impacto na latência média.\n311",
     "comment": "A taxa de serviço estática é definida por parâmetros fixos\nno canal de configuração do Hyperledger Fabric e não\npode ser ajustada dinamicamente durante a execução.\nO equilíbrio entre taxa de chegada e taxa de serviço\né essencial para evitar sobrecarga e filas crescentes no\nserviço de ordenação.\nInterpretação\ndo\nValor Medido\nMaior µ indica maior capacidade de processamento do\nserviço de ordenação, resultando em menor latência e\nmaior throughput. Valores baixos de µ implicam gargalos\ne necessidade de escalonamento horizontal (adição de\nnós).",
-    "unit": "Transações por segundo (tps)",
     "scale_type": "Razão",
-    "precision": "Depende da estabilidade dos parâmetros fixos do canal e\nda precisão na medição do tempo médio de serviço.",
-    "data_collection": "Experimental / Simulação",
-    "measurement_tool": "Simulador baseado em modelo M/D/1; logs do Hyperledger Fabric; monitoramento via SDK.",
-    "use_processes": "Planejamento de capacidade; análise de desempenho do\nserviço de ordenação; otimização de throughput em redes\npermissionadas.",
-    "beneficiaries": "Engenheiros(as) de blockchain; analistas de desempenho;\narquitetos(as) de sistemas distribuídos.",
     "references": "Wai, K. S. S.; Htoon, E. C.; Thein, N. N. M. Performance Evaluation of M/D/1 Queuing Model on Hyperledger Fabric.\n312"
   },
   "source": {

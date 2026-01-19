@@ -12,13 +12,7 @@
     "equation": "Taxatransação = gasUsed × gasPrice.\nCusto\ntotal\nem\nmoeda\nfiduciária:\nCustofiat\n=\nTaxatransação × cotação(ETH →moeda).\nMétricas\nAssociadas\nThroughput; Latência de Transação; Tempo de Confirmação; Uso de Gás; Custo Total de Transação\nAtributo\nRelacionado\nCusto de Execução; Preço do Gás; Eficiência de Rede",
     "protocol": "1) Definir rede e intervalo de tempo de análise.\n2) Coletar o consumo de gás (gasUsed) e o preço médio\nde gás (gasPrice) por transação.\n3) Calcular o custo médio das transações durante o período.\n4) Converter o valor total de gás consumido para moeda\nfiduciária.\n5) Analisar as variações do custo e correlacionar com o\ncongestionamento da rede.",
     "comment": "A taxa de gás impacta diretamente o desempenho e\no custo operacional de uma aplicação blockchain. Em\nperíodos de alta demanda, os validadores priorizam transações com taxas mais altas, resultando em aumento do\ncusto médio. O uso de soluções off-chain ou otimização\nde contratos inteligentes pode reduzir significativamente\no valor médio dessa métrica.\n176\n\nInterpretação\ndo\nValor Medido\nValores mais baixos indicam melhor eficiência de custo,\nporém podem aumentar o tempo de confirmação. Um\nvalor muito alto pode representar rede congestionada ou\ncontrato ineficiente.",
-    "unit": "Gwei; ETH; USD",
-    "scale_type": "Razão",
-    "precision": "Depende do monitoramento em tempo real da rede e da\nvariação da cotação da criptomoeda.",
-    "data_collection": "Automática",
-    "measurement_tool": "Etherscan; Web3.js; Prometheus; APIs da Ethereum\n(Infura); Exploradores de blocos",
-    "use_processes": "Planejamento financeiro de aplicações descentralizadas;\nOtimização de contratos inteligentes; Controle de custos em operações blockchain; Avaliação de desempenho\neconômico de dApps.",
-    "beneficiaries": "Desenvolvedores(as) de blockchain; Engenheiros(as) de\nsistemas; Especialistas em FinOps; Gestores(as) de infraestrutura descentralizada\nReferência\nGonçalves, J. P. de B., Resende, H. C. de, Villaca, R. da S.,\nMunicio, E., Both, C. B., & Marquez-Barja, J. M. (2021). Distributed Network Slicing Management Using Blockchains in E-Health\nEnvironments. Mobile Networks and Applications, 26(6),\n2111–2122. Springer. DOI: 10.1007/s11036-021-01745-1.\n177"
+    "scale_type": "Razão"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

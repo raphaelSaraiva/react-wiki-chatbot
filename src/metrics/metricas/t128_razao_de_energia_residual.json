@@ -12,13 +12,7 @@
     "equation": "Residual Energy Ratio = Eresidual\nEtotal\n× 100\nonde Eresidual é a energia remanescente após o processamento das tarefas, e Etotal é a energia inicial disponível\nno nó ou veículo.\nMétricas\nAssociadas\nEnergy Consumption; Lifetime of Node; Power Utilization Efficiency; Energy Balance Ratio\nAtributo\nRelacionado\nConsumo Energético; Sustentabilidade de Rede; Eficiência Computacional",
     "protocol": "1) Inicializar o conjunto de nós ou veículos com energia\ntotal Etotal.\n2) Executar as tarefas de compartilhamento de conteúdo\ne registro de transações na blockchain.\n3) Medir a energia residual Eresidual após o ciclo de execução.\n4) Calcular a razão de energia residual de acordo com a\nequação apresentada.\n5) Repetir o processo para diferentes cenários de carga e\ntopologia de rede.\n299",
     "comment": "Uma alta razão de energia residual indica boa eficiência\nenergética e menor impacto operacional da blockchain\nsobre os nós participantes.\nEssa métrica é essencial\nem aplicações de redes V2G e IoT energizadas, onde a\ngestão de energia influencia diretamente a durabilidade\ne confiabilidade dos dispositivos.\nInterpretação\ndo\nValor Medido\nValores altos (> 80%) indicam baixo consumo e boa\neficiência do sistema. Valores baixos (< 40%) podem\nindicar sobrecarga energética e risco de esgotamento do\nnó.",
-    "unit": "Percentual (%)",
     "scale_type": "Razão",
-    "precision": "Alta, desde que os sensores de energia e o modelo de\nconsumo do nó sejam calibrados corretamente.",
-    "data_collection": "Automática / Simulação",
-    "measurement_tool": "Simuladores de rede veicular (ex.: MATLAB, NS-3);\nframeworks de blockchain para V2G; sensores de monitoramento energético embarcados.",
-    "use_processes": "Otimização de alocação de energia em redes V2G; avaliação de eficiência energética em blockchains móveis;\nanálise de sustentabilidade em sistemas distribuídos.",
-    "beneficiaries": "Engenheiros(as) de energia; pesquisadores(as) de redes\nveiculares; desenvolvedores(as) de blockchain para IoT;\narquitetos(as) de sistemas sustentáveis.",
     "references": "Liu, Y., Li, Z., Chen, X., & Xu, W. (2022). A Blockchain-Based\nMatching Game for Content Sharing in Content-Centric Vehicleto-Grid Network Scenarios. IEEE Transactions on Vehicular Te-\nchnology, 71(10), 10823–10835.\n300"
   },
   "source": {

@@ -12,13 +12,7 @@
     "equation": "A verificação do preço vencedor p∗é feita através da\nvalidação da diferença de compromissos: ˆCi = C∗−Ci =\n(r∗−ri)G + (p∗−pi)H, onde C∗e Ci são compromissos\nPedersen dos lances, ri o fator de ocultação, e G, H\ngeradores elípticos. A condição p∗> pi é provada com o\nprotocolo Bulletproofs garantindo p∗\ni ≥0.\nMétricas\nAssociadas\nAutenticação; Anonimato; Integridade de Transação;\nNão-repúdio; Fairness\nAtributo\nRelacionado\nConfirmação de Transação; Segurança Criptográfica; Auditoria Distribuída",
     "protocol": "1) Cada participante publica seu compromisso Ci =\nriG + piH.\n2) O contrato inteligente calcula o compromisso vencedor\nC∗e distribui ˆCi aos licitantes.\n3) Cada licitante recalcula ˆCi\n′ = C∗−Ci e verifica se\nˆCi\n′ = ˆCi.\n4) Usando Bulletproofs, prova-se que p∗> pi sem revelar\nos valores reais.\n5) Após validação coletiva, o contrato confirma o resultado e finaliza a transação.\n361",
     "comment": "Essa métrica é essencial para leilões selados em blockchain, pois substitui a necessidade de um leiloeiro con-\nfiável. A validação descentralizada do preço vencedor\nassegura transparência, equidade e confiança sem comprometer a privacidade dos lances. O uso combinado\nde Pedersen Commitment e Bulletproofs permite uma\nprova eficiente e não interativa de correção.\nInterpretação\ndo\nValor Medido\nUm alto nível de validação indica que o sistema garante\ncorretamente a prova de vitória sem expor valores. Falhas\nna validação comprometem a confiança e a integridade\ndo leilão.",
-    "unit": "Validação binária (0 = falha, 1 = sucesso) ou percentual\nde transações verificadas corretamente (%).",
     "scale_type": "Nominal / Razão (dependendo da forma de coleta)",
-    "precision": "Depende da robustez criptográfica dos esquemas Pedersen e Bulletproofs e da execução fiel dos contratos inteli-\ngentes.",
-    "data_collection": "Automática",
-    "measurement_tool": "Smart Contracts (Solidity/Web3J); Bibliotecas criptográficas (JPBC, Ethereum EVM); Frameworks Bulletproofs;\nLogs de execução no blockchain.",
-    "use_processes": "Validação de resultados de leilões selados; auditorias automatizadas; provas de integridade de preço em mercados\ndescentralizados.",
-    "beneficiaries": "Desenvolvedores de contratos inteligentes; Analistas de\nsegurança; Arquitetos de blockchain; Gestores de plataformas de leilão.",
     "references": "Li, H. & Xue, W. (2021). A Blockchain-Based Sealed-Bid e-Auction\nScheme with Smart Contract and Zero-Knowledge Proof. Security\nand Communication Networks, Article ID 5523394, 10 p.\n362"
   },
   "source": {

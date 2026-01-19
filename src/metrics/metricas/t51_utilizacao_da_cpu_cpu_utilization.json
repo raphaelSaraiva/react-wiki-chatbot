@@ -12,13 +12,7 @@
     "equation": "Utilização da CPU (%) =\nTempo ativo da CPU\nTempo total de observação×100\nonde o tempo ativo inclui o processamento de transações,\nconsenso e operações de rede.\nMétricas\nAssociadas\nUso de CPU; Sobrecarga de CPU; Consumo de energia;\nLatência; Throughput\nAtributo\nRelacionado\nEficiência computacional; Desempenho de execução; Escalabilidade",
     "protocol": "1) Executar o sistema blockchain em ambiente controlado com diferentes volumes de transações.\n2) Monitorar continuamente a utilização da CPU em\ncada nó.\n3) Calcular a média e o desvio padrão da utilização ao\nlongo do tempo.\n4) Comparar com limites aceitáveis de desempenho definidos pelo SLA ou requisitos de sistema.\n133",
     "comment": "No estudo, a utilização da CPU foi usada como indicador da eficiência da arquitetura blockchain aplicada\nà educação, mostrando que a tecnologia é viável sem\nsobrecarregar o ambiente computacional. Resultados\nindicaram que o uso de blockchain pode ser otimizado\nmantendo a carga da CPU dentro de limites sustentáveis\nmesmo com alto número de operações simultâneas.\nInterpretação\ndo\nValor Medido\nValores moderados indicam bom equilíbrio entre carga\ne desempenho. Valores muito altos sugerem sobrecarga e necessidade de otimização; valores muito bai-\nxos podem indicar subutilização dos recursos.",
-    "unit": "Porcentagem (%)",
-    "scale_type": "Razão",
-    "precision": "Requer medições em intervalos curtos (ex.: 1s–5s) para\ncapturar variações de carga em tempo real.",
-    "data_collection": "Automática (ferramentas de monitoramento de desempenho)",
-    "measurement_tool": "top, htop, Prometheus, Grafana, logs dos nós blockchain.",
-    "use_processes": "Avaliação de eficiência de sistemas educacionais blockchain; comparação entre mecanismos de consenso; otimi-\nzação de recursos em ambientes colaborativos distribuídos.",
-    "beneficiaries": "Engenheiros(as) de software; Pesquisadores(as) em blockchain educacional; Administradores(as) de sistemas; De-\nsenvolvedores(as) de plataformas colaborativas.\nReferência\nA. H. Almalki, M. Alharbi, et al. The Effectiveness of Using Blockchain Technology in Building High-Quality Educational Content\nBased on a Participatory Learning Environment and Its Impact on\nIncreasing Student Achievement. International Journal of Emerging Technologies in Learning (iJET), vol. 18, no. 17, pp. 82–99,\n2023.\n134"
+    "scale_type": "Razão"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

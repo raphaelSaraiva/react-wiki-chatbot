@@ -12,13 +12,7 @@
     "equation": "A métrica é avaliada em função do número de falhas\ntoleradas (f) em relação ao limite máximo aceitável\n(fmax):\nNTF =\nf\nfmax\n, com NTF ≤1.\nPodetambémsermedidaindiretamentepelaproporçãodeoperaçõesconcluída\nMétricas\nAssociadas\nTaxa de requisições falhas; Latência de recuperação;\nDisponibilidade; Eficiência de consenso; Robustez da\nrede\nAtributo\nRelacionado\nRecuperação de falhas; Confiabilidade operacional; Continuidade de serviço; Desempenho de consenso",
     "protocol": "1) Implementar uma rede blockchain distribuída (ex.:\nHyperledger Fabric) com múltiplos controladores.\n2) Introduzir falhas controladas em nós ou controladores\npara simular condições adversas.\n3) Medir quantos nós podem falhar antes que o sistema\ndeixe de operar corretamente.\n4) Calcular NTF = f/fmax.\n5) Analisar a proporção de transações bem-sucedidas sob\ndiferentes níveis de falha.\n170",
     "comment": "O artigo demonstra que a introdução da blockchain no\ncontrole de redes ópticas (SDON) aumenta significativamente a tolerância a falhas, permitindo que a rede\ncontinue operando mesmo quando alguns controladores\nfalham. A arquitetura distribuída elimina o ponto único\nde falha e assegura consistência e confiabilidade durante\no consenso.\nInterpretação\ndo\nValor Medido\nValores altos de NTF indicam maior robustez e resiliência do sistema, mantendo funcionalidade mesmo\nsob falhas. Valores baixos sugerem vulnerabilidade ou\nincapacidade de recuperação adequada.",
-    "unit": "Razão adimensional (0–1) ou percentual (%)",
     "scale_type": "Razão",
-    "precision": "Depende do controle experimental e da detecção precisa\nde falhas e recuperações. A variação de rede e tempo de\nresposta pode afetar a medição.",
-    "data_collection": "Experimental (simulações e logs de execução)",
-    "measurement_tool": "Hyperledger Fabric 1.2; Docker Swarm; controladores\nSDON (OpenFlow); simuladores de falhas; Prometheus;\nWireshark.",
-    "use_processes": "Avaliação de confiabilidade de redes SDON; validação de\narquiteturas distribuídas; testes de resiliência; análise de\nfalhas em sistemas blockchain.",
-    "beneficiaries": "Engenheiros de rede; pesquisadores em blockchain distribuído; analistas de desempenho; arquitetos de sistemas\ncríticos.",
     "references": "Yang, H.; Xu, S.; Zhang, W.; et al. Blockchain-based Secure Distributed Control for Software Defined Optical Networking. China\nCommunications, 2019. — O estudo propõe um controle distribuído\nbaseado em blockchain que mantém operação contínua mesmo sob\nfalhas de controladores, demonstrando alto nível de tolerância a\nfalhas e aumento da confiabilidade do sistema SDON.\n171"
   },
   "source": {

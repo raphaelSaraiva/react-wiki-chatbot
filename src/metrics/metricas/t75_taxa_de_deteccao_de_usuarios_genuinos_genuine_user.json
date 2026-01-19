@@ -12,13 +12,7 @@
     "equation": "Taxa de Detecção de Usuários Genuínos\n=\nNúmero de usuários legítimos corretamente identificados\nTotal de tentativas de autenticação\nMétricas\nAssociadas\nFalse Acceptance Rate (FAR); False Rejection Rate\n(FRR); Accuracy; Authentication Latency\nAtributo\nRelacionado\nControle de Acesso; Integridade de Dados; Confidencialidade; Taxa de Erro de Autenticação",
     "protocol": "1) Implementar o mecanismo de controle de acesso baseado em blockchain.\n2) Realizar múltiplas tentativas de autenticação com\nusuários genuínos e falsos.\n3) Registrar o número de autenticações corretas de usuários legítimos.\n4) Calcular a proporção conforme a equação acima.\n5) Avaliar o desempenho sob diferentes tamanhos de\nblockchain e condições de rede.",
     "comment": "No artigo, o sistema atingiu aproximadamente 95% de\ntaxa de detecção de usuários genuínos para blockchains\ncom 100 blocos. Isso demonstra alta precisão no processo de verificação e eficiência no controle de acesso\ndescentralizado.\n182\n\nInterpretação\ndo\nValor Medido\nMaior valor indica melhor autenticação e confiabilidade\ndo sistema. Valores baixos sugerem falhas no mecanismo\nde identificação ou vulnerabilidade a ataques de falsificação.",
-    "unit": "Percentual (%)",
-    "scale_type": "Razão",
-    "precision": "Alta, desde que as amostras de autenticação sejam balanceadas entre usuários legítimos e falsos. Pode variar\nconforme a latência e o tamanho da blockchain.",
-    "data_collection": "Experimental / Simulada",
-    "measurement_tool": "Simuladores de controle de acesso; scripts de autenticação blockchain; logs de autenticação; frameworks de\nsimulação em nuvem.",
-    "use_processes": "Validação de mecanismos de autenticação; análise de\ndesempenho de sistemas de acesso distribuído; auditorias\nde segurança.",
-    "beneficiaries": "Engenheiros(as) de Segurança; Arquitetos(as) de Blockchain; Pesquisadores(as) em Sistemas Distribuídos; Ges-\ntores(as) de Confiabilidade.\nReferência\nZhang, Y., Xu, C., Gao, H., Liu, X., & Li, H. (2021). BlockchainBased Access Control and Data Sharing Mechanism in Cloud De-\ncentralized Storage System. IEEE Internet of Things Journal, 8(4),\n2342–2355.\n183"
+    "scale_type": "Razão"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

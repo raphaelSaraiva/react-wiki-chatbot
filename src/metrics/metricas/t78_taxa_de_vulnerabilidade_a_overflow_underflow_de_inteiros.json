@@ -12,13 +12,7 @@
     "equation": "IOUR = Noverflow/underflow detectados\nNoperações aritméticas totais\nonde\nNoverflow/underflow detectados\nrepresenta o número\nde\neventos\nde\nfalha\naritmética\nidentificados\ne\nNoperações aritméticas totais o total de operações realizadas\nno sistema avaliado.\nMétricas\nAssociadas\nArithmetic Safety Index; Execution Error Rate; Smart\nContract Robustness; Vulnerability Density\nAtributo\nRelacionado\nConsistência de Execução; Verificação Numérica; Uso de\nSafeMath; Validação de Tipos",
     "protocol": "1) Coletar contratos inteligentes ou módulos de transação\ndo ambiente blockchain.\n2) Executar análise estática e dinâmica com detectores\nde vulnerabilidade aritmética.\n3) Identificar ocorrências de overflow/underflow e\nclassificá-las por severidade.\n4) Calcular a taxa IOUR e comparar entre implementações ou versões do sistema.\n5) Registrar logs de auditoria e exceções aritméticas\ndurante a execução.\n189",
     "comment": "Erros de overflow e underflow já causaram perdas financeiras significativas em dApps e sistemas IoT integrados.\nFerramentas como SafeMath, Hardhat e Slither reduzem esses riscos, mas sua ausência indica fragilidade na\nsegurança numérica.\nInterpretação\ndo\nValor Medido\nValores baixos (< 0.01) indicam robustez e boas práticas\nde programação; valores altos (> 0.1) revelam vulnerabilidades críticas que podem comprometer a integridade\ndas transações.",
-    "unit": "Proporção (0–1)",
     "scale_type": "Razão",
-    "precision": "Depende da cobertura de auditoria e da capacidade das\nferramentas de detectar falhas em tempo de execução e\nem condições reais de rede.",
-    "data_collection": "Automática (análise estática/dinâmica)",
-    "measurement_tool": "Mythril; Slither; Oyente; Hardhat; Remix IDE; Analisadores de segurança de contratos",
-    "use_processes": "Auditorias de segurança de contratos; certificação de\ndApps; avaliação de qualidade de código; monitoramento\nde execução em blockchain.",
-    "beneficiaries": "Desenvolvedores(as) de contratos; analistas de segurança;\nengenheiros(as) de blockchain; auditores(as) de software\ndistribuído.",
     "references": "An Efficient Distributed and Secure Algorithm for Transaction\nConfirmation in IOTA Using Cloud Computing — discussão sobre\nintegridade e segurança de operações aritméticas no contexto de\nredes distribuídas e validação transacional.\n190"
   },
   "source": {

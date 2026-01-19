@@ -12,13 +12,7 @@
     "equation": "Modelo criptográfico esperado: a probabilidade de um\nadversário A produzir um artefato válido sem o segredo é\nPr[Forge] ≤(k), onde k é o parâmetro de segurança. Para\navaliação empírica, usar: Índiceresist = 1 −Nforjas_detectadas\nNtentativas\n.\nMétricas\nAssociadas\nNonrepudiation Level; Authentication Success Rate;\nZKP Verification Time; Auction Correctness\nAtributo\nRelacionado\nIntegridade de Dados; Autenticidade de Assinaturas;\nSolidez de Provas (soundness); Imutabilidade do Ledger",
     "protocol": "1) Implementar o esquema de leilão selado com contrato\ninteligente e provas de conhecimento zero conforme o\nprotocolo do artigo.\n2) Instrumentar verificações on-chain de assinaturas/provas (verificadores ZK e checks de assinatura).\n3) Executar testes adversariais com tentativas de falsificação (assinaturas/provas/lances) sem os segredos\nlegítimos.\n4) Contabilizar forjas detectadas e calcular o índice empírico de resistência; registrar também a taxa de verificação\nbem-sucedida para entradas válidas.\n5) Reportar estatísticas (média, p95) por cenário de\nameaça e por parâmetro de segurança k.\n172",
     "comment": "No esquema de e-auction com ZKP e smart contract,\na soundness das provas e a segurança de assinatura garantem que forjas sejam computacionalmente inviáveis.\nA verificação pública on-chain e o desenho de compromisso/abertura (commit-reveal) reforçam a inforgeabili-\ndade prática do sistema.\nInterpretação\ndo\nValor Medido\nÍndice próximo de 1 indica ambiente altamente resistente a falsificações; valores menores sugerem fragili-\ndades no verificador on-chain, na parametrização criptográfica ou na implementação do contrato/prova.",
-    "unit": "Adimensional (índice entre 0 e 1)",
     "scale_type": "Razão",
-    "precision": "Dependente do rigor dos testes adversariais, da correta\nparametrização k e da cobertura de cenários (tipos de\nforja). Implementações e otimizações do verificador afetam a detecção.",
-    "data_collection": "Experimental (testes de penetração/ataque controlado)\ne Analítica (propriedades criptográficas teóricas)",
-    "measurement_tool": "Contrato inteligente com verificador ZK; suites de teste\npara forja de assinatura/prova; logs on-chain; fuzzers de\nentradas maliciosas.",
-    "use_processes": "Auditoria de leilões eletrônicos; certificação de segurança\nde contratos; validação de ZK verifiers; comparação entre\nparametrizações criptográficas.",
-    "beneficiaries": "Pesquisadores(as) de criptografia aplicada; auditores(as)\nde smart contracts; operadores(as) de mercados digitais;\nequipes de conformidade.",
     "references": "A Blockchain-Based Sealed-Bid e-Auction Scheme with Smart Contract and Zero-Knowledge Proof.\n173"
   },
   "source": {
