@@ -7,12 +7,13 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "definition": "O peso cumulativo representa o somatório dos pesos de\ntodas as transações que direta ou indiretamente aprovam\numa transação específica em um livro-razão baseado em\ngrafo acíclico direcionado (DAG). Ele reflete a importância e confiabilidade de uma transação dentro da\nrede, indicando o grau de consenso obtido sobre ela.",
-    "objective": "Avaliar o nível de confirmação e aceitação de uma\ntransação dentro da rede blockchain/DAG, estimando\nsua segurança contra reversões ou conflitos. Essa métrica\né crucial em sistemas IoT, onde a latência e a frequência\nde transações exigem consenso leve, mas confiável.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "CW(Ti) = wi +\nX\nTj∈A(Ti)\nwj\nonde CW(Ti) é o peso cumulativo da transação Ti, wi é\no peso individual da transação e A(Ti) é o conjunto de\ntransações que a aprovam direta ou indiretamente.\nMétricas\nAssociadas\nTempo de confirmação; Número de aprovações; Taxa de\nconsenso; Latência de propagação\nAtributo\nRelacionado\nConfiabilidade de transação; Segurança de consenso; Profundidade da transação",
-    "protocol": "1) Modelar o grafo de transações (Tangle) com pesos\nindividuais atribuídos a cada transação.\n2) Para cada transação Ti, identificar todas as transações\nque a aprovam direta ou indiretamente.\n3) Calcular o somatório de pesos conforme a equação.\n4) Normalizar ou comparar os resultados entre diferentes\ninstâncias de rede (simulação ou ambiente real).",
-    "comment": "O peso cumulativo atua como um indicador de confiança e prioridade em DAGs, substituindo o conceito\nde “confirmações” das blockchains lineares. No estudo,\nvalores mais altos de peso cumulativo indicaram maior\nsegurança e resistência a ataques de dupla despesa, especialmente em redes IoT com alta taxa de transações e\ndispositivos de baixo poder computacional.\n135\n\nInterpretação\ndo\nValor Medido\nValores altos indicam alta aceitação e resistência a\nreversões; valores baixos sugerem transações recentes\nou ainda não totalmente confirmadas.",
-    "scale_type": "Intervalar"
+    "definition": "Soma dos pesos das transações que aprovam direta ou indiretamente uma determinada transação em um livro-razão baseado em grafo acíclico direcionado (DAG). O peso cumulativo indica o grau de aceitação e confiança atribuído a essa transação pela rede.",
+    "objective": "Avaliar o nível de confirmação e segurança de uma transação em sistemas blockchain baseados em DAG, especialmente em ambientes IoT, onde se busca consenso leve, rápido e escalável sem o uso de blocos.",
+    "equation": "CW(Ti) = wi + Σ wj\n\nonde wi é o peso da transação Ti e wj são os pesos das transações que aprovam Ti direta ou indiretamente.",
+    "comment": "Valores mais altos de peso cumulativo indicam que a transação foi amplamente aprovada pela rede e é menos suscetível a conflitos ou reversões. Valores baixos geralmente correspondem a transações recentes ou ainda pouco confirmadas.",
+    "scale_type": "Intervalar",
+    "protocol": "1) Representar o conjunto de transações como um grafo DAG.\n2) Atribuir um peso individual a cada transação.\n3) Identificar todas as transações que aprovam direta ou indiretamente a transação de interesse.\n4) Somar os pesos conforme a equação definida.\n5) Comparar os valores obtidos entre transações ou ao longo do tempo para avaliar o nível de confirmação.",
+    "references": "1) Direct Acyclic Graph-based Ledger for Internet of Things: Performance and Security Analysis"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

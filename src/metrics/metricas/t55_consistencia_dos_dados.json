@@ -7,12 +7,13 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "definition": "Mede o grau de coerência e sincronização dos dados\nmantidos entre controladores e dispositivos em uma arquitetura distribuída baseada em blockchain. Representa\na capacidade do sistema de manter estados uniformes e\natualizados em todos os nós, mesmo diante de falhas ou\natrasos de comunicação.",
-    "objective": "Avaliar a habilidade do sistema blockchain em garantir a consistência global de informações entre\ncontroladores e elementos de rede em um ambiente distribuído. Essa métrica é essencial em redes SDN/SDON,\nonde comandos duplicados ou inconsistências podem\ncausar falhas graves na operação.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Cd = 1 −Dinc\nDtot\nonde Cd é o índice de consistência de dados, Dinc é o\nnúmero de divergências detectadas entre os estados dos\ncontroladores e Dtot é o número total de estados monitorados. Valores próximos a 1 indicam alta consistência.\nMétricas\nAssociadas\nTaxa de consenso; Latência de sincronização; Tempo de\nrecuperação; Integridade dos dados\nAtributo\nRelacionado\nSincronização de estados; Confiabilidade de controle;\nDisponibilidade",
-    "protocol": "1) Implantar a arquitetura distribuída com múltiplos\ncontroladores e ledger blockchain.\n2) Simular falhas de controladores ou desconexões de\nrede.\n3) Comparar os estados armazenados nos controladores\ne no ledger.\n4) Calcular o número de divergências observadas e aplicar\na fórmula.\n5) Repetir o processo em diferentes cenários de carga e\nfalha para obter médias e desvios.\n141",
-    "comment": "No estudo, a arquitetura BlockCtrl foi capaz de manter\nalta consistência de dados entre controladores distribuídos em uma rede óptica definida por software (SDON). O\nuso do ledger blockchain impediu a execução duplicada\nde comandos e assegurou que todas as atualizações de estado fossem replicadas de forma imutável e sincronizada,\nmesmo após falhas.\nInterpretação\ndo\nValor Medido\nValores altos indicam sincronização estável e coerência\nentre todos os controladores. Valores baixos refletem\ndivergências, perda de sincronismo ou falhas na replicação de blocos.",
-    "scale_type": "Razão"
+    "definition": "Grau em que os dados e estados mantidos por diferentes nós ou controladores de um sistema blockchain permanecem coerentes e sincronizados entre si ao longo do tempo.",
+    "objective": "Avaliar a capacidade do sistema blockchain de manter informações consistentes entre componentes distribuídos, evitando divergências de estado que possam causar falhas operacionais em arquiteturas de controle distribuído.",
+    "equation": "Consistência dos Dados = 1 − (N_divergencias / N_estados)\nonde N_divergencias é o número de inconsistências detectadas entre os nós e N_estados é o total de estados monitorados.",
+    "comment": "Valores mais altos indicam que o sistema mantém estados uniformes e confiáveis entre os nós. Valores baixos sugerem problemas de sincronização, atrasos de comunicação ou falhas na replicação dos dados.",
+    "scale_type": "Razão",
+    "protocol": "1) Implantar a arquitetura distribuída com múltiplos nós ou controladores e um ledger blockchain.\n2) Definir quais estados ou dados devem permanecer sincronizados.\n3) Introduzir falhas controladas ou atrasos de comunicação.\n4) Comparar os estados observados entre os nós ao longo do tempo.\n5) Calcular a métrica com base no número de divergências detectadas.",
+    "references": "1) Blockchain-Based Secure Distributed Control for Software Defined Optical Networking"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

@@ -7,12 +7,13 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "definition": "Mede a capacidade do sistema blockchain de preservar a exatidão e consistência dos dados durante\no armazenamento, a transmissão e a verificação de certificados. Garante que informações não sejam alteradas,\ncorrompidas ou manipuladas sem detecção, assegurando\nque cada bloco e registro de revogação permaneçam autênticos e imutáveis.",
-    "objective": "Avaliar o nível de proteção contra modificações indevidas ou perdas de integridade em sistemas block-\nchain que gerenciam certificados digitais. Essa métrica\nassegura que todas as operações — geração, revogação e\nvalidação — mantenham dados consistentes e verificáveis\ncriptograficamente.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Id = 1 −\nNfalhas\nNverificações\nonde Id representa o índice de integridade, Nfalhas é o\nnúmero de verificações de integridade que falharam (hash\nou assinatura inválida) e Nverificações é o número total de\nverificações executadas. Valores próximos de 1 indicam\nalta integridade.\nMétricas\nAssociadas\nConfidencialidade dos dados; Autenticidade; Consistência dos dados; Tempo de verificação\nAtributo\nRelacionado\nImutabilidade; Autenticação de dados; Validade de certificado; Segurança criptográfica",
-    "protocol": "1) Implantar o sistema de revogação de certificados baseado em blockchain (Namecoin).\n2) Registrar certificados e eventos de revogação nas estruturas RSI e LRSI.\n3) Calcular hashes (SHA-256) e assinaturas digitais\n(ECDSA) para cada registro.\n4) Verificar periodicamente a consistência entre os valores\narmazenados na blockchain e os hashes originais.\n5) Detectar e registrar divergências, calculando o índice\nde integridade conforme a equação.\n143",
-    "comment": "O artigo demonstrou que a solução proposta manteve alta\nintegridade dos dados de revogação de certificados graças\nà imutabilidade da blockchain e ao uso de hashes\ncriptográficos e árvores de Merkle. Diferente dos\nmétodos tradicionais (CRL/OCSP), o sistema garante\nque qualquer tentativa de modificação seja detectada\nimediatamente, reforçando a confiança na verificação de\ncertificados.\nInterpretação\ndo\nValor Medido\nValores altos (próximos a 1) indicam que os dados\nmantêm sua integridade em todas as operações; valores\nbaixos refletem falhas de verificação, corrupção de blocos\nou vulnerabilidades na camada de armazenamento.",
-    "scale_type": "Razão"
+    "definition": "Grau em que os dados armazenados ou transmitidos por um sistema blockchain permanecem corretos, completos e inalterados, permitindo detectar qualquer modificação não autorizada.",
+    "objective": "Avaliar a capacidade do sistema blockchain de proteger dados contra alterações indevidas, garantindo que registros, certificados ou eventos permaneçam autênticos e verificáveis ao longo do tempo.",
+    "equation": "Integridade dos Dados = 1 − (N_falhas / N_verificacoes)\nonde N_falhas é o número de verificações de integridade que falharam e N_verificacoes é o total de verificações realizadas.",
+    "comment": "Valores próximos de 1 indicam que os dados permanecem íntegros e confiáveis. Valores menores sugerem falhas de verificação, corrupção de registros ou problemas nos mecanismos criptográficos.",
+    "scale_type": "Razão",
+    "protocol": "1) Implantar o sistema blockchain no ambiente de aplicação.\n2) Registrar dados, certificados ou eventos na blockchain.\n3) Calcular hashes e assinaturas digitais para cada registro.\n4) Verificar periodicamente se os dados armazenados correspondem aos valores originais.\n5) Contabilizar falhas de verificação e calcular a métrica.",
+    "references": "1) Securing Data Exchange in the Convergence of Metaverse and IoT Applications"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

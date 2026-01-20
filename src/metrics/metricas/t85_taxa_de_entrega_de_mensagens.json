@@ -7,12 +7,13 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "definition": "Mede a proporção de mensagens transmitidas com\nsucesso em relação ao total de mensagens enviadas entre\nusuários e provedores de dados em uma rede blockchain.\nEssa métrica avalia a confiabilidade da comunicação\nponta a ponta dentro do sistema distribuído.",
-    "objective": "Avaliar a confiabilidade e robustez da comunicação\nem sistemas blockchain integrados a ambientes de computação em nuvem. Uma alta taxa de entrega de mensagens\nindica que o sistema mantém integridade e consistência\nmesmo na presença de falhas ou nós defeituosos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Taxa de Entrega de Mensagens = Nmensagens entregues com sucesso\nNmensagens enviadas\nonde Nmensagens entregues com sucesso representa o número\nde pacotes recebidos corretamente pelo destino, e\nNmensagens enviadas é o total de pacotes transmitidos.\nMétricas\nAssociadas\nTaxa de Acesso a Dados; Atraso Fim a Fim (End-to-End\nDelay); Consumo de Energia; Throughput\nAtributo\nRelacionado\nConfiabilidade da rede; Estabilidade de transmissão; Robustez de comunicação",
-    "protocol": "1) Configurar a simulação do protocolo BC-IAS em ambiente de nuvem.\n2) Transmitir mensagens entre usuários e provedores de\ndados sob diferentes taxas de falha de nós.\n3) Registrar o número total de pacotes enviados e os\npacotes recebidos com sucesso.\n4) Calcular a razão entre mensagens entregues e enviadas.\n5) Comparar o desempenho com modelos de referência\n(IECCA, ACOMKSV, PFP e FS).\n205",
-    "comment": "O artigo demonstrou que o protocolo BC-IAS apresentou uma taxa de entrega de mensagens estável\ne elevada, mesmo com o aumento de nós defeituosos.\nIsso é atribuído ao uso de criptografia elíptica avançada\n(HECC) e autenticação distribuída, que reforçam a integridade da comunicação e evitam perdas durante a\ntransmissão.\nInterpretação\ndo\nValor Medido\nValores próximos a 1 (ou 100%) indicam comunicação confiável e sistema estável; valores menores sugerem\nfalhas na autenticação, congestionamento ou perda de\npacotes.",
-    "scale_type": "Razão"
+    "definition": "Proporção de mensagens que são entregues com sucesso em relação ao total de mensagens enviadas entre os participantes de uma rede blockchain. A métrica indica a confiabilidade da comunicação ponta a ponta no sistema distribuído.",
+    "objective": "Avaliar a confiabilidade da comunicação em sistemas blockchain integrados a ambientes de computação em nuvem, identificando perdas de mensagens causadas por falhas de nós, autenticação ou congestionamento da rede.",
+    "equation": "Taxa de Entrega de Mensagens = Número de mensagens entregues com sucesso / Número total de mensagens enviadas",
+    "comment": "Valores elevados indicam comunicação estável e confiável. Valores reduzidos podem sinalizar falhas de autenticação, perda de pacotes, nós defeituosos ou congestionamento da rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Configurar o sistema blockchain e o protocolo de comunicação em ambiente de nuvem.\n2) Enviar mensagens entre usuários e provedores de dados sob diferentes condições de carga e falha.\n3) Registrar o número total de mensagens enviadas.\n4) Registrar o número de mensagens recebidas corretamente no destino.\n5) Calcular a razão entre mensagens entregues e mensagens enviadas.",
+    "references": "1) Block chain based IAS protocol to enhance security and privacy in cloud computing"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

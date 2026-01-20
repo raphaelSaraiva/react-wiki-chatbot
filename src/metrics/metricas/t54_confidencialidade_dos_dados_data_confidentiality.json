@@ -7,12 +7,13 @@
     "subcharacteristic": "Confidencialidade"
   },
   "fields": {
-    "definition": "Mede o nível de proteção dos dados contra acesso\nnão autorizado durante sua transmissão e armazenamento em redes blockchain integradas a aplicações de\nInternet das Coisas (IoT) e Metaverso. A confidencialidade é assegurada por mecanismos de criptografia e\nautenticação que impedem que entidades não autorizadas\nleiam ou modifiquem informações sensíveis.",
-    "objective": "Avaliar a eficácia das técnicas criptográficas e do\nconsenso blockchain em proteger dados pessoais e\nsensíveis contra ataques e vazamentos. Essa métrica é\nessencial em cenários onde a privacidade e integridade\nde dados sensoriais e interações do metaverso precisam\nser mantidas.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Confidencialidade dos Dados = f(Eeficaz, Acontrole, Lviolação)\nonde Eeficaz representa a força efetiva da criptografia,\nAcontrole é o nível de autenticação e Lviolação o número\nde tentativas de acesso indevido bem-sucedidas (quanto\nmenor, melhor).\nMétricas\nAssociadas\nIntegridade dos dados; Taxa de acesso; Desempenho de\nautenticação; Latência; Consumo de energia\nAtributo\nRelacionado\nPrivacidade de dados; Segurança de transação; Resiliência a ataques de interceptação",
-    "protocol": "1) Implantar o sistema blockchain integrado a dispositivos IoT e ambiente de metaverso.\n2) Aplicar algoritmos de criptografia simétrica (AES) e\ntroca de chaves (Diffie–Hellman).\n3) Registrar o número de transmissões seguras e tentativas de interceptação.\n4) Calcular a razão de transmissões bem-sucedidas e\nconfidenciais.\n5) Avaliar o resultado como parte do índice composto de\nsegurança (Security Performance Score – SPS).\n139",
-    "comment": "No estudo, a métrica de confidencialidade foi avaliada\ncomo componente do Security Performance Score\n(SPS), que compara a robustez das soluções de segurança.\nO modelo SafeMetaNet obteve pontuação mais alta em\nconfidencialidade devido à integração de criptografia\nAES, troca de chaves Diffie–Hellman e registro\nimutável na blockchain, garantindo proteção completa\ncontra acessos não autorizados.\nInterpretação\ndo\nValor Medido\nValores altos indicam proteção eficaz e ausência de\nvazamento de dados; valores baixos refletem vulnerabilidades criptográficas, autenticação fraca ou falhas de\nintegridade.",
-    "scale_type": "Razão"
+    "definition": "Grau em que os dados armazenados ou transmitidos em um sistema blockchain permanecem inacessíveis a entidades não autorizadas, mesmo na presença de interceptação ou acesso indevido.",
+    "objective": "Avaliar a eficácia dos mecanismos de segurança empregados pelo sistema blockchain para proteger dados sensíveis, garantindo que apenas participantes autorizados consigam ler ou utilizar as informações.",
+    "equation": "Confidencialidade dos Dados = 1 − (N_acessos_indevidos / N_tentativas_totais)\nonde N_acessos_indevidos representa acessos não autorizados bem-sucedidos durante o período de observação.",
+    "comment": "Valores mais altos indicam maior proteção contra vazamento ou leitura indevida de dados. Valores baixos sugerem fragilidades em criptografia, autenticação ou controle de acesso.",
+    "scale_type": "Razão",
+    "protocol": "1) Implantar o sistema blockchain no ambiente alvo.\n2) Ativar mecanismos de criptografia e autenticação.\n3) Monitorar tentativas de acesso autorizado e não autorizado.\n4) Registrar acessos indevidos bem-sucedidos.\n5) Calcular a métrica ao longo do período de observação.",
+    "references": "1) Block chain based IAS protocol to enhance security and privacy in cloud computing"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

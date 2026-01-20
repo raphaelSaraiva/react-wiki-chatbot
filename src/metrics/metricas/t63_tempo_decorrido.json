@@ -7,12 +7,13 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "definition": "Mede o tempo total necessário para a execução de\num contrato inteligente em uma rede blockchain,\ndesde o envio da transação até a confirmação e retorno\ndo resultado. Avalia a eficiência computacional e o impacto do consenso, comunicação e execução no tempo de\nresposta global do sistema.",
-    "objective": "Quantificar o desempenho e a responsividade da execução\nde contratos inteligentes em diferentes redes blockchain.\nEssa métrica permite identificar gargalos de desempenho\ne comparar a eficiência entre blockchains locais, públicas\ne privadas.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "ET = tfim −tinício\nonde tinício é o instante de envio da transação e tfim o\ninstante em que a execução do contrato inteligente é\nconcluída e o resultado é confirmado na blockchain.\nMétricas\nAssociadas\nGas Used; Latência; Throughput; Transaction Delay;\nExecution Cost\nAtributo\nRelacionado\nEficiência Computacional; Custo de Execução; Tempo\nde Confirmação de Bloco",
-    "protocol": "1) Implementar contratos inteligentes de cálculo da série\nde Fibonacci com e sem gravação de transações (estado\nalterado e não alterado).\n2) Implantar os contratos em múltiplas redes: Ganache\n(local), Alastria Besu, Rinkeby e Kovan.\n3) Executar o contrato variando o tamanho da série de\nFibonacci (até 350 elementos).\n4) Medir o tempo total decorrido para cada execução e\ncalcular a média entre as execuções.\n5) Comparar o tempo decorrido médio entre as redes e\ncorrelacionar com o custo de gás utilizado.\n157",
-    "comment": "No estudo, observou-se que o tempo decorrido (elapsed\ntime) aumenta com a complexidade computacional\nquando não há transações, mas não segue um padrão\nlinear quando há gravação de estado. O tempo de execução das transações é significativamente maior que o\ntempo de cálculo puro, demonstrando que a latência de\nrede e o consenso são os principais fatores de atraso. A\nrede Alastria Besu apresentou o melhor desempenho,\nseguida por Ganache e Rinkeby, enquanto a Kovan\nfoi a mais lenta.\nInterpretação\ndo\nValor Medido\nValores menores de tempo decorrido indicam melhor\ndesempenho e maior eficiência na execução de contratos.\nValores elevados podem indicar congestionamento da\nrede, limitações do consenso ou processamento ineficiente\nno nó executor.",
-    "scale_type": "Razão"
+    "definition": "Tempo total necessário para que um contrato inteligente seja executado em uma rede blockchain, contado desde o envio da transação até a confirmação final do resultado na rede. Esse tempo inclui comunicação de rede, consenso e execução do contrato.",
+    "objective": "Avaliar a rapidez e a responsividade da execução de contratos inteligentes em diferentes redes blockchain, permitindo comparar o impacto do consenso, da infraestrutura e da complexidade computacional no tempo de resposta do sistema.",
+    "equation": "ET = t_fim − t_início\nonde t_início é o instante em que a transação é enviada e t_fim é o instante em que a execução do contrato é confirmada na blockchain.",
+    "comment": "O tempo decorrido tende a aumentar com a complexidade do contrato e com a necessidade de gravação de estado na blockchain. Em muitos casos, o atraso não está no cálculo em si, mas no consenso e na propagação da transação pela rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Implementar contratos inteligentes representativos da aplicação.\n2) Implantar os contratos em diferentes redes blockchain.\n3) Executar os contratos sob cargas e complexidades variadas.\n4) Registrar o instante de envio da transação e o instante de confirmação final.\n5) Calcular o tempo decorrido médio e comparar entre as redes avaliadas.",
+    "references": "1) Performance Analysis of Blockchain Networks through Smart Contracts"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

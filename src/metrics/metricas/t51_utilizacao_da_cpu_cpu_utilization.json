@@ -7,12 +7,13 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "definition": "Mede o percentual médio de utilização da CPU\npelos nós de uma rede blockchain durante a execução\nde operações, como validação de blocos, mineração e\nexecução de contratos inteligentes. Indica a quantidade\nde recursos computacionais efetivamente empregados\npara manter o sistema operacional.",
-    "objective": "Avaliar a eficiência de processamento e o impacto da\ncarga computacional imposta pelos mecanismos de consenso e validação de transações. Essa métrica é essencial\nem aplicações educacionais e ambientes colaborativos baseados em blockchain, nos quais o desempenho influencia\ndiretamente a qualidade e disponibilidade dos serviços.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Utilização da CPU (%) =\nTempo ativo da CPU\nTempo total de observação×100\nonde o tempo ativo inclui o processamento de transações,\nconsenso e operações de rede.\nMétricas\nAssociadas\nUso de CPU; Sobrecarga de CPU; Consumo de energia;\nLatência; Throughput\nAtributo\nRelacionado\nEficiência computacional; Desempenho de execução; Escalabilidade",
-    "protocol": "1) Executar o sistema blockchain em ambiente controlado com diferentes volumes de transações.\n2) Monitorar continuamente a utilização da CPU em\ncada nó.\n3) Calcular a média e o desvio padrão da utilização ao\nlongo do tempo.\n4) Comparar com limites aceitáveis de desempenho definidos pelo SLA ou requisitos de sistema.\n133",
-    "comment": "No estudo, a utilização da CPU foi usada como indicador da eficiência da arquitetura blockchain aplicada\nà educação, mostrando que a tecnologia é viável sem\nsobrecarregar o ambiente computacional. Resultados\nindicaram que o uso de blockchain pode ser otimizado\nmantendo a carga da CPU dentro de limites sustentáveis\nmesmo com alto número de operações simultâneas.\nInterpretação\ndo\nValor Medido\nValores moderados indicam bom equilíbrio entre carga\ne desempenho. Valores muito altos sugerem sobrecarga e necessidade de otimização; valores muito bai-\nxos podem indicar subutilização dos recursos.",
-    "scale_type": "Razão"
+    "definition": "Percentual médio de ocupação da CPU dos nós de uma rede blockchain ao longo de um período de observação, considerando atividades como validação de blocos, execução de contratos inteligentes e comunicação entre nós.",
+    "objective": "Avaliar se a carga computacional imposta pelo sistema blockchain mantém-se dentro de limites sustentáveis, evitando saturação da CPU e garantindo estabilidade e disponibilidade dos serviços em ambientes com recursos limitados.",
+    "equation": "Utilização da CPU (%) = (Tempo ativo da CPU / Tempo total de observação) × 100\nO tempo ativo inclui processamento de transações, consenso e operações de suporte à rede.",
+    "comment": "Valores moderados indicam equilíbrio entre desempenho e uso de recursos. Utilização persistentemente alta sugere risco de saturação e degradação do serviço, enquanto valores muito baixos podem indicar subutilização da infraestrutura.",
+    "scale_type": "Razão",
+    "protocol": "1) Executar o sistema blockchain em ambiente controlado.\n2) Definir o período de observação.\n3) Monitorar continuamente a utilização da CPU em cada nó.\n4) Calcular a média (e, quando necessário, percentis) ao longo do tempo.\n5) Comparar os resultados com limites definidos por SLA ou requisitos do sistema.",
+    "references": "1) Blockchain-based Electronic Healthcare Information System Optimized for Developing Countries"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

@@ -7,12 +7,13 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "definition": "Mede a proporção de funções em contratos inteligentes\nque utilizam modificadores de acesso indevidamente permissivos, como public ou external, quando deveriam\nser restritos. Essa métrica avalia o grau de exposição\nindevida de funções críticas e seu impacto potencial na\nsegurança da aplicação blockchain.",
-    "objective": "Avaliar a robustez dos controles de acesso em contratos\ninteligentes, quantificando o uso incorreto de modificadores de visibilidade. O objetivo é reduzir a superfície de\nataque e prevenir que funções internas sejam exploradas\npor agentes externos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "IAM Index = Funções com acesso inseguro\nTotal de funções\nMétricas\nAssociadas\nVulnerabilidades de Controle de Acesso; Authorization\nFailure Rate; Privilege Escalation Ratio; Secure Coding\nCompliance\nAtributo\nRelacionado\nSegurança de Contrato; Confidencialidade; Integridade;\nControle de Acesso",
-    "protocol": "1) Realizar auditoria do código-fonte do contrato inteligente.\n2) Identificar funções declaradas com modificadores\npublic ou external.\n3) Classificar se o nível de acesso é compatível com a\nfunção.\n4) Contar o número de funções com modificadores excessivamente permissivos.\n5) Calcular a proporção de funções inseguras em relação\nao total.",
-    "comment": "Um alto valor do índice indica fragilidade no controle\nde acesso e maior risco de vulnerabilidades exploráveis.\nRevisões automatizadas e ferramentas de análise estática,\ncomo Slither ou Mythril, são recomendadas para reduzir\no número de funções inseguras.\n187\n\nInterpretação\ndo\nValor Medido\nMenor índice indica melhor segurança e aplicação adequada de níveis de visibilidade. Valores elevados sugerem\nexposição indevida de lógica sensível e necessidade de\nrefatoração.",
-    "scale_type": "Proporção"
+    "definition": "Proporção de funções em contratos inteligentes que utilizam modificadores de acesso excessivamente permissivos, permitindo que usuários não autorizados executem operações que deveriam ser restritas. A métrica indica o nível de exposição indevida de funções críticas.",
+    "objective": "Avaliar a correção dos controles de acesso implementados em contratos inteligentes, identificando funções que podem ser exploradas por agentes externos devido a níveis de visibilidade inadequados.",
+    "equation": "Índice de Modificadores de Acesso Inseguros = Número de funções com acesso indevidamente permissivo / Número total de funções do contrato",
+    "comment": "Valores elevados indicam maior risco de falhas de segurança, pois funções sensíveis ficam acessíveis a qualquer usuário. Valores baixos indicam que o contrato aplica corretamente os níveis de acesso, reduzindo a possibilidade de uso indevido ou ataques.",
+    "scale_type": "Razão",
+    "protocol": "1) Analisar o código-fonte do contrato inteligente.\n2) Identificar todas as funções e seus modificadores de acesso.\n3) Verificar se o nível de acesso de cada função é adequado à sua finalidade.\n4) Contar as funções com modificadores excessivamente permissivos.\n5) Calcular a razão entre funções inseguras e o total de funções.",
+    "references": "1) An efficient distributed and secure algorithm for transaction confirmation in IOTA using cloud computing"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

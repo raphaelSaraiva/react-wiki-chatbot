@@ -7,12 +7,13 @@
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "definition": "Mede a velocidade com que dados podem ser compartilhados e recuperados em um sistema blockchain\ndurante operações de autenticação, criptografia e verificação. Representa o desempenho do sistema na execução\nde requisições de leitura e escrita de dados com segurança\ne integridade.",
-    "objective": "Avaliar a eficiência de acesso e compartilhamento\nde dados em sistemas baseados em blockchain. Uma\nalta taxa de acesso indica que o sistema mantém boa\nperformance mesmo sob múltiplas requisições simultâneas, assegurando confiabilidade e estabilidade — espe-\ncialmente em ambientes de computação em nuvem com\ngrande volume de dados.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "TAD = Ndados_acessados\nTexecução\nonde Ndados_acessados é o número de dados lidos ou compartilhados e Texecução é o tempo total gasto em operações\nde criação de bloco, criptografia, descriptografia e verificação de autenticação.\nMétricas\nAssociadas\nLatência; Taxa de entrega de mensagens; Consumo de\nenergia; Taxa de sucesso do consenso; Throughput\nAtributo\nRelacionado\nDesempenho de leitura e escrita; Tempo de resposta;\nEficiência de transmissão de dados",
-    "protocol": "1) Configurar o ambiente de nuvem com o protocolo\nBC-IAS baseado em blockchain.\n2) Executar cenários de leitura e gravação de dados sob\ndiferentes volumes de usuários.\n3) Registrar tempos de criação de bloco, autenticação e\ncriptografia.\n4) Calcular o número de acessos bem-sucedidos por unidade de tempo.\n5) Comparar os resultados com outros modelos (ex.:\nIECCA, ACOMKSV, PFP, FS).\n137",
-    "comment": "O estudo demonstrou que o protocolo BC-IAS apresentou\numa taxa de acesso superior às abordagens anteriores, mantendo alto desempenho em ambientes de alta\ndemanda. Essa eficiência se deve à integração de autenticação com curva elíptica avançada (HECC) e controle\nde acesso via smart contracts, que reduzem o tempo de\nverificação e melhoram a escalabilidade.\nInterpretação\ndo\nValor Medido\nValores altos indicam alta eficiência e estabilidade do\nsistema; valores baixos podem refletir gargalos em\nautenticação, criptografia ou latência de rede.",
-    "scale_type": "Razão"
+    "definition": "Quantidade de operações de acesso a dados (leitura ou compartilhamento) que um sistema blockchain consegue realizar por unidade de tempo, considerando etapas de autenticação, criptografia e verificação.",
+    "objective": "Avaliar a capacidade do sistema blockchain de acessar e compartilhar dados de forma eficiente sob múltiplas requisições simultâneas, indicando se o desempenho se mantém estável em ambientes de computação em nuvem com grande volume de dados.",
+    "equation": "Taxa de Acesso a Dados = N_acessos / T_execução\nonde N_acessos é o número de operações de acesso a dados concluídas com sucesso e T_execução é o tempo total de observação.",
+    "comment": "Valores mais altos indicam que o sistema consegue atender a muitas requisições de acesso em pouco tempo, mantendo eficiência mesmo sob alta demanda. Valores baixos podem indicar gargalos em autenticação, criptografia ou comunicação de rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Configurar o sistema blockchain no ambiente de nuvem.\n2) Definir cenários de teste com diferentes volumes de usuários e requisições.\n3) Executar operações de leitura e compartilhamento de dados.\n4) Registrar o número de acessos concluídos e o tempo total de execução.\n5) Calcular a taxa de acesso e comparar com outras abordagens ou configurações.",
+    "references": "1) Block chain based IAS protocol to enhance security and privacy in cloud computing"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

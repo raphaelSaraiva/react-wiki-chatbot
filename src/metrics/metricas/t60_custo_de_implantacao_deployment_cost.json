@@ -7,12 +7,13 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "definition": "Mede o custo total em gás ou tokens necessário\npara implantar contratos inteligentes e inicializar\no sistema blockchain em uma rede específica. Reflete\no investimento computacional e financeiro associado ao\nprocesso de registro do contrato na blockchain, incluindo\ntaxas de transação e consumo de recursos de execução.",
-    "objective": "Quantificar o custo inicial de implantação do sistema\nproposto e avaliar sua viabilidade econômica em ambientes públicos, privados ou híbridos. Essa métrica per-\nmite comparar soluções blockchain quanto à eficiência do\nuso de gás e à escalabilidade financeira de implantações\nem larga escala.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "DC = GasUsed × GasPrice\nonde GasUsed representa o total de gás consumido na\nimplantação e GasPrice é o preço médio pago por unidade\nde gás no momento da operação.\nMétricas\nAssociadas\nTransaction Cost; Execution Cost; Gas Usage; Throughput\nAtributo\nRelacionado\nCusto de Operação; Eficiência Computacional; Escalabilidade Econômica",
-    "protocol": "1) Preparar o contrato inteligente (ex.: MRBSChain) no\nambiente de teste (Remix IDE / Hardhat).\n2) Implantar o contrato na Binance Smart Chain (BSC)\ne registrar o consumo de gás reportado pela EVM.\n3) Converter o custo total de gás para BNB e, opcionalmente, para moeda fiduciária.\n4) Repetir o processo sob diferentes condições de rede\n(Mainnet, Testnet).\n5) Calcular a média e o desvio padrão dos custos de\nimplantação.\n151",
-    "comment": "No estudo, a implantação do contrato principal do\nMRBSChain apresentou custo médio de aproximadamente 0.0143 BNB na Binance Smart Chain Testnet,\ndemonstrando viabilidade para aplicações médicas distribuídas. O custo é diretamente influenciado pela com-\nplexidade do contrato e pelo tamanho do bytecode armazenado. Contratos otimizados em Solidity reduzem\nsignificativamente o consumo de gás.\nInterpretação\ndo\nValor Medido\nValores menores indicam contratos mais leves e eficientes, favorecendo implantações em larga escala; valores\naltos sugerem ineficiência ou necessidade de otimização\nno código do contrato inteligente.",
-    "scale_type": "Razão"
+    "definition": "Custo total necessário para implantar contratos inteligentes e inicializar um sistema blockchain em uma rede específica, considerando o consumo de gás e o preço pago por unidade de gás no momento da implantação.",
+    "objective": "Avaliar a viabilidade econômica inicial de uma solução blockchain, permitindo comparar contratos e plataformas quanto ao custo de implantação antes do início da operação.",
+    "equation": "Custo de Implantação = GasUsed_implantacao × GasPrice\nonde GasUsed_implantacao é o total de gás consumido durante a implantação do contrato.",
+    "comment": "Valores menores indicam contratos mais leves e melhor adequação para implantações em larga escala. Valores elevados costumam estar associados a contratos complexos, bytecode extenso ou uso intensivo de armazenamento.",
+    "scale_type": "Razão",
+    "protocol": "1) Preparar o contrato inteligente para implantação.\n2) Implantar o contrato na rede escolhida (testnet ou mainnet).\n3) Registrar o consumo total de gás informado no recibo da transação.\n4) Multiplicar o gás consumido pelo preço do gás vigente.\n5) Repetir a medição em diferentes cenários para obter valores médios.",
+    "references": "1) MRBSChain: a novel scalable medical records binance smart chain framework enabling a paradigm shift in medical records management"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

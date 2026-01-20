@@ -7,12 +7,13 @@
     "subcharacteristic": "Autenticidade"
   },
   "fields": {
-    "definition": "Mede a proporção de usuários legítimos corretamente\nidentificados pelo sistema em relação ao total de tentativas de autenticação. Essa métrica avalia a precisão\ne a confiabilidade do mecanismo de controle de acesso\nbaseado em blockchain no reconhecimento de usuários\ngenuínos.",
-    "objective": "Avaliar a capacidade do sistema de distinguir usuários legítimos de entidades maliciosas, garantindo acesso seguro\ne integridade dos dados em um ambiente descentralizado\nde armazenamento em nuvem.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Taxa de Detecção de Usuários Genuínos\n=\nNúmero de usuários legítimos corretamente identificados\nTotal de tentativas de autenticação\nMétricas\nAssociadas\nFalse Acceptance Rate (FAR); False Rejection Rate\n(FRR); Accuracy; Authentication Latency\nAtributo\nRelacionado\nControle de Acesso; Integridade de Dados; Confidencialidade; Taxa de Erro de Autenticação",
-    "protocol": "1) Implementar o mecanismo de controle de acesso baseado em blockchain.\n2) Realizar múltiplas tentativas de autenticação com\nusuários genuínos e falsos.\n3) Registrar o número de autenticações corretas de usuários legítimos.\n4) Calcular a proporção conforme a equação acima.\n5) Avaliar o desempenho sob diferentes tamanhos de\nblockchain e condições de rede.",
-    "comment": "No artigo, o sistema atingiu aproximadamente 95% de\ntaxa de detecção de usuários genuínos para blockchains\ncom 100 blocos. Isso demonstra alta precisão no processo de verificação e eficiência no controle de acesso\ndescentralizado.\n182\n\nInterpretação\ndo\nValor Medido\nMaior valor indica melhor autenticação e confiabilidade\ndo sistema. Valores baixos sugerem falhas no mecanismo\nde identificação ou vulnerabilidade a ataques de falsificação.",
-    "scale_type": "Razão"
+    "definition": "Proporção de usuários legítimos corretamente reconhecidos pelo sistema de autenticação em relação ao total de tentativas de acesso. A métrica indica o quão bem o mecanismo identifica usuários genuínos sem confundi-los com entidades maliciosas.",
+    "objective": "Avaliar a eficácia do mecanismo de autenticação baseado em blockchain em reconhecer usuários legítimos, garantindo acesso seguro e confiável a dados armazenados em sistemas descentralizados.",
+    "equation": "Taxa de Detecção de Usuários Genuínos = Número de autenticações corretas de usuários legítimos / Total de tentativas de autenticação",
+    "comment": "Valores elevados indicam que o sistema reconhece corretamente a maioria dos usuários legítimos, reduzindo recusas indevidas de acesso. Valores baixos sugerem falhas no processo de autenticação, que podem afetar a usabilidade e a confiança no sistema.",
+    "scale_type": "Razão",
+    "protocol": "1) Implementar o mecanismo de controle de acesso baseado em blockchain.\n2) Realizar tentativas de autenticação com usuários legítimos e usuários não autorizados.\n3) Registrar quantas tentativas de usuários legítimos foram corretamente aceitas.\n4) Contabilizar o número total de tentativas de autenticação.\n5) Calcular a razão entre autenticações corretas de usuários legítimos e o total de tentativas.",
+    "references": "1) Blockchain-Based Access Control and Data Sharing Mechanism in Cloud Decentralized Storage System"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

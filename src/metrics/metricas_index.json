@@ -33,7 +33,6 @@
   { "id": "t32", "table_no": 32, "name": "Nível de Autenticação", "file": "metricas/t32_nivel_de_autenticacao_de_identidade.json", "characteristic": "Segurança" },
   { "id": "t33", "table_no": 33, "name": "Tempo de Autenticação", "file": "metricas/t33_tempo_de_autenticacao.json", "characteristic": "Segurança" },
   { "id": "t34", "table_no": 34, "name": "Tempo Disponível", "file": "metricas/t34_tempo_disponivel.json", "characteristic": "Confiabilidade" },
-  { "id": "t35", "table_no": 35, "name": "Consumo Médio de Gás", "file": "metricas/t35_consumo_medio_de_gas.json", "characteristic": "Eficiência de Desempenho" },
   { "id": "t36", "table_no": 36, "name": "Taxa de Erro de Bits", "file": "metricas/t36_taxa_de_erro_de_bits_bit_error_rate_ber.json", "characteristic": "Confiabilidade" },
   { "id": "t37", "table_no": 37, "name": "Cobertura de Bloco", "file": "metricas/t37_cobertura_de_bloco_block_coverage.json", "characteristic": "Adequação Funcional" },
   { "id": "t38", "table_no": 38, "name": "Entrega de Bloco", "file": "metricas/t38_entrega_de_bloco.json", "characteristic": "Adequação Funcional" },
