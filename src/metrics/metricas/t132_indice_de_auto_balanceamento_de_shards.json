@@ -7,13 +7,13 @@
     "subcharacteristic": "Recuperabilidade"
   },
   "fields": {
-    "definition": "Mede a capacidade do protocolo de alocação de shards\nde manter ou restaurar uma distribuição equilibrada\nde nós entre shards após eventos de churn (entrada/saída\nde nós). Um valor alto indica que os shards permanecem\ncom tamanhos semelhantes, reduzindo gargalos e riscos\nde ataques direcionados.",
-    "objective": "Avaliar quão bem o mecanismo de alocação/realocação\ndistribui recursos (nós) entre shards ao longo dos epochs,\npreservando desempenho e segurança sem coordenação\ncentral.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Um índice simples e prático é:\nµ = 1 −\nmaxi,j\n\n n(t+1)\ni\n−n(t+1)\nj\n\nn(t+1)\nonde n(t+1)\ni\né o número de nós no shard i ao final do\nepoch t+1, n(t+1) é o número médio de nós por shard\nnesse epoch. µ ∈(−∞, 1]; valores µ mais próximos de\n1 indicam melhor balanceamento (dispersão menor entre\nshards).\nMétricas\nAssociadas\nOperabilidade de Shards; Taxa de Rebalanceamento;\nThroughput por Shard; Taxa de Forks por Shard\nAtributo\nRelacionado\nEscalabilidade horizontal; Robustez a churn; Equidade\nde carga entre shards",
-    "protocol": "1) Definir número de shards m e janela temporal por\nepoch.\n2) Inicializar a rede e aplicar um cenário de churn (entradas/saídas de nós) entre t e t+1.\n3) Para cada epoch, medir n(t+1)\ni\npara todo shard i ∈\n{1, . . . , m} e calcular n(t+1).\n4) Calcular µ pela equação; repetir para múltiplos epochs\ne reportar média/percentis.\n5) Comparar µ entre protocolos de alocação (ex.: base\nvs. proposto) e sob diferentes intensidades de churn.\n307",
-    "comment": "Em blockchains fragmentadas, o auto-balanceamento reduz hotspots, melhora o throughput agregado e mitiga\nriscos quando um shard fica desproporcionalmente pequeno (alvo mais fácil) ou grande (gargalo). O trabalho\nde referência discute o trade-off entre self-balance e operability, propondo um protocolo que melhora o equilíbrio\ncom sobrecarga controlada.\nInterpretação\ndo\nValor Medido\nAlto µ: shards com tamanhos próximos (bom balanceamento, maior eficiência/segurança). Baixo µ: forte\ndesequilíbrio entre shards, maior risco de gargalos e vulnerabilidades.",
-    "scale_type": "Intervalo (limitado superiormente por 1)",
-    "references": "Han, R.; Yu, J.; Zhang, R. Analysing and Improving Shard Allocation Protocols for Sharded Blockchains.\n308"
+    "definition": "Mede a capacidade de uma blockchain fragmentada (com shards) de manter ou recuperar uma distribuição equilibrada de nós entre os shards após a entrada ou saída de participantes da rede.",
+    "objective": "Avaliar se o protocolo consegue redistribuir automaticamente os nós entre os shards, evitando que alguns fiquem sobrecarregados enquanto outros permanecem com poucos participantes.",
+    "equation": "Índice de Autoequilíbrio = 1 − (maior diferença no número de nós entre shards / número médio de nós por shard).",
+    "comment": "Valores próximos de 1 indicam que os shards possuem tamanhos semelhantes, o que reduz gargalos, melhora o desempenho geral e diminui riscos de ataques. Valores baixos indicam desequilíbrio, com possíveis impactos negativos em desempenho e segurança.",
+    "scale_type": "Intervalo",
+    "protocol": "1) Definir o número de shards da rede.\n2) Executar o sistema sob eventos de churn, com entrada e saída de nós.\n3) Medir o número de nós em cada shard ao final de cada período.\n4) Calcular o número médio de nós por shard.\n5) Identificar a maior diferença entre os tamanhos dos shards.\n6) Aplicar a equação para obter o índice.",
+    "references": "1) Analysing and Improving Shard Allocation Protocols for Sharded Blockchains"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

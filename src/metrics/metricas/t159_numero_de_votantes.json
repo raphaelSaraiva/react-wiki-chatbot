@@ -1,19 +1,19 @@
 {
   "id": "t159",
-  "table_no": 132,
+  "table_no": 159,
   "name": "Número de Votantes",
   "iso25010": {
     "characteristic": "Eficiência de Desempenho",
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "definition": "Mede a quantidade total de eleitores registrados e efetivamente participantes em um processo de votação baseado em blockchain. A métrica reflete a capacidade do sistema de suportar um determinado número de votantes mantendo níveis aceitáveis de desempenho, segurança e confiabilidade.",
-    "objective": "Avaliar a escalabilidade e a capacidade de sistemas de votação baseados em blockchain, identificando o impacto do aumento do número de votantes sobre métricas como latência de votação, throughput de transações e custo de execução de contratos inteligentes.",
+    "definition": "Quantidade total de pessoas que participam efetivamente de um processo de votação baseado em blockchain. A métrica indica quantos eleitores o sistema consegue suportar sem comprometer o desempenho, a segurança ou a confiabilidade da votação.",
+    "objective": "Avaliar a capacidade e a escalabilidade de sistemas de votação em blockchain, observando como o aumento do número de votantes afeta o tempo de votação, a velocidade de processamento das transações e o consumo de recursos do sistema.",
     "equation": "NV = |V|,\nonde V representa o conjunto de eleitores válidos que registraram ou submeteram votos durante o período de votação.",
-    "protocol": "1) Definir o processo eleitoral e o período de votação.\n2) Registrar os eleitores autorizados no contrato inteligente.\n3) Monitorar o número de votos submetidos e validados.\n4) Contabilizar o número total de votantes ativos.\n5) Avaliar o impacto do aumento de NV sobre latência, throughput e consumo de recursos.\n6) Comparar resultados sob diferentes escalas de participação.",
-    "comment": "No mecanismo de votação seguro baseado em blockchain e redes 5G, o número de votantes é um fator crítico para avaliar a escalabilidade do sistema. O estudo demonstra que contratos inteligentes bem projetados conseguem suportar um grande número de eleitores, mantendo integridade, transparência e desempenho adequado mesmo sob alta participação.",
+    "protocol": "1) Definir o processo eleitoral e o período de votação.\n2) Registrar os eleitores autorizados no contrato inteligente.\n3) Monitorar os votos submetidos e validados pela rede.\n4) Contabilizar o número total de eleitores que participaram da votação.\n5) Avaliar o impacto do aumento do número de votantes sobre latência, throughput e uso de recursos.\n6) Comparar os resultados em cenários com diferentes níveis de participação.",
+    "comment": "O número de votantes é um fator central para avaliar se um sistema de votação em blockchain é escalável. Quanto maior o número de participantes que o sistema consegue suportar mantendo desempenho aceitável, maior é sua adequação para eleições reais ou votações em larga escala.",
     "scale_type": "Razão",
-    "references": "Kumar, R.; Tripathi, R.; Khanna, A. Blockchain-Based Secure Voting Mechanism Underlying 5G Network: A Smart Contract Approach. IEEE Network / IEEE Access, 2020."
+    "references": "1) Blockchain-Based Secure Voting Mechanism Underlying 5G Network: A Smart Contract Approach"
   },
   "source": {
     "pdf": "Blockchain-Based_Secure_Voting_Mechanism_Underlying_5G_Network_A_Smart_Contract_Approach.pdf",

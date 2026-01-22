@@ -7,13 +7,12 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "definition": "Mede o tempo decorrido entre a solicitação e a resposta\ncompleta de uma consulta a dados armazenados em blocos da blockchain. Essa métrica avalia o desempenho\nde leitura e o comportamento temporal do sistema ao\nrecuperar informações de transações ou contratos inteligentes.",
-    "objective": "Avaliar a eficiência de acesso e recuperação de dados\nem diferentes mecanismos de consenso aplicados a redes\nblockchain voltadas para Internet das Coisas (IoT), onde\na latência de leitura impacta diretamente a responsividade de aplicações em tempo real.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Query Timeavg = 1\nN\nN\nX\ni=1\n(trespostai −tsolicitaçãoi)\nonde tsolicitaçãoi é o instante em que a consulta foi iniciada\ne trespostai o instante em que os dados foram completamente retornados.\nMétricas\nAssociadas\nTransaction Latency; Average Block Time; Throughput;\nQuery Success Rate\nAtributo\nRelacionado\nTempo de Resposta; Latência de Transação; Tempo de\nExecução de Contrato",
-    "protocol": "1) Implementar um contrato inteligente simples em\nredes blockchain com diferentes mecanismos de consenso\n(ex.: PoW, PoA, PoS).\n2) Enviar múltiplas transações (ex.: 100) e registrar seus\nidentificadores.\n3)\nExecutar\nconsultas\nutilizando\nAPI\nweb3.eth.getBlock\nou\nequivalente,\nmedindo\no\ntempo entre solicitação e resposta.\n4) Calcular a média dos tempos obtidos (Query Timeavg)\ne comparar entre mecanismos de consenso.\n285",
-    "comment": "O artigo demonstra que redes com consenso Proof of\nAuthority (PoA) apresentaram tempos de consulta menores, enquanto Proof of Work (PoW) exibiu maior va-\nriabilidade. Isso reforça a influência do mecanismo de\nconsenso na eficiência de leitura e desempenho geral da\nblockchain em cenários IoT.\nInterpretação\ndo\nValor Medido\nMenores tempos de consulta indicam maior eficiência\nde leitura e melhor desempenho da rede. Valores elevados podem sinalizar gargalos de comunicação, baixa\ncapacidade de processamento ou sobrecarga na rede.",
+    "definition": "Tempo decorrido entre a solicitação e o recebimento completo da resposta de uma consulta a dados armazenados na blockchain. A métrica avalia o desempenho de leitura do sistema ao recuperar informações de transações ou contratos inteligentes.",
+    "objective": "Avaliar a eficiência temporal de acesso a dados em redes blockchain, especialmente em aplicações de Internet das Coisas, nas quais atrasos de leitura afetam diretamente a responsividade e o funcionamento em tempo quase real.",
+    "equation": "TempoMedio = (1 / N) × Σ (t_resposta_i − t_solicitacao_i)",
+    "comment": "O tempo de consulta é influenciado pelo mecanismo de consenso, pela estrutura de dados dos blocos e pela capacidade dos nós que atendem às requisições. Mecanismos com menor tempo de bloco e validação mais simples tendem a apresentar tempos de consulta menores e mais estáveis.",
     "scale_type": "Razão",
-    "references": "Chelladurai, U., & Pandey, S. (2022). Blockchain for Internet of\nThings: A Consensus Mechanism Analysis. IEEE Access, vol. 10,\npp. 79861–79875.\n286"
+    "protocol": "1) Implantar a blockchain sob diferentes mecanismos de consenso.\n2) Registrar um conjunto de transações ou contratos inteligentes.\n3) Executar consultas de leitura aos dados armazenados usando uma API de acesso à blockchain.\n4) Medir o tempo entre o envio da solicitação e o recebimento completo da resposta.\n5) Calcular o tempo médio de consulta para cada configuração analisada."
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

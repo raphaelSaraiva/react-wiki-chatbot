@@ -3,17 +3,17 @@
   "table_no": 150,
   "name": "Taxa de Processamento de Transações",
   "iso25010": {
-    "characteristic": "Taxas de Processamento de Transações",
+    "characteristic": "Eficiência de Desempenho",
     "subcharacteristic": "Capacidade"
   },
   "fields": {
-    "definition": "Mede a quantidade de transações que o sistema blockchain consegue processar por unidade de tempo, geral-\nmente expressa em transações por segundo (TPS). A\nmétrica reflete a capacidade do sistema de lidar com\ngrandes volumes de transações simultâneas, avaliando\nsua escalabilidade e eficiência sob carga.",
-    "objective": "Avaliar o desempenho e a escalabilidade do blockchain\nao processar transações em alta demanda, determinando\nsua viabilidade para aplicações intensivas, como registro\nde eventos em tempo real ou sistemas distribuídos de\nreputação.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "TPS = Ntransações concluídas\nTexecução\n, onde Ntransações concluídas é o\nnúmero total de transações executadas e Texecução é o\ntempo total de processamento.\nMétricas\nAssociadas\nTransaction Latency; Block Throughput; Confirmation\nTime; Network Load\nAtributo\nRelacionado\nCapacidade de Rede; Eficiência de Execução; Tempo de\nConfirmação",
-    "protocol": "1) Configurar ambiente de teste com volume definido de\ntransações simultâneas.\n2) Registrar o número de transações concluídas e o tempo\ntotal necessário.\n3) Calcular o valor médio de TPS em janelas de tempo\nfixas (ex.: 10 s, 60 s).\n4) Repetir o teste sob diferentes níveis de carga para\navaliar a estabilidade.",
-    "comment": "Uma taxa de processamento elevada indica boa escalabilidade e capacidade da rede em manter desempenho\nsob carga. O artigo demonstra que blockchains permissionadas (ex.: Hyperledger) alcançam TPS significativa-\nmente maiores que blockchains públicas (ex.: Ethereum),\nevidenciando o impacto do modelo de consenso e da\narquitetura na performance.\n345\n\nInterpretação\ndo\nValor Medido\nValores mais altos (>1000 TPS) indicam alta eficiência\ne escalabilidade. Valores baixos (< 50 TPS) sugerem\ngargalos de desempenho e necessidade de otimização do\nconsenso ou da comunicação entre nós.",
+    "definition": "Quantidade de transações que uma blockchain consegue processar por unidade de tempo, normalmente expressa em transações por segundo (TPS).",
+    "objective": "Avaliar a capacidade e a escalabilidade da blockchain ao processar grandes volumes de transações, indicando se o sistema é adequado para aplicações que exigem alto desempenho.",
+    "equation": "TPS = número de transações processadas / tempo total de execução.",
+    "comment": "Valores mais altos indicam maior capacidade de processamento e melhor escalabilidade. Valores baixos sugerem gargalos no consenso, na execução das transações ou na comunicação entre os nós da rede.",
     "scale_type": "Razão",
-    "references": "Mahajan, S.; Saxena, N.; & Sharma, R. (2020). Distributed Ledger\nfor Spammers’ Resume. IEEE Access. — Avalia a taxa de processamento de transações em diferentes blockchains (Ethereum e\nHyperledger) para medir eficiência e escalabilidade de execução.\n346"
+    "protocol": "1) Configurar um ambiente de teste com uma carga definida de transações.\n2) Submeter as transações à rede durante um período controlado.\n3) Registrar o número total de transações processadas.\n4) Medir o tempo total de execução.\n5) Calcular o TPS e repetir o teste sob diferentes níveis de carga.",
+    "references": "1) Distributed Ledger for Spammers’ Resume"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

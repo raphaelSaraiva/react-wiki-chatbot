@@ -7,13 +7,13 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "definition": "Tempo médio necessário para que uma transação seja\nvalidada e registrada de forma definitiva no blockchain.\nMede o intervalo entre o envio de uma transação e sua\nconfirmação na rede, refletindo o desempenho e a eficiência do consenso utilizado.",
-    "objective": "Avaliar a eficiência temporal do mecanismo de consenso e\na escalabilidade da rede blockchain aplicada em sistemas\nde coleta de dados em MANETs. A métrica é essencial\npara medir a responsividade e a capacidade da rede em\nlidar com múltiplas transações sob diferentes cargas.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Ttx = tconf −tenv, onde tenv é o instante de envio da transação e tconf é o instante em que a transação é confirmada\ne incluída no blockchain.\nMétricas\nAssociadas\nTransaction Throughput; Latência de Bloco; Taxa de\nConfirmação; Transaction Processing Rate; Transaction\nDelay\nAtributo\nRelacionado\nConsenso; Eficiência de Rede; Escalabilidade; Propagação de Blocos",
-    "protocol": "1) Enviar um conjunto de transações e registrar os tempos\nde envio e confirmação.\n2) Calcular a diferença entre ambos para cada transação.\n3) Obter média, mediana e percentis (p50, p95, p99) do\ntempo de transação.\n4) Avaliar sob diferentes configurações de nós, número\nde blocos e frequência de tarefas.",
-    "comment": "O tempo de transação aumenta conforme o número de\nblocos de referência (nb) cresce, devido à redução de\nmineradores ativos.\nEm contrapartida, a diminuição\ndesse parâmetro melhora o throughput, indicando uma\nrelação inversa entre tempo e taxa de processamento.\n349\n\nInterpretação\ndo\nValor Medido\nValores menores de tempo de transação indicam maior\neficiência e capacidade de resposta da rede. Tempos\nelevados refletem gargalos de comunicação, sobrecarga\nde validação ou limitações do consenso.",
+    "definition": "Tempo necessário para que uma transação enviada à rede seja validada pelo consenso e registrada de forma definitiva na blockchain.",
+    "objective": "Avaliar a rapidez com que a blockchain confirma transações, indicando a eficiência do consenso e a capacidade da rede de responder sob diferentes níveis de carga.",
+    "equation": "T_tx = tempo de confirmação − tempo de envio da transação.",
+    "comment": "Tempos menores indicam maior eficiência e melhor experiência para o usuário. Tempos elevados podem sinalizar gargalos de comunicação, sobrecarga no consenso ou limitações na escalabilidade da rede.",
     "scale_type": "Razão",
-    "references": "Liu, G.; Dong, H.; Yan, Z. B4SDC: A Blockchain System for\nSecurity Data Collection in MANETs. IEEE DSN 2020. :contentReference[oaicite:0]index=0\n350"
+    "protocol": "1) Enviar um conjunto de transações para a blockchain.\n2) Registrar o instante de envio e o instante de confirmação de cada transação.\n3) Calcular o tempo de transação individual.\n4) Obter estatísticas como média, mediana e percentis (p50, p95, p99).\n5) Repetir a análise sob diferentes cargas e configurações da rede.",
+    "references": "1) B4SDC: A Blockchain System for Security Data Collection in MANETs"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

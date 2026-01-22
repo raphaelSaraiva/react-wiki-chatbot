@@ -7,13 +7,13 @@
     "subcharacteristic": "Disponibilidade"
   },
   "fields": {
-    "definition": "Mede a capacidade de um sistema blockchain de executar\ntarefas ou transações corretamente sem falhas, avaliando\na proporção de operações bem-sucedidas em relação ao\ntotal de operações solicitadas. Reflete a estabilidade e a\nrobustez do sistema sob diferentes condições de carga ou\nfalha de nós.",
-    "objective": "Quantificar o grau de confiança e consistência de um\nsistema blockchain distribuído, especialmente em aplicações de IoT e saúde, onde falhas de execução podem\ncomprometer a integridade dos dados e a continuidade\ndo serviço.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Reliability Rate = Noperações bem-sucedidas\nNoperações totais\n× 100\nonde Noperações bem-sucedidas representa o número de tarefas\nou transações executadas com sucesso, e Noperações totais é\no número total de operações tentadas.\nMétricas\nAssociadas\nTask Success Rate; Fault Tolerance; Uptime Ratio; Response Success Ratio\nAtributo\nRelacionado\nDisponibilidade; Robustez; Eficiência de Desempenho",
-    "protocol": "1) Definir um conjunto de tarefas ou transações a serem\nprocessadas pela rede blockchain.\n2) Registrar o número total de tentativas e o número de\nexecuções bem-sucedidas.\n3) Avaliar a confiabilidade média sob diferentes cargas,\nlatências de rede e níveis de falha simulada.\n4) Calcular o percentual de sucesso usando a equação\ndefinida.",
-    "comment": "A confiabilidade é um indicador crítico em blockchains\naplicadas à IoT e saúde, onde interrupções ou falhas de\nconsenso podem causar perdas de dados sensíveis. Uma\nalta taxa de confiabilidade indica um sistema resiliente e\ncapaz de manter a integridade transacional mesmo sob\ncondições adversas.\n295\n\nInterpretação\ndo\nValor Medido\nValores mais altos indicam sistemas mais estáveis e consistentes. Uma confiabilidade próxima de 100% é ideal,\nsugerindo que o sistema opera de forma previsível e segura.",
+    "definition": "Proporção de operações ou transações que são executadas com sucesso por um sistema blockchain, sem falhas, em relação ao total de operações solicitadas.",
+    "objective": "Avaliar o quão confiável e estável é o funcionamento do sistema blockchain, indicando sua capacidade de executar corretamente tarefas e transações mesmo sob carga ou falhas parciais.",
+    "equation": "Taxa de Confiabilidade = Número de operações bem-sucedidas / Número total de operações.",
+    "comment": "Valores mais altos indicam um sistema mais estável e previsível. Taxas baixas sugerem falhas frequentes de execução, problemas de consenso, sobrecarga ou indisponibilidade de nós.",
     "scale_type": "Razão",
-    "references": "Javed, M., Rehman, S. U., & Hassan, S. (2023). Decentralized\nBlockchain-Based and Trust-Aware Task Offloading Strategy for\nHealthcare IoT. IEEE Access, 11, 39821–39836.\n296"
+    "protocol": "1) Definir o conjunto de operações ou transações a serem avaliadas.\n2) Executar as operações no sistema blockchain durante um período de observação.\n3) Registrar o número total de operações solicitadas.\n4) Registrar o número de operações concluídas com sucesso.\n5) Calcular a razão entre operações bem-sucedidas e operações totais.",
+    "references": "1) Decentralized Blockchain-Based and Trust-Aware Task Offloading Strategy for Healthcare IoT"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

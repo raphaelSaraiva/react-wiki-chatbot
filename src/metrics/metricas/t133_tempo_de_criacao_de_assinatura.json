@@ -7,13 +7,13 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "definition": "Mede o tempo necessário para a geração e aplicação\nde uma assinatura digital em uma transação ou dado\ncriptografado no contexto de um sistema blockchain em\nconsórcio. A métrica reflete o custo computacional do\nprocesso de autenticação usando chaves privadas e algoritmos de criptografia homomórfica.",
-    "objective": "Avaliar a eficiência do processo de autenticação e verificação de dados em sistemas blockchain aplicados à\nInternet Industrial das Coisas Médicas (IIoMT), onde\nbaixa latência e segurança são cruciais para o fluxo de\ndados sensíveis.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Tsig = tfim −tinício, onde tinício representa o instante em\nque o processo de geração da assinatura é iniciado e tfim\no momento em que a assinatura é concluída e anexada\nao bloco ou transação.\nMétricas\nAssociadas\nTempo de Verificação de Assinatura; Latência de Transação; Throughput; Overhead de Comunicação\nAtributo\nRelacionado\nAutenticação; Integridade de Dados; Segurança Criptográfica",
-    "protocol": "1) Selecionar o algoritmo de assinatura utilizado (por\nexemplo, RSA, ECC, ou homomorphic signing).\n2) Executar a criação de assinatura em diferentes tamanhos de dados (por exemplo, 128, 256 e 512 bits).\n3) Medir o tempo total de geração da assinatura, desde\na solicitação até a conclusão.\n4) Repetir o experimento em diferentes cenários de carga\ne registrar a média, desvio padrão e variação percentual.\n5) Comparar com métodos tradicionais de autenticação\nsem blockchain para medir ganho de eficiência.\n309",
-    "comment": "O tempo de criação de assinatura impacta diretamente\na latência total de autenticação e a viabilidade de uso\ndo blockchain em aplicações médicas de tempo real. O\nuso de técnicas de criptografia homomórfica e modelos\nde aprendizado híbrido ajuda a reduzir a sobrecarga sem\ncomprometer a segurança.\nInterpretação\ndo\nValor Medido\nValores menores de tempo de criação indicam maior eficiência do sistema e melhor adequação a cenários críticos\n(por exemplo, monitoramento remoto de pacientes).",
+    "definition": "Mede o tempo necessário para gerar uma assinatura digital usando uma chave privada e anexá-la a uma transação ou dado em um sistema blockchain.",
+    "objective": "Avaliar a eficiência do processo de autenticação criptográfica, verificando se a geração de assinaturas digitais é rápida o suficiente para aplicações sensíveis ao tempo, como sistemas médicos e industriais.",
+    "equation": "Tempo de Criação de Assinatura = instante final − instante inicial.",
+    "comment": "Valores menores indicam um processo de assinatura mais eficiente, com menor impacto no tempo total da transação. Tempos elevados podem aumentar a latência do sistema e limitar o uso do blockchain em aplicações que exigem respostas rápidas.",
     "scale_type": "Razão",
-    "references": "Kumar, R.; et al. A Novel Homomorphic Encryption and Consortium Blockchain-Based Hybrid Deep Learning Model for Industrial\nInternet of Medical Things.\n310"
+    "protocol": "1) Selecionar o algoritmo de assinatura digital utilizado.\n2) Definir o tamanho dos dados a serem assinados.\n3) Registrar o instante em que a geração da assinatura é iniciada.\n4) Registrar o instante em que a assinatura é concluída.\n5) Calcular o tempo decorrido entre os dois instantes.\n6) Repetir o procedimento e calcular média e variação.",
+    "references": "1) A Novel Homomorphic Encryption and Consortium Blockchain-Based Hybrid Deep Learning Model for Industrial Internet of Medical Things"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

@@ -7,13 +7,13 @@
     "subcharacteristic": "Integridade"
   },
   "fields": {
-    "definition": "Mede a ocorrência de erros de estouro (overflow) e subfluxo (underflow) em operações aritméticas dentro de\ncontratos inteligentes ou mecanismos de consenso blockchain. Esses erros acontecem quando um valor excede\nou cai abaixo dos limites do tipo de dado, resultando em\nfalhas de cálculo, corrupção de estado ou comportamento\nexplorável por atacantes.",
-    "objective": "Quantificar a robustez de sistemas blockchain frente a\nvulnerabilidades aritméticas, assegurando que operações\ncríticas de validação e transação não gerem resultados\nincorretos ou manipuláveis. Essa métrica contribui para\navaliar a segurança e a integridade computacional de\ncontratos e algoritmos distribuídos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "IOUR = Noverflow/underflow detectados\nNoperações aritméticas totais\nonde\nNoverflow/underflow detectados\nrepresenta o número\nde\neventos\nde\nfalha\naritmética\nidentificados\ne\nNoperações aritméticas totais o total de operações realizadas\nno sistema avaliado.\nMétricas\nAssociadas\nArithmetic Safety Index; Execution Error Rate; Smart\nContract Robustness; Vulnerability Density\nAtributo\nRelacionado\nConsistência de Execução; Verificação Numérica; Uso de\nSafeMath; Validação de Tipos",
-    "protocol": "1) Coletar contratos inteligentes ou módulos de transação\ndo ambiente blockchain.\n2) Executar análise estática e dinâmica com detectores\nde vulnerabilidade aritmética.\n3) Identificar ocorrências de overflow/underflow e\nclassificá-las por severidade.\n4) Calcular a taxa IOUR e comparar entre implementações ou versões do sistema.\n5) Registrar logs de auditoria e exceções aritméticas\ndurante a execução.\n189",
-    "comment": "Erros de overflow e underflow já causaram perdas financeiras significativas em dApps e sistemas IoT integrados.\nFerramentas como SafeMath, Hardhat e Slither reduzem esses riscos, mas sua ausência indica fragilidade na\nsegurança numérica.\nInterpretação\ndo\nValor Medido\nValores baixos (< 0.01) indicam robustez e boas práticas\nde programação; valores altos (> 0.1) revelam vulnerabilidades críticas que podem comprometer a integridade\ndas transações.",
+    "definition": "Proporção de erros aritméticos causados por estouro (overflow) ou subfluxo (underflow) em operações numéricas executadas por contratos inteligentes ou componentes do sistema blockchain.",
+    "objective": "Avaliar a robustez do sistema contra falhas aritméticas que podem gerar resultados incorretos, corrupção de estado ou vulnerabilidades exploráveis, comprometendo a integridade das transações.",
+    "equation": "Taxa de Overflow/Underflow = Número de erros de overflow ou underflow / Número total de operações aritméticas avaliadas.",
+    "comment": "Valores baixos indicam boa integridade aritmética e uso adequado de verificações de limite. Valores elevados sugerem fragilidades na implementação e risco de exploração ou falhas críticas no sistema.",
     "scale_type": "Razão",
-    "references": "An Efficient Distributed and Secure Algorithm for Transaction\nConfirmation in IOTA Using Cloud Computing — discussão sobre\nintegridade e segurança de operações aritméticas no contexto de\nredes distribuídas e validação transacional.\n190"
+    "protocol": "1) Identificar os contratos inteligentes ou módulos que realizam operações aritméticas.\n2) Aplicar análise estática e dinâmica para detectar erros de overflow e underflow.\n3) Contabilizar o número de ocorrências detectadas.\n4) Estimar o total de operações aritméticas avaliadas.\n5) Calcular a taxa e comparar entre versões ou implementações.",
+    "references": "1) An Efficient Distributed and Secure Algorithm for Transaction Confirmation in IOTA Using Cloud Computing"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

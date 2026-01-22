@@ -7,13 +7,13 @@
     "subcharacteristic": "Disponibilidade"
   },
   "fields": {
-    "definition": "Mede o impacto causado por ataques de negação de serviço (DoS) sobre o desempenho e a disponibilidade de um sistema blockchain, quantificando a degradação observada em métricas como throughput, latência de confirmação e taxa de transações válidas durante o ataque.",
-    "objective": "Avaliar a resiliência e robustez de sistemas blockchain frente a ataques DoS. A métrica indica o quanto o sistema é afetado em termos de disponibilidade e qualidade de serviço quando submetido a tráfego malicioso ou sobrecarga intencional.",
-    "equation": "DIR = M_attack / M_normal,\nonde M_attack representa o valor da métrica de desempenho sob ataque (ex.: latência ou throughput) e M_normal representa o valor da mesma métrica em operação normal.",
-    "protocol": "1) Definir a métrica base a ser analisada (ex.: throughput, latência ou taxa de confirmação).\n2) Medir o desempenho do sistema em condições normais.\n3) Executar ou simular um ataque DoS (ex.: flooding de transações).\n4) Medir o desempenho do sistema durante o ataque.\n5) Calcular a razão de impacto DoS (DIR).\n6) Comparar resultados entre mecanismos de defesa ou arquiteturas distintas.",
-    "comment": "Em sistemas baseados em IOTA e Tangle, o impacto de ataques DoS pode ser mitigado por mecanismos de validação distribuída e confirmação paralela de transações. Uma baixa razão de impacto indica maior resiliência do sistema e melhor manutenção da disponibilidade durante ataques.",
+    "definition": "Razão que indica o quanto o desempenho ou a disponibilidade de um sistema blockchain se degradam quando ele é submetido a um ataque de negação de serviço (DoS), em comparação com sua operação normal.",
+    "objective": "Avaliar a resiliência do sistema blockchain frente a ataques DoS, medindo o impacto desses ataques sobre métricas operacionais como latência, vazão ou taxa de confirmação de transações.",
+    "equation": "Razão de Impacto DoS = Valor da métrica sob ataque / Valor da métrica em operação normal.",
+    "comment": "Valores próximos de 1 indicam que o ataque causa pouco impacto no sistema. Valores muito maiores ou muito menores que 1 indicam degradação significativa do desempenho ou da disponibilidade durante o ataque.",
     "scale_type": "Razão",
-    "references": "Li, W.; Chen, X.; Zhang, J.; et al. An Efficient Distributed and Secure Algorithm for Transaction Confirmation in IOTA Using Cloud Computing. IEEE Access, 2020. — O estudo analisa o impacto de ataques DoS sobre a confirmação de transações e avalia mecanismos para manter a disponibilidade do sistema."
+    "protocol": "1) Escolher a métrica de desempenho ou disponibilidade a ser analisada (por exemplo, latência, vazão ou taxa de confirmação).\n2) Medir o valor dessa métrica durante a operação normal do sistema.\n3) Executar ou simular um ataque DoS, como envio massivo de transações.\n4) Medir novamente o valor da métrica durante o ataque.\n5) Calcular a razão entre o valor medido sob ataque e o valor em operação normal.\n6) Comparar os resultados entre diferentes mecanismos de defesa ou configurações do sistema.",
+    "references": "1) An Efficient Distributed and Secure Algorithm for Transaction Confirmation in IOTA Using Cloud Computing"
   },
   "source": {
     "pdf": "An_efficient_distributed_and_secure_algorithm_for_transaction_confirmation_in_IOTA_using_cloud_computing.pdf",

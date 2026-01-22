@@ -7,12 +7,12 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "definition": "Quantidade total de gás efetivamente consumida para executar uma única transação em uma rede blockchain baseada em EVM. Esse valor corresponde à soma do custo computacional de todas as instruções executadas até a finalização da transação.",
-    "objective": "Medir a eficiência computacional de uma transação individual, permitindo estimar custos, identificar gargalos de execução e comparar diferentes implementações de contratos inteligentes.",
-    "equation": "Gás Utilizado por Transação = soma do custo das instruções executadas pela EVM durante a transação (gasUsed).",
-    "comment": "Transações que realizam escrita em armazenamento ou interagem com múltiplos contratos tendem a consumir mais gás. Valores mais altos indicam maior complexidade computacional e maior custo financeiro quando combinados com o preço do gás.",
+    "definition": "Quantidade média de gás consumida para executar uma transação em uma blockchain baseada em EVM, refletindo o esforço computacional necessário para concluir a operação.",
+    "objective": "Avaliar a eficiência computacional das transações, permitindo estimar custos, identificar operações mais pesadas e comparar diferentes contratos inteligentes ou versões de implementação.",
+    "equation": "Gás Médio por Transação = soma do gás utilizado em todas as transações / número total de transações analisadas.",
+    "comment": "Valores mais altos indicam transações mais complexas, geralmente associadas a escrita em armazenamento ou múltiplas chamadas de contrato. Quando combinados com o preço do gás, esses valores impactam diretamente o custo financeiro da transação.",
     "scale_type": "Razão",
-    "protocol": "1) Executar a transação ou função do contrato inteligente em uma rede de teste ou produção.\n2) Obter o valor gasUsed a partir do recibo da transação.\n3) Registrar o tipo de operação executada (leitura, escrita, transferência).\n4) Repetir a execução para obter valores médios e percentis.\n5) Comparar resultados entre diferentes versões ou contratos.",
+    "protocol": "1) Executar transações ou funções do contrato inteligente em uma rede de teste ou produção.\n2) Obter o valor gasUsed a partir do recibo de cada transação.\n3) Registrar os valores de gás utilizados.\n4) Calcular a média e, se necessário, percentis do gás consumido.\n5) Comparar os resultados entre diferentes contratos, funções ou versões.",
     "references": "1) Empirically Analyzing Ethereum’s Gas Mechanism"
   },
   "source": {

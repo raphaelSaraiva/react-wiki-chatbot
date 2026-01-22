@@ -7,13 +7,13 @@
     "subcharacteristic": "Comportamento Temporal"
   },
   "fields": {
-    "definition": "Intervalo de tempo necessário para remover blocos antigos ou irrelevantes da cadeia principal e liberar espaço\nde armazenamento sem comprometer a integridade da\nblockchain. Representa a eficiência do mecanismo de\nmanutenção do ledger distribuído.",
-    "objective": "Avaliar a rapidez com que o sistema é capaz de realizar\na poda de blocos ou estados obsoletos, garantindo sustentabilidade do armazenamento e desempenho contínuo\nda rede, especialmente em protocolos escaláveis como o\nBitcoin-NG.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Tprune = tfinal −tstart, onde tstart é o momento de início\nda operação de poda e tfinal é o tempo em que o processo\né concluído.\nMétricas\nAssociadas\nStorage Usage; Block Propagation Delay; State Size;\nDisk Throughput\nAtributo\nRelacionado\nTempo de Sincronização; Consumo de Recursos; Escalabilidade",
-    "protocol": "1) Monitorar logs do nó durante o processo de poda de\nblocos antigos.\n2) Identificar timestamps de início e término da operação.\n3) Calcular a diferença para obter Tprune.\n4) Repetir em múltiplos nós para média e desvio padrão.\n5) Analisar impacto em latência e consumo de recursos.",
-    "comment": "O tempo de poda é influenciado pela estrutura do protocolo e pelo tamanho do ledger. Em protocolos como\nBitcoin-NG, a divisão entre microblocos e key blocks\npermite que a manutenção do ledger seja mais eficiente,\nreduzindo o impacto sobre a rede durante a poda periódica.\nInterpretação\ndo\nValor Medido\nValores menores de Tprune indicam maior eficiência e\nmenor sobrecarga de manutenção. Um valor alto pode\nsinalizar gargalos de I/O, fragmentação de estado ou\narquitetura de ledger pouco otimizada.",
+    "definition": "Tempo necessário para remover dados antigos ou desnecessários do ledger da blockchain, liberando espaço de armazenamento sem comprometer a segurança ou a integridade da rede.",
+    "objective": "Avaliar a eficiência do mecanismo de manutenção do ledger, garantindo que o crescimento do armazenamento seja controlado e que o desempenho da rede se mantenha estável ao longo do tempo.",
+    "equation": "T_prune = tempo de término da poda − tempo de início da poda.",
+    "comment": "Quanto menor o tempo de poda, mais eficiente é a manutenção do ledger. Tempos elevados podem indicar gargalos de armazenamento, baixa taxa de leitura/gravação em disco ou um desenho pouco eficiente do protocolo.",
     "scale_type": "Razão",
-    "references": "(1) Eyal, I., & Sirer, E. G. (2016). Bitcoin-NG: A Scalable Blockchain Protocol. — descreve a estrutura de key blocks e microblocks\ne mecanismos que permitem manutenção eficiente do ledger, reduzindo o tempo de poda e a sobrecarga de armazenamento.\n326"
+    "protocol": "1) Ativar ou observar o processo de poda em um nó da blockchain.\n2) Registrar o instante em que a poda é iniciada.\n3) Registrar o instante em que a poda é concluída.\n4) Calcular a diferença entre os dois instantes para obter o tempo de poda.\n5) Repetir a medição em diferentes nós ou execuções para análise comparativa.",
+    "references": "1) Bitcoin-NG: A Scalable Blockchain Protocol"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

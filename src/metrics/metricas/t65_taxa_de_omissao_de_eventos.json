@@ -4,16 +4,16 @@
   "name": "Taxa de Omissão de Eventos",
   "iso25010": {
     "characteristic": "Adequação Funcional",
-    "subcharacteristic": "Adequação Funcional"
+    "subcharacteristic": "Completude Funcional"
   },
   "fields": {
-    "definition": "Mede a proporção de eventos esperados que não\nforam registrados ou detectados na blockchain, devido a falhas em serviços intermediários, censura, atrasos\nou perdas em mecanismos de coleta e indexação. Representa o grau de incompletude e confiabilidade dos\nregistros observáveis na rede, especialmente em ecossistemas que dependem de infraestruturas centralizadas.",
-    "objective": "Quantificar a perda de transparência e de auditabilidade\ndos dados em sistemas blockchain monitorados por serviços centralizados (exchanges, indexadores, oráculos).\nEssa métrica permite identificar lacunas de registro e\navaliar a confiabilidade das fontes de dados on-chain,\ndestacando riscos à integridade e à verificabilidade do\nsistema.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Seja Eexp o número total de eventos esperados (definido\npor logs de referência, contratos ou transações previstas)\ne Eobs o número de eventos realmente observados. A\nTaxa de Omissão de Eventos (TOE) é calculada\ncomo:\nTOE = 1 −Eobs\nEexp\n.\nValores próximos a 0 indicam registros completos; valores\naltos indicam omissões ou censura.\nMétricas\nAssociadas\nTaxa de falhas de monitoramento; Completude de logs;\nDisponibilidade de dados; Censorship probability; Latência de indexação\nAtributo\nRelacionado\nTransparência de auditoria; Integridade operacional; Dependência de serviços; Confiabilidade de monitoramento\n161",
-    "protocol": "1) Identificar o conjunto de eventos esperados (Eexp) com\nbase em contratos inteligentes, cronogramas ou logs de\nreferência.\n2) Coletar os eventos registrados na blockchain ou por\nindexadores (Eobs).\n3) Calcular TOE = 1 −Eobs/Eexp.\n4) Comparar resultados entre diferentes provedores ou\ncamadas (on-chain vs off-chain).\n5) Avaliar a origem das omissões: falhas técnicas, censura\nintencional ou perda de conectividade.",
-    "comment": "A Taxa de Omissão de Eventos destaca a influência\nda centralização em ecossistemas blockchain. O artigo\n“Bad Apples” evidencia que provedores de infraestrutura\ne APIs centralizadas podem omitir ou atrasar eventos,\nreduzindo a visibilidade da rede e comprometendo a\ntransparência dos dados. Essa métrica ajuda a quantificar o impacto dessas omissões sobre a confiabilidade e a\nauditabilidade do sistema.\nInterpretação\ndo\nValor Medido\nValores baixos indicam alta integridade e confiabilidade\ndos registros. Valores altos apontam falhas de coleta,\nomissões sistemáticas ou possíveis tentativas de censura\npor intermediários, sugerindo centralização de poder e\nperda de transparência.",
+    "definition": "Proporção de eventos que deveriam ser registrados ou observados na blockchain, mas que não aparecem nos registros analisados.",
+    "objective": "Avaliar se todos os eventos relevantes esperados por uma aplicação ou processo estão sendo efetivamente registrados e disponibilizados, indicando o grau de completude funcional e transparência dos dados.",
+    "equation": "Taxa de Omissão de Eventos = 1 − (Número de eventos observados / Número de eventos esperados).",
+    "comment": "Valores baixos indicam que a maioria dos eventos esperados está presente, sugerindo boa completude e confiabilidade dos registros. Valores altos indicam falhas de coleta, atrasos, dependência excessiva de serviços intermediários ou possíveis omissões sistemáticas, reduzindo a transparência e a auditabilidade.",
     "scale_type": "Razão",
-    "references": "Shah, V.; Saxena, A.; Gervais, A. Bad Apples: Understanding\nthe Centralized Security Risks in Decentralized Ecosystems. IEEE\nSymposium on Security and Privacy (SP), 2023. — Define a métrica Missing Events (Event Omission Rate) como indicador\nda perda de registros on-chain causada por centralização e falhas\nde observabilidade, impactando a confiabilidade e a auditabilidade\nde ecossistemas descentralizados.\n163"
+    "protocol": "1) Definir claramente quais eventos são esperados, com base em contratos inteligentes, regras do sistema ou registros de referência.\n2) Coletar os eventos efetivamente observados na blockchain ou por serviços de indexação.\n3) Calcular a razão entre eventos observados e eventos esperados.\n4) Aplicar a equação da métrica para obter a taxa de omissão.\n5) Analisar diferenças entre fontes de dados (on-chain direto vs indexadores) para identificar possíveis causas das omissões.",
+    "references": "1) Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

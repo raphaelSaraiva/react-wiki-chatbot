@@ -7,13 +7,13 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "definition": "Mede a proporção de energia restante disponível em um\nnó ou veículo em relação à sua capacidade total, após\na execução de tarefas de comunicação, computação e\ncompartilhamento de conteúdo em uma rede blockchain\nveicular. Essa métrica avalia a eficiência energética e a\nsustentabilidade do sistema no contexto de redes Vehicleto-Grid (V2G).",
-    "objective": "Quantificar a eficiência energética dos nós participantes\nna rede blockchain, garantindo que o consumo de energia\ndecorrente de transações, mineração e comunicação seja\nequilibrado com a necessidade de preservar a autonomia\ndos dispositivos e veículos envolvidos.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Residual Energy Ratio = Eresidual\nEtotal\n× 100\nonde Eresidual é a energia remanescente após o processamento das tarefas, e Etotal é a energia inicial disponível\nno nó ou veículo.\nMétricas\nAssociadas\nEnergy Consumption; Lifetime of Node; Power Utilization Efficiency; Energy Balance Ratio\nAtributo\nRelacionado\nConsumo Energético; Sustentabilidade de Rede; Eficiência Computacional",
-    "protocol": "1) Inicializar o conjunto de nós ou veículos com energia\ntotal Etotal.\n2) Executar as tarefas de compartilhamento de conteúdo\ne registro de transações na blockchain.\n3) Medir a energia residual Eresidual após o ciclo de execução.\n4) Calcular a razão de energia residual de acordo com a\nequação apresentada.\n5) Repetir o processo para diferentes cenários de carga e\ntopologia de rede.\n299",
-    "comment": "Uma alta razão de energia residual indica boa eficiência\nenergética e menor impacto operacional da blockchain\nsobre os nós participantes.\nEssa métrica é essencial\nem aplicações de redes V2G e IoT energizadas, onde a\ngestão de energia influencia diretamente a durabilidade\ne confiabilidade dos dispositivos.\nInterpretação\ndo\nValor Medido\nValores altos (> 80%) indicam baixo consumo e boa\neficiência do sistema. Valores baixos (< 40%) podem\nindicar sobrecarga energética e risco de esgotamento do\nnó.",
+    "definition": "Proporção da energia restante disponível em um nó ou veículo após a execução de tarefas de comunicação, computação e registro em blockchain, em relação à energia total inicialmente disponível.",
+    "objective": "Avaliar a eficiência energética do sistema blockchain, indicando o quanto as operações consomem da energia disponível e se os nós ou veículos conseguem manter autonomia adequada durante o funcionamento.",
+    "equation": "Razão de Energia Residual = Energia residual / Energia total inicial.",
+    "comment": "Valores altos indicam que o sistema consome pouca energia para executar suas funções. Valores baixos sugerem alto consumo energético, o que pode comprometer a autonomia e a continuidade do serviço, especialmente em redes veiculares e IoT.",
     "scale_type": "Razão",
-    "references": "Liu, Y., Li, Z., Chen, X., & Xu, W. (2022). A Blockchain-Based\nMatching Game for Content Sharing in Content-Centric Vehicleto-Grid Network Scenarios. IEEE Transactions on Vehicular Te-\nchnology, 71(10), 10823–10835.\n300"
+    "protocol": "1) Definir a energia total inicial disponível em cada nó ou veículo.\n2) Executar as tarefas de comunicação, processamento e registro em blockchain.\n3) Medir a energia residual após a execução das tarefas.\n4) Calcular a razão entre a energia residual e a energia total inicial.\n5) Repetir o procedimento sob diferentes cargas e topologias de rede.",
+    "references": "1) A Blockchain-Based Matching Game for Content Sharing in Content-Centric Vehicle-to-Grid Network Scenarios"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

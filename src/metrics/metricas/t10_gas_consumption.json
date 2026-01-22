@@ -7,12 +7,12 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "definition": "Quantidade de gás efetivamente consumida para executar uma função, transação ou contrato inteligente em uma blockchain baseada em EVM, representando apenas o esforço computacional técnico da operação.",
-    "objective": "Avaliar a eficiência técnica de contratos inteligentes e operações on-chain, apoiando otimização de código e comparação entre implementações sem depender de preço do gás ou condições econômicas da rede.",
-    "equation": "Consumo de Gás = gasUsed (soma do custo das instruções executadas durante a operação). \n\nEste valor não inclui gasPrice e não representa custo monetário.",
-    "comment": "Menor consumo de gás indica maior eficiência computacional on-chain. Esta métrica é estritamente técnica: ela compara o “peso” da execução independentemente do preço do gás. Recomenda-se analisar percentis altos (p95/p99) e avaliar sensibilidade ao tamanho dos dados, número de participantes e padrões de leitura/escrita em estado.",
+    "definition": "Quantidade de gás efetivamente consumida para executar uma função, transação ou contrato inteligente em uma blockchain baseada em EVM. O consumo de gás representa exclusivamente o esforço computacional técnico da operação, independente de fatores econômicos.",
+    "objective": "Avaliar a eficiência técnica de contratos inteligentes e operações on-chain, apoiando otimização de código e comparação entre implementações sem depender do preço do gás ou das condições econômicas da rede.",
+    "equation": "Consumo de Gás = gasUsed\n\nOnde gasUsed é a soma do custo das instruções executadas durante a operação. Este valor não inclui gasPrice e não representa custo monetário.",
+    "comment": "Menor consumo de gás indica maior eficiência computacional on-chain. Esta métrica é estritamente técnica e permite comparar o “peso” da execução entre contratos ou funções, independentemente do valor financeiro pago. Recomenda-se analisar percentis altos (p95/p99) e avaliar a sensibilidade ao tamanho dos dados, ao número de participantes e aos padrões de leitura e escrita em estado.",
     "scale_type": "Absoluta",
-    "protocol": "1) Definir quais funções ou contratos serão avaliados, incluindo implantação.\n2) Executar as operações em rede de teste ou ambiente controlado.\n3) Coletar o valor de gasUsed a partir dos recibos das transações.\n4) Repetir os testes para obter estatísticas como média e percentis.\n5) Comparar diferentes implementações ou alternativas off-chain para reduzir o consumo.",
+    "protocol": "1) Definir quais funções ou contratos serão avaliados, incluindo implantação.\n2) Executar as operações em rede de teste ou ambiente controlado.\n3) Coletar o valor de gasUsed a partir dos recibos das transações.\n4) Repetir os testes para obter estatísticas como média e percentis.\n5) Comparar diferentes implementações ou alternativas off-chain para reduzir o consumo de gás.",
     "references": "1) Blockchain-Based Energy Trading Scheme for EVs\n2) Blockchain-Based Secure Voting Mechanism Underlying 5G\n3) Function-Level Dynamic Monitoring and Analysis System for Smart Contract\n4) Application of Blockchain for Secure Data Transmission in Distributed State Estimation\n5) Green Power Electricity Generation Devices Using Blockchain-Based Accent"
   },
   "source": {

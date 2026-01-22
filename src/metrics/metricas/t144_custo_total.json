@@ -7,12 +7,12 @@
     "subcharacteristic": "Utilização de Recursos"
   },
   "fields": {
-    "definition": "Custo econômico agregado necessário para executar uma operação completa em uma rede blockchain, considerando custos de transação, execução de contratos inteligentes e armazenamento de dados. Representa o esforço financeiro total exigido pelo sistema para realizar uma funcionalidade.",
-    "objective": "Avaliar a eficiência econômica global de soluções blockchain, permitindo comparar diferentes implementações, funções e estratégias de otimização, como o uso de armazenamento off-chain (por exemplo, IPFS) para reduzir custos on-chain.",
-    "equation": "Custo Total = Custo de Transação + Custo de Execução + Custo de Armazenamento",
-    "comment": "Custos totais menores indicam soluções mais eficientes do ponto de vista econômico. Funções mais complexas ou que gravam grandes volumes de dados tendem a elevar o custo total. O uso de armazenamento off-chain pode reduzir significativamente esse valor sem comprometer a segurança.",
+    "definition": "Valor econômico total necessário para executar uma operação completa em uma blockchain, considerando todos os custos envolvidos, como transações, execução de contratos inteligentes e armazenamento de dados.",
+    "objective": "Avaliar a eficiência econômica global de soluções blockchain, permitindo comparar implementações, funções e estratégias de otimização, como o uso de armazenamento fora da blockchain para reduzir custos.",
+    "equation": "Custo Total = Custo de Transação + Custo de Execução + Custo de Armazenamento.",
+    "comment": "Custos totais menores indicam soluções mais eficientes do ponto de vista econômico. Operações mais complexas ou que armazenam muitos dados tendem a aumentar o custo total. Estratégias como armazenamento off-chain podem reduzir significativamente esse custo sem comprometer a segurança.",
     "scale_type": "Razão",
-    "protocol": "1) Implantar o contrato inteligente na rede de teste ou produção.\n2) Executar as principais funções do sistema.\n3) Registrar separadamente os custos de transação, execução e armazenamento.\n4) Somar os custos para obter o custo total por função ou operação.\n5) Comparar cenários com e sem uso de soluções off-chain.",
+    "protocol": "1) Implantar o contrato inteligente na rede de teste ou produção.\n2) Executar as principais funções do sistema.\n3) Registrar separadamente os custos de transação, execução e armazenamento.\n4) Somar os custos para obter o custo total por operação.\n5) Comparar cenários com e sem uso de soluções off-chain.",
     "references": "1) Blockchain-Based Secure Voting Mechanism Underlying 5G Network"
   },
   "source": {

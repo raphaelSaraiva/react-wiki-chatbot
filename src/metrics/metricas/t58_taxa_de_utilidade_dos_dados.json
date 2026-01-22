@@ -7,13 +7,13 @@
     "subcharacteristic": "Completude Funcional"
   },
   "fields": {
-    "definition": "Mede a proporção de dados válidos, consistentes e úteis\nefetivamente empregados em aplicações que consomem\ninformações de uma blockchain. Avalia o quanto o processo de registro e verificação descentralizada preserva o\nvalor analítico dos dados.",
-    "objective": "Quantificar a eficácia das aplicações que utilizam dados\nregistrados em blockchain, garantindo que o uso de mecanismos de consenso e criptografia não reduza a precisão\ne utilidade da informação.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "Data Utility Rate =\nDados válidos e consistentes\nTotal de dados consumidos pela aplicação\nou\nData Utility Rate = Rcorretos\nRtotais\n× 100\nMétricas\nAssociadas\nAccuracy of Summary Information; Data Integrity; Transaction Validity; Data Latency\nAtributo\nRelacionado\nConfiabilidade dos Dados; Desempenho da Aplicação;\nEficiência de Processamento",
-    "protocol": "1) Identificar aplicações que consomem dados blockchain.\n2) Medir a consistência e precisão dos dados usados pela\naplicação.\n3) Calcular a proporção de resultados corretos em relação\nao total de dados processados.\n4) Comparar com benchmarks off-chain para avaliar perdas de utilidade.",
-    "comment": "O artigo demonstra que a utilidade dos dados depende\nda precisão do registro, do tempo de confirmação e das\npolíticas de privacidade da blockchain. Mecanismos de\nconsenso aumentam a confiança, mas podem reduzir a\neficiência se o volume de dados crescer rapidamente.\n147\n\nInterpretação\ndo\nValor Medido\nValores altos indicam alta preservação da utilidade e\nconfiança nos dados. Valores baixos sugerem degradação\ninformacional, inconsistências ou sobrecarga nos processos de validação.",
+    "definition": "Proporção de dados registrados em blockchain que permanecem válidos, consistentes e úteis quando efetivamente utilizados por aplicações que consomem essas informações.",
+    "objective": "Avaliar se os mecanismos de registro, validação e consenso da blockchain preservam a utilidade prática dos dados para as aplicações, sem comprometer sua precisão ou valor informacional.",
+    "equation": "Taxa de Utilidade dos Dados = quantidade de dados válidos e consistentes utilizados pela aplicação / quantidade total de dados processados pela aplicação.",
+    "comment": "Valores mais altos indicam que os dados registrados em blockchain mantêm sua utilidade e confiabilidade quando usados pelas aplicações. Valores baixos sugerem perda de qualidade informacional, inconsistências ou impacto negativo do processo de validação e confirmação sobre o uso prático dos dados.",
     "scale_type": "Razão",
-    "references": "Wu, H., Zhang, X., & Liu, W. (2020). A Blockchain-Based Trading\nSystem for Big Data. IEEE Access, vol. 8, pp. 177642–177653.\n148"
+    "protocol": "1) Identificar aplicações que utilizam dados provenientes da blockchain.\n2) Verificar a consistência e correção dos dados efetivamente usados pela aplicação.\n3) Contabilizar a quantidade de dados válidos em relação ao total processado.\n4) Calcular a taxa de utilidade dos dados.\n5) Comparar os resultados com dados equivalentes processados fora da blockchain, quando aplicável.",
+    "references": "1) A Blockchain-Based Trading System for Big Data"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",

@@ -7,13 +7,13 @@
     "subcharacteristic": "Tolerância a Falhas"
   },
   "fields": {
-    "definition": "Mede a proporção de transações em um bloco que entram em conflito (isto é, não podem ser executadas em\nparalelo) devido a dependências de leitura/escrita sobre\no mesmo estado/dados. Reflete diretamente o grau de\nparalelizabilidade do bloco e os gargalos para execução\nconcorrente na camada de execução.",
-    "objective": "Quantificar o potencial de execução paralela em diferentes arquiteturas de blockchain (UTXO vs. account-based)\ne estimar ganhos de desempenho possíveis ao explorar\nconcorrência, além de identificar blocos com alto acoplamento entre transações.\nModelo\nde\nQualidade\nISO/IEC 25010",
-    "equation": "ConflictRatesingle = Ntransações em conflito\nNtransações no bloco\n× 100%.\nOpcional\n(visão\nde\ngrupo):\nConflictRategroup\n=\nLCCsize\nNtransações no bloco\n× 100%, onde LCCsize é o tamanho do\nmaior componente conexo no grafo de dependências do\nbloco.\nMétricas\nAssociadas\nGroup Conflict Rate; Transaction Parallelism; Throughput; Block Size; Transaction Dependency Degree\nAtributo\nRelacionado\nEscalonamento de Execução; Serializabilidade; Taxa de\nSucesso de Execução Paralela",
-    "protocol": "1) Construir, para cada bloco, um Grafo de Dependências de Transações (TDG): nós = transações;\narestas = dependências/conflitos (ex.: escrita-leitura no\nmesmo UTXO/estado).\n2) Identificar transações em conflito (com grau > 0 no\nTDG) e calcular ConflictRatesingle.\n3) Calcular o maior componente conexo (LCC) do\nTDG e obter ConflictRategroup.\n4) Repetir por janelas temporais e redes distintas para\nobter estatísticas (média, p50, p95).\n339",
-    "comment": "Taxas de conflito mais baixas indicam maior headroom\npara execução paralela. O estudo mostra que cadeias baseadas em UTXO tendem a apresentar taxas de conflito\nsignificativamente menores que cadeias account-based, implicando maior paralelizabilidade potencial no primeiro\ncaso.\nInterpretação\ndo\nValor Medido\nBaixa taxa (< 20%): alta concorrência e boa paralelizabilidade. Alta taxa (> 60%): forte acoplamento\nentre transações, menor ganho com paralelismo e maior\nprobabilidade de serialização.",
+    "definition": "Proporção de transações dentro de um bloco que entram em conflito entre si, ou seja, que não podem ser executadas ao mesmo tempo porque acessam ou modificam os mesmos dados ou estados da blockchain.",
+    "objective": "Avaliar o potencial de execução paralela das transações em uma blockchain, identificando o grau de dependência entre elas e o impacto dessa dependência no desempenho do sistema.",
+    "equation": "Taxa de Conflito = (número de transações em conflito / número total de transações no bloco) × 100%.",
+    "comment": "Taxas menores indicam maior possibilidade de executar transações em paralelo, resultando em melhor desempenho. Taxas elevadas indicam forte dependência entre transações, reduzindo os ganhos de paralelismo e aumentando a necessidade de execução sequencial.",
     "scale_type": "Razão",
-    "references": "Reijsbergen, D.; Dinh, T. T. A. On Exploiting Transaction Concurrency to Speed Up Blockchains. 2020 IEEE ICDCS.\n340"
+    "protocol": "1) Identificar, para cada bloco, quais transações acessam ou modificam os mesmos dados.\n2) Marcar como conflitantes as transações que compartilham dependências.\n3) Contar o número de transações em conflito e o número total de transações no bloco.\n4) Calcular a taxa de conflito usando a fórmula definida.\n5) Repetir a análise em diferentes blocos ou períodos para obter estatísticas.",
+    "references": "1) On Exploiting Transaction Concurrency to Speed Up Blockchains"
   },
   "source": {
     "pdf": "catalogo_de_metricas.pdf",
