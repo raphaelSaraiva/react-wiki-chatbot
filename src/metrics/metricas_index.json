@@ -157,5 +157,5 @@
   { "id": "t157", "table_no": 157, "name": "Índice de Escassez Vulnerável", "file": "metricas/t157_vulnerable_scarcity_index.json", "characteristic": "Confiabilidade" },
   { "id": "t158", "table_no": 158, "name": "Validação do Lance Vencedor", "file": "metricas/t158_validacao_do_lance_vencedor.json", "characteristic": "Segurança" },
   { "id": "t159", "table_no": 159, "name": "Número de Votantes", "file": "metricas/t159_numero_de_votantes.json", "characteristic": "Eficiência de Desempenho" },
-  { "id": "t160", "table_no": 160, "name": "Utilização de Recursos", "file": "metricas/t158_utilização_de_recursos.json", "characteristic": "Segurança" }
+  { "id": "t160", "table_no": 160, "name": "Utilização de Recursos", "file": "metricas/t160_utilização_de_recursos.json", "characteristic": "Segurança" }
 ]

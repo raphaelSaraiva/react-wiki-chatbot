@@ -322,6 +322,94 @@ function buildTamIndex() {
   return { secoes, items };
 }
 
+/* ---------------- Questions JSON indexing (Open Feedback) ---------------- */
+function buildOpenFeedbackIndex() {
+  const fb = questions?.feedbackAberto;
+  const perguntas = fb?.perguntas || [];
+  const items = perguntas.map((p) => ({
+    id: String(p.id),
+    label: p?.rotulo || p?.texto || String(p.id),
+  }));
+  return { title: fb?.titulo || "Feedback", items };
+}
+
+function isNonEmptyText(v) {
+  if (v === undefined || v === null) return false;
+  const s = String(v).trim();
+  return !!s;
+}
+
+/* ---------------- Chat rating helpers (✅ notes for both options) ---------------- */
+function safeRating(v) {
+  const n = Number(v);
+  return Number.isFinite(n) ? n : null;
+}
+
+function getOptionRating(q, optIndex) {
+  // supports:
+  // - q.option1_rating / q.option2_rating (if exists)
+  // - q.ratings.option1 / q.ratings.option2 (your current Firestore schema)
+  const direct =
+    optIndex === 1 ? safeRating(q?.option1_rating) : safeRating(q?.option2_rating);
+
+  const nested =
+    optIndex === 1 ? safeRating(q?.ratings?.option1) : safeRating(q?.ratings?.option2);
+
+  return direct ?? nested ?? null;
+}
+
+function getPreferred(q) {
+  return String(q?.preferredOption ?? "").trim(); // "1" | "2" | "3" | ""
+}
+
+function mapChatQuestionForExport(q, index) {
+  const preferred = getPreferred(q);
+
+  let option1_rating = getOptionRating(q, 1);
+  let option2_rating = getOptionRating(q, 2);
+
+  const legacy = safeRating(q?.rating);
+
+  // fallback: if old schema has only q.rating, use it only for the chosen option
+  if (legacy !== null) {
+    if (preferred === "1" && option1_rating === null) option1_rating = legacy;
+    if (preferred === "2" && option2_rating === null) option2_rating = legacy;
+    // if preferred === "3", we can't infer both without real saved per-option ratings
+  }
+
+  const chosen_rating =
+    preferred === "1"
+      ? option1_rating
+      : preferred === "2"
+      ? option2_rating
+      : null;
+
+  const both_rating = preferred === "3" ? legacy : null;
+
+  return {
+    index: index ?? q?.index ?? null,
+    askedAt: q?.askedAt ?? null,
+    question: q?.question ?? "",
+    metricId: q?.metricId ?? null,
+    metricName: q?.metricName ?? null,
+    model: q?.model ?? null,
+    preferredOption: q?.preferredOption ?? null,
+    option1_variant: q?.option1_variant ?? null,
+    option2_variant: q?.option2_variant ?? null,
+
+    // ✅ both notes
+    option1_rating,
+    option2_rating,
+
+    // ✅ derived
+    chosen_rating,
+    both_rating,
+
+    // ✅ keep legacy for audit
+    rating_legacy: legacy,
+  };
+}
+
 /* ---------------- SVG Chart ---------------- */
 function SvgBarChart({
   title,
@@ -518,6 +606,12 @@ export default function AdminFeedbacksPage() {
     () => tamIndex.items?.[0]?.id || ""
   );
 
+  const openFeedbackIndex = useMemo(() => buildOpenFeedbackIndex(), []);
+  const [openFeedbackItemSelected, setOpenFeedbackItemSelected] = useState(
+    () => openFeedbackIndex.items?.[0]?.id || ""
+  );
+  const [openFeedbackShowAll, setOpenFeedbackShowAll] = useState(false);
+
   useEffect(() => {
     async function load() {
       setLoading(true);
@@ -590,14 +684,18 @@ export default function AdminFeedbacksPage() {
     const questionsVals = filtered.map((x) => x._questionsCount || 0);
 
     // ---------------- CHAT analytics ----------------
-    const allChatAllUsers = filtered.flatMap((x) => x.experiment?.questions || []);
+    const allChatAllUsers = filtered.flatMap(
+      (x) => x.experiment?.questions || []
+    );
 
     // ✅ opções do select
     const chatUsersOptions = [
       { value: "__ALL__", label: `Todos os usuários (${filtered.length})` },
       ...filtered.map((x) => ({
         value: x.id,
-        label: `${x._name ? x._name + " · " : ""}${x._email ? x._email + " · " : ""}${x.id}`,
+        label: `${x._name ? x._name + " · " : ""}${
+          x._email ? x._email + " · " : ""
+        }${x.id}`,
       })),
     ];
 
@@ -612,7 +710,9 @@ export default function AdminFeedbacksPage() {
         ? selectedUser.experiment.questions
         : allChatAllUsers;
 
-    const modelCounts = countValues(allChat.map((q) => q?.model || "(sem modelo)"));
+    const modelCounts = countValues(
+      allChat.map((q) => q?.model || "(sem modelo)")
+    );
 
     // ✅ preferencia COM/SEM RAG/AMBAS (usa option1_variant/option2_variant + preferredOption)
     function labelRagChoiceFromQuestion(q) {
@@ -633,7 +733,9 @@ export default function AdminFeedbacksPage() {
       return "(sem)";
     }
 
-    const chatOptionCounts = countValues(allChat.map((q) => labelRagChoiceFromQuestion(q)));
+    const chatOptionCounts = countValues(
+      allChat.map((q) => labelRagChoiceFromQuestion(q))
+    );
 
     // ✅ NOTAS: média por usuário (submissão)
     const perUserAvgRatings = filtered
@@ -682,6 +784,23 @@ export default function AdminFeedbacksPage() {
       .map((r) => safeNum(r?.[tamItemSelected]))
       .filter((v) => v !== null);
     const selectedTamLikert = countLikert(selectedTamValues, 1, 5);
+
+    // ---------------- OPEN FEEDBACK analytics ----------------
+    const openFbIndexLocal = buildOpenFeedbackIndex();
+    const openFbResponses = filtered
+      .map((x) => x.open_feedback)
+      .filter((r) => r && typeof r === "object");
+
+    const selectedOpenFbMeta = openFbIndexLocal.items.find(
+      (it) => it.id === openFeedbackItemSelected
+    );
+
+    const selectedOpenFbTexts = openFbResponses
+      .map((r) => r?.[openFeedbackItemSelected])
+      .filter((v) => isNonEmptyText(v))
+      .map((v) => String(v).trim());
+
+    const openFbUsersCount = openFbResponses.length;
 
     // Users list (somente para agregações de perfil)
     const users = filtered.map((x) => ({
@@ -765,7 +884,9 @@ export default function AdminFeedbacksPage() {
     const totalChatQuestions = filtered.reduce(
       (acc, x) =>
         acc +
-        (Array.isArray(x.experiment?.questions) ? x.experiment.questions.length : 0),
+        (Array.isArray(x.experiment?.questions)
+          ? x.experiment.questions.length
+          : 0),
       0
     );
 
@@ -791,6 +912,13 @@ export default function AdminFeedbacksPage() {
       selectedTamMeta,
       selectedTamLikert,
 
+      // open feedback
+      openFbTitle: openFbIndexLocal.title,
+      openFbItems: openFbIndexLocal.items,
+      selectedOpenFbMeta,
+      selectedOpenFbTexts,
+      openFbUsersCount,
+
       // profiles
       ageBuckets,
       genderCounts,
@@ -812,7 +940,7 @@ export default function AdminFeedbacksPage() {
       dateMax,
       totalChatQuestions,
     };
-  }, [filtered, tamItemSelected, chatUserId]);
+  }, [filtered, tamItemSelected, chatUserId, openFeedbackItemSelected]);
 
   const exportFiltered = () =>
     downloadJSON(
@@ -838,8 +966,117 @@ export default function AdminFeedbacksPage() {
           yearsBlockchainQuality: u.pre?.DQ6_years_blockchain_quality,
           familiarity: u.pre?.DQ7_familiarity,
         },
+        chatQuestions: (filtered.find((x) => x.id === u.uid)?.experiment?.questions || []).map(
+          (q, i) => mapChatQuestionForExport(q, i + 1)
+        ),
       }))
     );
+
+  // ✅ Export: JSON com todos os usuários + notas por pergunta do TAM
+  const exportTamUsersScores = () => {
+    const idx = buildTamIndex();
+
+    const out = filtered
+      .filter((x) => x?.tam?.responses && typeof x.tam.responses === "object")
+      .map((x) => {
+        const responses = x.tam.responses || {};
+
+        const respostas = (idx.items || [])
+          .map((it) => ({
+            pergunta: it.label,
+            nota: safeNum(responses?.[it.id]),
+          }))
+          .filter((r) => r.nota !== null);
+
+        return {
+          submissionId: x.id,
+          nome: x._name || x.user_display_name || "",
+          email: x._email || x.user_email || "",
+          submittedAt: x._createdDate ? x._createdDate.toISOString() : null,
+          respostas,
+        };
+      });
+
+    downloadJSON(
+      `tam_usuarios_notas_${new Date().toISOString().slice(0, 10)}.json`,
+      out
+    );
+  };
+
+  // ✅ Export: JSON com todos os usuários + feedback aberto (todas as perguntas)
+  const exportOpenFeedbackUsers = () => {
+    const idx = buildOpenFeedbackIndex();
+
+    const out = filtered
+      .filter((x) => x?.open_feedback && typeof x.open_feedback === "object")
+      .map((x) => {
+        const fb = x.open_feedback || {};
+
+        const respostas = (idx.items || [])
+          .map((it) => {
+            const txt = fb?.[it.id];
+            return {
+              pergunta: it.label,
+              resposta: isNonEmptyText(txt) ? String(txt).trim() : null,
+            };
+          })
+          .filter((r) => r.resposta);
+
+        return {
+          submissionId: x.id,
+          nome: x._name || x.user_display_name || "",
+          email: x._email || x.user_email || "",
+          submittedAt: x._createdDate ? x._createdDate.toISOString() : null,
+          respostas,
+        };
+      });
+
+    downloadJSON(
+      `feedback_aberto_usuarios_${new Date().toISOString().slice(0, 10)}.json`,
+      out
+    );
+  };
+
+  // ✅ Export: JSON do item selecionado (lista de respostas)
+  const exportOpenFeedbackSelectedItem = () => {
+    const meta = stats.selectedOpenFbMeta;
+    const texts = stats.selectedOpenFbTexts || [];
+    const payload = {
+      itemId: meta?.id || openFeedbackItemSelected,
+      pergunta: meta?.label || "",
+      totalRespostas: texts.length,
+      respostas: texts,
+    };
+
+    downloadJSON(
+      `feedback_item_${sanitizeFilename(
+        meta?.id || openFeedbackItemSelected
+      )}_${new Date().toISOString().slice(0, 10)}.json`,
+      payload
+    );
+  };
+
+  // ✅ Export: JSON com TODAS as avaliações do chat (inclui option1_rating e option2_rating)
+  const exportChatAllRatings = () => {
+    const out = filtered.map((sub) => {
+      const qs = Array.isArray(sub?.experiment?.questions)
+        ? sub.experiment.questions
+        : [];
+
+      return {
+        submissionId: sub.id,
+        nome: sub._name || sub.user_display_name || "",
+        email: sub._email || sub.user_email || "",
+        submittedAt: sub._createdDate ? sub._createdDate.toISOString() : null,
+        questions: qs.map((q, i) => mapChatQuestionForExport(q, i + 1)),
+      };
+    });
+
+    downloadJSON(
+      `chat_avaliacoes_completas_${new Date().toISOString().slice(0, 10)}.json`,
+      out
+    );
+  };
 
   if (loading) {
     return (
@@ -874,7 +1111,7 @@ export default function AdminFeedbacksPage() {
                   Admin · Resultados
                 </div>
                 <div style={{ fontSize: 12, opacity: 0.85 }}>
-                  Visão geral · TAM · Perfis · Chat · Submissões
+                  Visão geral · TAM · Feedback · Perfis · Chat · Submissões
                 </div>
               </div>
             </div>
@@ -917,6 +1154,7 @@ export default function AdminFeedbacksPage() {
             {[
               ["overview", "Visão geral"],
               ["tam", "TAM"],
+              ["feedback", "Feedback"],
               ["profiles", "Perfis"],
               ["chat", "Chat"],
               ["submissions", "Submissões"],
@@ -988,12 +1226,33 @@ export default function AdminFeedbacksPage() {
           <div className="col-12 col-lg-6">
             <div className="card" style={styles.card}>
               <div className="card-body">
-                <div className="fw-bold" style={{ fontSize: 14 }}>
-                  TAM · Item (distribuição 1–5)
-                </div>
-                <div className="text-muted" style={{ fontSize: 12 }}>
-                  Selecione um item para ver a contagem de respostas em cada
-                  ponto da escala.
+                <div className="d-flex flex-wrap align-items-start justify-content-between gap-2">
+                  <div>
+                    <div className="fw-bold" style={{ fontSize: 14 }}>
+                      TAM · Item (distribuição 1–5)
+                    </div>
+                    <div className="text-muted" style={{ fontSize: 12 }}>
+                      Selecione um item para ver a contagem de respostas em cada
+                      ponto da escala.
+                    </div>
+                  </div>
+
+                  <button
+                    className="btn btn-sm"
+                    onClick={exportTamUsersScores}
+                    style={{
+                      background: AMBER,
+                      border: "none",
+                      fontWeight: 900,
+                      color: "#111827",
+                      borderRadius: 999,
+                      padding: "8px 12px",
+                      boxShadow: "0 10px 22px rgba(0,0,0,0.15)",
+                    }}
+                    title="Baixar JSON com todos os usuários e as notas por pergunta do TAM"
+                  >
+                    Baixar JSON
+                  </button>
                 </div>
 
                 <div className="mt-3">
@@ -1020,6 +1279,161 @@ export default function AdminFeedbacksPage() {
                     height={240}
                     maxBars={5}
                   />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      {/* ---------------- FEEDBACK (ABERTO) ---------------- */}
+      {tab === "feedback" ? (
+        <div className="row g-3 mb-3">
+          <div className="col-12">
+            <div className="card" style={styles.card}>
+              <div className="card-body">
+                <div className="d-flex flex-wrap align-items-start justify-content-between gap-2">
+                  <div>
+                    <div className="fw-bold" style={{ fontSize: 14 }}>
+                      {stats.openFbTitle || "Feedback"} · Respostas por pergunta
+                    </div>
+                    <div className="text-muted" style={{ fontSize: 12 }}>
+                      Selecione uma pergunta e veja as respostas textuais. Total
+                      de submissões com feedback: <b>{stats.openFbUsersCount}</b>
+                    </div>
+                  </div>
+
+                  <div className="d-flex gap-2 flex-wrap">
+                    <button
+                      className="btn btn-sm"
+                      onClick={exportOpenFeedbackUsers}
+                      style={{
+                        background: AMBER,
+                        border: "none",
+                        fontWeight: 900,
+                        color: "#111827",
+                        borderRadius: 999,
+                        padding: "8px 12px",
+                        boxShadow: "0 10px 22px rgba(0,0,0,0.15)",
+                      }}
+                      title="Baixar JSON com todos os usuários e todas as respostas de feedback"
+                    >
+                      Baixar JSON (tudo)
+                    </button>
+
+                    <button
+                      className="btn btn-outline-secondary btn-sm fw-semibold"
+                      onClick={exportOpenFeedbackSelectedItem}
+                      disabled={!openFeedbackItemSelected}
+                      title="Baixar JSON apenas do item selecionado"
+                    >
+                      Baixar JSON (item)
+                    </button>
+                  </div>
+                </div>
+
+                <div className="mt-3">
+                  <label className="form-label fw-semibold">Pergunta</label>
+                  <select
+                    className="form-select"
+                    value={openFeedbackItemSelected}
+                    onChange={(e) => {
+                      setOpenFeedbackItemSelected(e.target.value);
+                      setOpenFeedbackShowAll(false);
+                    }}
+                  >
+                    {(openFeedbackIndex.items || []).map((it) => (
+                      <option key={it.id} value={it.id}>
+                        {it.id} — {it.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="mt-3">
+                  <div
+                    className="p-3"
+                    style={{
+                      border: "1px solid rgba(0,0,0,0.08)",
+                      borderRadius: 12,
+                      background: "rgba(255,255,255,0.70)",
+                    }}
+                  >
+                    <div
+                      className="text-muted"
+                      style={{ fontSize: 11, fontWeight: 900 }}
+                    >
+                      Pergunta selecionada
+                    </div>
+                    <div style={{ fontSize: 14, fontWeight: 900 }}>
+                      {stats.selectedOpenFbMeta?.label || "-"}
+                    </div>
+
+                    <div className="mt-2 text-muted" style={{ fontSize: 12 }}>
+                      Respostas encontradas:{" "}
+                      <b>{(stats.selectedOpenFbTexts || []).length}</b>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-3">
+                  <div
+                    style={{
+                      maxHeight: 520,
+                      overflow: "auto",
+                      border: "1px solid rgba(0,0,0,0.08)",
+                      borderRadius: 12,
+                    }}
+                  >
+                    <ul className="list-group list-group-flush">
+                      {(stats.selectedOpenFbTexts || [])
+                        .slice(
+                          0,
+                          openFeedbackShowAll
+                            ? (stats.selectedOpenFbTexts || []).length
+                            : 40
+                        )
+                        .map((txt, idx) => (
+                          <li
+                            key={`${openFeedbackItemSelected}-${idx}`}
+                            className="list-group-item"
+                            style={{
+                              fontSize: 13,
+                              lineHeight: 1.4,
+                              background: idx % 2
+                                ? "rgba(255,255,255,0.55)"
+                                : "#fff",
+                            }}
+                          >
+                            <div
+                              style={{
+                                fontWeight: 900,
+                                color: "rgba(17,24,39,0.75)",
+                                fontSize: 11,
+                              }}
+                            >
+                              Resposta #{idx + 1}
+                            </div>
+                            <div style={{ whiteSpace: "pre-wrap" }}>{txt}</div>
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
+
+                  {(stats.selectedOpenFbTexts || []).length > 40 ? (
+                    <div className="mt-2 d-flex justify-content-end">
+                      <button
+                        className={`btn btn-sm ${
+                          openFeedbackShowAll
+                            ? "btn-outline-secondary"
+                            : "btn-warning"
+                        } fw-semibold`}
+                        onClick={() => setOpenFeedbackShowAll((v) => !v)}
+                      >
+                        {openFeedbackShowAll ? "Mostrar menos" : "Mostrar tudo"}
+                      </button>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -1137,6 +1551,19 @@ export default function AdminFeedbacksPage() {
       {/* ---------------- CHAT ---------------- */}
       {tab === "chat" ? (
         <div className="row g-3 mb-3">
+          {/* ✅ Botão para baixar o JSON de TODAS as avaliações do chat */}
+          <div className="col-12">
+            <div className="d-flex justify-content-end">
+              <button
+                className="btn btn-warning btn-sm fw-semibold"
+                onClick={exportChatAllRatings}
+                title="Baixar JSON com todas as perguntas e notas (option1 e option2) de todos os participantes"
+              >
+                Baixar JSON · Avaliações do Chat
+              </button>
+            </div>
+          </div>
+
           <div className="col-12 col-lg-6">
             <SvgBarChart
               title="Chat · Modelos usados"
@@ -1286,10 +1713,7 @@ export default function AdminFeedbacksPage() {
                                 {[
                                   ["Idade", prettyValue(p.DQ1_age)],
                                   ["Gênero", prettyValue(p.DQ1_gender)],
-                                  [
-                                    "Escolaridade",
-                                    prettyValue(p.DQ2_education),
-                                  ],
+                                  ["Escolaridade", prettyValue(p.DQ2_education)],
                                   ["Cargo/Função", prettyValue(p.DQ3_role)],
                                   [
                                     "Área de expertise",
@@ -1341,6 +1765,76 @@ export default function AdminFeedbacksPage() {
                                   </div>
                                 ))}
                               </div>
+
+                              {/* ✅ Feedback aberto (por pergunta) */}
+                              {x?.open_feedback &&
+                              typeof x.open_feedback === "object" ? (
+                                <div className="mt-3">
+                                  <div
+                                    className="p-3"
+                                    style={{
+                                      border: "1px solid rgba(0,0,0,0.08)",
+                                      borderRadius: 12,
+                                      background: "rgba(255,255,255,0.70)",
+                                    }}
+                                  >
+                                    <div
+                                      className="text-muted"
+                                      style={{ fontSize: 11, fontWeight: 900 }}
+                                    >
+                                      Feedback (aberto)
+                                    </div>
+
+                                    <div className="mt-2" style={{ fontSize: 13 }}>
+                                      {(openFeedbackIndex.items || [])
+                                        .map((it) => {
+                                          const ans = x.open_feedback?.[it.id];
+                                          if (!isNonEmptyText(ans)) return null;
+                                          return (
+                                            <div
+                                              key={`fb-${x.id}-${it.id}`}
+                                              className="mb-2"
+                                              style={{
+                                                padding: "10px 12px",
+                                                borderRadius: 12,
+                                                border:
+                                                  "1px solid rgba(0,0,0,0.06)",
+                                                background:
+                                                  "rgba(255,255,255,0.80)",
+                                              }}
+                                            >
+                                              <div
+                                                style={{
+                                                  fontSize: 11,
+                                                  fontWeight: 900,
+                                                  color: "rgba(17,24,39,0.75)",
+                                                }}
+                                              >
+                                                {it.id} — {it.label}
+                                              </div>
+                                              <div style={{ whiteSpace: "pre-wrap" }}>
+                                                {String(ans).trim()}
+                                              </div>
+                                            </div>
+                                          );
+                                        })
+                                        .filter(Boolean)}
+
+                                      {/* Caso não tenha nada preenchido */}
+                                      {!openFeedbackIndex.items
+                                        .map((it) => x.open_feedback?.[it.id])
+                                        .some((v) => isNonEmptyText(v)) ? (
+                                        <div
+                                          className="text-muted"
+                                          style={{ fontSize: 12 }}
+                                        >
+                                          Sem respostas de feedback.
+                                        </div>
+                                      ) : null}
+                                    </div>
+                                  </div>
+                                </div>
+                              ) : null}
                             </div>
                           ) : null}
                         </div>
