@@ -1,0 +1,22 @@
+{
+  "id": "t154",
+  "table_no": 154,
+  "name": "Taxa de Erro de Conversão de Tipo",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Proporção de falhas que ocorrem quando um valor é convertido para um tipo incompatível ou fora do intervalo esperado durante a execução de transações ou contratos inteligentes. Esses erros podem interromper a execução da transação e consumir recursos sem produzir resultado útil.",
+    "objective": "Avaliar a robustez de contratos inteligentes e mecanismos de validação de dados, identificando problemas de tipagem que podem causar falhas de execução, retrabalho e desperdício de recursos.",
+    "equation": "Taxa_Typecast = (N_erros_typecast / N_operacoes_typecast) × 100%",
+    "comment": "Valores baixos indicam código mais robusto e validação adequada de entradas. Valores elevados sugerem dados mal formatados, conversões inseguras ou falhas introduzidas por integrações externas, comprometendo a integridade das transações e aumentando o consumo desnecessário de recursos.",
+    "scale_type": "Razão",
+    "protocol": "1) Monitorar a execução de transações e contratos para identificar falhas de conversão de tipo.\n2) Contabilizar o número total de operações de conversão realizadas no período analisado.\n3) Contar quantas dessas operações resultaram em erro.\n4) Calcular a taxa de erro de conversão utilizando a equação definida.\n5) Analisar os resultados para identificar padrões relacionados à origem dos dados ou versões do contrato.",
+    "references": "1) An Efficient Distributed and Secure Algorithm for Transaction Confirmation in IOTA Using Cloud Computing"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 154"
+  }
+}

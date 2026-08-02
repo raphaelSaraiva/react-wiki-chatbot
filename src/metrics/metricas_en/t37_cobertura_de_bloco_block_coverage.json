@@ -1,0 +1,22 @@
+{
+  "id": "t37",
+  "table_no": 37,
+  "name": "Cobertura de Blocos",
+  "iso25010": {
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Completude Funcional"
+  },
+  "fields": {
+    "definition": "Proporção de blocos que podem ser observados ou registrados por um conjunto de nós ou exploradores de blocos em relação ao total de blocos efetivamente produzidos pela rede blockchain em um determinado período. Essa métrica indica o quanto a visualização da blockchain reflete a cadeia real de blocos.",
+    "objective": "Avaliar a completude e a confiabilidade dos dados coletados por exploradores de blocos e nós de monitoramento. A métrica é importante para estudos empíricos e auditorias, pois lacunas na observação podem comprometer análises sobre desempenho, segurança e comportamento da rede.",
+    "equation": "Cblock = Nobservado / Ntotal,\n\n onde Nobservado é o número de blocos detectados por exploradores ou nós de medição e Ntotal é o número real de blocos produzidos na rede no mesmo intervalo.",
+    "comment": "Valores altos indicam que os blocos produzidos pela rede estão sendo observados de forma quase completa. Valores baixos revelam falhas de visibilidade, atrasos de propagação ou limitações de coleta de dados, o que pode distorcer resultados de medições e análises baseadas em dados públicos.",
+    "scale_type": "Razão",
+    "protocol": "1) Selecionar exploradores de blocos ou nós distribuídos para monitoramento.\n2) Registrar todos os blocos visíveis durante um intervalo de tempo definido.\n3) Estimar o número total de blocos produzidos no período por comparação entre múltiplas fontes confiáveis.\n4) Calcular a razão entre blocos observados e blocos produzidos.\n5) Repetir a medição em diferentes redes ou ferramentas de exploração para comparação.",
+    "references": "1) Behind Block Explorers: Public Blockchain Measurement and Security Implication"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 37"
+  }
+}

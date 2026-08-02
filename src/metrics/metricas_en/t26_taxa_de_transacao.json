@@ -1,0 +1,22 @@
+{
+  "id": "t26",
+  "table_no": 26,
+  "name": "Taxa da Transação",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Valor pago para que uma transação ou execução de contrato inteligente seja processada e incluída em um bloco da blockchain. Em plataformas compatíveis com EVM, a taxa depende da quantidade de gás consumida pela operação e do preço do gás no momento da execução.",
+    "objective": "Avaliar o custo econômico de executar transações on-chain, apoiando decisões de viabilidade, orçamento, definição de políticas de registro e análise do impacto financeiro sobre usuários e aplicações.",
+    "equation": "Taxa da Transação = gasUsed × gasPrice.\nOpcionalmente, em moeda fiduciária:\nTaxa (fiat) = Taxa (ETH) × cotação da criptomoeda.",
+    "comment": "Taxas mais altas indicam maior custo para executar operações na blockchain. Em períodos de congestionamento, o aumento do preço do gás eleva a taxa mesmo sem mudança no consumo técnico. Transações simples tendem a ter taxas menores, enquanto chamadas de contratos e gravações de dados aumentam significativamente o valor pago.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a rede e o período de observação.\n2) Coletar, para cada transação, os valores de gasUsed e gasPrice.\n3) Calcular a taxa individual usando a equação definida.\n4) Agregar resultados por tipo de operação e calcular estatísticas (média e percentis).\n5) Comparar cenários de uso on-chain integral e arquiteturas com dados off-chain.",
+    "references": "1) Distributed Network Slicing Management Using Blockchains in E-Health Environments\n2) Smart Microgrid Energy Market: Evaluating Distributed Ledger Technologies for Remote and Constrained Microgrid Deployments"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 26"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t42",
+  "table_no": 42,
+  "name": "Tamanho da Blockchain",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Mede o volume total de dados armazenados na blockchain, incluindo blocos, transações, cabeçalhos e metadados. Essa métrica representa o tamanho acumulado do ledger ao longo do tempo e indica o esforço de armazenamento necessário para manter um nó completo sincronizado com a rede.",
+    "objective": "Avaliar o impacto do crescimento da blockchain sobre a escalabilidade e a descentralização do sistema. Um tamanho elevado pode dificultar a execução de nós completos por usuários comuns, aumentando a dependência de serviços centralizados para armazenamento, consulta e verificação de dados.",
+    "equation": "Sbc(t) = Σ size(Bi),\nonde size(Bi) é o tamanho do bloco i e a soma considera todos os blocos existentes até o instante t.\nA taxa de crescimento pode ser expressa por ΔSbc/Δt.",
+    "comment": "O tamanho da blockchain influencia diretamente a sustentabilidade do sistema. À medida que o ledger cresce, aumentam os custos de armazenamento, o tempo de sincronização de novos nós e a complexidade de manutenção. Isso pode reduzir a participação de nós independentes e favorecer soluções centralizadas de acesso a dados.",
+    "scale_type": "Razão",
+    "protocol": "1) Selecionar um nó completo totalmente sincronizado.\n2) Obter o tamanho de todos os blocos armazenados localmente.\n3) Somar os tamanhos para calcular o tamanho total da blockchain.\n4) Repetir a medição em diferentes instantes para observar o crescimento.\n5) Comparar os resultados entre diferentes redes blockchain, se necessário.",
+    "references": "1) Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 42"
+  }
+}

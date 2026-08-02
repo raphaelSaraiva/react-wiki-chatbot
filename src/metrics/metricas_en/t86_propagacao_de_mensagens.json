@@ -1,0 +1,22 @@
+{
+  "id": "t86",
+  "table_no": 86,
+  "name": "Propagação de Mensagens",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo necessário para que uma mensagem, como uma transação ou um bloco, seja recebida pela maioria ou por todos os nós de uma rede blockchain ponto a ponto.",
+    "objective": "Avaliar a eficiência da comunicação entre os nós da rede blockchain e identificar atrasos que possam afetar a sincronização, a confirmação de blocos e a estabilidade do consenso.",
+    "equation": "Atraso médio de propagação (Dp) = (1 / N) × Σ(treceb,i − tenvio)\nTempo total de propagação (Tprop) = max(treceb,i) − tenvio",
+    "comment": "Valores menores indicam que a rede dissemina informações rapidamente, favorecendo consenso mais estável e menor risco de bifurcações. Valores elevados indicam gargalos de comunicação, diferenças regionais de conectividade ou topologias de rede ineficientes.",
+    "scale_type": "Razão",
+    "protocol": "1) Selecionar uma rede blockchain e um conjunto de nós participantes.\n2) Registrar o instante de envio da mensagem (tenvio) no nó de origem.\n3) Registrar o instante de recebimento (treceb,i) em cada nó monitorado.\n4) Calcular o atraso médio e o tempo total de propagação.\n5) Repetir as medições em diferentes períodos e regiões para capturar variações da rede.",
+    "references": "1) Ethna: Analyzing the Underlying Peer-to-Peer Network of Ethereum Blockchain"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 86"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t145",
+  "table_no": 145,
+  "name": "Capacidade de Transações",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Quantidade total de valor disponível em todos os canais de pagamento ativos da Lightning Network, representando quanto a rede pode movimentar em transações off-chain sem recorrer diretamente à blockchain principal.",
+    "objective": "Avaliar o potencial de escalabilidade e a liquidez da Lightning Network, indicando o nível de adoção e a capacidade do sistema de suportar micropagamentos e transações instantâneas.",
+    "equation": "Capacidade Total = soma da capacidade de todos os canais de pagamento ativos na Lightning Network.",
+    "comment": "Valores mais altos indicam maior liquidez e maior capacidade de realizar transações simultâneas na rede. Valores baixos podem sinalizar baixa adoção, limitação na abertura de canais ou concentração de liquidez em poucos nós, o que pode afetar a descentralização.",
+    "scale_type": "Razão",
+    "protocol": "1) Identificar os nós e canais ativos da Lightning Network usando exploradores ou clientes compatíveis.\n2) Coletar a capacidade declarada de cada canal ativo.\n3) Somar a capacidade de todos os canais para obter a capacidade total da rede.\n4) Converter o valor para outras moedas, se necessário.\n5) Acompanhar a evolução da capacidade ao longo do tempo e relacionar com eventos de adoção da rede.",
+    "references": "1) Where is the Light(ning) in the Taproot Dawn? Unveiling the Bitcoin Lightning (IP) Network"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 145"
+  }
+}

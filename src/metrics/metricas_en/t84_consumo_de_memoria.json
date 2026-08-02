@@ -1,0 +1,22 @@
+{
+  "id": "t84",
+  "table_no": 84,
+  "name": "Consumo de Memória",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade de memória RAM utilizada por um sistema blockchain durante sua operação, incluindo processamento de transações, execução de contratos inteligentes e manutenção de dados temporários.",
+    "objective": "Avaliar a eficiência do uso de memória em sistemas blockchain e verificar se a arquitetura é adequada para ambientes com recursos limitados, como dispositivos embarcados ou infraestruturas hospitalares.",
+    "equation": "Consumo de Memória = Memória utilizada durante a execução − Memória em estado inicial\nou\nConsumo Relativo (%) = (Memória utilizada / Memória total disponível) × 100",
+    "comment": "Menor consumo de memória indica uso mais eficiente dos recursos e maior potencial de escalabilidade. Valores elevados podem sinalizar estruturas de dados ineficientes, excesso de cache ou dependência excessiva de armazenamento em memória.",
+    "scale_type": "Razão",
+    "protocol": "1) Implantar o sistema blockchain em ambiente controlado.\n2) Registrar o uso de memória no estado inicial do sistema.\n3) Executar operações típicas (transações, validações e contratos).\n4) Monitorar o consumo médio e o pico de memória durante a execução.\n5) Calcular o consumo absoluto ou relativo conforme a equação definida.",
+    "references": "1) MedHypChain: A Patient-Centered Interoperability Hyperledger-Based Medical Healthcare System Regulation in COVID-19 Pandemic"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 84"
+  }
+}

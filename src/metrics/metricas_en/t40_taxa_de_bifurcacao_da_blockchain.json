@@ -1,0 +1,22 @@
+{
+  "id": "t40",
+  "table_no": 40,
+  "name": "Taxa de Bifurcação da Blockchain",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Mede a proporção de blocos que geram bifurcações (forks) em relação ao total de blocos minerados na rede blockchain. Uma bifurcação ocorre quando diferentes nós passam a manter versões temporárias distintas da cadeia.",
+    "objective": "Avaliar a estabilidade do consenso e a confiabilidade da rede blockchain. Uma taxa elevada de bifurcação indica dificuldades na propagação de blocos, atrasos de comunicação entre nós ou concentração excessiva de mineração, afetando o uso eficiente dos recursos da rede.",
+    "equation": "Frate = Nfork / Ntotal,\nonde Nfork é o número de blocos que resultaram em bifurcações e Ntotal é o número total de blocos minerados no mesmo período.",
+    "comment": "Taxas baixas de bifurcação indicam boa sincronização entre os nós e consenso estável. Taxas elevadas representam desperdício de esforço computacional, aumento do risco de reorganizações da cadeia e redução da eficiência geral da blockchain.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o intervalo de observação da rede blockchain.\n2) Registrar todos os blocos minerados no período.\n3) Identificar blocos válidos que não pertencem à cadeia principal.\n4) Contabilizar o número de bifurcações ocorridas.\n5) Calcular a razão entre bifurcações e blocos totais.",
+    "references": "1) Impact of GeoDistribution and Mining Pools on Blockchains: A Study of Ethereum"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 40"
+  }
+}

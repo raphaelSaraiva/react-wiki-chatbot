@@ -1,0 +1,22 @@
+{
+  "id": "t138",
+  "table_no": 138,
+  "name": "Custo do Sistema",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Mede o custo total de operação de um sistema blockchain, considerando gastos associados à implantação de contratos, execução de funções, armazenamento de dados e transações recorrentes. O custo é expresso a partir do consumo de gás e de sua conversão em valor monetário.",
+    "objective": "Avaliar a viabilidade econômica e a eficiência operacional de sistemas blockchain, permitindo comparar arquiteturas e identificar impactos financeiros decorrentes do uso de contratos inteligentes.",
+    "equation": "Custo do Sistema = Σ(GasUsed_i × GasPrice) + Custos adicionais de transação e armazenamento",
+    "comment": "Custos mais baixos indicam maior eficiência econômica do sistema. O custo total é influenciado pela complexidade das funções, frequência de execução, volume de dados armazenados e condições do mercado de gás no momento da operação.",
+    "scale_type": "Razão",
+    "protocol": "1) Implantar o contrato inteligente no ambiente alvo.\n2) Executar todas as operações relevantes do sistema.\n3) Registrar o consumo de gás de cada operação.\n4) Converter o consumo total em valor monetário usando o preço médio do gás.\n5) Comparar os resultados entre diferentes configurações ou soluções.",
+    "references": "1) SmartMeasurer: A Secure and Automated Bandwidth Measurement for Tor with Smart Contract"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 138"
+  }
+}

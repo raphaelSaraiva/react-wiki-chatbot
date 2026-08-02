@@ -1,0 +1,22 @@
+{
+  "id": "t39",
+  "table_no": 39,
+  "name": "Limite de Atualização de Blocos",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Mede a quantidade máxima de atualizações de dados que a blockchain consegue registrar em um bloco ou ao longo da cadeia dentro de um intervalo de tempo, sem causar degradação significativa de desempenho ou perda de integridade.",
+    "objective": "Avaliar a capacidade da blockchain de lidar com atualizações frequentes de dados. Essa métrica é importante em aplicações com eventos contínuos, como monitoramento por drones ou cidades inteligentes, onde informações precisam ser registradas rapidamente e de forma confiável.",
+    "equation": "Lupdate = Nupdate / Tintervalo,\n\nonde Nupdate é o número de atualizações confirmadas na blockchain durante o período de observação Tintervalo.\n\nO limite prático é definido como o maior valor de Lupdate que mantém a latência e o consenso estáveis.",
+    "comment": "Um limite de atualização adequado indica que a rede consegue processar muitas alterações sem atrasos excessivos. Quando esse limite é ultrapassado, podem ocorrer congestionamento, aumento de latência e falhas na validação de blocos, afetando a confiabilidade do sistema.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o intervalo de tempo de observação.\n2) Submeter operações de atualização de dados à blockchain.\n3) Registrar o número de atualizações confirmadas no período.\n4) Calcular a razão entre atualizações confirmadas e tempo observado.\n5) Avaliar o impacto do aumento da taxa de atualização sobre latência e consenso.",
+    "references": "1) A Trust-Based Mechanism for Drones in Smart Cities"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 39"
+  }
+}

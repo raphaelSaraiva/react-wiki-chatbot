@@ -1,0 +1,22 @@
+{
+  "id": "t117",
+  "table_no": 117,
+  "name": "Taxa de Exceções Mal Gerenciadas",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Proporção de exceções geradas no sistema blockchain que não são tratadas adequadamente, resultando em falhas de execução, interrupções de serviço ou inconsistências temporárias no estado do sistema.",
+    "objective": "Avaliar a robustez do tratamento de erros em sistemas blockchain distribuídos, identificando fragilidades no gerenciamento de exceções que podem comprometer a integridade operacional e a continuidade do serviço.",
+    "equation": "Eph = N_unhandled / N_total",
+    "comment": "Valores elevados indicam deficiência no tratamento de exceções, aumentando o risco de falhas em cascata, interrupções na validação de transações ou degradação do desempenho. Valores baixos sugerem que o sistema é capaz de capturar, isolar e recuperar exceções de forma eficaz, mantendo a integridade do funcionamento.",
+    "scale_type": "Razão",
+    "protocol": "1) Executar o sistema blockchain sob diferentes cargas e cenários de falha.\n2) Registrar todas as exceções detectadas durante a execução.\n3) Identificar quais exceções foram corretamente tratadas e quais não foram.\n4) Calcular a razão entre exceções não tratadas e o total de exceções observadas.\n5) Analisar logs para identificar padrões recorrentes e pontos críticos no tratamento de erros.",
+    "references": "1) An Efficient Distributed and Secure Algorithm for Transaction Confirmation in IOTA Using Cloud Computing"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 117"
+  }
+}

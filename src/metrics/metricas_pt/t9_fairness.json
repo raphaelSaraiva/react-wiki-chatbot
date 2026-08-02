@@ -1,0 +1,22 @@
+{
+  "id": "t9",
+  "table_no": 9,
+  "name": "Equidade",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Grau de “justiça” na participação dos participantes da rede na criação de blocos e no recebimento de informações. Em geral, avalia se a chance de um participante produzir blocos é proporcional ao seu poder (ex.: mineração ou validação) e se todos os nós recebem blocos com tempos semelhantes.",
+    "objective": "Identificar situações em que participantes mais fortes (ou melhor conectados) passam a ter vantagem desproporcional, o que pode aumentar centralização, elevar conflitos na cadeia e reduzir a segurança do sistema.",
+    "equation": "Uma forma de medir equidade compara a participação real na produção de blocos com a participação esperada pelo poder de mineração/validação. Outra forma mede a diferença entre tempos médios de recebimento de blocos entre nós (quanto menor essa diferença, mais justa é a rede).",
+    "comment": "Baixa equidade pode indicar tendência à centralização e vantagem para grandes participantes, especialmente quando há atrasos de propagação, blocos grandes ou intervalos curtos. Melhorias na topologia e nos mecanismos de propagação podem reduzir desigualdades e diminuir a taxa de forks.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir um período de observação e coletar os blocos aceitos na cadeia principal.\n2) Identificar quem produziu cada bloco (minerador/validador), quando essa informação estiver disponível.\n3) Comparar a participação real na produção de blocos com a participação esperada pelo poder do participante.\n4) Se for medir justiça de propagação, instrumentar nós para registrar tempos de recebimento de blocos e comparar diferenças entre nós.\n5) Registrar as condições do experimento, como tamanho/intervalo de bloco e parâmetros de rede (RTT, banda e perdas).",
+    "references": "1) Taming Propagation Delay and Fork Rate in Bitcoin Mining Network\n2) Bitcoin-NG: A Scalable Blockchain Protocol"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 9"
+  }
+}

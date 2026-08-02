@@ -1,0 +1,22 @@
+{
+  "id": "t32",
+  "table_no": 32,
+  "name": "Nível de Autenticação",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Autenticidade"
+  },
+  "fields": {
+    "definition": "Grau em que um sistema blockchain consegue verificar que usuários, nós ou contratos que interagem com a rede são legítimos. Mede a eficácia dos mecanismos criptográficos usados para confirmar identidades digitais sem revelar identidades reais.",
+    "objective": "Avaliar a capacidade do sistema blockchain de garantir que apenas entidades devidamente autenticadas realizem operações válidas, prevenindo falsificação de identidade e acessos não autorizados, sem depender de uma autoridade central.",
+    "equation": "O nível de autenticação pode ser calculado como:\nAL = Nauth_success / Nauth_total,\nonde Nauth_success é o número de autenticações realizadas com sucesso (assinaturas válidas) e Nauth_total é o total de tentativas de autenticação.\nAlternativamente, a autenticação individual é verificada por:\nVerify(M, Sig, PK) → verdadeiro ou falso.",
+    "comment": "Valores altos indicam que a maioria das interações na rede é realizada por entidades autenticadas corretamente, refletindo forte uso de assinaturas digitais e chaves criptográficas. Valores baixos sugerem falhas de verificação, chaves comprometidas ou vulnerabilidades na lógica de autenticação dos contratos inteligentes.",
+    "scale_type": "Razão",
+    "protocol": "1) Associar a cada participante um par de chaves pública e privada.\n2) Exigir que toda transação ou ação contenha uma assinatura digital válida.\n3) Verificar automaticamente a assinatura no contrato inteligente.\n4) Registrar autenticações bem-sucedidas e falhas.\n5) Calcular o nível de autenticação como a razão entre autenticações válidas e tentativas totais.",
+    "references": "1) A Blockchain-Based Sealed-Bid e-Auction Scheme with Smart Contract and Zero-Knowledge Proof"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 32"
+  }
+}

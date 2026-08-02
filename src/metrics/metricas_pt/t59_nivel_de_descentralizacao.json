@@ -1,0 +1,22 @@
+{
+  "id": "t59",
+  "table_no": 59,
+  "name": "Nível de Descentralização",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Grau em que o controle, a validação e a manutenção da blockchain são distribuídos entre vários participantes independentes, sem dependência de uma única autoridade central.",
+    "objective": "Avaliar a distribuição de poder na rede blockchain, indicando o quão resistente o sistema é a censura, manipulação de dados, colusão entre participantes ou ataques de controle.",
+    "equation": "Nível de Descentralização = 1 − soma dos quadrados das proporções de poder de consenso de cada participante.\nValores próximos de 1 indicam alta descentralização; valores próximos de 0 indicam centralização.",
+    "comment": "Valores mais altos indicam que o poder de validação está bem distribuído entre vários participantes, aumentando a segurança e a integridade do sistema. Valores baixos indicam concentração de poder, o que pode facilitar manipulações, censura ou ataques coordenados.",
+    "scale_type": "Razão",
+    "protocol": "1) Identificar todos os participantes envolvidos no consenso da blockchain.\n2) Determinar a proporção de poder de consenso de cada participante (hashrate, stake ou autoridade).\n3) Calcular a soma dos quadrados dessas proporções.\n4) Subtrair o resultado de 1 para obter o nível de descentralização.\n5) Comparar o valor obtido com limiares de referência para classificar a rede.",
+    "references": "1) A Blockchain-Based Sealed-Bid e-Auction Scheme with Smart Contract and Zero-Knowledge Proof"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 59"
+  }
+}

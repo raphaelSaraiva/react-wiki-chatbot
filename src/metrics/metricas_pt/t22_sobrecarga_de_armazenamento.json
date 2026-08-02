@@ -1,0 +1,22 @@
+{
+  "id": "t22",
+  "table_no": 22,
+  "name": "Sobrecarga de Armazenamento",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade de dados adicionais armazenados por uma solução baseada em blockchain além do conteúdo útil propriamente dito. Essa sobrecarga inclui metadados, cabeçalhos, índices, estado interno, hashes de ancoragem, informações de controle e dados de replicação.",
+    "objective": "Avaliar o impacto das decisões de projeto no uso de armazenamento, especialmente ao comparar abordagens totalmente on-chain com arquiteturas híbridas que armazenam apenas referências ou hashes na blockchain.",
+    "equation": "Sobrecarga Absoluta = Dados Armazenados Totais − Conteúdo Útil.\n\nSobrecarga Percentual = (Sobrecarga Absoluta / Conteúdo Útil) × 100.",
+    "comment": "Valores elevados indicam uso ineficiente do armazenamento, pois grande parte do espaço é consumida por informações auxiliares. Soluções que armazenam apenas metadados ou hashes na blockchain e mantêm o conteúdo fora da cadeia tendem a reduzir significativamente a sobrecarga, sem comprometer a integridade ou a auditabilidade dos dados.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o cenário avaliado (armazenamento totalmente on-chain ou arquitetura híbrida).\n2) Medir o volume total de dados armazenados no período analisado.\n3) Medir separadamente o tamanho do conteúdo útil registrado.\n4) Calcular a sobrecarga absoluta e percentual.\n5) Comparar os resultados entre diferentes arquiteturas ou estratégias de armazenamento.",
+    "references": "1) AAC-IoT: Attribute Access Control Scheme for IoT Using Lightweight Cryptography and Hyperledger Fabric\n2) Education Evaluation Management Based on Blockchain Technology"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 22"
+  }
+}

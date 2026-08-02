@@ -1,0 +1,22 @@
+{
+  "id": "t101",
+  "table_no": 101,
+  "name": "Número de Nós",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Quantidade total de nós ativos que participam de uma rede blockchain ou de sua camada de sobreposição, como a Lightning Network, em um determinado momento.",
+    "objective": "Avaliar o tamanho, a descentralização e a capacidade da rede, indicando o nível de participação, conectividade e resiliência da infraestrutura blockchain.",
+    "equation": "Número de Nós = quantidade de nós ativos detectados na rede durante o período de observação.",
+    "comment": "Valores mais altos indicam maior participação e maior descentralização, o que tende a aumentar a resiliência da rede. Valores baixos sugerem concentração de nós e maior vulnerabilidade a falhas ou censura.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a rede ou camada analisada (blockchain principal ou Lightning Network).\n2) Executar ferramentas de descoberta de nós ou crawlers da rede.\n3) Coletar a lista de nós ativos em intervalos regulares.\n4) Remover duplicatas e nós inativos.\n5) Contar o número total de nós ativos no período.",
+    "references": "1) Where is the Light(ning) in the Taproot Dawn? Unveiling the Bitcoin Lightning (IP) Network"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 101"
+  }
+}

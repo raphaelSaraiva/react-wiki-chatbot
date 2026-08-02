@@ -1,0 +1,22 @@
+{
+  "id": "t153",
+  "table_no": 153,
+  "name": "Taxa de Transações",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Quantidade de transações processadas ou confirmadas pela blockchain em um determinado intervalo de tempo, indicando a intensidade do fluxo de transações na rede.",
+    "objective": "Avaliar a capacidade operacional da blockchain em lidar com diferentes volumes de transações, observando seu comportamento sob variações de carga sem comprometer o desempenho.",
+    "equation": "Taxa de Transações = número de transações processadas / intervalo de tempo observado.",
+    "comment": "Valores mais altos indicam maior capacidade de processamento e melhor aproveitamento da rede. Valores muito baixos podem indicar congestionamento, limitações do consenso ou gargalos na comunicação entre os nós.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o intervalo de tempo para observação.\n2) Contar o número de transações processadas ou confirmadas nesse intervalo.\n3) Calcular a taxa dividindo o total de transações pelo tempo observado.\n4) Repetir a medição sob diferentes níveis de carga.\n5) Comparar os resultados ao longo do tempo ou entre diferentes configurações da rede.",
+    "references": "1) Effect of Miner Incentive on the Confirmation Time of Bitcoin Transactions"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 153"
+  }
+}

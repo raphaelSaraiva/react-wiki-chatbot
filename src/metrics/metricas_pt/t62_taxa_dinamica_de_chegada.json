@@ -1,0 +1,22 @@
+{
+  "id": "t62",
+  "table_no": 62,
+  "name": "Taxa Dinâmica de Chegada",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Frequência com que novas transações chegam ao serviço de ordenação de uma rede blockchain ao longo do tempo, expressa em transações por segundo. Essa taxa pode variar dinamicamente conforme o comportamento dos usuários e da aplicação.",
+    "objective": "Avaliar se a quantidade de transações enviadas à rede está dentro da capacidade de processamento do serviço de ordenação, ajudando a identificar situações de sobrecarga e a necessidade de escalonamento da infraestrutura.",
+    "equation": "P = λ / µ\n\nonde λ é a taxa de chegada de transações (transações por segundo) e µ é a taxa de serviço do nó de ordenação. O sistema permanece estável enquanto P < 1.",
+    "comment": "Quando a taxa de chegada se aproxima ou ultrapassa a capacidade de serviço do nó de ordenação, filas começam a se formar e o tempo de processamento aumenta. Manter λ abaixo de µ é essencial para garantir estabilidade e bom desempenho da rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Configurar a rede blockchain com um serviço de ordenação ativo.\n2) Definir a taxa de serviço do nó de ordenação.\n3) Gerar cargas de transações com taxas de chegada variáveis.\n4) Medir a taxa real de chegada ao serviço de ordenação.\n5) Calcular o fator de utilização P e identificar pontos de saturação.",
+    "references": "1) Performance Evaluation of M/D/1 Queuing Model on Hyperledger Fabric"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 62"
+  }
+}

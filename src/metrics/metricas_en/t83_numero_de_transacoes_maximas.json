@@ -1,0 +1,22 @@
+{
+  "id": "t83",
+  "table_no": 83,
+  "name": "Número Máximo de Transações",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Quantidade máxima de transações que um sistema blockchain consegue processar por segundo em condições controladas, antes de atingir o limite de sua capacidade. Representa o ponto em que o sistema começa a saturar e não consegue manter o processamento correto das transações.",
+    "objective": "Avaliar a capacidade máxima de processamento da blockchain e verificar se a infraestrutura é adequada para aplicações que exigem alto volume de transações, como sistemas de medição avançada (AMI) e aplicações industriais.",
+    "equation": "Tmax = Ntx / ttotal,\nonde Ntx é o número total de transações processadas com sucesso e ttotal é o tempo total do experimento, em segundos.",
+    "comment": "O número máximo de transações indica o limite superior de capacidade da blockchain. Valores mais altos significam maior escalabilidade potencial. Resultados baixos apontam gargalos no consenso, na comunicação entre nós ou no hardware, podendo limitar o uso do sistema em cenários de alta demanda.",
+    "scale_type": "Razão",
+    "protocol": "1) Configurar o ambiente blockchain com parâmetros definidos de hardware, rede e consenso.\n2) Submeter volumes crescentes de transações ao sistema.\n3) Identificar o ponto em que o sistema atinge saturação ou degradação significativa.\n4) Registrar o número de transações processadas com sucesso e o tempo total do teste.\n5) Calcular o número máximo de transações por segundo usando a equação definida.",
+    "references": "1) Blockchain-based AMI framework for data security and privacy protection"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 83"
+  }
+}

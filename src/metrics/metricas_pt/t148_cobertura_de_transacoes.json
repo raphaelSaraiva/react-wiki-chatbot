@@ -1,0 +1,22 @@
+{
+  "id": "t148",
+  "table_no": 148,
+  "name": "Cobertura de Transações",
+  "iso25010": {
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Completude Funcional"
+  },
+  "fields": {
+    "definition": "Proporção das transações que são efetivamente observadas por nós de monitoramento da rede em relação ao total de transações que acabam sendo incluídas em blocos válidos da blockchain.",
+    "objective": "Avaliar o quão completo e confiável é o monitoramento público da blockchain, indicando se os observadores conseguem capturar a maioria das transações que realmente compõem o ledger.",
+    "equation": "Cobertura = (número de transações observadas / número total de transações incluídas em blocos) × 100%.",
+    "comment": "Valores próximos de 100% indicam alta transparência e boa visibilidade da rede. Valores mais baixos sugerem que parte das transações não foi observada, o que pode comprometer análises de segurança, desempenho ou comportamento dos nós.",
+    "scale_type": "Razão",
+    "protocol": "1) Configurar nós observadores em diferentes regiões ou posições da rede.\n2) Registrar todas as transações recebidas por esses nós.\n3) Identificar as transações que foram efetivamente incluídas em blocos válidos.\n4) Comparar os dois conjuntos de transações.\n5) Calcular a taxa de cobertura e analisar sua variação ao longo do tempo.",
+    "references": "1) Behind Block Explorers: Public Blockchain Measurement and Security Implication"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 148"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t11",
+  "table_no": 11,
+  "name": "Custo de Gás",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade de gás exigida por uma operação em uma blockchain baseada em EVM, usada como base para estimar o custo econômico de executar essa operação quando combinada com o preço do gás.",
+    "objective": "Fornecer uma medida-base para estimar impacto econômico e comparar o “peso” financeiro potencial de funções e contratos, apoiando decisões de otimização e planejamento de custos operacionais.",
+    "equation": "Custo de Gás (base) = gasUsed. \n\nO custo monetário pode ser estimado por: custo da transação = gasUsed × gasPrice.",
+    "comment": "Embora seja medido em unidades de gás, este “custo” representa o impacto econômico potencial de uma operação. Assim, duas funções podem ter o mesmo consumo técnico, mas o custo final em dinheiro muda conforme o gasPrice e as condições da rede. Recomenda-se analisar percentis altos (p95/p99) e diferenciar custos de implantação (deploy) e de execução (chamadas).",
+    "scale_type": "Absoluta",
+    "protocol": "1) Definir quais funções ou contratos serão avaliados.\n2) Executar as operações em ambiente controlado ou rede de teste.\n3) Coletar o valor de gasUsed a partir do recibo da transação.\n4) Repetir os testes para obter estatísticas como média e percentis.\n5) Quando necessário, estimar custo monetário combinando gasUsed com gasPrice medido no cenário.",
+    "references": "1) Empirically Analyzing Ethereum’s Gas Mechanism\n2) Health-ID\n3) Traceability Management System Using Blockchain Technology and Cost Estimation in the Metrology Field\n4) Blockchain-Based Energy Trading Scheme for EVs\n5) A Quality of Service Compliance System\n6) BOSSA\n7) Distributed Ledger for Spammers’ Resume"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 11"
+  }
+}

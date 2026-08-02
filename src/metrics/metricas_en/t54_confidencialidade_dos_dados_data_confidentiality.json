@@ -1,0 +1,22 @@
+{
+  "id": "t54",
+  "table_no": 54,
+  "name": "Confidencialidade dos Dados",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Confidencialidade"
+  },
+  "fields": {
+    "definition": "Grau em que os dados armazenados ou transmitidos em um sistema blockchain permanecem inacessíveis a entidades não autorizadas, mesmo na presença de interceptação ou acesso indevido.",
+    "objective": "Avaliar a eficácia dos mecanismos de segurança empregados pelo sistema blockchain para proteger dados sensíveis, garantindo que apenas participantes autorizados consigam ler ou utilizar as informações.",
+    "equation": "Confidencialidade dos Dados = 1 − (N_acessos_indevidos / N_tentativas_totais)\nonde N_acessos_indevidos representa acessos não autorizados bem-sucedidos durante o período de observação.",
+    "comment": "Valores mais altos indicam maior proteção contra vazamento ou leitura indevida de dados. Valores baixos sugerem fragilidades em criptografia, autenticação ou controle de acesso.",
+    "scale_type": "Razão",
+    "protocol": "1) Implantar o sistema blockchain no ambiente alvo.\n2) Ativar mecanismos de criptografia e autenticação.\n3) Monitorar tentativas de acesso autorizado e não autorizado.\n4) Registrar acessos indevidos bem-sucedidos.\n5) Calcular a métrica ao longo do período de observação.",
+    "references": "1) Block chain based IAS protocol to enhance security and privacy in cloud computing"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 54"
+  }
+}

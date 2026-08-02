@@ -1,0 +1,21 @@
+{
+  "id": "t125",
+  "table_no": 125,
+  "name": "Taxa de Vulnerabilidade a Reentrância",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Proporção de funções ou contratos inteligentes que apresentam risco de ataque de reentrância. Esse tipo de vulnerabilidade ocorre quando um contrato permite chamadas externas antes de finalizar a atualização do seu estado, possibilitando que a mesma função seja executada repetidamente de forma indevida.",
+    "objective": "Avaliar o nível de exposição de contratos inteligentes a ataques de reentrância, auxiliando auditorias de segurança e a identificação de falhas que comprometem a integridade das transações e do estado do contrato.",
+    "equation": "Taxa_reentrancia = Funcoes_vulneraveis / Funcoes_analisadas × 100",
+    "comment": "Vulnerabilidades de reentrância geralmente surgem quando contratos realizam chamadas externas antes de atualizar variáveis de estado internas. Essa falha pode permitir múltiplas execuções indevidas da mesma função, resultando em perdas financeiras ou corrupção do estado do contrato.",
+    "scale_type": "Razão",
+    "protocol": "1) Selecionar os contratos inteligentes a serem avaliados.\n2) Identificar funções que realizam chamadas externas.\n3) Aplicar ferramentas de análise estática para detectar padrões de reentrância.\n4) Contabilizar as funções vulneráveis identificadas.\n5) Calcular a taxa de vulnerabilidade em relação ao total de funções analisadas."
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 125"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t133",
+  "table_no": 133,
+  "name": "Tempo de Criação de Assinatura",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Mede o tempo necessário para gerar uma assinatura digital usando uma chave privada e anexá-la a uma transação ou dado em um sistema blockchain.",
+    "objective": "Avaliar a eficiência do processo de autenticação criptográfica, verificando se a geração de assinaturas digitais é rápida o suficiente para aplicações sensíveis ao tempo, como sistemas médicos e industriais.",
+    "equation": "Tempo de Criação de Assinatura = instante final − instante inicial.",
+    "comment": "Valores menores indicam um processo de assinatura mais eficiente, com menor impacto no tempo total da transação. Tempos elevados podem aumentar a latência do sistema e limitar o uso do blockchain em aplicações que exigem respostas rápidas.",
+    "scale_type": "Razão",
+    "protocol": "1) Selecionar o algoritmo de assinatura digital utilizado.\n2) Definir o tamanho dos dados a serem assinados.\n3) Registrar o instante em que a geração da assinatura é iniciada.\n4) Registrar o instante em que a assinatura é concluída.\n5) Calcular o tempo decorrido entre os dois instantes.\n6) Repetir o procedimento e calcular média e variação.",
+    "references": "1) A Novel Homomorphic Encryption and Consortium Blockchain-Based Hybrid Deep Learning Model for Industrial Internet of Medical Things"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 133"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t147",
+  "table_no": 147,
+  "name": "Taxa de Conflito de Transações",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Proporção de transações dentro de um bloco que entram em conflito entre si, ou seja, que não podem ser executadas ao mesmo tempo porque acessam ou modificam os mesmos dados ou estados da blockchain.",
+    "objective": "Avaliar o potencial de execução paralela das transações em uma blockchain, identificando o grau de dependência entre elas e o impacto dessa dependência no desempenho do sistema.",
+    "equation": "Taxa de Conflito = (número de transações em conflito / número total de transações no bloco) × 100%.",
+    "comment": "Taxas menores indicam maior possibilidade de executar transações em paralelo, resultando em melhor desempenho. Taxas elevadas indicam forte dependência entre transações, reduzindo os ganhos de paralelismo e aumentando a necessidade de execução sequencial.",
+    "scale_type": "Razão",
+    "protocol": "1) Identificar, para cada bloco, quais transações acessam ou modificam os mesmos dados.\n2) Marcar como conflitantes as transações que compartilham dependências.\n3) Contar o número de transações em conflito e o número total de transações no bloco.\n4) Calcular a taxa de conflito usando a fórmula definida.\n5) Repetir a análise em diferentes blocos ou períodos para obter estatísticas.",
+    "references": "1) On Exploiting Transaction Concurrency to Speed Up Blockchains"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 147"
+  }
+}

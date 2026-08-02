@@ -1,0 +1,22 @@
+{
+  "id": "t106",
+  "table_no": 106,
+  "name": "Número de Transações de Escrita",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Quantidade total de transações que realizam operações de escrita na blockchain durante um período de observação, ou seja, transações que inserem, atualizam ou registram dados e modificam o estado da rede.",
+    "objective": "Avaliar a carga de gravações imposta à blockchain e seu impacto na capacidade da rede, no custo de execução e no tempo de processamento, especialmente em aplicações com registros frequentes de dados.",
+    "equation": "Número de Transações de Escrita = total de transações que executam operações de escrita no período analisado.",
+    "comment": "Valores elevados indicam alta atividade de gravação na blockchain, o que pode aumentar custos, latência e consumo de recursos. Valores baixos indicam menor sobrecarga, mas podem limitar a frequência de atualização e o nível de detalhamento dos dados registrados.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o período de observação da rede blockchain.\n2) Identificar todas as transações registradas nesse período.\n3) Classificar quais transações realizam operações de escrita (alteram o estado da blockchain).\n4) Contabilizar o total de transações de escrita.\n5) Relacionar o volume de escritas com custo, latência e desempenho da rede.",
+    "references": "1) Secure Data Exchange Between IoT Endpoints for Energy Balancing Using Distributed Ledger"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 106"
+  }
+}

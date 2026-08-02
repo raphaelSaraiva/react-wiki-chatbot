@@ -1,0 +1,22 @@
+{
+  "id": "t116",
+  "table_no": 116,
+  "name": "Desempenho em Diferentes Máquinas",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Variação do tempo de execução de transações ou contratos inteligentes quando executados em máquinas com diferentes capacidades de hardware, como processador, memória e arquitetura. A métrica avalia o quanto o desempenho percebido depende do ambiente físico onde o nó blockchain é executado.",
+    "objective": "Avaliar se diferenças de hardware influenciam o tempo de execução das operações blockchain, apoiando análises de portabilidade, previsibilidade de desempenho e escolha adequada de infraestrutura para execução e teste de contratos inteligentes.",
+    "equation": "Desempenho Relativo = Tempo médio de execução na máquina de referência / Tempo médio de execução na máquina avaliada",
+    "comment": "Valores maiores que 1 indicam que a máquina avaliada executa as operações mais rapidamente que a máquina de referência. Diferenças pequenas sugerem que a plataforma blockchain oferece boa abstração do hardware subjacente. Diferenças grandes indicam dependência do ambiente físico, o que pode afetar testes, depuração e desempenho operacional.",
+    "scale_type": "Razão",
+    "protocol": "1) Selecionar duas ou mais máquinas com configurações de hardware diferentes.\n2) Definir uma máquina de referência.\n3) Executar o mesmo conjunto de transações ou contratos inteligentes em todas as máquinas, sob as mesmas condições de rede.\n4) Medir o tempo médio de execução em cada ambiente.\n5) Calcular o desempenho relativo comparando cada máquina com a referência.",
+    "references": "1) Empirically Analyzing Ethereum’s Gas Mechanism"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 116"
+  }
+}

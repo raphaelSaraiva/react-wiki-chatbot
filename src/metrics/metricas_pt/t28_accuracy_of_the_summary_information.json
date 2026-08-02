@@ -1,0 +1,22 @@
+{
+  "id": "t28",
+  "table_no": 28,
+  "name": "Acurácia das Informações de Resumo",
+  "iso25010": {
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Acurácia Funcional"
+  },
+  "fields": {
+    "definition": "Grau em que os metadados e resumos de dados registrados na blockchain representam corretamente o conteúdo real dos dados armazenados fora da cadeia. A métrica indica se o resumo on-chain (como tipo de dado, volume e hash) corresponde fielmente ao conjunto de dados efetivamente disponibilizado.",
+    "objective": "Garantir que as informações resumidas registradas on-chain sejam confiáveis e correspondam aos dados reais, promovendo confiança entre provedores e consumidores em sistemas descentralizados de negociação de dados e evitando fraudes ou representações enganosas.",
+    "equation": "Acurácia do Resumo = EUID(1)i,\ncom valores no intervalo [0, 1],\nonde 1 indica correspondência total entre o resumo registrado na blockchain e os dados reais, e valores próximos de 0 indicam inconsistências.",
+    "comment": "Em sistemas de comércio de dados baseados em blockchain, apenas resumos e hashes são armazenados on-chain, enquanto os dados completos permanecem off-chain. Essa métrica é essencial para verificar se o que foi anunciado no blockchain realmente reflete os dados entregues, sustentando mecanismos de reputação, pagamento e penalização automática.",
+    "scale_type": "Razão",
+    "protocol": "1) O provedor registra no blockchain um resumo dos dados contendo metadados e um hash criptográfico.\n2) O consumidor acessa os dados reais armazenados off-chain.\n3) O sistema compara o resumo registrado com o conteúdo real utilizando validações criptográficas.\n4) A correspondência é convertida em uma pontuação normalizada entre 0 e 1.\n5) O valor obtido é registrado para fins de auditoria e reputação do provedor.",
+    "references": "1) A Blockchain-based Trading System for Big Data"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 28"
+  }
+}

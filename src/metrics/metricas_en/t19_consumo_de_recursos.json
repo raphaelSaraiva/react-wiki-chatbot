@@ -1,0 +1,22 @@
+{
+  "id": "t19",
+  "table_no": 19,
+  "name": "Consumo de Recursos",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade de recursos computacionais utilizados por uma aplicação ou rede blockchain para executar suas operações, incluindo uso de CPU, memória, disco, rede e espaço de armazenamento, tanto on-chain quanto off-chain.",
+    "objective": "Avaliar a eficiência no uso de recursos, identificar gargalos e apoiar decisões de dimensionamento, otimização e redução de custos operacionais em soluções baseadas em blockchain.",
+    "equation": "Consumo de Recursos no período = ⟨CPU, Memória, Disco, Rede, Armazenamento⟩.\nForma normalizada: Consumo por transação = Consumo total no período / número de transações confirmadas.",
+    "comment": "Menor consumo de recursos para o mesmo nível de desempenho (TPS e latência) indica maior eficiência. Arquiteturas que utilizam armazenamento off-chain tendem a reduzir o consumo de disco on-chain, ao custo de maior uso de rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o período de medição e as operações avaliadas (leitura, escrita, deploy).\n2) Executar cargas controladas e registrar o número de transações confirmadas.\n3) Coletar métricas de CPU, memória, disco e rede dos nós participantes.\n4) Medir o crescimento do armazenamento on-chain e, quando aplicável, off-chain.\n5) Calcular o consumo total e o consumo médio por transação.\n6) Comparar cenários e registrar as condições do ambiente e da carga.",
+    "references": "1) Hyperledger Healthchain: Patient-Centric IPFS-Based Storage of Health Records\n2) HealthBlock: A Secure Blockchain-Based Healthcare Data Management System"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 19"
+  }
+}

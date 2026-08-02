@@ -1,0 +1,22 @@
+{
+  "id": "t152",
+  "table_no": 152,
+  "name": "Tempo da Transação",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo necessário para que uma transação enviada à rede seja validada pelo consenso e registrada de forma definitiva na blockchain.",
+    "objective": "Avaliar a rapidez com que a blockchain confirma transações, indicando a eficiência do consenso e a capacidade da rede de responder sob diferentes níveis de carga.",
+    "equation": "T_tx = tempo de confirmação − tempo de envio da transação.",
+    "comment": "Tempos menores indicam maior eficiência e melhor experiência para o usuário. Tempos elevados podem sinalizar gargalos de comunicação, sobrecarga no consenso ou limitações na escalabilidade da rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Enviar um conjunto de transações para a blockchain.\n2) Registrar o instante de envio e o instante de confirmação de cada transação.\n3) Calcular o tempo de transação individual.\n4) Obter estatísticas como média, mediana e percentis (p50, p95, p99).\n5) Repetir a análise sob diferentes cargas e configurações da rede.",
+    "references": "1) B4SDC: A Blockchain System for Security Data Collection in MANETs"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 152"
+  }
+}

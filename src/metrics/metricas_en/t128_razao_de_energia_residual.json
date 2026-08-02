@@ -1,0 +1,22 @@
+{
+  "id": "t128",
+  "table_no": 128,
+  "name": "Razão de Energia Residual",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Proporção da energia restante disponível em um nó ou veículo após a execução de tarefas de comunicação, computação e registro em blockchain, em relação à energia total inicialmente disponível.",
+    "objective": "Avaliar a eficiência energética do sistema blockchain, indicando o quanto as operações consomem da energia disponível e se os nós ou veículos conseguem manter autonomia adequada durante o funcionamento.",
+    "equation": "Razão de Energia Residual = Energia residual / Energia total inicial.",
+    "comment": "Valores altos indicam que o sistema consome pouca energia para executar suas funções. Valores baixos sugerem alto consumo energético, o que pode comprometer a autonomia e a continuidade do serviço, especialmente em redes veiculares e IoT.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a energia total inicial disponível em cada nó ou veículo.\n2) Executar as tarefas de comunicação, processamento e registro em blockchain.\n3) Medir a energia residual após a execução das tarefas.\n4) Calcular a razão entre a energia residual e a energia total inicial.\n5) Repetir o procedimento sob diferentes cargas e topologias de rede.",
+    "references": "1) A Blockchain-Based Matching Game for Content Sharing in Content-Centric Vehicle-to-Grid Network Scenarios"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 128"
+  }
+}

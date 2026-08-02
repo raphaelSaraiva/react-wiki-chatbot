@@ -1,0 +1,22 @@
+{
+  "id": "t34",
+  "table_no": 34,
+  "name": "Tempo Disponível",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Disponibilidade"
+  },
+  "fields": {
+    "definition": "Proporção do tempo em que um nó ou serviço de uma rede blockchain permanece acessível e operacional durante um período de observação. Indica quanto tempo o sistema esteve efetivamente disponível para processar transações, executar contratos inteligentes ou participar do consenso.",
+    "objective": "Avaliar a confiabilidade operacional da infraestrutura blockchain, identificando a capacidade do sistema de manter funcionamento contínuo ao longo do tempo. Essa métrica é especialmente relevante em sistemas críticos, como aplicações industriais e médicas, onde interrupções afetam diretamente a entrega e o processamento de dados.",
+    "equation": "At = Tup / (Tup + Tdown),\n\n onde Tup é o tempo total em que o nó ou serviço esteve disponível e Tdown é o tempo total de indisponibilidade durante o período analisado.",
+    "comment": "Valores mais altos indicam maior estabilidade e prontidão do sistema. Períodos frequentes ou prolongados de indisponibilidade reduzem o tempo disponível e podem comprometer a confiabilidade de aplicações que dependem de operação contínua.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o período de observação.\n2) Monitorar continuamente o estado dos nós ou serviços da rede blockchain.\n3) Registrar os intervalos em que o sistema esteve operacional (Tup).\n4) Registrar os intervalos de falha ou indisponibilidade (Tdown).\n5) Calcular a razão entre o tempo disponível e o tempo total do período.",
+    "references": "1) A Novel Homomorphic Encryption and Consortium Blockchain-Based Hybrid Deep Learning Model for Industrial Internet of Medical Things"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 34"
+  }
+}

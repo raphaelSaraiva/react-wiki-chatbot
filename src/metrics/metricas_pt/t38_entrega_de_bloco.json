@@ -1,0 +1,22 @@
+{
+  "id": "t38",
+  "table_no": 38,
+  "name": "Entrega de Blocos",
+  "iso25010": {
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo necessário para que um bloco recém-gerado seja propagado pela rede blockchain e recebido pelos nós participantes. Essa métrica expressa a rapidez com que a informação de um novo bloco se difunde na rede.",
+    "objective": "Avaliar a eficiência da propagação de blocos e seu impacto na consistência do ledger distribuído. A entrega rápida de blocos contribui para reduzir bifurcações, melhorar o tempo de confirmação das transações e manter o consenso estável em redes blockchain.",
+    "equation": "Tdelivery = Treceive − Tgenerate,\n\nonde Tgenerate é o instante de geração do bloco e Treceive é o instante em que o bloco é recebido pelo nó.\n\nO valor médio pode ser obtido por:\nTdelivery_médio = (1 / N) × Σ (Treceive,i − Tgenerate,i).",
+    "comment": "Valores menores indicam propagação eficiente e boa conectividade entre os nós da rede. Valores elevados revelam atrasos de comunicação, blocos grandes ou conectividade deficiente, aumentando o risco de bifurcações e atrasos na confirmação de transações.",
+    "scale_type": "Razão",
+    "protocol": "1) Selecionar um conjunto de nós distribuídos na rede blockchain.\n2) Registrar o instante de geração de cada bloco.\n3) Medir o instante em que o bloco é recebido por cada nó.\n4) Calcular o tempo de entrega para cada observação.\n5) Obter a média dos tempos de entrega em um conjunto de blocos.",
+    "references": "1) Effect of Miner Incentive on the Confirmation Time of Bitcoin Transactions"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 38"
+  }
+}

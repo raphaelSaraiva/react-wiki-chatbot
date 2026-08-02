@@ -1,0 +1,22 @@
+{
+  "id": "t100",
+  "table_no": 100,
+  "name": "Número de Mineradores",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Quantidade total de mineradores ou validadores ativos em uma rede blockchain durante a execução do protocolo de consenso. A métrica expressa o tamanho do conjunto de nós responsáveis pela validação de blocos e pela manutenção da rede.",
+    "objective": "Avaliar o impacto da quantidade de mineradores na capacidade operacional, no desempenho e na robustez do consenso da blockchain, considerando o equilíbrio entre descentralização, segurança e eficiência de validação.",
+    "equation": "M = número total de mineradores ou validadores ativos na rede durante o período analisado",
+    "comment": "Um número elevado de mineradores tende a aumentar a descentralização e a resistência a ataques, mas também pode elevar o custo de comunicação, o consumo de energia e o tempo necessário para alcançar consenso. Por outro lado, um número reduzido de mineradores pode melhorar a latência e a eficiência operacional, porém com possível redução da robustez e da tolerância a falhas. A métrica é fundamental para analisar esse compromisso entre segurança e desempenho.",
+    "scale_type": "Razão",
+    "protocol": "1) Identificar o conjunto total de mineradores ou validadores registrados na rede.\n2) Monitorar quais nós participam ativamente do processo de consenso durante o intervalo de observação.\n3) Contabilizar o número total de mineradores ativos no período analisado.\n4) Repetir a medição sob diferentes configurações de rede ou parâmetros de consenso.\n5) Comparar os resultados para avaliar o impacto da variação do número de mineradores no desempenho e na segurança.",
+    "references": "1) LBSS: A Lightweight Blockchain-Based Security Scheme for IoT-Enabled Healthcare Environment"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 100"
+  }
+}

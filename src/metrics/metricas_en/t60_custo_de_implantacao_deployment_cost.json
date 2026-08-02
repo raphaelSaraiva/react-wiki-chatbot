@@ -1,0 +1,22 @@
+{
+  "id": "t60",
+  "table_no": 60,
+  "name": "Custo de Implantação",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Custo total necessário para implantar contratos inteligentes e inicializar um sistema blockchain em uma rede específica, considerando o consumo de gás e o preço pago por unidade de gás no momento da implantação.",
+    "objective": "Avaliar a viabilidade econômica inicial de uma solução blockchain, permitindo comparar contratos e plataformas quanto ao custo de implantação antes do início da operação.",
+    "equation": "Custo de Implantação = GasUsed_implantacao × GasPrice\nonde GasUsed_implantacao é o total de gás consumido durante a implantação do contrato.",
+    "comment": "Valores menores indicam contratos mais leves e melhor adequação para implantações em larga escala. Valores elevados costumam estar associados a contratos complexos, bytecode extenso ou uso intensivo de armazenamento.",
+    "scale_type": "Razão",
+    "protocol": "1) Preparar o contrato inteligente para implantação.\n2) Implantar o contrato na rede escolhida (testnet ou mainnet).\n3) Registrar o consumo total de gás informado no recibo da transação.\n4) Multiplicar o gás consumido pelo preço do gás vigente.\n5) Repetir a medição em diferentes cenários para obter valores médios.",
+    "references": "1) MRBSChain: a novel scalable medical records binance smart chain framework enabling a paradigm shift in medical records management"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 60"
+  }
+}

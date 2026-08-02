@@ -1,0 +1,22 @@
+{
+  "id": "t46",
+  "table_no": 46,
+  "name": "Custo Computacional",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade de recursos de processamento necessários para executar uma tarefa ou conjunto de operações em um sistema baseado em blockchain, normalmente medida como o tempo médio de execução por tarefa.",
+    "objective": "Avaliar a eficiência de processamento do sistema ao executar operações como autenticação, compartilhamento de dados e execução de contratos inteligentes, permitindo comparar abordagens e identificar ganhos de otimização.",
+    "equation": "Custo Computacional = média do tempo de execução das tarefas avaliadas em um determinado experimento ou período.",
+    "comment": "Valores menores indicam maior eficiência computacional. Essa métrica reflete o custo agregado de processamento, incluindo operações criptográficas e lógica de contratos, e deve ser comparada apenas entre cenários com o mesmo hardware, conjunto de dados e parâmetros de configuração.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o tipo de tarefa ou operação a ser avaliada.\n2) Instrumentar o sistema para registrar tempos de início e fim de cada execução.\n3) Executar os testes sob diferentes tamanhos de dados ou configurações.\n4) Calcular o tempo médio e percentis (p95) de execução.\n5) Comparar os resultados com abordagens alternativas sob as mesmas condições.",
+    "references": "1) Optimization with Blockchain-based Secure Authentication and Collaborative Data Sharing Model in Cloud"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 46"
+  }
+}

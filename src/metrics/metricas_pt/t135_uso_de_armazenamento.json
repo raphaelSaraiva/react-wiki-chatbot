@@ -1,0 +1,22 @@
+{
+  "id": "t135",
+  "table_no": 135,
+  "name": "Uso de Armazenamento",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Mede a quantidade média de espaço de armazenamento ou memória utilizada por um sistema blockchain durante o processamento e a validação de dados.",
+    "objective": "Avaliar a eficiência do uso de armazenamento em soluções blockchain, auxiliando na análise de escalabilidade e no planejamento de custos de infraestrutura, especialmente em ambientes de nuvem.",
+    "equation": "Uso de Armazenamento = média da memória ou espaço em disco utilizado durante a execução das operações, normalmente medido em MB.",
+    "comment": "Valores menores indicam uso mais eficiente dos recursos de armazenamento. Consumo elevado pode sinalizar sobrecarga, necessidade de otimização de dados ou uso excessivo de mecanismos criptográficos e estruturas auxiliares.",
+    "scale_type": "Razão",
+    "protocol": "1) Implementar a solução blockchain a ser avaliada.\n2) Executar operações de processamento e validação sob diferentes cargas.\n3) Monitorar o consumo de memória ou espaço em disco durante a execução.\n4) Calcular o valor médio de armazenamento utilizado.\n5) Comparar os resultados entre diferentes soluções ou configurações.",
+    "references": "1) Optimization with Blockchain-Based Secure Authentication and Collaborative Data Sharing Model in Cloud"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 135"
+  }
+}

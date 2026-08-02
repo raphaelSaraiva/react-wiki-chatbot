@@ -1,0 +1,22 @@
+{
+  "id": "t2",
+  "table_no": 2,
+  "name": "Tamanho do Bloco",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade de dados que compõem um bloco em uma blockchain, incluindo o cabeçalho, as transações e informações adicionais de controle.",
+    "objective": "Avaliar o uso de recursos da rede blockchain, já que blocos maiores permitem incluir mais transações, mas podem aumentar o tempo de validação, propagação e o risco de congestionamento.",
+    "equation": "S_b = S_header + soma dos tamanhos das transações + metadados. \n\nPara análise em múltiplos blocos, pode-se usar a média do tamanho dos blocos em uma janela de tempo.",
+    "comment": "Blocos maiores aumentam a capacidade de processamento da rede, mas tendem a elevar o tempo de validação e de propagação, especialmente em redes congestionadas. O tamanho do bloco deve ser ajustado em conjunto com outros parâmetros, como tempo de bloco e políticas de seleção de transações.",
+    "scale_type": "Absoluta",
+    "protocol": "1) Definir a blockchain e o período de análise.\n2) Coletar o tamanho de cada bloco a partir de nós ou exploradores.\n3) Calcular estatísticas como média, mediana e percentis do tamanho dos blocos.\n4) Relacionar o tamanho do bloco com métricas de atraso, como tempo de validação e propagação.\n5) Comparar diferentes configurações de rede ou parâmetros de consenso.",
+    "references": "1) Blockchain Layer Zero: Characterizing the Bitcoin Network through Measurements, Models, and Simulations\n2) Effect of Miner Incentive on the Confirmation Time of Bitcoin Transactions\n3) HealthBlock: A Secure Blockchain-Based Healthcare Data Management System"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 2"
+  }
+}

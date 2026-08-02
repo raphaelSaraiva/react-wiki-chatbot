@@ -1,0 +1,22 @@
+{
+  "id": "t41",
+  "table_no": 41,
+  "name": "Índice de Saúde da Blockchain",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Disponibilidade"
+  },
+  "fields": {
+    "definition": "Mede o estado geral de funcionamento de uma blockchain, combinando segurança, desempenho e estabilidade econômica. O índice considera se a rede é majoritariamente mantida por participantes honestos, se as transações são processadas em tempo adequado e se as taxas exigidas para inclusão em bloco permanecem estáveis ao longo do tempo.",
+    "objective": "Avaliar se a blockchain opera de forma confiável e sustentável, especialmente em cenários nos quais a rede depende principalmente de taxas de transação para incentivar a participação dos mineradores. A métrica permite identificar desequilíbrios que podem comprometer a disponibilidade, como aumento de latência, instabilidade econômica ou redução da mineração honesta.",
+    "equation": "ISB = f(Ph, Lp, Vc),\n\n onde:\nPh é a proporção de poder computacional honesto,Lp é a latência média de processamento de transações e Vc é a variância das taxas mínimas exigidas.",
+    "comment": "O Índice de Saúde da Blockchain resume o equilíbrio entre segurança, desempenho e estabilidade econômica. Em redes maduras, a dependência exclusiva de taxas de transação pode reduzir a participação honesta e aumentar a latência. Mecanismos que impõem regras mínimas de taxa e ordenação justa de transações ajudam a preservar a saúde geral da rede.",
+    "scale_type": "Intervalar",
+    "protocol": "1) Estimar a proporção de poder computacional honesto a partir da participação de mineradores válidos.\n2) Medir o tempo médio entre o envio e a confirmação das transações.\n3) Calcular a variação das taxas mínimas exigidas para inclusão em bloco ao longo do tempo.\n4) Normalizar os valores obtidos.\n5) Combinar os fatores em um índice único conforme pesos definidos pelo modelo de avaliação.",
+    "references": "1) BitcoinF: Achieving Fairness for Bitcoin in Transaction-Fee-Only Model"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 41"
+  }
+}

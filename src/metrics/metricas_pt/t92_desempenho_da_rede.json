@@ -1,0 +1,22 @@
+{
+  "id": "t92",
+  "table_no": 92,
+  "name": "Desempenho da Rede",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Capacidade global da rede blockchain de transmitir dados e coordenar a comunicação entre seus nós de forma eficiente, considerando a taxa de processamento, o uso de recursos e o tempo de resposta sob diferentes cargas de tráfego.",
+    "objective": "Avaliar se a infraestrutura de rede associada à blockchain consegue sustentar o volume de comunicação exigido pelas aplicações, mantendo desempenho estável, baixa latência e uso equilibrado de recursos.",
+    "equation": "DR = Nreq / T\n\nonde Nreq é o número de requisições ou serviços processados com sucesso e T é o tempo total de observação.\nValores maiores indicam melhor desempenho da rede.",
+    "comment": "Um desempenho de rede mais alto indica que a blockchain consegue coordenar seus nós com eficiência, mesmo sob carga elevada ou falhas parciais. Valores baixos sugerem gargalos de comunicação, atrasos de controle ou uso ineficiente de recursos, o que pode comprometer a escalabilidade e a confiabilidade do sistema.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o ambiente de rede e o período de observação.\n2) Submeter requisições ou serviços à rede blockchain.\n3) Registrar o número de operações processadas com sucesso.\n4) Medir o tempo total de execução.\n5) Calcular DR = Nreq / T e comparar diferentes configurações ou arquiteturas.",
+    "references": "1) Blockchain-Based Secure Distributed Control for Software Defined Optical Networking"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 92"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t79",
+  "table_no": 79,
+  "name": "Nível de Centralização Interna de Serviços",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Grau em que uma blockchain ou aplicação descentralizada depende de serviços internos controlados por uma única entidade, como provedores de RPC, oráculos, indexadores ou mecanismos centralizados de autenticação.",
+    "objective": "Avaliar riscos estruturais de centralização em sistemas que se apresentam como descentralizados, identificando dependências internas que podem introduzir censura, interrupções de serviço ou perda de integridade operacional.",
+    "equation": "Nível de Centralização Interna = Número de serviços internos centralizados / Número total de serviços internos utilizados.",
+    "comment": "Valores elevados indicam forte dependência de poucos provedores ou entidades, aumentando o risco de ponto único de falha e censura. Valores baixos indicam maior distribuição dos serviços internos e maior resiliência do sistema.",
+    "scale_type": "Razão",
+    "protocol": "1) Identificar todos os serviços internos utilizados pela blockchain ou aplicação.\n2) Classificar cada serviço como centralizado ou distribuído.\n3) Contabilizar o número de serviços centralizados.\n4) Dividir pelo número total de serviços internos identificados.\n5) Analisar o impacto dessas dependências na operação e na segurança do sistema.",
+    "references": "1) Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 79"
+  }
+}

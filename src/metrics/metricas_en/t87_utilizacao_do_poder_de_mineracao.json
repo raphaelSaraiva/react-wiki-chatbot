@@ -1,0 +1,22 @@
+{
+  "id": "t87",
+  "table_no": 87,
+  "name": "Utilização do Poder de Mineração",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Proporção do poder computacional de mineração que resulta efetivamente em blocos aceitos na cadeia principal da blockchain, em relação ao total de blocos minerados.",
+    "objective": "Avaliar a eficiência do protocolo de consenso em transformar esforço computacional em progresso útil da blockchain, reduzindo desperdício de energia causado por forks e blocos descartados.",
+    "equation": "MPU = Bmain / Btotal\n\nonde Bmain é o número de blocos incluídos na cadeia principal e Btotal é o número total de blocos minerados.",
+    "comment": "Valores mais altos indicam melhor aproveitamento do poder de mineração. Valores baixos sinalizam desperdício computacional, geralmente causado por atrasos de propagação, alta taxa de forks ou ineficiência do protocolo.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir uma janela de observação da rede.\n2) Contabilizar todos os blocos minerados no período.\n3) Identificar quais blocos foram incluídos na cadeia principal.\n4) Calcular a razão entre blocos aceitos e blocos minerados.\n5) Comparar resultados entre diferentes configurações ou protocolos.",
+    "references": "1) Bitcoin-NG: A Scalable Blockchain Protocol"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 87"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t140",
+  "table_no": 140,
+  "name": "Risco de Integração com SDKs de Terceiros",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Confidencialidade"
+  },
+  "fields": {
+    "definition": "Mede o grau de risco introduzido pela dependência de SDKs e bibliotecas de terceiros em aplicações blockchain, como carteiras e DApps. Essa métrica avalia o potencial de exposição de dados sensíveis, perda de privacidade e centralização indireta quando componentes externos acessam, processam ou transmitem informações dos usuários.",
+    "objective": "Avaliar o impacto da integração de SDKs externos sobre a segurança e a confidencialidade em ecossistemas blockchain, identificando dependências que podem comprometer a privacidade dos usuários, introduzir pontos únicos de falha ou permitir rastreamento e censura.",
+    "equation": "RSDK = (NSDKs_risco / NSDKs_totais) × 100, \n\nonde NSDKs_risco é o número de SDKs de terceiros classificados como potencialmente arriscados (por exemplo, coleta de dados sensíveis, rastreamento, autenticação centralizada ou comunicação com servidores externos) e NSDKs_totais é o número total de SDKs integrados na aplicação analisada.",
+    "comment": "Valores elevados de RSDK indicam maior exposição a riscos de privacidade e centralização, pois aumentam as superfícies de ataque e a dependência de infraestrutura externa. SDKs de análise, autenticação e notificações são fontes comuns desse risco. A redução do número de SDKs externos tende a melhorar a confidencialidade e a aderência ao princípio de descentralização.",
+    "scale_type": "Razão",
+    "protocol": "1) Identificar a aplicação blockchain a ser analisada (por exemplo, carteira ou DApp).\n2) Extrair e decompilar o aplicativo para listar todas as bibliotecas e SDKs integrados.\n3) Classificar os SDKs como internos ou de terceiros.\n4) Avaliar quais SDKs apresentam comportamento de risco (coleta, transmissão ou processamento de dados sensíveis).\n5) Calcular o percentual de SDKs de risco em relação ao total integrado.",
+    "references": "1) Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 140"
+  }
+}

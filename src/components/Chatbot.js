@@ -3,7 +3,9 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import metricsIndex from "../metrics/metricas_index.json";
+import { getMetricsIndex } from "../metrics/localizedMetrics";
+import { useLanguage } from "../i18n/LanguageContext";
+import { t } from "../i18n/uiText";
 import {
   EXP_CONFIG,
   addChatEntry,
@@ -58,6 +60,7 @@ function getDefaultFloatingState() {
 }
 
 const Chatbot = () => {
+  const { language } = useLanguage();
   const [question, setQuestion] = useState("");
   const [option1, setOption1] = useState("");
   const [option2, setOption2] = useState("");
@@ -82,7 +85,7 @@ const Chatbot = () => {
     setAnswerModal({
       open: true,
       option: opt,
-      title: `Opção ${opt}`,
+      title: opt === 1 ? t(language, "option1") : t(language, "option2"),
       text: txt || "—",
     });
   };
@@ -122,6 +125,7 @@ const Chatbot = () => {
 
   // ✅ MÉTRICAS do JSON (igual sidebar)
   const METRICS = useMemo(() => {
+    const metricsIndex = getMetricsIndex(language);
     const arr = Array.isArray(metricsIndex) ? metricsIndex : [];
     return arr
       .map((m) => ({
@@ -129,7 +133,7 @@ const Chatbot = () => {
         name: String(m?.name ?? ""),
       }))
       .filter((m) => m.id && m.name);
-  }, []);
+  }, [language]);
 
   const [metricId, setMetricId] = useState("");
 
@@ -1420,7 +1424,7 @@ const Chatbot = () => {
 
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <div style={badgePill(completed >= EXP_CONFIG.QUESTIONS_REQUIRED)}>
-                Perguntas: {completed}/{EXP_CONFIG.QUESTIONS_REQUIRED}
+                {t(language, "questions")}: {completed}/{EXP_CONFIG.QUESTIONS_REQUIRED}
               </div>
 
               {/* ✅ botão para voltar ao centro */}
@@ -1438,21 +1442,21 @@ const Chatbot = () => {
                     manual: false,
                   }));
                 }}
-                title="Centralizar novamente"
+                title={t(language, "centerAgain")}
               >
-                Centralizar
+                {t(language, "center")}
               </button>
             </div>
           </div>
 
           <div style={bodyStyle}>
             <form onSubmit={handleQuestionSubmit}>
-              <label style={labelStyle}>Pergunta</label>
+              <label style={labelStyle}>{t(language, "question")}</label>
               <textarea
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
                 className="form-control"
-                placeholder="Digite sua pergunta aqui..."
+                placeholder={t(language, "questionPlaceholder")}
                 rows={4}
                 style={{
                   ...inputBase,
@@ -1464,7 +1468,7 @@ const Chatbot = () => {
 
               <div className="row g-3 mt-1">
                 <div className="col-md-6">
-                  <label style={labelStyle}>Métrica</label>
+                  <label style={labelStyle}>{t(language, "metrics")}</label>
                   <select
                     value={metricId}
                     onChange={(e) => setMetricId(e.target.value)}
@@ -1480,7 +1484,7 @@ const Chatbot = () => {
                 </div>
 
                 <div className="col-md-6">
-                  <label style={labelStyle}>Modelo</label>
+                  <label style={labelStyle}>{t(language, "model")}</label>
                   <select
                     value={model}
                     onChange={(e) => setModel(e.target.value)}
@@ -1503,7 +1507,7 @@ const Chatbot = () => {
                 {loading
                   ? "Processando..."
                   : canAskMore
-                    ? "Enviar"
+                    ? t(language, "send")
                     : "Limite de perguntas atingido"}
               </button>
             </form>
@@ -1543,7 +1547,7 @@ const Chatbot = () => {
                           color: BODY_TEXT,
                         }}
                       >
-                        Respostas geradas
+                        {t(language, "generatedAnswers")}
                       </div>
                       <div style={{ fontSize: 13, color: MUTED_TEXT }}>
                         Restantes no experimento: {Math.max(0, remaining)}
@@ -1618,7 +1622,7 @@ const Chatbot = () => {
 
                           <div className="d-flex justify-content-between align-items-center mb-2">
                             <div className="fw-bold d-flex align-items-center gap-2">
-                              Opção 1
+                              {t(language, "option1")}
                             </div>
                             <label
                               className="d-flex align-items-center gap-2"
@@ -1630,7 +1634,7 @@ const Chatbot = () => {
                                 checked={preferredOption === 1}
                                 onChange={() => setPreferredOption(1)}
                               />
-                              Preferir
+                              {t(language, "prefer")}
                             </label>
                           </div>
 
@@ -1677,7 +1681,7 @@ const Chatbot = () => {
 
                           <div className="d-flex justify-content-between align-items-center mb-2">
                             <div className="fw-bold d-flex align-items-center gap-2">
-                              Opção 2
+                              {t(language, "option2")}
                             </div>
                             <label
                               className="d-flex align-items-center gap-2"
@@ -1689,7 +1693,7 @@ const Chatbot = () => {
                                 checked={preferredOption === 2}
                                 onChange={() => setPreferredOption(2)}
                               />
-                              Preferir
+                              {t(language, "prefer")}
                             </label>
                           </div>
 
@@ -1734,7 +1738,7 @@ const Chatbot = () => {
                             whiteSpace: "nowrap",
                           }}
                         >
-                          Preferida: {preferredOption === 3 ? "Ambas" : `Opção ${preferredOption}`}
+                          {t(language, "preferred")}: {preferredOption === 3 ? t(language, "both") : preferredOption === 1 ? t(language, "option1") : t(language, "option2")}
                         </div>
                       </div>
 
@@ -1759,7 +1763,7 @@ const Chatbot = () => {
                           }}
                         >
                           <div style={{ fontSize: 12, fontWeight: 900, marginBottom: 6 }}>
-                            Opção 1
+                            {t(language, "option1")}
                           </div>
                           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                             {[1, 2, 3, 4, 5].map((n) => (
@@ -1779,10 +1783,10 @@ const Chatbot = () => {
                           <div style={{ marginTop: 6, fontSize: 12, color: MUTED_TEXT }}>
                             {ratings.option1 ? (
                               <>
-                                Nota Opção 1: <strong>{ratings.option1}/5</strong>
+                                {t(language, "rating")} {t(language, "option1")}: <strong>{ratings.option1}/5</strong>
                               </>
                             ) : (
-                              "Selecione a nota da Opção 1."
+                              `${t(language, "selectOptionRating")} ${t(language, "option1")}.`
                             )}
                           </div>
                         </div>
@@ -1799,7 +1803,7 @@ const Chatbot = () => {
                           }}
                         >
                           <div style={{ fontSize: 12, fontWeight: 900, marginBottom: 6 }}>
-                            Opção 2
+                            {t(language, "option2")}
                           </div>
                           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                             {[1, 2, 3, 4, 5].map((n) => (
@@ -1819,10 +1823,10 @@ const Chatbot = () => {
                           <div style={{ marginTop: 6, fontSize: 12, color: MUTED_TEXT }}>
                             {ratings.option2 ? (
                               <>
-                                Nota Opção 2: <strong>{ratings.option2}/5</strong>
+                                {t(language, "rating")} {t(language, "option2")}: <strong>{ratings.option2}/5</strong>
                               </>
                             ) : (
-                              "Selecione a nota da Opção 2."
+                              `${t(language, "selectOptionRating")} ${t(language, "option2")}.`
                             )}
                           </div>
                         </div>
@@ -1909,7 +1913,7 @@ const Chatbot = () => {
               userSelect: "none",
             }}
           >
-            <div style={{ fontWeight: 900, color: "#fff" }}>Histórico</div>
+            <div style={{ fontWeight: 900, color: "#fff" }}>{t(language, "history")}</div>
             <div style={{ opacity: 0.85, fontSize: 18, color: "#fff" }}>
               ({history.length})
             </div>
@@ -1954,7 +1958,7 @@ const Chatbot = () => {
                 >
                   ✓
                 </span>
-                {anySendChecked ? "Desmarcar todos" : "Marcar todos"}
+                {anySendChecked ? t(language, "unmarkAll") : t(language, "markAll")}
               </button>
 
               <button
@@ -2019,7 +2023,7 @@ const Chatbot = () => {
                 data-no-drag="true"
                 type="button"
                 disabled={!history.length}
-                title="Limpar histórico"
+                title={t(language, "clearHistory")}
                 onClick={clearHistory}
                 style={headerIconBubble(false, !history.length)}
                 {...pressableHandlers(!history.length)}
@@ -2126,7 +2130,7 @@ const Chatbot = () => {
                                 onChange={() => toggleSendOne(k)}
                                 style={{ transform: "translateY(1px)" }}
                               />
-                              Enviar este item
+                              {t(language, "sendThisItem")}
                             </label>
 
                             {/* Ações (expandir/recolher + excluir) */}
@@ -2182,7 +2186,7 @@ const Chatbot = () => {
                           {/* Conteúdo do item */}
                           <div style={{ color: "#111827" }}>
                             <div style={{ fontSize: 12, opacity: 0.8 }}>
-                              <strong>Modelo:</strong> {entry.model}
+                              <strong>{t(language, "model")}:</strong> {entry.model}
                               {entry?.createdAt && (
                                 <span style={{ marginLeft: 8, opacity: 0.7 }}>
                                   • {new Date(entry.createdAt).toLocaleString()}
@@ -2191,12 +2195,12 @@ const Chatbot = () => {
                             </div>
 
                             <div style={{ marginTop: 6 }}>
-                              <strong>Pergunta:</strong> {entry.question}
+                              <strong>{t(language, "question")}:</strong> {entry.question}
                             </div>
 
                             {isOpen && (
                               <div style={{ marginTop: 6 }}>
-                                <strong>Resposta:</strong>
+                                <strong>{t(language, "answer")}:</strong>
                                 <div style={{ whiteSpace: "pre-wrap", marginTop: 4 }}>
                                   {entry.response || entry.chosenText || "—"}
                                 </div>
@@ -2209,7 +2213,7 @@ const Chatbot = () => {
                   </ul>
                 ) : (
                   <div className="text-white-50" style={{ fontSize: 13 }}>
-                    Nenhum histórico disponível.
+                    {t(language, "emptyHistory")}
                   </div>
                 )}
               </div>
@@ -2330,7 +2334,7 @@ const Chatbot = () => {
           }}
           title="Abrir histórico"
         >
-          Histórico ({history.length})
+          {t(language, "history")} ({history.length})
         </button>
       )}
 
@@ -2405,7 +2409,7 @@ const Chatbot = () => {
                   style={{ borderRadius: 10, padding: "8px 12px" }}
                   onClick={closeConfirmModal}
                 >
-                  Cancelar
+                  {t(language, "cancel")}
                 </button>
 
                 <button
@@ -2487,7 +2491,7 @@ const Chatbot = () => {
                   }}
                   title="Selecionar como preferida"
                 >
-                  Preferir esta
+                  {t(language, "preferThis")}
                 </button>
 
                 <button

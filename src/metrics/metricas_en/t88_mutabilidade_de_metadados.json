@@ -1,0 +1,22 @@
+{
+  "id": "t88",
+  "table_no": 88,
+  "name": "Metadados Mutáveis",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Indica se os metadados de um contrato inteligente podem ser alterados após sua implantação na blockchain. Metadados incluem informações descritivas como nome, símbolo, URI ou identificadores associados a tokens e ativos digitais.",
+    "objective": "Avaliar o risco de manipulação e perda de integridade em contratos inteligentes, verificando se informações descritivas podem ser modificadas após o deploy, o que pode enganar usuários e comprometer a confiança nos ativos on-chain.",
+    "equation": "MM = 1 se existirem funções que permitem alterar metadados após o deploy;\n\nMM = 0 caso os metadados sejam imutáveis.",
+    "comment": "Metadados mutáveis permitem que administradores ou desenvolvedores alterem informações visíveis de tokens após sua criação. Isso pode ser usado de forma legítima, mas também possibilita golpes, substituição de conteúdo ou mudanças não transparentes, reduzindo a confiança dos usuários.",
+    "scale_type": "Nominal",
+    "protocol": "1) Analisar o código-fonte do contrato inteligente.\n2) Identificar variáveis de metadados (ex.: name, symbol, uri, baseURI).\n3) Verificar se existem funções administrativas que permitem modificar esses dados após o deploy.\n4) Atribuir MM = 1 se qualquer metadado for mutável; caso contrário, MM = 0.\n5) Registrar o resultado para comparação entre contratos ou ecossistemas.",
+    "references": "1) Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 88"
+  }
+}

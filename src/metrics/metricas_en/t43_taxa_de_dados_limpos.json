@@ -1,0 +1,22 @@
+{
+  "id": "t43",
+  "table_no": 43,
+  "name": "Taxa de Dados Limpos",
+  "iso25010": {
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Completude Funcional"
+  },
+  "fields": {
+    "definition": "Mede a proporção de atributos ou registros que permanecem válidos, completos e consistentes após o processo de verificação e limpeza de dados em um sistema blockchain. A métrica indica o nível de qualidade dos dados disponibilizados para análise, compartilhamento ou comercialização na rede.",
+    "objective": "Avaliar a eficácia dos mecanismos de limpeza e validação de dados aplicados antes do armazenamento ou troca em blockchain. A métrica busca garantir que os dados utilizados apresentem alta qualidade, reduzindo ruídos, valores ausentes, inconsistências semânticas e tipos incorretos.",
+    "equation": "Taxa de Dados Limpos = Nvalidos / Ntotal,\nonde Nvalidos é o número de atributos ou registros considerados válidos após a limpeza e Ntotal é o total analisado.\n\nAlternativamente, pode ser expresso como um índice ponderado:\nEUIDi2 = λ1(1 − V'1j) + λ2(1 − V'2j) + λ3(1 − V'3j),\nonde V'1j, V'2j e V'3j indicam, respectivamente, valores nulos, valores anômalos e tipos incorretos, e λk representa o peso de cada fator.",
+    "comment": "A taxa de dados limpos expressa diretamente a utilidade prática de um conjunto de dados em ambientes blockchain. Valores elevados indicam que os processos de verificação e limpeza são eficazes, aumentando a confiabilidade das análises e o valor econômico dos dados negociados. Taxas baixas evidenciam a presença de ruído significativo, reduzindo a qualidade do dataset e a confiança dos consumidores de dados.",
+    "scale_type": "Razão",
+    "protocol": "1) Selecionar o conjunto de dados submetido ao sistema blockchain.\n2) Aplicar verificações de valores nulos, anômalos e tipos incorretos.\n3) Corrigir ou descartar registros inválidos conforme as regras definidas.\n4) Contabilizar o número de atributos ou registros válidos após a limpeza.\n5) Calcular a taxa de dados limpos ou o índice ponderado conforme a equação.",
+    "references": "1) A Blockchain-Based Trading System for Big Data"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 43"
+  }
+}

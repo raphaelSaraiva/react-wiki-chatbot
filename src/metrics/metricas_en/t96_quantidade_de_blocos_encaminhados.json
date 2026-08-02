@@ -1,0 +1,22 @@
+{
+  "id": "t96",
+  "table_no": 96,
+  "name": "Número de Blocos Encaminhados",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Número total de blocos que um nó blockchain encaminha para outros nós da rede durante um intervalo de tempo. Essa métrica indica o quanto cada nó contribui para a disseminação de blocos na rede peer-to-peer.",
+    "objective": "Avaliar a eficiência da propagação de blocos na rede blockchain, verificando se os nós participam ativamente do encaminhamento das informações. Um maior número de blocos encaminhados tende a indicar boa conectividade e cooperação entre os nós.",
+    "equation": "Bf = Nb / T\n\nonde Nb é o número de blocos encaminhados\nT é o intervalo de tempo observado",
+    "comment": "O Número de Blocos Encaminhados reflete o papel ativo de um nó na propagação da blockchain. Valores elevados indicam que o nó contribui para uma disseminação rápida e equilibrada dos blocos. Valores baixos podem indicar gargalos de rede, baixa conectividade, sobrecarga ou comportamento passivo, o que pode atrasar a sincronização da rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Selecionar um conjunto de nós da rede blockchain.\n2) Monitorar o tráfego P2P e registrar os blocos encaminhados por cada nó.\n3) Definir o intervalo de observação T.\n4) Calcular Bf = Nb/T para cada nó.\n5) Comparar os valores entre diferentes topologias ou configurações de rede.",
+    "references": "1) A Decentralized Lightweight Blockchain Nodes Architecture Based on a Secure OpenFlow Protocol Controller Channel"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 96"
+  }
+}

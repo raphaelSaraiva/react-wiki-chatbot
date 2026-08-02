@@ -1,0 +1,22 @@
+{
+  "id": "t68",
+  "table_no": 68,
+  "name": "Taxa de Recuperação de Falhas",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Recuperabilidade"
+  },
+  "fields": {
+    "definition": "Proporção de falhas identificadas em um sistema blockchain que são recuperadas com sucesso, permitindo que o serviço volte a operar normalmente após a ocorrência de problemas em nós, validadores ou componentes de controle.",
+    "objective": "Avaliar a capacidade do sistema de se recuperar automaticamente após falhas, indicando a eficácia dos mecanismos de tolerância a falhas e de restauração do serviço em arquiteturas blockchain e sistemas distribuídos.",
+    "equation": "Taxa de Recuperação de Falhas = Número de falhas recuperadas / Número total de falhas detectadas.",
+    "comment": "Valores mais altos indicam maior capacidade de recuperação e resiliência do sistema. Valores baixos sugerem que falhas persistem por mais tempo, aumentando indisponibilidade e risco operacional.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir os tipos de falhas monitoradas (queda de nó, falha de validador, perda de conectividade).\n2) Registrar automaticamente cada falha detectada.\n3) Monitorar os mecanismos de recuperação acionados pelo sistema.\n4) Verificar se o serviço foi restaurado corretamente após cada falha.\n5) Contabilizar o número total de falhas e o número de falhas recuperadas.\n6) Calcular a taxa de recuperação de falhas no período analisado.",
+    "references": "1) Blockchain-Based Secure Distributed Control for Software Defined Optical Networking"
+  },
+  "source": {
+    "pdf": "Blockchain-Based_Secure_Distributed_Control_for_Software_Defined_Optical_Networking.pdf",
+    "table": "Tabela 68"
+  }
+}

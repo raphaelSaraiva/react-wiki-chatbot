@@ -1,0 +1,22 @@
+{
+  "id": "t23",
+  "table_no": 23,
+  "name": "Taxa de Forks",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Proporção de blocos que são criados, mas não permanecem na cadeia principal da blockchain. Esses blocos, chamados de órfãos ou obsoletos, surgem quando dois ou mais blocos válidos são produzidos quase ao mesmo tempo e apenas um é aceito como continuação oficial da cadeia.",
+    "objective": "Avaliar a eficiência da propagação de blocos e a robustez do protocolo de consenso, identificando desperdício de trabalho computacional e riscos à estabilidade da rede.",
+    "equation": "Taxa de Forks = Nstale / (Nstale + Nmain) × 100.",
+    "comment": "Taxas elevadas indicam que os blocos demoram a se propagar pela rede, aumentando a chance de concorrência entre produtores de blocos. Isso gera desperdício de recursos e pode enfraquecer a segurança. Reduções sustentadas na taxa de forks normalmente refletem melhorias reais no protocolo de propagação, na topologia da rede ou nos parâmetros de bloco.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a rede e a janela de observação.\n2) Identificar todos os blocos produzidos no período.\n3) Classificar quais blocos permaneceram na cadeia principal e quais se tornaram órfãos.\n4) Contar Nstale e Nmain.\n5) Aplicar a fórmula da taxa de forks e analisar sua evolução ao longo do tempo.",
+    "references": "1) Identifying Impacts of Protocol and Internet Development on the Bitcoin Network\n2) Taming Propagation Delay and Fork Rate in Bitcoin Mining Network"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 23"
+  }
+}

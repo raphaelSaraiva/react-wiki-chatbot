@@ -1,0 +1,22 @@
+{
+  "id": "t98",
+  "table_no": 98,
+  "name": "Número de Forks por Dificuldade de Mineração",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Número relativo de bifurcações (forks) observadas na blockchain sob um determinado nível de dificuldade de mineração. A métrica expressa como variações no ajuste da dificuldade influenciam a ocorrência de blocos concorrentes e a estabilidade da cadeia.",
+    "objective": "Avaliar o impacto da dificuldade de mineração na estabilidade do consenso, identificando faixas de operação em que a rede apresenta menor ocorrência de forks e maior sincronização entre mineradores.",
+    "equation": "F(D) = Nforks / Nblocks\nonde Nforks é o número de forks observados\nNblocks é o total de blocos minerados\nD é o nível de dificuldade de mineração",
+    "comment": "Essa métrica mostra como ajustes na dificuldade de mineração afetam a probabilidade de blocos simultâneos. Dificuldades muito baixas tendem a aumentar a ocorrência de forks, pois vários mineradores encontram blocos quase ao mesmo tempo. Dificuldades mais altas reduzem essa concorrência, mas podem aumentar o tempo de confirmação. O equilíbrio adequado de D é essencial para manter estabilidade e eficiência da rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Configurar a blockchain com possibilidade de ajuste da dificuldade de mineração.\n2) Executar a mineração sob diferentes valores de dificuldade (D).\n3) Registrar o número total de blocos minerados (Nblocks).\n4) Identificar e contabilizar os forks ocorridos (Nforks).\n5) Calcular F(D) para cada nível de dificuldade e comparar os resultados.",
+    "references": "1) A Decentralized Lightweight Blockchain Nodes Architecture Based on a Secure OpenFlow Protocol Controller Channel"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 98"
+  }
+}

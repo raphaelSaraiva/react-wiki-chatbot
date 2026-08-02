@@ -13,6 +13,8 @@ import {
   getMetricSearchUsedCount,
   getMetricSearchClickCount,
 } from "../experiment/experimentState";
+import { useLanguage } from "../i18n/LanguageContext";
+import { t } from "../i18n/uiText";
 
 export default function TopBar({
   user,
@@ -34,6 +36,7 @@ export default function TopBar({
 }) {
   const navigate = useNavigate();
   const location = useLocation();
+  const { language, setLanguage } = useLanguage();
 
   const isInAdmin = location.pathname.startsWith("/admin");
 
@@ -85,12 +88,20 @@ export default function TopBar({
     typeof canOpenFeedback === "boolean" ? canOpenFeedback : feedbackOk;
 
   const stepText = !metricsOk
-    ? `1) Explore as métricas (mín. ${EXP_CONFIG.METRICS_REQUIRED})`
+    ? language === "en"
+      ? `1) Explore the metrics (min. ${EXP_CONFIG.METRICS_REQUIRED})`
+      : `1) Explore as métricas (mín. ${EXP_CONFIG.METRICS_REQUIRED})`
     : !searchOk
-    ? `2) Use a busca por métricas (digite e clique em uma métrica)`
+    ? language === "en"
+      ? `2) Use metric search (type and click a metric)`
+      : `2) Use a busca por métricas (digite e clique em uma métrica)`
     : !questionsOk
-    ? `3) Faça ${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas`
-    : `4) Envie o feedback final`;
+    ? language === "en"
+      ? `3) Ask ${EXP_CONFIG.QUESTIONS_REQUIRED} questions`
+      : `3) Faça ${EXP_CONFIG.QUESTIONS_REQUIRED} perguntas`
+    : language === "en"
+      ? `4) Submit final feedback`
+      : `4) Envie o feedback final`;
 
   const showAdminButton = !!user && !adminLoading && isAdmin;
 
@@ -165,7 +176,7 @@ export default function TopBar({
 
             <div className="d-flex flex-column" style={{ minWidth: 0 }}>
               <div className="fw-bold" style={titleStyle}>
-                Wiki Métricas Blockchain
+                {t(language, "appTitle")}
               </div>
               <div style={stepStyle} title={stepText}>
                 {stepText}
@@ -189,28 +200,28 @@ export default function TopBar({
                 className={`badge ${metricsOk ? "bg-success" : "bg-secondary"}`}
                 style={badgeStyle}
               >
-                Métricas {metricsVisitedCount}/{EXP_CONFIG.METRICS_REQUIRED}
+                {t(language, "metrics")} {metricsVisitedCount}/{EXP_CONFIG.METRICS_REQUIRED}
               </span>
 
               <span
                 className={`badge ${searchOk ? "bg-success" : "bg-secondary"}`}
                 style={badgeStyle}
               >
-                Busca {searchOk ? "ok" : searchProgressText}
+                {t(language, "search")} {searchOk ? t(language, "ok") : searchProgressText}
               </span>
 
               <span
                 className={`badge ${questionsOk ? "bg-success" : "bg-secondary"}`}
                 style={badgeStyle}
               >
-                Perguntas {questionsCompletedCount}/{EXP_CONFIG.QUESTIONS_REQUIRED}
+                {t(language, "questions")} {questionsCompletedCount}/{EXP_CONFIG.QUESTIONS_REQUIRED}
               </span>
 
               <span
                 className={`badge ${feedbackOk ? "bg-success" : "bg-secondary"}`}
                 style={badgeStyle}
               >
-                Feedback {feedbackOk ? "ok" : "pendente"}
+                {t(language, "feedback")} {feedbackOk ? t(language, "ok") : t(language, "pending")}
               </span>
 
               <div className="btn-group ms-1 ms-md-2" style={{ flex: "0 0 auto" }}>
@@ -219,7 +230,7 @@ export default function TopBar({
                   style={btnStyle}
                   onClick={() => navigate("/metric/t1")}
                 >
-                  Métricas
+                  {t(language, "metrics")}
                 </button>
 
                 <button
@@ -229,7 +240,7 @@ export default function TopBar({
                   disabled={!chatbotOk}
                   title={!chatbotOk ? "Veja as métricas antes" : ""}
                 >
-                  Chatbot
+                  {t(language, "chatbot")}
                 </button>
 
                 <button
@@ -242,7 +253,7 @@ export default function TopBar({
                     (!canOpenFeedbackFinal ? "Complete o experimento antes" : "")
                   }
                 >
-                  Feedback
+                  {t(language, "feedback")}
                 </button>
               </div>
             </div>
@@ -273,9 +284,26 @@ export default function TopBar({
                   onClick={() => navigate(isInAdmin ? "/" : "/admin")}
                   title={isInAdmin ? "Sair do modo administrador" : "Entrar no modo administrador"}
                 >
-                  {isInAdmin ? "⬅️ Sair do Admin" : "🛠️ Modo Admin"}
+                  {isInAdmin ? t(language, "leaveAdmin") : t(language, "adminMode")}
                 </button>
               )}
+
+              <div className="btn-group" title={t(language, "languageTitle")}>
+                <button
+                  className={`btn btn-sm ${language === "pt" ? "btn-warning" : "btn-outline-light"}`}
+                  style={btnStyle}
+                  onClick={() => setLanguage("pt")}
+                >
+                  PT
+                </button>
+                <button
+                  className={`btn btn-sm ${language === "en" ? "btn-warning" : "btn-outline-light"}`}
+                  style={btnStyle}
+                  onClick={() => setLanguage("en")}
+                >
+                  EN
+                </button>
+              </div>
 
               <div className="d-flex align-items-center gap-2" style={{ minWidth: 0 }}>
                 <img
@@ -310,7 +338,7 @@ export default function TopBar({
               </div>
 
               <button className="btn btn-warning btn-sm" style={btnStyle} onClick={onLogout}>
-                Logout
+                {t(language, "logout")}
               </button>
             </div>
           )}

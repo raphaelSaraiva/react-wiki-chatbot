@@ -1,0 +1,22 @@
+{
+  "id": "t58",
+  "table_no": 58,
+  "name": "Taxa de Utilidade dos Dados",
+  "iso25010": {
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Completude Funcional"
+  },
+  "fields": {
+    "definition": "Proporção de dados registrados em blockchain que permanecem válidos, consistentes e úteis quando efetivamente utilizados por aplicações que consomem essas informações.",
+    "objective": "Avaliar se os mecanismos de registro, validação e consenso da blockchain preservam a utilidade prática dos dados para as aplicações, sem comprometer sua precisão ou valor informacional.",
+    "equation": "Taxa de Utilidade dos Dados = quantidade de dados válidos e consistentes utilizados pela aplicação / quantidade total de dados processados pela aplicação.",
+    "comment": "Valores mais altos indicam que os dados registrados em blockchain mantêm sua utilidade e confiabilidade quando usados pelas aplicações. Valores baixos sugerem perda de qualidade informacional, inconsistências ou impacto negativo do processo de validação e confirmação sobre o uso prático dos dados.",
+    "scale_type": "Razão",
+    "protocol": "1) Identificar aplicações que utilizam dados provenientes da blockchain.\n2) Verificar a consistência e correção dos dados efetivamente usados pela aplicação.\n3) Contabilizar a quantidade de dados válidos em relação ao total processado.\n4) Calcular a taxa de utilidade dos dados.\n5) Comparar os resultados com dados equivalentes processados fora da blockchain, quando aplicável.",
+    "references": "1) A Blockchain-Based Trading System for Big Data"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 58"
+  }
+}

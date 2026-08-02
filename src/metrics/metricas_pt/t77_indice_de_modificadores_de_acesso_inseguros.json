@@ -1,0 +1,22 @@
+{
+  "id": "t77",
+  "table_no": 77,
+  "name": "Índice de Modificadores de Acesso Inseguros",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Proporção de funções em contratos inteligentes que utilizam modificadores de acesso excessivamente permissivos, permitindo que usuários não autorizados executem operações que deveriam ser restritas. A métrica indica o nível de exposição indevida de funções críticas.",
+    "objective": "Avaliar a correção dos controles de acesso implementados em contratos inteligentes, identificando funções que podem ser exploradas por agentes externos devido a níveis de visibilidade inadequados.",
+    "equation": "Índice de Modificadores de Acesso Inseguros = Número de funções com acesso indevidamente permissivo / Número total de funções do contrato",
+    "comment": "Valores elevados indicam maior risco de falhas de segurança, pois funções sensíveis ficam acessíveis a qualquer usuário. Valores baixos indicam que o contrato aplica corretamente os níveis de acesso, reduzindo a possibilidade de uso indevido ou ataques.",
+    "scale_type": "Razão",
+    "protocol": "1) Analisar o código-fonte do contrato inteligente.\n2) Identificar todas as funções e seus modificadores de acesso.\n3) Verificar se o nível de acesso de cada função é adequado à sua finalidade.\n4) Contar as funções com modificadores excessivamente permissivos.\n5) Calcular a razão entre funções inseguras e o total de funções.",
+    "references": "1) An efficient distributed and secure algorithm for transaction confirmation in IOTA using cloud computing"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 77"
+  }
+}

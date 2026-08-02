@@ -1,0 +1,22 @@
+{
+  "id": "t69",
+  "table_no": 69,
+  "name": "Nível de Tolerância a Falhas",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Capacidade do sistema blockchain de continuar operando corretamente mesmo quando parte de seus componentes falha, como nós, validadores ou controladores.",
+    "objective": "Avaliar a robustez da arquitetura blockchain frente a falhas, indicando até que ponto o sistema consegue manter o consenso, a execução de transações e a integridade dos dados sob condições adversas.",
+    "equation": "Nível de Tolerância a Falhas = Número de falhas toleradas / Número máximo de falhas aceitáveis.",
+    "comment": "Valores mais altos indicam maior resiliência do sistema, que continua funcionando mesmo com falhas parciais. Valores baixos sugerem vulnerabilidade arquitetural ou dependência excessiva de componentes críticos.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a arquitetura e o mecanismo de consenso do sistema.\n2) Identificar o número máximo de falhas aceitáveis segundo o modelo teórico ou projeto.\n3) Introduzir falhas controladas em nós ou controladores.\n4) Verificar até quantas falhas o sistema continua operando corretamente.\n5) Calcular a razão entre falhas toleradas e falhas máximas aceitáveis.",
+    "references": "1) Blockchain-based Secure Distributed Control for Software Defined Optical Networking"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 69"
+  }
+}

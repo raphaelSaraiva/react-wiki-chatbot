@@ -1,0 +1,22 @@
+{
+  "id": "t27",
+  "table_no": 27,
+  "name": "Transações por Segundo",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Quantidade média de transações que uma blockchain consegue confirmar por segundo dentro de um intervalo de tempo definido. A métrica expressa a capacidade prática de processamento da rede sob determinadas condições de carga e configuração.",
+    "objective": "Avaliar a capacidade de processamento da blockchain e verificar se a plataforma atende aos requisitos de volume de transações do sistema ou aplicação, apoiando comparações entre protocolos, parâmetros de consenso e arquiteturas.",
+    "equation": "Definição geral:\nTPS = Ntx_confirmadas / Δt.\n\nEm blockchains PoW:\nTPS ≈ (1 − Rstale) × (Ntx_bloco / Tbloco),\nonde Rstale é a fração de blocos órfãos, Ntx_bloco é o número médio de transações por bloco e Tbloco é o tempo médio de bloco.",
+    "comment": "Valores mais altos de TPS indicam maior capacidade de processamento. No entanto, aumentos artificiais (como reduzir excessivamente o tempo de bloco) podem elevar a taxa de forks e prejudicar a confiabilidade. Em redes permissionadas ou com sharding, o TPS pode crescer significativamente sem os mesmos trade-offs observados em blockchains públicas baseadas em PoW.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a janela de observação (Δt) e o critério de confirmação (cadeia principal).\n2) Contar apenas transações efetivamente confirmadas no período.\n3) Calcular o TPS médio dividindo o total de transações confirmadas pelo tempo observado.\n4) Registrar parâmetros relevantes: tempo de bloco, tamanho do bloco, gas limit, número de nós/validadores e mecanismo de consenso.\n5) Repetir medições sob diferentes cargas para comparar estabilidade e capacidade.",
+    "references": "1) Assessing Blockchain Selfish Mining in an Imperfect Network\n2) A Dynamic Sharding Protocol Design for Consortium Blockchains\n3) Health-ID: A Blockchain-Based Decentralized Identity\n4) Blockchain and Machine Learning for Ride-Hailing Systems"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 27"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t33",
+  "table_no": 33,
+  "name": "Tempo de Autenticação",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Autenticidade"
+  },
+  "fields": {
+    "definition": "Tempo necessário para confirmar a identidade de uma entidade (usuário, dispositivo ou nó) em um sistema blockchain, contado desde o envio da solicitação de autenticação até a confirmação bem-sucedida da identidade.",
+    "objective": "Avaliar a eficiência temporal do processo de autenticação em sistemas blockchain, garantindo que a verificação de identidade seja segura e suficientemente rápida para aplicações sensíveis ao tempo, como IoT industrial e médica.",
+    "equation": "O tempo médio de autenticação pode ser calculado como:\nTauth = (1/N) × Σ(tconfirm,i − trequest,i),\nonde trequest,i é o instante de envio da requisição de autenticação e tconfirm,i é o instante em que a identidade é confirmada pelo sistema.\nEm alguns cenários, o tempo pode ser decomposto em verificação criptográfica e validação na blockchain.",
+    "comment": "Tempos menores indicam autenticação mais eficiente e melhor adequação a sistemas que exigem resposta rápida. Valores elevados podem indicar sobrecarga de rede, validações criptográficas complexas ou atrasos no consenso, afetando a escalabilidade e a disponibilidade do sistema.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o cenário de autenticação (usuário, dispositivo ou nó).\n2) Registrar o instante de envio da solicitação de autenticação.\n3) Registrar o instante de confirmação da identidade.\n4) Repetir o processo para múltiplas autenticações sob diferentes cargas e condições de rede.\n5) Calcular o tempo médio de autenticação e analisar sua estabilidade.",
+    "references": "1) A Novel Homomorphic Encryption and Consortium Blockchain-Based Hybrid Deep Learning Model for Industrial Internet of Medical Things"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 33"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t107",
+  "table_no": 107,
+  "name": "Taxa de Fork por Minerador Único",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Proporção de forks da blockchain que são causados por um único minerador ao produzir mais de um bloco na mesma altura da cadeia. Esses eventos indicam situações em que o próprio minerador gera ramificações redundantes, em vez de competir com outros participantes.",
+    "objective": "Identificar comportamentos ineficientes ou egoístas de mineração que aumentam forks desnecessários, desperdiçam recursos computacionais e afetam a justiça na distribuição de recompensas e a estabilidade da rede.",
+    "equation": "Taxa de Fork por Minerador Único = número de forks causados por um único minerador ÷ número total de forks no período analisado.",
+    "comment": "Valores elevados indicam má coordenação do minerador ou práticas egoístas que aumentam forks redundantes, reduzem a eficiência global da rede e elevam o consumo de recursos. Valores baixos indicam boa sincronização entre mineradores e propagação eficiente de blocos.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o período de observação da blockchain.\n2) Identificar blocos com a mesma altura (block height).\n3) Verificar quais forks foram gerados pelo mesmo minerador.\n4) Contabilizar o número de forks causados por um único minerador.\n5) Dividir esse valor pelo número total de forks observados no período.",
+    "references": "1) Impact of Geo-Distribution and Mining Pools on Blockchains: A Study of Ethereum"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 107"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t71",
+  "table_no": 71,
+  "name": "Frequência de Forks",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Frequência com que ocorrem forks na blockchain, isto é, situações em que dois ou mais blocos são criados quase ao mesmo tempo para a mesma posição na cadeia, gerando ramificações temporárias até que uma seja escolhida como principal.",
+    "objective": "Avaliar a estabilidade do consenso e a eficiência da propagação de blocos na rede. Uma alta frequência de forks indica maior desperdício de trabalho, aumento do tempo de confirmação e menor confiabilidade do sistema.",
+    "equation": "Frequência de Forks = Número de forks / Número total de blocos observados\nou\nFrequência de Forks = Número de forks / Tempo de observação.",
+    "comment": "Valores mais baixos indicam uma rede estável, com boa propagação de blocos e consenso eficiente. Valores elevados sugerem atrasos de rede, blocos grandes, dificuldade de consenso ou comportamento adversarial, aumentando o risco de reorganizações da cadeia.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a rede e a janela de observação.\n2) Monitorar a criação de blocos e identificar ocorrências de blocos concorrentes na mesma altura.\n3) Contabilizar o número de forks ocorridos no período.\n4) Calcular a frequência em relação ao número de blocos ou ao tempo observado.\n5) Analisar a relação da métrica com latência de propagação e tempo de confirmação.",
+    "references": "1) A Decentralized Lightweight Blockchain Nodes Architecture Based on a Secure OpenFlow Protocol Controller Channel"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 71"
+  }
+}

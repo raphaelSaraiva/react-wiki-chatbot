@@ -1,0 +1,22 @@
+{
+  "id": "t111",
+  "table_no": 111,
+  "name": "Índice de Centralização de Controle",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Proporção de funções de um contrato inteligente que concedem poderes especiais a uma única entidade, como o proprietário ou administrador. Essas funções permitem alterar, pausar ou reconfigurar o comportamento do contrato, indicando o grau de centralização de controle.",
+    "objective": "Avaliar o risco de centralização em contratos inteligentes, identificando situações em que uma única entidade possui poder excessivo sobre regras, parâmetros ou ativos, o que pode comprometer a confiança e a descentralização do sistema.",
+    "equation": "ICC = N_funcoes_privilegiadas / N_funcoes_totais\nonde N_funcoes_privilegiadas é o número de funções com acesso restrito (por exemplo, onlyOwner ou admin) e N_funcoes_totais é o total de funções públicas do contrato.",
+    "comment": "Valores elevados indicam maior concentração de poder e maior risco de abuso, censura ou alterações unilaterais no contrato. Valores baixos sugerem contratos mais descentralizados, com regras mais estáveis e menor dependência de confiança em um único ator.",
+    "scale_type": "Razão",
+    "protocol": "1) Selecionar contratos inteligentes para análise.\n2) Inspecionar o código-fonte ou usar ferramentas de auditoria para identificar modificadores de acesso.\n3) Classificar as funções como privilegiadas ou não privilegiadas.\n4) Contar o total de funções e o número de funções privilegiadas.\n5) Calcular o ICC usando a equação definida.",
+    "references": "1) Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 111"
+  }
+}

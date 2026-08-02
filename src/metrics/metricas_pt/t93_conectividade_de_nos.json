@@ -1,0 +1,22 @@
+{
+  "id": "t93",
+  "table_no": 93,
+  "name": "Conectividade dos Nós",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Disponibilidade"
+  },
+  "fields": {
+    "definition": "Grau de interconexão entre os nós de uma rede blockchain, indicando quantas conexões diretas existem entre participantes. Uma maior conectividade facilita a propagação de transações e blocos, reduz atrasos de comunicação e aumenta a estabilidade da rede.",
+    "objective": "Avaliar se a topologia da rede blockchain oferece conexões suficientes entre os nós para garantir boa sincronização, rápida disseminação de informações e menor risco de falhas ou bifurcações.",
+    "equation": "CN = (soma das conexões diretas entre os nós) / (número total de nós)\n\nValores maiores indicam redes mais conectadas.",
+    "comment": "Uma conectividade elevada indica que os nós recebem blocos e transações rapidamente, reduzindo o risco de desatualização e forks. Conectividade baixa sugere rede fragmentada, com maior latência de propagação e maior probabilidade de inconsistências temporárias no ledger.",
+    "scale_type": "Razão",
+    "protocol": "1) Identificar todos os nós ativos da rede no período analisado.\n2) Medir quantas conexões diretas cada nó mantém com outros nós.\n3) Calcular a conectividade média da rede.\n4) Comparar diferentes configurações de conectividade.\n5) Relacionar os valores observados com latência e ocorrência de forks.",
+    "references": "1) Effect of Miner Incentive on the Confirmation Time of Bitcoin Transactions"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 93"
+  }
+}

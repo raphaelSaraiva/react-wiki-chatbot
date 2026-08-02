@@ -1,0 +1,22 @@
+{
+  "id": "t127",
+  "table_no": 127,
+  "name": "Taxa de Sucesso de Requisições",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Proporção de requisições ou transações que são processadas com sucesso por um sistema blockchain em relação ao total de requisições enviadas.",
+    "objective": "Avaliar a capacidade do sistema blockchain de responder corretamente às requisições de serviço, indicando a robustez da comunicação entre nós e a estabilidade do processamento sob diferentes condições de carga.",
+    "equation": "Taxa de Sucesso de Requisições = Número de requisições bem-sucedidas / Número total de requisições.",
+    "comment": "Valores altos indicam um sistema confiável, com boa coordenação entre nós e baixa incidência de falhas. Quedas nessa taxa sugerem problemas de sobrecarga, falhas de consenso, timeouts ou instabilidade de rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o conjunto de requisições ou transações a serem avaliadas.\n2) Enviar as requisições ao sistema blockchain durante um período de observação.\n3) Registrar o número total de requisições emitidas.\n4) Registrar o número de requisições concluídas com resposta válida.\n5) Calcular a razão entre requisições bem-sucedidas e requisições totais.",
+    "references": "1) T-DSES: A Blockchain-powered Trusted Decentralized Service Eco-System"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 127"
+  }
+}

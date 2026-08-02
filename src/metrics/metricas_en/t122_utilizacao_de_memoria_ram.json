@@ -1,0 +1,21 @@
+{
+  "id": "t122",
+  "table_no": 122,
+  "name": "Utilização de RAM",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade de memória RAM utilizada pelos nós da rede blockchain durante a execução de suas operações. A métrica indica quão intensivamente o sistema consome memória para manter o funcionamento da blockchain.",
+    "objective": "Avaliar se o consumo de memória é eficiente e previsível durante a execução da blockchain, auxiliando no dimensionamento adequado da infraestrutura e na identificação de gargalos em dispositivos com recursos limitados.",
+    "equation": "UtilizacaoRAM (%) = (RAM_usada / RAM_total) × 100",
+    "comment": "A utilização de RAM reflete principalmente o comportamento do software do nó e a carga de processamento ativa. Um consumo estável de memória indica boa eficiência e facilita a execução da blockchain em equipamentos de baixo custo ou capacidade limitada.",
+    "scale_type": "Razão",
+    "protocol": "1) Monitorar o uso de memória RAM de cada nó da rede durante a execução normal da blockchain.\n2) Registrar periodicamente a quantidade de RAM utilizada e a memória total disponível.\n3) Calcular a utilização média de RAM ao longo do tempo.\n4) Comparar os resultados entre diferentes tipos de dispositivos e cargas de transação.\n5) Analisar a estabilidade do consumo conforme o crescimento da blockchain."
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 122"
+  }
+}

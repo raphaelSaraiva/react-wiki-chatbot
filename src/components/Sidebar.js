@@ -1,7 +1,9 @@
 // src/components/Sidebar.js
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import metricsIndex from "../metrics/metricas_index.json";
+import { getMetricsIndex } from "../metrics/localizedMetrics";
+import { useLanguage } from "../i18n/LanguageContext";
+import { t } from "../i18n/uiText";
 import {
   canAccessChatbot,
   getMetricsVisitedCount,
@@ -13,13 +15,21 @@ import "../styles/sidebar.css";
 
 const ISO_ORDER = [
   "Adequação Funcional",
+  "Functional Suitability",
   "Eficiência de Desempenho",
+  "Performance Efficiency",
   "Compatibilidade",
+  "Compatibility",
   "Usabilidade",
+  "Usability",
   "Confiabilidade",
+  "Reliability",
   "Segurança",
+  "Security",
   "Manutenibilidade",
+  "Maintainability",
   "Portabilidade",
+  "Portability",
 ];
 
 const UNKNOWN_GROUP = "Sem característica";
@@ -64,28 +74,28 @@ function saveCollapsedMap(map) {
 function characteristicMeta(label) {
   const l = normalizeStr(label);
 
-  if (l.includes("adequacao funcional")) {
+  if (l.includes("adequacao funcional") || l.includes("functional suitability")) {
     return { icon: "🧩", chip: "chip chip-func" };
   }
-  if (l.includes("eficiencia de desempenho")) {
+  if (l.includes("eficiencia de desempenho") || l.includes("performance efficiency")) {
     return { icon: "⚡", chip: "chip chip-perf" };
   }
-  if (l.includes("compatibilidade")) {
+  if (l.includes("compatibilidade") || l.includes("compatibility")) {
     return { icon: "🔗", chip: "chip chip-comp" };
   }
-  if (l.includes("usabilidade")) {
+  if (l.includes("usabilidade") || l.includes("usability")) {
     return { icon: "🖱️", chip: "chip chip-usa" };
   }
-  if (l.includes("confiabilidade")) {
+  if (l.includes("confiabilidade") || l.includes("reliability")) {
     return { icon: "🛡️", chip: "chip chip-rel" };
   }
-  if (l.includes("seguranca")) {
+  if (l.includes("seguranca") || l.includes("security")) {
     return { icon: "🔒", chip: "chip chip-sec" };
   }
-  if (l.includes("manutenibilidade")) {
+  if (l.includes("manutenibilidade") || l.includes("maintainability")) {
     return { icon: "🧰", chip: "chip chip-main" };
   }
-  if (l.includes("portabilidade")) {
+  if (l.includes("portabilidade") || l.includes("portability")) {
     return { icon: "📦", chip: "chip chip-port" };
   }
 
@@ -96,6 +106,7 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
   const [metrics, setMetrics] = useState([]);
   const [query, setQuery] = useState("");
   const location = useLocation();
+  const { language } = useLanguage();
 
   // força re-render quando o experimentState mudar
   const [expTick, setExpTick] = useState(0);
@@ -109,8 +120,9 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
   );
 
   useEffect(() => {
+    const metricsIndex = getMetricsIndex(language);
     setMetrics(Array.isArray(metricsIndex) ? metricsIndex : []);
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     const onChanged = () => setExpTick((t) => t + 1);
@@ -199,13 +211,13 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
       {/* HEADER FIXO */}
       <div className="sidebar-header">
         <div className="sidebar-title">
-          <div className="sidebar-kicker">MENU</div>
+          <div className="sidebar-kicker">{t(language, "sidebarKicker")}</div>
         </div>
 
         <button
           className="sidebar-close"
           onClick={toggleMenu}
-          title="Ocultar menu"
+          title={t(language, "hideMenu")}
         >
           ✕
         </button>
@@ -215,7 +227,7 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Buscar métrica..."
+            placeholder={t(language, "searchPlaceholder")}
           />
           <div className="sidebar-count">
             {filteredCount}/{totalCount}
@@ -227,16 +239,16 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
       <div className="sidebar-scroll">
         {/* AÇÃO PRINCIPAL */}
         <div className="sidebar-cta">
-          <div className="sidebar-cta-label">AÇÃO PRINCIPAL</div>
+          <div className="sidebar-cta-label">{t(language, "mainAction")}</div>
 
           {canChat ? (
             <Link to="/" className="sidebar-cta-card">
               <div className="sidebar-cta-icon">🤖</div>
 
               <div className="sidebar-cta-content">
-                <div className="sidebar-cta-title">Chatbot Experimental</div>
+                <div className="sidebar-cta-title">{t(language, "experimentalChatbot")}</div>
                 <div className="sidebar-cta-subtitle">
-                  Compare respostas e escolha a melhor
+                  {t(language, "compareAnswers")}
                 </div>
               </div>
 
@@ -250,10 +262,10 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
               <div className="sidebar-cta-icon">🔒</div>
 
               <div className="sidebar-cta-content">
-                <div className="sidebar-cta-title">Chatbot Experimental</div>
+                <div className="sidebar-cta-title">{t(language, "experimentalChatbot")}</div>
                 <div className="sidebar-cta-subtitle">
-                  Libera após explorar métricas ({visitedCount}/
-                  {EXP_CONFIG.METRICS_REQUIRED}) e realizar uma busca válida
+                  {t(language, "unlockAfterMetrics")} ({visitedCount}/
+                  {EXP_CONFIG.METRICS_REQUIRED}) {t(language, "validSearchRequired")}
                 </div>
               </div>
 
@@ -264,11 +276,11 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
 
         {/* MÉTRICAS */}
         <div className="sidebar-section">
-          <div className="sidebar-section-title">CATALOGO</div>
+          <div className="sidebar-section-title">{t(language, "catalog")}</div>
 
           {filteredCount === 0 ? (
             <div className="sidebar-empty">
-              Nenhuma métrica encontrada para <strong>{query}</strong>.
+              {t(language, "noMetricFound")} <strong>{query}</strong>.
             </div>
           ) : (
             <div className="sidebar-list sidebar-list-groups">
@@ -291,10 +303,10 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
                       disabled={isSearchActive}
                       title={
                         isSearchActive
-                          ? "Durante a busca, os grupos ficam expandidos"
+                          ? t(language, "groupsExpandedDuringSearch")
                           : collapsed
-                            ? "Expandir"
-                            : "Minimizar"
+                            ? t(language, "expand")
+                            : t(language, "minimize")
                       }
                     >
                       <div className="sidebar-group-left">
@@ -307,8 +319,10 @@ const Sidebar = ({ isVisible, toggleMenu }) => {
 
                           <div className="sidebar-group-sub">
                             <span className={meta.chip}>
-                              {items.length} métrica
-                              {items.length === 1 ? "" : "s"}
+                              {items.length}{" "}
+                              {items.length === 1
+                                ? t(language, "metricSingular")
+                                : t(language, "metricPlural")}
                             </span>
                           </div>
                         </div>

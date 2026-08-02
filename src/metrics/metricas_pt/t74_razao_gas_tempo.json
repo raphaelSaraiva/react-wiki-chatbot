@@ -1,0 +1,22 @@
+{
+  "id": "t74",
+  "table_no": 74,
+  "name": "Razão Gás/Tempo",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Relação entre a quantidade de gás consumida e o tempo total necessário para executar e confirmar uma transação ou contrato inteligente. Essa métrica expressa quanto de recurso computacional (gás) é gasto por unidade de tempo durante a execução.",
+    "objective": "Avaliar a eficiência temporal do uso de gás, relacionando o consumo computacional com o tempo de processamento e confirmação das transações. A métrica ajuda a identificar contratos ou operações que consomem muito gás em relação ao tempo de execução.",
+    "equation": "Razão Gás/Tempo = GasUsed / Tempo de Execução",
+    "comment": "Valores mais baixos indicam que o consumo de gás está distribuído de forma eficiente ao longo do tempo de execução. Valores elevados podem indicar operações custosas, atrasos de confirmação ou gargalos no processamento, sugerindo necessidade de otimização do contrato ou da infraestrutura.",
+    "scale_type": "Razão",
+    "protocol": "1) Registrar o instante de envio da transação (t_início).\n2) Registrar o instante de confirmação da transação (t_fim).\n3) Calcular o tempo de execução como t_fim − t_início.\n4) Coletar o valor de gasUsed no recibo da transação.\n5) Calcular a razão entre o gás consumido e o tempo de execução.",
+    "references": "1) Empirically Analyzing Ethereum’s Gas Mechanism"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 74"
+  }
+}

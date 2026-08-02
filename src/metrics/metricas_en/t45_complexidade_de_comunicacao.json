@@ -1,0 +1,22 @@
+{
+  "id": "t45",
+  "table_no": 45,
+  "name": "Complexidade de Comunicação",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Mede a quantidade de mensagens trocadas entre os nós de uma rede blockchain durante a execução de operações distribuídas, como consenso, sincronização de estado ou alocação de shards. A métrica expressa o custo de comunicação necessário para que os nós mantenham uma visão consistente do sistema.",
+    "objective": "Avaliar a eficiência e a escalabilidade da comunicação entre nós em protocolos blockchain. Em sistemas fragmentados (sharded), a complexidade de comunicação influencia diretamente a latência, o consumo de largura de banda e a capacidade de crescimento da rede.",
+    "equation": "CC = f(n, f),\nonde n é o número total de nós participantes e f é o número de nós falhos ou bizantinos.\nDependendo do protocolo, a complexidade pode crescer como O(n), O(n²) ou O(n³).",
+    "comment": "A complexidade de comunicação indica o quanto a rede precisa trocar mensagens para funcionar corretamente. Protocolos com menor crescimento no número de mensagens tendem a escalar melhor e apresentar menor atraso, enquanto protocolos com alta complexidade geram maior sobrecarga de rede e podem se tornar inviáveis em grandes sistemas distribuídos.",
+    "scale_type": "Ordinal",
+    "protocol": "1) Selecionar o protocolo blockchain ou de sharding a ser avaliado.\n2) Definir o número de nós participantes da rede.\n3) Registrar o total de mensagens trocadas durante operações como entrada de nós, consenso e realocação de shards.\n4) Estimar o crescimento da comunicação em função de n.\n5) Comparar a complexidade observada entre diferentes protocolos.",
+    "references": "1) Analysing and Improving Shard Allocation Protocols for Sharded Blockchains"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 45"
+  }
+}

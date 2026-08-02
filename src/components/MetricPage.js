@@ -1,37 +1,25 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import metricsIndex from "../metrics/metricas_index.json";
+import { getMetricFile, getMetricsIndex } from "../metrics/localizedMetrics";
+import { useLanguage } from "../i18n/LanguageContext";
+import { t } from "../i18n/uiText";
 import { markMetricVisited } from "../experiment/experimentState";
 import html2pdf from "html2pdf.js";
 
-// CRA/Webpack: mapa dos JSONs em /metrics/metricas
-const metricFiles = require.context("../metrics/metricas", false, /\.json$/);
+function prettyLabel(language, key) {
+  return t(language, key) || String(key || "").replace(/_/g, " ");
+}
 
-function prettyLabel(key) {
-  const map = {
-    definition: "Definição",
-    objective: "Objetivo / Motivação",
-    domain_independence: "Nível de Independência do Domínio",
-    quality_model: "Modelo de Qualidade",
-    characteristic: "Característica",
-    subcharacteristic: "Sub-característica",
-    equation: "Equação",
-    associated_metrics: "Métricas Associadas",
-    related_attribute: "Atributo Relacionado",
-    protocol: "Protocolo",
-    comment: "Comentário",
-    interpretation: "Interpretação do Valor Medido",
-    unit: "Unidade",
-    scale_type: "Tipo de Escala",
-    precision: "Precisão",
-    data_collection: "Tipo de Coleta de Dados",
-    measurement_tool: "Ferramenta de Medição",
-    use_processes: "Processos de Uso Potenciais",
-    beneficiaries: "Beneficiários Potenciais",
-    references: "Referências",
-  };
+const EN_VALUE_TRANSLATIONS = {
+  "Eficiência de Desempenho": "Performance Efficiency",
+  "Comportamento Temporal": "Time Behavior",
+  "Absoluta": "Absolute",
+  "Tabela 12": "Table 12",
+};
 
-  return map[key] || String(key || "").replace(/_/g, " ");
+function localizedValue(language, value) {
+  if (language !== "en") return value;
+  return EN_VALUE_TRANSLATIONS[value] || value;
 }
 
 function hasValue(v) {
@@ -98,6 +86,8 @@ export default function MetricPage() {
   const { metricId } = useParams();
   const printRef = useRef(null);
   const [pdfLoading, setPdfLoading] = useState(false);
+  const { language } = useLanguage();
+  const metricsIndex = getMetricsIndex(language);
 
   // ✅ conta visita sempre que trocar de métrica (t1 -> t2 -> t3...)
   useEffect(() => {
@@ -108,16 +98,16 @@ export default function MetricPage() {
 
   const meta = useMemo(
     () => (metricsIndex || []).find((m) => String(m.id) === String(metricId)),
-    [metricId]
+    [metricsIndex, metricId]
   );
 
   if (!meta) {
     return (
       <div className="container py-4">
         <div className="alert alert-warning" style={{ borderRadius: 12 }}>
-          <h4 className="mb-1">Métrica não encontrada</h4>
+          <h4 className="mb-1">{t(language, "metricNotFound")}</h4>
           <div style={{ opacity: 0.9 }}>
-            Não conseguimos encontrar informações para{" "}
+            {t(language, "metricNotFoundDetails")}{" "}
             <strong>"{metricId}"</strong>.
           </div>
         </div>
@@ -129,12 +119,12 @@ export default function MetricPage() {
   let metricData = null;
 
   try {
-    metricData = metricFiles(`./${fileNameOnly}`);
+    metricData = getMetricFile(language, fileNameOnly);
   } catch {
     return (
       <div className="container py-4">
         <div className="alert alert-danger" style={{ borderRadius: 12 }}>
-          <h4 className="mb-1">Arquivo da métrica não carregou</h4>
+          <h4 className="mb-1">{t(language, "metricFileError")}</h4>
           <pre
             className="mt-3 mb-0"
             style={{
@@ -152,6 +142,15 @@ export default function MetricPage() {
   }
 
   const metric = metricData?.default || metricData;
+  const metricName = language === "en" ? meta?.name || metric?.name : metric?.name || meta?.name;
+  const isoCharacteristic =
+    language === "en"
+      ? meta?.characteristic || metric?.iso25010?.characteristic
+      : metric?.iso25010?.characteristic || meta?.characteristic;
+  const isoSubcharacteristic = localizedValue(
+    language,
+    metric?.iso25010?.subcharacteristic
+  );
 
   const entries = Object.entries(metric?.fields || {}).filter(([, v]) =>
     hasValue(v)
@@ -163,7 +162,7 @@ export default function MetricPage() {
     setPdfLoading(true);
     try {
       const safeName =
-        String(metric?.name || meta?.name || "metrica")
+        String(metricName || "metrica")
           .trim()
           .replace(/[\\/:*?"<>|]+/g, "-")
           .slice(0, 80) || "metrica";
@@ -217,7 +216,7 @@ export default function MetricPage() {
           }}
         >
           <div className="d-flex align-items-center justify-content-between gap-2">
-            <h2 className="mb-0">{metric?.name || meta?.name}</h2>
+            <h2 className="mb-0">{metricName}</h2>
 
             {/* ✅ Botão PDF */}
             {!pdfLoading && (
@@ -231,9 +230,9 @@ export default function MetricPage() {
                   padding: "10px 12px",
                   whiteSpace: "nowrap",
                 }}
-                title="Exportar esta página para PDF"
+                title={t(language, "exportPdfTitle")}
               >
-                Gerar PDF
+                {t(language, "exportPdf")}
               </button>
             )}
           </div>
@@ -249,36 +248,36 @@ export default function MetricPage() {
             }}
           >
             <div className="card-body">
-              <h5 className="card-title mb-3">Classificação (ISO/IEC 25010)</h5>
+              <h5 className="card-title mb-3">{t(language, "classification")}</h5>
 
               <div className="row g-3">
                 {metric.iso25010.model && (
                   <div className="col-md-4">
-                    <div style={{ opacity: 0.7, fontSize: 12 }}>Modelo</div>
+                    <div style={{ opacity: 0.7, fontSize: 12 }}>{t(language, "model")}</div>
                     <div style={{ fontWeight: 600 }}>
                       {metric.iso25010.model}
                     </div>
                   </div>
                 )}
 
-                {metric.iso25010.characteristic && (
+                {isoCharacteristic && (
                   <div className="col-md-4">
                     <div style={{ opacity: 0.7, fontSize: 12 }}>
-                      Característica
+                      {t(language, "characteristic")}
                     </div>
                     <div style={{ fontWeight: 600 }}>
-                      {metric.iso25010.characteristic}
+                      {localizedValue(language, isoCharacteristic)}
                     </div>
                   </div>
                 )}
 
-                {metric.iso25010.subcharacteristic && (
+                {isoSubcharacteristic && (
                   <div className="col-md-4">
                     <div style={{ opacity: 0.7, fontSize: 12 }}>
-                      Sub-característica
+                      {t(language, "subcharacteristic")}
                     </div>
                     <div style={{ fontWeight: 600 }}>
-                      {metric.iso25010.subcharacteristic}
+                      {isoSubcharacteristic}
                     </div>
                   </div>
                 )}
@@ -298,7 +297,7 @@ export default function MetricPage() {
           <div className="card-body">
             {entries.length > 0 ? (
               entries.map(([k, v], idx) => {
-                const content = normalizePdfText(v);
+                const content = normalizePdfText(localizedValue(language, v));
 
                 return (
                   <div
@@ -315,7 +314,7 @@ export default function MetricPage() {
                           background: "#2563eb",
                         }}
                       />
-                      <h6 className="mb-0">{prettyLabel(k)}</h6>
+                      <h6 className="mb-0">{prettyLabel(language, k)}</h6>
                     </div>
 
                     <div
@@ -340,7 +339,7 @@ export default function MetricPage() {
               })
             ) : (
               <div style={{ opacity: 0.8 }}>
-                Sem conteúdo em <code>fields</code>.
+                {t(language, "noFields")} <code>fields</code>.
               </div>
             )}
           </div>

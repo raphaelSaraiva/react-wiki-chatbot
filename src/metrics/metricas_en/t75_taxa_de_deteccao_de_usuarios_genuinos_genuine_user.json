@@ -1,0 +1,22 @@
+{
+  "id": "t75",
+  "table_no": 75,
+  "name": "Taxa de Detecção de Usuários Genuínos",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Autenticidade"
+  },
+  "fields": {
+    "definition": "Proporção de usuários legítimos corretamente reconhecidos pelo sistema de autenticação em relação ao total de tentativas de acesso. A métrica indica o quão bem o mecanismo identifica usuários genuínos sem confundi-los com entidades maliciosas.",
+    "objective": "Avaliar a eficácia do mecanismo de autenticação baseado em blockchain em reconhecer usuários legítimos, garantindo acesso seguro e confiável a dados armazenados em sistemas descentralizados.",
+    "equation": "Taxa de Detecção de Usuários Genuínos = Número de autenticações corretas de usuários legítimos / Total de tentativas de autenticação",
+    "comment": "Valores elevados indicam que o sistema reconhece corretamente a maioria dos usuários legítimos, reduzindo recusas indevidas de acesso. Valores baixos sugerem falhas no processo de autenticação, que podem afetar a usabilidade e a confiança no sistema.",
+    "scale_type": "Razão",
+    "protocol": "1) Implementar o mecanismo de controle de acesso baseado em blockchain.\n2) Realizar tentativas de autenticação com usuários legítimos e usuários não autorizados.\n3) Registrar quantas tentativas de usuários legítimos foram corretamente aceitas.\n4) Contabilizar o número total de tentativas de autenticação.\n5) Calcular a razão entre autenticações corretas de usuários legítimos e o total de tentativas.",
+    "references": "1) Blockchain-Based Access Control and Data Sharing Mechanism in Cloud Decentralized Storage System"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 75"
+  }
+}

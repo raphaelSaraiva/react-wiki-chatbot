@@ -1,0 +1,22 @@
+{
+  "id": "t6",
+  "table_no": 6,
+  "name": "Consumo de Energia",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade de energia elétrica consumida por um dispositivo, nó ou sistema blockchain durante a execução de uma determinada função ou ao longo de um período de tempo.",
+    "objective": "Avaliar a eficiência energética de sistemas baseados em blockchain, especialmente em cenários com dispositivos IoT, redes de energia e ambientes com restrições de recursos.",
+    "equation": "E = integral da potência ao longo do tempo. \n\nNa prática, o consumo pode ser estimado pela soma das medições periódicas de potência multiplicadas pelo intervalo de amostragem.",
+    "comment": "Menor consumo de energia indica maior eficiência para realizar a mesma tarefa. Valores elevados podem impactar custos operacionais, autonomia de dispositivos e sustentabilidade do sistema. Recomenda-se observar percentis altos (p95 ou p99) e o consumo por operação.",
+    "scale_type": "Absoluta",
+    "protocol": "1) Definir o período de observação e a frequência de medição.\n2) Instrumentar dispositivos ou nós com sensores de energia e relógios sincronizados.\n3) Coletar leituras de potência ou energia ao longo do tempo.\n4) Agregar e armazenar os dados, preferencialmente fora da blockchain, com registro de integridade.\n5) Calcular o consumo total e estatísticas como média e percentis.\n6) Relacionar o consumo com eventos operacionais ou funções executadas.",
+    "references": "1) A Data Analytics Scheme for Security-aware DRM in Smart Grid\n2) Exploring Blockchain-Secured Data Validation in Smart Meter Readings\n3) Integrating IoT and Blockchain for Mining Inspection Systems\n4) Secure Data Exchange Between IoT Endpoints for Energy Balancing\n5) Blockchain & MLR-based Energy Trading Scheme for EVs"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 6"
+  }
+}

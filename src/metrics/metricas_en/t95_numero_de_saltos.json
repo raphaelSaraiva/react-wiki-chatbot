@@ -1,0 +1,22 @@
+{
+  "id": "t95",
+  "table_no": 95,
+  "name": "Número de Saltos",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Número médio de nós intermediários pelos quais uma mensagem (transação ou bloco) precisa passar até alcançar a maioria dos nós da rede blockchain. Essa métrica indica o quão eficiente é a topologia da rede P2P na disseminação de informações.",
+    "objective": "Avaliar a eficiência da comunicação na rede blockchain, verificando se mensagens conseguem se espalhar rapidamente entre os nós. Um número menor de saltos tende a reduzir atrasos de propagação e melhorar o tempo de confirmação das transações.",
+    "equation": "H = (∑ di) / N\n\nonde di é o número de saltos até o nó i\nN é o número total de nós alcançados",
+    "comment": "Redes blockchain com topologia bem conectada normalmente apresentam poucos saltos entre nós, o que favorece a rápida disseminação de transações e blocos. Valores baixos indicam uma rede eficiente e bem estruturada. Valores altos sugerem fragmentação da rede ou baixa conectividade, o que pode aumentar a latência e a probabilidade de bifurcações.",
+    "scale_type": "Razão",
+    "protocol": "1) Implantar nós de monitoramento conectados à rede blockchain.\n2) Enviar ou observar a propagação de transações e blocos.\n3) Registrar o instante de recebimento da mensagem em cada nó.\n4) Estimar o número de saltos com base na ordem e no tempo de chegada.\n5) Calcular a média de saltos considerando todos os nós alcançados.",
+    "references": "1) Ethna: Analyzing the Underlying Peer-to-Peer Network of Ethereum Blockchain"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 95"
+  }
+}

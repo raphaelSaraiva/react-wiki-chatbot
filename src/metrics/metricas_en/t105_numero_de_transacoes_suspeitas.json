@@ -1,0 +1,22 @@
+{
+  "id": "t105",
+  "table_no": 105,
+  "name": "Número de Transações Suspeitas",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Quantidade total de transações identificadas como suspeitas em uma rede blockchain, com base em critérios de risco definidos por modelos de análise de comportamento.",
+    "objective": "Quantificar a presença de atividades potencialmente fraudulentas ou anômalas na rede blockchain, apoiando a identificação de contas de risco e o monitoramento da integridade das transações.",
+    "equation": "Número de Transações Suspeitas = total de transações cujo grau de suspeita é maior ou igual ao limiar definido pelo modelo de análise.",
+    "comment": "Valores elevados indicam maior incidência de comportamentos anômalos ou suspeitos na rede, como possíveis fraudes ou abusos. Valores baixos sugerem um ambiente predominantemente legítimo e estável.",
+    "scale_type": "Razão",
+    "protocol": "1) Coletar o conjunto de transações da blockchain analisada.\n2) Aplicar o modelo de análise de risco para calcular o grau de suspeita de cada transação.\n3) Definir um limiar mínimo para classificar transações como suspeitas.\n4) Identificar as transações que ultrapassam esse limiar.\n5) Contabilizar o número total de transações suspeitas.",
+    "references": "1) A General Framework for Account Risk Rating on Ethereum: Toward Safer Blockchain Technology"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 105"
+  }
+}

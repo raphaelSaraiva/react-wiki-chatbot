@@ -1,0 +1,22 @@
+{
+  "id": "t146",
+  "table_no": 146,
+  "name": "Tempo de Confirmação da Transação",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo total necessário para que uma transação seja aceita, validada pelo consenso e registrada de forma definitiva na blockchain, desde o momento em que é enviada até sua confirmação final.",
+    "objective": "Avaliar a eficiência temporal do processo de consenso em redes blockchain, permitindo comparar protocolos e configurações quanto à rapidez na confirmação de transações.",
+    "equation": "T_confirm = tempo de confirmação − tempo de submissão da transação.",
+    "comment": "Tempos menores indicam uma rede mais rápida e responsiva. Valores elevados podem sinalizar gargalos no consenso, excesso de comunicação entre nós validadores ou congestionamento da rede, impactando negativamente aplicações sensíveis a tempo.",
+    "scale_type": "Razão",
+    "protocol": "1) Configurar a rede blockchain e o protocolo de consenso a ser avaliado.\n2) Submeter transações de forma controlada à rede.\n3) Registrar o instante de envio e o instante de confirmação de cada transação.\n4) Calcular o tempo de confirmação para cada transação.\n5) Comparar os resultados entre diferentes protocolos, cargas de rede ou números de validadores.",
+    "references": "1) An Efficient Byzantine Consensus Mechanism Based on Healthcare Sector in Blockchain"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 146"
+  }
+}

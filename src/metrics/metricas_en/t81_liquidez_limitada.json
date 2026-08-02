@@ -1,0 +1,22 @@
+{
+  "id": "t81",
+  "table_no": 81,
+  "name": "Liquidez Limitada",
+  "iso25010": {
+    "characteristic": "Portabilidade",
+    "subcharacteristic": "Adaptabilidade"
+  },
+  "fields": {
+    "definition": "Grau de restrição na movimentação e conversão de ativos digitais em uma blockchain, causado por baixa profundidade de mercado, concentração de liquidez ou dependência de intermediários como exchanges e bridges. Reflete a dificuldade de executar transações de grande volume sem impacto significativo no preço ou sem recorrer a infraestruturas centralizadas.",
+    "objective": "Avaliar a eficiência econômica e a adaptabilidade do ecossistema blockchain quanto à transferência e conversão de ativos. A métrica identifica riscos de centralização financeira, manipulação de preços e bloqueio operacional de ativos em ambientes que se propõem descentralizados.",
+    "equation": "Liquidez Limitada = 1 − (Vneg / Vdem),\n\nonde Vneg é o volume que pode ser negociado sem ultrapassar uma variação máxima de preço aceitável (∆Pmax) e Vdem é o volume total demandado. Valores mais altos indicam menor liquidez.",
+    "comment": "Liquidez limitada indica dependência de poucos provedores e maior risco econômico. Em ecossistemas com baixa liquidez, grandes transações tendem a causar variações abruptas de preço ou exigem o uso de intermediários centralizados, reduzindo a adaptabilidade e a descentralização prática da rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Selecionar os principais ativos e pares de negociação do ecossistema.\n2) Coletar dados de livro de ordens e volumes negociados (on-chain e off-chain).\n3) Definir um limiar máximo de variação de preço aceitável (∆Pmax).\n4) Calcular o volume negociável dentro desse limiar (Vneg).\n5) Identificar o volume total demandado (Vdem).\n6) Calcular a métrica de Liquidez Limitada e acompanhar sua variação ao longo do tempo.",
+    "references": "1) Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 81"
+  }
+}

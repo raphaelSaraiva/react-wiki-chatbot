@@ -1,0 +1,22 @@
+{
+  "id": "t15",
+  "table_no": 15,
+  "name": "Custo Operacional",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Custo total para manter uma aplicação ou rede blockchain em funcionamento ao longo do tempo, considerando tanto os custos on-chain (taxas de transação e execução de contratos) quanto os custos off-chain de infraestrutura, como processamento, armazenamento, rede e energia.",
+    "objective": "Avaliar o impacto financeiro da operação de soluções baseadas em blockchain, apoiando decisões de arquitetura, otimização de contratos, uso de armazenamento off-chain e planejamento orçamentário.",
+    "equation": "Custo Operacional = soma das taxas on-chain (gasUsed × gasPrice) + custos de infraestrutura + custos de energia, medidos em um período definido.",
+    "comment": "O custo operacional reflete o efeito combinado de decisões técnicas e de mercado. Taxas de gás mais altas tendem a reduzir o tempo de confirmação, mas aumentam o custo. Estratégias como uso de IPFS, agregação de operações e escolha adequada de parâmetros de consenso ajudam a reduzir o custo total sem comprometer o SLA.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o período de análise e a moeda de referência (por exemplo, ETH ou USD).\n2) Coletar, para cada transação, os valores de gasUsed e gasPrice.\n3) Calcular o custo on-chain somando gasUsed × gasPrice no período.\n4) Somar os custos de infraestrutura e energia do ambiente de execução.\n5) Calcular métricas agregadas, como custo total e custo médio por transação.\n6) Comparar cenários (on-chain vs. off-chain, diferentes políticas de gás ou arquiteturas).",
+    "references": "1) Distributed Network Slicing Management Using Blockchains in E-Health Environments\n2) A Quality of Service Compliance System Empowered by Smart Contracts and Oracles"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 15"
+  }
+}

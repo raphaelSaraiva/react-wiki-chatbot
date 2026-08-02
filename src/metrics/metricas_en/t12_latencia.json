@@ -1,0 +1,22 @@
+{
+  "id": "t12",
+  "table_no": 12,
+  "name": "Latency",
+  "iso25010": {
+    "characteristic": "Performance Efficiency",
+    "subcharacteristic": "Time Behavior"
+  },
+  "fields": {
+    "definition": "Elapsed time between submitting a transaction to the blockchain network and the moment when it is considered confirmed according to the adopted policy.",
+    "objective": "Evaluate the response time perceived by users and applications, serving as a central indicator of blockchain responsiveness and suitability for time-sensitive scenarios.",
+    "equation": "Latency = confirmation time - transaction submission time.",
+    "comment": "Lower latency indicates more responsive systems. In public blockchains, latency can increase for transactions with low fees or during congestion. In permissioned networks, it tends to be lower, but still depends on the number of nodes, the consensus mechanism, and the workload.",
+    "scale_type": "Absolute",
+    "protocol": "1) Define what characterizes a confirmed transaction, such as block inclusion or a minimum number of confirmations.\n2) Record the transaction submission time.\n3) Record the time when confirmation occurs.\n4) Calculate the difference between the two times.\n5) Analyze statistics such as mean, median, and percentiles (p95, p99) considering the test scenario.",
+    "references": "1) BitcoinF: Achieving Fairness for Bitcoin in Transaction-Fee-Only Model\n2) Securing Data Exchange in IoT-Metaverse\n3) A Blockchain Enabled Predictive, Analytical Model\n4) A Quality of Service Compliance System\n5) A Trustworthy Safety Inspection Framework Using Performance-Security Balanced Blockchain\n6) Architecture and Performance Evaluation of Blockchain-Based Peer-to-Peer Energy Trading\n7) An Edge Intelligent Blockchain-Based Reputation System for IIoT\n8) Blockchain for IoT: A Consensus Mechanism Analysis\n9) Decentralized Blockchain-Based and Trust-Aware Task Offloading Strategy for Healthcare IoT"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Table 12"
+  }
+}

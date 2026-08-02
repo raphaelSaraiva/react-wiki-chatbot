@@ -1,0 +1,22 @@
+{
+  "id": "t82",
+  "table_no": 82,
+  "name": "Redução de Carga",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Grau de diminuição da carga computacional, de comunicação ou de armazenamento em um sistema blockchain após a aplicação de mecanismos de otimização, como análise de dados, filtragem, compressão ou delegação de tarefas para componentes externos. Indica o quanto o sistema consegue operar com menos esforço de processamento e transmissão de dados, mantendo seu funcionamento correto.",
+    "objective": "Avaliar a eficiência do sistema em reduzir o uso de recursos computacionais e de rede, especialmente em ambientes com limitações de energia e capacidade, como aplicações de Internet das Coisas (IoT). A métrica permite verificar se estratégias de otimização realmente aliviam a sobrecarga sem comprometer o desempenho do sistema.",
+    "equation": "Redução de Carga = (Lorig − Lopt) / Lorig,\nonde Lorig é a carga medida antes da otimização e Lopt é a carga medida após a aplicação do mecanismo de redução. Valores maiores indicam maior redução de carga.",
+    "comment": "A redução de carga reflete o impacto direto de técnicas de otimização sobre o consumo de recursos do sistema. Em soluções blockchain para IoT, a diminuição do volume de dados processados e transmitidos reduz o esforço dos nós, melhora a escalabilidade e contribui para menor latência e consumo de energia.",
+    "scale_type": "Razão",
+    "protocol": "1) Medir a carga total do sistema antes da otimização (Lorig), considerando processamento, comunicação ou armazenamento.\n2) Aplicar o mecanismo de otimização proposto, como análise de dados, filtragem, compressão ou offloading.\n3) Medir novamente a carga total do sistema após a otimização (Lopt).\n4) Calcular a Redução de Carga usando a equação definida.\n5) Repetir o procedimento sob diferentes volumes de dados ou cenários de uso para comparação.",
+    "references": "1) A Data Analytics Scheme for Security-Aware and Efficient Data Management in Blockchain-Based IoT Systems"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 82"
+  }
+}

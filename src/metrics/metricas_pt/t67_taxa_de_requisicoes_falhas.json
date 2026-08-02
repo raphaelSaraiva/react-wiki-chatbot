@@ -1,0 +1,22 @@
+{
+  "id": "t67",
+  "table_no": 67,
+  "name": "Taxa de Requisições Falhas",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Proporção de requisições ou transações que não são concluídas com sucesso em relação ao total de requisições submetidas ao sistema blockchain.",
+    "objective": "Avaliar a confiabilidade operacional do sistema blockchain, verificando sua capacidade de lidar com cargas elevadas e manter a execução correta de requisições e transações.",
+    "equation": "Taxa de Requisições Falhas = Número de requisições falhas / Número total de requisições × 100%.",
+    "comment": "Valores mais baixos indicam maior confiabilidade e robustez do sistema. Taxas elevadas sugerem problemas como sobrecarga, falhas de comunicação, timeouts ou instabilidade no consenso.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o tipo de requisição avaliada (consulta ou transação).\n2) Executar o sistema sob diferentes níveis de carga.\n3) Registrar o número total de requisições enviadas.\n4) Registrar o número de requisições que falharam.\n5) Calcular a taxa de requisições falhas e analisar sua variação com a carga.",
+    "references": "1) T-DSES: A Blockchain-powered Trusted Decentralized Service Eco-System"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 67"
+  }
+}

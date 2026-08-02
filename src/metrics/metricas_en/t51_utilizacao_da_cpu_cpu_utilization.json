@@ -1,0 +1,22 @@
+{
+  "id": "t51",
+  "table_no": 51,
+  "name": "Utilização da CPU",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Percentual médio de ocupação da CPU dos nós de uma rede blockchain ao longo de um período de observação, considerando atividades como validação de blocos, execução de contratos inteligentes e comunicação entre nós.",
+    "objective": "Avaliar se a carga computacional imposta pelo sistema blockchain mantém-se dentro de limites sustentáveis, evitando saturação da CPU e garantindo estabilidade e disponibilidade dos serviços em ambientes com recursos limitados.",
+    "equation": "Utilização da CPU (%) = (Tempo ativo da CPU / Tempo total de observação) × 100\nO tempo ativo inclui processamento de transações, consenso e operações de suporte à rede.",
+    "comment": "Valores moderados indicam equilíbrio entre desempenho e uso de recursos. Utilização persistentemente alta sugere risco de saturação e degradação do serviço, enquanto valores muito baixos podem indicar subutilização da infraestrutura.",
+    "scale_type": "Razão",
+    "protocol": "1) Executar o sistema blockchain em ambiente controlado.\n2) Definir o período de observação.\n3) Monitorar continuamente a utilização da CPU em cada nó.\n4) Calcular a média (e, quando necessário, percentis) ao longo do tempo.\n5) Comparar os resultados com limites definidos por SLA ou requisitos do sistema.",
+    "references": "1) Blockchain-based Electronic Healthcare Information System Optimized for Developing Countries"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 51"
+  }
+}

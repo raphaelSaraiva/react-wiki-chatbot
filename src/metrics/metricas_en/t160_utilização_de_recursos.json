@@ -1,0 +1,22 @@
+{
+  "id": "t160",
+  "table_no": 160,
+  "name": "Utilização de Recursos",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Grau de uso dos recursos computacionais e de infraestrutura de um sistema blockchain, como CPU, memória, armazenamento e rede, durante a execução de transações, validação de blocos e execução de contratos inteligentes.",
+    "objective": "Avaliar a eficiência operacional de sistemas blockchain, identificando como diferentes arquiteturas (on-chain e híbridas com armazenamento off-chain) e mecanismos de consenso influenciam o consumo de recursos e a escalabilidade do sistema.",
+    "equation": "UR = (soma do consumo de CPU, memória, rede e armazenamento) / tempo de observação.",
+    "protocol": "1) Implantar o sistema blockchain em ambiente controlado.\n2) Definir cargas de trabalho representativas (ex.: criação, atualização e consulta de registros).\n3) Executar os experimentos sob diferentes volumes de transações.\n4) Monitorar o uso de CPU, memória, rede e armazenamento dos nós.\n5) Calcular a utilização média e os valores de pico de cada recurso.\n6) Comparar os resultados entre arquiteturas puramente on-chain e soluções híbridas.",
+    "comment": "Uma menor utilização de recursos indica maior eficiência do sistema. Estudos mostram que o uso de armazenamento off-chain, como IPFS, reduz significativamente o consumo de CPU e armazenamento na blockchain, mantendo apenas hashes e metadados on-chain. Arquiteturas permissionadas tendem a apresentar uso de recursos mais controlado quando comparadas a blockchains públicas.",
+    "scale_type": "Razão",
+    "references": "1) Hyperledger Healthchain: Patient-Centric IPFS-Based Storage of Health Records"
+  },
+  "source": {
+    "pdf": "Hyperledger_Healthchain_Patient_Centric_IPFS_Based_Storage_of_Health_Records.pdf",
+    "table": "Tabela 160"
+  }
+}

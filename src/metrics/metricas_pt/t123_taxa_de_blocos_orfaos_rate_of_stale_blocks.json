@@ -1,0 +1,21 @@
+{
+  "id": "t123",
+  "table_no": 123,
+  "name": "Taxa de Blocos Obsoletos",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Proporção de blocos minerados que não são incorporados à cadeia principal da blockchain. Esses blocos, chamados de blocos obsoletos ou órfãos, surgem quando há atrasos na propagação de blocos pela rede.",
+    "objective": "Avaliar a eficiência da propagação de blocos e o impacto da latência de rede na segurança e no desempenho do consenso. Uma taxa elevada indica desperdício de esforço computacional e maior instabilidade da cadeia.",
+    "equation": "Taxa_blocos_obsoletos = (N_blocos_obsoletos / N_blocos_totais) × 100",
+    "comment": "Blocos obsoletos representam trabalho de mineração desperdiçado e reduzem a eficiência global da rede. Taxas elevadas estão geralmente associadas a blocos grandes, atrasos de propagação ou mecanismos ineficientes de disseminação de blocos.",
+    "scale_type": "Razão",
+    "protocol": "1) Monitorar todos os blocos minerados em um período de observação.\n2) Identificar quais blocos não foram incluídos na cadeia principal.\n3) Contabilizar o número total de blocos e o número de blocos obsoletos.\n4) Calcular a taxa de blocos obsoletos conforme a equação definida.\n5) Comparar os resultados sob diferentes condições de rede e mecanismos de propagação."
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 123"
+  }
+}

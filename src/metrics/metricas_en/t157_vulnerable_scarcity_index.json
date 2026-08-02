@@ -1,0 +1,22 @@
+{
+  "id": "t157",
+  "table_no": 157,
+  "name": "Índice de Escassez Vulnerável",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Indicador que mede o grau de concentração de provedores responsáveis por serviços essenciais em um ecossistema blockchain, como RPCs, carteiras, APIs, SDKs ou oráculos. Um índice elevado indica dependência de poucos provedores e maior risco de falhas sistêmicas.",
+    "objective": "Avaliar a vulnerabilidade do ecossistema blockchain decorrente da dependência de infraestrutura controlada por poucos provedores, estimando riscos à disponibilidade, à continuidade do serviço e à resiliência da rede.",
+    "equation": "VSI = 1 − (N_provedores_independentes / N_total_provedores) \n\nonde valores mais próximos de 1 indicam maior escassez vulnerável.",
+    "comment": "Um índice elevado revela centralização estrutural oculta, na qual falhas, ataques ou censura a poucos provedores podem comprometer grande parte do ecossistema. Índices baixos indicam maior diversidade de provedores e maior tolerância a falhas.",
+    "scale_type": "Razão",
+    "protocol": "1) Identificar os serviços críticos utilizados pelo ecossistema blockchain.\n2) Mapear os provedores responsáveis por cada serviço.\n3) Identificar quais provedores são independentes entre si.\n4) Calcular o índice VSI com base na proporção de provedores independentes.\n5) Analisar o resultado para identificar riscos de centralização e pontos únicos de falha.",
+    "references": "1) Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 157"
+  }
+}

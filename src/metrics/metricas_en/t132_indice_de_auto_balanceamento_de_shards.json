@@ -1,0 +1,22 @@
+{
+  "id": "t132",
+  "table_no": 132,
+  "name": "Índice de Autoequilíbrio",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Recuperabilidade"
+  },
+  "fields": {
+    "definition": "Mede a capacidade de uma blockchain fragmentada (com shards) de manter ou recuperar uma distribuição equilibrada de nós entre os shards após a entrada ou saída de participantes da rede.",
+    "objective": "Avaliar se o protocolo consegue redistribuir automaticamente os nós entre os shards, evitando que alguns fiquem sobrecarregados enquanto outros permanecem com poucos participantes.",
+    "equation": "Índice de Autoequilíbrio = 1 − (maior diferença no número de nós entre shards / número médio de nós por shard).",
+    "comment": "Valores próximos de 1 indicam que os shards possuem tamanhos semelhantes, o que reduz gargalos, melhora o desempenho geral e diminui riscos de ataques. Valores baixos indicam desequilíbrio, com possíveis impactos negativos em desempenho e segurança.",
+    "scale_type": "Intervalo",
+    "protocol": "1) Definir o número de shards da rede.\n2) Executar o sistema sob eventos de churn, com entrada e saída de nós.\n3) Medir o número de nós em cada shard ao final de cada período.\n4) Calcular o número médio de nós por shard.\n5) Identificar a maior diferença entre os tamanhos dos shards.\n6) Aplicar a equação para obter o índice.",
+    "references": "1) Analysing and Improving Shard Allocation Protocols for Sharded Blockchains"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 132"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t50",
+  "table_no": 50,
+  "name": "Uso de CPU",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Proporção da capacidade de processamento da CPU utilizada por um nó blockchain durante sua operação normal, incluindo tarefas como validação de blocos, execução de contratos inteligentes e comunicação entre nós.",
+    "objective": "Avaliar o nível de carga computacional imposto pelo sistema blockchain aos nós participantes, verificando se a utilização da CPU é compatível com ambientes de infraestrutura limitada, como sistemas de saúde em países em desenvolvimento.",
+    "equation": "Uso de CPU (%) = (Tativo / Ttotal) × 100\nonde Tativo é o tempo em que a CPU esteve executando processos relacionados à blockchain e Ttotal é o tempo total de observação.",
+    "comment": "Um uso de CPU moderado indica que o sistema consegue operar de forma estável sem sobrecarregar o hardware. Valores persistentemente altos sugerem risco de degradação de desempenho, maior consumo de energia e necessidade de otimização da arquitetura ou dos contratos inteligentes.",
+    "scale_type": "Razão",
+    "protocol": "1) Implantar os nós blockchain e os contratos inteligentes no ambiente de teste.\n2) Executar transações sob diferentes níveis de carga.\n3) Monitorar o uso médio e máximo de CPU durante a execução.\n4) Registrar o período de observação e as condições de carga.\n5) Comparar os resultados entre cenários ou com arquiteturas alternativas.",
+    "references": "1) Blockchain-based Electronic Healthcare Information System Optimized for Developing Countries"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 50"
+  }
+}

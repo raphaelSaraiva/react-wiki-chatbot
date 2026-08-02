@@ -1,0 +1,22 @@
+{
+  "id": "t24",
+  "table_no": 24,
+  "name": "Vazão",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Quantidade de transações que a blockchain consegue confirmar corretamente em um intervalo de tempo. A vazão indica a capacidade prática do sistema de processar operações sem formar filas excessivas.",
+    "objective": "Avaliar a capacidade de processamento da rede blockchain e comparar diferentes configurações de consenso, parâmetros de bloco e arquiteturas sob carga controlada.",
+    "equation": "Vazão = Ntransações confirmadas / Δt.",
+    "comment": "Valores mais altos indicam maior capacidade de processamento, mas devem ser analisados junto à latência. Aumentar a vazão à custa de atrasos excessivos na confirmação pode prejudicar a experiência do usuário e a confiabilidade percebida. Uma vazão estável sob diferentes níveis de carga indica um sistema mais escalável e bem dimensionado.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o intervalo de observação (Δt) e o critério de confirmação adotado.\n2) Submeter a rede a uma carga conhecida de transações.\n3) Contar o número de transações efetivamente confirmadas dentro de Δt.\n4) Calcular a vazão usando a equação definida.\n5) Repetir o experimento sob diferentes cargas e configurações para comparação.",
+    "references": "1) Architecture and Performance Evaluation of Blockchain-Based P2P Energy Trading\n2) Edge-Intelligent Blockchain-Based Reputation System for IIoT\n3) B4SDC: A Blockchain System for Security Data Collection in MANETs\n4) BENIGREEN: Blockchain-Based Energy-Efficient Privacy-Preserving Scheme for Green IoT\n5) Edge-Enabled Blockchain-Based V2X Scheme\n6) How Much Communication Resource is Needed to Run a Wireless Blockchain Network?\n7) A Quality of Service Compliance System"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 24"
+  }
+}

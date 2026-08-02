@@ -1,0 +1,22 @@
+{
+  "id": "t47",
+  "table_no": 47,
+  "name": "Taxa de Sucesso do Consenso",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Probabilidade de o processo de consenso em uma rede blockchain alcançar um acordo válido entre os nós participantes. Representa a proporção de rodadas de consenso que terminam com sucesso, mesmo na presença de falhas de comunicação, perdas de pacotes ou indisponibilidade temporária de nós.",
+    "objective": "Avaliar a robustez e a confiabilidade de mecanismos de consenso, especialmente em ambientes com comunicação não ideal, como redes sem fio, IoT, IIoT e 6G, onde interferência, ruído e distância afetam a troca de mensagens entre nós.",
+    "equation": "Taxa de Sucesso do Consenso = número de rodadas de consenso bem-sucedidas / número total de rodadas.\nEm protocolos em fases (ex.: PBFT), a taxa pode ser modelada como o produto das probabilidades de sucesso de cada fase:\nPc = Ppre-prepare × Pprepare × Pcommit × Preply.",
+    "comment": "Em ambientes sem fio, a taxa de sucesso do consenso é fortemente influenciada pela qualidade do canal de comunicação. Interferência, atenuação do sinal e maior distância entre nós reduzem a probabilidade de troca correta de mensagens, aumentando falhas no consenso. Tecnologias de comunicação mais estáveis tendem a melhorar essa taxa.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o protocolo de consenso utilizado (ex.: PBFT ou RAFT) e o número de nós participantes.\n2) Executar múltiplas rodadas de consenso sob condições controladas ou simuladas.\n3) Registrar, para cada rodada, se o consenso foi alcançado com sucesso.\n4) Calcular a proporção de rodadas bem-sucedidas em relação ao total.\n5) Repetir a medição variando condições de rede (interferência, distância, limiar de sinal) para analisar sensibilidade.",
+    "references": "1) Performance Analysis and Comparison of Nonideal Wireless PBFT and RAFT Consensus Networks in 6G Communications"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 47"
+  }
+}

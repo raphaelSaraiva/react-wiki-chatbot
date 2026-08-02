@@ -1,0 +1,22 @@
+{
+  "id": "t143",
+  "table_no": 143,
+  "name": "Intervalos de Tempo para Recompensas",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Quantidade de passos de tempo necessários para que um algoritmo de aprendizado por reforço, integrado a um sistema blockchain, atinja uma recompensa estável ou considerada ideal.",
+    "objective": "Avaliar a rapidez com que algoritmos de aprendizado por reforço convergem para decisões estáveis quando utilizados em aplicações blockchain, como sistemas de negociação de energia entre participantes.",
+    "equation": "T_reward = número mínimo de passos de tempo até que a recompensa acumulada atinja um nível estável definido.",
+    "comment": "Quanto menor o número de passos de tempo necessários, mais eficiente é o aprendizado do sistema. Valores elevados indicam aprendizado lento, instabilidade na política de decisão ou parâmetros inadequados do algoritmo.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir os parâmetros do algoritmo de aprendizado (por exemplo, taxa de aprendizado e fator de desconto).\n2) Executar o algoritmo e registrar a recompensa obtida em cada passo de tempo.\n3) Identificar o ponto em que a recompensa se torna estável ou atinge o valor desejado.\n4) Calcular o número de passos de tempo necessários até esse ponto.\n5) Comparar os resultados entre diferentes configurações do algoritmo.",
+    "references": "1) PRS-P2P: A Prosumer Recommender System for Secure P2P Energy Trading using Q-Learning Towards 6G"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 143"
+  }
+}

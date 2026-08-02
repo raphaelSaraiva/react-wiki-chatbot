@@ -1,0 +1,22 @@
+{
+  "id": "t36",
+  "table_no": 36,
+  "name": "Taxa de Erro de Bits",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Proporção de bits recebidos incorretamente em relação ao total de bits transmitidos por um canal de comunicação. Em sistemas blockchain integrados a redes 5G, essa métrica indica o grau de confiabilidade da transmissão de dados entre dispositivos, nós da rede e serviços de consenso.",
+    "objective": "Avaliar a qualidade do canal de comunicação utilizado por sistemas blockchain em ambientes 5G, verificando se os dados transmitidos chegam sem corrupção. Essa métrica é especialmente importante em aplicações sensíveis, como votação eletrônica, onde erros de transmissão podem comprometer a validade das transações.",
+    "equation": "BER = Nbits_errados / Nbits_totais,\n\nonde Nbits_errados é o número de bits recebidos incorretamente e Nbits_totais é o número total de bits transmitidos.",
+    "comment": "Valores mais baixos indicam comunicação mais confiável e menor necessidade de retransmissões. Taxas elevadas de erro de bits aumentam atrasos, consumo de recursos e o risco de falhas na sincronização de mensagens e transações blockchain.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o canal de comunicação a ser avaliado.\n2) Transmitir um fluxo de dados conhecido entre os dispositivos e nós da rede.\n3) Registrar os bits transmitidos e os bits recebidos.\n4) Contabilizar os bits recebidos incorretamente.\n5) Calcular a taxa de erro de bits como a razão entre bits incorretos e bits totais.",
+    "references": "1) Blockchain-Based Secure Voting Mechanism Underlying 5G Network"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 36"
+  }
+}

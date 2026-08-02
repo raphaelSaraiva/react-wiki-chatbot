@@ -1,0 +1,22 @@
+{
+  "id": "t134",
+  "table_no": 134,
+  "name": "Taxa de Serviços Estáticos",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Mede a quantidade máxima de transações que um nó de ordenação consegue processar por segundo quando opera com uma configuração fixa, sem ajustes dinâmicos durante a execução.",
+    "objective": "Avaliar a capacidade de processamento do serviço de ordenação, identificando se a infraestrutura suporta o volume de transações esperado ou se há risco de formação de filas e atrasos.",
+    "equation": "Taxa de Serviço Estática (µ) = 1 / Ts, onde Ts é o tempo médio necessário para o nó processar uma transação.",
+    "comment": "Valores mais altos indicam maior capacidade de processamento e menor risco de congestionamento. Quando a taxa de chegada de transações se aproxima ou supera essa taxa, o sistema tende a apresentar filas maiores e aumento de latência.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o nó de ordenação e manter os parâmetros de configuração fixos.\n2) Submeter um fluxo controlado de transações ao sistema.\n3) Medir o tempo médio necessário para o processamento de cada transação.\n4) Calcular a taxa de serviço estática usando a equação.\n5) Comparar a taxa obtida com a taxa de chegada de transações para verificar se há risco de sobrecarga.",
+    "references": "1) Performance Evaluation of M/D/1 Queuing Model on Hyperledger Fabric"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 134"
+  }
+}

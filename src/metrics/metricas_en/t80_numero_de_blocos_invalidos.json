@@ -1,0 +1,22 @@
+{
+  "id": "t80",
+  "table_no": 80,
+  "name": "Número de Blocos Inválidos",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Quantidade de blocos produzidos na rede que não foram incluídos na cadeia principal da blockchain. Esses blocos podem surgir por atrasos de propagação, forks ou estratégias desonestas, como mineração egoísta, e representam esforço computacional desperdiçado.",
+    "objective": "Avaliar a eficiência e a confiabilidade do consenso da blockchain, identificando desperdício de recursos e possíveis indícios de comportamento desonesto ou problemas de comunicação na rede.",
+    "equation": "Taxa de Blocos Inválidos = Número de blocos inválidos / Número total de blocos produzidos.\nO valor absoluto também pode ser analisado diretamente como o total de blocos inválidos observados no período.",
+    "comment": "Valores elevados indicam maior desperdício de recursos e possíveis problemas no consenso, como atrasos de propagação ou ataques estratégicos. Valores baixos indicam boa sincronização da rede e comportamento majoritariamente honesto dos participantes.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir uma janela de observação na blockchain.\n2) Coletar todos os blocos produzidos no período.\n3) Identificar quais blocos não foram incluídos na cadeia principal.\n4) Contabilizar o número total de blocos inválidos.\n5) Calcular a taxa de blocos inválidos em relação ao total de blocos produzidos.\n6) Comparar resultados sob diferentes condições de rede ou estratégias de mineração.",
+    "references": "1) Assessing Blockchain Selfish Mining in an Imperfect Network: Honest and Selfish Miner Views"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 80"
+  }
+}

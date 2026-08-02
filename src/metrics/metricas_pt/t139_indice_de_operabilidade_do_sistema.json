@@ -1,0 +1,22 @@
+{
+  "id": "t139",
+  "table_no": 139,
+  "name": "Índice de Operabilidade do Sistema",
+  "iso25010": {
+    "characteristic": "Usabilidade",
+    "subcharacteristic": "Operabilidade"
+  },
+  "fields": {
+    "definition": "Mede o quão bem um sistema blockchain fragmentado (com shards) continua funcionando de forma estável e eficiente durante mudanças na rede, como redistribuição de shards, entrada ou saída de nós e variações de carga.",
+    "objective": "Avaliar a capacidade operacional do protocolo de sharding em manter desempenho e disponibilidade durante reconfigurações, indicando a facilidade de operação e manutenção do sistema em ambientes dinâmicos.",
+    "equation": "Índice de Operabilidade do Sistema (IOs) = Rstability / (Treconfig × Ccoord)\n\n onde Rstability é a proporção de shards que permanecem operacionais e estáveis após a redistribuição, Treconfig é o tempo médio necessário para concluir a reconfiguração dos shards, e Ccoord é o custo médio de coordenação e comunicação entre shards durante o processo.",
+    "comment": "Índices mais altos indicam que o sistema consegue se reorganizar rapidamente, com pouco esforço de coordenação entre shards e mantendo estabilidade. Valores baixos sugerem que reconfigurações causam atrasos, alto custo de coordenação ou instabilidade operacional.",
+    "scale_type": "Razão",
+    "protocol": "1) Implementar o protocolo de alocação de shards.\n2) Simular eventos de redistribuição de shards e variações no número de nós.\n3) Medir a estabilidade do sistema após a reconfiguração.\n4) Medir o tempo necessário para a reconfiguração.\n5) Medir o custo de coordenação entre shards.\n6) Calcular o índice de operabilidade e comparar entre diferentes protocolos.",
+    "references": "1) Analysing and Improving Shard Allocation Protocols for Sharded Blockchains"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 139"
+  }
+}

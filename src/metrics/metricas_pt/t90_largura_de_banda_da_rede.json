@@ -1,0 +1,22 @@
+{
+  "id": "t90",
+  "table_no": 90,
+  "name": "Largura de Banda da Rede",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade média de dados transmitidos por segundo em uma rede blockchain durante a comunicação entre nós e serviços auxiliares (por exemplo, IPFS, dispositivos IoT ou UAVs). Essa métrica indica o quanto a rede é exigida para suportar transações e trocas de informação.",
+    "objective": "Avaliar a eficiência do uso da rede de comunicação em sistemas blockchain distribuídos. Menor largura de banda utilizada indica menor sobrecarga de rede, maior eficiência operacional e melhor escalabilidade, especialmente em aplicações informacionais ou em tempo real.",
+    "equation": "BW = Dtotal / T\n\nonde Dtotal é o volume total de dados transmitidos (em bits) e T é o tempo de transmissão (em segundos).",
+    "comment": "Valores mais baixos indicam comunicação mais eficiente, com menor consumo de rede. Valores elevados sugerem sobrecarga, maior custo de operação e possíveis limitações de escalabilidade. Em arquiteturas que combinam blockchain com armazenamento off-chain (como IPFS), a largura de banda tende a ser reduzida.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o intervalo de observação da rede [t0, t1].\n2) Monitorar o tráfego de dados entre os nós blockchain e serviços externos.\n3) Registrar o volume total de dados transmitidos no período.\n4) Medir o tempo total de transmissão.\n5) Calcular BW = Dtotal / T e comparar com arquiteturas ou configurações alternativas.",
+    "references": "1) VAHAK: A Blockchain-based Outdoor Delivery Scheme using UAV for Healthcare 4.0 Services"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 90"
+  }
+}

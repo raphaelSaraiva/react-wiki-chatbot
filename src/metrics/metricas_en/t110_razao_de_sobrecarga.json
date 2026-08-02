@@ -1,0 +1,22 @@
+{
+  "id": "t110",
+  "table_no": 110,
+  "name": "Razão de Sobrecarga",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Proporção de recursos adicionais consumidos por um sistema ao adotar mecanismos extras, como blockchain, autenticação ou criptografia, em comparação com uma versão básica sem esses mecanismos. A sobrecarga pode envolver tempo de execução, processamento, comunicação ou consumo de energia.",
+    "objective": "Avaliar o impacto operacional introduzido por mecanismos de segurança e blockchain, permitindo comparar soluções leves e pesadas e apoiar a escolha de arquiteturas mais eficientes para sistemas distribuídos, especialmente em ambientes IoT.",
+    "equation": "Ro = (Ctotal − Cbase) / Cbase\nonde Ctotal é o custo com o mecanismo adicional ativado e Cbase é o custo do sistema básico sem esse mecanismo.",
+    "comment": "Valores baixos indicam que o mecanismo adicional impõe pouca penalidade ao sistema. Valores altos sugerem que a solução introduz sobrecarga excessiva, podendo comprometer desempenho, escalabilidade ou eficiência energética. A métrica não avalia segurança diretamente, mas o custo para obtê-la.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o cenário base do sistema sem mecanismos adicionais.\n2) Medir o custo do sistema base (tempo, processamento, comunicação ou energia).\n3) Ativar o mecanismo de blockchain ou autenticação.\n4) Medir novamente o custo total nas mesmas condições.\n5) Calcular a razão de sobrecarga usando a equação definida.\n6) Comparar os resultados entre diferentes protocolos ou configurações.",
+    "references": "1) A Lightweight Blockchain-Based Remote Mutual Authentication for AI-Empowered IoT Sustainable Computing Systems"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 110"
+  }
+}

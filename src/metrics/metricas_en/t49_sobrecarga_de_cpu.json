@@ -1,0 +1,22 @@
+{
+  "id": "t49",
+  "table_no": 49,
+  "name": "Sobrecarga de CPU",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade adicional de processamento da CPU exigida por um nó blockchain para executar funções como validação de transações, aplicação de políticas, execução do consenso e atualização do livro-razão, em comparação a uma execução sem essas funções.",
+    "objective": "Avaliar o impacto computacional do uso de blockchain sobre os nós participantes, especialmente em ambientes com recursos limitados, como IoT, apoiando decisões de projeto, otimização de políticas e escolha de arquiteturas mais eficientes.",
+    "equation": "Sobrecarga de CPU (%) = (Tcom_blockchain − Tbaseline) / Tbaseline × 100\nou, alternativamente,\nSobrecarga de CPU = CPUuso_com_blockchain − CPUuso_baseline",
+    "comment": "Quanto maior a complexidade das políticas e do processamento de consenso, maior tende a ser a sobrecarga de CPU. Estratégias de interpretação eficiente de políticas e resolução dinâmica de conflitos podem reduzir significativamente esse impacto, tornando o uso de blockchain mais viável em dispositivos com capacidade computacional limitada.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o cenário de avaliação e o nó blockchain a ser monitorado.\n2) Executar o sistema com os mecanismos de blockchain ativos, aplicando carga controlada de transações.\n3) Monitorar o uso médio e máximo de CPU durante a execução.\n4) Executar o mesmo cenário sem os mecanismos de blockchain (baseline).\n5) Calcular a diferença percentual para estimar a sobrecarga de CPU.",
+    "references": "1) Fast Policy Interpretation and Dynamic Conflict Resolution for Blockchain-Based IoT System"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 49"
+  }
+}

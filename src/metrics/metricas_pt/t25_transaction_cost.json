@@ -1,0 +1,22 @@
+{
+  "id": "t25",
+  "table_no": 25,
+  "name": "Custo da Transação",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Custo da transação refere-se ao valor econômico pago ao protocolo blockchain para que uma transação seja executada e incluída em um bloco. Em blockchains baseadas em EVM, esse custo é determinado pelo consumo de gás da transação e pelo preço efetivo do gás no momento da execução.",
+    "objective": "Quantificar o custo econômico associado à execução de transações on-chain, permitindo avaliar a eficiência no uso de recursos computacionais, comparar plataformas blockchain e apoiar a otimização de contratos inteligentes.",
+    "equation": "Custo da Transação = gasUsed × effectiveGasPrice, onde effectiveGasPrice = Base Fee + Priority Fee",
+    "comment": "Valores menores indicam maior eficiência econômica no uso dos recursos da blockchain. A análise deve considerar variações do preço do gás em diferentes condições de rede, sendo recomendável avaliar estatísticas como mediana e percentis superiores (p95/p99) em cenários de congestionamento.",
+    "scale_type": "Absoluta",
+    "protocol": "1) Definir o conjunto de transações ou funções on-chain a serem avaliadas. 2) Medir o gasUsed de cada transação utilizando ferramentas de desenvolvimento ou exploradores de blocos. 3) Registrar o effectiveGasPrice no momento da execução. 4) Calcular o custo da transação pela multiplicação gasUsed × effectiveGasPrice. 5) Reportar estatísticas descritivas (mediana, p95) e converter o valor para a moeda desejada.",
+    "references": "(1) Traceability Management System Using Blockchain Technology\nand Cost Estimation in the Metrology Field — definição de taxa,\nequação do custo e análise de gás/preço.\n(2) Towards a Smarter IoT Environment with EVM Enabling Ledgers — motivação para reduzir custos em IoT e comparação de\nledgers EVM.\n(3) Blockchain-Based Energy Trading Scheme for EVs. . . — avaliação de gas, transaction e execution cost; uso de IPFS para aliviar\ncusto.\n(4) Blockchain for Giving Patients Control Over Their Medical\nRecords — tabela de custos por função e conversão para USD.\n(5) MRBSChain. . . (BSC) — comparação ETH vs. BSC (custo\nde transação baixo na BSC).\n70"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 25"
+  }
+}

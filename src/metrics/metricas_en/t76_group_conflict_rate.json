@@ -1,0 +1,22 @@
+{
+  "id": "t76",
+  "table_no": 76,
+  "name": "Taxa de Conflito em Grupo",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Proporção de transações de um bloco que dependem umas das outras, formando um grande grupo que não pode ser executado em paralelo. Essa métrica indica o quanto as transações estão acopladas entre si.",
+    "objective": "Avaliar o potencial de execução paralela de transações em blocos blockchain. Quanto menor a taxa de conflito em grupo, maior é a possibilidade de executar transações simultaneamente e melhorar o desempenho.",
+    "equation": "Taxa de Conflito em Grupo = Tamanho do maior grupo de transações dependentes / Número total de transações no bloco.",
+    "comment": "Valores baixos indicam que poucas transações dependem umas das outras, permitindo maior paralelismo e melhor desempenho. Valores altos indicam forte dependência entre transações, exigindo execução mais sequencial e limitando ganhos de velocidade.",
+    "scale_type": "Razão",
+    "protocol": "1) Representar as transações do bloco como um grafo de dependências.\n2) Identificar grupos de transações que dependem entre si.\n3) Determinar o tamanho do maior grupo identificado.\n4) Dividir esse valor pelo número total de transações do bloco.\n5) Repetir a medição para vários blocos e analisar a tendência.",
+    "references": "1) On Exploiting Transaction Concurrency to Speed Up Blockchains"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 76"
+  }
+}

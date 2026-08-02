@@ -1,0 +1,22 @@
+{
+  "id": "t151",
+  "table_no": 151,
+  "name": "Reordenação de Transações",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Situação em que transações enviadas pelo mesmo remetente são recebidas ou processadas fora da ordem esperada, normalmente definida pelo número de nonce. Quando isso ocorre, transações mais recentes podem ficar aguardando até que as anteriores sejam confirmadas.",
+    "objective": "Avaliar como a propagação da rede e as políticas do mempool afetam a ordem de processamento das transações, influenciando a previsibilidade e o tempo de confirmação percebido pelos usuários.",
+    "equation": "Taxa de Reordenação = (número de transações fora de ordem / número total de transações observadas do mesmo remetente) × 100%.",
+    "comment": "Taxas baixas indicam boa ordenação e propagação das transações na rede. Taxas elevadas sugerem atrasos de rede, políticas restritivas de mempool ou efeitos de distribuição geográfica, resultando em maior tempo de confirmação e menor previsibilidade para o usuário.",
+    "scale_type": "Razão",
+    "protocol": "1) Coletar informações das transações recebidas pelos nós, incluindo remetente, nonce e horário de chegada.\n2) Ordenar as transações de cada remetente pelo horário de chegada.\n3) Verificar se a sequência de nonces segue a ordem esperada.\n4) Contabilizar quantas transações estão fora de ordem.\n5) Calcular a taxa de reordenação e analisar sua variação ao longo do tempo.",
+    "references": "1) Impact of Geo-Distribution and Mining Pools on Blockchains: A Study of Ethereum"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 151"
+  }
+}

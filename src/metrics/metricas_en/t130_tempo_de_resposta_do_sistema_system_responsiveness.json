@@ -1,0 +1,22 @@
+{
+  "id": "t130",
+  "table_no": 130,
+  "name": "Taxa de Responsividade do Sistema",
+  "iso25010": {
+    "characteristic": "Usabilidade",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Proporção de requisições que recebem resposta do sistema blockchain dentro de um tempo considerado aceitável, refletindo a prontidão e a agilidade de resposta percebidas pelos usuários ou sistemas clientes.",
+    "objective": "Avaliar a capacidade do sistema blockchain de responder rapidamente às solicitações, garantindo uma experiência de uso adequada e tempos de resposta compatíveis com os requisitos do serviço.",
+    "equation": "Taxa de Responsividade = Número de requisições respondidas dentro do tempo limite / Número total de requisições.",
+    "comment": "Valores altos indicam que o sistema responde rapidamente à maioria das requisições. Valores baixos sugerem lentidão, sobrecarga de processamento, aumento do tamanho da blockchain ou limitações no mecanismo de consenso.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o tempo máximo aceitável de resposta para o serviço.\n2) Enviar um conjunto de requisições ao sistema blockchain.\n3) Medir o tempo de resposta de cada requisição.\n4) Contabilizar quantas requisições foram respondidas dentro do tempo limite.\n5) Calcular a razão entre requisições atendidas no tempo esperado e o total de requisições.",
+    "references": "1) Blockchain-Based Access Control and Data Sharing Mechanism in Cloud Decentralized Storage System"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 130"
+  }
+}

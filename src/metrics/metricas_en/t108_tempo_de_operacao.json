@@ -1,0 +1,22 @@
+{
+  "id": "t108",
+  "table_no": 108,
+  "name": "Tempo de Operação",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo total necessário para executar uma operação ou transação em um sistema blockchain, desde o início do processamento até sua finalização. Inclui etapas como autenticação, validação e registro, refletindo o quão rápido o sistema responde a uma solicitação.",
+    "objective": "Avaliar a eficiência temporal e a responsividade de operações executadas sobre blockchain, especialmente em aplicações de Internet das Coisas (IoT), onde tempos elevados podem aumentar o consumo de energia e degradar a experiência do sistema.",
+    "equation": "Tempo de Operação = média dos valores (tempo de término − tempo de início) de todas as operações observadas no período.",
+    "comment": "Tempos de operação menores indicam sistemas mais rápidos e eficientes, adequados para aplicações sensíveis a atraso. Valores elevados sugerem gargalos no processamento, excesso de validações ou sobrecarga de comunicação entre os nós.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o conjunto de operações a serem avaliadas.\n2) Registrar o instante de início e de término de cada operação.\n3) Calcular o tempo individual de cada operação.\n4) Calcular a média dos tempos observados.\n5) Comparar os resultados entre diferentes configurações ou protocolos.",
+    "references": "1) BENIGREEN: Blockchain-Based Energy-Efficient Privacy-Preserving Scheme for Green IoT"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 108"
+  }
+}

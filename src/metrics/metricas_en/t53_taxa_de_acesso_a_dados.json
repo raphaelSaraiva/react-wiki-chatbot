@@ -1,0 +1,22 @@
+{
+  "id": "t53",
+  "table_no": 53,
+  "name": "Taxa de Acesso a Dados",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Quantidade de operações de acesso a dados (leitura ou compartilhamento) que um sistema blockchain consegue realizar por unidade de tempo, considerando etapas de autenticação, criptografia e verificação.",
+    "objective": "Avaliar a capacidade do sistema blockchain de acessar e compartilhar dados de forma eficiente sob múltiplas requisições simultâneas, indicando se o desempenho se mantém estável em ambientes de computação em nuvem com grande volume de dados.",
+    "equation": "Taxa de Acesso a Dados = N_acessos / T_execução\nonde N_acessos é o número de operações de acesso a dados concluídas com sucesso e T_execução é o tempo total de observação.",
+    "comment": "Valores mais altos indicam que o sistema consegue atender a muitas requisições de acesso em pouco tempo, mantendo eficiência mesmo sob alta demanda. Valores baixos podem indicar gargalos em autenticação, criptografia ou comunicação de rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Configurar o sistema blockchain no ambiente de nuvem.\n2) Definir cenários de teste com diferentes volumes de usuários e requisições.\n3) Executar operações de leitura e compartilhamento de dados.\n4) Registrar o número de acessos concluídos e o tempo total de execução.\n5) Calcular a taxa de acesso e comparar com outras abordagens ou configurações.",
+    "references": "1) Block chain based IAS protocol to enhance security and privacy in cloud computing"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 53"
+  }
+}

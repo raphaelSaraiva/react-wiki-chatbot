@@ -1,0 +1,22 @@
+{
+  "id": "t4",
+  "table_no": 4,
+  "name": "Atraso",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo que uma informação leva para ir do ponto de envio até o ponto de recebimento em uma blockchain ou sistema distribuído, como uma transação, um bloco ou uma mensagem entre nós.",
+    "objective": "Avaliar a rapidez da comunicação na rede, pois atrasos elevados afetam a confirmação de transações, aumentam conflitos na cadeia e prejudicam aplicações sensíveis a tempo, como IoT e V2X.",
+    "equation": "Atraso = tempo de recebimento − tempo de envio. \n\nDependendo do contexto, pode representar atraso de propagação de blocos, de transações ou atraso fim a fim de aplicações.",
+    "comment": "Quanto menor o atraso, melhor o desempenho do sistema. Valores altos indicam maior risco de conflitos, menor estabilidade da rede e pior experiência para aplicações em tempo real. Recomenda-se observar percentis altos (p95 ou p99), que refletem situações críticas de carga ou mobilidade.",
+    "scale_type": "Absoluta",
+    "protocol": "1) Definir claramente o evento de envio e o evento de recebimento.\n2) Coletar os tempos de envio e recebimento em nós com relógios sincronizados.\n3) Executar medições em diferentes condições de rede, carga e topologia.\n4) Calcular a distribuição do atraso (mediana, p90, p95, p99).\n5) Relacionar o atraso com métricas como taxa de forks, sucesso de transmissão e throughput.",
+    "references": "1) Calibrating the Performance and Security of Blockchains via Information Propagation Delays\n2) DAG-Based Ledger for IoT: Performance and Security Analysis\n3) Edge-Enabled Blockchain-Based V2X Scheme\n4) Identifying Impacts of Protocol and Internet Development on the Bitcoin Network\n5) Performance Analysis of Wireless PBFT Using IEEE 802.11\n6) Taming Propagation Delay and Fork Rate in Bitcoin Mining Network\n7) Decentralized Lightweight Blockchain Nodes Architecture\n8) Bitcoin-NG: A Scalable Blockchain Protocol\n9) Blockchain-based IAS Protocol in Cloud\n10) Blockchain-based AMI Framework"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 4"
+  }
+}

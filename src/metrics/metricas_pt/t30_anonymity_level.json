@@ -1,0 +1,22 @@
+{
+  "id": "t30",
+  "table_no": 30,
+  "name": "Nível de Anonimato",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Confidencialidade"
+  },
+  "fields": {
+    "definition": "Grau em que a identidade real de um participante não pode ser associada às suas transações ou ações registradas em uma blockchain. Quanto maior o anonimato, mais difícil é identificar quem realizou uma determinada operação.",
+    "objective": "Avaliar a proteção da identidade dos participantes em aplicações blockchain, especialmente em cenários como leilões eletrônicos, onde revelar a identidade pode gerar manipulação, favorecimento indevido ou perda de equidade.",
+    "equation": "Uma forma simples de medir o anonimato é pelo tamanho do conjunto de anonimato:\nA = |S0| / N,\nonde S0 é o conjunto de participantes indistinguíveis entre si e N é o número total de participantes.\nAlternativamente, pode-se usar entropia de Shannon:\nH = −∑ pi log2(pi),\nonde pi é a probabilidade de um participante ser identificado.",
+    "comment": "Valores mais altos indicam maior proteção de identidade, pois muitos participantes se tornam indistinguíveis entre si. Em sistemas de leilão selado baseados em blockchain, técnicas como compromissos criptográficos e provas de conhecimento zero aumentam o anonimato ao ocultar lances e identidades, reduzindo o risco de rastreamento, correlação de endereços ou inferência por padrões de uso.",
+    "scale_type": "Razão",
+    "protocol": "1) Registrar transações de forma pseudônima, usando endereços ou chaves públicas.\n2) Agrupar transações e participantes para identificar conjuntos indistinguíveis.\n3) Calcular o tamanho do conjunto de anonimato ou a entropia associada.\n4) Comparar os valores obtidos entre diferentes configurações de privacidade.\n5) Avaliar o impacto de mecanismos criptográficos adicionais, como provas de conhecimento zero.",
+    "references": "1) A Blockchain-Based Sealed-Bid e-Auction Scheme with Smart Contract and Zero-Knowledge Proof"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 30"
+  }
+}

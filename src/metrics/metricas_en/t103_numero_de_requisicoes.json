@@ -1,0 +1,22 @@
+{
+  "id": "t103",
+  "table_no": 103,
+  "name": "Número de Requisições",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Quantidade total de requisições de serviço processadas por um sistema blockchain em um determinado período, incluindo transações, consultas e execuções de contratos inteligentes.",
+    "objective": "Avaliar a capacidade e a escalabilidade do sistema em lidar com múltiplas interações simultâneas, indicando o nível de carga operacional suportado sem degradação significativa de desempenho.",
+    "equation": "Número de Requisições = quantidade total de requisições processadas durante o período de observação.",
+    "comment": "Valores mais altos indicam maior demanda de uso e maior capacidade operacional do sistema. Valores baixos podem indicar subutilização, gargalos de acesso ou falhas na propagação das requisições.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a janela de observação do sistema.\n2) Registrar todas as requisições recebidas e processadas.\n3) Separar requisições válidas de requisições rejeitadas.\n4) Contabilizar o total de requisições no período.\n5) Correlacionar o volume de requisições com métricas de latência e taxa de sucesso.",
+    "references": "1) T-DSES: A Blockchain-powered Trusted Decentralized Service Eco-System"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 103"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t13",
+  "table_no": 13,
+  "name": "Tamanho do Livro-Razão",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade total de espaço de armazenamento ocupado pelos dados persistidos da blockchain em um nó. Inclui os blocos (cabeçalhos, transações e recibos) e, quando aplicável, o estado global da rede (world state).",
+    "objective": "Avaliar o consumo de armazenamento da blockchain ao longo do tempo, apoiar análises de escalabilidade e comparar decisões de projeto, como armazenamento totalmente on-chain ou uso de soluções off-chain com ancoragem criptográfica.",
+    "equation": "O tamanho do livro-razão em um instante t corresponde ao espaço total ocupado pelos dados da blockchain naquele momento:\nL(t) = tamanho dos blocos + tamanho do estado.\n\nO crescimento do livro-razão em um período de observação é a diferença entre o tamanho final e o inicial:\nCrescimento = L(t1) − L(t0).\n\nO crescimento médio por transação indica quanto cada transação contribui, em média, para o aumento do armazenamento:\nCrescimento por transação = (L(t1) − L(t0)) / número de transações registradas no período.",
+    "comment": "Na prática, essa métrica mostra quanto a blockchain cresce no disco ao longo do tempo. Cargas com muitas escritas on-chain fazem o livro-razão aumentar rapidamente, elevando custos de armazenamento e dificultando a escalabilidade. Estratégias como agregação de dados, registro periódico de informações e uso de armazenamento off-chain (com apenas hashes ancorados na blockchain) reduzem significativamente o crescimento do ledger.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o período de análise e o tipo de nó avaliado (completo, arquivado ou com pruning).\n2) Medir o tamanho total dos dados persistidos no nó no início (t0) e no fim (t1) do período.\n3) Obter o número de blocos e de transações registrados no mesmo intervalo.\n4) Calcular o crescimento total do livro-razão e o crescimento médio por transação.\n5) Registrar parâmetros do ambiente, como tamanho de bloco, intervalo de bloco, política de batching e uso de armazenamento off-chain.",
+    "references": "1) Distributed Ledger for Spammers’ Resume.\n2) Fast Policy Interpretation and Dynamic Conflict Resolution for Blockchain-Based IoT System."
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 13"
+  }
+}

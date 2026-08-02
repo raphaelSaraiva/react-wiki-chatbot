@@ -1,0 +1,22 @@
+{
+  "id": "t16",
+  "table_no": 16,
+  "name": "Preço do Gás",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Valor monetário pago por unidade de gás para que uma transação ou execução de contrato inteligente seja incluída e processada na blockchain. Em redes EVM, esse valor reflete a competição por recursos computacionais da rede.",
+    "objective": "Avaliar o impacto econômico da priorização de transações e apoiar decisões de custo versus tempo de confirmação, auxiliando no planejamento financeiro e na definição de SLAs.",
+    "equation": "Preço efetivo do gás (EIP-1559): gasPrice = min(maxFee, baseFee + priorityFee).\nCusto da transação = gasUsed × gasPrice.",
+    "comment": "Preço de gás mais alto aumenta a chance de inclusão rápida da transação, porém eleva o custo monetário. Preços mais baixos reduzem custo, mas podem resultar em maior latência. A métrica deve ser analisada junto com consumo de gás e latência.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a rede e o período de observação.\n2) Coletar baseFee, priorityFee, maxFee e preço efetivo por transação via nó ou explorador.\n3) Calcular estatísticas do preço do gás (média, mediana, p95/p99).\n4) Relacionar os valores observados com tempos de confirmação e congestionamento da rede.",
+    "references": "1) Traceability Management System Using Blockchain Technology and Cost Estimation in the Metrology Field\n2) A Blockchain-Based Framework for IoT Data Monetization Services"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 16"
+  }
+}

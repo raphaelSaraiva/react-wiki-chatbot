@@ -1,0 +1,22 @@
+{
+  "id": "t17",
+  "table_no": 17,
+  "name": "Tempo de Processamento",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo gasto para executar o processamento computacional de uma operação, função ou validação, considerando apenas o trabalho interno realizado pelo nó ou dispositivo (por exemplo, execução de contrato, verificação criptográfica ou validação local), sem incluir atrasos de rede ou espera por consenso.",
+    "objective": "Avaliar a eficiência computacional interna de nós, contratos inteligentes ou dispositivos de borda, apoiando otimizações de código, escolha de plataformas e dimensionamento de recursos.",
+    "equation": "Tempo de Processamento = Tfim − Tinício.\nOpcionalmente: Tempo de Processamento = Tfila + Texec.",
+    "comment": "Valores menores indicam maior eficiência computacional. A análise deve priorizar percentis altos (p95/p99) para identificar degradação sob carga, concorrência ou restrições de hardware. Diferentemente da latência, esta métrica não inclui atrasos de rede ou consenso.",
+    "scale_type": "Absoluta",
+    "protocol": "1) Definir claramente o escopo do processamento medido (execução local, validação, criptografia).\n2) Instrumentar marcadores de tempo no início e no fim do processamento.\n3) Executar testes sob diferentes cargas e tamanhos de entrada.\n4) Coletar múltiplas amostras e calcular estatísticas (média, mediana, p95/p99).\n5) Registrar o contexto experimental (hardware, plataforma, concorrência).",
+    "references": "1) Exploring Blockchain-Secured Data Validation in Smart Meter Readings\n2) A Blockchain-Based Approach Using Proof of Continuous Work\n3) Integrating IoT and Blockchain Technology for the Next Generation of Mining Inspection Systems\n4) LBSS: A Lightweight Blockchain-Based Security Scheme for IoT-Enabled Healthcare Environment\n5) Smart Microgrid Energy Market: Evaluating Distributed Ledger Technologies for Remote and Constrained Microgrid Deployments"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 17"
+  }
+}

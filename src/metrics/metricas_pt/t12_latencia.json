@@ -1,0 +1,22 @@
+{
+  "id": "t12",
+  "table_no": 12,
+  "name": "Latência",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo decorrido entre o envio de uma transação para a rede blockchain e o momento em que ela é considerada confirmada de acordo com a política adotada.",
+    "objective": "Avaliar o tempo de resposta percebido por usuários e aplicações, sendo um indicador central da responsividade e da adequação da blockchain a cenários sensíveis a tempo.",
+    "equation": "Latência = tempo de confirmação − tempo de submissão da transação.",
+    "comment": "Latências menores indicam sistemas mais responsivos. Em blockchains públicas, a latência pode aumentar para transações com taxas baixas ou sob congestionamento. Em redes permissionadas, tende a ser menor, mas ainda depende do número de nós, do consenso e da carga.",
+    "scale_type": "Absoluta",
+    "protocol": "1) Definir o que caracteriza uma transação confirmada (ex.: inclusão em bloco ou número mínimo de confirmações).\n2) Registrar o instante de submissão da transação.\n3) Registrar o instante em que a confirmação ocorre.\n4) Calcular a diferença entre os dois tempos.\n5) Analisar estatísticas como média, mediana e percentis (p95, p99) considerando o cenário de teste.",
+    "references": "1) BitcoinF: Achieving Fairness for Bitcoin in Transaction-Fee-Only Model\n2) Securing Data Exchange in IoT–Metaverse\n3) A Blockchain Enabled Predictive, Analytical Model\n4) A Quality of Service Compliance System\n5) A Trustworthy Safety Inspection Framework Using Performance-Security Balanced Blockchain\n6) Architecture and Performance Evaluation of Blockchain-Based Peer-to-Peer Energy Trading\n7) An Edge Intelligent Blockchain-Based Reputation System for IIoT\n8) Blockchain for IoT: A Consensus Mechanism Analysis\n9) Decentralized Blockchain-Based and Trust-Aware Task Offloading Strategy for Healthcare IoT"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 12"
+  }
+}

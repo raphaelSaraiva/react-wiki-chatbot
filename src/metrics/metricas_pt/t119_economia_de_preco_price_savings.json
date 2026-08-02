@@ -1,0 +1,22 @@
+{
+  "id": "t119",
+  "table_no": 119,
+  "name": "Economia de Custos",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Valor monetário economizado por consumidores e provedores após a adoção de um esquema de gerenciamento de demanda baseado em blockchain. A métrica compara o custo total de energia antes e depois da aplicação do mecanismo proposto.",
+    "objective": "Avaliar o benefício financeiro obtido com o uso de contratos inteligentes e incentivos econômicos para gerenciamento de demanda energética. A métrica indica a viabilidade econômica do sistema e sua capacidade de reduzir custos operacionais e de consumo.",
+    "equation": "Economia = Σ (Cbase(i) − Cdrm(i))",
+    "comment": "Valores mais altos indicam maior benefício econômico gerado pelo esquema de gerenciamento de demanda. A métrica reflete ganhos financeiros agregados ao longo do tempo e não representa o custo individual de uma transação ou unidade de energia. Resultados baixos podem indicar baixa adesão dos consumidores ou impacto limitado do mecanismo de redistribuição de carga.",
+    "scale_type": "Razão",
+    "protocol": "1) Coletar dados de consumo energético em intervalos regulares.\n2) Calcular o custo total sem o esquema de gerenciamento (Cbase).\n3) Aplicar o mecanismo de gerenciamento de demanda baseado em blockchain.\n4) Calcular o custo total após a aplicação do esquema (Cdrm).\n5) Calcular a diferença agregada entre Cbase e Cdrm como economia de custos.",
+    "references": "1) A Data Analytics Scheme for Security-aware Demand Response Management in Smart Grid System"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 119"
+  }
+}

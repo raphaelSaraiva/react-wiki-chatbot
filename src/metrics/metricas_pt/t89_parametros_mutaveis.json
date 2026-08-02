@@ -1,0 +1,22 @@
+{
+  "id": "t89",
+  "table_no": 89,
+  "name": "Parâmetros Mutáveis",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Indica se parâmetros críticos de um contrato inteligente podem ser modificados após sua implantação na blockchain. Esses parâmetros incluem regras econômicas e operacionais, como taxas, limites de transação, emissões ou alocações de tokens.",
+    "objective": "Avaliar o risco de manipulação e perda de previsibilidade em contratos inteligentes, verificando se regras fundamentais podem ser alteradas após o deploy, o que pode comprometer a confiança dos usuários e a integridade do sistema.",
+    "equation": "MP = 1 se existirem funções que permitem alterar parâmetros críticos após o deploy;\n\nMP = 0 caso todos os parâmetros sejam imutáveis.",
+    "comment": "Parâmetros mutáveis permitem que administradores ou desenvolvedores modifiquem regras econômicas depois que o contrato já está em uso. Embora isso possa ser usado para manutenção, também cria risco de abuso, mudanças inesperadas de regras ou concentração de poder, reduzindo a transparência e a confiança.",
+    "scale_type": "Nominal",
+    "protocol": "1) Analisar o código-fonte do contrato inteligente.\n2) Identificar parâmetros críticos, como taxas, limites ou regras financeiras.\n3) Verificar se existem funções administrativas que permitem alterar esses parâmetros após o deploy.\n4) Atribuir MP = 1 se qualquer parâmetro crítico for mutável; caso contrário, MP = 0.\n5) Registrar o resultado para comparação entre contratos ou ecossistemas.",
+    "references": "1) Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 89"
+  }
+}

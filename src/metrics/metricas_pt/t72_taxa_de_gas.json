@@ -1,0 +1,22 @@
+{
+  "id": "t72",
+  "table_no": 72,
+  "name": "Taxa de Gás",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Valor pago para que uma transação ou contrato inteligente seja processado e incluído na blockchain. A taxa de gás resulta da multiplicação entre a quantidade de gás consumida pela operação e o preço do gás definido pela rede, refletindo o custo computacional e o nível de congestionamento no momento da execução.",
+    "objective": "Avaliar o custo financeiro das operações em uma rede blockchain, apoiando decisões de otimização de contratos inteligentes, escolha de rede e uso de estratégias off-chain em aplicações com grande volume de transações, como e-health e IoT.",
+    "equation": "Taxa de Gás = gasUsed × gasPrice\nCusto em moeda fiduciária = Taxa de Gás × cotação da criptomoeda",
+    "comment": "Taxas de gás mais altas indicam maior custo para executar transações, geralmente associado a redes congestionadas ou contratos pouco eficientes. Taxas mais baixas reduzem o custo financeiro, mas podem aumentar o tempo de confirmação se a transação não for priorizada pelos validadores.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a rede blockchain e o período de análise.\n2) Coletar, para cada transação, os valores de gasUsed e gasPrice.\n3) Calcular a taxa de gás individual e a média no período.\n4) Converter o valor para moeda fiduciária, se necessário.\n5) Analisar a variação da taxa em função do congestionamento da rede.",
+    "references": "1) Distributed Network Slicing Management Using Blockchains in E-Health Environments"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 72"
+  }
+}

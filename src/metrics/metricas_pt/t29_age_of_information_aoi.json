@@ -1,0 +1,22 @@
+{
+  "id": "t29",
+  "table_no": 29,
+  "name": "Idade da Informação",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo decorrido desde a geração de uma informação até o momento atual em que ela está disponível para uso. Em sistemas baseados em blockchain, representa quanto tempo um dado leva desde a coleta até ser confirmado e registrado na cadeia, indicando o quão atual ou desatualizada está a informação acessível.",
+    "objective": "Avaliar a atualidade das informações em sistemas blockchain, especialmente em aplicações sensíveis ao tempo, como IoT, saúde e controle industrial, onde dados desatualizados podem comprometer decisões e operações.",
+    "equation": "AoI(t) = t − u(t),\nonde t é o instante atual e u(t) é o instante da última atualização confirmada.\nO atraso total pode ser decomposto como:\nti = Ts + Ttx + Ttp + TBC,\ncom Ts (sensoriamento), Ttx (transmissão), Ttp (propagação) e TBC (processamento na blockchain).",
+    "comment": "Valores menores de Idade da Informação indicam dados mais recentes e maior eficiência temporal do sistema. Em blockchains, o consenso, a propagação de blocos e a ocorrência de forks aumentam a idade da informação. Um crescimento contínuo do AoI revela gargalos como mineração lenta, congestionamento de rede ou baixa frequência de atualização.",
+    "scale_type": "Razão",
+    "protocol": "1) Identificar o instante de geração dos dados no dispositivo de origem.\n2) Medir o tempo até a confirmação e registro do dado na blockchain.\n3) Calcular a Idade da Informação como a diferença entre o tempo atual e o instante da última atualização válida.\n4) Repetir a medição sob diferentes cargas e configurações de consenso.\n5) Comparar os valores obtidos para avaliar o impacto de parâmetros como tempo de bloco, taxa de mineração e probabilidade de forks.",
+    "references": "1) Analysis on the AoI in Blockchain-based IoT Networks with Different Sensing Mechanisms"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 29"
+  }
+}

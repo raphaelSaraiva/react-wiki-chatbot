@@ -1,0 +1,22 @@
+{
+  "id": "t63",
+  "table_no": 63,
+  "name": "Tempo Decorrido",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo total necessário para que um contrato inteligente seja executado em uma rede blockchain, contado desde o envio da transação até a confirmação final do resultado na rede. Esse tempo inclui comunicação de rede, consenso e execução do contrato.",
+    "objective": "Avaliar a rapidez e a responsividade da execução de contratos inteligentes em diferentes redes blockchain, permitindo comparar o impacto do consenso, da infraestrutura e da complexidade computacional no tempo de resposta do sistema.",
+    "equation": "ET = t_fim − t_início\nonde t_início é o instante em que a transação é enviada e t_fim é o instante em que a execução do contrato é confirmada na blockchain.",
+    "comment": "O tempo decorrido tende a aumentar com a complexidade do contrato e com a necessidade de gravação de estado na blockchain. Em muitos casos, o atraso não está no cálculo em si, mas no consenso e na propagação da transação pela rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Implementar contratos inteligentes representativos da aplicação.\n2) Implantar os contratos em diferentes redes blockchain.\n3) Executar os contratos sob cargas e complexidades variadas.\n4) Registrar o instante de envio da transação e o instante de confirmação final.\n5) Calcular o tempo decorrido médio e comparar entre as redes avaliadas.",
+    "references": "1) Performance Analysis of Blockchain Networks through Smart Contracts"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 63"
+  }
+}

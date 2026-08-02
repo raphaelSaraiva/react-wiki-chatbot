@@ -1,0 +1,22 @@
+{
+  "id": "t44",
+  "table_no": 44,
+  "name": "Taxa de Blocos Confirmados",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Mede a proporção de blocos propostos que são efetivamente confirmados e adicionados à cadeia principal da blockchain. A métrica indica o quão frequentemente o processo de consenso consegue validar blocos sem que eles sejam descartados, substituídos ou se tornem órfãos.",
+    "objective": "Avaliar a estabilidade e a confiabilidade do mecanismo de consenso em redes blockchain distribuídas. Uma taxa elevada de blocos confirmados indica boa sincronização entre os nós, enquanto valores baixos sugerem problemas de propagação, latência excessiva ou falhas de coordenação entre validadores.",
+    "equation": "Taxa de Blocos Confirmados = Nconfirmados / Npropostos,\n\nonde Nconfirmados é o número de blocos que foram validados e incluídos na cadeia principal, e Npropostos é o total de blocos propostos no mesmo período.",
+    "comment": "Essa métrica reflete diretamente a eficiência operacional do consenso. Taxas altas indicam que a maioria dos blocos propostos contribui para o crescimento efetivo da blockchain, reduzindo desperdício de recursos. Taxas baixas apontam maior ocorrência de bifurcações, blocos órfãos ou atrasos de propagação, o que compromete a confiabilidade da rede.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir uma janela de observação.\n2) Contabilizar todos os blocos propostos pelos validadores.\n3) Identificar quais blocos foram confirmados e incluídos na cadeia principal.\n4) Calcular a razão entre blocos confirmados e blocos propostos.\n5) Comparar os resultados sob diferentes níveis de carga e condições de rede.",
+    "references": "1) A Decentralized Lightweight Blockchain Nodes Architecture Based on a Secure OpenFlow Protocol Controller Channel"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 44"
+  }
+}

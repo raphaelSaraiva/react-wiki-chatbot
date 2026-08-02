@@ -1,0 +1,22 @@
+{
+  "id": "t18",
+  "table_no": 18,
+  "name": "Tempo de Propagação",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo que uma informação leva para se espalhar pela rede blockchain, desde o nó que originou o bloco (ou transação) até outros nós da rede. Em prática, mede-se quanto tempo demora para uma parte relevante da rede receber e reconhecer o bloco.",
+    "objective": "Avaliar a eficiência da comunicação da rede e entender como a propagação afeta eventos como forks (blocos concorrentes), segurança e desempenho. Essa métrica ajuda a decidir parâmetros como intervalo de bloco e tamanho de bloco.",
+    "equation": "Tempo de Propagação = Tchegada − Torigem.\nTambém pode ser analisado por percentis, como p50/p90/p95/p99, representando o tempo para alcançar uma fração da rede.",
+    "comment": "Menor tempo de propagação é melhor. Se a propagação for lenta em relação ao intervalo entre blocos, a chance de forks aumenta. Percentis altos (p95/p99) são importantes porque mostram atrasos em cenários de congestionamento.",
+    "scale_type": "Absoluta",
+    "protocol": "1) Definir o que será medido (propagação de blocos ou de transações) e quais percentis serão analisados (p50/p90/p95/p99).\n2) Garantir sincronização de tempo entre os nós de medição (por exemplo, NTP) para comparar timestamps.\n3) Instrumentar nós para registrar Torigem (quando o bloco é anunciado/criado) e Tchegada (quando cada nó recebe/valida).\n4) Calcular os tempos de propagação e gerar estatísticas (média, mediana e percentis), além de correlacionar com forks quando aplicável.\n5) Registrar as condições do teste (topologia da rede, banda/RTT, tamanho do bloco, intervalo de bloco e mecanismos de relay) e comparar cenários.",
+    "references": "1) Block Interval Adjustment Based on Block Propagation Time in a Blockchain\n2) Taming Propagation Delay and Fork Rate in Bitcoin Mining Network\n3) A Decentralized Lightweight Blockchain Nodes Architecture Based on a Secure OpenFlow Protocol Controller Channel\n4) Health-ID"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 18"
+  }
+}

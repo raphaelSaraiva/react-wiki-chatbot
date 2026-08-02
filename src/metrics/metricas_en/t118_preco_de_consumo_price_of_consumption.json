@@ -1,0 +1,22 @@
+{
+  "id": "t118",
+  "table_no": 118,
+  "name": "Preço do Consumo",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Valor mínimo de taxa de transação que um usuário precisa pagar para que sua transação seja aceita e processada pela blockchain dentro de um tempo considerado aceitável. Esse valor representa o custo mínimo de entrada para utilizar a rede em um dado momento.",
+    "objective": "Avaliar a estabilidade e a justiça do custo mínimo necessário para processar transações em uma blockchain. A métrica ajuda a identificar congestionamento, desequilíbrios entre oferta e demanda por espaço em blocos e comportamentos oportunistas na priorização de transações.",
+    "equation": "fmin = min(ftxn),\ncom latência de processamento ≤ Lmax",
+    "comment": "Valores baixos e estáveis de fmin indicam uma rede equilibrada, em que usuários conseguem estimar custos de forma previsível. Valores elevados ou com grande variação ao longo do tempo indicam congestionamento, acúmulo de transações pendentes e degradação da experiência do usuário. Diferentemente do custo total da transação, o preço do consumo reflete apenas o menor valor necessário para que uma transação seja aceita, não o valor efetivamente pago.",
+    "scale_type": "Razão",
+    "protocol": "1) Operar a blockchain em condições estáveis de funcionamento.\n2) Monitorar as transações incluídas em cada bloco.\n3) Identificar a menor taxa paga entre as transações confirmadas.\n4) Registrar a evolução de fmin ao longo do tempo.\n5) Analisar a variação de fmin em relação ao volume de transações pendentes e ao comportamento de seleção dos mineradores.",
+    "references": "1) BitcoinF: Achieving Fairness for Bitcoin in Transaction-Fee-Only Model"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 118"
+  }
+}

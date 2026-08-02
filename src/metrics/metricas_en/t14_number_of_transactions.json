@@ -1,0 +1,22 @@
+{
+  "id": "t14",
+  "table_no": 14,
+  "name": "Número de Transações",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Quantidade total de transações processadas pela blockchain em um determinado período de tempo.",
+    "objective": "Avaliar o volume de operações que o sistema consegue processar e apoiar análises de capacidade, escalabilidade e demanda.",
+    "equation": "O número de transações em um período é a simples contagem das transações ocorridas entre dois instantes de tempo.\n\nEsse valor pode ser usado para estimar o throughput (TPS), dividindo o número de transações pelo tempo observado.",
+    "comment": "Um número elevado de transações indica maior uso do sistema. No entanto, esse valor deve ser analisado junto com métricas como latência e throughput para verificar se a blockchain consegue manter desempenho estável sob carga.",
+    "scale_type": "Absoluta",
+    "protocol": "1) Definir o período de análise.\n2) Escolher a fonte de dados (nó local ou explorador de blocos).\n3) Contar o número de transações registradas no período.\n4) Relacionar o volume observado com métricas de desempenho, como TPS e latência.",
+    "references": "1) A Blockchain-Based Framework for IoT Data Monetization Services\n2) Homomorphic Encryption and Consortium Blockchain for IIoMT\n3) Performance Evaluation of M/D/1 Queuing Model on Hyperledger Fabric\n4) A Blockchain-Based Trust Management Framework with Verifiable Interactions\n5) Improving Data Access Control Using Blockchain for Healthcare Domain"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 14"
+  }
+}

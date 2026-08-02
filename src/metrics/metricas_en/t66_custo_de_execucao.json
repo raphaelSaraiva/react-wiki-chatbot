@@ -1,0 +1,22 @@
+{
+  "id": "t66",
+  "table_no": 66,
+  "name": "Custo de Execução",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Custo total associado à execução de uma transação ou contrato inteligente, considerando o esforço computacional, a comunicação entre nós e, quando aplicável, o custo monetário cobrado pela rede.",
+    "objective": "Avaliar a eficiência econômica e operacional das execuções na blockchain, permitindo comparar arquiteturas, plataformas e configurações, bem como verificar a viabilidade de aplicações sensíveis a custo.",
+    "equation": "Custo de Execução = Custo Computacional + Custo de Comunicação + Custo de Armazenamento.\n\nEm blockchains baseadas em gás, pode ser expresso como:\nCusto de Execução = GasUsed × GasPrice.",
+    "comment": "Valores mais baixos indicam execuções mais eficientes. Em redes permissionadas, o custo de execução tende a ser menor por não envolver taxas de gás explícitas. Em redes públicas, custos elevados podem limitar o uso da aplicação, exigindo otimizações ou arquiteturas híbridas.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a operação a ser avaliada (por exemplo, envio, atualização ou consulta de dados).\n2) Executar a operação em ambiente controlado ou rede de teste.\n3) Coletar informações de processamento, comunicação e armazenamento a partir de logs ou monitoramento.\n4) Calcular o custo total de execução usando a equação definida.\n5) Comparar resultados entre diferentes plataformas ou configurações de rede.",
+    "references": "1) MedHypChain: A Patient-Centered Interoperability Hyperledger-Based Medical Healthcare System Regulation in COVID-19 Pandemic"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 66"
+  }
+}

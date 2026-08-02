@@ -1,0 +1,22 @@
+{
+  "id": "t64",
+  "table_no": 64,
+  "name": "Taxa de Blocos Vazios",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Proporção de blocos produzidos na blockchain que não contêm transações de usuários, incluindo apenas informações estruturais do bloco e, quando aplicável, a transação de recompensa.",
+    "objective": "Avaliar o aproveitamento da capacidade da blockchain para processar transações. Uma taxa elevada de blocos vazios indica desperdício de recursos da rede e possível ineficiência na inclusão de transações.",
+    "equation": "Taxa de Blocos Vazios = Número de blocos sem transações de usuários / Número total de blocos analisados.",
+    "comment": "Valores baixos indicam bom aproveitamento do espaço de bloco e maior eficiência da rede. Valores elevados sugerem problemas como atrasos de propagação, estratégias oportunistas de validadores ou políticas conservadoras de inclusão, que reduzem o throughput efetivo e podem aumentar o tempo de confirmação percebido pelos usuários.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a rede blockchain e o intervalo de blocos ou tempo a ser analisado.\n2) Coletar os blocos produzidos no período, incluindo a contagem de transações em cada bloco.\n3) Classificar como bloco vazio aqueles que não possuem transações de usuários.\n4) Calcular a razão entre blocos vazios e o total de blocos observados.\n5) Analisar a variação da taxa ao longo do tempo e em diferentes condições de rede.",
+    "references": "1) Impact of Geo-Distribution and Mining Pools on Blockchains: A Study of Ethereum"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 64"
+  }
+}

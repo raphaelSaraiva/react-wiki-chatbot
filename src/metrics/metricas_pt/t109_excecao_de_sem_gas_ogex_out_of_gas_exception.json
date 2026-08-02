@@ -1,0 +1,22 @@
+{
+  "id": "t109",
+  "table_no": 109,
+  "name": "Taxa de Exceção por Falta de Gás",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Proporção de transações ou chamadas de contratos inteligentes que falham porque o gás alocado não foi suficiente para concluir a execução. Quando ocorre falta de gás, a execução é interrompida, o estado é revertido e a taxa da transação é consumida.",
+    "objective": "Avaliar a confiabilidade das operações e a qualidade da estimativa de gás usada por contratos, carteiras e aplicações. A métrica ajuda a reduzir transações fracassadas, melhorar a experiência do usuário e prevenir erros causados por subdimensionamento de gás.",
+    "equation": "Taxa_OGEx = (Número de transações que falharam por falta de gás) / (Número total de transações).\nOpcionalmente, pode-se calcular a margem de segurança de gás por transação:\nH = 1 − (gas_used / gas_limit).",
+    "comment": "Valores baixos indicam contratos previsíveis e boas estimativas de gás. Valores altos sugerem subestimação de gás, uso excessivo de armazenamento, laços dependentes de dados de entrada ou mudanças recentes no código. A métrica não depende do preço do gás, mas apenas da quantidade alocada.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o período de análise e o conjunto de contratos ou funções avaliadas.\n2) Coletar os recibos das transações executadas no período.\n3) Identificar transações que falharam explicitamente por falta de gás.\n4) Calcular a taxa de exceção por falta de gás no período total e por função.\n5) Analisar tendências após mudanças de código ou de parâmetros de entrada.\n6) Ajustar limites de gás e buffers de segurança para reduzir falhas futuras.",
+    "references": "1) Ethereum: A Secure Decentralised Generalised Transaction Ledger (Yellow Paper)\n2) Ethereum Improvement Proposals (EIP-150, EIP-1559)"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 109"
+  }
+}

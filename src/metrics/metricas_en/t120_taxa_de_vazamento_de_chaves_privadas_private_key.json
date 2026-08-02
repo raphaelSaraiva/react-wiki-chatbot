@@ -1,0 +1,21 @@
+{
+  "id": "t120",
+  "table_no": 120,
+  "name": "Taxa de Vazamento de Chave Privada",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Confidencialidade"
+  },
+  "fields": {
+    "definition": "Frequência com que chaves privadas são expostas ou comprometidas em sistemas blockchain. A métrica reflete falhas de segurança em carteiras, exchanges e serviços de custódia que armazenam ou gerenciam chaves de usuários.",
+    "objective": "Quantificar o risco de comprometimento de chaves privadas em ecossistemas blockchain, especialmente aqueles que dependem de componentes centralizados. A métrica auxilia na avaliação da segurança de provedores e na identificação de pontos únicos de falha.",
+    "equation": "Taxa = (Número de chaves privadas comprometidas) / (Número total de chaves armazenadas)",
+    "comment": "Taxas elevadas indicam fragilidade na gestão de chaves privadas e alto risco para a confidencialidade dos ativos. A métrica é fortemente influenciada pelo grau de centralização da custódia. Mecanismos como carteiras não custodiais, assinaturas múltiplas e fragmentação de chaves tendem a reduzir significativamente o risco de vazamento.",
+    "scale_type": "Razão",
+    "protocol": "1) Identificar serviços ou plataformas que armazenam chaves privadas de usuários.\n2) Levantar incidentes documentados de vazamento, roubo ou exposição de chaves.\n3) Quantificar o número de chaves comprometidas no período analisado.\n4) Calcular a taxa de vazamento em relação ao total de chaves gerenciadas.\n5) Analisar as causas dos incidentes para contextualizar os resultados."
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 120"
+  }
+}

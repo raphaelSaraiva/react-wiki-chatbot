@@ -1,0 +1,22 @@
+{
+  "id": "t61",
+  "table_no": 61,
+  "name": "Tempo de Download",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo total necessário para recuperar e transferir um arquivo armazenado em uma plataforma de armazenamento baseada em blockchain, desde o envio da requisição até a conclusão do download pelo cliente.",
+    "objective": "Avaliar o desempenho e a responsividade de plataformas de armazenamento descentralizado durante operações de leitura de arquivos, permitindo comparação com serviços de armazenamento em nuvem tradicionais.",
+    "equation": "Tempo de Download = t_fim − t_inicio\nonde t_inicio é o instante em que a requisição de download é realizada e t_fim é o instante em que o arquivo é totalmente recebido.",
+    "comment": "Tempos menores indicam maior eficiência de recuperação de dados. Valores elevados podem indicar limitações de largura de banda, baixa disponibilidade de nós ou configuração inadequada de redundância e paralelismo.",
+    "scale_type": "Razão",
+    "protocol": "1) Configurar a plataforma de armazenamento blockchain.\n2) Selecionar arquivos de diferentes tamanhos para teste.\n3) Executar múltiplas operações de download.\n4) Registrar o tempo total de cada download.\n5) Calcular médias e comparar os resultados entre plataformas.",
+    "references": "1) Performance and Cost Analysis of Sia, a Blockchain-Based Storage Platform"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 61"
+  }
+}

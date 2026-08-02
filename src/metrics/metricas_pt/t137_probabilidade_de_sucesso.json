@@ -1,0 +1,22 @@
+{
+  "id": "t137",
+  "table_no": 137,
+  "name": "Probabilidade de Sucesso",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Mede a probabilidade de uma transação ser transmitida e validada com sucesso em uma rede blockchain, considerando perdas de mensagens, colisões de pacotes e o número de nós participantes do consenso.",
+    "objective": "Avaliar a confiabilidade do processo de consenso e da comunicação da rede, verificando se o sistema consegue alcançar validação correta das transações mesmo na presença de falhas e interferências.",
+    "equation": "Ps = [n × τ × (1 − τ)^(n−1)] / [1 − (1 − τ)^n]\n\nOnde τ é a probabilidade de um nó tentar transmitir em um intervalo de tempo e n é o número total de nós.\n\nA probabilidade de sucesso do consenso completo é obtida pela combinação das fases do protocolo PBFT (prepare e commit), considerando o número mínimo de nós corretos necessários.",
+    "comment": "Valores altos indicam que a rede consegue validar transações de forma confiável, mesmo com falhas de comunicação. À medida que o número de nós cresce ou as colisões aumentam, a probabilidade de sucesso tende a diminuir, indicando limites de escalabilidade do consenso.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o número de nós participantes do consenso.\n2) Estimar a probabilidade de tentativa de transmissão por nó.\n3) Calcular a probabilidade de transmissão bem-sucedida.\n4) Combinar as fases do consenso para obter a probabilidade total de sucesso.\n5) Avaliar o impacto de diferentes tamanhos de rede e níveis de interferência.",
+    "references": "1) Performance Analysis of Wireless Practical Byzantine Fault Tolerance Networks Using IEEE 802.11"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 137"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "t112",
+  "table_no": 112,
+  "name": "Taxa de Perda de Pacotes",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Proporção de pacotes de dados que não chegam ao destino durante a comunicação entre nós de uma rede blockchain. A perda pode ocorrer por falhas de roteamento, congestionamento, ataques de rede ou desconexões temporárias.",
+    "objective": "Avaliar a confiabilidade da comunicação entre nós em ambientes blockchain distribuídos, especialmente quando integrados a redes definidas por software (SDN), identificando o impacto de falhas e ataques de roteamento sobre a transmissão de dados.",
+    "equation": "Taxa de Perda de Pacotes = N_pacotes_perdidos / N_pacotes_enviados × 100",
+    "comment": "Taxas baixas indicam comunicação estável e confiável entre os nós. Taxas elevadas sugerem problemas de rede, como congestionamento, ataques de roteamento ou falhas de infraestrutura, que podem comprometer o consenso e a disponibilidade do sistema blockchain.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o cenário de rede e a janela de observação.\n2) Transmitir pacotes de dados entre nós blockchain sob condições normais e adversas.\n3) Registrar o número total de pacotes enviados.\n4) Registrar o número de pacotes que não chegaram ao destino.\n5) Calcular a taxa de perda de pacotes usando a equação definida.",
+    "references": "1) SDBGPChain: A Decentralized Low Complexity Framework to Detect and Prevent the BGP Attacks using SDN with Smart Contract-Based Dendrimer Tree Blockchain"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 112"
+  }
+}

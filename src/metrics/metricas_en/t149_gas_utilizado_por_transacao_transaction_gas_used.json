@@ -1,0 +1,22 @@
+{
+  "id": "t149",
+  "table_no": 149,
+  "name": "Média de Gás Utilizado por Transação",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade média de gás consumida para executar uma transação em uma blockchain baseada em EVM, refletindo o esforço computacional necessário para concluir a operação.",
+    "objective": "Avaliar a eficiência computacional das transações, permitindo estimar custos, identificar operações mais pesadas e comparar diferentes contratos inteligentes ou versões de implementação.",
+    "equation": "Gás Médio por Transação = soma do gás utilizado em todas as transações / número total de transações analisadas.",
+    "comment": "Valores mais altos indicam transações mais complexas, geralmente associadas a escrita em armazenamento ou múltiplas chamadas de contrato. Quando combinados com o preço do gás, esses valores impactam diretamente o custo financeiro da transação.",
+    "scale_type": "Razão",
+    "protocol": "1) Executar transações ou funções do contrato inteligente em uma rede de teste ou produção.\n2) Obter o valor gasUsed a partir do recibo de cada transação.\n3) Registrar os valores de gás utilizados.\n4) Calcular a média e, se necessário, percentis do gás consumido.\n5) Comparar os resultados entre diferentes contratos, funções ou versões.",
+    "references": "1) Empirically Analyzing Ethereum’s Gas Mechanism"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 149"
+  }
+}

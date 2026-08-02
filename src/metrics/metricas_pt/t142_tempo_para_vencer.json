@@ -1,0 +1,22 @@
+{
+  "id": "t142",
+  "table_no": 142,
+  "name": "Tempo para Vencer",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo necessário para que um nó ou minerador consiga produzir um bloco vencedor, contado desde o início da tentativa de mineração até a descoberta de um bloco válido aceito pela rede.",
+    "objective": "Avaliar a rapidez com que o protocolo de consenso elege um novo bloco vencedor, permitindo analisar a eficiência e a capacidade de resposta de mecanismos de consenso, especialmente em arquiteturas como o Bitcoin-NG.",
+    "equation": "T_win = tempo de descoberta do bloco vencedor − tempo de início da tentativa de mineração.",
+    "comment": "Tempos menores indicam maior eficiência do processo de mineração e da propagação do bloco vencedor. Valores elevados podem indicar alta dificuldade, concentração de poder computacional, congestionamento da rede ou problemas de conectividade.",
+    "scale_type": "Razão",
+    "protocol": "1) Acompanhar os logs ou eventos de mineração dos nós da rede.\n2) Registrar o instante em que cada tentativa de mineração é iniciada.\n3) Registrar o instante em que o bloco vencedor é descoberto.\n4) Calcular o tempo para vencer para cada evento observado.\n5) Analisar estatísticas como média, mediana e percentis para comparar diferentes nós ou configurações.",
+    "references": "1) Bitcoin-NG: A Scalable Blockchain Protocol"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 142"
+  }
+}

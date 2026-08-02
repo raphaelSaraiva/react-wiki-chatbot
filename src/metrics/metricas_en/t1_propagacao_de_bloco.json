@@ -1,0 +1,22 @@
+{
+  "id": "t1",
+  "table_no": 1,
+  "name": "Propagação de Blocos",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo que um novo bloco leva para se espalhar pela rede blockchain, contado a partir do momento em que é criado por um nó até que uma parte significativa dos outros nós (por exemplo, 50% ou 90%) o receba e aceite.",
+    "objective": "Avaliar a rapidez e a eficiência da comunicação entre os nós da rede, já que atrasos na propagação de blocos podem gerar blocos inválidos, conflitos na cadeia e reduzir a segurança do sistema.",
+    "equation": "Propagação_p% = tempo até que p% dos nós recebam o bloco − tempo de anúncio do bloco. Uma medida complementar é ρ_p% = Propagação_p% / Intervalo de Bloco.",
+    "comment": "Quanto menor o tempo de propagação, melhor o desempenho da rede. Valores altos indicam maior risco de conflitos entre blocos e menor segurança. Recomenda-se observar percentis altos (como p90 ou p95), pois eles mostram o comportamento da rede em situações mais críticas.",
+    "scale_type": "Absoluta",
+    "protocol": "1) Escolher o percentual de nós a ser considerado (ex.: 50% ou 90%).\n2) Registrar o instante em que o bloco é criado e anunciado na rede.\n3) Medir o tempo em que cada nó recebe o bloco.\n4) Calcular o tempo necessário para que o percentual escolhido de nós receba o bloco.\n5) Analisar valores médios e percentis para comparar diferentes condições de rede.",
+    "references": "1) Blockchain Layer Zero: Characterizing the Bitcoin Network through Measurements, Models, and Simulations\n2) A Novel Homomorphic Encryption and Consortium Blockchain-Based Hybrid Deep Learning Model for IIoMT"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 1"
+  }
+}

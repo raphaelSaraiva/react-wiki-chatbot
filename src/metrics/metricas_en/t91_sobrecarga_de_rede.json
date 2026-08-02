@@ -1,0 +1,22 @@
+{
+  "id": "t91",
+  "table_no": 91,
+  "name": "Sobrecarga de Rede",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Quantidade relativa de dados adicionais transmitidos na rede blockchain que não correspondem diretamente às transações dos usuários, como mensagens de consenso, cabeçalhos de blocos, assinaturas e informações de sincronização entre nós.",
+    "objective": "Avaliar o impacto do tráfego de controle necessário para manter a segurança, o consenso e a integridade da blockchain. A métrica ajuda a identificar quanto da comunicação da rede é consumida por mecanismos internos do protocolo, em vez de dados úteis da aplicação.",
+    "equation": "SR = Dcontrole / Dtotal\n\nonde Dcontrole é o volume de dados de controle e Dtotal é o volume total de dados transmitidos na rede.",
+    "comment": "Valores mais baixos indicam uso mais eficiente da rede, com menor desperdício de largura de banda em mensagens internas. Valores altos indicam que grande parte da comunicação é consumida por controle e sincronização, o que pode aumentar latência, reduzir throughput e dificultar a escalabilidade.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir o ambiente de rede e o intervalo de observação.\n2) Monitorar todo o tráfego transmitido entre os nós.\n3) Separar os dados de controle (consenso, cabeçalhos, autenticação).\n4) Medir o volume total de dados transmitidos.\n5) Calcular SR = Dcontrole / Dtotal e comparar diferentes arquiteturas ou configurações.",
+    "references": "1) Blockchain-based trusted distributed routing scheme using optimized dropout ensemble extreme learning neural network in MANET"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 91"
+  }
+}

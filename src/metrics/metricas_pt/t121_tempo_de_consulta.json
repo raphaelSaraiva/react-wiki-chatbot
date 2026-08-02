@@ -1,0 +1,21 @@
+{
+  "id": "t121",
+  "table_no": 121,
+  "name": "Tempo de Consulta",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Tempo decorrido entre a solicitação e o recebimento completo da resposta de uma consulta a dados armazenados na blockchain. A métrica avalia o desempenho de leitura do sistema ao recuperar informações de transações ou contratos inteligentes.",
+    "objective": "Avaliar a eficiência temporal de acesso a dados em redes blockchain, especialmente em aplicações de Internet das Coisas, nas quais atrasos de leitura afetam diretamente a responsividade e o funcionamento em tempo quase real.",
+    "equation": "TempoMedio = (1 / N) × Σ (t_resposta_i − t_solicitacao_i)",
+    "comment": "O tempo de consulta é influenciado pelo mecanismo de consenso, pela estrutura de dados dos blocos e pela capacidade dos nós que atendem às requisições. Mecanismos com menor tempo de bloco e validação mais simples tendem a apresentar tempos de consulta menores e mais estáveis.",
+    "scale_type": "Razão",
+    "protocol": "1) Implantar a blockchain sob diferentes mecanismos de consenso.\n2) Registrar um conjunto de transações ou contratos inteligentes.\n3) Executar consultas de leitura aos dados armazenados usando uma API de acesso à blockchain.\n4) Medir o tempo entre o envio da solicitação e o recebimento completo da resposta.\n5) Calcular o tempo médio de consulta para cada configuração analisada."
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 121"
+  }
+}

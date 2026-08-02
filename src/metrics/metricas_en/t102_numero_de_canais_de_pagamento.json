@@ -1,0 +1,22 @@
+{
+  "id": "t102",
+  "table_no": 102,
+  "name": "Número de Canais de Pagamento",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Capacidade"
+  },
+  "fields": {
+    "definition": "Quantidade total de canais de pagamento ativos estabelecidos entre os nós da Lightning Network, que permitem a realização de transações off-chain rápidas e privadas.",
+    "objective": "Avaliar a capacidade, a conectividade e o nível de adoção da Lightning Network, indicando o quanto a infraestrutura suporta micropagamentos de forma escalável.",
+    "equation": "Número de Canais de Pagamento = quantidade de canais ativos detectados na rede durante o período de observação.",
+    "comment": "Valores mais altos indicam maior conectividade e maior capacidade de roteamento de pagamentos, o que favorece a escalabilidade da rede. Valores baixos podem indicar fechamento de canais, retração de uso ou concentração excessiva em poucos nós.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir a janela de observação da Lightning Network.\n2) Executar ferramentas de coleta ou crawlers da rede.\n3) Obter a lista de canais ativos a partir da topologia da rede.\n4) Remover canais duplicados ou inativos.\n5) Contar o número total de canais ativos no período.",
+    "references": "1) Where is the Light(ning) in the Taproot Dawn? Unveiling the Bitcoin Lightning (IP) Network"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 102"
+  }
+}

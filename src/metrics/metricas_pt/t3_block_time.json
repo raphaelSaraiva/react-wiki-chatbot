@@ -1,0 +1,22 @@
+{
+  "id": "t3",
+  "table_no": 3,
+  "name": "Tempo de Bloco",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Intervalo de tempo entre a criação de dois blocos consecutivos em uma blockchain. Esse tempo indica com que frequência novos blocos são adicionados à cadeia.",
+    "objective": "Avaliar a rapidez com que a blockchain produz novos blocos, influenciando diretamente a latência das transações, a capacidade de processamento e a experiência das aplicações que dependem da rede.",
+    "equation": "BT_i = T_i − T_{i−1}. O tempo médio de bloco pode ser calculado pela média ou mediana dos intervalos entre blocos consecutivos em um determinado período.",
+    "comment": "Tempos de bloco menores tornam a rede mais responsiva, permitindo que transações sejam incluídas com mais frequência. No entanto, tempos muito curtos podem afetar a estabilidade e a segurança do consenso. Recomenda-se analisar também percentis altos (p90, p95) para identificar variações e picos.",
+    "scale_type": "Absoluta",
+    "protocol": "1) Definir a blockchain, o tipo de consenso e o período de observação.\n2) Coletar os timestamps de blocos consecutivos por meio de nós ou APIs.\n3) Calcular o intervalo de tempo entre blocos sucessivos.\n4) Obter estatísticas como média, mediana e percentis.\n5) Relacionar os resultados com métricas como latência de transações e throughput.",
+    "references": "1) Blockchain for IoT: A Consensus Mechanism Analysis\n2) A Blockchain-based Trust Management Framework with Verifiable Interactions\n3) SDBGPChain\n4) Smart Microgrid Energy Market\n5) Towards a Smarter IoT Environment with EVM-enabling Ledgers"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 3"
+  }
+}

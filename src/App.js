@@ -19,6 +19,8 @@ import Sidebar from './components/Sidebar';
 import Tutorial from './components/Tutorial';
 import FeedbackModal from './components/FeedbackModal';
 import TopBar from './components/TopBar';
+import { LanguageProvider, useLanguage } from './i18n/LanguageContext';
+import { t } from './i18n/uiText';
 
 // ✅ Admin Page separada
 import AdminFeedbacksPage from './components/AdminFeedbacksPage';
@@ -81,6 +83,7 @@ const AppContent = ({
   adminLoading,
 }) => {
   const location = useLocation();
+  const { language } = useLanguage();
   const isAdminRoute = location.pathname.startsWith('/admin');
 
   // ✅ 1) Tutorial isolado (sem TopBar / Sidebar / padding / overflow do main)
@@ -139,7 +142,7 @@ const AppContent = ({
               style={{ top: user ? '80px' : '20px', left: '20px', zIndex: 10 }}
               onClick={toggleMenu}
             >
-              ☰ Menu
+              {t(language, 'menu')}
             </button>
           )}
 
@@ -166,7 +169,7 @@ const AppContent = ({
                   path="/admin"
                   element={
                     adminLoading ? (
-                      <div className="text-white">Carregando permissões…</div>
+                      <div className="text-white">{t(language, 'loadingPermissions')}</div>
                     ) : isAdmin ? (
                       <AdminFeedbacksPage />
                     ) : (
@@ -191,8 +194,8 @@ const AppContent = ({
                     marginBottom: '20px',
                   }}
                 />
-                <h1 className="mb-4">Bem-vindo ao Wiki Métricas</h1>
-                <p className="mb-4">Por favor, faça login para acessar o conteúdo.</p>
+                <h1 className="mb-4">{t(language, 'welcome')}</h1>
+                <p className="mb-4">{t(language, 'loginPrompt')}</p>
 
                 <button
                   className="btn btn-warning d-inline-flex align-items-center gap-2 px-4 py-2 fw-semibold"
@@ -224,7 +227,7 @@ const AppContent = ({
                       style={{ width: '18px', height: '18px' }}
                     />
                   </span>
-                  Continuar com Google
+                  {t(language, 'continueWithGoogle')}
                 </button>
               </div>
             )}
@@ -473,25 +476,27 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <AppContent
-        user={user}
-        isMenuVisible={isMenuVisible}
-        toggleMenu={toggleMenu}
-        showTutorial={showTutorial}
-        handleCompleteTutorial={handleCompleteTutorial}
-        handleLogin={handleLogin}
-        handleLogout={handleLogout}
-        showFeedbackModal={showFeedbackModal}
-        setShowFeedbackModal={setShowFeedbackModal}
-        handleOpenFeedback={handleOpenFeedback}
-        feedbackTooltip={feedbackTooltip}
-        metricsVisitedCount={metricsVisitedCount}
-        questionsCompletedCount={questionsCompletedCount}
-        isAdmin={isAdmin}
-        adminLoading={adminLoading}
-      />
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <AppContent
+          user={user}
+          isMenuVisible={isMenuVisible}
+          toggleMenu={toggleMenu}
+          showTutorial={showTutorial}
+          handleCompleteTutorial={handleCompleteTutorial}
+          handleLogin={handleLogin}
+          handleLogout={handleLogout}
+          showFeedbackModal={showFeedbackModal}
+          setShowFeedbackModal={setShowFeedbackModal}
+          handleOpenFeedback={handleOpenFeedback}
+          feedbackTooltip={feedbackTooltip}
+          metricsVisitedCount={metricsVisitedCount}
+          questionsCompletedCount={questionsCompletedCount}
+          isAdmin={isAdmin}
+          adminLoading={adminLoading}
+        />
+      </Router>
+    </LanguageProvider>
   );
 };
 

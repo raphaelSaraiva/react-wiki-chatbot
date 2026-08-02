@@ -1,0 +1,22 @@
+{
+  "id": "t136",
+  "table_no": 136,
+  "name": "Taxa de Sucesso e Falha",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Mede a proporção de transações concluídas com sucesso e a proporção de transações que falham durante a execução em um sistema blockchain.",
+    "objective": "Avaliar a confiabilidade operacional da rede blockchain, verificando se o sistema consegue executar transações de forma estável mesmo sob diferentes cargas e condições de falha.",
+    "equation": "Taxa de Sucesso = (N_sucesso / N_total) × 100\nTaxa de Falha = (N_falhas / N_total) × 100",
+    "comment": "Taxas altas de sucesso indicam que a rede está operando de forma estável e tolerante a falhas. O aumento da taxa de falha pode indicar congestionamento, problemas de sincronização entre nós ou limitações na configuração do consenso.",
+    "scale_type": "Razão",
+    "protocol": "1) Registrar todas as transações submetidas à rede blockchain durante um intervalo definido.\n2) Identificar quais transações foram confirmadas com sucesso e quais falharam.\n3) Contabilizar o número total de transações, sucessos e falhas.\n4) Calcular as taxas de sucesso e falha conforme as equações.\n5) Comparar os resultados sob diferentes cargas e configurações da rede.",
+    "references": "1) Hyperledger Healthchain: Patient-centric IPFS-based Storage of Health Records"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 136"
+  }
+}

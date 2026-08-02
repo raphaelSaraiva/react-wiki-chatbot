@@ -1,0 +1,22 @@
+{
+  "id": "t156",
+  "table_no": 156,
+  "name": "Variabilidade da Razão Gás/Tempo",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Utilização de Recursos"
+  },
+  "fields": {
+    "definition": "Variação estatística da relação entre o gás consumido por uma transação e o tempo real necessário para sua execução. A métrica indica o quanto o custo em gás reflete, de forma consistente, o esforço computacional efetivo.",
+    "objective": "Avaliar a consistência e a previsibilidade do modelo de cobrança por gás, identificando diferenças entre o custo definido em gás e o tempo real de execução das transações.",
+    "equation": "CoV = σ / µ \n\nonde σ é o desvio padrão da razão Tempo/Gás observada e µ é a média dessa razão.",
+    "comment": "Valores baixos indicam que o custo em gás acompanha bem o tempo real de execução. Valores altos mostram inconsistências, sugerindo que transações com custos semelhantes em gás podem demandar tempos muito diferentes de processamento.",
+    "scale_type": "Razão",
+    "protocol": "1) Instrumentar o cliente Ethereum para medir o tempo real de execução das transações.\n2) Coletar dados de tempo de execução e gás consumido para um conjunto de transações ou opcodes.\n3) Calcular a razão Tempo/Gás para cada execução.\n4) Calcular a média e o desvio padrão dessas razões.\n5) Calcular o coeficiente de variação (CoV) e comparar entre diferentes ambientes ou tipos de operação.",
+    "references": "1) Empirically Analyzing Ethereum’s Gas Mechanism"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 156"
+  }
+}

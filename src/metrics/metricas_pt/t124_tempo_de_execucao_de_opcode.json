@@ -1,0 +1,21 @@
+{
+  "id": "t124",
+  "table_no": 124,
+  "name": "Taxa de Execução de Opcode",
+  "iso25010": {
+    "characteristic": "Eficiência de Desempenho",
+    "subcharacteristic": "Comportamento Temporal"
+  },
+  "fields": {
+    "definition": "Relação entre o tempo real necessário para executar um opcode da Ethereum Virtual Machine (EVM) e o custo em gas atribuído a esse opcode. A métrica indica se o custo em gas reflete adequadamente o esforço computacional real.",
+    "objective": "Avaliar se os opcodes da EVM estão corretamente precificados em termos de gas, identificando instruções que consomem mais ou menos tempo de execução do que o esperado. Isso ajuda a melhorar a previsibilidade de desempenho e o equilíbrio do modelo de custos da blockchain.",
+    "equation": "Taxa_exec_opcode = Tempo_execucao / Custo_gas",
+    "comment": "Quando um opcode leva muito tempo para ser executado, mas possui baixo custo em gas, ele pode ser explorado para gerar sobrecarga na rede. Já opcodes com custo alto e execução rápida tendem a ser superprecificados. Essa métrica ajuda a revelar esses desequilíbrios.",
+    "scale_type": "Razão",
+    "protocol": "1) Instrumentar um cliente Ethereum para coletar dados de execução em nível de opcode.\n2) Medir o tempo real de execução de cada opcode durante a execução de contratos.\n3) Associar cada opcode ao seu custo oficial em gas definido na EVM.\n4) Calcular a taxa entre tempo de execução e custo em gas para cada opcode.\n5) Comparar os valores entre opcodes para identificar discrepâncias significativas."
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 124"
+  }
+}

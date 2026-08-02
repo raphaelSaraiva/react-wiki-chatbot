@@ -1,0 +1,22 @@
+{
+  "id": "t129",
+  "table_no": 129,
+  "name": "Razão de Impacto de Ataques DoS",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Disponibilidade"
+  },
+  "fields": {
+    "definition": "Razão que indica o quanto o desempenho ou a disponibilidade de um sistema blockchain se degradam quando ele é submetido a um ataque de negação de serviço (DoS), em comparação com sua operação normal.",
+    "objective": "Avaliar a resiliência do sistema blockchain frente a ataques DoS, medindo o impacto desses ataques sobre métricas operacionais como latência, vazão ou taxa de confirmação de transações.",
+    "equation": "Razão de Impacto DoS = Valor da métrica sob ataque / Valor da métrica em operação normal.",
+    "comment": "Valores próximos de 1 indicam que o ataque causa pouco impacto no sistema. Valores muito maiores ou muito menores que 1 indicam degradação significativa do desempenho ou da disponibilidade durante o ataque.",
+    "scale_type": "Razão",
+    "protocol": "1) Escolher a métrica de desempenho ou disponibilidade a ser analisada (por exemplo, latência, vazão ou taxa de confirmação).\n2) Medir o valor dessa métrica durante a operação normal do sistema.\n3) Executar ou simular um ataque DoS, como envio massivo de transações.\n4) Medir novamente o valor da métrica durante o ataque.\n5) Calcular a razão entre o valor medido sob ataque e o valor em operação normal.\n6) Comparar os resultados entre diferentes mecanismos de defesa ou configurações do sistema.",
+    "references": "1) An Efficient Distributed and Secure Algorithm for Transaction Confirmation in IOTA Using Cloud Computing"
+  },
+  "source": {
+    "pdf": "An_efficient_distributed_and_secure_algorithm_for_transaction_confirmation_in_IOTA_using_cloud_computing.pdf",
+    "table": "Tabela 129"
+  }
+}

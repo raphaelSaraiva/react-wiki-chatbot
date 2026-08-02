@@ -1,0 +1,22 @@
+{
+  "id": "t97",
+  "table_no": 97,
+  "name": "Número de Blocos Perdidos",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Tolerância a Falhas"
+  },
+  "fields": {
+    "definition": "Número total de blocos que deixam de ser corretamente entregues ou reconhecidos pelos nós da rede blockchain durante a propagação. Esses blocos podem ser perdidos devido a falhas de comunicação, desconexões, sobrecarga da rede ou inconsistências temporárias do consenso.",
+    "objective": "Avaliar a confiabilidade da infraestrutura blockchain, identificando perdas de blocos que comprometem a sincronização entre nós e a consistência do ledger distribuído.",
+    "equation": "Blost = Nexpected − Nreceived\n\nonde Nexpected é o número de blocos esperados\nNreceived é o número de blocos efetivamente recebidos",
+    "comment": "O Número de Blocos Perdidos indica falhas na propagação ou na recepção de blocos pela rede. Valores baixos refletem uma rede estável, com comunicação confiável entre os nós. Valores elevados sugerem congestionamento, falhas de conectividade, ataques ou problemas no mecanismo de consenso, aumentando o risco de inconsistências temporárias e perda de confiabilidade.",
+    "scale_type": "Razão",
+    "protocol": "1) Monitorar a propagação de blocos em uma rede blockchain real ou simulada.\n2) Registrar o número total de blocos esperados (Nexpected) em cada intervalo.\n3) Contabilizar os blocos efetivamente recebidos pelos nós (Nreceived).\n4) Calcular Blost = Nexpected − Nreceived.\n5) Analisar as causas das perdas e sua relação com carga, topologia e falhas de rede.",
+    "references": "1) Health-ID: A Blockchain-Based Decentralized Identity Management for Remote Healthcare"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 97"
+  }
+}

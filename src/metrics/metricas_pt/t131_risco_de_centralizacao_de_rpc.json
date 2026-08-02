@@ -1,0 +1,22 @@
+{
+  "id": "t131",
+  "table_no": 131,
+  "name": "Risco de Centralização de RPC",
+  "iso25010": {
+    "characteristic": "Adequação Funcional",
+    "subcharacteristic": "Completude Funcional"
+  },
+  "fields": {
+    "definition": "Proporção de carteiras ou aplicações descentralizadas que dependem de um único provedor centralizado de RPC para acessar a rede blockchain, indicando o grau de concentração da infraestrutura de acesso.",
+    "objective": "Avaliar o risco introduzido pela dependência de provedores centralizados de RPC, que podem causar interrupções de serviço, censura ou perda de acesso à rede, comprometendo a descentralização funcional do ecossistema.",
+    "equation": "Risco de Centralização de RPC = Número de aplicações dependentes de RPC centralizado / Número total de aplicações analisadas.",
+    "comment": "Valores altos indicam forte dependência de poucos provedores de RPC, aumentando o risco de indisponibilidade e censura. Valores baixos indicam ecossistemas mais resilientes, com múltiplos provedores configuráveis ou uso de nós próprios.",
+    "scale_type": "Razão",
+    "protocol": "1) Identificar as carteiras e aplicações descentralizadas mais utilizadas no ecossistema analisado.\n2) Verificar qual provedor de RPC cada aplicação utiliza por padrão.\n3) Identificar se o provedor é único e não configurável pelo usuário.\n4) Contabilizar quantas aplicações dependem exclusivamente de RPC centralizado.\n5) Calcular a razão entre aplicações dependentes e o total analisado.",
+    "references": "1) Bad Apples: Understanding the Centralized Security Risks in Decentralized Ecosystems"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 131"
+  }
+}

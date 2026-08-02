@@ -1,0 +1,22 @@
+{
+  "id": "t155",
+  "table_no": 155,
+  "name": "Taxa de Chamadas Desconhecidas",
+  "iso25010": {
+    "characteristic": "Segurança",
+    "subcharacteristic": "Integridade"
+  },
+  "fields": {
+    "definition": "Proporção de chamadas ou transações enviadas por nós da rede que não conseguem alcançar um destino válido ou reconhecido. Essas chamadas falham porque o nó de destino é desconhecido, inexistente ou está fora de sincronia.",
+    "objective": "Avaliar a segurança e a confiabilidade da comunicação entre nós em redes distribuídas, identificando falhas de roteamento, problemas de sincronização ou comportamentos anômalos que possam comprometer a integridade da rede.",
+    "equation": "Urate = N_unknown / N_total",
+    "comment": "Valores baixos indicam boa conectividade e comunicação eficiente entre os nós da rede. Valores elevados sugerem problemas de sincronização, falhas de roteamento ou a presença de nós inválidos ou maliciosos, aumentando o desperdício de recursos computacionais e o risco de instabilidade.",
+    "scale_type": "Razão",
+    "protocol": "1) Monitorar as chamadas ou transações geradas por cada nó durante um período definido.\n2) Identificar as chamadas que falharam por destino desconhecido ou inexistente.\n3) Contabilizar o número total de chamadas realizadas no mesmo período.\n4) Calcular a taxa de chamadas desconhecidas usando a equação definida.\n5) Analisar a variação da taxa ao longo do tempo para identificar falhas sistêmicas ou padrões anômalos.",
+    "references": "1) An Efficient Distributed and Secure Algorithm for Transaction Confirmation in IOTA Using Cloud Computing"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 155"
+  }
+}

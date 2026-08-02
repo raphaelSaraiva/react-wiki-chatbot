@@ -1,0 +1,22 @@
+{
+  "id": "t5",
+  "table_no": 5,
+  "name": "Nível de Disponibilidade",
+  "iso25010": {
+    "characteristic": "Confiabilidade",
+    "subcharacteristic": "Disponibilidade"
+  },
+  "fields": {
+    "definition": "Probabilidade de um serviço blockchain estar operacional e acessível quando solicitado. Esse nível depende da confiabilidade dos nós, da infraestrutura utilizada e das políticas adotadas para validação e consenso.",
+    "objective": "Avaliar e planejar a continuidade do serviço blockchain, apoiar a definição de acordos de nível de serviço (SLA) e comparar diferentes configurações de rede e políticas de validação quanto ao impacto em interrupções e indisponibilidade.",
+    "equation": "A = MTTF / (MTTF + MTTR), onde MTTF é o tempo médio até falha e MTTR é o tempo médio de reparo. O tempo médio anual de indisponibilidade pode ser estimado por (1 − A) × 8760 horas.",
+    "comment": "Valores mais altos de disponibilidade indicam serviços mais confiáveis, com menos tempo de inatividade. Em geral, quanto maior o número de “noves” (por exemplo, 99,9% ou 99,99%), menor o tempo anual de indisponibilidade. A escolha da arquitetura e das políticas de validação influencia diretamente esse resultado.",
+    "scale_type": "Razão",
+    "protocol": "1) Definir claramente o que significa o serviço estar disponível (por exemplo, envio e confirmação de transações).\n2) Registrar falhas e tempos de recuperação dos componentes do sistema.\n3) Calcular MTTF e MTTR a partir dos dados coletados.\n4) Estimar a disponibilidade do serviço e o tempo anual de indisponibilidade.\n5) Comparar diferentes configurações de rede e políticas de validação em relação aos requisitos de SLA.",
+    "references": "1) A Model-Based Approach for Planning Blockchain Service Provisioning\n2) A Privacy-Preserving Data Transfer in a Blockchain-Based Commercial Real Estate Platform"
+  },
+  "source": {
+    "pdf": "catalogo_de_metricas.pdf",
+    "table": "Tabela 5"
+  }
+}
