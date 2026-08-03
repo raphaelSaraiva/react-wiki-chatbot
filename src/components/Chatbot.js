@@ -803,6 +803,7 @@ const Chatbot = () => {
         metricId,
         metricName: metricName || metricId,
         history: historyPayload,
+        answerLanguage: language === "en" ? "en" : "pt",
       });
 
       const data = res.data || {};
@@ -847,8 +848,12 @@ const Chatbot = () => {
       }
     } catch (error) {
       console.error("Erro ao enviar a pergunta:", error.message || error);
-      setOption1("Ocorreu um erro ao processar sua pergunta.");
-      setOption2("Ocorreu um erro ao processar sua pergunta.");
+      const fallback =
+        language === "en"
+          ? "The system could not process this question during the demo. In the experiment, the participant would compare the generated answer for the selected metric."
+          : "Ocorreu um erro ao processar sua pergunta.";
+      setOption1(fallback);
+      setOption2(fallback);
       setInvalidForExperiment(false);
       setAnswerOrder({ option1: "a", option2: "b" });
     } finally {

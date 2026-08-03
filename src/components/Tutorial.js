@@ -1,11 +1,8 @@
-import React, { useMemo, useState, useEffect } from "react";
-import { Carousel, Button } from "react-bootstrap";
+import React, { useEffect, useMemo, useState } from "react";
+import { Button, Carousel } from "react-bootstrap";
 import "./Tutorial.css";
 import logo from "../imgs/logo.png";
 
-/* ======================================================
-   Utilitário: gera uma imagem SVG embutida (data URI)
-   ====================================================== */
 function svgSlide({ title, description, icon, imageHref }) {
   const safe = (s) =>
     String(s || "")
@@ -39,7 +36,6 @@ function svgSlide({ title, description, icon, imageHref }) {
 
     <rect width="1600" height="900" fill="url(#bg)"/>
 
-    <!-- Título -->
     <text x="800" y="320"
       text-anchor="middle"
       font-size="86"
@@ -49,7 +45,6 @@ function svgSlide({ title, description, icon, imageHref }) {
       ${safe(title)}
     </text>
 
-    <!-- Descrição -->
     <text x="800" y="410"
       text-anchor="middle"
       font-size="34"
@@ -62,7 +57,6 @@ function svgSlide({ title, description, icon, imageHref }) {
     ${
       imageHref
         ? `
-        <!-- Ícone por imagem (logo) -->
         <image
           href="${imageHref}"
           x="720"
@@ -73,7 +67,6 @@ function svgSlide({ title, description, icon, imageHref }) {
         />
       `
         : `
-        <!-- Ícone emoji -->
         <text x="800" y="590"
           text-anchor="middle"
           font-size="120"
@@ -88,7 +81,7 @@ function svgSlide({ title, description, icon, imageHref }) {
       font-size="24"
       fill="rgba(255,255,255,0.60)"
       font-family="Inter, Arial, sans-serif">
-      Wiki Métricas Blockchain · Tutorial Inicial
+      Blockchain Metrics Wiki - Initial Tutorial
     </text>
   </svg>
   `.trim();
@@ -103,53 +96,52 @@ const Tutorial = ({ onComplete }) => {
     () => [
       {
         img: svgSlide({
-          title: "Wiki Métricas Blockchain",
+          title: "Blockchain Metrics Wiki",
           description:
-            "Consulte métricas de qualidade com estrutura, equações, classificação e referências.",
+            "Explore quality metrics with structure, equations, classification, and references.",
           imageHref: logo,
         }),
-        title: "Bem-vindo ao Wiki",
+        title: "Welcome to the Wiki",
         text:
-          "Você encontrará definição, objetivo, equação, unidade, interpretação e classificação ISO/IEC 25010 para cada métrica.",
+          "For each metric, you will find its definition, objective, equation, unit, interpretation, and ISO/IEC 25010 classification.",
       },
       {
         img: svgSlide({
-          title: "Catálogo por ISO/IEC 25010",
+          title: "ISO/IEC 25010 Catalog",
           description:
-            "Métricas agrupadas por características (desempenho, segurança, confiabilidade etc.).",
+            "Metrics grouped by quality characteristics such as performance, security, and reliability.",
           icon: "📊",
         }),
-        title: "Exploração estruturada",
+        title: "Structured Exploration",
         text:
-          "Use o menu para navegar por característica/subcaracterística e abrir o detalhe completo da métrica.",
+          "Use the menu to navigate by characteristic and subcharacteristic, then open the full metric details.",
       },
       {
         img: svgSlide({
-          title: "Busca por Métricas",
+          title: "Metric Search",
           description:
-            "Pesquise pelo nome/alias e clique para registrar a tarefa de busca do experimento.",
+            "Search by name or alias, then click a metric to register the experiment search task.",
           icon: "🔎",
         }),
-        title: "Busque e selecione",
+        title: "Search and Select",
         text:
-          "Digite no campo de busca, escolha uma métrica na lista e acesse a página dela. Isso conta para o experimento.",
+          "Type in the search field, choose a metric from the list, and open its page. This counts toward the experiment.",
       },
       {
         img: svgSlide({
-          title: "Chatbot com RAG",
+          title: "RAG Chatbot",
           description:
-            "Respostas com base em fontes: recuperação de documentos + geração para reduzir alucinações.",
+            "Source-grounded answers: document retrieval plus generation to reduce hallucinations.",
           icon: "🤖",
         }),
-        title: "Pergunte ao chatbot",
+        title: "Ask the Chatbot",
         text:
-          "Faça perguntas sobre métricas (ex.: latência, vazão). O chatbot busca contexto e responde com base em documentos.",
+          "Ask questions about metrics, such as latency or throughput. The chatbot retrieves context and answers based on documents.",
       },
     ],
     []
   );
 
-  // ✅ setas do teclado
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "ArrowLeft") setActiveIndex((i) => Math.max(0, i - 1));
@@ -161,19 +153,15 @@ const Tutorial = ({ onComplete }) => {
     return () => window.removeEventListener("keydown", onKey);
   }, [slides.length]);
 
-  const handleFinish = () => {
-    if (typeof onComplete === "function") onComplete();
-  };
-
   const isLast = activeIndex === slides.length - 1;
 
   return (
     <div className="tutorial-root">
       <div className="tutorial-card">
         <div className="tutorial-header">
-          <div className="tutorial-title">Tutorial rápido</div>
+          <div className="tutorial-title">Quick tutorial</div>
           <div className="tutorial-step">
-            {activeIndex + 1} de {slides.length}
+            {activeIndex + 1} of {slides.length}
           </div>
         </div>
 
@@ -198,15 +186,15 @@ const Tutorial = ({ onComplete }) => {
         </div>
 
         <div className="tutorial-footer">
-          <div className="tutorial-hint">Dica: use ← → para navegar</div>
+          <div className="tutorial-hint">Tip: use left/right arrows to navigate</div>
 
           {isLast && (
             <Button
               className="tutorial-cta"
               variant="warning"
-              onClick={handleFinish}
+              onClick={onComplete}
             >
-              Começar a usar
+              Start using
             </Button>
           )}
         </div>
